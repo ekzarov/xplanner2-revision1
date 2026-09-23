@@ -1,0 +1,92 @@
+{
+  "$schema": "feature-dependencies.schema.json",
+  "_schema_help": {
+    "question": "What must be agreed or available before this slice?",
+    "meaning": "Illustrative draft only. Replace source pins and choices with real evidence; null review means unassessed.",
+    "creator": "Stage 9 agent; coordinator maintains checked proposals from Stages 9/15.",
+    "reviewer": "Independent Stage 10/16 reviewer; human owner decides scope and priorities.",
+    "instructions": "feature-dependencies-guide.md"
+  },
+  "graph": {
+    "id": "example-delivery",
+    "type": "feature-dependencies",
+    "directed": true,
+    "metadata": {
+      "schema_version": 1,
+      "mode": "governed",
+      "recorded_by": "Illustrative author, not an owner approval",
+      "recorded_at": "2026-09-16",
+      "scope": "Example only: a data contract and its consumer",
+      "sources": {
+        "decision": {
+          "path": "analysis/stages/stage-04/stage-04-requirements-revision.md",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      }
+    },
+    "nodes": {
+      "001-time-data": {
+        "label": "Time data provider",
+        "metadata": {
+          "description": "Illustrative slice: supplies recorded work time through a shared data contract with agreed units and access rules. Reports consume these facts; this example is not delivered project behavior.",
+          "group": "Time",
+          "scope": "target-only",
+          "rows": [],
+          "sdd": null,
+          "basis": [
+            "decision"
+          ],
+          "unresolved": [
+            "Replace the illustrative scope with the actual owner decision."
+          ],
+          "review": null
+        }
+      },
+      "002-effort-report": {
+        "label": "Effort report",
+        "metadata": {
+          "description": "Illustrative slice: lets a user inspect an effort report built from the time-data provider. It reads work-time facts rather than recording them; actual scope and approval must come from project evidence.",
+          "group": "Reporting",
+          "scope": "target-only",
+          "rows": [],
+          "sdd": null,
+          "basis": [
+            "decision"
+          ],
+          "unresolved": [
+            "Confirm the required provider contract and completion boundary."
+          ],
+          "review": null
+        }
+      }
+    },
+    "edges": [
+      {
+        "source": "001-time-data",
+        "target": "002-effort-report",
+        "relation": "contract",
+        "metadata": {
+          "id": "DEP-001",
+          "condition": "The report design needs agreed units, rounding and access rules for time data.",
+          "assessment": "candidate",
+          "basis": [
+            "decision"
+          ]
+        }
+      },
+      {
+        "source": "001-time-data",
+        "target": "002-effort-report",
+        "relation": "completion",
+        "metadata": {
+          "id": "DEP-002",
+          "condition": "The delivered report needs the real time-data provider; a mock does not close delivery.",
+          "assessment": "candidate",
+          "basis": [
+            "decision"
+          ]
+        }
+      }
+    ]
+  }
+}

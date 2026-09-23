@@ -1,0 +1,1127 @@
+{
+  "schema_version": 1,
+  "artifacts": [
+    {
+      "id": "feature-dependencies",
+      "label": "feature-dependencies.json",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 9 agent proposes source-backed bounded slices; the coordinator creates the graph.",
+          "maintainer": "The coordinator records Stage 9/15 changes and exact independent review bindings. Reviewers challenge scope; the human owner decides priorities and scope changes.",
+          "instructions": "Stages 9-19; analysis/feature-dependencies-guide.md. Stage 19 full graph is Phase B only."
+        },
+        "ru": {
+          "creator": "Агент шага 9 предлагает срезы и зависимости с основаниями; координатор создаёт граф.",
+          "maintainer": "Координатор вносит изменения шагов 9/15 и ссылки на точное независимое ревью. Ревьюер проверяет зависимости; владелец решает объём и приоритеты.",
+          "instructions": "Шаги 9–19; analysis/feature-dependencies-guide.md. На шаге 19 полный граф доступен только в фазе B."
+        }
+      }
+    },
+    {
+      "id": "ui-design-system",
+      "label": "ui-design-system.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 5 agent drafts the UI foundation and records the human owner choice.",
+          "maintainer": "The Stage 6 prototyping agent develops used variants and extensions within that foundation; the owner approves the exact combined baseline at Stage 8. Downstream agents read it without edits.",
+          "instructions": "Stages 5-9 and 13-19; analysis/prototyping/ui-design-system-guide.md."
+        },
+        "ru": {
+          "creator": "Агент шага 5 готовит основу UI и записывает выбор человека-владельца.",
+          "maintainer": "Агент шага 6 развивает нужные варианты и расширения в рамках этой основы; владелец утверждает точный общий набор на шаге 8. Последующие агенты читают его без изменений.",
+          "instructions": "Шаги 5–9 и 13–19; analysis/prototyping/ui-design-system-guide.md."
+        }
+      }
+    },
+    {
+      "id": "ui-design-tokens",
+      "label": "ui-design-tokens.json",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 5 agent drafts the UI foundation and records the human owner choice.",
+          "maintainer": "The Stage 6 prototyping agent develops used variants and extensions within that foundation; the owner approves the exact combined baseline at Stage 8. Downstream agents read it without edits.",
+          "instructions": "Stages 5-9 and 13-19; analysis/prototyping/ui-design-system-guide.md."
+        },
+        "ru": {
+          "creator": "Агент шага 5 готовит основу UI и записывает выбор человека-владельца.",
+          "maintainer": "Агент шага 6 развивает нужные варианты и расширения в рамках этой основы; владелец утверждает точный общий набор на шаге 8. Последующие агенты читают его без изменений.",
+          "instructions": "Шаги 5–9 и 13–19; analysis/prototyping/ui-design-system-guide.md."
+        }
+      }
+    },
+    {
+      "id": "error-prevention",
+      "label": "error-prevention-checklist.md",
+      "responsibility": {
+        "en": {
+          "creator": "The initializer creates an empty checklist; the coordinator records confirmed generalized checks.",
+          "maintainer": "The coordinator merges duplicates and maintains the table; the owner may prune obsolete checks. Reviewers propose without editing it.",
+          "instructions": "Bootstrap and Stages 1-19; analysis/error-prevention.md; learned checks are Phase B only at Stages 2 and 19."
+        },
+        "ru": {
+          "creator": "Инициализатор создаёт пустой чеклист; координирующий агент записывает подтверждённые обобщённые проверки.",
+          "maintainer": "Координирующий агент объединяет дубликаты и ведёт таблицу; владелец может убрать неактуальные пункты. Ревьюеры предлагают изменения, но не редактируют её.",
+          "instructions": "Подготовка и шаги 1–19; analysis/error-prevention.md; на шагах 2 и 19 накопленные проверки доступны только в фазе Б."
+        }
+      }
+    },
+    {
+      "id": "owner-waiver",
+      "label": "waivers/GATE-SCOPE.md",
+      "responsibility": {
+        "en": {
+          "creator": "The active-stage agent prepares the exception record; the authorized human grants or refuses it.",
+          "maintainer": "The agent preserves the decision and tracks residual obligations; only the human authority extends the exception.",
+          "instructions": "The named waiver provision in MIGRATION.md and the active stage procedure."
+        },
+        "ru": {
+          "creator": "Агент активного шага готовит запись; полномочный человек разрешает или отклоняет исключение.",
+          "maintainer": "Агент сохраняет решение и отслеживает остаточные обязательства; продлить исключение может только полномочный человек.",
+          "instructions": "Конкретное правило исключения в MIGRATION.md и инструкция активного шага."
+        }
+      }
+    },
+    {
+      "id": "owner-walkthrough-decline",
+      "label": "owner-walkthrough-decline.md",
+      "responsibility": {
+        "en": {
+          "creator": "PM records the human owner explicit decision to decline the optional Stage 19 walkthrough.",
+          "maintainer": "The owner decides; PM preserves evidence and its exact status reference. QA does not write shared decisions.",
+          "instructions": "Stage 19 optional owner walkthrough and final completion decision contract."
+        },
+        "ru": {
+          "creator": "PM записывает явное решение владельца отказаться от дополнительного личного обхода на шаге 19.",
+          "maintainer": "Решает владелец; PM сохраняет доказательство и точную ссылку из статуса. QA не записывает общие решения.",
+          "instructions": "Шаг 19: дополнительный обход владельца и условия окончательного завершения."
+        }
+      }
+    },
+    {
+      "id": "agent-instructions",
+      "label": "AGENTS.md",
+      "responsibility": {
+        "en": {
+          "creator": "Starter maintainer (human or authorized agent); the initializer copies the file into a project.",
+          "maintainer": "The authorized process maintainer updates routing rules.",
+          "instructions": "MIGRATION.md"
+        },
+        "ru": {
+          "creator": "Сопровождающий Starter (человек или уполномоченный агент); инициализатор копирует файл в проект.",
+          "maintainer": "Уполномоченный сопровождающий процесса обновляет правила входа.",
+          "instructions": "MIGRATION.md: правила сопровождения и установки процесса."
+        }
+      }
+    },
+    {
+      "id": "migration-entry",
+      "label": "MIGRATION.md",
+      "responsibility": {
+        "en": {
+          "creator": "Starter maintainer (human or authorized agent); the initializer copies the session entry point.",
+          "maintainer": "The process maintainer keeps routing consistent with the constitution and methodology.",
+          "instructions": "MIGRATION.md"
+        },
+        "ru": {
+          "creator": "Сопровождающий Starter (человек или уполномоченный агент); инициализатор копирует точку входа.",
+          "maintainer": "Сопровождающий процесса согласует маршрутизацию с конституцией и методологией.",
+          "instructions": "MIGRATION.md"
+        }
+      }
+    },
+    {
+      "id": "methodology",
+      "label": "migration_methodology.md",
+      "responsibility": {
+        "en": {
+          "creator": "Starter process maintainer (human or authorized agent); the initializer supplies the project copy.",
+          "maintainer": "The process maintainer updates procedures and synchronizes their presentations.",
+          "instructions": "MIGRATION.md"
+        },
+        "ru": {
+          "creator": "Сопровождающий процесса Starter (человек или уполномоченный агент); инициализатор создает копию в проекте.",
+          "maintainer": "Сопровождающий процесса обновляет процедуры и согласует представления.",
+          "instructions": "MIGRATION.md"
+        }
+      }
+    },
+    {
+      "id": "constitution",
+      "label": "constitution.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Bootstrap initializer renders the template; the Bootstrap agent records the human owner ratification.",
+          "maintainer": "The agent records explicit owner-approved amendments; the owner decides the governing rules.",
+          "instructions": "Bootstrap constitution ratification"
+        },
+        "ru": {
+          "creator": "Инициализатор Bootstrap формирует файл; Bootstrap-агент записывает ратификацию человеком-владельцем.",
+          "maintainer": "Агент записывает явно утвержденные владельцем поправки; правила принимает владелец.",
+          "instructions": "Подготовка: формирование и ратификация конституции."
+        }
+      }
+    },
+    {
+      "id": "status",
+      "label": "migration_status.yaml",
+      "responsibility": {
+        "en": {
+          "creator": "The Bootstrap initializer creates the checkpoint from its template.",
+          "maintainer": "PM records durable outcomes, blockers and authorized transitions from specialist evidence; reviewers never edit shared status.",
+          "instructions": "Bootstrap and Stage 1-19 status contract; analysis/agent-roles.md"
+        },
+        "ru": {
+          "creator": "Инициализатор Bootstrap создает контрольную запись из шаблона.",
+          "maintainer": "PM записывает результаты, блокировки и разрешённые переходы на основе доказательств специалистов; ревьюеры не редактируют общий статус.",
+          "instructions": "Подготовка и шаги 1-19: правила состояния; analysis/agent-roles.md."
+        }
+      }
+    },
+    {
+      "id": "project-contract",
+      "label": "project.yaml",
+      "responsibility": {
+        "en": {
+          "creator": "The Bootstrap initializer renders project identity and command slots; the Bootstrap agent fills verified project values.",
+          "maintainer": "The responsible project agent records explicit command/configuration changes and validates the contract.",
+          "instructions": "Bootstrap project contract"
+        },
+        "ru": {
+          "creator": "Инициализатор Bootstrap формирует идентичность проекта и поля команд; Bootstrap-агент заполняет проверенные значения.",
+          "maintainer": "Ответственный агент проекта записывает изменения команд и настроек и проверяет контракт.",
+          "instructions": "Подготовка: контракт проекта и проверенных команд."
+        }
+      }
+    },
+    {
+      "id": "environment-contract",
+      "label": "environments.yaml",
+      "responsibility": {
+        "en": {
+          "creator": "The initializer generates an unconfigured contract from the public-safe template; an authorized agent records owner-approved environments before remote work.",
+          "maintainer": "The deployment agent or authorized operator maintains verified connection and deployment settings; initialization never renews credential approval.",
+          "instructions": "Bootstrap and remote-operation environment contract"
+        },
+        "ru": {
+          "creator": "Инициализатор создаёт ненастроенный контракт из безопасного публичного шаблона; уполномоченный агент записывает утверждённые владельцем окружения до удалённой работы.",
+          "maintainer": "Агент деплоя или уполномоченный оператор поддерживает проверенные настройки соединения и размещения; инициализация не продлевает разрешения на ключи.",
+          "instructions": "Подготовка и удаленные операции: контракт окружения."
+        }
+      }
+    },
+    {
+      "id": "bootstrap-gate-report",
+      "label": "bootstrap-gate-report.md",
+      "responsibility": {
+        "en": {
+          "creator": "The initializer creates a pending report; the Bootstrap agent fills it from actual audit output.",
+          "maintainer": "The Bootstrap agent records reruns and corrections; the human owner authorizes entry to Stage 1.",
+          "instructions": "Bootstrap audit and transition procedure"
+        },
+        "ru": {
+          "creator": "Инициализатор создает pending-отчет; Bootstrap-агент заполняет его по фактическому выводу проверок.",
+          "maintainer": "Bootstrap-агент записывает повторы и исправления; человек-владелец разрешает переход на шаг 1.",
+          "instructions": "Подготовка: аудиты и разрешение перехода на шаг 1."
+        }
+      }
+    },
+    {
+      "id": "recon-record",
+      "label": "legacy_reconnaissance.md",
+      "responsibility": {
+        "en": {
+          "creator": "The initializer creates an empty record; the Stage 1 reconnaissance agent writes the findings.",
+          "maintainer": "The reconnaissance agent updates the inventory when discovery or an authorized return changes its scope.",
+          "instructions": "Bootstrap and Stage 1"
+        },
+        "ru": {
+          "creator": "Инициализатор создает пустую запись; агент разведки шага 1 записывает результаты.",
+          "maintainer": "Агент разведки обновляет инвентаризацию при новых фактах или разрешенном возврате.",
+          "instructions": "Подготовка и шаг 1: создание и заполнение обследования."
+        }
+      }
+    },
+    {
+      "id": "parity-map",
+      "label": "legacy_user_flows.xlsx",
+      "responsibility": {
+        "en": {
+          "creator": "The initializer creates the workbook; the Stage 1 reconnaissance agent populates evidence-backed behavior rows.",
+          "maintainer": "The active-stage agent updates its owned columns; the human owner decides scope changes and deferrals.",
+          "instructions": "Bootstrap and Stage 1-19 workbook instructions"
+        },
+        "ru": {
+          "creator": "Инициализатор создает книгу; агент разведки шага 1 заполняет строки поведения с доказательствами.",
+          "maintainer": "Агент активного шага обновляет свои колонки; человек-владелец решает об изменении объема и отсрочках.",
+          "instructions": "Подготовка и шаги 1-19: инструкция книги паритета."
+        }
+      }
+    },
+    {
+      "id": "stage-02-review",
+      "label": "stage-02-pass-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "A fresh independent agent assigned to Stage 2 authors a report for the exact reviewed scope.",
+          "maintainer": "The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.",
+          "instructions": "Stage 2 independent control and reviewer eligibility"
+        },
+        "ru": {
+          "creator": "Новый независимый агент, назначенный на шаг 2, пишет отчет о точном проверяемом объеме.",
+          "maintainer": "Ревьюер создает новый неизменяемый отчет для каждой попытки; автор проверяемой работы не утверждает ее сам.",
+          "instructions": "Шаг 2: независимая проверка и допустимость ревьюера."
+        }
+      }
+    },
+    {
+      "id": "stage-03-walkthrough",
+      "label": "stage-03/walkthrough-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 3 agent records observations from exercising the legacy application with applicable roles.",
+          "maintainer": "The walkthrough agent records new evidence; the owner decides any required simulation or waiver.",
+          "instructions": "Stage 3"
+        },
+        "ru": {
+          "creator": "Агент шага 3 записывает наблюдения при работе с легаси под нужными ролями.",
+          "maintainer": "Агент walkthrough записывает новые доказательства; владелец решает о необходимой симуляции или исключении.",
+          "instructions": "Процедура шага 3 в методологии."
+        }
+      }
+    },
+    {
+      "id": "stage-04-revision",
+      "label": "stage-04-requirements-revision.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 4 agent prepares findings and records explicit decisions by the human owner.",
+          "maintainer": "The Stage 4 agent appends corrections and decisions; the owner decides keep, change, defer or do-not-port.",
+          "instructions": "Stage 4"
+        },
+        "ru": {
+          "creator": "Агент шага 4 готовит замечания и записывает явные решения человека-владельца.",
+          "maintainer": "Агент шага 4 добавляет исправления и решения; владелец решает сохранить, изменить, отложить или не переносить.",
+          "instructions": "Процедура шага 4 в методологии."
+        }
+      }
+    },
+    {
+      "id": "prototype-decision",
+      "label": "prototyping/ui-ux-decision.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 5 agent prepares options and writes the human owner choice into the decision record.",
+          "maintainer": "The agent records an explicit owner-approved baseline change after a return to Stage 5.",
+          "instructions": "Stage 5"
+        },
+        "ru": {
+          "creator": "Агент шага 5 готовит варианты и записывает выбор человека-владельца.",
+          "maintainer": "Агент фиксирует явное изменение базового решения владельцем после возврата на шаг 5.",
+          "instructions": "Процедура шага 5 в методологии."
+        }
+      }
+    },
+    {
+      "id": "screen-normalization",
+      "label": "screen-normalization.json",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 6 prototyping agent classifies behavior rows and writes the normalization record.",
+          "maintainer": "The prototyping agent reconciles row mappings when behavior or the prototype changes.",
+          "instructions": "Stage 6"
+        },
+        "ru": {
+          "creator": "Агент прототипирования шага 6 классифицирует строки поведения и создает запись нормализации.",
+          "maintainer": "Агент прототипирования согласует соответствия при изменении поведения или прототипа.",
+          "instructions": "Процедура шага 6 в методологии."
+        }
+      }
+    },
+    {
+      "id": "wireframes",
+      "label": "wireframes/*",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 6 agent uses the selected design tool; the tool produces the exported wireframe files.",
+          "maintainer": "The prototyping agent corrects the design and regenerates exports under the approved form/style decision.",
+          "instructions": "Stage 5 decision and Stage 6 export procedure"
+        },
+        "ru": {
+          "creator": "Агент шага 6 работает в выбранном инструменте дизайна; инструмент формирует экспорт файлов экранов.",
+          "maintainer": "Агент прототипирования исправляет дизайн и обновляет экспорт по утвержденному решению о форме и стиле.",
+          "instructions": "Решение шага 5 и процедура экспорта шага 6."
+        }
+      }
+    },
+    {
+      "id": "screen-manifest",
+      "label": "screen-manifest.json",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 6 agent creates the manifest using the actual export files and their computed hashes.",
+          "maintainer": "The agent or configured export script refreshes entries and hashes with each prototype export.",
+          "instructions": "Stage 6"
+        },
+        "ru": {
+          "creator": "Агент шага 6 создает манифест по реальным экспортированным файлам и вычисленным хешам.",
+          "maintainer": "Агент или настроенный скрипт экспорта обновляет записи и хеши при каждом экспорте прототипа.",
+          "instructions": "Процедура шага 6 в методологии."
+        }
+      }
+    },
+    {
+      "id": "stage-07-review",
+      "label": "stage-07-pass-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "A fresh independent agent assigned to Stage 7 authors a report for the exact reviewed scope.",
+          "maintainer": "The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.",
+          "instructions": "Stage 7 independent control and reviewer eligibility"
+        },
+        "ru": {
+          "creator": "Новый независимый агент, назначенный на шаг 7, пишет отчет о точном проверяемом объеме.",
+          "maintainer": "Ревьюер создает новый неизменяемый отчет для каждой попытки; автор проверяемой работы не утверждает ее сам.",
+          "instructions": "Шаг 7: независимая проверка и допустимость ревьюера."
+        }
+      }
+    },
+    {
+      "id": "polish-backlog",
+      "label": "ui-polish-backlog.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 7 independent reviewer records eligible residual cosmetic findings in a backlog.",
+          "maintainer": "The owner approves the bounded deferral; the Stage 15 agent maps scope and tasks; the Stage 17 agent records corrections and independently verified closure; the Stage 18 agent records regressions and returns them to Stage 17, which reopens the backlog in a new candidate.",
+          "instructions": "Stage 7 creation and Stage 8 approval; conditional backlog input at Stages 15-19, updated at Stages 15/17; production-release and acceptance closure checks"
+        },
+        "ru": {
+          "creator": "Независимый ревьюер шага 7 записывает допустимые остаточные косметические замечания в бэклог.",
+          "maintainer": "Владелец согласует ограниченный перенос; агент шага 15 сопоставляет объем и задачи; агент шага 17 записывает исправление и независимое подтверждение закрытия; агент шага 18 записывает регрессию в отчёте поставки и возвращает на шаг 17; там бэклог переоткрывается в новом кандидате.",
+          "instructions": "Шаг 7: создание; шаг 8: утверждение; условный вход шагов 15-19, обновление на шагах 15/17; проверка закрытия до production и приемки."
+        }
+      }
+    },
+    {
+      "id": "prototype-approval",
+      "label": "prototyping/ui-ux-approval.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 8 agent records the human owner explicit verdict against the exact prototype baseline.",
+          "maintainer": "The agent records a new owner verdict when the reviewed baseline changes; only the owner approves it.",
+          "instructions": "Stage 8"
+        },
+        "ru": {
+          "creator": "Агент шага 8 записывает явный вердикт человека-владельца о точной версии прототипа.",
+          "maintainer": "Агент записывает новый вердикт владельца при изменении проверенной версии; утверждает только владелец.",
+          "instructions": "Процедура шага 8 в методологии."
+        }
+      }
+    },
+    {
+      "id": "nfr-workbook",
+      "label": "architecture-nfr-decision-register.xlsx",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 9 architecture agent instantiates the workbook and records evidence, questions and proposed NFR decisions.",
+          "maintainer": "The architecture agent maintains rows and traceability; the human owner supplies or approves business targets and decisions.",
+          "instructions": "Stage 9 and NFR workbook instructions"
+        },
+        "ru": {
+          "creator": "Агент архитектуры шага 9 создает книгу по шаблону и записывает доказательства, вопросы и предлагаемые NFR-решения.",
+          "maintainer": "Агент архитектуры поддерживает строки и связи; человек-владелец задает или утверждает бизнес-цели и решения.",
+          "instructions": "Шаг 9 и инструкция заполнения NFR-книги."
+        }
+      }
+    },
+    {
+      "id": "nfr-owner-review",
+      "label": "architecture-nfr-owner-review.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 9 agent writes the record of the human owner review of an exact NFR workbook version.",
+          "maintainer": "The agent preserves decision history and records subsequent explicit owner reviews; the owner decides approval or return.",
+          "instructions": "Stage 9 NFR owner review"
+        },
+        "ru": {
+          "creator": "Агент шага 9 записывает результат проверки человеком-владельцем точной версии NFR-книги.",
+          "maintainer": "Агент сохраняет историю решений и последующие явные проверки; владелец решает об утверждении или возврате.",
+          "instructions": "Шаг 9: проверка NFR человеком-владельцем."
+        }
+      }
+    },
+    {
+      "id": "architecture-record",
+      "label": "architecture.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 9 architecture agent authors the main target architecture from governed inputs.",
+          "maintainer": "The architecture agent updates the affected scope on authorized returns; the owner approves decisions at Stage 11.",
+          "instructions": "Stage 9, with Stage 10-12 control and approval"
+        },
+        "ru": {
+          "creator": "Агент архитектуры шага 9 пишет основной документ целевой архитектуры по управляемым входам.",
+          "maintainer": "Агент архитектуры обновляет затронутый объем при разрешенном возврате; владелец утверждает решения на шаге 11.",
+          "instructions": "Шаг 9; контроль и утверждение на шагах 10–12."
+        }
+      }
+    },
+    {
+      "id": "architecture-sections",
+      "label": "architecture/sections/*.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 9 architecture agent writes a focused chapter when a concern needs its own detail.",
+          "maintainer": "The architecture agent keeps affected chapters aligned with the main record, ADRs and reviewed source set.",
+          "instructions": "Stage 9, with Stage 10-12 control and approval"
+        },
+        "ru": {
+          "creator": "Агент архитектуры шага 9 пишет отдельную главу, когда вопросу нужны подробности.",
+          "maintainer": "Агент архитектуры согласует затронутые главы с основным документом, ADR и проверяемым набором источников.",
+          "instructions": "Шаг 9; контроль и утверждение на шагах 10–12."
+        }
+      }
+    },
+    {
+      "id": "architecture-drawio",
+      "label": "architecture.drawio",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 9 architecture agent creates the editable diagram using Draw.io-compatible tooling.",
+          "maintainer": "The architecture agent updates affected pages; the human owner reviews the represented decisions.",
+          "instructions": "Stage 9 diagram and text synchronization"
+        },
+        "ru": {
+          "creator": "Агент архитектуры шага 9 создает редактируемую диаграмму инструментом, совместимым с Draw.io.",
+          "maintainer": "Агент архитектуры обновляет затронутые страницы; человек-владелец проверяет отраженные решения.",
+          "instructions": "Шаг 9: согласование диаграммы и текста архитектуры."
+        }
+      }
+    },
+    {
+      "id": "adrs",
+      "label": "architecture/adr/NNN-*.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 9 architecture agent writes one ADR for each consequential decision.",
+          "maintainer": "The architecture agent records supersession and preserves history; the owner approves the decision through architecture review.",
+          "instructions": "Stage 9 decision recording and Stage 11 approval"
+        },
+        "ru": {
+          "creator": "Агент архитектуры шага 9 пишет отдельный ADR для каждого существенного решения.",
+          "maintainer": "Агент архитектуры записывает замену решения и сохраняет историю; владелец утверждает решение при проверке архитектуры.",
+          "instructions": "Запись решений на шаге 9 и утверждение на шаге 11."
+        }
+      }
+    },
+    {
+      "id": "nfr-manifest",
+      "label": "architecture-nfr-manifest.json",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 9 architecture agent generates the manifest from NFR traceability and exact architecture files.",
+          "maintainer": "The architecture agent refreshes hashes only during governed architecture changes and reapproval; the Stage 15/17 agents maintain NFR-to-SDD/test links in downstream traceability without changing this manifest.",
+          "instructions": "Stage 9 manifest contract and Stage 15 traceability"
+        },
+        "ru": {
+          "creator": "Агент архитектуры шага 9 формирует манифест из NFR-связей и точных файлов архитектуры.",
+          "maintainer": "Агент архитектуры обновляет хеши только при управляемом изменении и повторном согласовании архитектуры; агенты шагов 15/17 ведут связи NFR с SDD и тестами в нижестоящей трассировке, не меняя этот манифест.",
+          "instructions": "Контракт манифеста шага 9 и трассировка шага 15."
+        }
+      }
+    },
+    {
+      "id": "stage-10-review",
+      "label": "stage-10-pass-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "A fresh independent agent assigned to Stage 10 authors a report for the exact reviewed scope.",
+          "maintainer": "The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.",
+          "instructions": "Stage 10 independent control and reviewer eligibility"
+        },
+        "ru": {
+          "creator": "Новый независимый агент, назначенный на шаг 10, пишет отчет о точном проверяемом объеме.",
+          "maintainer": "Ревьюер создает новый неизменяемый отчет для каждой попытки; автор проверяемой работы не утверждает ее сам.",
+          "instructions": "Шаг 10: независимая проверка и допустимость ревьюера."
+        }
+      }
+    },
+    {
+      "id": "architecture-verdict",
+      "label": "architecture-owner-verdict-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 11 agent records the explicit human owner decision against the exact reviewed architecture.",
+          "maintainer": "Completed decisions are immutable; each new owner review creates a new numbered record and preserves earlier finding IDs.",
+          "instructions": "Stage 11 and architecture/review-cycles.md"
+        },
+        "ru": {
+          "creator": "Агент шага 11 записывает явное решение человека-владельца по точной проверенной архитектуре.",
+          "maintainer": "Завершённые решения неизменяемы; новое согласование получает новый номер и сохраняет ID прежних замечаний.",
+          "instructions": "Шаг 11 и architecture/review-cycles.md."
+        }
+      }
+    },
+    {
+      "id": "architecture-closure",
+      "label": "architecture-closure-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "The responsible Stage 12 agent authors the actual closure check, including failed or blocked attempts.",
+          "maintainer": "Completed checks are immutable; each attempt creates a new numbered report. Return-stage agents read the exact negative report and record dispositions.",
+          "instructions": "Stage 12 and architecture/review-cycles.md"
+        },
+        "ru": {
+          "creator": "Ответственный агент шага 12 записывает фактическую проверку закрытия, включая неуспешные и заблокированные попытки.",
+          "maintainer": "Завершённые проверки неизменяемы; каждая попытка получает новый отчёт. При возврате агент читает точный отрицательный отчёт и записывает результат исправлений.",
+          "instructions": "Шаг 12 и architecture/review-cycles.md."
+        }
+      }
+    },
+    {
+      "id": "knowledge-bundle",
+      "label": "knowledge/bundle/**",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 13 synthesis agent writes linked OKF concepts and their navigation indexes from the governed sources.",
+          "maintainer": "The synthesis agent updates affected concepts and provenance after source changes or Stage 14 findings.",
+          "instructions": "Stage 13 and OKF template contract"
+        },
+        "ru": {
+          "creator": "Агент синтеза шага 13 пишет связанные OKF-концепты и оглавления по управляемым источникам.",
+          "maintainer": "Агент синтеза обновляет затронутые знания и происхождение после изменений источников или замечаний шага 14.",
+          "instructions": "Шаг 13 и правила шаблонов OKF."
+        }
+      }
+    },
+    {
+      "id": "knowledge-manifest",
+      "label": "knowledge-manifest.json",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 13 agent runs hash generation and records the exact source and concept set in the manifest.",
+          "maintainer": "The synthesis agent regenerates the manifest after a source or concept changes; prior exact-set review then needs renewal.",
+          "instructions": "Stage 13 provenance and Stage 14 exact-set review"
+        },
+        "ru": {
+          "creator": "Агент шага 13 запускает вычисление хешей и фиксирует точный набор источников и концептов в манифесте.",
+          "maintainer": "Агент синтеза обновляет манифест после изменения источника или концепта; проверку точного набора затем нужно повторить.",
+          "instructions": "Происхождение знаний на шаге 13 и проверка точного набора на шаге 14."
+        }
+      }
+    },
+    {
+      "id": "stage-13-record",
+      "label": "stage-13/knowledge-record.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 13 synthesis agent writes the execution and coverage record from the actual work and audit results.",
+          "maintainer": "The same responsible agent records corrections and limitations until that synthesis is handed to independent control.",
+          "instructions": "Stage 13"
+        },
+        "ru": {
+          "creator": "Агент синтеза шага 13 пишет запись выполнения и покрытия по реальной работе и результатам аудита.",
+          "maintainer": "Ответственный агент записывает исправления и ограничения до передачи этого синтеза на независимую проверку.",
+          "instructions": "Процедура шага 13 в методологии."
+        }
+      }
+    },
+    {
+      "id": "stage-14-review",
+      "label": "stage-14-pass-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "A fresh independent agent assigned to Stage 14 authors a report for the exact reviewed scope.",
+          "maintainer": "The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.",
+          "instructions": "Stage 14 independent control and reviewer eligibility"
+        },
+        "ru": {
+          "creator": "Новый независимый агент, назначенный на шаг 14, пишет отчет о точном проверяемом объеме.",
+          "maintainer": "Ревьюер создает новый неизменяемый отчет для каждой попытки; автор проверяемой работы не утверждает ее сам.",
+          "instructions": "Шаг 14: независимая проверка и допустимость ревьюера."
+        }
+      }
+    },
+    {
+      "id": "sdd-spec",
+      "label": "specs/NNN-*/spec.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 15 design agent authors the feature specification from parity, prototype, architecture and verified knowledge.",
+          "maintainer": "The design agent revises requirements after findings; the human owner decides disclosed assumptions and scope at Stage 16.",
+          "instructions": "Stage 15 and Stage 16 owner assumption review"
+        },
+        "ru": {
+          "creator": "Агент проектирования шага 15 пишет спецификацию функции по карте, прототипу, архитектуре и проверенным знаниям.",
+          "maintainer": "Агент проектирования исправляет требования по замечаниям; человек-владелец решает по допущениям и объему на шаге 16.",
+          "instructions": "Шаг 15 и проверка допущений владельцем на шаге 16."
+        }
+      }
+    },
+    {
+      "id": "sdd-plan",
+      "label": "specs/NNN-*/plan.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 15 design agent writes the implementation plan from the feature specification and approved architecture.",
+          "maintainer": "The design agent updates the plan after review or an authorized source change.",
+          "instructions": "Stage 15"
+        },
+        "ru": {
+          "creator": "Агент проектирования шага 15 пишет план реализации по спецификации и утвержденной архитектуре.",
+          "maintainer": "Агент проектирования обновляет план после проверки или разрешенного изменения источников.",
+          "instructions": "Процедура шага 15 в методологии."
+        }
+      }
+    },
+    {
+      "id": "sdd-tasks",
+      "label": "specs/NNN-*/tasks.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 15 design agent decomposes the specification and plan into ordered implementation tasks.",
+          "maintainer": "The Stage 17 implementation agent records execution and evidence; design changes return to the responsible design stage.",
+          "instructions": "Stage 15 task generation and Stage 17 execution"
+        },
+        "ru": {
+          "creator": "Агент проектирования шага 15 разбивает спецификацию и план на упорядоченные задачи.",
+          "maintainer": "Агент реализации шага 17 записывает выполнение и доказательства; изменения проекта возвращаются на соответствующий шаг.",
+          "instructions": "Создание задач на шаге 15 и выполнение на шаге 17."
+        }
+      }
+    },
+    {
+      "id": "traceability",
+      "label": "specs/traceability.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 15 design agent creates links from behavior and approved sources to specifications and tests.",
+          "maintainer": "Agents in design, implementation and acceptance maintain their evidence links without changing source decisions implicitly.",
+          "instructions": "Stage 15-19 traceability contract"
+        },
+        "ru": {
+          "creator": "Агент проектирования шага 15 связывает поведение и утвержденные источники со спецификациями и тестами.",
+          "maintainer": "Агенты проектирования, реализации и приемки поддерживают свои доказательства без неявного изменения исходных решений.",
+          "instructions": "Шаги 15-19: контракт сквозной трассировки."
+        }
+      }
+    },
+    {
+      "id": "target-inventory",
+      "label": "target-surface-inventory.json",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 15 agent creates the initial target surface inventory for the declared SDD scope.",
+          "maintainer": "Stage 17 updates implementation and test links before candidate review. Stage 18 compares live routes, roles, APIs and jobs against this read-only inventory; corrections return to Stage 15/17 and require a new candidate.",
+          "instructions": "Stage 15 creates; Stage 17 updates; Stages 18-19 verify without changing the deployed candidate"
+        },
+        "ru": {
+          "creator": "Агент шага 15 создает начальную инвентаризацию целевых поверхностей для объема SDD.",
+          "maintainer": "Агент шага 17 обновляет ссылки на реализацию и тесты до ревью кандидата. На шаге 18 агент только сравнивает живые маршруты, роли, API и задания с инвентаризацией. Исправления возвращаются на шаг 15/17 и требуют нового кандидата.",
+          "instructions": "Шаг 15 создает; шаг 17 обновляет; шаги 18-19 проверяют без изменения развернутого кандидата."
+        }
+      }
+    },
+    {
+      "id": "stage-15-record",
+      "label": "stage-15/sdd-record.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 15 design agent records the produced SDD package, assumptions, scope and self-checks.",
+          "maintainer": "The design agent records corrections before independent Stage 16 control.",
+          "instructions": "Stage 15"
+        },
+        "ru": {
+          "creator": "Агент проектирования шага 15 записывает созданный SDD-пакет, допущения, объем и самопроверки.",
+          "maintainer": "Агент проектирования фиксирует исправления до независимой проверки шага 16.",
+          "instructions": "Процедура шага 15 в методологии."
+        }
+      }
+    },
+    {
+      "id": "stage-16-review",
+      "label": "stage-16-pass-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "A fresh independent agent assigned to Stage 16 authors a report for the exact reviewed scope.",
+          "maintainer": "The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.",
+          "instructions": "Stage 16 independent control and reviewer eligibility"
+        },
+        "ru": {
+          "creator": "Новый независимый агент, назначенный на шаг 16, пишет отчет о точном проверяемом объеме.",
+          "maintainer": "Ревьюер создает новый неизменяемый отчет для каждой попытки; автор проверяемой работы не утверждает ее сам.",
+          "instructions": "Шаг 16: независимая проверка и допустимость ревьюера."
+        }
+      }
+    },
+    {
+      "id": "implementation",
+      "label": "source code",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 17 implementation agent writes the source code from the controlled SDD tasks.",
+          "maintainer": "The implementation agent fixes reviewed defects; the human owner authorizes merging the reviewed candidate.",
+          "instructions": "Stage 17"
+        },
+        "ru": {
+          "creator": "Агент реализации шага 17 пишет исходный код по проверенным задачам SDD.",
+          "maintainer": "Агент реализации исправляет найденные дефекты; человек-владелец разрешает слияние проверенного кандидата.",
+          "instructions": "Процедура шага 17 в методологии."
+        }
+      }
+    },
+    {
+      "id": "tests",
+      "label": "tests and measurements",
+      "responsibility": {
+        "en": {
+          "creator": "The implementation agent writes tests and measurement definitions; configured runners generate execution results.",
+          "maintainer": "The responsible agent maintains test coverage and reruns the tools; reviewers examine the exact results.",
+          "instructions": "Stage 17 and downstream verification"
+        },
+        "ru": {
+          "creator": "Агент реализации пишет тесты и определения измерений; настроенные инструменты формируют результаты запусков.",
+          "maintainer": "Ответственный агент поддерживает покрытие и повторяет проверки; ревьюеры исследуют точные результаты.",
+          "instructions": "Шаг 17 и последующие проверки реализации."
+        }
+      }
+    },
+    {
+      "id": "migrations",
+      "label": "data migrations",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 17 agent uses the configured migration tool to generate a migration and reviews the resulting code.",
+          "maintainer": "The implementation agent prepares a new reviewed correction; the deployment agent or authorized operator runs approved migrations.",
+          "instructions": "Stage 17 data change and Stage 18 operator execution"
+        },
+        "ru": {
+          "creator": "Агент шага 17 генерирует миграцию настроенным инструментом и проверяет полученный код.",
+          "maintainer": "Агент реализации готовит новое проверенное исправление; агент деплоя или уполномоченный оператор выполняет утвержденные миграции.",
+          "instructions": "Подготовка изменения данных на шаге 17 и выполнение оператором на шаге 18."
+        }
+      }
+    },
+    {
+      "id": "candidate-pr",
+      "label": "PR + pinned revision",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 17 agent creates the pull request and pins the reviewed candidate revision.",
+          "maintainer": "The agent responds to findings; the human owner approves and merges the exact candidate.",
+          "instructions": "Stage 17 candidate and owner merge contract"
+        },
+        "ru": {
+          "creator": "Агент шага 17 создает pull request и фиксирует ревизию проверяемого кандидата.",
+          "maintainer": "Агент устраняет замечания; человек-владелец утверждает и сливает точного кандидата.",
+          "instructions": "Шаг 17: кандидат и разрешение слияния владельцем."
+        }
+      }
+    },
+    {
+      "id": "delivery-record",
+      "label": "stage-18/delivery-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "The Stage 18 deployment agent records the exact release and evidence emitted by the deployment and verification tools.",
+          "maintainer": "Each deployment gets a separate immutable record; a correction is new evidence, not an invented successful rerun.",
+          "instructions": "Stage 18"
+        },
+        "ru": {
+          "creator": "Агент деплоя шага 18 записывает точный релиз и доказательства из инструментов деплоя и проверки.",
+          "maintainer": "Каждый деплой получает отдельную неизменяемую запись; исправление оформляется новым доказательством.",
+          "instructions": "Процедура шага 18 в методологии."
+        }
+      }
+    },
+    {
+      "id": "journey-evidence",
+      "label": "raw journey + summary",
+      "responsibility": {
+        "en": {
+          "creator": "The browser journey runner emits raw evidence; the Stage 18 agent writes its summary and pins the raw result hash.",
+          "maintainer": "The agent performs another journey for changed delivery; previous exact-revision evidence remains history.",
+          "instructions": "Stage 18 deployed user journey"
+        },
+        "ru": {
+          "creator": "Инструмент браузерного сценария формирует сырые доказательства; агент шага 18 пишет итог и фиксирует хеш результата.",
+          "maintainer": "Агент выполняет новый сценарий для измененного релиза; прежнее доказательство остается историей.",
+          "instructions": "Шаг 18: пользовательский сценарий на развернутой системе."
+        }
+      }
+    },
+    {
+      "id": "stage-19-review",
+      "label": "stage-19-pass-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "A fresh independent agent assigned to Stage 19 authors a report for the exact reviewed scope.",
+          "maintainer": "The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.",
+          "instructions": "Stage 19 independent control and reviewer eligibility"
+        },
+        "ru": {
+          "creator": "Новый независимый агент, назначенный на шаг 19, пишет отчет о точном проверяемом объеме.",
+          "maintainer": "Ревьюер создает новый неизменяемый отчет для каждой попытки; автор проверяемой работы не утверждает ее сам.",
+          "instructions": "Шаг 19: независимая проверка и допустимость ревьюера."
+        }
+      }
+    },
+    {
+      "id": "owner-walkthrough",
+      "label": "owner-walkthrough-NNN.md",
+      "responsibility": {
+        "en": {
+          "creator": "PM writes observations and the explicit decision from the human owner hands-on walkthrough at Stage 19.",
+          "maintainer": "The owner performs or declines the walkthrough; PM records the exact outcome or a separate explicit decline. QA supplies independent evidence, not owner decisions.",
+          "instructions": "Stage 19 optional owner walkthrough"
+        },
+        "ru": {
+          "creator": "PM записывает наблюдения и явное решение человека-владельца после его ручного walkthrough на шаге 19.",
+          "maintainer": "Владелец выполняет walkthrough или отказывается; PM записывает точный результат либо отдельный явный отказ. QA предоставляет независимые доказательства, а не решения владельца.",
+          "instructions": "Шаг 19: необязательный ручной walkthrough владельца."
+        }
+      }
+    }
+  ],
+  "templates": [
+    {
+      "path": "analysis/prototyping/templates/ui-design-system-template.md",
+      "responsibility": {
+        "creator": "The Stage 5 agent drafts the UI foundation and records the human owner choice.",
+        "maintainer": "The Stage 6 prototyping agent develops used variants and extensions within that foundation; the owner approves the exact combined baseline at Stage 8. Downstream agents read it without edits.",
+        "instructions": "Stages 5-9 and 13-19; analysis/prototyping/ui-design-system-guide.md."
+      }
+    },
+    {
+      "path": "analysis/stages/templates/bootstrap-gate-report-template.md",
+      "responsibility": {
+        "creator": "The initializer creates a pending report; the Bootstrap agent fills it from actual audit output.",
+        "maintainer": "The Bootstrap agent records reruns and corrections; the human owner authorizes entry to Stage 1.",
+        "instructions": "Bootstrap audit and transition procedure"
+      }
+    },
+    {
+      "path": "analysis/legacy_reconnaissance.template.md",
+      "responsibility": {
+        "creator": "The initializer creates an empty record; the Stage 1 reconnaissance agent writes the findings.",
+        "maintainer": "The reconnaissance agent updates the inventory when discovery or an authorized return changes its scope.",
+        "instructions": "Bootstrap and Stage 1"
+      }
+    },
+    {
+      "path": "analysis/reviews/stage-NN-pass-NNN-template.md",
+      "responsibility": {
+        "creator": "A fresh independent agent assigned to the reviewed stage writes the report.",
+        "maintainer": "The reviewer creates a new immutable report for each attempt; the reviewed author does not self-approve.",
+        "instructions": "Independent control at Stages 2, 7, 10, 14 and 16, plus reviewer eligibility rules."
+      }
+    },
+    {
+      "path": "analysis/stages/templates/walkthrough-NNN-template.md",
+      "responsibility": {
+        "creator": "The Stage 3 agent records observations from exercising the legacy application with applicable roles.",
+        "maintainer": "The walkthrough agent records new evidence; the owner decides any required simulation or waiver.",
+        "instructions": "Stage 3"
+      }
+    },
+    {
+      "path": "analysis/stages/templates/stage-04-requirements-revision-template.md",
+      "responsibility": {
+        "creator": "The Stage 4 agent prepares findings and records explicit decisions by the human owner.",
+        "maintainer": "The Stage 4 agent appends corrections and decisions; the owner decides keep, change, defer or do-not-port.",
+        "instructions": "Stage 4"
+      }
+    },
+    {
+      "path": "analysis/prototyping/templates/ui-ux-decision-template.md",
+      "responsibility": {
+        "creator": "The Stage 5 agent prepares options and writes the human owner choice into the decision record.",
+        "maintainer": "The agent records an explicit owner-approved baseline change after a return to Stage 5.",
+        "instructions": "Stage 5"
+      }
+    },
+    {
+      "path": "analysis/prototyping/templates/ui-polish-backlog-template.md",
+      "responsibility": {
+        "creator": "The Stage 7 independent reviewer records eligible residual cosmetic findings in a backlog.",
+        "maintainer": "The owner approves the bounded deferral; the Stage 15 agent maps scope and tasks; the Stage 17 agent records corrections and independently verified closure; the Stage 18 agent records regressions and returns them to Stage 17, which reopens the backlog in a new candidate.",
+        "instructions": "Stage 7 creation and Stage 8 approval; conditional backlog input at Stages 15-19, updated at Stages 15/17; production-release and acceptance closure checks"
+      }
+    },
+    {
+      "path": "analysis/prototyping/templates/ui-ux-approval-template.md",
+      "responsibility": {
+        "creator": "The Stage 8 agent records the human owner explicit verdict against the exact prototype baseline.",
+        "maintainer": "The agent records a new owner verdict when the reviewed baseline changes; only the owner approves it.",
+        "instructions": "Stage 8"
+      }
+    },
+    {
+      "path": "analysis/architecture/templates/architecture-nfr-owner-review-template.md",
+      "responsibility": {
+        "creator": "The Stage 9 agent writes the record of the human owner review of an exact NFR workbook version.",
+        "maintainer": "The agent preserves decision history and records subsequent explicit owner reviews; the owner decides approval or return.",
+        "instructions": "Stage 9 NFR owner review"
+      }
+    },
+    {
+      "path": "analysis/architecture/templates/architecture-template.md",
+      "responsibility": {
+        "creator": "The Stage 9 architecture agent authors the main target architecture from governed inputs.",
+        "maintainer": "The architecture agent updates the affected scope on authorized returns; the owner approves decisions at Stage 11.",
+        "instructions": "Stage 9, with Stage 10-12 control and approval"
+      }
+    },
+    {
+      "path": "analysis/architecture/templates/sections/00-foundation-template.md",
+      "responsibility": {
+        "creator": "The Stage 9 architecture agent writes a focused chapter when a concern needs its own detail.",
+        "maintainer": "The architecture agent keeps affected chapters aligned with the main record, ADRs and reviewed source set.",
+        "instructions": "Stage 9, with Stage 10-12 control and approval"
+      }
+    },
+    {
+      "path": "analysis/architecture/templates/sections/NN-SLUG-template.md",
+      "responsibility": {
+        "creator": "The Stage 9 architecture agent writes a focused chapter when a concern needs its own detail.",
+        "maintainer": "The architecture agent keeps affected chapters aligned with the main record, ADRs and reviewed source set.",
+        "instructions": "Stage 9, with Stage 10-12 control and approval"
+      }
+    },
+    {
+      "path": "analysis/architecture/templates/NNN-SLUG-template.md",
+      "responsibility": {
+        "creator": "The Stage 9 architecture agent writes one ADR for each consequential decision.",
+        "maintainer": "The architecture agent records supersession and preserves history; the owner approves the decision through architecture review.",
+        "instructions": "Stage 9 decision recording and Stage 11 approval"
+      }
+    },
+    {
+      "path": "analysis/architecture/templates/architecture-owner-verdict-NNN-template.md",
+      "responsibility": {
+        "creator": "The Stage 11 agent records the explicit human owner decision against the exact reviewed architecture.",
+        "maintainer": "Completed decisions are immutable; each new owner review creates a new numbered record and preserves earlier finding IDs.",
+        "instructions": "Stage 11 and architecture/review-cycles.md"
+      }
+    },
+    {
+      "path": "analysis/architecture/templates/architecture-closure-NNN-template.md",
+      "responsibility": {
+        "creator": "The responsible Stage 12 agent authors the actual closure check, including failed or blocked attempts.",
+        "maintainer": "Completed checks are immutable; each attempt creates a new numbered report. Return-stage agents read the exact negative report and record dispositions.",
+        "instructions": "Stage 12 and architecture/review-cycles.md"
+      }
+    },
+    {
+      "path": "analysis/knowledge/templates/SLUG-template.md",
+      "responsibility": {
+        "creator": "The Stage 13 synthesis agent writes linked OKF concepts and their navigation indexes from the governed sources.",
+        "maintainer": "The synthesis agent updates affected concepts and provenance after source changes or Stage 14 findings.",
+        "instructions": "Stage 13 and OKF template contract"
+      }
+    },
+    {
+      "path": "analysis/knowledge/templates/index-template.md",
+      "responsibility": {
+        "creator": "The Stage 13 synthesis agent writes linked OKF concepts and their navigation indexes from the governed sources.",
+        "maintainer": "The synthesis agent updates affected concepts and provenance after source changes or Stage 14 findings.",
+        "instructions": "Stage 13 and OKF template contract"
+      }
+    },
+    {
+      "path": "analysis/stages/templates/knowledge-record-template.md",
+      "responsibility": {
+        "creator": "The Stage 13 synthesis agent writes the execution and coverage record from the actual work and audit results.",
+        "maintainer": "The same responsible agent records corrections and limitations until that synthesis is handed to independent control.",
+        "instructions": "Stage 13"
+      }
+    },
+    {
+      "path": "analysis/stages/templates/sdd-record-template.md",
+      "responsibility": {
+        "creator": "The Stage 15 design agent records the produced SDD package, assumptions, scope and self-checks.",
+        "maintainer": "The design agent records corrections before independent Stage 16 control.",
+        "instructions": "Stage 15"
+      }
+    },
+    {
+      "path": "analysis/stages/templates/delivery-NNN-template.md",
+      "responsibility": {
+        "creator": "The Stage 18 deployment agent records the exact release and evidence emitted by the deployment and verification tools.",
+        "maintainer": "Each deployment gets a separate immutable record; a correction is new evidence, not an invented successful rerun.",
+        "instructions": "Stage 18"
+      }
+    },
+    {
+      "path": "analysis/stages/templates/stage-19-pass-NNN-template.md",
+      "responsibility": {
+        "creator": "A fresh independent agent assigned to Stage 19 authors a report for the exact reviewed scope.",
+        "maintainer": "The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.",
+        "instructions": "Stage 19 independent control and reviewer eligibility"
+      }
+    },
+    {
+      "path": "analysis/stages/templates/owner-walkthrough-NNN-template.md",
+      "responsibility": {
+        "creator": "PM writes observations and the explicit decision from the human owner hands-on walkthrough at Stage 19.",
+        "maintainer": "The owner performs or declines the walkthrough; PM records the exact outcome or a separate explicit decline. QA supplies independent evidence, not owner decisions.",
+        "instructions": "Stage 19 optional owner walkthrough"
+      }
+    },
+    {
+      "path": "analysis/stages/templates/owner-walkthrough-decline-template.md",
+      "responsibility": {
+        "creator": "PM records the human owner explicit decision to decline the optional Stage 19 walkthrough.",
+        "maintainer": "The owner decides; PM preserves evidence and its exact status reference. QA does not write shared decisions.",
+        "instructions": "Stage 19 optional owner walkthrough and final completion decision contract."
+      }
+    },
+    {
+      "path": "analysis/stages/templates/GATE-SCOPE-template.md",
+      "responsibility": {
+        "creator": "The active-stage agent prepares the waiver record; the named human authority explicitly grants or refuses the exception.",
+        "maintainer": "The agent records scope, evidence and expiry; only the authorized decision maker may extend or replace the decision.",
+        "instructions": "The exact waiver provision in MIGRATION.md and the applicable stage procedure; no blanket waiver is inferred."
+      }
+    },
+    {
+      "path": ".specify/templates/spec-template.md",
+      "responsibility": {
+        "creator": "The Stage 15 design agent authors the feature specification from parity, prototype, architecture and verified knowledge.",
+        "maintainer": "The design agent revises requirements after findings; the human owner decides disclosed assumptions and scope at Stage 16.",
+        "instructions": "Stage 15 and Stage 16 owner assumption review"
+      }
+    },
+    {
+      "path": ".specify/templates/plan-template.md",
+      "responsibility": {
+        "creator": "The Stage 15 design agent writes the implementation plan from the feature specification and approved architecture.",
+        "maintainer": "The design agent updates the plan after review or an authorized source change.",
+        "instructions": "Stage 15"
+      }
+    },
+    {
+      "path": ".specify/templates/tasks-template.md",
+      "responsibility": {
+        "creator": "The Stage 15 design agent decomposes the specification and plan into ordered implementation tasks.",
+        "maintainer": "The Stage 17 implementation agent records execution and evidence; design changes return to the responsible design stage.",
+        "instructions": "Stage 15 task generation and Stage 17 execution"
+      }
+    },
+    {
+      "path": "specs/traceability.template.md",
+      "responsibility": {
+        "creator": "The Stage 15 design agent creates links from behavior and approved sources to specifications and tests.",
+        "maintainer": "Agents in design, implementation and acceptance maintain their evidence links without changing source decisions implicitly.",
+        "instructions": "Stage 15-19 traceability contract"
+      }
+    },
+    {
+      "path": "specs/verification-record.template.md",
+      "responsibility": {
+        "creator": "The Stage 17 implementation agent records actual requirement-level checks from executed tests or procedures.",
+        "maintainer": "Stage 18-19 agents add separate delivery and acceptance evidence; independent agents review without rewriting historical runs.",
+        "instructions": "Stage 15-19 traceability and verification-link contract in specs/traceability-guide.md"
+      }
+    }
+  ]
+}

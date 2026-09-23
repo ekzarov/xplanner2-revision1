@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "description": "Derived from process-contract.md. English Markdown defines the rules; Russian fields are 3D presentation translations.",
+  "stages": [
+    {
+      "id": "stage-00",
+      "label": "Bootstrap",
+      "checks": [
+        "audit:status",
+        "audit:project",
+        "audit:environment",
+        "audit:methodology",
+        "audit:views",
+        "audit:responsibilities",
+        "audit:artifact-links",
+        "audit:prevention"
+      ],
+      "requirements": {
+        "en": "Install tooling, run toolkit regression tests and initializer self-test. The agent fills bootstrap-gate-report.md with exact results; migration_status.yaml cites it. Owner authorization is separate.",
+        "ru": "Установка инструментов, регрессионные тесты и самопроверка инициализатора. Агент записывает результаты в bootstrap-gate-report.md, статус ссылается на отчёт. Переход отдельно разрешает владелец."
+      }
+    },
+    {
+      "id": "stage-01",
+      "label": "Stage 1",
+      "checks": [
+        "audit:project",
+        "audit:workbook"
+      ],
+      "requirements": {
+        "en": "Source-derived reconnaissance and parity rows with evidence; unavailable scope stays explicit.",
+        "ru": "Обследование исходного кода и строки карты с доказательствами; непроверенный объём указан явно."
+      }
+    },
+    {
+      "id": "stage-02",
+      "label": "Stage 2",
+      "checks": [
+        "audit:workbook"
+      ],
+      "requirements": {
+        "en": "Eligible fresh reviewer; Phase A inventory saved before filled Stage 1 inputs are opened; Phase B reconciles both directions against the immutable legacy source. Clean immutable report includes snapshot/access evidence, comparisons, gaps and reconciled coverage; no blocked scope or contaminated blind pass.",
+        "ru": "Новый независимый ревьюер сохраняет инвентаризацию фазы A до открытия заполненных материалов шага 1; фаза B сверяет их в обе стороны по неизменяемому легаси. Чистый неизменяемый отчёт содержит снимок, порядок доступа, сравнения, пробелы и итоги покрытия; нет блокировок или нарушенной слепой проверки."
+      }
+    },
+    {
+      "id": "stage-03",
+      "label": "Stage 3",
+      "checks": [],
+      "requirements": {
+        "en": "Exact walkthrough scope, live/simulated/unverified lanes and valid outcome; any fallback requires the exact permitted owner waiver.",
+        "ru": "Точный объём обхода, раздельные живые, симулированные и непроверенные результаты; исключение требует предусмотренного процессом решения владельца."
+      }
+    },
+    {
+      "id": "stage-04",
+      "label": "Stage 4",
+      "checks": [
+        "audit:workbook"
+      ],
+      "requirements": {
+        "en": "Every challenged row has an explicit owner disposition in stage-04-requirements-revision.md; applied changes and pending questions are separate.",
+        "ru": "Решения владельца по спорным строкам записаны в stage-04-requirements-revision.md; выполненные изменения отделены от открытых вопросов."
+      }
+    },
+    {
+      "id": "stage-05",
+      "label": "Stage 5",
+      "checks": [],
+      "requirements": {
+        "en": "Explicit owner choice of form, channels, style, palette and accessibility in ui-ux-decision.md, or an exact permitted waiver; proposals are not approval. Draft ui-design-system.md and ui-design-tokens.json; the owner selects the foundation and pins its canonical hash in ui-ux-decision.md. This does not approve future component variants.",
+        "ru": "Явный выбор владельцем формы, каналов, стиля, палитры и доступности в ui-ux-decision.md либо предусмотренное исключение; предложение не означает согласование. Подготовить ui-design-system.md и ui-design-tokens.json; владелец выбирает основу и фиксирует её канонический хеш в ui-ux-decision.md. Это не утверждение будущих вариантов компонентов."
+      }
+    },
+    {
+      "id": "stage-06",
+      "label": "Stage 6",
+      "checks": [
+        "audit:prototype"
+      ],
+      "requirements": {
+        "en": "Row normalization and complete versioned screen manifest/export set, aligned with Stage 4 decisions and the Stage 5 baseline. Develop representative screens and the shared component catalogue together, then reuse them. Pin catalogue, tokens and component previews in manifest version 4; each screen declares used ui_variants. Foundation changes return to 5.",
+        "ru": "Нормализация строк, полный манифест экранов и версия экспорта согласованы с решениями шага 4 и основой шага 5. Развивать типовые экраны и общий каталог компонентов вместе, затем переиспользовать их. Манифест версии 4 фиксирует каталог, токены и образцы; каждый экран перечисляет ui_variants. Изменение основы возвращается на шаг 5."
+      }
+    },
+    {
+      "id": "stage-07",
+      "label": "Stage 7",
+      "checks": [
+        "audit:prototype"
+      ],
+      "requirements": {
+        "en": "Immutable independent closing review: clean, or only explicitly owner-dispositioned Low-cosmetic findings with backlog, responsible actor, linked scope/tasks and deadline. Independently compare screens with the shared catalogue, token values and previews, including required states, navigation, responsive behavior and accessibility. Record mismatches and unchecked scope; hashes alone do not prove visual consistency.",
+        "ru": "Неизменяемый независимый итоговый отчёт: чистый либо только согласованные владельцем мелкие косметические замечания с бэклогом, исполнителем, объёмом, задачами и сроком. Независимо сверить экраны с общим каталогом, значениями токенов и образцами: нужные состояния, навигацию, адаптивность и доступность. Записать расхождения и непроверенное; одни хеши не доказывают визуальную согласованность."
+      }
+    },
+    {
+      "id": "stage-08",
+      "label": "Stage 8",
+      "checks": [
+        "audit:prototype:approved"
+      ],
+      "requirements": {
+        "en": "Owner approval pins the exact exports, manifest hash and Stage 7 closing report. Unreviewed scope and remarks remain explicit. The owner reviews screens and component sheets together and approves the exact manifest-pinned catalogue, tokens and exports. Pending required variants or states block approval.",
+        "ru": "Владелец согласует точный экспорт, хеш манифеста и итоговый отчёт шага 7. Непроверенный объём и замечания указаны явно. Владелец рассматривает экраны и листы компонентов вместе и утверждает точный набор каталога, токенов и экспортов по манифесту. Незавершённые обязательные варианты или состояния блокируют утверждение."
+      }
+    },
+    {
+      "id": "stage-09",
+      "label": "Stage 9",
+      "checks": [
+        "audit:architecture",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Ordered Legacy Discovery (code, relevant live evidence, residual client questions), synchronized questionnaire, system-diagram gate, exact NFR workbook owner review, current-slice Grade A closure, assessed team gaps, architecture/ADR/Draw.io and architecture-nfr-manifest.json pins. Authoring may remain open; the gate is required at handoff. Return changed prototype structure to Stage 6, deliberate channel/design-system baseline changes to Stage 5, and parity-map defects to Stage 1; record the exact decision and repeat Stages 7-8 before resuming architecture. Create the source-backed feature dependency graph: reserve bounded slice IDs, map parity rows, separate contract and completion prerequisites, and record unknowns. Run audit:dependencies before handoff. The coordinator owns the file; do not infer delivery order from slice numbers.",
+        "ru": "Последовательное исследование легаси, согласованный опросник, проверка системной схемы, ревью владельцем точного NFR Excel, закрытие Grade A текущего среза, оценка команды, архитектура, ADR, Draw.io и хеши architecture-nfr-manifest.json. Во время подготовки шаг может оставаться открытым; гейт обязателен при передаче. Изменение структуры прототипа возвращается на шаг 6, формы приложения или дизайн-системы на шаг 5, дефект карты на шаг 1; агент записывает точное решение и повторяет шаги 7-8 перед продолжением архитектуры. Создать граф зависимостей срезов: связать объём со строками паритета, разделить контракты для проектирования и обязательства завершения, записать неизвестное. До передачи запустить audit:dependencies. Файл ведёт координатор; номера срезов не задают порядок."
+      }
+    },
+    {
+      "id": "stage-10",
+      "label": "Stage 10",
+      "checks": [
+        "audit:architecture",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Eligible independent clean architecture review against the exact manifest, with comparison results, findings and unverified scope. Independently review feature-dependencies.json for missing providers, false links, direction, conditions and completion cycles. Record each checked node ID and scope digest, supporting sources, findings and unchecked scope in this pass. The coordinator records the review binding only after a clean bounded result.",
+        "ru": "Чистое независимое ревью архитектуры по точному манифесту: результаты сравнения, замечания и непроверенный объём. Независимо проверить пропущенных поставщиков, ложные связи, направление, условия и циклы. В отчёте указать ID узлов, точные хеши объёма, источники, замечания и непроверенное. Координатор привязывает отчёт только после чистой проверки ограниченного объёма."
+      }
+    },
+    {
+      "id": "stage-11",
+      "label": "Stage 11",
+      "checks": [
+        "audit:architecture:approved",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Explicit owner verdict on exact architecture hashes; runtime.target_platforms is populated. Remarks require the classified return. Approval permits Stage 12 without requiring its future report. Include the reviewed dependency constraints in the owner discussion. Priority is not permission to remove a prerequisite. Record scope/deferral decisions in the owner verdict; dependency corrections return to Stage 9.",
+        "ru": "Явный вердикт владельца по точным хешам архитектуры; runtime.target_platforms заполнен. Замечания требуют возврата. Согласование открывает шаг 12, не требуя его будущий отчёт. Владелец рассматривает ограничения зависимостей вместе с архитектурой. Приоритет не отменяет предпосылку. Решения об объёме записываются в вердикт; исправления графа возвращаются на шаг 9."
+      }
+    },
+    {
+      "id": "stage-12",
+      "label": "Stage 12",
+      "checks": [
+        "audit:architecture:closure",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Separate immutable architecture-closure-NNN.md selected in status: every applicable owner/prior item has exact checks, evidence and reconciled counts; the unchanged currently approved set passes. Failure records the classified return and exact report. No edits to architecture or the Stage 11 verdict. Check that owner dependency remarks are resolved in the exact source-backed graph and architecture. Record evidence in the numbered closure report. Do not edit the graph or refresh its pins during closure; return unresolved design to Stage 9.",
+        "ru": "Отдельный неизменяемый architecture-closure-NNN.md выбран в статусе. Для каждого применимого замечания владельца и прежней проверки записаны точные проверки, доказательства и согласованные счётчики. Проверяется неизменённый текущий согласованный набор. Неуспех сохраняет точный отчёт и маршрут возврата. Архитектура и вердикт шага 11 не меняются. Проверить закрытие замечаний владельца по зависимостям в точном графе и архитектуре. Результат записать в нумерованный отчёт закрытия. Не менять граф и хеши при проверке; незакрытый дизайн вернуть на шаг 9."
+      }
+    },
+    {
+      "id": "stage-13",
+      "label": "Stage 13",
+      "checks": [
+        "audit:knowledge",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Source-linked OKF v0.2 bundle and manifest pin the exact approved architecture. knowledge-record.md separates produced coverage, gaps and readiness for Stage 14. Read the reviewed dependency graph alongside the architecture. Preserve relevant contract/prerequisite reasoning and source links in knowledge, without copying a competing dependency list.",
+        "ru": "OKF v0.2 и манифест связаны с точной согласованной архитектурой. knowledge-record.md отделяет созданное покрытие, пробелы и готовность к шагу 14. Читать проверенный граф вместе с архитектурой. Сохранить смысл предпосылок и ссылки на источники в знаниях, не создавая второй список зависимостей."
+      }
+    },
+    {
+      "id": "stage-14",
+      "label": "Stage 14",
+      "checks": [
+        "audit:knowledge",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Immutable eligible independent clean review of the exact bundle/manifest: source-to-concept comparison, omissions, contradictions and coverage totals. Check knowledge references against the reviewed graph. Omitted or distorted prerequisites are findings; the graph does not replace the approved architecture or independent knowledge review.",
+        "ru": "Неизменяемое чистое независимое ревью точного пакета и манифеста: сравнение источников с концептами, пропуски, противоречия и итоги покрытия. Сверить знания с проверенным графом. Пропуск или искажение предпосылки — замечание. Граф не заменяет архитектуру и независимое ревью знаний."
+      }
+    },
+    {
+      "id": "stage-15",
+      "label": "Stage 15",
+      "checks": [
+        "audit:sdd",
+        "audit:knowledge",
+        "audit:workbook",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Consume approved architecture-nfr-manifest.json without redefining architecture-owned decisions; trace affected NFRs into SDD, disclose owner-reviewed assumptions, impact scope and applicable cosmetic tasks. sdd-record.md records authoring readiness, not implementation permission. The entire approved manifest is read-only: requirements/tasks/tests and later execution evidence belong in specs/traceability.md and slice records. For UI work, read the pinned catalogue and tokens. Bind each Used UI Control Inventory row to its screen and stable governed variant; plan shared styles/components before consumers. Missing approved variants return to 6, foundation changes to 5. Read providers and consumers in feature-dependencies.json before designing this slice. Propose affected updates through the coordinator, reconcile its parity contract, bind the current node scope SHA-256 in spec.md, and plan agreed contracts and provider-dependent checks. Architecture changes return to Stage 9. Record remaining dependency questions in sdd-record.md.",
+        "ru": "Использование согласованного architecture-nfr-manifest.json без переопределения архитектурных решений; связи NFR с SDD, предположения для владельца, объём влияния и задачи по косметике. sdd-record.md фиксирует готовность проекта к проверке, а не разрешение реализации. Весь утвержденный манифест доступен только для чтения: связи с требованиями, задачами, тестами и результаты их выполнения записываются в specs/traceability.md и записи среза. Для UI читать зафиксированные каталог и токены. Связать каждую строку Used UI Control Inventory с экраном и устойчивым ID варианта; запланировать общие стили и компоненты до экранов. Недостающий утверждённый вариант возвращает на 6, изменение основы на 5. До проектирования прочитать поставщиков и потребителей среза. Через координатора уточнить граф, сверить контракт паритета и записать хеш объёма узла в spec.md. Запланировать контракты и проверки зависимых частей. Изменения архитектуры вернуть на 9; вопросы записать в sdd-record.md."
+      }
+    },
+    {
+      "id": "stage-16",
+      "label": "Stage 16",
+      "checks": [
+        "audit:sdd",
+        "audit:knowledge",
+        "audit:workbook",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Applicable approved prototype/architecture gates, clean independent comparison and explicit owner decisions on assumptions and scope; required cosmetic work is mapped to tasks. The independent Stage 16 agent must read sdd-record.md and reconcile source versions, coverage and gaps against the actual SDD and approved inputs, recording findings in a separate Stage 16 pass. audit:sdd does not parse that author handoff and cannot approve it. Compare pinned prototype exports with SDD and planned visual checks, not unimplemented UI; candidate UI is checked at Stage 17 and deployed UI at Stage 18. Verify the SDD control-to-variant/token bindings and planned visual checks against the approved shared UI baseline, without claiming that unbuilt UI has been tested. Independently compare the SDD with its exact graph node digest. Verify prerequisite conditions, completion closure, exclusions and downstream impact; record node/edge IDs, digests, findings and unchecked scope in this pass. After a clean bounded review the coordinator links the report. Candidate relations or unresolved questions cannot be marked reviewed-ready.",
+        "ru": "Применимые проверки согласованных прототипа и архитектуры, чистое независимое сравнение и явные решения владельца по предположениям и объёму; косметика связана с задачами. Независимый агент шага 16 обязан прочитать sdd-record.md, сверить версии источников, покрытие и пробелы с самим SDD и согласованными входами и записать замечания в отдельный отчёт шага 16. audit:sdd не разбирает и не утверждает этот отчёт автора. Сверяются утвержденные экспорты прототипа с SDD и планом визуальных проверок, а не еще не реализованный UI; готовый интерфейс проверяется на шаге 17, развернутый на шаге 18. Проверить связи контролов SDD с вариантами и токенами, а также план визуальных тестов относительно утверждённой основы UI. Не считать это проверкой ещё не написанного интерфейса. Независимо сверить SDD с точным хешем узла: условия, транзитивный объём завершения, исключения и влияние на потребителей. Записать ID, хеши, замечания и непроверенное в отчёт. Координатор привязывает чистое ревью; гипотезы и открытые вопросы блокируют готовность."
+      }
+    },
+    {
+      "id": "stage-17",
+      "label": "Stage 17",
+      "checks": [
+        "audit:sdd",
+        "audit:target",
+        "audit:ui-parity",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Configured build, impact-scoped tests and visual_parity; exact approved export hash and required viewport/state/icon evidence; clean peer review and owner-approved merge revision. Only exact post-merge delivery tasks may remain; no premature live-proof claims. Implement shared token-derived styles and reusable components; verify actual computed values, icons and states. Do not invent private screen styles. Missing design returns through Stage 15 to 6 or 5, then affected review/approval. Require the selected SDD-bound dependency scope to pass audit:dependencies --require-reviewed --scope NNN-slug before implementation handoff. Implement against the agreed contracts and verify relevant consumers/providers. New dependencies return to Stage 15 or 9; do not delete an edge to unblock work.",
+        "ru": "Настроенная сборка, проверки по объёму влияния и visual_parity; точный хеш согласованного экспорта, требуемые размеры экрана, состояния и иконки; чистое ревью и разрешённая владельцем версия для слияния. Оставаться могут только точные задачи доставки после слияния; живые доказательства заранее не заявляются. Реализовать общие стили из токенов и переиспользуемые компоненты; проверить реальные значения, иконки и состояния. Не придумывать отдельные стили экранов. Недостающий дизайн возвращается через шаг 15 на 6 или 5, затем повторяются нужные проверки и утверждения. Перед передачей к реализации выбранный объём SDD должен пройти audit:dependencies --require-reviewed --scope NNN-slug. Проверять реальные контракты поставщиков и влияние на потребителей. Новые зависимости вернуть на 15 или 9; удалять связи ради разблокировки нельзя."
+      }
+    },
+    {
+      "id": "stage-18",
+      "label": "Stage 18",
+      "checks": [
+        "audit:environment",
+        "audit:delivery",
+        "audit:sdd:slice",
+        "audit:workbook",
+        "audit:target",
+        "audit:dependencies"
+      ],
+      "requirements": {
+        "en": "Configured deploy, smoke, real deployed user_journey with raw evidence/hash-linked summary, deployed visual_parity, validated rollback and records-only history. Completion checks follow exact delivery evidence; applicable open cosmetics block production. The same delivery record must include Live Reconciliation: discovered scope, applicable reused delivery observations, additional live checks, expected/actual coverage, findings and governed record updates. Required unverified scope blocks closure; no separate live-revision record is created. Compare applicable deployed UI with the same pinned shared catalogue/tokens and screen exports. Reuse valid exact-revision evidence, but do not equate local checks with deployment verification. Read the SDD-bound graph and verify actual delivery/evidence for all transitive confirmed completion providers. audit:sdd:slice expands that scope. Contract dependencies alone do not require the entire provider implementation. Do not edit graph expectations to fit deployed behavior.",
+        "ru": "Настроенные развёртывание, smoke, реальный user_journey с исходными доказательствами и сводкой по хешу, visual_parity на стенде, проверенный откат и история только разрешённых записей. Проверки завершения следуют за доказанной доставкой; открытая косметика блокирует production. Тот же отчёт поставки содержит Live Reconciliation: обнаруженный объём, подходящие прежние наблюдения этой поставки, дополнительные живые проверки, ожидания/факты, замечания и обновления документов. Непроверенный обязательный объём блокирует закрытие; отдельный live-revision не создаётся. Сверить применимый UI после деплоя с теми же зафиксированными каталогом, токенами и экспортами. Переиспользовать доказательства точной версии, но не приравнивать локальные проверки к проверке деплоя. Сверить реальные доказательства поставки всех транзитивных обязательных поставщиков. audit:sdd:slice расширяет объём по графу. Контрактная связь сама по себе не требует всей реализации поставщика. Подгонять граф под наблюдения нельзя."
+      }
+    },
+    {
+      "id": "stage-19",
+      "label": "Stage 19 - slice acceptance",
+      "checks": [
+        "audit:stage19"
+      ],
+      "requirements": {
+        "en": "Exact delivered scope plus reviewed mandatory Completion dependencies, followed transitively; eligible blind independent acceptance followed by evidence reconciliation and explicit owner slice acceptance. All applicable findings must close. Unrelated slices may remain open; this does not set global complete. Phase A receives relevant shared UI expectations without prior outcomes. Phase B verifies the extract against the full pinned catalogue/tokens and reconciles actual deployed findings.",
+        "ru": "Точный доставленный срез и проверенные обязательные Completion dependencies по всей цепочке зависимостей; независимая приёмка вслепую, затем сверка доказательств и явная приёмка среза владельцем. Все применимые замечания закрыты. Другие срезы могут оставаться открытыми; глобальный complete не устанавливается. В фазе А получить применимые ожидания общего UI без прежних результатов. В фазе Б сверить выдержку с полными зафиксированными каталогом и токенами и сопоставить наблюдения работающей системы."
+      }
+    },
+    {
+      "id": "complete",
+      "label": "Final completion",
+      "checks": [
+        "audit:all"
+      ],
+      "requirements": {
+        "en": "Full-system Stage 19 acceptance and explicit final owner sign-off precede complete. Require 100% global progress, no open blockers/reopened slices, evidence for every completed slice, and owner walkthrough or exact decline. audit:all validates that recorded completion; it cannot authorize the transition.",
+        "ru": "Приёмка всей системы на шаге 19 и явное финальное решение владельца предшествуют complete. Нужны 100% глобального прогресса, отсутствие блокеров и переоткрытых срезов, доказательства по всем срезам, обход владельца или точный отказ. audit:all проверяет записанное завершение, а не разрешает переход."
+      }
+    }
+  ]
+}

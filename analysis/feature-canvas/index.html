@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feature Dependencies</title>
+<link rel="stylesheet" href="./styles.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+<script src="./vendor/lucide.min.js"></script>
+</head>
+<body>
+<header><div><h1 id="title">Feature Dependencies</h1><span id="stats"></span></div><nav><a id="process-link" href="../migration_methodology.html">Process</a><a id="source-link">Graph JSON</a><a id="order-source-link" href="./data.json" target="_blank" rel="noopener" title="Generated dependency iterations and prerequisites">Order JSON</a></nav></header>
+<div id="notice" role="status"></div>
+<div class="workspace" data-details="closed">
+<aside class="catalogue"><label for="search" id="search-label">Slices</label><div class="search-box"><input id="search" type="search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results"><div id="search-popup" hidden><div id="search-count" role="status" aria-live="polite"></div><div id="search-results" role="listbox"></div></div></div><div id="list" aria-label="Slices"></div></aside>
+<main>
+<div class="viewbar"><div id="view-mode" class="view-mode" role="group" aria-label="View mode"><button id="view-focus" type="button" aria-pressed="true"><i data-lucide="focus"></i><span data-t="focus"></span></button><button id="view-all" type="button" aria-pressed="false"><i data-lucide="network"></i><span data-t="overview"></span></button><button id="view-order" type="button" aria-pressed="false"><i data-lucide="list-ordered"></i><span data-t="workOrder"></span></button></div></div>
+<div class="toolbar">
+<label id="order-axis-control" hidden><span data-t="orderAxis"></span><select id="order-axis"><option value="completion" data-t="completionOrder"></option><option value="contract" data-t="designOrder"></option></select></label>
+<select id="scope" aria-label="Scope"><option value="neighbors" data-t="neighbors"></option><option value="providers" data-t="providers"></option><option value="consumers" data-t="consumers"></option></select>
+<select id="relation" aria-label="Relation"><option value="all" data-t="both"></option><option value="contract" data-t="contract"></option><option value="completion" data-t="completion"></option></select>
+<label class="candidate-toggle"><input id="candidates" type="checkbox" checked><span data-t="candidates"></span></label>
+<label id="depth-control" hidden><span data-t="depth"></span><input id="depth" type="range" min="220" max="1320" step="110" value="440"><output id="depth-value">2×</output></label>
+<div class="tools"><button id="reset" class="icon"><i data-lucide="scan"></i></button><button id="locate" class="icon"><i data-lucide="locate-fixed"></i></button><button id="zoom-in" class="icon"><i data-lucide="zoom-in"></i></button><button id="zoom-out" class="icon"><i data-lucide="zoom-out"></i></button><button id="rotate" class="icon" aria-pressed="false"><i data-lucide="orbit"></i></button><button id="flat" class="icon" aria-pressed="false"><i data-lucide="layers-2"></i></button><button id="fullscreen" class="icon" aria-pressed="false"><i data-lucide="maximize"></i></button></div>
+</div>
+<div id="scene"><div id="scene-error" hidden></div><canvas id="minimap" width="400" height="260" tabindex="0" role="img" hidden></canvas></div>
+<section id="order-board" hidden aria-label="Work order"><div class="order-intro"><h2 data-t="orderSummary"></h2><p id="order-summary" aria-live="polite"></p><p id="order-meaning"></p><p class="order-warning" data-t="orderWarning"></p><p class="label-muted" data-t="parallelMeaning"></p></div><div id="order-iterations" tabindex="0"></div><section id="order-unassigned"></section></section>
+<details class="legend" aria-label="Dependency legend"><summary data-t="legend"></summary>
+<p class="legend-intro"><strong data-t="both"></strong><span data-t="bothMeaning"></span></p>
+<dl class="legend-relations">
+<div><dt class="legend-key contract" data-t="contract"></dt><dd><span data-t="contractMeaning"></span><span class="legend-example" data-t="contractExample"></span></dd></div>
+<div><dt class="legend-key completion" data-t="completion"></dt><dd><span data-t="completionMeaning"></span><span class="legend-example" data-t="completionExample"></span></dd></div>
+</dl>
+<div class="legend-meta"><span data-t="directionMeaning"></span><span class="legend-key dash" data-t="lineMeaning"></span></div>
+</details>
+<div id="visible-count" aria-live="polite"></div>
+</main>
+<aside id="details" aria-label="Selected slice" hidden><div class="details-header"><div id="details-heading"></div><button id="close-details" type="button" class="icon" aria-label="Close details"><i data-lucide="x"></i></button></div><div id="details-content"></div></aside>
+</div>
+<script type="module" src="./app.js"></script>
+</body></html>

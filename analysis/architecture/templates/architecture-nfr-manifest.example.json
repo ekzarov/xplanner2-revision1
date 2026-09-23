@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "project": "<project name>",
+  "scope": "<architecture baseline scope>",
+  "document_set_version": "<version>",
+  "published_at": "YYYY-MM-DD",
+  "files": [
+    {
+      "path": "architecture.md",
+      "role": "normative-source",
+      "document_set_version": "<same version>",
+      "sha256": "<hex SHA-256>"
+    },
+    {
+      "path": "architecture.drawio",
+      "role": "collaborative-architecture-source",
+      "document_set_version": "<same version>",
+      "sha256": "<hex SHA-256>"
+    }
+  ],
+  "diagram_pages": [
+    {
+      "id": "overview",
+      "name": "Overview",
+      "covers": [
+        "executive-summary",
+        "current-architecture",
+        "target-architecture",
+        "components-boundaries",
+        "integrations-data-flow",
+        "data-migration"
+      ]
+    },
+    {
+      "id": "assurance",
+      "name": "Assurance and delivery",
+      "covers": [
+        "security-roles",
+        "deployment-topology",
+        "measurable-nfrs",
+        "adr-trade-offs",
+        "risks-delivery"
+      ]
+    }
+  ],
+  "nfrs": [
+    {
+      "id": "NFR-001",
+      "category": "<quality category>",
+      "statement": "<measurable constraint>",
+      "acceptance": "<measurable acceptance criterion>",
+      "adrs": ["ADR-001"],
+      "evidence": ["tests/nfr-evidence.md#NFR-001"]
+    }
+  ],
+  "adrs": [
+    {
+      "id": "ADR-001",
+      "title": "<decision title>",
+      "file": "adr/001-decision.md",
+      "nfrs": ["NFR-001"]
+    }
+  ]
+}

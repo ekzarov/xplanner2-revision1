@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 2,
+  "language": "en",
+  "workOrderMeaning": {
+    "iteration": "One-based dependency group, not a scheduled sprint or an application iteration ID. Null means order unknown.",
+    "contract": "Agree required provider contracts before dependent design; provider implementation may be unfinished.",
+    "completion": "Satisfy required provider obligations before completing the consumer; implementation may overlap.",
+    "limitations": "Read draft, reason, prerequisites and hiddenPrerequisites. Iteration numbers are not readiness, delivery evidence or authorization."
+  },
+  "source": "analysis/feature-dependencies.example.json",
+  "sourceSha256": "06683872681d5d14faa30c65fd1f57b172dc2c70b7639e8983e5c6a5ddf54b6a",
+  "mode": "illustrative",
+  "title": "Starter",
+  "recordedAt": "2026-09-16",
+  "scope": "Example only: a data contract and its consumer",
+  "sources": {
+    "decision": {
+      "path": "analysis/stages/stage-04/stage-04-requirements-revision.md",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "parityRows": [],
+  "nodes": [
+    {
+      "id": "001-time-data",
+      "label": "Time data provider",
+      "metadata": {
+        "description": "Illustrative slice: supplies recorded work time through a shared data contract with agreed units and access rules. Reports consume these facts; this example is not delivered project behavior.",
+        "group": "Time",
+        "scope": "target-only",
+        "rows": [],
+        "sdd": null,
+        "basis": [
+          "decision"
+        ],
+        "unresolved": [
+          "Replace the illustrative scope with the actual owner decision."
+        ],
+        "review": null
+      },
+      "level": 0,
+      "completionScope": [
+        "001-time-data"
+      ],
+      "scopeDigest": null
+    },
+    {
+      "id": "002-effort-report",
+      "label": "Effort report",
+      "metadata": {
+        "description": "Illustrative slice: lets a user inspect an effort report built from the time-data provider. It reads work-time facts rather than recording them; actual scope and approval must come from project evidence.",
+        "group": "Reporting",
+        "scope": "target-only",
+        "rows": [],
+        "sdd": null,
+        "basis": [
+          "decision"
+        ],
+        "unresolved": [
+          "Confirm the required provider contract and completion boundary."
+        ],
+        "review": null
+      },
+      "level": 0,
+      "completionScope": [
+        "002-effort-report"
+      ],
+      "scopeDigest": null
+    }
+  ],
+  "overview": {
+    "engine": "elkjs@0.12.0",
+    "bands": [
+      {
+        "left": 12,
+        "right": 232
+      },
+      {
+        "left": 342,
+        "right": 562
+      }
+    ],
+    "nodes": [
+      {
+        "id": "001-time-data",
+        "x": 12,
+        "y": 12,
+        "width": 220,
+        "height": 82
+      },
+      {
+        "id": "002-effort-report",
+        "x": 342,
+        "y": 12,
+        "width": 220,
+        "height": 82
+      }
+    ],
+    "edges": [
+      {
+        "id": "DEP-001",
+        "points": [
+          {
+            "x": 232,
+            "y": 67
+          },
+          {
+            "x": 342,
+            "y": 67
+          }
+        ]
+      },
+      {
+        "id": "DEP-002",
+        "points": [
+          {
+            "x": 232,
+            "y": 39
+          },
+          {
+            "x": 342,
+            "y": 39
+          }
+        ]
+      }
+    ]
+  },
+  "workOrder": {
+    "contract": {
+      "proposed": {
+        "relation": "contract",
+        "candidates": true,
+        "rows": [
+          {
+            "id": "001-time-data",
+            "iteration": 1,
+            "reason": null,
+            "draft": true,
+            "prerequisites": [],
+            "dependents": [
+              "002-effort-report"
+            ],
+            "hiddenPrerequisites": []
+          },
+          {
+            "id": "002-effort-report",
+            "iteration": 2,
+            "reason": null,
+            "draft": true,
+            "prerequisites": [
+              "001-time-data"
+            ],
+            "dependents": [],
+            "hiddenPrerequisites": []
+          }
+        ],
+        "iterationCount": 2
+      },
+      "explicit": {
+        "relation": "contract",
+        "candidates": false,
+        "rows": [
+          {
+            "id": "001-time-data",
+            "iteration": null,
+            "reason": "coverage-unknown",
+            "draft": true,
+            "prerequisites": [],
+            "dependents": [],
+            "hiddenPrerequisites": []
+          },
+          {
+            "id": "002-effort-report",
+            "iteration": null,
+            "reason": "hidden-candidates",
+            "draft": true,
+            "prerequisites": [],
+            "dependents": [],
+            "hiddenPrerequisites": [
+              "001-time-data"
+            ]
+          }
+        ],
+        "iterationCount": 0
+      }
+    },
+    "completion": {
+      "proposed": {
+        "relation": "completion",
+        "candidates": true,
+        "rows": [
+          {
+            "id": "001-time-data",
+            "iteration": 1,
+            "reason": null,
+            "draft": true,
+            "prerequisites": [],
+            "dependents": [
+              "002-effort-report"
+            ],
+            "hiddenPrerequisites": []
+          },
+          {
+            "id": "002-effort-report",
+            "iteration": 2,
+            "reason": null,
+            "draft": true,
+            "prerequisites": [
+              "001-time-data"
+            ],
+            "dependents": [],
+            "hiddenPrerequisites": []
+          }
+        ],
+        "iterationCount": 2
+      },
+      "explicit": {
+        "relation": "completion",
+        "candidates": false,
+        "rows": [
+          {
+            "id": "001-time-data",
+            "iteration": null,
+            "reason": "coverage-unknown",
+            "draft": true,
+            "prerequisites": [],
+            "dependents": [],
+            "hiddenPrerequisites": []
+          },
+          {
+            "id": "002-effort-report",
+            "iteration": null,
+            "reason": "hidden-candidates",
+            "draft": true,
+            "prerequisites": [],
+            "dependents": [],
+            "hiddenPrerequisites": [
+              "001-time-data"
+            ]
+          }
+        ],
+        "iterationCount": 0
+      }
+    }
+  },
+  "edges": [
+    {
+      "source": "001-time-data",
+      "target": "002-effort-report",
+      "relation": "contract",
+      "metadata": {
+        "id": "DEP-001",
+        "condition": "The report design needs agreed units, rounding and access rules for time data.",
+        "assessment": "candidate",
+        "basis": [
+          "decision"
+        ]
+      }
+    },
+    {
+      "source": "001-time-data",
+      "target": "002-effort-report",
+      "relation": "completion",
+      "metadata": {
+        "id": "DEP-002",
+        "condition": "The delivered report needs the real time-data provider; a mock does not close delivery.",
+        "assessment": "candidate",
+        "basis": [
+          "decision"
+        ]
+      }
+    }
+  ],
+  "sourceBase": "../../",
+  "processUrl": "../process-canvas/"
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project", "runtime", "paths", "commands"],
+  "properties": {
+    "prototype_compatibility": {
+      "type": "object", "additionalProperties": false,
+      "required": ["manifest_sha256", "approval_sha256", "decision_sha256", "source_revision", "recorded_by", "reason"],
+      "properties": {
+        "manifest_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "approval_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "decision_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "source_revision": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "recorded_by": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "reason": { "type": "string", "minLength": 1, "pattern": "\\S" }
+      }
+    },
+    "schema_version": { "const": "1.4.0" },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "owner", "initialized_at"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,99}$" },
+        "name": { "type": "string", "minLength": 1 },
+        "owner": { "type": "string", "minLength": 1 },
+        "initialized_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["audit_node_version", "initializer_shell", "target_platforms"],
+      "properties": {
+        "audit_node_version": { "const": "22" },
+        "initializer_shell": { "const": "PowerShell 7+" },
+        "target_platforms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?=.*\\S)[^\\r\\n]+$"
+          }
+        }
+      }
+    },
+    "paths": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["legacy_source", "target_source", "environments"],
+      "properties": {
+        "legacy_source": {
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" }
+          ]
+        },
+        "target_source": { "type": "string", "minLength": 1 },
+        "environments": { "type": "string", "const": "config/environments.yaml" }
+      }
+    },
+    "commands": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["build", "test", "visual_parity", "deploy", "smoke", "user_journey", "rollback"],
+      "properties": {
+        "build": { "$ref": "#/$defs/command" },
+        "test": { "$ref": "#/$defs/command" },
+        "visual_parity": { "$ref": "#/$defs/command" },
+        "deploy": { "$ref": "#/$defs/command" },
+        "smoke": { "$ref": "#/$defs/command" },
+        "user_journey": { "$ref": "#/$defs/command" },
+        "rollback": { "$ref": "#/$defs/command" }
+      }
+    }
+  },
+  "$defs": {
+    "command": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "required_from_stage", "working_directory", "required_environment"],
+      "properties": {
+        "command": {
+          "oneOf": [
+            { "type": "string", "minLength": 1, "pattern": "^(?=.*\\S)[^\\r\\n]+$" },
+            { "type": "null" }
+          ]
+        },
+        "required_from_stage": {
+          "enum": ["stage-17", "stage-18"]
+        },
+        "working_directory": { "type": "string", "minLength": 1 },
+        "minimum_similarity_percent": {
+          "type": "number",
+          "minimum": 95,
+          "maximum": 100
+        },
+        "required_environment": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+          }
+        }
+      }
+    }
+  }
+}

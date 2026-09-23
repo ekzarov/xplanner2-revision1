@@ -17,7 +17,7 @@
 
 ## Legacy Package
 
-`legacy/` contains the XPlanner+ v1.1a4 WAR distribution and its existing local
+[`legacy/`](legacy/) contains the XPlanner+ v1.1a4 WAR distribution and its existing local
 run helpers. It is not a complete upstream Java source checkout. The WAR
 already includes the MySQL configuration patch used by the earlier experiment;
 the SQL seed is a prepared demo fixture, not production data or untouched upstream
@@ -27,7 +27,7 @@ The four files were exported with `git archive` from the existing local delivery
 
 - Source repository: `C:/Work/Legacy/xplanner2`
 - Source commit: `c8fd12cefd4f5519622f9c86b8fcb2a1dfce4360`
-- Source `legacy/` Git tree: `3bd350fa5559ce56d2ea6f5136a62197754d4dca`
+- Source [`legacy/`](legacy/) Git tree: `3bd350fa5559ce56d2ea6f5136a62197754d4dca`
 - The source path is provenance only. Do not inspect that project's migration
   results to fill this fresh project's artifacts.
 
@@ -36,10 +36,10 @@ endings; they are not Git object IDs.
 
 | File | Bytes | SHA-256 |
 |---|---:|---|
-| `legacy/README.md` | 2336 | `78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460` |
-| `legacy/demo-seed.sql` | 9387 | `2d32f7d5c6086c21f0df00f7e110a9a10bd259e8c2a9333cc1eb946033c3387e` |
-| `legacy/docker-compose.yml` | 2124 | `e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff` |
-| `legacy/xplanner-plus.war` | 29727650 | `46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc` |
+| [`legacy/README.md`](legacy/README.md) | 2336 | `78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460` |
+| [`legacy/demo-seed.sql`](legacy/demo-seed.sql) | 9387 | `2d32f7d5c6086c21f0df00f7e110a9a10bd259e8c2a9333cc1eb946033c3387e` |
+| [`legacy/docker-compose.yml`](legacy/docker-compose.yml) | 2124 | `e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff` |
+| [`legacy/xplanner-plus.war`](legacy/xplanner-plus.war) | 29727650 | `46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc` |
 
 ## Starter And Start Boundary
 
@@ -55,7 +55,7 @@ baseline. Do not reset another workspace or copy completed project records.
 The initializer has deliberately not been run. After owner authorization and
 resolution of its security prerequisites, use the supported initialization path.
 The target is already non-empty; inspect it and follow the initializer's overlay
-rules without overwriting `legacy/` or fabricating a matching initializer marker.
+rules without overwriting [`legacy/`](legacy/) or fabricating a matching initializer marker.
 This preparation note is not a replacement for the starter's project instructions.
 
 ## Security And Runtime Isolation
@@ -77,7 +77,7 @@ set and restore `TEMP`, `TMP`, `TMPDIR` and `npm_config_cache` to directories un
 this project before running the source-only initializer self-test or project tests.
 The installed runtime may execute, but it is not an additional context source.
 
-Do not run the supplied `legacy/docker-compose.yml` unchanged. It uses project
+Do not run the supplied [`legacy/docker-compose.yml`](legacy/docker-compose.yml) unchanged. It uses project
 name `xplanner`, fixed container names, port 8080 and an existing-style database
 volume name, which can collide with an earlier local installation. Before any
 runtime work, prepare a separate reviewed launcher outside the immutable legacy

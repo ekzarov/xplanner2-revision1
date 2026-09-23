@@ -1,0 +1,102 @@
+# ARTIFACT RESPONSIBILITY START (guidance, not project state)
+# Created by: The Bootstrap initializer renders project identity and command slots; the Bootstrap agent fills verified project values.
+# Maintained / decided by: The responsible project agent records explicit command/configuration changes and validates the contract.
+# Governing instructions: Bootstrap project contract
+# ARTIFACT RESPONSIBILITY END
+# =============================================================================
+# ARTIFACT GUIDANCE (not project data)
+# =============================================================================
+# Project execution contract.
+# Template output: config/project.yaml. Preserve this filename stem.
+# See analysis/artifact-naming.md for the naming contract.
+#
+# When used: generated during Bootstrap, then read by every agent that needs a
+# project path or executable command. audit:project validates it before a stage
+# may rely on those values.
+# How used: tools execute exactly the recorded command in its recorded working
+# directory. A null required command blocks the stage; agents never guess one.
+# Example: Stage 17 runs commands.test, while Stage 18 runs deploy, smoke,
+# user_journey and rollback for the exact candidate.
+# =============================================================================
+# PROJECT RECORD (machine-readable values start below)
+# =============================================================================
+schema_version: '1.4.0'
+
+# Stable project identity. id is machine-facing; name is display-facing; owner
+# is the human authorized to make the approval decisions named by the process.
+project:
+  id: 'xplanner2-revision1'
+  name: 'XPlanner 2 Revision 1'
+  owner: 'ekzarov'
+  initialized_at: '2026-09-23T10:22:40.9170855+00:00'
+
+# Tooling needed to execute the process. target_platforms starts empty and is
+# filled after architecture establishes the actual supported runtime/OS set.
+runtime:
+  audit_node_version: '22'
+  initializer_shell: 'PowerShell 7+'
+  # Record actual target runtime platforms once architecture establishes them.
+  target_platforms: []
+
+# Repository-relative locations. legacy_source is the attributable old system;
+# target_source is where the replacement is built; environments points to the
+# separately governed remote-environment contract.
+paths:
+  legacy_source: legacy
+  target_source: target
+  environments: config/environments.yaml
+
+# Commands stay null until the owner or an authorized maintainer records and
+# verifies the exact project command. Null becomes a hard stop at the declared
+# required stage, never an invitation to infer a stack-specific command.
+commands:
+  # Produces a compilable/packageable candidate. It does not replace tests.
+  build:
+    command: null
+    required_from_stage: stage-17
+    working_directory: '.'
+    required_environment: []
+  # Runs the complete deterministic project verification for a candidate.
+  test:
+    command: null
+    required_from_stage: stage-17
+    working_directory: '.'
+    required_environment: []
+  # Compares the UI with the exact owner-approved wireframes and manifest. It
+  # checks structure, content, styles, icons, roles and interaction states, not
+  # only whether a screenshot looks broadly similar. Example: a correct label
+  # with the wrong font or an untested hover state fails. The percentage is an
+  # image-similarity floor; required semantic screen/state coverage stays 100%.
+  visual_parity:
+    command: null
+    required_from_stage: stage-17
+    working_directory: '.'
+    minimum_similarity_percent: 95
+    required_environment: []
+  # Publishes the exact merged candidate to the declared environment.
+  deploy:
+    command: null
+    required_from_stage: stage-18
+    working_directory: '.'
+    required_environment: []
+  # Performs fast machine-level health and reachability checks. It cannot prove
+  # that a user can complete the changed workflow.
+  smoke:
+    command: null
+    required_from_stage: stage-18
+    working_directory: '.'
+    required_environment: []
+  # For a web target this must drive the deployed public UI in a real browser:
+  # anonymous entry -> form submission -> authenticated landing -> useful action -> sign-out.
+  user_journey:
+    command: null
+    required_from_stage: stage-18
+    working_directory: '.'
+    required_environment: []
+  # Restores the previous known-good release or follows a tested recovery
+  # procedure, then verifies that service is usable again.
+  rollback:
+    command: null
+    required_from_stage: stage-18
+    working_directory: '.'
+    required_environment: []

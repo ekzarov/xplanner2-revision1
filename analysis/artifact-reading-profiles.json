@@ -1,0 +1,502 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "id": "bootstrap",
+      "paths": [
+        "analysis/stages/templates/bootstrap-gate-report-template.md"
+      ],
+      "stages": [
+        0
+      ],
+      "question": "What was actually checked, what failed, and is the workspace ready for Stage 1?",
+      "kind": "execution",
+      "resultSection": "Required Gate Evidence",
+      "nextSection": "Verification Boundary",
+      "next": "The Bootstrap agent records executed checks; the owner separately authorizes Stage 1.",
+      "remaining": "Audit runs and owner authorization are not yet recorded."
+    },
+    {
+      "id": "recon",
+      "paths": [
+        "analysis/legacy_reconnaissance.template.md"
+      ],
+      "stages": [
+        1
+      ],
+      "question": "What did we discover in the legacy source, what is proven, and what remains unknown?",
+      "kind": "source",
+      "resultSection": "Source Inventory",
+      "nextSection": "Known Gaps And Blockers",
+      "next": "The Stage 1 agent fills the source inventory, evidence and unresolved boundaries.",
+      "remaining": "Source coverage, evidence and gaps are not yet recorded."
+    },
+    {
+      "id": "review",
+      "paths": [
+        "analysis/reviews/stage-NN-pass-NNN-template.md",
+        "analysis/reviews/review_template.md"
+      ],
+      "stages": [
+        2,
+        7,
+        10,
+        14,
+        16
+      ],
+      "question": "What matched, what did not, and what must be corrected before this scope can proceed?",
+      "kind": "review",
+      "resultSection": "Comparison Results",
+      "nextSection": "Conclusion and Next Gate",
+      "next": "The fresh independent reviewer checks the exact scope and records the verdict and correction route.",
+      "remaining": "No independent comparison or valid final verdict has been recorded."
+    },
+    {
+      "id": "walkthrough",
+      "paths": [
+        "analysis/stages/templates/walkthrough-NNN-template.md",
+        "analysis/stages/templates/stage-03-walkthrough-template.md"
+      ],
+      "stages": [
+        3
+      ],
+      "question": "What behavior was observed live, what differed, and what could not be verified?",
+      "kind": "execution",
+      "resultSection": "Executed Walkthrough",
+      "nextSection": "Walkthrough Outcome Summary",
+      "next": "The Stage 3 agent records actual observations and keeps simulated or inaccessible scope separate.",
+      "remaining": "Live observations, discrepancies and unverified scope are not yet recorded."
+    },
+    {
+      "id": "requirements",
+      "paths": [
+        "analysis/stages/templates/stage-04-requirements-revision-template.md"
+      ],
+      "stages": [
+        4
+      ],
+      "question": "What did the owner decide to keep, change, defer or exclude, and what remains unapplied?",
+      "kind": "decision",
+      "resultSection": "Decisions",
+      "nextSection": "Decision Reconciliation",
+      "next": "The Stage 4 agent records explicit owner decisions and reconciles them with the parity map.",
+      "remaining": "Owner decisions and applied map changes are not yet established."
+    },
+    {
+      "id": "form-style",
+      "paths": [
+        "analysis/prototyping/templates/ui-ux-decision-template.md"
+      ],
+      "stages": [
+        5
+      ],
+      "question": "Which application form and visual baseline did the owner choose, and which choices remain open?",
+      "kind": "decision",
+      "resultSection": "Options Considered",
+      "nextSection": "Decision",
+      "next": "The Stage 5 agent presents options and records the owner choice for the exact baseline.",
+      "remaining": "Required baseline choices have not yet been approved."
+    },
+    {
+      "id": "polish",
+      "paths": [
+        "analysis/prototyping/templates/ui-polish-backlog-template.md"
+      ],
+      "stages": [
+        7,
+        8,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "question": "Which minor visual corrections may wait, who will fix them, and before which release?",
+      "kind": "backlog",
+      "resultSection": "Findings And Dispositions",
+      "nextSection": "Correction And Verification",
+      "next": "The agent records only eligible, owner-authorized cosmetic deferrals and their verified closure deadlines.",
+      "remaining": "This conditional template is not an approved deferral or proof that corrections are complete."
+    },
+    {
+      "id": "prototype-approval",
+      "paths": [
+        "analysis/prototyping/templates/ui-ux-approval-template.md"
+      ],
+      "stages": [
+        8
+      ],
+      "question": "Did the owner approve these exact wireframes, and which remarks or unreviewed screens remain?",
+      "kind": "decision",
+      "resultSection": "Reviewed Set",
+      "nextSection": "Approval Boundary",
+      "next": "The Stage 8 agent records the owner verdict for the exact export set and remaining remarks.",
+      "remaining": "The exact prototype set has not yet received a recorded owner verdict."
+    },
+    {
+      "id": "architecture",
+      "paths": [
+        "analysis/architecture/templates/architecture-template.md"
+      ],
+      "stages": [
+        9
+      ],
+      "question": "What does the target system look like as a whole right now?",
+      "kind": "source",
+      "resultSection": "Architecture Decomposition",
+      "nextSection": "Open Architecture Backlog",
+      "next": "The Stage 9 agent records the architecture, approved boundaries and unresolved decisions.",
+      "remaining": "Architecture scope and approval are not yet established."
+    },
+    {
+      "id": "nfr-review",
+      "paths": [
+        "analysis/architecture/templates/architecture-nfr-owner-review-template.md"
+      ],
+      "stages": [
+        9
+      ],
+      "question": "What did the owner approve in this exact workbook, what remains open, and what work is permitted next?",
+      "kind": "decision",
+      "resultSection": "Decision Summary",
+      "nextSection": "Open And Deferred Items",
+      "next": "The Stage 9 agent records explicit owner decisions, remaining questions and the precise permission boundary.",
+      "remaining": "No owner decision on this exact workbook version is recorded in this template."
+    },
+    {
+      "id": "legacy-architecture-verdict",
+      "paths": [
+        "analysis/architecture/templates/architecture-review-verdict-template.md"
+      ],
+      "stages": [],
+      "question": "What did this legacy combined record capture before numbered review cycles?",
+      "kind": "decision",
+      "resultSection": "Owner Remarks",
+      "nextSection": "Stage 12 Remark Closure",
+      "next": "Historical compatibility only. New cycles use separate numbered owner-verdict and closure records.",
+      "remaining": "Owner remarks, verified closure and final exact-set approval are not yet established."
+    },
+    {
+      "id": "adr",
+      "paths": [
+        "analysis/architecture/templates/NNN-SLUG-template.md",
+        "analysis/architecture/templates/adr-template.md"
+      ],
+      "stages": [
+        9
+      ],
+      "question": "Why was this decision made, which alternatives were rejected, and what follows from it?",
+      "kind": "source",
+      "resultSection": "Decision",
+      "nextSection": "Consequences",
+      "next": "The architecture agent records the decision, rejected alternatives, consequences and required approval.",
+      "remaining": "A drafted decision is not an adopted or implemented decision."
+    },
+    {
+      "id": "foundation",
+      "paths": [
+        "analysis/architecture/templates/sections/00-foundation-template.md",
+        "analysis/architecture/templates/sections/foundation-template.md"
+      ],
+      "stages": [
+        9
+      ],
+      "question": "Which foundation decisions must be settled before implementation can safely start?",
+      "kind": "source",
+      "resultSection": "Stable Boundaries",
+      "nextSection": "Code-Start Gate",
+      "next": "The architecture agent records stable foundations, code-start prerequisites and reopen triggers.",
+      "remaining": "The foundation code-start conditions have not yet been demonstrated."
+    },
+    {
+      "id": "area",
+      "paths": [
+        "analysis/architecture/templates/sections/NN-SLUG-template.md",
+        "analysis/architecture/templates/sections/area-template.md"
+      ],
+      "stages": [
+        9
+      ],
+      "question": "How does this part of the architecture work, and which decisions are still deferred?",
+      "kind": "source",
+      "resultSection": "Current Decision",
+      "nextSection": "Deferred Feature Detail",
+      "next": "The architecture agent records the area contracts, dependencies and unresolved decisions.",
+      "remaining": "Area decisions, contracts and verification triggers are not yet established."
+    },
+    {
+      "id": "knowledge-index",
+      "paths": [
+        "analysis/knowledge/templates/index-template.md"
+      ],
+      "stages": [
+        13
+      ],
+      "question": "Which target-system concepts are available, and where can the next agent find them?",
+      "kind": "source",
+      "resultSection": "Architecture",
+      "nextSection": "Decisions",
+      "next": "The synthesis agent links actual concepts and the exact knowledge manifest; Stage 14 review remains separate.",
+      "remaining": "An index is navigation, not evidence of complete or independently approved knowledge."
+    },
+    {
+      "id": "knowledge-concept",
+      "paths": [
+        "analysis/knowledge/templates/SLUG-template.md",
+        "analysis/knowledge/templates/concept-template.md"
+      ],
+      "stages": [
+        13
+      ],
+      "question": "What does this concept mean, which sources support it, and what are its boundaries?",
+      "kind": "source",
+      "resultSection": "Relationships",
+      "nextSection": "Boundaries",
+      "next": "The synthesis agent describes one source-linked concept; approval and semantic control remain separate.",
+      "remaining": "This draft concept has not established a verified knowledge baseline."
+    },
+    {
+      "id": "knowledge-record",
+      "paths": [
+        "analysis/stages/templates/knowledge-record-template.md",
+        "analysis/stages/templates/stage-13-knowledge-record-template.md"
+      ],
+      "stages": [
+        13
+      ],
+      "question": "What knowledge was produced, what is missing, and is the package ready for independent control?",
+      "kind": "authoring",
+      "resultSection": "Source-To-Output Reconciliation",
+      "nextSection": "Remaining Work",
+      "next": "The Stage 13 agent reconciles sources and concepts, then hands the eligible package to Stage 14.",
+      "remaining": "Source approval, semantic coverage and handoff readiness are not yet established."
+    },
+    {
+      "id": "sdd",
+      "paths": [
+        "analysis/stages/templates/sdd-record-template.md",
+        "analysis/stages/templates/stage-15-sdd-record-template.md"
+      ],
+      "stages": [
+        15
+      ],
+      "question": "Here is what I designed, which approved sources I used, which requirements I covered, where gaps remain, and what I am handing over for your review.",
+      "kind": "authoring",
+      "resultSection": "Traceability Coverage",
+      "nextSection": "Design Gaps And Handoff Boundary",
+      "next": "The Stage 15 agent completes the bounded design and records gaps before independent Stage 16 review.",
+      "remaining": "Written design coverage and handoff prerequisites are not yet established."
+    },
+    {
+      "id": "spec",
+      "paths": [
+        ".specify/templates/spec-template.md"
+      ],
+      "stages": [
+        15
+      ],
+      "question": "What behavior must this slice deliver, and which assumptions still need the owner decision?",
+      "kind": "authoring",
+      "resultSection": "Requirements",
+      "nextSection": "Owner-Reviewed Implementation Assumptions",
+      "next": "The design agent records testable requirements and discloses assumptions for owner review.",
+      "remaining": "Requirements, assumptions and implementation permission have not yet been established."
+    },
+    {
+      "id": "plan",
+      "paths": [
+        ".specify/templates/plan-template.md"
+      ],
+      "stages": [
+        15
+      ],
+      "question": "How will this slice be implemented and verified within the approved architecture?",
+      "kind": "authoring",
+      "resultSection": "Design",
+      "nextSection": "Verification Strategy",
+      "next": "The design agent links implementation choices, risks and planned checks to approved inputs.",
+      "remaining": "A plan is not executed work or permission to implement."
+    },
+    {
+      "id": "tasks",
+      "paths": [
+        ".specify/templates/tasks-template.md"
+      ],
+      "stages": [
+        15,
+        17
+      ],
+      "question": "Which tasks are finished, which are still open, and what blocks delivery or acceptance?",
+      "kind": "authoring",
+      "resultSection": "Phase 1 - Traceability and Preconditions",
+      "nextSection": "Final Checklist",
+      "next": "The responsible agent keeps implementation, verification and post-merge delivery tasks distinct.",
+      "remaining": "No completed work or executed verification is established by this task template."
+    },
+    {
+      "id": "slice-verification",
+      "paths": [
+        "specs/verification-record.template.md"
+      ],
+      "stages": [
+        17,
+        18,
+        19
+      ],
+      "question": "What was actually checked, on which version, and what remains unverified?",
+      "kind": "authoring",
+      "resultSection": "Requirement Checks",
+      "nextSection": "Review and Next Action",
+      "next": "The independent reviewer reconciles the actual checks and gaps; a plan or linked record is not a pass.",
+      "remaining": "No execution evidence or independent acceptance is established by this template."
+    },
+    {
+      "id": "traceability",
+      "paths": [
+        "specs/traceability.template.md"
+      ],
+      "stages": [
+        15,
+        17
+      ],
+      "question": "Which requirements are covered by design, implementation and tests, and where are the gaps?",
+      "kind": "authoring",
+      "resultSection": "Coverage Summary",
+      "nextSection": "Verification",
+      "next": "The active agent links requirements to actual design, code and evidence without treating plans as execution.",
+      "remaining": "Coverage and executed verification have not yet been reconciled."
+    },
+    {
+      "id": "delivery",
+      "paths": [
+        "analysis/stages/templates/delivery-NNN-template.md",
+        "analysis/stages/templates/stage-18-delivery-record-template.md"
+      ],
+      "stages": [
+        18
+      ],
+      "question": "Did this release deploy safely, cover the required live behavior and agree with its governed records?",
+      "kind": "execution",
+      "resultSection": "Delivery Verification Boundary",
+      "nextSection": "Gate Result",
+      "next": "The delivery agent records the exact release, recovery, executed checks and live reconciliation before independent acceptance.",
+      "remaining": "Deployment and required verification outcomes are not yet recorded."
+    },
+    {
+      "id": "acceptance",
+      "paths": [
+        "analysis/stages/templates/stage-19-pass-NNN-template.md",
+        "analysis/stages/templates/stage-19-acceptance-template.md"
+      ],
+      "stages": [
+        19
+      ],
+      "question": "Did independent acceptance verify this scope, and what remains before the owner can accept it?",
+      "kind": "review",
+      "resultSection": "Comparison Results",
+      "nextSection": "Owner Decision",
+      "next": "The independent reviewer records acceptance evidence; the human owner separately decides final acceptance.",
+      "remaining": "No independent acceptance result or final owner decision is recorded."
+    },
+    {
+      "id": "owner-walkthrough",
+      "paths": [
+        "analysis/stages/templates/owner-walkthrough-NNN-template.md",
+        "analysis/stages/templates/stage-19-owner-walkthrough-template.md"
+      ],
+      "stages": [
+        19
+      ],
+      "question": "What did the owner actually try, what did they find, and what still needs correction?",
+      "kind": "execution",
+      "resultSection": "Observations",
+      "nextSection": "Walkthrough Boundary",
+      "next": "The agent records the owner actual observations and the separate final decision.",
+      "remaining": "The optional owner walkthrough has not yet been recorded."
+    },
+    {
+      "id": "owner-decline",
+      "paths": [
+        "analysis/stages/templates/owner-walkthrough-decline-template.md",
+        "analysis/stages/templates/stage-19-owner-walkthrough-decline-template.md"
+      ],
+      "stages": [
+        19
+      ],
+      "question": "Did the owner explicitly decline the optional walkthrough, and what verification remains mandatory?",
+      "kind": "decision",
+      "resultSection": "Rationale",
+      "nextSection": "Residual Confidence",
+      "next": "The agent records only an explicit owner decline; independent acceptance and final sign-off remain required.",
+      "remaining": "No explicit owner decline is established by this template."
+    },
+    {
+      "id": "waiver",
+      "paths": [
+        "analysis/stages/templates/GATE-SCOPE-template.md",
+        "analysis/stages/templates/waiver-template.md"
+      ],
+      "stages": [
+        3,
+        5,
+        6,
+        9,
+        10,
+        13,
+        15
+      ],
+      "question": "Did the owner authorize this specific exception, for what scope and under which conditions?",
+      "kind": "decision",
+      "resultSection": "Decision and Authority",
+      "nextSection": "Permitted Next Stage",
+      "next": "The active-stage agent records the permitted exception, human authority and remaining obligations.",
+      "remaining": "No exception has been granted by this unfilled template."
+    },
+    {
+      "id": "architecture-verdict",
+      "paths": [
+        "analysis/architecture/templates/architecture-owner-verdict-NNN-template.md"
+      ],
+      "stages": [
+        11
+      ],
+      "question": "What did the owner decide about this exact architecture, and which items must Stage 12 verify?",
+      "kind": "decision",
+      "resultSection": "Decision",
+      "nextSection": "Return And Next Action",
+      "next": "The agent records the human decision. An approved verdict is read-only input to Stage 12; remarks follow the classified return.",
+      "remaining": "No actual human approval is established by a draft."
+    },
+    {
+      "id": "architecture-closure",
+      "paths": [
+        "analysis/architecture/templates/architecture-closure-NNN-template.md"
+      ],
+      "stages": [
+        12
+      ],
+      "question": "Which remarks are demonstrably closed, what remains unverified, and where must work return?",
+      "kind": "review",
+      "resultSection": "Result And Remaining Work",
+      "nextSection": "Return And Next Action",
+      "next": "The responsible agent records a separate immutable check. A negative report follows the return and must be read at the next owner review.",
+      "remaining": "Closure evidence and unchanged-set checks are not yet established."
+    },
+    {
+      "id": "ui-design-system",
+      "paths": [
+        "analysis/prototyping/templates/ui-design-system-template.md"
+      ],
+      "stages": [
+        5,
+        6
+      ],
+      "question": "Which shared element and variant should each screen use, and where can I see its states?",
+      "kind": "source",
+      "resultSection": "Components",
+      "nextSection": "Coverage And Open Decisions",
+      "next": "The Stage 5 agent records the chosen foundation; Stage 6 develops the kit with screens, Stage 7 verifies it and Stage 8 records exact owner approval.",
+      "remaining": "Foundation approval, actual component coverage and independent verification are not yet recorded."
+    }
+  ]
+}

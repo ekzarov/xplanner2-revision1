@@ -1,0 +1,99 @@
+{
+  "schema_version": 4,
+  "project": "<project name>",
+  "scope": "<project or feature identifier>",
+  "tool": "<design tool>",
+  "export_set_version": "<version>",
+  "decision": "analysis/prototyping/ui-ux-decision.md",
+  "normalization": "analysis/prototyping/screen-normalization.json",
+  "normalization_sha256": "<hex SHA-256 of screen-normalization.json>",
+  "workbook_rows_sha256": "<hex SHA-256 of the governed rows; run prototype-audit.js --governed-rows-digest>",
+  "screens": [
+    {
+      "id": "<stable screen id>",
+      "title": "<screen title>",
+      "channel": "<web, mobile, desktop, or terminal>",
+      "surface_key": "<channel + route family + primary user task + stable layout>",
+      "roles": [
+        "<role>"
+      ],
+      "states": [
+        "default",
+        "empty",
+        "error",
+        "forbidden"
+      ],
+      "actions": [
+        "<action performed within this screen, e.g. save, delete>"
+      ],
+      "overlays": [
+        "<dialog, drawer or overlay opened from this screen>"
+      ],
+      "workbook_rows": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "files": [
+        {
+          "path": "wireframes/<export file>",
+          "sha256": "<hex SHA-256>"
+        }
+      ],
+      "navigation": [
+        "<navigation step that starts from this screen>"
+      ],
+      "ui_variants": [
+        "button.primary",
+        "input.text"
+      ]
+    }
+  ],
+  "non_visual_workbook_rows": [
+    {
+      "row": 13,
+      "reason": "<why this governed behavior has no visual surface>",
+      "covered_by": {
+        "coverage": "<how this behavior will be covered instead of by a screen>",
+        "initiating_screen": "<screen id that sets it off, or null>"
+      }
+    }
+  ],
+  "_notes": [
+    "Direction: finished screen -> behavior. What was drawn, and which parity-map rows does it cover? screen-normalization.json is the row-by-row plan written before drawing; this manifest is the after-drawing evidence. The normalization and normalization_sha256 fields bind this manifest to that exact evidence-bearing plan.",
+    "One workbook row or one user flow does not imply one wireframe screen.",
+    "The mapping is many-to-one: many rows become several states and actions on one logical screen. A row differing only by a success or error result, an empty list, a validation message, session expiry, permission denial, loading, saving, a redirect, a button action, or the user's role while the composition is unchanged belongs in states, actions or roles of an existing screen - not in a new one.",
+    "Group rows into screens by surface_key: channel + route family + primary user task + stable layout. Two screens sharing a surface_key are rejected by audit:prototype.",
+    "A state earns its own exported file only when it materially changes the visible composition, the available actions, or the information structure. Otherwise it is listed in states and shown within the screen's export.",
+    "Every applicable row appears exactly once across screens[].workbook_rows and non_visual_workbook_rows[].row, and is classified once in screen-normalization.json. Coverage is bidirectional: no uncovered row, and no screen without rows behind it.",
+    "Rows decided do-not-port at Stage 4 are not listed here at all: they go in the excluded_rows array of screen-normalization.json, each citing its Stage 4 finding.",
+    "schema_version 3. Version 2 added normalization and surface_key; version 3 replaced covered_by's requirement and tests with a coverage statement. Both older versions are reported by audit:prototype with migration instructions.",
+    "normalization_sha256 pins the normalization record inside the manifest, so a Stage 8 approval that pins the manifest hash also pins the classifications.",
+    "states[], actions[], overlays[] and navigation[] are the vocabularies screen-normalization.json points into: a row classified state must name one of this screen states, and so on.",
+    "A target-only screen sets target_only, an empty workbook_rows, a target_requirement, and target_decision naming an approved owner decision id in migration_status.yaml.",
+    "screens[] may be empty only when every governed row is non-visual or excluded: a scope with nothing to draw must not invent a surface.",
+    "Row numbers start at 8: the workbook scan begins at row 7, which is the epic header rather than a scenario row.",
+    "workbook_rows_sha256 pins immutable legacy/source columns 1-8 for every governed row; delivery and SDD lifecycle columns 9-14 are excluded so normal implementation progress cannot stale an approved visual baseline. audit:prototype prints the expected digest when it does not match.",
+    "The digest algorithm is written out in analysis/prototyping/README.md, and prototype-audit.js --governed-rows-digest prints the expected value for a real record.",
+    "covered_by.coverage says how the behavior will be covered instead of by a wireframe, in words. Requirement ids and test references do not belong here: this manifest is pinned by the Stage 8 approval, so filling them in later would invalidate it. They are Stage 15 and Stage 17 work. No audit yet joins row to requirement to tests; that gap is recorded in analysis/prototyping/README.md.",
+    "Version 4 pins the shared UI catalogue, exact tokens and component sheets. Each screen lists its used stable ui_variants. Entirely non-visual scope: ui_design_system=null and screens=[]. See ui-design-system-guide.md. The foundation digest is owner-pinned at Stage 5; the full combined set is approved at Stage 8."
+  ],
+  "ui_design_system": {
+    "catalogue": {
+      "path": "ui-design-system.md",
+      "sha256": "<sha256-of-catalogue>"
+    },
+    "tokens": {
+      "path": "ui-design-tokens.json",
+      "sha256": "<sha256-of-tokens>"
+    },
+    "resources": [
+      {
+        "path": "wireframes/components.html",
+        "sha256": "<sha256-of-component-preview>"
+      }
+    ]
+  }
+}
