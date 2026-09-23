@@ -47,9 +47,9 @@ Reachability, live behavior, simulation and planned work are not interchangeable
 > [!WARNING]
 > **Bootstrap audits: pass (12 of 12 required checks); constitution ratified; Bootstrap not closed**
 >
-> After the owner-approved Starter synchronization to `ae3cca618cb4510345963710f1fd0c54d8a52373` and the authorized corrections, all 12 required checks passed. The first-run `audit:artifact-links` failure is resolved and preserved as history. Constitution `1.0.0` is ratified and the integration branch is `main`. Stage 1 authorization is still pending.
+> After the owner-approved Starter synchronization to `ae3cca618cb4510345963710f1fd0c54d8a52373` and the authorized corrections, all 12 required checks passed. The first-run `audit:artifact-links` failure is resolved and preserved as history. Constitution `1.0.0` is ratified and the integration branch is `main`. The owner has separately authorized Stage 1 within an exact scope.
 >
-> **Next:** The owner confirms the exact Stage 1 authorization; commit and push of the ratification change remain a separate decision.
+> **Next:** PM pushes the change and opens a pull request to `main`; after green CI on the exact head, PM records the authorized `bootstrap -> stage-01` transition. Merge remains the owner's decision.
 >
 > **Details:** [Required Gate Evidence](#read-required-gate-evidence) / [Verification Boundary](#read-verification-boundary).
 
@@ -301,9 +301,11 @@ execution is separate from the human owner's transition authorization.
 
 - Overall Bootstrap audit result: `pass` (first run: `fail`, preserved above)
 - Unresolved failures or blockers: none technical. Constitution `1.0.0`
-  ratified and integration branch `main` decided. Pending owner decisions:
-  confirmation of the exact Stage 1 authorization, then commit and push of the
-  ratification change.
+  ratified (commit `85ca15b`); integration branch `main`; Stage 1 authorized by
+  `ekzarov` at `2026-09-23T15:53:30Z` within the exact scope recorded in the
+  constitution's Bootstrap Decision Record; commit and push authorized. The
+  `bootstrap -> stage-01` transition is recorded only after green CI on the pull
+  request for the pushed head.
 - Report path recorded in [`analysis/migration_status.yaml`](../../migration_status.yaml): in `blockers[].evidence` of the
   now-resolved blocker `bootstrap-artifact-links-preparation`; not yet in `gate_evidence`
   (no transition has been recorded).

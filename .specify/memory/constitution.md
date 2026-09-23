@@ -15,11 +15,11 @@ unfilled in this unratified starter template. -->
 
 <!-- ARTIFACT_READING_START -->
 > [!WARNING]
-> **Ratified 1.0.0; Stage 1 authorization not yet recorded**
+> **Ratified 1.0.0; Stage 1 authorized (transition pending green CI)**
 >
-> Owner `ekzarov` ratified this constitution on 2026-09-23 with three project-specific amendments. Authorization to enter Stage 1 is a separate decision and is still pending.
+> Owner `ekzarov` ratified this constitution on 2026-09-23 with three project-specific amendments. The owner separately authorized Stage 1 on 2026-09-23 within an exact scope; the `bootstrap -> stage-01` transition is recorded only after the ratification commit is pushed and CI on the pull request is green.
 >
-> **Next:** The owner confirms or rejects Stage 1 authorization; the Bootstrap agent records only the actual decision.
+> **Next:** PM pushes the ratification, confirms green CI on the pull request, then records the authorized transition.
 >
 > **Details:** [Bootstrap Decision Record](#read-bootstrap-decision-record) / [Ratification Checklist](#read-ratification-checklist).
 
@@ -528,19 +528,17 @@ below before changing the status to `RATIFIED`. An unchecked item is not approva
       evidence without receiving owner-gate authority. (Only `ekzarov` makes
       owner decisions; PM and specialist roles prepare results and evidence and
       never substitute for owner decisions.)
-- [ ] Confirm the initial migration stage and next action in
-      [`analysis/migration_status.yaml`](../../analysis/migration_status.yaml). (Pending: the initial stage is
-      `stage-01` under this process, but entry requires the separate Stage 1
-      authorization.)
+- [x] Confirm the initial migration stage and next action in
+      [`analysis/migration_status.yaml`](../../analysis/migration_status.yaml). (Initial stage `stage-01`, confirmed
+      with the separate Stage 1 authorization below.)
 - [x] Set constitution version to `1.0.0` or another approved stable version.
       (Owner approved `1.0.0`.)
-- [ ] Complete the Bootstrap Decision Record below and reference this file from
+- [x] Complete the Bootstrap Decision Record below and reference this file from
       [`analysis/migration_status.yaml`](../../analysis/migration_status.yaml) as the constitution ratification record
-      and the owner evidence for the initial Stage 1 transition. (Ratification
-      part completed and referenced; Stage 1 part pending.)
+      and the owner evidence for the initial Stage 1 transition.
 - [x] Record ratification date and owner identity here and in the status file.
-- [ ] Commit ratification as a dedicated, reviewable change. (Pending the
-      owner's separate commit and push decision.)
+- [x] Commit ratification as a dedicated, reviewable change. (Commit
+      `85ca15b` on branch `bootstrap/init`, authorized by the owner.)
 
 <a id="read-bootstrap-decision-record"></a>
 
@@ -566,16 +564,24 @@ before leaving Bootstrap; it does not decide ratification on the owner's behalf:
 - **Project-specific amendments:** [A1](#read-a1-war-only-legacy-evidence),
   [A2](#read-a2-prior-migration-examples-are-not-evidence),
   [A3](#read-a3-no-secrets-in-the-repository)
-- **Stage 1 authorization:** pending (`approved` or `rejected`)
-- **Stage 1 authorized by:** pending owner identity
-- **Stage 1 authorized at:** pending ISO 8601 timestamp
+- **Stage 1 authorization:** `approved`
+- **Stage 1 authorized by:** `ekzarov`
+- **Stage 1 authorized at:** `2026-09-23T15:53:30Z` (time the owner's chat confirmation was recorded)
+- **Stage 1 authorized scope:** Enter Stage 1 (reconnaissance: legacy source to
+  parity map) with BA as lead and Architect in support. The work is read-only
+  inspection of the immutable [`legacy/`](../../legacy) package and fills
+  [`analysis/legacy_reconnaissance.md`](../../analysis/legacy_reconnaissance.md) and [`analysis/legacy_user_flows.xlsx`](../../analysis/legacy_user_flows.xlsx).
+  It excludes starting the legacy runtime and any remote access (Stage 3 with a
+  separate grant), choosing a stack and target code. Material goes only to the
+  current agreed Claude session. The `bootstrap -> stage-01` transition is recorded
+  once the ratification commit is pushed and CI is green on the pull request.
 - **Decision rationale:** The owner reviewed the rendered constitution, accepted
   amendments A1-A3, confirmed the repository layout, data classification,
   external-service limits and owner-only decision roles, approved stable version
   `1.0.0` and ratified it. The owner explicitly kept Stage 1 authorization as a
-  separate decision. An earlier conditional statement (Stage 1 permitted "after the
-  constitution") is not recorded here as authorization until the owner confirms
-  its exact wording.
+  separate decision. The owner first gave a conditional statement (Stage 1
+  permitted "after the constitution"); after ratification the owner confirmed
+  the exact scoped wording recorded above, together with commit and push.
 
 <a id="read-governance"></a>
 

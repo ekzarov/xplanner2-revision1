@@ -34,7 +34,7 @@ control:
   current_stage: bootstrap
   stage_status: awaiting_owner
   previous_stage: null
-  next_action: 'Constitution 1.0.0 ratified by ekzarov (amendments A1-A3). Owner confirms or rejects the exact Stage 1 authorization wording; then commit/push of ratification is a separate owner decision. No transition is recorded until both conditions are met.'
+  next_action: 'Push bootstrap/init (ratification commit 85ca15b and Stage 1 authorization record), open pull request to main, wait for green CI on the exact head; then record the authorized bootstrap -> stage-01 transition and rerun status/project audits. Merge remains an owner decision.'
   automatic_advancement: false
 
 constitution:
@@ -48,9 +48,22 @@ bootstrap_gates:
   initializer_self_test: passed
   status_schema_validation: passed
   command_contract_configured: passed
-  owner_stage_1_approval: pending
+  owner_stage_1_approval: approved
 
-transition_request: null
+transition_request:
+  from: bootstrap
+  to: stage-01
+  reason: 'Owner-authorized Stage 1 entry after constitution 1.0.0 ratification; awaiting pushed ratification commit and green pull-request CI.'
+  requested_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+  requested_at: '2026-09-23T15:53:30Z'
+  gate_evidence:
+    - 'analysis/stages/bootstrap/bootstrap-gate-report.md'
+  owner_approval:
+    approved_by: 'ekzarov'
+    approved_at: '2026-09-23T15:53:30Z'
+    record: '.specify/memory/constitution.md'
+    scope: 'Enter Stage 1 (reconnaissance: legacy source to parity map), BA lead with Architect support; read-only inspection of the immutable legacy/ package filling analysis/legacy_reconnaissance.md and analysis/legacy_user_flows.xlsx; excludes legacy runtime start and remote access (Stage 3, separate grant), stack choice and target code; material only to the current agreed Claude session; transition recorded after the ratification commit is pushed and CI is green on the pull request.'
+
 transition_history: []
 review_passes: []
 owner_decisions:
@@ -74,6 +87,13 @@ owner_decisions:
     decided_at: '2026-09-23T14:14:26Z'
     scope: 'Work permitted in the current agreed Claude session only; legacy/demo-seed.sql is a demonstration fixture, not production data. Any additional provider and the scope of transmitted material, including independent final acceptance, requires a separate owner decision.'
     rationale: 'Owner ratification input for data classification and permitted external review services.'
+    record: '.specify/memory/constitution.md'
+  - id: 'stage-01-authorization:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-23T15:53:30Z'
+    scope: 'Enter Stage 1 (reconnaissance: legacy source to parity map), BA lead with Architect support; read-only inspection of the immutable legacy/ package filling analysis/legacy_reconnaissance.md and analysis/legacy_user_flows.xlsx; excludes legacy runtime start and remote access (Stage 3, separate grant), stack choice and target code; material only to the current agreed Claude session; transition recorded after the ratification commit is pushed and CI is green on the pull request.'
+    rationale: 'Owner confirmed the exact scoped Stage 1 authorization wording after ratification, separately from ratification.'
     record: '.specify/memory/constitution.md'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
@@ -105,9 +125,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Bootstrap audits pass on starter ae3cca61; constitution 1.0.0 ratified with amendments A1-A3; integration branch main; Stage 1 authorization pending exact owner confirmation.'
+  summary: 'Bootstrap audits pass on starter ae3cca61; constitution 1.0.0 ratified with amendments A1-A3; integration branch main; Stage 1 authorized within exact scope; transition awaits pushed ratification and green PR CI.'
   completed_percent: 0
-  updated_at: '2026-09-23T14:20:00Z'
+  updated_at: '2026-09-23T15:55:00Z'
   agent_reviews:
     total: 0
     valid: 0
