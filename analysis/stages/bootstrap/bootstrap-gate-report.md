@@ -45,11 +45,11 @@ Reachability, live behavior, simulation and planned work are not interchangeable
 
 <!-- ARTIFACT_READING_START -->
 > [!WARNING]
-> **Bootstrap audits: pass (12 of 12 required checks); constitution ratified; Bootstrap not closed**
+> **Bootstrap closed: audits pass (12 of 12), constitution ratified, Stage 1 entered**
 >
 > After the owner-approved Starter synchronization to `ae3cca618cb4510345963710f1fd0c54d8a52373` and the authorized corrections, all 12 required checks passed. The first-run `audit:artifact-links` failure is resolved and preserved as history. Constitution `1.0.0` is ratified and the integration branch is `main`. The owner has separately authorized Stage 1 within an exact scope.
 >
-> **Next:** PM pushes the change and opens a pull request to `main`; after green CI on the exact head, PM records the authorized `bootstrap -> stage-01` transition. Merge remains the owner's decision.
+> **Next:** PM assigns Stage 1 reconnaissance to BA within the authorized scope. Merge of the Bootstrap pull request remains the owner's decision.
 >
 > **Details:** [Required Gate Evidence](#read-required-gate-evidence) / [Verification Boundary](#read-verification-boundary).
 
@@ -87,7 +87,7 @@ Reachability, live behavior, simulation and planned work are not interchangeable
 - Owner bootstrap authorization: owner `ekzarov` in chat on 2026-09-23 confirmed the starter revision, project name, owner, project ID and start of Bootstrap. This is not constitution ratification or Stage 1 authorization.
 - Initializer command: `pwsh -NoProfile -NonInteractive -File C:/Work/Legacy/legacy-modernization-starter/init-migration.ps1 -TargetPath C:/Work/Legacy/xplanner2-revision1 -ProjectName 'XPlanner 2 Revision 1' -ProjectOwner 'ekzarov' -ProjectId 'xplanner2-revision1' -AllowNonEmptyTarget` (exit 0; created 251, preserved 0; `-ApproveSharedDemoCredential` not used)
 - Post-initialization project edit: [`config/project.yaml`](../../../config/project.yaml) `paths.legacy_source` set from `null` to `legacy`.
-- Constitution ratification: owner `ekzarov` ratified [`.specify/memory/constitution.md`](../../../.specify/memory/constitution.md) as version `1.0.0` with amendments A1-A3 (chat decision recorded `2026-09-23T14:14:26Z`). The document-level `Version` metadata and `constitution.version` in the status are both `1.0.0`. Stage 1 authorization is recorded separately and is still pending.
+- Constitution ratification: owner `ekzarov` ratified [`.specify/memory/constitution.md`](../../../.specify/memory/constitution.md) as version `1.0.0` with amendments A1-A3 (chat decision recorded `2026-09-23T14:14:26Z`). The document-level `Version` metadata and `constitution.version` in the status are both `1.0.0`. Stage 1 authorization was given separately by `ekzarov` (`2026-09-23T15:53:30Z`) within the exact scope in the constitution's Bootstrap Decision Record; after green pull-request CI the transition was recorded at `2026-09-23T15:58:01Z`. Audits rerun at stage-01 (`2026-09-23T15:58:39Z`): `audit:status`, `audit:project`, `audit:environment`, `audit:methodology`, `audit:prevention`, `audit:views`, `audit:responsibilities`, `audit:artifact-links`, `audit:roles` and `audit:workbook` exited 0; toolkit tests 752 pass / 0 fail / 1 skipped.
 - Repository layout (owner decision `repository-layout:xplanner2-revision1`): [`config/project.yaml`](../../../config/project.yaml) `paths.target_source` changed from `'.'` to `target`. Only the directory [`target/`](../../../target) was created, with an empty `.gitkeep` so that Git keeps it. No stack was selected and nothing was generated.
 - Integration branch: `main`, owner decision `integration-branch:xplanner2-revision1` (owner `ekzarov`, chat, 2026-09-23). The owner also authorized commit and push. The unchanged input ([`legacy/`](../../../legacy) plus the original bytes of `PREPARATION.md`) is committed to `main` first, and the Bootstrap changes are committed to the branch `bootstrap/init` for review.
 
@@ -307,9 +307,13 @@ execution is separate from the human owner's transition authorization.
   `bootstrap -> stage-01` transition is recorded only after green CI on the pull
   request for the pushed head.
 - Report path recorded in [`analysis/migration_status.yaml`](../../migration_status.yaml): in `blockers[].evidence` of the
-  now-resolved blocker `bootstrap-artifact-links-preparation`; not yet in `gate_evidence`
-  (no transition has been recorded).
-- Owner-authorized `bootstrap -> stage-01` transition recorded: `no`
+  resolved blocker `bootstrap-artifact-links-preparation` and in `gate_evidence` of the
+  `bootstrap -> stage-01` transition.
+- Remote CI: pull request [#1](https://github.com/ekzarov/xplanner2-revision1/pull/1), workflow `Starter audit` run
+  `35885143043` on head `609e75b8f32d25ab2df839be2ccee39911c4f3de`: `success`
+  (jobs `bootstrap-contract (ubuntu-latest)` and `bootstrap-contract (windows-latest)`).
+- Owner-authorized `bootstrap -> stage-01` transition recorded: `yes`, at
+  `2026-09-23T15:58:01Z` by PM, owner approval `ekzarov` `2026-09-23T15:53:30Z`.
 - Assessed by: `PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8`
 - Assessed at: `2026-09-23T14:20:23Z` (first assessment `2026-09-23T10:25:18Z`: `fail`; post-synchronization `2026-09-23T13:24:29Z`: `pass`; post-ratification run 3 `2026-09-23T14:17:56Z`: `fail`, corrected)
 

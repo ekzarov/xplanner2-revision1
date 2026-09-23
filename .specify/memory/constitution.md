@@ -15,11 +15,11 @@ unfilled in this unratified starter template. -->
 
 <!-- ARTIFACT_READING_START -->
 > [!WARNING]
-> **Ratified 1.0.0; Stage 1 authorized (transition pending green CI)**
+> **Ratified 1.0.0; Stage 1 authorized and entered**
 >
-> Owner `ekzarov` ratified this constitution on 2026-09-23 with three project-specific amendments. The owner separately authorized Stage 1 on 2026-09-23 within an exact scope; the `bootstrap -> stage-01` transition is recorded only after the ratification commit is pushed and CI on the pull request is green.
+> Owner `ekzarov` ratified this constitution on 2026-09-23 with three project-specific amendments. The owner separately authorized Stage 1 on 2026-09-23 within an exact scope; after the pushed ratification passed pull-request CI, the `bootstrap -> stage-01` transition was recorded on 2026-09-23.
 >
-> **Next:** PM pushes the ratification, confirms green CI on the pull request, then records the authorized transition.
+> **Next:** Stage 1 work proceeds only within the recorded scope; later stages need their own owner decisions.
 >
 > **Details:** [Bootstrap Decision Record](#read-bootstrap-decision-record) / [Ratification Checklist](#read-ratification-checklist).
 
