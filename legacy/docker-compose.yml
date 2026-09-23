@@ -1,0 +1,53 @@
+# Fixed project name so the data volume survives moving this file into legacy/
+name: xplanner
+
+# Legacy XPlanner+ v1.1a4 on its NATIVE database (MySQL). The embedded-HSQLDB mode
+# proved flaky (SQLGrammarException on the nested-set roles query — reserved-word
+# clashes), so the WAR's stock MySQL configuration is used, pointed at the `db`
+# service (WEB-INF/classes/xplanner.properties: jdbc:mysql://db/). XPlanner runs
+# its own schema migrations on first start against the empty database.
+services:
+  db:
+    # 5.7 matches the bundled mysql-connector-java-5.1.13.
+    image: mysql:5.7
+    container_name: xplanner-legacy-db
+    command: --character-set-server=utf8 --collation-server=utf8_general_ci
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=xplanner
+      - MYSQL_USER=xplanner
+      - MYSQL_PASSWORD=xplanner
+    volumes:
+      - xplanner-mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uxplanner", "-pxplanner"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+      start_period: 20s
+    restart: unless-stopped
+
+  xplanner:
+    image: tomcat:9.0-jre8
+    container_name: xplanner
+    ports:
+      - "8080:8080"
+    volumes:
+      # Deploy the prebuilt WAR (patched: hibernate.connection.url -> jdbc:mysql://db/).
+      # Tomcat derives the context path from the FILENAME: mounted as
+      # xplanner-legacy.war => the app lives at /xplanner-legacy (single-domain
+      # path layout; the old /xplanner-plus is redirected by the host nginx).
+      - ./xplanner-plus.war:/usr/local/tomcat/webapps/xplanner-legacy.war:ro
+    environment:
+      # XPlanner docs recommend >=512M heap for Tomcat.
+      # -Xverify:none: the bundled Javassist (Hibernate 3.6) emits proxy bytecode
+      # that a modern JVM's verifier rejects (VerifyError on Role_$$_javassist),
+      # which breaks role/authorization resolution and silently fails login.
+      - CATALINA_OPTS=-Xms256m -Xmx768m -Dfile.encoding=UTF-8 -Xverify:none
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  xplanner-mysql:
