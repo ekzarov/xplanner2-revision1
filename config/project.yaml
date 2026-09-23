@@ -43,7 +43,7 @@ runtime:
 # separately governed remote-environment contract.
 paths:
   legacy_source: legacy
-  target_source: '.'
+  target_source: target
   environments: config/environments.yaml
 
 # Commands stay null until the owner or an authorized maintainer records and

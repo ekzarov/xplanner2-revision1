@@ -45,11 +45,11 @@ Reachability, live behavior, simulation and planned work are not interchangeable
 
 <!-- ARTIFACT_READING_START -->
 > [!WARNING]
-> **Bootstrap audits: pass (12 of 12 required checks); Bootstrap not closed**
+> **Bootstrap audits: pass (12 of 12 required checks); constitution ratified; Bootstrap not closed**
 >
-> After the owner-approved Starter synchronization to `ae3cca618cb4510345963710f1fd0c54d8a52373` and the authorized corrections, all 12 required checks passed on the current run. The first-run `audit:artifact-links` failure is resolved and preserved as history. Constitution ratification, the integration branch and Stage 1 authorization are still pending owner decisions.
+> After the owner-approved Starter synchronization to `ae3cca618cb4510345963710f1fd0c54d8a52373` and the authorized corrections, all 12 required checks passed. The first-run `audit:artifact-links` failure is resolved and preserved as history. Constitution `1.0.0` is ratified and the integration branch is `main`. Stage 1 authorization is still pending.
 >
-> **Next:** The owner reviews the constitution and separately decides ratification, the integration branch and Stage 1 authorization.
+> **Next:** The owner confirms the exact Stage 1 authorization; commit and push of the ratification change remain a separate decision.
 >
 > **Details:** [Required Gate Evidence](#read-required-gate-evidence) / [Verification Boundary](#read-verification-boundary).
 
@@ -80,13 +80,15 @@ Reachability, live behavior, simulation and planned work are not interchangeable
 - Project owner: `ekzarov`
 - Initialized at: `2026-09-23T10:22:40.9170855+00:00`
 - Recorded by: `PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8 (model claude-opus-5-5)`
-- Evidence captured at: first run `2026-09-23T10:23:23Z` to `2026-09-23T10:25:18Z`; current run `2026-09-23T13:22:39Z` to `2026-09-23T13:24:29Z`
+- Evidence captured at: first run `2026-09-23T10:23:23Z` to `2026-09-23T10:25:18Z`; post-synchronization run `2026-09-23T13:22:39Z` to `2026-09-23T13:24:29Z`; current run after ratification `2026-09-23T14:18:33Z` to `2026-09-23T14:20:23Z`
 - Starter source revision (initialization and first run): `2ad915812d25853d1f4c857c0346978e4913c0b8` (owner-confirmed; local clean `main` of `C:/Work/Legacy/legacy-modernization-starter`, used read-only)
 - Owner-approved Starter baseline (current): `ae3cca618cb4510345963710f1fd0c54d8a52373`, approved by owner `ekzarov` in chat on 2026-09-23 as a bounded Bootstrap Maintenance synchronization (see [Starter Synchronization](#read-starter-synchronization))
 - Starter source revision actually used for the current run: `ae3cca618cb4510345963710f1fd0c54d8a52373` (HEAD verified, clean working tree; matches the approved baseline)
 - Owner bootstrap authorization: owner `ekzarov` in chat on 2026-09-23 confirmed the starter revision, project name, owner, project ID and start of Bootstrap. This is not constitution ratification or Stage 1 authorization.
 - Initializer command: `pwsh -NoProfile -NonInteractive -File C:/Work/Legacy/legacy-modernization-starter/init-migration.ps1 -TargetPath C:/Work/Legacy/xplanner2-revision1 -ProjectName 'XPlanner 2 Revision 1' -ProjectOwner 'ekzarov' -ProjectId 'xplanner2-revision1' -AllowNonEmptyTarget` (exit 0; created 251, preserved 0; `-ApproveSharedDemoCredential` not used)
 - Post-initialization project edit: [`config/project.yaml`](../../../config/project.yaml) `paths.legacy_source` set from `null` to `legacy`.
+- Constitution ratification: owner `ekzarov` ratified [`.specify/memory/constitution.md`](../../../.specify/memory/constitution.md) as version `1.0.0` with amendments A1-A3 (chat decision recorded `2026-09-23T14:14:26Z`). The document-level `Version` metadata and `constitution.version` in the status are both `1.0.0`. Stage 1 authorization is recorded separately and is still pending.
+- Repository layout (owner decision `repository-layout:xplanner2-revision1`): [`config/project.yaml`](../../../config/project.yaml) `paths.target_source` changed from `'.'` to `target`. Only the directory [`target/`](../../../target) was created, with an empty `.gitkeep` so that Git keeps it. No stack was selected and nothing was generated.
 - Integration branch: `main`, owner decision `integration-branch:xplanner2-revision1` (owner `ekzarov`, chat, 2026-09-23). The owner also authorized commit and push. The unchanged input ([`legacy/`](../../../legacy) plus the original bytes of `PREPARATION.md`) is committed to `main` first, and the Bootstrap changes are committed to the branch `bootstrap/init` for review.
 
 <a id="read-pre-existing-input-and-limitations"></a>
@@ -152,9 +154,13 @@ condition is successful completion of every required check and its own asserted
 contract. A not-run check stays pending. A failed or blocked row
 keeps Bootstrap open until it is rerun successfully or governed otherwise.
 
-**Current results.** Starter `ae3cca618cb4510345963710f1fd0c54d8a52373`, synchronized
-uncommitted working tree, run `2026-09-23T13:22:39Z` to `2026-09-23T13:24:29Z`,
-same write boundary as below. Each check is counted once at this result.
+**Current results.** Starter `ae3cca618cb4510345963710f1fd0c54d8a52373`. The
+current run `2026-09-23T14:18:33Z` to `2026-09-23T14:20:23Z` checked the
+ratified-constitution working tree on branch `bootstrap/init` (commit `3c2d9c2`
+plus uncommitted ratification changes), with the same write boundary as below. It
+produced the same outputs and counts as the post-synchronization run
+`13:22:39Z` to `13:24:29Z`, whose details are listed in the rows. Each check is
+counted once at the current result.
 
 | Check | Exact command | Result | Durable output or note |
 |---|---|---|---|
@@ -207,6 +213,7 @@ on its first recorded run.
 | `audit:artifact-links` (first run) | Eight plain-text `legacy/...` paths in pre-existing owner file `PREPARATION.md` (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links. The initializer rules forbid normalizing pre-existing files, while the Bootstrap gate matrix requires this audit over the whole repository. | Owner `ekzarov` authorized (chat, 2026-09-23) linkifying exactly those eight references in [`PREPARATION.md`](../../../PREPARATION.md) without changing meaning. Only the eight backticked labels became links to the same repository paths; reviewed word-diff: 8 lines changed, no other text. [`legacy/`](../../../legacy) unchanged. | First run `2026-09-23T10:25:17Z` exit 1; rerun 1 `2026-09-23T13:22:09Z`: no `PREPARATION.md` findings | `pass` (current run) |
 | `audit:status` (after synchronization, before version correction) | The synchronized `status-validator.js` reported `FAIL: /constitution/version 0.1.0-draft does not match project constitution Version 0.2.2-draft` (exit 1; one ad-hoc run, exact time not captured). The initializer had rendered the stale `0.1.0-draft` default from the old status template. | Owner separately authorized correcting only [`analysis/migration_status.yaml`](../../migration_status.yaml) `constitution.version` from `0.1.0-draft` to the constitution's actual document metadata `0.2.2-draft`. This is a record correction, not ratification; the constitution was not modified. | Rerun 1 and current run: `STATUS VALIDATION OK` | `pass` (current run) |
 | `audit:artifact-links` (rerun 1) | Four plain-text paths in new Starter text merged into [`MIGRATION.md`](../../../MIGRATION.md) (`Bootstrap In Practice` step 7 and `Bootstrap Evidence And Blockers`): [`analysis/stages/bootstrap/bootstrap-gate-report.md`](bootstrap-gate-report.md) (3) and [`analysis/migration_status.yaml`](../../migration_status.yaml) (1). These paths do not exist in the Starter itself, so the Starter's own audit does not flag them. | Applied the project copy's existing clickable-link convention to exactly those four synchronized references, within the approved synchronization scope. | Rerun 1 `2026-09-23T13:22:09Z` exit 1; current run exit 0 | `pass` (current run) |
+| `audit:views` and toolkit tests (run 3, after ratification) | Run `2026-09-23T14:16:05Z` to `14:17:56Z`: `audit:views` exit 1 with 4 errors, and `npm --prefix analysis/tools test` exit 1 with 4 failures (tests 180, 210, 363, 378) from the same project-file checks. Causes: (a) the new amendments section sat between `## Core Principles` and `## Required Repository Contracts`, so the principle-boundary check read its words `Phase A` as a core-principle dependency on a packet phase; (b) subsections A1-A3 were missing from Contents; (c) a Cyrillic quotation in the Decision Record would violate the constitution's English-only boundary rule. | Moved the amendments section, unchanged in meaning, to after Required Repository Contracts; added A1-A3 to Contents; replaced the quotation with an English paraphrase. No principle text was changed. | Current run `2026-09-23T14:18:33Z` to `14:20:23Z`: all 12 exit 0; toolkit 752 pass / 0 fail / 1 skipped | `pass` (current run) |
 
 <a id="read-starter-synchronization"></a>
 
@@ -265,7 +272,8 @@ on its first recorded run.
 - Required check rows: 12; pass: 12; fail: 0; blocked: 0; pending/not run: 0.
   Derived from the current Required Gate Evidence rows; the first-run history
   table is not counted. Matches the top summary.
-- Corrected failures: `audit:artifact-links` (first run exit 1 → current exit 0),
+- Corrected failures: `audit:views` and toolkit tests after ratification (run 3
+  exit 1 → current exit 0), `audit:artifact-links` (first run exit 1 → current exit 0),
   `audit:status` after synchronization (exit 1 → current exit 0),
   `audit:artifact-links` rerun 1 (exit 1 → current exit 0); see Deviations.
 - Post-record structural recheck (not counted as extra rows): after this report
@@ -292,14 +300,16 @@ execution is separate from the human owner's transition authorization.
 ## Final Assessment
 
 - Overall Bootstrap audit result: `pass` (first run: `fail`, preserved above)
-- Unresolved failures or blockers: none technical. Pending owner decisions:
-  constitution review and ratification, integration branch, Stage 1 authorization.
+- Unresolved failures or blockers: none technical. Constitution `1.0.0`
+  ratified and integration branch `main` decided. Pending owner decisions:
+  confirmation of the exact Stage 1 authorization, then commit and push of the
+  ratification change.
 - Report path recorded in [`analysis/migration_status.yaml`](../../migration_status.yaml): in `blockers[].evidence` of the
   now-resolved blocker `bootstrap-artifact-links-preparation`; not yet in `gate_evidence`
   (no transition has been recorded).
 - Owner-authorized `bootstrap -> stage-01` transition recorded: `no`
 - Assessed by: `PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8`
-- Assessed at: `2026-09-23T13:24:29Z` (first assessment `2026-09-23T10:25:18Z`: `fail`)
+- Assessed at: `2026-09-23T14:20:23Z` (first assessment `2026-09-23T10:25:18Z`: `fail`; post-synchronization `2026-09-23T13:24:29Z`: `pass`; post-ratification run 3 `2026-09-23T14:17:56Z`: `fail`, corrected)
 
 Bootstrap may be marked green only when every required row passes, no unresolved
 failure remains, and the status transition cites this exact report path.

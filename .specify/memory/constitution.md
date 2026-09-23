@@ -1,3 +1,7 @@
+<!-- Project sync impact: 0.2.2-draft -> 1.0.0 (2026-09-23). Owner ekzarov ratified
+the rendered starter constitution as the first stable project version and added
+project-specific amendments A1-A3 outside Core Principles. The core principles and
+governance invariants are unchanged; the amendments only tighten them. -->
 <!-- Sync impact: 0.2.1-draft -> 0.2.2-draft (editorial clarification, no changed
 obligations). Principles express domain safeguards without stage numbers, packet
 phase names, artifact filenames or a tool vendor. I, V and VI have clearer titles;
@@ -11,11 +15,11 @@ unfilled in this unratified starter template. -->
 
 <!-- ARTIFACT_READING_START -->
 > [!WARNING]
-> **Template: not yet assessed**
+> **Ratified 1.0.0; Stage 1 authorization not yet recorded**
 >
-> Neither project ratification nor separate authorization to begin governed work has been recorded in this template.
+> Owner `ekzarov` ratified this constitution on 2026-09-23 with three project-specific amendments. Authorization to enter Stage 1 is a separate decision and is still pending.
 >
-> **Next:** The initializer creates the draft; the Bootstrap agent records the owner decisions without inferring approval.
+> **Next:** The owner confirms or rejects Stage 1 authorization; the Bootstrap agent records only the actual decision.
 >
 > **Details:** [Bootstrap Decision Record](#read-bootstrap-decision-record) / [Ratification Checklist](#read-ratification-checklist).
 
@@ -38,6 +42,10 @@ unfilled in this unratified starter template. -->
   - [XIII. Every Shipped Surface Must Be Useful](#read-xiii-every-shipped-surface-must-be-useful)
   - [XIV. Durable Handoffs and Honest Completion](#read-xiv-durable-handoffs-and-honest-completion)
 - [Required Repository Contracts](#read-required-repository-contracts)
+- [Project-Specific Amendments](#read-project-specific-amendments)
+  - [A1. WAR-Only Legacy Evidence](#read-a1-war-only-legacy-evidence)
+  - [A2. Prior-Migration Examples Are Not Evidence](#read-a2-prior-migration-examples-are-not-evidence)
+  - [A3. No Secrets In The Repository](#read-a3-no-secrets-in-the-repository)
 - [Ratification Checklist](#read-ratification-checklist)
 - [Bootstrap Decision Record](#read-bootstrap-decision-record)
 - [Governance](#read-governance)
@@ -45,12 +53,12 @@ unfilled in this unratified starter template. -->
 </details>
 <!-- ARTIFACT_READING_END -->
 
-> **Starter state:** TEMPLATE - NOT RATIFIED
+> **Project state:** RATIFIED
 > **Project:** `XPlanner 2 Revision 1`
 > **Owner:** `ekzarov`
-> **Version:** `0.2.2-draft`
-> **Ratified:** pending owner decision
-> **Last amended:** not applicable
+> **Version:** `1.0.0`
+> **Ratified:** 2026-09-23 by `ekzarov`
+> **Last amended:** 2026-09-23 (project-specific amendments A1-A3 at ratification)
 
 This constitution governs the whole modernization project. Its principles remain
 applicable if the workflow is reorganized or renumbered. They define obligations
@@ -433,6 +441,62 @@ Project-specific source and target locations, selected technologies,
 environments, and deployment topology are recorded during initialization and
 architecture work. They are not hard-coded by this starter constitution.
 
+<a id="read-project-specific-amendments"></a>
+
+## Project-Specific Amendments
+
+Decided by owner `ekzarov` at ratification on 2026-09-23 (version `1.0.0`),
+recorded by the Bootstrap PM agent. Each amendment only tightens the starter
+safeguards; none weakens a governance invariant.
+
+<a id="read-a1-war-only-legacy-evidence"></a>
+
+### A1. WAR-Only Legacy Evidence
+
+The legacy baseline in [`legacy/`](../../legacy) is the XPlanner+ v1.1a4 WAR
+distribution with its local run helpers, not a complete upstream Java source
+checkout. Legacy behavior is established from the available package contents
+and from live observation. Anything that cannot be verified from these materials
+is explicitly marked unverified. Assumptions are never presented as facts.
+
+- **Rationale:** the supplied input lacks full Java source; Principles II and III
+  must stay honest about that limitation.
+- **Affected stages and artifacts:** discovery and control of the parity map and
+  reconnaissance, live walkthrough, architecture discovery and every later
+  evidence reference.
+- **Migration impact:** evidence citations point to package contents or live
+  observations; unrecoverable behavior remains visibly unverified.
+
+<a id="read-a2-prior-migration-examples-are-not-evidence"></a>
+
+### A2. Prior-Migration Examples Are Not Evidence
+
+Illustrative examples and links in the process material that describe an earlier
+migration of the same legacy system are format examples only. They are not
+evidence, requirements, decisions or approvals for this project, and they are
+excluded from blind review packets.
+
+- **Rationale:** the starter payload contains such examples; using them would
+  compromise the independence of this run.
+- **Affected stages and artifacts:** all stages; blind packet preparation for
+  independent control stages.
+- **Migration impact:** agents do not follow or cite those examples as project
+  evidence; the coordinator withholds them from blind Phase A packets.
+
+<a id="read-a3-no-secrets-in-the-repository"></a>
+
+### A3. No Secrets In The Repository
+
+Secrets and embedded private keys are prohibited in this repository. The
+temporary demo-credential exception in Principle XI does not apply to this project.
+
+- **Rationale:** the repository is public, and credentials belong in approved
+  storage outside Git.
+- **Affected stages and artifacts:** environment configuration, remote access,
+  deployment, delivery and every review packet.
+- **Migration impact:** environment contracts use external secret references
+  only; access and credentials are supplied through an approved channel outside Git.
+
 <a id="read-ratification-checklist"></a>
 
 ## Ratification Checklist
@@ -444,20 +508,39 @@ for the setup procedure. In this process, initial governed work starts at Stage 
 The owner reviews and decides; the Bootstrap agent records each confirmation
 below before changing the status to `RATIFIED`. An unchecked item is not approval:
 
-- [ ] Confirm the initializer replaced the project name and owner placeholders.
-- [ ] Review every core principle and record any project-specific amendment.
-- [ ] Confirm source and target repository layout.
-- [ ] Confirm data classification and permitted external review services.
-- [ ] Confirm owner-only decisions and the operational roles that prepare
-      evidence without receiving owner-gate authority.
+- [x] Confirm the initializer replaced the project name and owner placeholders.
+      (`XPlanner 2 Revision 1`, `ekzarov`.)
+- [x] Review every core principle and record any project-specific amendment.
+      (Owner accepted amendments A1-A3; see [Project-Specific Amendments](#read-project-specific-amendments).)
+- [x] Confirm source and target repository layout. (Owner decision:
+      [`legacy/`](../../legacy) is the immutable input package; [`target/`](../../target) holds the new
+      application including its sources and tests; process documents stay at
+      the starter-defined locations. `paths.target_source` is `target`; no stack
+      has been selected; commands and working directories are configured from
+      the actual structure at their governing stages.)
+- [x] Confirm data classification and permitted external review services.
+      (Owner decision: [`legacy/demo-seed.sql`](../../legacy/demo-seed.sql) is a demonstration fixture, not
+      production data. Work is permitted in the current agreed Claude session
+      only. This is not general permission to send material to any external
+      service; every additional provider and the scope of transmitted material,
+      including independent final acceptance, needs a separate owner decision.)
+- [x] Confirm owner-only decisions and the operational roles that prepare
+      evidence without receiving owner-gate authority. (Only `ekzarov` makes
+      owner decisions; PM and specialist roles prepare results and evidence and
+      never substitute for owner decisions.)
 - [ ] Confirm the initial migration stage and next action in
-      [`analysis/migration_status.yaml`](../../analysis/migration_status.yaml).
-- [ ] Set constitution version to `1.0.0` or another approved stable version.
+      [`analysis/migration_status.yaml`](../../analysis/migration_status.yaml). (Pending: the initial stage is
+      `stage-01` under this process, but entry requires the separate Stage 1
+      authorization.)
+- [x] Set constitution version to `1.0.0` or another approved stable version.
+      (Owner approved `1.0.0`.)
 - [ ] Complete the Bootstrap Decision Record below and reference this file from
       [`analysis/migration_status.yaml`](../../analysis/migration_status.yaml) as the constitution ratification record
-      and the owner evidence for the initial Stage 1 transition.
-- [ ] Record ratification date and owner identity here and in the status file.
-- [ ] Commit ratification as a dedicated, reviewable change.
+      and the owner evidence for the initial Stage 1 transition. (Ratification
+      part completed and referenced; Stage 1 part pending.)
+- [x] Record ratification date and owner identity here and in the status file.
+- [ ] Commit ratification as a dedicated, reviewable change. (Pending the
+      owner's separate commit and push decision.)
 
 <a id="read-bootstrap-decision-record"></a>
 
@@ -476,15 +559,23 @@ authorization, and Stage 1 authorization is invalid without ratification.
 The Bootstrap agent fills each pending value from the owner's explicit decision
 before leaving Bootstrap; it does not decide ratification on the owner's behalf:
 
-- **Constitution decision:** pending (`ratified` or `rejected`)
-- **Approved constitution version:** `0.2.2-draft`
-- **Ratified by:** pending owner identity
-- **Ratified at:** pending ISO 8601 timestamp
-- **Project-specific amendments:** pending (`none` or exact section links)
+- **Constitution decision:** `ratified`
+- **Approved constitution version:** `1.0.0`
+- **Ratified by:** `ekzarov`
+- **Ratified at:** `2026-09-23T14:14:26Z` (time the owner's chat decision was recorded)
+- **Project-specific amendments:** [A1](#read-a1-war-only-legacy-evidence),
+  [A2](#read-a2-prior-migration-examples-are-not-evidence),
+  [A3](#read-a3-no-secrets-in-the-repository)
 - **Stage 1 authorization:** pending (`approved` or `rejected`)
 - **Stage 1 authorized by:** pending owner identity
 - **Stage 1 authorized at:** pending ISO 8601 timestamp
-- **Decision rationale:** pending
+- **Decision rationale:** The owner reviewed the rendered constitution, accepted
+  amendments A1-A3, confirmed the repository layout, data classification,
+  external-service limits and owner-only decision roles, approved stable version
+  `1.0.0` and ratified it. The owner explicitly kept Stage 1 authorization as a
+  separate decision. An earlier conditional statement (Stage 1 permitted "after the
+  constitution") is not recorded here as authorization until the owner confirms
+  its exact wording.
 
 <a id="read-governance"></a>
 
@@ -525,6 +616,6 @@ explicit owner approval. A project may record a decision to use a different
 process, but it must then identify the departure and MUST NOT claim full
 conformance with this starter methodology.
 
-**Status:** TEMPLATE - NOT RATIFIED
-**Version:** `0.2.2-draft`
-**Ratified:** pending owner decision
+**Status:** RATIFIED
+**Version:** `1.0.0`
+**Ratified:** 2026-09-23 by `ekzarov`

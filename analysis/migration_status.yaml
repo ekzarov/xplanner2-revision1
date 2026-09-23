@@ -34,15 +34,15 @@ control:
   current_stage: bootstrap
   stage_status: awaiting_owner
   previous_stage: null
-  next_action: 'Owner reviews the project constitution and decides ratification (amendments, stable version, ratification checklist items); Stage 1 authorization is a separate decision recorded only after ratification. Bootstrap audits pass on starter ae3cca618cb4510345963710f1fd0c54d8a52373; integration branch main approved; see analysis/stages/bootstrap/bootstrap-gate-report.md.'
+  next_action: 'Constitution 1.0.0 ratified by ekzarov (amendments A1-A3). Owner confirms or rejects the exact Stage 1 authorization wording; then commit/push of ratification is a separate owner decision. No transition is recorded until both conditions are met.'
   automatic_advancement: false
 
 constitution:
-  status: unratified
-  version: '0.2.2-draft'
-  ratified_by: null
-  ratified_at: null
-  ratification_record: null
+  status: ratified
+  version: '1.0.0'
+  ratified_by: 'ekzarov'
+  ratified_at: '2026-09-23T14:14:26Z'
+  ratification_record: '.specify/memory/constitution.md'
 
 bootstrap_gates:
   initializer_self_test: passed
@@ -61,6 +61,20 @@ owner_decisions:
     scope: 'Integration branch main for repository https://github.com/ekzarov/xplanner2-revision1; initial input commit on main, Bootstrap changes on branch bootstrap/init.'
     rationale: 'Owner selected main in chat; the repository had no commits or remote branches, so the branch could not be inferred.'
     record: 'analysis/stages/bootstrap/bootstrap-gate-report.md'
+  - id: 'repository-layout:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-23T14:14:26Z'
+    scope: 'legacy/ is the immutable input package; target/ holds the new application including its sources and tests; process documents stay at starter-defined locations; config/project.yaml paths.target_source = target. No stack selected; commands configured at their governing stages.'
+    rationale: 'Owner ratification input for source and target repository layout.'
+    record: '.specify/memory/constitution.md'
+  - id: 'external-services:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-23T14:14:26Z'
+    scope: 'Work permitted in the current agreed Claude session only; legacy/demo-seed.sql is a demonstration fixture, not production data. Any additional provider and the scope of transmitted material, including independent final acceptance, requires a separate owner decision.'
+    rationale: 'Owner ratification input for data classification and permitted external review services.'
+    record: '.specify/memory/constitution.md'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -91,9 +105,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Bootstrap audits pass (12/12) after owner-approved starter sync to ae3cca61 and authorized corrections; constitution unratified, integration branch and Stage 1 authorization pending.'
+  summary: 'Bootstrap audits pass on starter ae3cca61; constitution 1.0.0 ratified with amendments A1-A3; integration branch main; Stage 1 authorization pending exact owner confirmation.'
   completed_percent: 0
-  updated_at: '2026-09-23T13:30:00Z'
+  updated_at: '2026-09-23T14:20:00Z'
   agent_reviews:
     total: 0
     valid: 0
