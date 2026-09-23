@@ -1,0 +1,32 @@
+# Operating-system and editor state
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+*.local
+*.secret
+*.secrets
+
+# Local migration runtime state
+.migration-tmp/
+analysis/runtime/
+analysis/private/
+
+# Logs and transient output
+*.log
+*.tmp
+*.temp
+coverage/
+dist/
+build/
+node_modules/
+outputs/

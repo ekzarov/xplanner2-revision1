@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Agent system | Legacy modernization</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f9fa;color:#192b36;font:16px/1.6 Arial,Helvetica,sans-serif;letter-spacing:0}a{color:#235f91;text-underline-offset:3px}a:focus-visible{outline:3px solid #d29726;outline-offset:4px}header,main,footer{max-width:1328px;margin:auto;padding:20px 24px}header{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #cbd6dc}h1{margin:0;font-size:26px;line-height:1.25}h2{font-size:22px;margin:30px 0 12px}nav{display:flex;flex-wrap:wrap;gap:12px 24px;font-size:14px}p{margin:12px 0}.summary{margin:0 0 14px;font-size:17px}.diagram{overflow-x:auto;margin:0}.diagram svg{display:block;width:100%;min-width:960px;height:auto}.stages{border-top:1px solid #cbd6dc;border-bottom:1px solid #cbd6dc;padding:14px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;font-size:14px}.stages p{margin:0}.reading{max-width:940px}li{margin:9px 0}code{font-size:14px;overflow-wrap:anywhere}footer{border-top:1px solid #cbd6dc;font-size:14px;color:#49606d}#reading-and-maintenance~p:last-child{overflow-wrap:anywhere}@media(max-width:650px){header{display:block;padding:16px}nav{margin-top:12px;gap:12px 18px}h1{font-size:24px}main{padding:16px}.stages{grid-template-columns:1fr}.summary{font-size:16px}footer{padding:16px}}@media print{header nav,.reading,footer{display:none}.diagram{overflow:visible}.diagram svg{min-width:0;width:100%}header,main{padding:0}.summary{font-size:13px}.stages{font-size:11px}}
+.agent-roster{display:flex;flex-wrap:wrap;gap:8px 28px;padding-left:20px;margin:0 0 14px}.agent-roster li{margin:0}
+</style></head><body>
+<header><h1>Agent system</h1><nav aria-label="Related process views"><a href="https://legacy-transformation-demo.olsys.dev/starter-process/">Process 3D</a><a href="../migration_methodology.html">Methodology</a><a href="#how-many-agents">How many agents?</a><a href="diagram.svg" download>Download diagram</a></nav></header>
+<main><ul class="agent-roster" aria-label="Agent roles"><li><a href="../../.agents/skills/migration-pm/SKILL.md">PM / Coordinator</a></li><li><a href="../../.agents/skills/migration-ba/SKILL.md">Business Analyst</a></li><li><a href="../../.agents/skills/migration-ux/SKILL.md">UX Designer</a></li><li><a href="../../.agents/skills/migration-architect/SKILL.md">Architect</a></li><li><a href="../../.agents/skills/migration-developer/SKILL.md">Developer</a></li><li><a href="../../.agents/skills/migration-qa/SKILL.md">QA</a></li></ul><p class="summary">Six roles, not six permanent agents. The owner is human.</p>
+<figure class="diagram" aria-label="Agent roles and exchanges"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 950" role="img" aria-labelledby="title desc">
+<title id="title">Six portable roles: PM delegates specialist work</title>
+<desc id="desc">The human owner decides. PM coordinates and delegates to BA, UX, Architect, Developer and QA; PM does not do specialist work. Assignments name scope, revisions and a skill. Specialists explicitly read it and return ACK, then RESULT. Fresh eligible sessions of the same specializations review work. Tools are not agents. Durable records preserve context independently of native client profiles.</desc>
+<style>
+svg{background:#f7f9fa}text{font-family:Arial,Helvetica,sans-serif;fill:#192b36;letter-spacing:0}.title{font-size:21px;font-weight:700}.body{font-size:17px}.count{font-size:16px;font-weight:700;fill:#49606d}.edge{font-size:16px;paint-order:stroke;stroke:#f7f9fa;stroke-width:7px;stroke-linejoin:round}.note{font-size:16px;fill:#49606d}.node{fill:#fff;stroke:#9aadb8;stroke-width:1.5}.pm{fill:#e5f0fc;stroke:#3975ac;stroke-width:2}.owner{fill:#fff4d9;stroke:#ab812e}.reviewer{fill:#e8f5ef;stroke:#45816a}.tools,.records{fill:#edf1f3}.arrow{fill:none;stroke:#526b7b;stroke-width:2}marker path{fill:#526b7b}.return{fill:#963b3b;font-size:17px;font-weight:700}
+</style>
+<defs><marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z"/></marker><marker id="tail" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z"/></marker></defs>
+<g data-context="owner" transform="translate(30 20)"><rect width="350" height="155" rx="6" class="node owner"/><text x="16" y="31" class="title"><tspan x="16" dy="0">Human owner</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">Human, not an agent</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Decides scope and required approvals</tspan></text></g>
+<g data-role="pm" transform="translate(600 20)"><rect width="650" height="155" rx="6" class="node pm"/><text x="16" y="31" class="title"><tspan x="16" dy="0">PM / Coordinator</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">Coordination</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Delegates work; secures access; runs approved deploys</tspan></text></g>
+<path d="M382 65 H598" class="arrow" marker-end="url(#head)" marker-start="url(#tail)"/><text x="406" y="53" class="edge">Ask / decide</text>
+<text x="406" y="113" class="note"><tspan x="406" dy="0">Human authority</tspan></text>
+<text x="30" y="214" class="title"><tspan x="30" dy="0">PM does not do specialist work. Six roles are not six permanent sessions.</tspan></text>
+<path d="M925 178 V270 H150 V316" class="arrow" marker-end="url(#head)" marker-start="url(#tail)"/><text x="30" y="250" class="edge">Assignment: scope + revision + skill; explicit reading + ACK before work</text>
+<path d="M925 270 H1130" class="arrow"/>
+<path d="M395 270 V316" class="arrow" marker-end="url(#head)"/><text x="0" y="0" class="edge"></text><path d="M640 270 V316" class="arrow" marker-end="url(#head)"/><text x="0" y="0" class="edge"></text><path d="M885 270 V316" class="arrow" marker-end="url(#head)"/><text x="0" y="0" class="edge"></text><path d="M1130 270 V316" class="arrow" marker-end="url(#head)"/><text x="0" y="0" class="edge"></text>
+<g data-role="ba" transform="translate(30 320)"><rect width="240" height="208" rx="6" class="node ba"/><text x="16" y="31" class="title"><tspan x="16" dy="0">Business Analyst</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">On assigned scope</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Establishes source-backed</tspan><tspan x="16" dy="23">behavior and requirements</tspan></text></g><g data-role="ux" transform="translate(275 320)"><rect width="240" height="208" rx="6" class="node ux"/><text x="16" y="31" class="title"><tspan x="16" dy="0">UX Designer</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">On assigned scope</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Designs journeys, screens</tspan><tspan x="16" dy="23">and the shared UI</tspan><tspan x="16" dy="23">baseline</tspan></text></g><g data-role="architect" transform="translate(520 320)"><rect width="240" height="208" rx="6" class="node architect"/><text x="16" y="31" class="title"><tspan x="16" dy="0">Architect</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">On assigned scope</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Owns architecture,</tspan><tspan x="16" dy="23">knowledge and integrated</tspan><tspan x="16" dy="23">SDD</tspan></text></g><g data-role="developer" transform="translate(765 320)"><rect width="240" height="208" rx="6" class="node developer"/><text x="16" y="31" class="title"><tspan x="16" dy="0">Developer</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">On assigned scope</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Implements, tests and</tspan><tspan x="16" dy="23">performs permitted</tspan><tspan x="16" dy="23">delivery</tspan></text></g><g data-role="qa" transform="translate(1010 320)"><rect width="240" height="208" rx="6" class="node qa"/><text x="16" y="31" class="title"><tspan x="16" dy="0">QA</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">On assigned scope</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Verifies UI and deployed</tspan><tspan x="16" dy="23">behavior against</tspan><tspan x="16" dy="23">expectations</tspan></text></g>
+<text x="30" y="568" class="body"><tspan x="30" dy="0">RESULT to PM: session + skill version + files/snapshot + checks + gaps + next action.</tspan></text>
+<path d="M30 595 H1250" stroke="#cbd6dc"/>
+<text x="30" y="631" class="title"><tspan x="30" dy="0">Author / responsible-check sessions</tspan></text>
+<text x="30" y="667" class="body"><tspan x="30" dy="0">Authors continue bounded work. Responsible checks:</tspan></text>
+<text x="30" y="695" class="body"><tspan x="30" dy="0">3 BA; 12 Architect; 18 Developer. Not independent.</tspan></text>
+<text x="680" y="631" class="title"><tspan x="680" dy="0">Fresh instances of the same specializations</tspan></text>
+<text x="680" y="667" class="body"><tspan x="680" dy="0">2 BA; 7 QA; 10/14/16 Architect; 17 Developer; 19 QA.</tspan></text>
+<text x="680" y="695" class="body"><tspan x="680" dy="0">Blind 2/19: save Phase A, then release Phase B.</tspan></text>
+<text x="680" y="723" class="note"><tspan x="680" dy="0">Final acceptance: independent agents of other vendors.</tspan></text>
+<text x="30" y="759" class="return"><tspan x="30" dy="0">Findings return to the responsible author; PM routes, the next required reviewer is fresh.</tspan></text>
+<g data-context="tools" transform="translate(30 792)"><rect width="455" height="140" rx="6" class="node tools"/><text x="16" y="31" class="title"><tspan x="16" dy="0">Automated gates / tools</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">Programs, not agents</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Run the configured audits, tests and permitted</tspan><tspan x="16" dy="23">checks</tspan></text></g>
+<g data-context="records" transform="translate(510 792)"><rect width="740" height="140" rx="6" class="node records"/><text x="16" y="31" class="title"><tspan x="16" dy="0">Versioned project records</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">Durable shared context</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Instructions, status, approved inputs, artifacts, code and review evidence</tspan></text></g>
+</svg>
+</figure>
+<p><a href="index.html">Step-by-step example</a> &middot; <a href="../agent-roles.md">Normative role contract</a>.</p>
+<section class="stages" aria-label="Roles across process stages"><p><strong>Independent reviews:</strong> 2, 7, 10, 14, 16, 19. <strong>Code peer review:</strong> 17.</p><p><strong>Responsible-agent verification:</strong> 3, 12, 18; not fresh independent reviews.</p><p><strong>Owner decisions:</strong> Bootstrap, 4, 5, 8, 9, 11, 16, 17, 19; Stage 3 conditional fallback.</p><p><strong>Operating model, not a deployed agent service.</strong> Gates are tools, not agents.</p></section>
+<article class="reading"><p><a id="read-how-many-agents"></a></p>
+<h2 id="how-many-agents">How Many Agents</h2>
+<ul>
+<li><strong>Delegation is mandatory:</strong> PM coordinates; separately assigned specialists
+execute migration work. PM does not switch persona to do their work itself.</li>
+<li><strong>Sessions follow the scope:</strong> author sessions may continue bounded work;
+every independent pass starts fresh. Support and parallelism are optional,
+with satisfied dependencies and one writer per file. No permanent team is required.</li>
+<li><strong>No fixed total:</strong> twenty checkpoints do not mean twenty permanent agents.
+Stages name responsibilities, not processes that are all running together.
+Corrections can require additional fresh reviewer sessions.</li>
+<li><strong>PM is accountable, not all-powerful:</strong> it cannot approve its
+own work, replace the reviewer's conclusion or invent the owner's consent.
+If its session is replaced, routing resumes from durable records, not memory alone.</li>
+</ul>
+<p><a id="read-invocation-and-communication"></a></p>
+<h2 id="invocation-and-communication">Invocation And Communication</h2>
+<p><strong>Read each exchange as three messages, not two:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Direction</th>
+<th>Message</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PM to specialist</td>
+<td>Task + instructions</td>
+<td>Here is the bounded work, exact inputs, stage procedure and role skill.</td>
+</tr>
+<tr>
+<td>Specialist to PM, before work</td>
+<td>ACK (acknowledgement)</td>
+<td>I read the instructions and understand the task and its boundaries. This is not completion or approval.</td>
+</tr>
+<tr>
+<td>Specialist to PM, after work</td>
+<td>RESULT</td>
+<td>Here are the exact files, checks and remaining gaps; for review, the report and its evidence.</td>
+</tr>
+</tbody>
+</table>
+<p>A review packet is a task package for a fresh eligible reviewer, not another
+kind of agent. It includes only the inputs permitted in the current review
+phase. Evidence means the records supporting a claim, not just &quot;done&quot; in chat.
+Blue exchanges belong to authors/responsible checks; green exchanges to fresh
+independent/peer reviews. NEW marks a session start; repeated assignments do not
+necessarily create new agents.</p>
+<p><strong>Instruction chain:</strong> <a href="../../MIGRATION.md">MIGRATION.md</a> determines session routing
+and permitted work. The active stage in the
+<a href="../migration_methodology.md#actors">methodology</a> defines inputs, work, outputs and
+checks. The <a href="../agent-roles.md">role contract</a> assigns the specialist and handoff
+rules; its skill helps execute that procedure, not replace it.</p>
+<ol>
+<li>The owner starts or authorizes the work. PM reads
+<a href="../../MIGRATION.md">MIGRATION.md</a>, the constitution, current status and applicable
+instructions. It identifies the permitted scope and next action.</li>
+<li>PM delegates the exact role/mode using a unique assignment ID, stage/scope,
+source revision or identified snapshot, allowed/withheld inputs, explicit
+write allowlist, exact skill path, checks and return destination. The receiver
+opens that <code>SKILL.md</code>, the role contract and assigned procedure even without
+native skill discovery, then returns <strong>ACK</strong> with session identity, role/mode,
+scope, input revision and skill commit/hash. PM verifies ACK before work is accepted.</li>
+<li>The specialist writes only its assigned artifacts and self-checks/gates them.
+<strong>RESULT</strong> identifies the task/session, role/mode, loaded skills, exact result
+snapshot, files, checks/outcomes, applicable CHK checks, gaps and next action.
+PM verifies versions, output existence, evidence and write boundaries before
+integrating permitted shared records. A chat-only completion claim is insufficient.</li>
+<li>At an independent checkpoint, the coordinator prepares the deterministic
+packet and invokes a fresh eligible reviewer. Formal review uses an immutable
+revision and isolated read-only worktree; the reviewer writes its report
+outside the reviewed worktree. It does not fix the author's files.</li>
+<li>The reviewer returns RESULT with its conclusion and exact report/evidence references.
+The coordinator validates findings and routes accepted corrections to the
+responsible authoring stage. The author records dispositions and reruns
+affected checks. Material corrections receive a fresh review; unresolved
+material disputes escalate to the owner, not an endless agent discussion.</li>
+<li>At a required human gate the coordinator stops and asks. A clean review
+and green scripts do not supply that decision. The authoring lead records
+assigned owner decisions. At Stage 19 PM records the owner walkthrough/decline
+and sign-off; QA returns independent evidence only. PM alone records permitted
+transitions in existing status.</li>
+</ol>
+<p><strong>Transport is portable:</strong> the same assignment, explicit skill reading, ACK and
+RESULT use an available delegation tool, approved CLI or owner-launched separate
+session. Native client profiles and automatic skill discovery are conveniences,
+not the contract. A provider/client change first needs a bounded read-only ACK
+probe and verified isolation/tool access. An unavailable capability blocks that
+task; it does not permit PM to impersonate the specialist or claim success.
+No specialist launches additional workers by default; PM controls delegation.</p>
+<p><strong>QUESTION / BLOCKED:</strong> specialists name the task, exact source references,
+uncertainty and needed decision. PM routes the issue, records the authorized
+answer and sends it to every affected participant. Conflicting decisions or
+overlapping writes pause affected work. Bounded specialist discussion cannot
+expand scope, change an approved baseline or replace a human decision.</p>
+<p>Messages carry assignments and result links. Repository files and pinned review
+packets carry durable context; agents do not share an unrestricted hidden memory.
+The coordinator transports review questions and evidence-based challenges under
+the <a href="../agent_orchestration.md#discussion-and-completion">bounded discussion rules</a>.
+This is a reusable interaction loop, not a new stage sequence or a mandatory
+review after every ordinary task.</p>
+<p><strong>Blind access at Stages 2 and 19:</strong> send Phase A material only, save the
+reviewer's independent observations, then release Phase B material and reconcile.
+The full repository, prior findings and learned checklist are not unrestricted
+reviewer context. Other independent stages do not acquire an invented blind phase.
+Withhold full status, prior conclusions, author handoffs and filled examples too.
+Automatic startup imports or memory exposing them invalidate the blind attempt;
+Markdown alone cannot enforce isolation. Verify actual runtime permissions.</p>
+<p><a id="read-where-stages-fit"></a></p>
+<h2 id="where-stages-fit">Where Stages Fit</h2>
+<ul>
+<li>Independent formal reviews: <strong>2, 7, 10, 14, 16 and 19</strong>.</li>
+<li>Independent code peer review: <strong>17</strong>, after the slice's automated checks.</li>
+<li>Responsible-agent verification, not a fresh independent pass: <strong>3 BA,
+12 Architect and 18 Developer</strong>. QA support at 18 is not Stage 19 acceptance.</li>
+<li>Owner decision points include Bootstrap and <strong>4, 5, 8, 9, 11, 16, 17 and 19</strong>;
+Stage 3 has a conditional fallback decision. Exact subdecisions and exceptions
+remain in the stage instructions.</li>
+<li>Authoring, investigation and delivery stay with the assigned lead specialist,
+never with PM. Architect owns integrated Stage 15 SDD; BA, UX, Developer and
+QA may contribute bounded support through PM without becoming its self-reviewers.</li>
+</ul>
+<p>For example: <strong>15</strong> prepares SDD; <strong>16</strong> independently checks it and requires
+the owner's implementation decision; <strong>17</strong> implements, runs gates and obtains
+independent peer review plus owner merge approval; <strong>18</strong> deploys and records
+live evidence; <strong>19</strong> independently accepts the deployed scope and obtains the
+owner's continuation or final decision. Findings return to their responsible
+stage rather than skipping to the next box.</p>
+<p><a id="read-reading-and-maintenance"></a></p>
+<h2 id="reading-and-maintenance">Reading And Maintenance</h2>
+<p>This explanatory overview is created and maintained by the process maintainer
+(human or authorized agent). It does not create an orchestration server, install
+an agent provider, choose models or change delegation permissions.</p>
+<p>The normative <a href="../agent-roles.md">portable role and delegation contract</a>,
+<a href="../migration_methodology.md#actors">methodology's actor definitions</a>,
+<a href="../process-contract.md">process contract</a> and
+<a href="../agent_orchestration.md">cross-agent protocol</a> remain authoritative.
+For ordinary eligible reviews, the same model may serve different roles through
+distinct sessions; different model names alone do not establish independence.
+<strong>Final consolidated acceptance at Stage 19 additionally requires third-party
+agents of other vendors</strong>, as specified by the methodology. A fresh same-vendor
+session does not satisfy that final-acceptance requirement.</p>
+<p>The pages and SVGs are generated from this English Markdown, the role contract
+and process contract by <code>node analysis/agent-system/build-view.js</code>. Use <code>--check</code> to detect
+stale views. Update this explanation alongside affected process changes; do not
+edit the generated picture independently or treat it as project evidence.</p>
+</article></main>
+<footer>English Markdown defines the process. This picture summarizes roles; exact permissions and return routes remain in the stage instructions.</footer>
+</body></html>

@@ -1,0 +1,178 @@
+[
+  {
+    "template": "config/environments.template.yaml",
+    "output": "config/environments.yaml"
+  },
+  {
+    "template": "config/project.template.yaml",
+    "output": "config/project.yaml"
+  },
+  {
+    "template": "analysis/migration_status.template.yaml",
+    "output": "analysis/migration_status.yaml"
+  },
+  {
+    "template": "analysis/stages/templates/bootstrap-gate-report-template.md",
+    "output": "analysis/stages/bootstrap/bootstrap-gate-report.md"
+  },
+  {
+    "template": "analysis/legacy_reconnaissance.template.md",
+    "output": "analysis/legacy_reconnaissance.md"
+  },
+  {
+    "template": "analysis/legacy_user_flows_template.xlsx",
+    "output": "analysis/legacy_user_flows.xlsx"
+  },
+  {
+    "template": "specs/verification-record.template.md",
+    "output": "specs/NNN-feature/verification-record.md"
+  },
+  {
+    "template": "specs/traceability.template.md",
+    "output": "specs/traceability.md"
+  },
+  {
+    "template": ".specify/templates/spec-template.md",
+    "output": "specs/NNN-SLUG/spec.md"
+  },
+  {
+    "template": ".specify/templates/plan-template.md",
+    "output": "specs/NNN-SLUG/plan.md"
+  },
+  {
+    "template": ".specify/templates/tasks-template.md",
+    "output": "specs/NNN-SLUG/tasks.md"
+  },
+  {
+    "template": "analysis/prototyping/templates/ui-ux-decision-template.md",
+    "output": "analysis/prototyping/ui-ux-decision.md"
+  },
+  {
+    "template": "analysis/prototyping/templates/ui-ux-approval-template.md",
+    "output": "analysis/prototyping/ui-ux-approval.md"
+  },
+  {
+    "template": "analysis/prototyping/templates/ui-polish-backlog-template.md",
+    "output": "analysis/prototyping/ui-polish-backlog.md"
+  },
+  {
+    "template": "analysis/architecture/templates/architecture-template.md",
+    "output": "analysis/architecture/architecture.md"
+  },
+  {
+    "template": "analysis/architecture/templates/architecture-nfr-owner-review-template.md",
+    "output": "analysis/architecture/architecture-nfr-owner-review.md"
+  },
+  {
+    "template": "analysis/architecture/templates/architecture-nfr-decision-register-template.xlsx",
+    "output": "analysis/architecture/architecture-nfr-decision-register.xlsx"
+  },
+  {
+    "template": "analysis/architecture/templates/architecture-review-verdict-template.md",
+    "output": "analysis/architecture/architecture-review-verdict.md"
+  },
+  {
+    "template": "analysis/architecture/templates/NNN-SLUG-template.md",
+    "output": "analysis/architecture/adr/NNN-SLUG.md"
+  },
+  {
+    "template": "analysis/architecture/templates/sections/00-foundation-template.md",
+    "output": "analysis/architecture/sections/00-foundation.md"
+  },
+  {
+    "template": "analysis/architecture/templates/sections/NN-SLUG-template.md",
+    "output": "analysis/architecture/sections/NN-SLUG.md"
+  },
+  {
+    "template": "analysis/knowledge/templates/index-template.md",
+    "output": "analysis/knowledge/bundle/index.md"
+  },
+  {
+    "template": "analysis/knowledge/templates/SLUG-template.md",
+    "output": "analysis/knowledge/bundle/CATEGORY/SLUG.md"
+  },
+  {
+    "template": "analysis/reviews/stage-NN-pass-NNN-template.md",
+    "output": "analysis/reviews/stage-NN-pass-NNN.md"
+  },
+  {
+    "template": "analysis/stages/templates/walkthrough-NNN-template.md",
+    "output": "analysis/stages/stage-03/walkthrough-NNN.md"
+  },
+  {
+    "template": "analysis/stages/templates/stage-04-requirements-revision-template.md",
+    "output": "analysis/stages/stage-04/stage-04-requirements-revision.md"
+  },
+  {
+    "template": "analysis/stages/templates/knowledge-record-template.md",
+    "output": "analysis/stages/stage-13/knowledge-record.md"
+  },
+  {
+    "template": "analysis/stages/templates/sdd-record-template.md",
+    "output": "analysis/stages/stage-15/sdd-record.md"
+  },
+  {
+    "template": "analysis/stages/templates/delivery-NNN-template.md",
+    "output": "analysis/stages/stage-18/delivery-NNN.md"
+  },
+  {
+    "template": "analysis/stages/templates/stage-19-pass-NNN-template.md",
+    "output": "analysis/reviews/stage-19-pass-NNN.md"
+  },
+  {
+    "template": "analysis/stages/templates/owner-walkthrough-NNN-template.md",
+    "output": "analysis/stages/stage-19/owner-walkthrough-NNN.md"
+  },
+  {
+    "template": "analysis/stages/templates/owner-walkthrough-decline-template.md",
+    "output": "analysis/stages/stage-19/owner-walkthrough-decline.md"
+  },
+  {
+    "template": "analysis/stages/templates/GATE-SCOPE-template.md",
+    "output": "analysis/stages/waivers/GATE-SCOPE.md"
+  },
+  {
+    "template": "analysis/prototyping/templates/screen-normalization.example.json",
+    "output": "analysis/prototyping/screen-normalization.json"
+  },
+  {
+    "template": "analysis/prototyping/templates/screen-manifest.example.json",
+    "output": "analysis/prototyping/screen-manifest.json"
+  },
+  {
+    "template": "analysis/architecture/templates/architecture-nfr-manifest.example.json",
+    "output": "analysis/architecture/architecture-nfr-manifest.json"
+  },
+  {
+    "template": "analysis/knowledge/templates/knowledge-manifest.example.json",
+    "output": "analysis/knowledge/knowledge-manifest.json"
+  },
+  {
+    "template": "analysis/inventories/target-surface-inventory.example.json",
+    "output": "analysis/inventories/target-surface-inventory.json"
+  },
+  {
+    "template": "analysis/architecture/templates/architecture-owner-verdict-NNN-template.md",
+    "output": "analysis/stages/stage-11/architecture-owner-verdict-NNN.md"
+  },
+  {
+    "template": "analysis/architecture/templates/architecture-closure-NNN-template.md",
+    "output": "analysis/stages/stage-12/architecture-closure-NNN.md"
+  },
+  {
+    "template": "analysis/error-prevention-checklist.template.md",
+    "output": "analysis/error-prevention-checklist.md"
+  },
+  {
+    "template": "analysis/prototyping/templates/ui-design-system-template.md",
+    "output": "analysis/prototyping/ui-design-system.md"
+  },
+  {
+    "template": "analysis/prototyping/templates/ui-design-tokens.example.json",
+    "output": "analysis/prototyping/ui-design-tokens.json"
+  },
+  {
+    "template": "analysis/feature-dependencies.example.json",
+    "output": "analysis/feature-dependencies.json"
+  }
+]

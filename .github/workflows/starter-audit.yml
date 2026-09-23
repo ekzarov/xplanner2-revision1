@@ -1,0 +1,197 @@
+name: Starter audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bootstrap-contract:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up pinned audit runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: analysis/tools/package-lock.json
+
+      - name: Install deterministic audit tools
+        env:
+          AUDIT_TEST_MODE: ''
+        run: npm --prefix analysis/tools ci --ignore-scripts
+
+      - name: Validate environment contract and embedded credential visibility
+        env:
+          REPOSITORY_VISIBILITY: ${{ github.event.repository.visibility }}
+        run: npm --prefix analysis/tools run audit:environment -- --require-visibility
+
+      - name: Preserve completed architecture review records
+        shell: pwsh
+        env:
+          REVIEW_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          $base = if ($env:REVIEW_BASE) { $env:REVIEW_BASE } else { 'HEAD^' }
+          node analysis/tools/architecture-review-history.js --base $base
+          if ($LASTEXITCODE -ne 0) { throw 'Completed architecture review history was changed.' }
+
+      - name: Run initializer self-tests
+        if: ${{ github.repository == 'olsys-ltd/legacy-modernization-starter' }}
+        shell: pwsh
+        run: ./tests/init-migration.Tests.ps1
+
+      - name: Validate dependency graph and derived view
+        run: |
+          npm --prefix analysis/tools run audit:dependencies
+          node analysis/feature-canvas/build-data.js --check
+
+      - name: Validate error-prevention checklist
+        run: npm --prefix analysis/tools run audit:prevention
+
+      - name: Test deterministic audit tools
+        run: |
+          npm --prefix analysis/tools test
+          npm --prefix analysis/tools run audit:environment
+          npm --prefix analysis/tools run audit:methodology
+          npm --prefix analysis/tools run audit:artifact-links
+          npm --prefix analysis/tools run audit:views
+
+      - name: Validate initialized project checkpoint
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:AUDIT_TEST_MODE) {
+            throw 'AUDIT_TEST_MODE is forbidden in governed CI.'
+          }
+
+          function Invoke-Audit {
+            param([Parameter(Mandatory)][string]$Name)
+            & npm --prefix analysis/tools run $Name
+            if ($LASTEXITCODE -ne 0) {
+              throw "Audit '$Name' failed with exit code $LASTEXITCODE."
+            }
+          }
+
+          $starterRepository = 'olsys-ltd/legacy-modernization-starter'
+          $starterSource = Test-Path -LiteralPath .migration-starter-source -PathType Leaf
+          $isStarterRepository = $env:GITHUB_REPOSITORY -eq $starterRepository
+          $marker = Test-Path -LiteralPath .migration-starter.json -PathType Leaf
+          $statusExists = Test-Path -LiteralPath analysis/migration_status.yaml -PathType Leaf
+          $projectExists = Test-Path -LiteralPath config/project.yaml -PathType Leaf
+
+          if ($starterSource) {
+            $sourceMarker = Get-Content -Raw -LiteralPath .migration-starter-source | ConvertFrom-Json
+            if ($sourceMarker.repository -ne $starterRepository -or -not $isStarterRepository) {
+              throw 'The starter-source marker is valid only in its governed source repository.'
+            }
+            if ($marker -or $statusExists -or $projectExists) {
+              throw 'Starter source mode must not contain initialized-project control files.'
+            }
+            Write-Host 'Starter source repository detected; generated-project checkpoint audits are not applicable.'
+            exit 0
+          }
+          if ($isStarterRepository) {
+            throw 'The governed starter repository is missing .migration-starter-source.'
+          }
+          if (-not $marker) {
+            throw 'Initialized repository marker .migration-starter.json is missing.'
+          }
+          if (-not $statusExists -or -not $projectExists) {
+            throw 'Initialized repositories must contain analysis/migration_status.yaml and config/project.yaml.'
+          }
+
+          Invoke-Audit 'audit:status'
+          Invoke-Audit 'audit:project'
+          Invoke-Audit 'audit:environment'
+          Invoke-Audit 'audit:methodology'
+          Invoke-Audit 'audit:views'
+          Invoke-Audit 'audit:workbook'
+          if (Test-Path -LiteralPath analysis/artifact-graph/build-graph-data.js -PathType Leaf) {
+            & node analysis/artifact-graph/build-graph-data.js --check
+            if ($LASTEXITCODE -ne 0) {
+              throw 'The committed artifact graph is stale relative to governed project status.'
+            }
+          }
+
+          $stage = (& node -e "const fs=require('fs');const y=require('./analysis/tools/node_modules/yaml');const s=y.parse(fs.readFileSync('analysis/migration_status.yaml','utf8'));process.stdout.write(s.control.current_stage);").Trim()
+          if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($stage)) {
+            throw 'Unable to determine current migration stage.'
+          }
+          $stageNumber = if ($stage -eq 'bootstrap') {
+            0
+          } elseif ($stage -eq 'complete') {
+            19
+          } elseif ($stage -match '^stage-(\d{2})$') {
+            [int]$Matches[1]
+          } else {
+            throw "Unknown migration stage '$stage'."
+          }
+
+          if ($stageNumber -ge 6 -and $stageNumber -lt 8) { Invoke-Audit 'audit:prototype' }
+          if ($stageNumber -ge 8) { Invoke-Audit 'audit:prototype:approved' }
+          # Stage 9 is the authoring and owner-questionnaire workspace. Its strict
+          # gate becomes mandatory only when independent Stage 10 review starts.
+          if ($stageNumber -ge 10 -and $stageNumber -lt 11) { Invoke-Audit 'audit:architecture' }
+          if ($stageNumber -eq 11) { Invoke-Audit 'audit:architecture' }
+          if ($stageNumber -ge 12) { Invoke-Audit 'audit:architecture:approved' }
+          $reviewAdopted = (& node -e "const fs=require('fs');const y=require('./analysis/tools/node_modules/yaml');const s=y.parse(fs.readFileSync('analysis/migration_status.yaml','utf8'));process.stdout.write(require('./analysis/tools/architecture-review-records').isAdopted(s) ? 'yes' : 'no');").Trim()
+          if ($stageNumber -ge 13 -and $reviewAdopted -eq 'yes') { Invoke-Audit 'audit:architecture:closure' }
+          if ($stageNumber -ge 13) { Invoke-Audit 'audit:knowledge' }
+          $delivery = (& node -e "const fs=require('fs');const y=require('./analysis/tools/node_modules/yaml');const s=y.parse(fs.readFileSync('analysis/migration_status.yaml','utf8'));process.stdout.write(JSON.stringify(s.delivery||{}));" | ConvertFrom-Json)
+          $parallelImplementationGate =
+            $null -ne $delivery.active_slice -and
+            $delivery.slice_status -in @('in_progress', 'deployed', 'accepted')
+          if ($stageNumber -ge 15 -or $parallelImplementationGate) {
+            Invoke-Audit 'audit:sdd'
+            $sddCompletionPolicy = (& node analysis/tools/sdd-completion-policy.js analysis/migration_status.yaml).Trim()
+            if ($LASTEXITCODE -ne 0) {
+              throw 'SDD completion policy failed.'
+            }
+            if ($sddCompletionPolicy -eq 'required') {
+              Invoke-Audit 'audit:sdd:slice'
+            } elseif ($sddCompletionPolicy -eq 'deferred') {
+              Write-Host 'SDD completion mode deferred until the active slice is deployed or accepted.'
+            } else {
+              throw "SDD completion policy returned unsupported result '$sddCompletionPolicy'."
+            }
+          }
+          if ($stageNumber -ge 17 -or $parallelImplementationGate) {
+            Invoke-Audit 'audit:ui-parity'
+            Invoke-Audit 'audit:target'
+          }
+          if ($stageNumber -ge 18) { Invoke-Audit 'audit:delivery' }
+          if ($stage -eq 'complete') { Invoke-Audit 'audit:all' }
+          elseif ($stageNumber -eq 19) { Invoke-Audit 'audit:stage19' }
+
+      - name: Validate generated bootstrap checkpoint
+        if: ${{ github.repository == 'olsys-ltd/legacy-modernization-starter' }}
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $target = Join-Path $env:RUNNER_TEMP 'migration-starter-schema-check'
+          ./init-migration.ps1 `
+            -TargetPath $target `
+            -ProjectName 'Schema Check' `
+            -ProjectOwner 'Starter Audit' `
+            -ProjectId 'schema-check'
+
+          & npm --prefix "$target/analysis/tools" ci --ignore-scripts
+          if ($LASTEXITCODE -ne 0) { throw 'Generated audit dependencies failed to install.' }
+          foreach ($audit in @('audit:status', 'audit:project', 'audit:environment', 'audit:methodology', 'audit:views')) {
+            & npm --prefix "$target/analysis/tools" run $audit
+            if ($LASTEXITCODE -ne 0) { throw "Generated checkpoint audit '$audit' failed." }
+          }

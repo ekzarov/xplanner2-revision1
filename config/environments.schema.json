@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/legacy-modernization/environments.schema.json",
+  "title": "Legacy modernization deployment environments",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "default_environment",
+    "environments"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "default_environment": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "temporary_secret_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "plaintext_repository_credentials_allowed",
+        "repository_visibility_required",
+        "rotation_required",
+        "owner",
+        "approved_at",
+        "expires_at",
+        "approval_evidence",
+        "applies_to",
+        "reason",
+        "remediation"
+      ],
+      "properties": {
+        "plaintext_repository_credentials_allowed": {
+          "const": true
+        },
+        "repository_visibility_required": {
+          "const": "private"
+        },
+        "rotation_required": {
+          "const": true
+        },
+        "owner": {
+          "type": "string",
+          "minLength": 2
+        },
+        "approved_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "approval_evidence": {
+          "type": "string",
+          "minLength": 20
+        },
+        "applies_to": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          }
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 20
+        },
+        "remediation": {
+          "type": "string",
+          "minLength": 20
+        }
+      }
+    },
+    "environments": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/environment"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "default_environment": { "type": "null" } } },
+      "then": { "properties": { "environments": { "type": "object", "maxProperties": 0 } } },
+      "else": { "properties": { "environments": { "type": "object", "minProperties": 1 } } }
+    },
+    {
+      "if": {
+        "properties": {
+          "environments": {
+            "type": "object",
+            "not": { "additionalProperties": { "$ref": "#/$defs/externalAuthentication" } }
+          }
+        }
+      },
+      "then": { "required": ["temporary_secret_policy"] }
+    }
+  ],
+  "$defs": {
+    "externalAuthentication": {
+      "type": "object",
+      "properties": {
+        "connection": {
+          "type": "object",
+          "properties": {
+            "authentication": {
+              "type": "object",
+              "properties": { "mode": { "const": "environment_variable" } }
+            }
+          }
+        }
+      }
+    },
+    "relativePath": {
+      "type": "string",
+      "pattern": "^(?![A-Za-z]:[\\\\/])(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+"
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "purpose",
+        "connection",
+        "deployment",
+        "public_endpoints",
+        "verification"
+      ],
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "minLength": 10
+        },
+        "connection": {
+          "$ref": "#/$defs/connection"
+        },
+        "deployment": {
+          "$ref": "#/$defs/deployment"
+        },
+        "public_endpoints": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          }
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "connection_command",
+            "expected_hostname",
+            "expected_kernel"
+          ],
+          "properties": {
+            "connection_command": {
+              "type": "string",
+              "minLength": 20
+            },
+            "expected_hostname": {
+              "type": "string",
+              "minLength": 1
+            },
+            "expected_kernel": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "connection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol",
+        "host",
+        "port",
+        "username",
+        "authentication",
+        "known_hosts_file",
+        "host_key_fingerprints"
+      ],
+      "properties": {
+        "protocol": {
+          "const": "ssh"
+        },
+        "host": {
+          "type": "string",
+          "minLength": 1
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "username": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authentication": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mode",
+                "private_key_base64",
+                "public_key_fingerprint"
+              ],
+              "properties": {
+                "mode": {
+                  "const": "embedded_private_key"
+                },
+                "private_key_base64": {
+                  "type": "string",
+                  "minLength": 200,
+                  "pattern": "^[A-Za-z0-9+/=]+$"
+                },
+                "public_key_fingerprint": {
+                  "type": "string",
+                  "pattern": "^SHA256:"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mode",
+                "private_key_environment_variable",
+                "public_key_fingerprint"
+              ],
+              "properties": {
+                "mode": {
+                  "const": "environment_variable"
+                },
+                "private_key_environment_variable": {
+                  "type": "string",
+                  "pattern": "^[A-Z][A-Z0-9_]+$"
+                },
+                "public_key_fingerprint": {
+                  "type": "string",
+                  "pattern": "^SHA256:"
+                }
+              }
+            }
+          ]
+        },
+        "known_hosts_file": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "host_key_fingerprints": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^SHA256:"
+          }
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "root_pattern",
+        "existing_project_roots",
+        "container_runtime",
+        "reverse_proxy"
+      ],
+      "properties": {
+        "root_pattern": {
+          "type": "string",
+          "pattern": "^/opt/"
+        },
+        "existing_project_roots": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^/opt/"
+          }
+        },
+        "container_runtime": {
+          "const": "docker-compose"
+        },
+        "reverse_proxy": {
+          "const": "nginx"
+        }
+      }
+    }
+  }
+}

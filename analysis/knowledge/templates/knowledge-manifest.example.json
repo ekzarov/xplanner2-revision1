@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "okf_version": "0.2",
+  "project": "<project name>",
+  "scope": "<knowledge baseline scope>",
+  "knowledge_set_version": "<version>",
+  "architecture_document_set_version": "<approved architecture version>",
+  "generated_at": "YYYY-MM-DDTHH:mm:ssZ",
+  "source_artifacts": [
+    {
+      "path": "analysis/legacy_user_flows.xlsx",
+      "role": "parity-map",
+      "sha256": "<hex SHA-256>"
+    },
+    {
+      "path": "analysis/architecture/architecture-nfr-manifest.json",
+      "role": "approved-architecture-manifest",
+      "sha256": "<hex SHA-256>"
+    },
+    {
+      "path": "analysis/stages/stage-11/architecture-owner-verdict-001.md",
+      "role": "owner-architecture-verdict",
+      "sha256": "<hex SHA-256>"
+    },
+    {
+      "path": "analysis/stages/stage-12/architecture-closure-001.md",
+      "role": "architecture-closure",
+      "sha256": "<hex SHA-256>"
+    }
+  ],
+  "files": [
+    {
+      "path": "index.md",
+      "role": "bundle-index",
+      "sha256": "<hex SHA-256>"
+    },
+    {
+      "path": "capabilities/example.md",
+      "role": "concept",
+      "concept_id": "capability.example",
+      "sha256": "<hex SHA-256>"
+    }
+  ]
+}

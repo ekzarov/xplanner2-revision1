@@ -1,0 +1,1735 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/legacy-modernization/migration_status.schema.json",
+  "title": "Legacy modernization migration status",
+  "description": "Fail-closed, project-agnostic control state for the migration methodology.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project",
+    "control",
+    "constitution",
+    "bootstrap_gates",
+    "transition_request",
+    "transition_history",
+    "review_passes",
+    "owner_decisions",
+    "blockers",
+    "legacy_walkthrough",
+    "delivery",
+    "progress"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.5.0"
+    },
+    "project": {
+      "$ref": "#/$defs/project"
+    },
+    "control": {
+      "$ref": "#/$defs/control"
+    },
+    "constitution": {
+      "$ref": "#/$defs/constitution"
+    },
+    "bootstrap_gates": {
+      "$ref": "#/$defs/bootstrapGates"
+    },
+    "transition_request": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/transitionRequest"
+        }
+      ]
+    },
+    "transition_history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/completedTransition"
+      }
+    },
+    "review_passes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/reviewPass"
+      }
+    },
+    "owner_decisions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ownerDecision"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/blocker"
+      }
+    },
+    "legacy_walkthrough": {
+      "$ref": "#/$defs/legacyWalkthrough"
+    },
+    "delivery": {
+      "$ref": "#/$defs/delivery"
+    },
+    "progress": {
+      "$ref": "#/$defs/progress"
+    },
+    "architecture_review": {
+      "type": "object",
+      "required": [
+        "owner_verdict",
+        "closure_report",
+        "adopted_at",
+        "records"
+      ],
+      "properties": {
+        "owner_verdict": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^analysis/stages/stage-11/architecture-owner-verdict-[0-9]{3}\\.md$"
+            }
+          ]
+        },
+        "closure_report": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^analysis/stages/stage-12/architecture-closure-[0-9]{3}\\.md$"
+            }
+          ]
+        },
+        "adopted_at": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^analysis/stages/stage-(11/architecture-owner-verdict|12/architecture-closure)-[0-9]{3}\\.md$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "control": {
+            "type": "object",
+            "properties": {
+              "current_stage": {
+                "const": "bootstrap"
+              }
+            },
+            "required": [
+              "current_stage"
+            ]
+          }
+        },
+        "required": [
+          "control"
+        ]
+      },
+      "then": {
+        "properties": {
+          "control": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "const": "bootstrap"
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "constitution": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "const": "ratified"
+              }
+            }
+          },
+          "bootstrap_gates": {
+            "type": "object",
+            "properties": {
+              "initializer_self_test": {
+                "const": "passed"
+              },
+              "status_schema_validation": {
+                "const": "passed"
+              },
+              "command_contract_configured": {
+                "const": "passed"
+              },
+              "owner_stage_1_approval": {
+                "const": "approved"
+              }
+            }
+          },
+          "transition_history": {
+            "type": "array",
+            "minItems": 1,
+            "contains": {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "const": "bootstrap"
+                },
+                "to": {
+                  "const": "stage-01"
+                }
+              },
+              "required": [
+                "from",
+                "to"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "control": {
+            "type": "object",
+            "properties": {
+              "current_stage": {
+                "const": "complete"
+              }
+            },
+            "required": [
+              "current_stage"
+            ]
+          }
+        },
+        "required": [
+          "control"
+        ]
+      },
+      "then": {
+        "properties": {
+          "control": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "const": "complete"
+              },
+              "stage_status": {
+                "const": "complete"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "control": {
+            "type": "object",
+            "properties": {
+              "current_stage": {
+                "type": "string",
+                "pattern": "^stage-(0[1-9]|1[0-9])$"
+              }
+            },
+            "required": [
+              "current_stage"
+            ]
+          }
+        },
+        "required": [
+          "control"
+        ]
+      },
+      "then": {
+        "properties": {
+          "control": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "const": "active"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nullableNonEmptyString": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "nullableTimestamp": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/timestamp"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stage": {
+      "enum": [
+        "bootstrap",
+        "stage-01",
+        "stage-02",
+        "stage-03",
+        "stage-04",
+        "stage-05",
+        "stage-06",
+        "stage-07",
+        "stage-08",
+        "stage-09",
+        "stage-10",
+        "stage-11",
+        "stage-12",
+        "stage-13",
+        "stage-14",
+        "stage-15",
+        "stage-16",
+        "stage-17",
+        "stage-18",
+        "stage-19",
+        "complete"
+      ]
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "owner"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$",
+          "maxLength": 100
+        },
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "owner": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "current_stage",
+        "stage_status",
+        "previous_stage",
+        "next_action",
+        "automatic_advancement"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "bootstrap",
+            "active",
+            "complete"
+          ]
+        },
+        "current_stage": {
+          "$ref": "#/$defs/stage"
+        },
+        "stage_status": {
+          "enum": [
+            "not_started",
+            "in_progress",
+            "blocked",
+            "awaiting_review",
+            "awaiting_owner",
+            "complete"
+          ]
+        },
+        "previous_stage": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/stage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "next_action": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "automatic_advancement": {
+          "const": false
+        },
+        "prevention_self_check": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Current Error prevention self-check and learning note when this stage has no writable narrative record. Include stage/scope, checked version, checklist revision or SHA-256, CHK outcomes/exclusion reasons and learning disposition. Not approval; withheld from Stage 2/19 Phase A. New/reopened work must replace stale notes; historical status is not backfilled."
+        }
+      }
+    },
+    "constitution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "version",
+        "ratified_by",
+        "ratified_at",
+        "ratification_record"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unratified",
+            "ratified"
+          ]
+        },
+        "version": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "ratified_by": {
+          "$ref": "#/$defs/nullableNonEmptyString"
+        },
+        "ratified_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "ratification_record": {
+          "$ref": "#/$defs/nullableNonEmptyString"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "const": "ratified"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ratified_by": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ratified_at": {
+                "$ref": "#/$defs/timestamp"
+              },
+              "ratification_record": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "ratified_by": {
+                "type": "null"
+              },
+              "ratified_at": {
+                "type": "null"
+              },
+              "ratification_record": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "gateResult": {
+      "enum": [
+        "pending",
+        "passed",
+        "failed",
+        "blocked"
+      ]
+    },
+    "bootstrapGates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "initializer_self_test",
+        "status_schema_validation",
+        "command_contract_configured",
+        "owner_stage_1_approval"
+      ],
+      "properties": {
+        "initializer_self_test": {
+          "$ref": "#/$defs/gateResult"
+        },
+        "status_schema_validation": {
+          "$ref": "#/$defs/gateResult"
+        },
+        "command_contract_configured": {
+          "$ref": "#/$defs/gateResult"
+        },
+        "owner_stage_1_approval": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        }
+      }
+    },
+    "transitionPair": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "bootstrap"
+            },
+            "to": {
+              "const": "stage-01"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-01"
+            },
+            "to": {
+              "const": "stage-02"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-02"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-03"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-03"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-04"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-04"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-05"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-06"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-06"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-07"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-07"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-06",
+                "stage-08"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-08"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-06",
+                "stage-09"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-09"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-06",
+                "stage-10"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-10"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-06",
+                "stage-09",
+                "stage-11"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-11"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-06",
+                "stage-09",
+                "stage-12"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-12"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-06",
+                "stage-09",
+                "stage-13"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-13"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-06",
+                "stage-09",
+                "stage-14"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-14"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-06",
+                "stage-09",
+                "stage-13",
+                "stage-15"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-15"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-06",
+                "stage-09",
+                "stage-13",
+                "stage-16"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-16"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-05",
+                "stage-06",
+                "stage-09",
+                "stage-13",
+                "stage-15",
+                "stage-17"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-17"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-09",
+                "stage-15",
+                "stage-18"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-18"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-09",
+                "stage-15",
+                "stage-17",
+                "stage-19"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "const": "stage-19"
+            },
+            "to": {
+              "enum": [
+                "stage-01",
+                "stage-09",
+                "stage-15",
+                "stage-17",
+                "complete"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "transitionBase": {
+      "type": "object",
+      "required": [
+        "from",
+        "to",
+        "reason"
+      ],
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/stage"
+        },
+        "to": {
+          "$ref": "#/$defs/stage"
+        },
+        "reason": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/$defs/transitionPair"
+        }
+      ]
+    },
+    "ownerApproval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approved_by",
+        "approved_at",
+        "record",
+        "scope"
+      ],
+      "properties": {
+        "approved_by": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "approved_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "record": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "scope": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "transitionRequest": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/transitionBase"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "from",
+            "to",
+            "reason",
+            "requested_by",
+            "requested_at",
+            "gate_evidence",
+            "owner_approval"
+          ],
+          "properties": {
+            "from": true,
+            "to": true,
+            "reason": true,
+            "requested_by": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "requested_at": {
+              "$ref": "#/$defs/timestamp"
+            },
+            "gate_evidence": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            },
+            "owner_approval": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/ownerApproval"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "completedTransition": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/transitionBase"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "from",
+            "to",
+            "reason",
+            "changed_by",
+            "changed_at",
+            "gate_evidence",
+            "owner_approval"
+          ],
+          "properties": {
+            "from": true,
+            "to": true,
+            "reason": true,
+            "changed_by": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "changed_at": {
+              "$ref": "#/$defs/timestamp"
+            },
+            "gate_evidence": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            },
+            "owner_approval": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/ownerApproval"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "type": "object",
+                "anyOf": [
+                  {
+                    "properties": {
+                      "from": {
+                        "const": "bootstrap"
+                      },
+                      "to": {
+                        "const": "stage-01"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "from": {
+                        "const": "stage-04"
+                      },
+                      "to": {
+                        "const": "stage-05"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "from": {
+                        "const": "stage-05"
+                      },
+                      "to": {
+                        "const": "stage-06"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "from": {
+                        "const": "stage-08"
+                      },
+                      "to": {
+                        "const": "stage-09"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "from": {
+                        "const": "stage-11"
+                      },
+                      "to": {
+                        "const": "stage-12"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "from": {
+                        "const": "stage-16"
+                      },
+                      "to": {
+                        "const": "stage-17"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "from": {
+                        "const": "stage-17"
+                      },
+                      "to": {
+                        "const": "stage-18"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "from": {
+                        "const": "stage-19"
+                      },
+                      "to": {
+                        "enum": [
+                          "stage-17",
+                          "complete"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ]
+                  }
+                ]
+              },
+              "then": {
+                "properties": {
+                  "owner_approval": {
+                    "$ref": "#/$defs/ownerApproval"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "type": "object",
+                "properties": {
+                  "to": {
+                    "const": "complete"
+                  }
+                },
+                "required": [
+                  "to"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "owner_approval": {
+                    "$ref": "#/$defs/ownerApproval"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "reviewPass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stage",
+        "pass",
+        "result",
+        "report",
+        "reviewer",
+        "reviewer_id",
+        "session_id",
+        "authored_artifacts",
+        "independence_record",
+        "reviewed_at",
+        "scope",
+        "waiver_ids"
+      ],
+      "properties": {
+        "stage": {
+          "enum": [
+            "stage-02",
+            "stage-07",
+            "stage-10",
+            "stage-14",
+            "stage-16",
+            "stage-19"
+          ]
+        },
+        "pass": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "result": {
+          "enum": [
+            "clean",
+            "findings",
+            "blocked",
+            "invalid"
+          ]
+        },
+        "report": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "reviewer": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "reviewer_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+          "maxLength": 200
+        },
+        "session_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+          "maxLength": 200
+        },
+        "authored_artifacts": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "independence_record": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "reviewed_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "scope": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "waiver_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^waiver:.+"
+          }
+        },
+        "export_set_version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The export set this pass reviewed; the Stage 8 approved gate couples the approval to a closing pass carrying the exact version."
+        },
+        "artifact_set_version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact architecture or OKF document-set version reviewed at Stage 10 or Stage 14."
+        },
+        "artifact_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "SHA-256 of the exact architecture or OKF manifest reviewed at Stage 10 or Stage 14."
+        },
+        "findings_severity_max": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ],
+          "description": "Maximum severity among the findings; only low can close a stage, and only for stage-07 under the owner exit criterion."
+        },
+        "never_cosmetic_check": {
+          "const": "confirmed",
+          "description": "Attestation that no finding falls into a never-cosmetic class (missing flow, invented behavior, incorrect roles/security, missing required state/action/dialog, broken navigation, unusable clipping, unapproved target-only behavior)."
+        },
+        "all_findings_cosmetic": {
+          "const": "confirmed",
+          "description": "Attestation that every finding is cosmetic - distinct from the never-cosmetic check, which only excludes the enumerated classes."
+        },
+        "dispositioned_in": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Project-relative path of the polish backlog recording and dispositioning the low cosmetic findings; must be a regular file inside the project."
+        },
+        "unchecked_scopes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Dimensions the reviewer could not check; non-empty forces result: blocked."
+        }
+      }
+    },
+    "ownerDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "decision",
+        "decided_by",
+        "decided_at",
+        "scope",
+        "rationale",
+        "record"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "decision": {
+          "enum": [
+            "approved",
+            "rejected",
+            "deferred"
+          ]
+        },
+        "decided_by": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "decided_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "scope": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "rationale": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "record": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "residual_risk": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "permitted_next_stage": {
+          "$ref": "#/$defs/stage"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^waiver:"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "then": {
+            "required": [
+              "residual_risk",
+              "permitted_next_stage"
+            ]
+          }
+        }
+      ]
+    },
+    "blocker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "summary",
+        "owner",
+        "status",
+        "opened_at",
+        "evidence"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "owner": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "status": {
+          "enum": [
+            "open",
+            "resolved"
+          ]
+        },
+        "opened_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "resolved_at": {
+          "$ref": "#/$defs/nullableTimestamp"
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      }
+    },
+    "legacyWalkthrough": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome",
+        "scope",
+        "record",
+        "decision_id",
+        "unresolved_blocked_scopes"
+      ],
+      "properties": {
+        "outcome": {
+          "enum": [
+            "pending",
+            "live-verified",
+            "partial-simulated",
+            "blocked-waived"
+          ]
+        },
+        "scope": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "record": {
+          "$ref": "#/$defs/nullableNonEmptyString"
+        },
+        "decision_id": {
+          "$ref": "#/$defs/nullableNonEmptyString"
+        },
+        "unresolved_blocked_scopes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "summary",
+              "status",
+              "waiver_id",
+              "evidence"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "summary": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "status": {
+                "enum": [
+                  "blocked",
+                  "resolved"
+                ]
+              },
+              "waiver_id": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^waiver:.+"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "evidence": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "#/$defs/nonEmptyString"
+                }
+              }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "pending"
+              }
+            },
+            "required": [
+              "outcome"
+            ]
+          },
+          "then": {
+            "properties": {
+              "record": {
+                "type": "null"
+              },
+              "decision_id": {
+                "type": "null"
+              },
+              "unresolved_blocked_scopes": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "record": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "enum": [
+                  "partial-simulated",
+                  "blocked-waived"
+                ]
+              }
+            },
+            "required": [
+              "outcome"
+            ]
+          },
+          "then": {
+            "properties": {
+              "decision_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "active_slice",
+        "slice_status",
+        "completed_slices",
+        "completed_slice_evidence",
+        "reopened_slices",
+        "consolidated_backlog",
+        "owner_walkthrough_reports",
+        "owner_walkthrough_decision_id"
+      ],
+      "properties": {
+        "active_slice": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ui_parity_corrections": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^\\d{3}-[a-z0-9][a-z0-9-]*#[a-z0-9][a-z0-9-]*$"
+          }
+        },
+        "delivered_ui_slices": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^\\d{3}-[a-z0-9][a-z0-9-]*$"
+          }
+        },
+        "slice_status": {
+          "enum": [
+            "not_started",
+            "planning",
+            "approved",
+            "in_progress",
+            "deployed",
+            "accepted",
+            "blocked"
+          ]
+        },
+        "completed_slices": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^\\d{3}-[a-z0-9][a-z0-9-]*$"
+          }
+        },
+        "completed_slice_evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "slice",
+              "spec",
+              "plan",
+              "tasks",
+              "delivery_record",
+              "acceptance_record"
+            ],
+            "properties": {
+              "slice": {
+                "type": "string",
+                "pattern": "^\\d{3}-[a-z0-9][a-z0-9-]*$"
+              },
+              "spec": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "plan": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "tasks": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "delivery_record": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "acceptance_record": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          }
+        },
+        "reopened_slices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "slice",
+              "reason",
+              "reopened_at",
+              "record",
+              "status"
+            ],
+            "properties": {
+              "slice": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "reason": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "reopened_at": {
+                "$ref": "#/$defs/timestamp"
+              },
+              "record": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "status": {
+                "enum": [
+                  "open",
+                  "resolved"
+                ]
+              }
+            }
+          }
+        },
+        "consolidated_backlog": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "owner_walkthrough_reports": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "owner_walkthrough_decision_id": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^owner-walkthrough-declined:[a-z0-9][a-z0-9-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "completed_percent",
+        "updated_at",
+        "agent_reviews"
+      ],
+      "properties": {
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "completed_percent": {
+          "description": "Derived formal progress: percentage of the contiguous Stage 1-19 prefix closed before control.current_stage. Parallel delivery is reported under delivery and never increases this value.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "updated_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "agent_reviews": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "total",
+            "valid",
+            "blocked",
+            "invalid",
+            "active"
+          ],
+          "properties": {
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "valid": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "blocked": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "invalid": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "active": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}

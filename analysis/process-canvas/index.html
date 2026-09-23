@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>Legacy Modernization Starter · Process Canvas</title>
+  <link rel="stylesheet" href="./styles.css?v=24">
+</head>
+<body>
+  <main id="app">
+    <canvas id="scene" aria-label="Interactive 3D map of the Legacy Modernization Starter process"></canvas>
+
+    <header class="hud intro">
+      <p class="eyebrow">Legacy Modernization Starter - Process Canvas</p>
+      <p class="subtitle" id="introSubtitle">Bootstrap and 19 governed stages, from legacy evidence to independent acceptance and owner sign-off.</p>
+      <div class="summary" aria-label="Process summary">
+        <span><b>20</b> <span id="summaryCheckpoints">checkpoints</span></span>
+        <span><b>7</b> <span id="summaryPhases">phases</span></span>
+        <span><b>6</b> <span id="summaryControls">independent control stages</span></span>
+        <span><b>9</b> <span id="summaryOwnerGates">owner gates</span> + <b>1</b> <span id="summaryConditional">conditional</span></span>
+      </div>
+    </header>
+
+    <section class="hud legend-panel" aria-label="Canvas legend">
+      <strong class="legend-label" id="phaseColorsLabel">Phase colors</strong>
+      <nav class="phase-nav" id="phaseNav" aria-label="Process phases"></nav>
+      <div class="legend-details-row">
+        <div class="scene-key" aria-label="Object shapes">
+          <strong class="legend-label" id="objectShapesLabel">Object shapes</strong>
+          <span><i class="stage-mark"></i><span id="shapeStage">Stage</span></span>
+          <span><i class="artifact-mark"></i><span id="shapeArtifact">Artifact</span></span>
+          <span><i class="audit-mark"></i><span id="shapeGate">Gate</span></span>
+          <span><i class="return-mark"></i><span id="shapeReturn">Selected return</span></span>
+          <span><i class="cycle-mark"></i><span id="shapeCycle">Build · deploy · QA cycle</span></span>
+        </div>
+        <div class="artifact-flow-legend" aria-label="Artifact colors for the selected stage">
+          <strong id="artifactRoleLabel">Selected Stage · artifact role</strong>
+          <span><i class="input">I</i><span id="flowInput">Input</span></span>
+          <span><i class="output">O</i><span id="flowOutput">Output</span></span>
+          <span><i class="updated">U</i><span id="flowUpdated">Input + updated output</span></span>
+        </div>
+      </div>
+      <div class="role-key" aria-label="Process participants">
+        <strong class="legend-label" id="whoActsLabel">Who acts</strong>
+        <span><i class="role-mark agent">AI</i><span id="actorAgent">Agent work</span></span>
+        <span id="reviewLegend"><i class="frame-sample independent"></i><i class="role-mark reviewer">AI REVIEW</i><span id="actorReview">Independent agent check</span></span>
+        <span id="checkLegend"><i class="frame-sample responsible"></i><i class="role-mark checker">AI CHECK</i><span id="actorCheck">Agent verification</span></span>
+        <span><i class="role-mark human">HUMAN</i><span id="actorHuman">Human review / decision</span></span>
+      </div>
+      <p class="frame-meaning" id="frameMeaning">Frames show responsibility, not a passed result.</p>
+      <a id="agentSystemView" href="../agent-system/">XPlanner Agent Example · EN</a>
+    </section>
+
+    <div class="hud view-tools" aria-label="Map controls">
+      <a id="dependencyView" href="../feature-canvas/">Dependencies</a>
+      <div class="language-switch" id="languageSwitch" role="group" aria-label="Language">
+        <button type="button" data-locale="en" aria-pressed="true">EN</button>
+        <button type="button" data-locale="ru" aria-pressed="false">RU</button>
+      </div>
+      <button type="button" id="resetView" title="Show the complete process" aria-label="Show the complete process">⌂</button>
+      <button type="button" id="toggleArtifacts" class="active" title="Show or hide artifacts" aria-pressed="true">Artifacts</button>
+    </div>
+
+    <aside class="hud details" id="details" aria-live="polite">
+      <button class="details-back" id="detailsBack" type="button" aria-label="Back to selected stage" hidden>&larr;</button>
+      <button class="close" id="closeDetails" type="button" aria-label="Close details">×</button>
+      <p class="details-kind" id="detailsKind"></p>
+      <h2 id="detailsTitle"></h2>
+      <p class="details-meta" id="detailsMeta"></p>
+      <p class="details-summary" id="detailsSummary"></p>
+      <div id="detailsBody"></div>
+    </aside>
+
+    <div class="hud tooltip" id="tooltip" role="tooltip"></div>
+
+    <footer class="hud footer">
+      <p id="footerHelp">Click: details · wheel: zoom · left drag: rotate · right drag: pan</p>
+    </footer>
+  </main>
+
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.min.js" } }
+  </script>
+  <script type="module" src="./app.js?v=114"></script>
+</body>
+</html>

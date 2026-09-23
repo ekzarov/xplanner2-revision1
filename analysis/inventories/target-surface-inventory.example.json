@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "adapters": [
+    {
+      "id": "replace-with-project-adapter",
+      "type": "json",
+      "file": "build/audit/target-surfaces.json",
+      "collection": "surfaces",
+      "mapping": {
+        "surface_id": "id",
+        "kind": "kind",
+        "destination": "destination",
+        "roles": "roles",
+        "visible": "visible"
+      }
+    }
+  ],
+  "marker_scans": [
+    {
+      "root": "replace/with/target/source",
+      "extensions": [".html"],
+      "markers": ["TODO", "placeholder"]
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "replace-with-stable-surface-id",
+      "kind": "screen",
+      "destination": "replace-with-target-destination",
+      "roles": ["replace-with-role"],
+      "visibility": "hidden",
+      "status": "gap",
+      "target_only": false,
+      "adapter_required": false,
+      "actions": []
+    }
+  ]
+}

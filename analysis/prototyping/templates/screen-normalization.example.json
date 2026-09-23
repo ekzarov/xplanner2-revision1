@@ -1,0 +1,95 @@
+{
+  "_schema_help": {
+    "template_vs_project": "screen-normalization.example.json is the reusable starter example with placeholders. Copy its structure to screen-normalization.json for a project, replace the examples with real parity-map rows, and keep the example file unchanged. screen-normalization.json is the governed Stage 6 project record consumed by audit:prototype and pinned by screen-manifest.json.",
+    "purpose": "This is the row-to-visual-plan bridge. It says where every applicable legacy_user_flows.xlsx row will appear: as a screen, a state or interaction on a screen, navigation, or a non-visual behavior.",
+    "direction": "Behavior -> screen: What needs to be represented? Start with each governed parity-map row and decide its visual destination or explicit non-visual disposition.",
+    "relationship_to_manifest": "This plan is written before drawing. screen-manifest.json is written after drawing, references this file in normalization, and stores its evidence hash in normalization_sha256. Matching screen ids and surface_key values connect the planned placement to the exported screen.",
+    "fields": {
+      "rows": "All applicable parity-map rows, each classified exactly once.",
+      "rows[].row": "The physical row number in analysis/legacy_user_flows.xlsx. It is the stable link back to the legacy behavior.",
+      "rows[].classification": "One of surface, state, action, overlay, navigation or non-visual. See classification_values below.",
+      "rows[].screen": "Stable screen id planned here and later used unchanged in screen-manifest.json. Required for every visual classification; omitted for non-visual.",
+      "rows[].surface_key": "Canonical identity of the screen: channel + route family + primary user task + stable layout. It must match that screen's surface_key in screen-manifest.json.",
+      "rows[].element": "The exact state, action, overlay or navigation label on the named screen. Required for those four classifications, forbidden for surface and non-visual.",
+      "rows[].note": "Short evidence-based reason for this classification and placement; explain why this is or is not a separate screen.",
+      "excluded_rows": "Rows deliberately removed from migration scope by an explicit Stage 4 do-not-port decision. Exclusion is not a seventh classification.",
+      "excluded_rows[].row": "The physical parity-map row excluded from the target.",
+      "excluded_rows[].finding": "Identifier of the Stage 4 finding or owner decision authorizing the exclusion.",
+      "excluded_rows[].reason": "Human-readable summary of why the behavior will not be ported.",
+      "_notes": "File-level provenance and maintenance notes for this particular record. They explain how it was produced; they are not row classifications.",
+      "_schema_help": "Embedded documentation only. Audits accept it but do not treat it as migration evidence."
+    },
+    "classification_values": {
+      "surface": "A distinct visual destination with its own purpose, structure or route. It needs screen and surface_key, but no element.",
+      "state": "A condition of an existing screen, such as empty, loading, validation error or permission denied. element names that state.",
+      "action": "A user operation performed on an existing screen, such as Save or Delete. element names the action or control.",
+      "overlay": "A dialog, drawer, popover or menu displayed over an existing screen. element names the overlay.",
+      "navigation": "A transition that starts on the named screen and leads elsewhere. element names the navigation step.",
+      "non-visual": "Backend, integration, scheduled or enforcement behavior with no distinct visual representation. It has no screen, surface_key or element."
+    },
+    "example_reading": "A row with classification=state, screen=sign-in, surface_key='web + /login + sign in + centred card' and element='authentication failed' means: this legacy behavior is represented by the authentication-failed state of the sign-in screen, not by a separate wireframe."
+  },
+  "rows": [
+    {
+      "row": 8,
+      "classification": "surface",
+      "screen": "<screen id from screen-manifest.json>",
+      "surface_key": "<the same canonical key the screen carries; compared ignoring case and outer whitespace>",
+      "note": "<why this row is a surface of its own>"
+    },
+    {
+      "row": 9,
+      "classification": "state",
+      "screen": "<the screen this state belongs to>",
+      "surface_key": "<that screen's canonical key>",
+      "element": "<the state, exactly as the screen lists it in states[]>",
+      "note": "<why it is a state and not a separate screen>"
+    },
+    {
+      "row": 10,
+      "classification": "action",
+      "screen": "<the screen the action is performed on>",
+      "surface_key": "<that screen's canonical key>",
+      "element": "<the action, exactly as the screen lists it in actions[]>",
+      "note": "<which control performs it>"
+    },
+    {
+      "row": 11,
+      "classification": "overlay",
+      "screen": "<the screen the overlay opens over>",
+      "surface_key": "<that screen's canonical key>",
+      "element": "<the overlay, exactly as the screen lists it in overlays[]>",
+      "note": "<dialog, drawer or popup>"
+    },
+    {
+      "row": 12,
+      "classification": "navigation",
+      "screen": "<the screen the navigation starts from>",
+      "surface_key": "<that screen's canonical key>",
+      "element": "<the step, exactly as the screen lists it in navigation[]>",
+      "note": "<where it goes and why it draws nothing new>"
+    },
+    {
+      "row": 13,
+      "classification": "non-visual",
+      "note": "<backend or system behavior; declare it in non_visual_workbook_rows with covered_by>"
+    }
+  ],
+  "excluded_rows": [
+    {
+      "row": 14,
+      "finding": "<Stage 4 finding id that decided do-not-port>",
+      "reason": "<the decision in one sentence>"
+    }
+  ],
+  "_notes": [
+    "Every applicable workbook row appears exactly once: in rows[] with one of the six classifications or in excluded_rows[] citing a Stage 4 finding.",
+    "Only non-visual rows may omit screen and surface_key, and they must omit both, along with element. A surface row carries screen and surface_key but no element: element names a state, action, overlay or navigation step, and a surface is none of those.",
+    "state, action, overlay and navigation rows name the element, and audit:prototype checks that the named screen actually lists it. Naming a screen is not enough: the point is which state or action the row became.",
+    "surface_key must match the screen's own key. Comparison ignores surrounding whitespace and letter case; anything else is drift and is rejected. It is recorded twice so that drift is visible.",
+    "rows[] may be empty when the scope is entirely target-only screens, or when every governed row was excluded at Stage 4.",
+    "This file is the coverage table: workbook row - screen - state / action / non-visual coverage. It is written before wireframes are generated, not after.",
+    "screen-manifest.json carries this file's SHA-256 in normalization_sha256, so a Stage 8 approval that pins the manifest pins this record too.",
+    "Row numbers start at 8 in these examples: the workbook scan begins at row 7, and row 7 is the epic header rather than a scenario row."
+  ]
+}

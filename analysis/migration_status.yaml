@@ -1,0 +1,109 @@
+# ARTIFACT RESPONSIBILITY START (guidance, not project state)
+# Created by: The Bootstrap initializer creates the checkpoint from its template.
+# Maintained / decided by: PM records durable outcomes, blockers and authorized transitions from specialist evidence; reviewers never edit shared status.
+# Governing instructions: Bootstrap and Stage 1-19 status contract; analysis/agent-roles.md
+# ARTIFACT RESPONSIBILITY END
+# yaml-language-server: $schema=./migration_status.schema.json
+# =============================================================================
+# ARTIFACT GUIDANCE (not project data)
+# =============================================================================
+# Template output: analysis/migration_status.yaml. Preserve this filename stem.
+# See analysis/artifact-naming.md for the naming contract.
+# Single process checkpoint, created once during Bootstrap. It is a standing
+# input and updated output of every Stage 1-19; stages never create copies.
+# When used: the active-stage agent reads it before work to learn the current
+# stage, blockers and exact next action.
+# How used: the same agent updates it before handoff after a durable transition,
+# return, gate result, blocker or owner decision. Do not rewrite it for polling
+# or every internal action; a passing command never advances the stage by itself.
+# Example: after a clean Stage 7 report, the Stage 7 agent adds the report to
+# review_passes and records the transition to Stage 8. The Stage 8 agent reads
+# that same checkpoint before starting. Earlier reports become stale after a
+# return and re-entry.
+# =============================================================================
+# PROJECT RECORD (machine-readable values start below)
+# =============================================================================
+schema_version: '1.5.0'
+project:
+  id: 'xplanner2-revision1'
+  name: 'XPlanner 2 Revision 1'
+  owner: 'ekzarov'
+
+control:
+  state: bootstrap
+  current_stage: bootstrap
+  stage_status: awaiting_owner
+  previous_stage: null
+  next_action: 'Owner reviews the project constitution and decides ratification (amendments, stable version, ratification checklist items); Stage 1 authorization is a separate decision recorded only after ratification. Bootstrap audits pass on starter ae3cca618cb4510345963710f1fd0c54d8a52373; integration branch main approved; see analysis/stages/bootstrap/bootstrap-gate-report.md.'
+  automatic_advancement: false
+
+constitution:
+  status: unratified
+  version: '0.2.2-draft'
+  ratified_by: null
+  ratified_at: null
+  ratification_record: null
+
+bootstrap_gates:
+  initializer_self_test: passed
+  status_schema_validation: passed
+  command_contract_configured: passed
+  owner_stage_1_approval: pending
+
+transition_request: null
+transition_history: []
+review_passes: []
+owner_decisions:
+  - id: 'integration-branch:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-23T13:40:00Z'
+    scope: 'Integration branch main for repository https://github.com/ekzarov/xplanner2-revision1; initial input commit on main, Bootstrap changes on branch bootstrap/init.'
+    rationale: 'Owner selected main in chat; the repository had no commits or remote branches, so the branch could not be inferred.'
+    record: 'analysis/stages/bootstrap/bootstrap-gate-report.md'
+blockers:
+  - id: 'bootstrap-artifact-links-preparation'
+    summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
+    owner: 'ekzarov'
+    status: resolved
+    opened_at: '2026-09-23T10:25:18Z'
+    resolved_at: '2026-09-23T13:24:29Z'
+    evidence:
+      - 'analysis/stages/bootstrap/bootstrap-gate-report.md'
+
+legacy_walkthrough:
+  outcome: pending
+  scope: 'xplanner2-revision1'
+  record: null
+  decision_id: null
+  unresolved_blocked_scopes: []
+
+delivery:
+  active_slice: null
+  delivered_ui_slices: []
+  ui_parity_corrections: []
+  slice_status: not_started
+  completed_slices: []
+  completed_slice_evidence: []
+  reopened_slices: []
+  consolidated_backlog: null
+  owner_walkthrough_reports: []
+  owner_walkthrough_decision_id: null
+
+progress:
+  summary: 'Bootstrap audits pass (12/12) after owner-approved starter sync to ae3cca61 and authorized corrections; constitution unratified, integration branch and Stage 1 authorization pending.'
+  completed_percent: 0
+  updated_at: '2026-09-23T13:30:00Z'
+  agent_reviews:
+    total: 0
+    valid: 0
+    blocked: 0
+    invalid: 0
+    active: 0
+
+# Exact current architecture review records; initialize on adoption, never infer from filename order.
+architecture_review:
+  adopted_at: null
+  records: []
+  owner_verdict: null
+  closure_report: null
