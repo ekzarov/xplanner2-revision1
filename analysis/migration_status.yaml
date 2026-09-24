@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: in_progress
+  stage_status: awaiting_review
   previous_stage: stage-02
-  next_action: 'Publish Stage 2 pass 002 as a separate records PR (owner merge). Then Stage 1 re-entry from analysis/reviews/stage-02-pass-002.md on a new correction branch: the Stage 1 author verifies F-001..F-010 against the legacy source, corrects the records and writes analysis/stages/stage-01/stage-02-pass-002-dispositions.md; correction PR; then a new fresh blind Stage 2 pass 003.'
+  next_action: 'Stage 1 re-entry corrections BA-001-04 verified by PM (analysis/stages/stage-01/stage-02-pass-002-dispositions.md: F-001..F-010 accepted; F-002/F-007 extended, F-009 narrowed). Owner merges the correction PR; then PM records stage-01 -> stage-02 and launches a new fresh blind Stage 2 pass 003 on the integrated revision.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 re-entry after stage-02 pass 002; reviewer found CHK-002 (F-007), CHK-003 (F-006, F-008) and CHK-004 (F-009) failing for rows not rechecked after admission; proposals P-1 (form validation keys), P-2 (delete cascades), P-3 (regenerate figures after correction) pending admission until the Stage 1 author confirms the underlying findings.'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 002: author confirmed the errors behind reviewer proposals; PM admitted CHK-005 (form validation keys), CHK-006 (full delete data effect) and CHK-007 (figures regenerated after correction) after deduplication; BA-001-04 applied CHK-001 (0 failures) and swept CHK-002/003/004 across all applicable rows.'
 
 constitution:
   status: ratified
@@ -207,9 +207,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 2 pass 002 returned findings (F-001 and F-007 medium, 8 low; 488 checks, 0 blocked; pass 001 findings resolved except the residual of F-001); process returned to Stage 1; Stage 1 records have 193 rows.'
+  summary: 'Stage 1 corrected after Stage 2 pass 002 findings: 202 scenario rows in 18 epics (Yes 111, Inferred 71, Partial 19, No 1), all static-only and open; awaiting new independent Stage 2 pass 003.'
   completed_percent: 0
-  updated_at: '2026-09-24T10:12:06Z'
+  updated_at: '2026-09-24T11:28:10Z'
   agent_reviews:
     total: 2
     valid: 2
