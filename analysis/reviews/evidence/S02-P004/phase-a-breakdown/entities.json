@@ -1,0 +1,307 @@
+{
+ "source": "RuntimeVisibleAnnotations parsed by classparse.js; sessionFactory packagesToScan=net.sf.xplanner.domain (spring-beans.xml:79) + mappingLocations classpath:/mappings/Metrics.xml (spring-beans.xml:80)",
+ "count": 27,
+ "entities": [
+  {
+   "class": "net/sf/xplanner/domain/Attribute",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"attribute\"}",
+   "relationshipsAndKeys": [
+    "getAttributeId @EmbeddedId;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/AttributeId",
+   "kind": [
+    "Embeddable"
+   ],
+   "table": null,
+   "relationshipsAndKeys": []
+  },
+  {
+   "class": "net/sf/xplanner/domain/DataSample",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"datasample\"}",
+   "relationshipsAndKeys": [
+    "getDataSampleId @EmbeddedId;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/DataSampleId",
+   "kind": [
+    "Embeddable"
+   ],
+   "table": null,
+   "relationshipsAndKeys": []
+  },
+  {
+   "class": "net/sf/xplanner/domain/Directory",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"xdir\"}",
+   "relationshipsAndKeys": [
+    "getFiles @OneToMany;{\"mappedBy\":\"directory\"}",
+    "getParent @ManyToOne;",
+    "getSubdirectories @OneToMany;",
+    "getSubdirectories @JoinColumn;{\"name\":\"parent_id\"}"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/DomainObject",
+   "kind": [
+    "MappedSuperclass"
+   ],
+   "table": null,
+   "relationshipsAndKeys": [
+    "getId @Id;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/File",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"xfile\"}",
+   "relationshipsAndKeys": [
+    "getData @Lob;",
+    "getDirectory @ManyToOne;",
+    "getDirectory @JoinColumn;{\"name\":\"dir_id\"}"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/History",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"history\"}",
+   "relationshipsAndKeys": [
+    "getId @Id;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/Identifier",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"identifier\"}",
+   "relationshipsAndKeys": [
+    "getNextId @Id;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/Integration",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"integration\"}",
+   "relationshipsAndKeys": [
+    "getId @Id;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/Iteration",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"iteration\"}",
+   "relationshipsAndKeys": [
+    "getProject @ManyToOne;",
+    "getProject @JoinColumn;{\"name\":\"project_id\"}",
+    "getUserStories @OneToMany;{\"mappedBy\":\"iteration\",\"cascade\":[\"Ljavax/persistence/CascadeType;.REMOVE\"]}"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/NamedObject",
+   "kind": [
+    "MappedSuperclass"
+   ],
+   "table": null,
+   "relationshipsAndKeys": []
+  },
+  {
+   "class": "net/sf/xplanner/domain/Note",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"note\"}",
+   "relationshipsAndKeys": [
+    "getFile @OneToOne;",
+    "getFile @JoinColumn;{\"name\":\"attachment_id\"}"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/NotificationReceivers",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"notification_receivers\"}",
+   "relationshipsAndKeys": [
+    "getId @EmbeddedId;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/NotificationReceiversId",
+   "kind": [
+    "Embeddable"
+   ],
+   "table": null,
+   "relationshipsAndKeys": []
+  },
+  {
+   "class": "net/sf/xplanner/domain/ObjectType",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"object_type\"}",
+   "relationshipsAndKeys": []
+  },
+  {
+   "class": "net/sf/xplanner/domain/Patches",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"patches\"}",
+   "relationshipsAndKeys": [
+    "getSystemName @Id;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/Permission",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"permission\"}",
+   "relationshipsAndKeys": [
+    "getId @Id;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/Person",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"person\",\"uniqueConstraints\":[{\"type\":\"Ljavax/persistence/UniqueConstraint;\",\"vals\":{\"columnNames\":[\"userId\"]}}]}",
+   "relationshipsAndKeys": []
+  },
+  {
+   "class": "net/sf/xplanner/domain/PersonRole",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"person_role\"}",
+   "relationshipsAndKeys": [
+    "getId @EmbeddedId;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/PersonRoleId",
+   "kind": [
+    "Embeddable"
+   ],
+   "table": null,
+   "relationshipsAndKeys": []
+  },
+  {
+   "class": "net/sf/xplanner/domain/Project",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"project\"}",
+   "relationshipsAndKeys": [
+    "getIterations @OneToMany;{\"mappedBy\":\"project\",\"cascade\":[\"Ljavax/persistence/CascadeType;.ALL\"]}",
+    "getNotificationReceivers @ManyToMany;",
+    "getNotificationReceivers @JoinTable;{\"name\":\"notification_receivers\",\"joinColumns\":[{\"type\":\"Ljavax/persistence/JoinColumn;\",\"vals\":{\"name\":\"project_id\"}}],\"inverseJoinColumns\":[{\"type\":\"Ljavax/persistence/JoinColumn;\",\"vals\":{\"name\":\"person_id\"}}]}",
+    "getBacklog @OneToOne;{\"cascade\":[\"Ljavax/persistence/CascadeType;.REMOVE\"]}",
+    "getBacklog @JoinColumn;{\"name\":\"backlog_id\",\"insertable\":1,\"updatable\":1,\"unique\":1,\"nullable\":1}",
+    "getAttributes @ElementCollection;",
+    "getAttributes @JoinTable;{\"name\":\"attribute\",\"joinColumns\":[{\"type\":\"Ljavax/persistence/JoinColumn;\",\"vals\":{\"name\":\"targetId\"}}]}"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/Role",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"roles\",\"uniqueConstraints\":[{\"type\":\"Ljavax/persistence/UniqueConstraint;\",\"vals\":{\"columnNames\":[\"role\"]}}]}",
+   "relationshipsAndKeys": [
+    "getId @Id;"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/Setting",
+   "kind": [
+    "Entity",
+    "Inheritance",
+    "DiscriminatorColumn",
+    "Table"
+   ],
+   "table": "{\"name\":\"setting\"}",
+   "relationshipsAndKeys": [
+    "getObjectType @ManyToOne;{\"optional\":0}"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/Task",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"task\"}",
+   "relationshipsAndKeys": [
+    "getTimeEntries @OrderBy;{\"value\":\"reportDate\"}",
+    "getTimeEntries @OneToMany;{\"mappedBy\":\"task\",\"cascade\":[\"Ljavax/persistence/CascadeType;.REMOVE\"]}",
+    "getUserStory @ManyToOne;",
+    "getUserStory @JoinColumn;{\"name\":\"story_id\"}"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/TimeEntry",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"time_entry\"}",
+   "relationshipsAndKeys": [
+    "getTask @ManyToOne;",
+    "getTask @JoinColumn;{\"name\":\"task_id\"}"
+   ]
+  },
+  {
+   "class": "net/sf/xplanner/domain/UserStory",
+   "kind": [
+    "Entity",
+    "Table"
+   ],
+   "table": "{\"name\":\"story\"}",
+   "relationshipsAndKeys": [
+    "getIteration @ManyToOne;",
+    "getIteration @JoinColumn;{\"name\":\"iteration_id\"}",
+    "getCustomer @ManyToOne;{\"cascade\":[\"Ljavax/persistence/CascadeType;.REFRESH\"],\"optional\":1}",
+    "getCustomer @JoinColumn;{\"name\":\"customer_id\"}",
+    "getTasks @OneToMany;{\"mappedBy\":\"userStory\",\"cascade\":[\"Ljavax/persistence/CascadeType;.REMOVE\"]}"
+   ]
+  }
+ ]
+}

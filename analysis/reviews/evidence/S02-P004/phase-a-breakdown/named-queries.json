@@ -1,0 +1,122 @@
+{
+ "file": "WEB-INF/classes/mappings/Metrics.xml (active, comment-stripped)",
+ "count": 29,
+ "queries": [
+  {
+   "name": "iterationHoursWorkedQuery",
+   "line": 8
+  },
+  {
+   "name": "namesQuery",
+   "line": 43
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.IterationToSample",
+   "line": 52
+  },
+  {
+   "name": "net.sf.xplanner.domain.IterationSearchQuery",
+   "line": 59
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.IterationRestrictedSearchQuery",
+   "line": 67
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.GetCurrentIterationQuery",
+   "line": 75
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.GetEditableIterationQuery",
+   "line": 81
+  },
+  {
+   "name": "net.sf.xplanner.domain.NoteSearchQuery",
+   "line": 87
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.NoteRestrictedSearchQuery",
+   "line": 95
+  },
+  {
+   "name": "net.sf.xplanner.domain.NoteAttachedNotesQuery",
+   "line": 108
+  },
+  {
+   "name": "security.roles",
+   "line": 117
+  },
+  {
+   "name": "security.role.permissions",
+   "line": 136
+  },
+  {
+   "name": "security.personal.permissions",
+   "line": 152
+  },
+  {
+   "name": "security.person.permissions",
+   "line": 164
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.CheckPersonUniquenessQuery",
+   "line": 173
+  },
+  {
+   "name": "net.sf.xplanner.domain.ProjectSearchQuery",
+   "line": 178
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.ProjectRestrictedSearchQuery",
+   "line": 187
+  },
+  {
+   "name": "tasks.current.accepted",
+   "line": 196
+  },
+  {
+   "name": "tasks.current.worked",
+   "line": 210
+  },
+  {
+   "name": "tasks.planned.future",
+   "line": 227
+  },
+  {
+   "name": "net.sf.xplanner.domain.TaskSearchQuery",
+   "line": 239
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.TaskRestrictedSearchQuery",
+   "line": 248
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.TimeEntryEmailNotificationToProjectSpecificLeads",
+   "line": 259
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.TimeEntryEmailNotificationToAcceptors",
+   "line": 279
+  },
+  {
+   "name": "stories.customer",
+   "line": 298
+  },
+  {
+   "name": "stories.tracker",
+   "line": 308
+  },
+  {
+   "name": "net.sf.xplanner.domain.UserStorySearchQuery",
+   "line": 318
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.UserStoryRestrictedSearchQuery",
+   "line": 326
+  },
+  {
+   "name": "com.technoetic.xplanner.domain.StoriesOfCurrentAndFutureIterationOfAllVisibleProjects",
+   "line": 335
+  }
+ ]
+}

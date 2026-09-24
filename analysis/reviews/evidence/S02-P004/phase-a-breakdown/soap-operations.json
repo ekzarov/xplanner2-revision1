@@ -1,0 +1,178 @@
+{
+ "service": "XPlanner (server-config.wsdd:25-28, provider java:RPC, allowedMethods=*)",
+ "publicMethodCount": 43,
+ "methods": [
+  {
+   "sig": "getProjects()[Lcom/technoetic/xplanner/soap/domain/ProjectData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getProject(I)Lcom/technoetic/xplanner/soap/domain/ProjectData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "addProject(Lcom/technoetic/xplanner/soap/domain/ProjectData;)Lcom/technoetic/xplanner/soap/domain/ProjectData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "removeProject(I)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "update(Lcom/technoetic/xplanner/soap/domain/ProjectData;)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getCurrentIteration(I)Lcom/technoetic/xplanner/soap/domain/IterationData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getIterations(I)[Lcom/technoetic/xplanner/soap/domain/IterationData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getIteration(I)Lcom/technoetic/xplanner/soap/domain/IterationData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "addIteration(Lcom/technoetic/xplanner/soap/domain/IterationData;)Lcom/technoetic/xplanner/soap/domain/IterationData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "removeIteration(I)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "update(Lcom/technoetic/xplanner/soap/domain/IterationData;)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getUserStories(I)[Lcom/technoetic/xplanner/soap/domain/UserStoryData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getUserStory(I)Lcom/technoetic/xplanner/soap/domain/UserStoryData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "addUserStory(Lcom/technoetic/xplanner/soap/domain/UserStoryData;)Lcom/technoetic/xplanner/soap/domain/UserStoryData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "removeUserStory(I)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "update(Lcom/technoetic/xplanner/soap/domain/UserStoryData;)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getTasks(I)[Lcom/technoetic/xplanner/soap/domain/TaskData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getTask(I)Lcom/technoetic/xplanner/soap/domain/TaskData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getCurrentTasksForPerson(I)[Lcom/technoetic/xplanner/soap/domain/TaskData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getPlannedTasksForPerson(I)[Lcom/technoetic/xplanner/soap/domain/TaskData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "addTask(Lcom/technoetic/xplanner/soap/domain/TaskData;)Lcom/technoetic/xplanner/soap/domain/TaskData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "removeTask(I)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "update(Lcom/technoetic/xplanner/soap/domain/TaskData;)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getTimeEntries(I)[Lcom/technoetic/xplanner/soap/domain/TimeEntryData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getTimeEntry(I)Lcom/technoetic/xplanner/soap/domain/TimeEntryData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "addTimeEntry(Lcom/technoetic/xplanner/soap/domain/TimeEntryData;)Lcom/technoetic/xplanner/soap/domain/TimeEntryData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "removeTimeEntry(I)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "update(Lcom/technoetic/xplanner/soap/domain/TimeEntryData;)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getNote(I)Lcom/technoetic/xplanner/soap/domain/NoteData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "addNote(Lcom/technoetic/xplanner/soap/domain/NoteData;)Lcom/technoetic/xplanner/soap/domain/NoteData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "removeNote(I)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "update(Lcom/technoetic/xplanner/soap/domain/NoteData;)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getNotesForObject(I)[Lcom/technoetic/xplanner/soap/domain/NoteData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getPerson(I)Lcom/technoetic/xplanner/soap/domain/PersonData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "addPerson(Lcom/technoetic/xplanner/soap/domain/PersonData;)Lcom/technoetic/xplanner/soap/domain/PersonData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "removePerson(I)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "update(Lcom/technoetic/xplanner/soap/domain/PersonData;)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getPeople()[Lcom/technoetic/xplanner/soap/domain/PersonData;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "setAttribute(ILjava/lang/String;Ljava/lang/String;)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getAttribute(ILjava/lang/String;)Ljava/lang/String;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "deleteAttribute(ILjava/lang/String;)V",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getAttributes(I)Ljava/util/Map;",
+   "acc": "0x1"
+  },
+  {
+   "sig": "getAttributesWithPrefix(ILjava/lang/String;)Ljava/util/Map;",
+   "acc": "0x1"
+  }
+ ]
+}

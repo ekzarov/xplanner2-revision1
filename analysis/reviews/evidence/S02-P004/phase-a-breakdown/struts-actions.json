@@ -1,0 +1,2647 @@
+{
+ "generatedBy": "breakdowns.js",
+ "count": 87,
+ "byModule": {
+  "main": 74,
+  "mobile": 7,
+  "test": 6
+ },
+ "globalForwards": [
+  {
+   "name": "view/projects",
+   "path": "/WEB-INF/jsp/view/projects.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/project",
+   "path": "/WEB-INF/jsp/view/project.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/project/features",
+   "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/iterationTabs",
+   "path": "/WEB-INF/jsp/view/iteration.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/iteration",
+   "path": "/WEB-INF/jsp/view/iteration.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/iteration/tasks",
+   "path": "/WEB-INF/jsp/view/iterationTasks.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/iteration/features",
+   "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/iteration/accuracy",
+   "path": "/WEB-INF/jsp/view/iterationAccuracy.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/iteration/metrics",
+   "path": "/WEB-INF/jsp/view/iterationMetrics.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/iteration/statistics",
+   "path": "/WEB-INF/jsp/view/iterationIterations.jsp",
+   "exists": false
+  },
+  {
+   "name": "view/userstory",
+   "path": "/WEB-INF/jsp/view/userstory.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/task",
+   "path": "/WEB-INF/jsp/view/task.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/feature",
+   "path": "/WEB-INF/jsp/view/feature.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/people",
+   "path": "/WEB-INF/jsp/view/people.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/person",
+   "path": "/WEB-INF/jsp/view/person.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/taskhistory",
+   "path": "/WEB-INF/jsp/view/taskhistory.jsp",
+   "exists": false
+  },
+  {
+   "name": "view/text",
+   "path": "/WEB-INF/jsp/view/viewtext.jsp",
+   "exists": false
+  },
+  {
+   "name": "view/twikiformat",
+   "path": "/WEB-INF/jsp/view/twikiformat.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/integrations",
+   "path": "/WEB-INF/jsp/view/integrations.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/timesheet",
+   "path": "/WEB-INF/jsp/view/timesheet.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/aggregateTimesheet",
+   "path": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/history",
+   "path": "/WEB-INF/jsp/view/history.jsp",
+   "exists": true
+  },
+  {
+   "name": "edit/project",
+   "path": "/WEB-INF/jsp/edit/editProject.jsp",
+   "exists": true
+  },
+  {
+   "name": "edit/iteration",
+   "path": "/WEB-INF/jsp/edit/editIteration.jsp",
+   "exists": true
+  },
+  {
+   "name": "start/iteration",
+   "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "exists": true
+  },
+  {
+   "name": "close/iteration",
+   "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "exists": true
+  },
+  {
+   "name": "move/userstories",
+   "path": "/WEB-INF/jsp/edit/moveStories.jsp",
+   "exists": true
+  },
+  {
+   "name": "edit/feature",
+   "path": "/WEB-INF/jsp/edit/editFeature.jsp",
+   "exists": true
+  },
+  {
+   "name": "edit/userstory",
+   "path": "/WEB-INF/jsp/edit/editStory.jsp",
+   "exists": true
+  },
+  {
+   "name": "move/continue/userstory",
+   "path": "/WEB-INF/jsp/edit/moveContinueStory.jsp",
+   "exists": true
+  },
+  {
+   "name": "continue/unfinished/stories",
+   "path": "/WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+   "exists": true
+  },
+  {
+   "name": "edit/task",
+   "path": "/WEB-INF/jsp/edit/editTask.jsp",
+   "exists": true
+  },
+  {
+   "name": "move/continue/task",
+   "path": "/WEB-INF/jsp/edit/moveContinueTask.jsp",
+   "exists": true
+  },
+  {
+   "name": "edit/task/estimate",
+   "path": "/WEB-INF/jsp/edit/editTaskEstimate.jsp",
+   "exists": true
+  },
+  {
+   "name": "edit/person",
+   "path": "/WEB-INF/jsp/edit/editPerson.jsp",
+   "exists": true
+  },
+  {
+   "name": "edit/time",
+   "path": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+   "exists": true
+  },
+  {
+   "name": "error",
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "exists": true
+  },
+  {
+   "name": "error/objectNotFound",
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "exists": true
+  },
+  {
+   "name": "image/calendar",
+   "path": "/images/calendar.png",
+   "exists": false
+  },
+  {
+   "name": "security/login",
+   "path": "/do/login",
+   "exists": "action-path"
+  },
+  {
+   "name": "security/notAuthorized",
+   "path": "/WEB-INF/jsp/security/notAuthorized.jsp",
+   "exists": false
+  },
+  {
+   "name": "edit/roles",
+   "path": "/WEB-INF/jsp/edit/editRoles.jsp",
+   "exists": true
+  },
+  {
+   "name": "search/id",
+   "path": "/do/search/id",
+   "exists": "action-path"
+  },
+  {
+   "name": "search/content",
+   "path": "/do/search/content",
+   "exists": "action-path"
+  },
+  {
+   "name": "view/dashboard",
+   "path": "/WEB-INF/jsp/view/dashboard.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/settings",
+   "path": "/WEB-INF/jsp/view/settings.jsp",
+   "exists": true
+  },
+  {
+   "name": "view/integrations",
+   "path": "/WEB-INF/jsp/view/integrations.jsp",
+   "exists": true
+  }
+ ],
+ "globalExceptions": [
+  {
+   "type": "com.technoetic.xplanner.domain.repository.ObjectNotFoundException",
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "key": "error.objectNotFound"
+  },
+  {
+   "type": "org.hibernate.UnresolvableObjectException",
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "key": "error.objectNotFound"
+  },
+  {
+   "type": "com.technoetic.xplanner.security.auth.AuthorizationException",
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "key": "security.notauthorized"
+  }
+ ],
+ "actions": [
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 158,
+   "path": "/changeLocale",
+   "urlPath": "/do/changeLocale",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 6,
+    "class": "com.technoetic.xplanner.actions.ChangeLocaleAction",
+    "props": {}
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 160,
+   "path": "/systemInfo",
+   "urlPath": "/do/systemInfo",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 8,
+    "class": "com.technoetic.xplanner.actions.SystemInfoAction",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "name": "success",
+     "path": "/WEB-INF/jsp/common/unexpectedError.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 164,
+   "path": "/login",
+   "urlPath": "/do/login",
+   "form": "login/authenticate",
+   "formClass": "org.apache.struts.action.DynaActionForm",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "security/login",
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 10,
+    "class": "com.technoetic.xplanner.actions.AuthenticationAction",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "name": "notAuthenticated",
+     "path": "/WEB-INF/jsp/security/login.jsp",
+     "exists": true
+    },
+    {
+     "name": "authenticated",
+     "path": "/do/view/projects",
+     "redirect": "true",
+     "exists": "action-path"
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "bypass (security.xml security-bypass)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 169,
+   "path": "/notAuthorized",
+   "urlPath": "/do/notAuthorized",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "security/notAuthorized",
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 12,
+    "class": "com.technoetic.xplanner.actions.DispatchForward",
+    "props": {
+     "authorizationRequired": "false"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "bypass (security.xml security-bypass)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 171,
+   "path": "/logout",
+   "urlPath": "/do/logout",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 16,
+    "class": "com.technoetic.xplanner.actions.LogoutAction",
+    "props": {}
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 177,
+   "path": "/view/twikiformat",
+   "urlPath": "/do/view/twikiformat",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "view/twikiformat",
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 25,
+    "class": "com.technoetic.xplanner.actions.DispatchForward",
+    "props": {
+     "authorizationRequired": "false"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 179,
+   "path": "/view/projects",
+   "urlPath": "/do/view/projects",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "view/projects",
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 29,
+    "class": "com.technoetic.xplanner.actions.DispatchForward",
+    "props": {
+     "authorizationRequired": "false"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 181,
+   "path": "/view/project",
+   "urlPath": "/do/view/project",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 33,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Project"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/project.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 185,
+   "path": "/view/project/features",
+   "urlPath": "/do/view/project/features",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 39,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Project"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/projectFeatures.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 189,
+   "path": "/export/project/xml",
+   "urlPath": "/do/export/project/xml",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 45,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Project",
+     "exporter": "ref:xmlExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 191,
+   "path": "/export/project/mpx",
+   "urlPath": "/do/export/project/mpx",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 54,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Project",
+     "exporter": "ref:mpxExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 193,
+   "path": "/export/project/mspdi",
+   "urlPath": "/do/export/project/mspdi",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 63,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Project",
+     "exporter": "ref:mspdiExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 195,
+   "path": "/edit/project",
+   "urlPath": "/do/edit/project",
+   "form": "edit/project",
+   "formClass": "com.technoetic.xplanner.forms.ProjectEditorForm",
+   "input": "/WEB-INF/jsp/edit/editProject.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 72,
+    "class": "com.technoetic.xplanner.actions.EditProjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Project"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 197,
+   "path": "/delete/project",
+   "urlPath": "/do/delete/project",
+   "form": "edit/project",
+   "formClass": "com.technoetic.xplanner.forms.ProjectEditorForm",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 78,
+    "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Project"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 199,
+   "path": "/view/iterationTabs",
+   "urlPath": "/do/view/iterationTabs",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 84,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/iterationTabs.jsp",
+     "exists": false
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 203,
+   "path": "/view/iteration",
+   "urlPath": "/do/view/iteration",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 90,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/iteration.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 207,
+   "path": "/view/feature",
+   "urlPath": "/do/view/feature",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 96,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Feature"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/feature.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 211,
+   "path": "/view/iteration/tasks",
+   "urlPath": "/do/view/iteration/tasks",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 102,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/iterationTasks.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 215,
+   "path": "/view/iteration/features",
+   "urlPath": "/do/view/iteration/features",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 108,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 219,
+   "path": "/view/iteration/metrics",
+   "urlPath": "/do/view/iteration/metrics",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 114,
+    "class": "com.technoetic.xplanner.actions.ViewIterationMetricsAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/iterationMetrics.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 223,
+   "path": "/view/iteration/statistics",
+   "urlPath": "/do/view/iteration/statistics",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 120,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/iterationStatistics.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 227,
+   "path": "/view/iteration/accuracy",
+   "urlPath": "/do/view/iteration/accuracy",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 126,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/iterationAccuracy.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 231,
+   "path": "/export/iteration/xml",
+   "urlPath": "/do/export/iteration/xml",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 132,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration",
+     "exporter": "ref:xmlExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 233,
+   "path": "/export/iteration/mpx",
+   "urlPath": "/do/export/iteration/mpx",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 141,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration",
+     "exporter": "ref:mpxExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 235,
+   "path": "/export/iteration/mspdi",
+   "urlPath": "/do/export/iteration/mspdi",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 150,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration",
+     "exporter": "ref:mspdiExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 237,
+   "path": "/export/iteration/pdf",
+   "urlPath": "/do/export/iteration/pdf",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 159,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration",
+     "exporter": "ref:pdfExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 239,
+   "path": "/export/iteration/jrpdf",
+   "urlPath": "/do/export/iteration/jrpdf",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 168,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration",
+     "exporter": "ref:reportExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 241,
+   "path": "/edit/iteration",
+   "urlPath": "/do/edit/iteration",
+   "form": "edit/iteration",
+   "formClass": "com.technoetic.xplanner.forms.IterationEditorForm",
+   "input": "/WEB-INF/jsp/edit/editIteration.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 177,
+    "class": "com.technoetic.xplanner.actions.EditIterationAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 245,
+   "path": "/start/iteration",
+   "urlPath": "/do/start/iteration",
+   "form": "start/iteration",
+   "formClass": "com.technoetic.xplanner.forms.IterationStatusEditorForm",
+   "input": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "inputExists": true,
+   "scope": "request",
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 183,
+    "class": "com.technoetic.xplanner.actions.StartIterationAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [
+    {
+     "redirect": "false",
+     "name": "edit/time",
+     "path": "/do/edit/time",
+     "exists": "action-path"
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 251,
+   "path": "/close/iteration",
+   "urlPath": "/do/close/iteration",
+   "form": "close/iteration",
+   "formClass": "com.technoetic.xplanner.forms.IterationStatusEditorForm",
+   "input": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 190,
+    "class": "com.technoetic.xplanner.actions.CloseIterationAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [
+    {
+     "redirect": "true",
+     "name": "onclose",
+     "path": "/do/continue/unfinished/stories",
+     "exists": "action-path"
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 257,
+   "path": "/delete/iteration",
+   "urlPath": "/do/delete/iteration",
+   "form": "iterationEditorForm",
+   "formClass": "UNDEFINED form-bean",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 196,
+    "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 259,
+   "path": "/edit/feature",
+   "urlPath": "/do/edit/feature",
+   "form": "edit/feature",
+   "formClass": "com.technoetic.xplanner.forms.FeatureEditorForm",
+   "input": "/WEB-INF/jsp/edit/editFeature.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 202,
+    "class": "com.technoetic.xplanner.actions.EditObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Feature"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 263,
+   "path": "/delete/feature",
+   "urlPath": "/do/delete/feature",
+   "form": "featureEditorForm",
+   "formClass": "UNDEFINED form-bean",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 208,
+    "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Feature"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 265,
+   "path": "/view/userstory",
+   "urlPath": "/do/view/userstory",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 214,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.UserStory"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/userstory.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 269,
+   "path": "/edit/userstory",
+   "urlPath": "/do/edit/userstory",
+   "form": "edit/userstory",
+   "formClass": "com.technoetic.xplanner.forms.UserStoryEditorForm",
+   "input": "/WEB-INF/jsp/edit/editStory.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 220,
+    "class": "com.technoetic.xplanner.actions.EditStoryAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.UserStory"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 273,
+   "path": "/move/continue/userstory",
+   "urlPath": "/do/move/continue/userstory",
+   "form": "move/continue/userstory",
+   "formClass": "com.technoetic.xplanner.forms.MoveContinueStoryForm",
+   "input": "/WEB-INF/jsp/edit/moveContinueStory.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 226,
+    "class": "com.technoetic.xplanner.actions.MoveContinueStoryAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.UserStory"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 277,
+   "path": "/continue/unfinished/stories",
+   "urlPath": "/do/continue/unfinished/stories",
+   "form": "continue/unfinished/stories",
+   "formClass": "com.technoetic.xplanner.forms.ContinueUnfinishedStoriesForm",
+   "input": "/WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 232,
+    "class": "com.technoetic.xplanner.actions.ContinueUnfinishedStoriesAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 281,
+   "path": "/export/userstory/pdf",
+   "urlPath": "/do/export/userstory/pdf",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 238,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.UserStory",
+     "exporter": "ref:pdfExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 283,
+   "path": "/export/userstory/jrpdf",
+   "urlPath": "/do/export/userstory/jrpdf",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 247,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.UserStory",
+     "exporter": "ref:reportExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 285,
+   "path": "/delete/userstory",
+   "urlPath": "/do/delete/userstory",
+   "form": "userStoryEditorForm",
+   "formClass": "UNDEFINED form-bean",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 256,
+    "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.UserStory"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 287,
+   "path": "/view/task",
+   "urlPath": "/do/view/task",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 262,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Task"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/task.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 291,
+   "path": "/edit/task",
+   "urlPath": "/do/edit/task",
+   "form": "edit/task",
+   "formClass": "com.technoetic.xplanner.forms.TaskEditorForm",
+   "input": "/WEB-INF/jsp/edit/editTask.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 268,
+    "class": "com.technoetic.xplanner.actions.EditTaskAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Task"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 293,
+   "path": "/move/continue/task",
+   "urlPath": "/do/move/continue/task",
+   "form": "move/continue/task",
+   "formClass": "com.technoetic.xplanner.forms.MoveContinueTaskForm",
+   "input": "/WEB-INF/jsp/edit/moveContinueTask.jsp",
+   "inputExists": true,
+   "scope": "session",
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 274,
+    "class": "com.technoetic.xplanner.actions.MoveContinueTaskAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Task"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 297,
+   "path": "/export/task/pdf",
+   "urlPath": "/do/export/task/pdf",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 280,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Task",
+     "exporter": "ref:pdfExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 299,
+   "path": "/export/task/jrpdf",
+   "urlPath": "/do/export/task/jrpdf",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 289,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Task",
+     "exporter": "ref:reportExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 301,
+   "path": "/edit/task/estimate",
+   "urlPath": "/do/edit/task/estimate",
+   "form": "edit/task/estimate",
+   "formClass": "UNDEFINED form-bean",
+   "input": "/WEB-INF/jsp/edit/editTaskEstimate.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 298,
+    "class": "org.apache.struts.action.Action",
+    "props": {}
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 304,
+   "path": "/delete/task",
+   "urlPath": "/do/delete/task",
+   "form": "edit/task",
+   "formClass": "com.technoetic.xplanner.forms.TaskEditorForm",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 300,
+    "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Task"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 306,
+   "path": "/edit/note",
+   "urlPath": "/do/edit/note",
+   "form": "edit/note",
+   "formClass": "com.technoetic.xplanner.forms.NoteEditorForm",
+   "input": "/WEB-INF/jsp/edit/editNote.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 306,
+    "class": "com.technoetic.xplanner.actions.EditNoteAction",
+    "props": {
+     "fileSystem": "ref:virtualFileSystem",
+     "type": "net.sf.xplanner.domain.Note"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 309,
+   "path": "/delete/note",
+   "urlPath": "/do/delete/note",
+   "form": "edit/note",
+   "formClass": "com.technoetic.xplanner.forms.NoteEditorForm",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 315,
+    "class": "com.technoetic.xplanner.actions.DeleteNoteAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Note"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 311,
+   "path": "/download/attachment",
+   "urlPath": "/do/download/attachment",
+   "form": "/download/attachment",
+   "formClass": "UNDEFINED form-bean",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 321,
+    "class": "com.technoetic.xplanner.actions.DownloadAttachmentAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Note"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 313,
+   "path": "/view/people",
+   "urlPath": "/do/view/people",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "view/people",
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 327,
+    "class": "com.technoetic.xplanner.actions.DispatchForward",
+    "props": {
+     "authorizationRequired": "false"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 315,
+   "path": "/export/person/jrpdf",
+   "urlPath": "/do/export/person/jrpdf",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 333,
+    "class": "com.technoetic.xplanner.actions.ExportAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Person",
+     "exporter": "ref:reportExporter"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 317,
+   "path": "/view/person",
+   "urlPath": "/do/view/person",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 342,
+    "class": "com.technoetic.xplanner.actions.ViewPersonAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Person",
+     "authorizationRequired": "false"
+    }
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/person.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 321,
+   "path": "/edit/person",
+   "urlPath": "/do/edit/person",
+   "form": "edit/person",
+   "formClass": "com.technoetic.xplanner.forms.PersonEditorForm",
+   "input": "/WEB-INF/jsp/edit/editPerson.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 352,
+    "class": "com.technoetic.xplanner.actions.EditPersonAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Person"
+    }
+   },
+   "forwards": [],
+   "exceptions": [
+    {
+     "key": "person.editor.userid_exist",
+     "type": "com.technoetic.xplanner.domain.repository.DuplicateUserIdException",
+     "path": "/WEB-INF/jsp/edit/editPerson.jsp"
+    }
+   ],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 329,
+   "path": "/import/people",
+   "urlPath": "/do/import/people",
+   "form": "import/people",
+   "formClass": "com.technoetic.xplanner.forms.ImportPeopleForm",
+   "input": "/WEB-INF/jsp/edit/importPeople.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 359,
+    "class": "com.technoetic.xplanner.actions.ImportPeopleAction",
+    "props": {}
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 332,
+   "path": "/import/stories",
+   "urlPath": "/do/import/stories",
+   "form": "import",
+   "formClass": "com.technoetic.xplanner.forms.ImportStoriesForm",
+   "input": "/WEB-INF/jsp/import/stories.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 361,
+    "class": "com.technoetic.xplanner.actions.ImportStoriesAction",
+    "props": {
+     "importer": "ref:com.technoetic.xplanner.importer.SpreadsheetStoryImporter",
+     "type": "net.sf.xplanner.domain.Iteration"
+    }
+   },
+   "forwards": [],
+   "exceptions": [
+    {
+     "key": "import.status.corrupted_file",
+     "type": "com.technoetic.xplanner.importer.WrongImportFileSpreadsheetImporterException",
+     "path": "/WEB-INF/jsp/import/stories.jsp"
+    },
+    {
+     "key": "import.status.missing_required_field",
+     "type": "com.technoetic.xplanner.importer.MissingFieldSpreadsheetImporterException",
+     "path": "/WEB-INF/jsp/import/stories.jsp"
+    },
+    {
+     "key": "import.status.wrong_header",
+     "type": "com.technoetic.xplanner.importer.MissingColumnHeaderSpreadsheetImporterException",
+     "path": "/WEB-INF/jsp/import/stories.jsp"
+    },
+    {
+     "key": "import.status.worksheet_not_found",
+     "type": "com.technoetic.xplanner.importer.MissingWorksheetException",
+     "path": "/WEB-INF/jsp/import/stories.jsp"
+    }
+   ],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 348,
+   "path": "/delete/person",
+   "urlPath": "/do/delete/person",
+   "form": "edit/person",
+   "formClass": "com.technoetic.xplanner.forms.PersonEditorForm",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 370,
+    "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Person"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 350,
+   "path": "/edit/time",
+   "urlPath": "/do/edit/time",
+   "form": "edit/time",
+   "formClass": "com.technoetic.xplanner.forms.TimeEditorForm",
+   "input": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+   "inputExists": true,
+   "scope": "request",
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 376,
+    "class": "com.technoetic.xplanner.actions.UpdateTimeAction",
+    "props": {
+     "taskDao": "ref:taskDao"
+    }
+   },
+   "forwards": [
+    {
+     "name": "redirect",
+     "path": "/do/view/task",
+     "redirect": "true",
+     "exists": "action-path"
+    },
+    {
+     "name": "error",
+     "path": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+     "redirect": "false",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 357,
+   "path": "/edit/reorderstories",
+   "urlPath": "/do/edit/reorderstories",
+   "form": "edit/reorderstories",
+   "formClass": "com.technoetic.xplanner.forms.ReorderStoriesForm",
+   "input": "/do/view/iteration",
+   "inputExists": "action-path",
+   "scope": "request",
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 380,
+    "class": "com.technoetic.xplanner.actions.ReorderStoriesAction",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "name": "redirect",
+     "path": "/do/view/iteration",
+     "redirect": "true",
+     "exists": "action-path"
+    },
+    {
+     "name": "error",
+     "path": "/WEB-INF/jsp/view/iteration.jsp",
+     "redirect": "false",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 364,
+   "path": "/move/userstories",
+   "urlPath": "/do/move/userstories",
+   "form": "move/userstories",
+   "formClass": "com.technoetic.xplanner.forms.MoveStoriesForm",
+   "input": "/WEB-INF/jsp/edit/moveStories.jsp",
+   "inputExists": true,
+   "scope": "request",
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 382,
+    "class": "com.technoetic.xplanner.actions.MoveStoriesAction",
+    "props": {}
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 368,
+   "path": "/edit/project/notification",
+   "urlPath": "/do/edit/project/notification",
+   "form": "edit/project",
+   "formClass": "com.technoetic.xplanner.forms.ProjectEditorForm",
+   "input": "/WEB-INF/jsp/edit/editProject.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 384,
+    "class": "com.technoetic.xplanner.actions.UpdateTimeNotificationReceivers",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "redirect": "false",
+     "name": "project/notification",
+     "path": "/do/edit/project/notification",
+     "exists": "action-path"
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 374,
+   "path": "/view/timesheet",
+   "urlPath": "/do/view/timesheet",
+   "form": "timesheetForm",
+   "formClass": "com.technoetic.xplanner.forms.PersonTimesheetForm",
+   "input": "/WEB-INF/jsp/view/timesheet.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 386,
+    "class": "com.technoetic.xplanner.actions.ViewTimesheetAction",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "redirect": "false",
+     "name": "error",
+     "path": "/WEB-INF/jsp/view/timesheet.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 380,
+   "path": "/view/aggregateTimesheet",
+   "urlPath": "/do/view/aggregateTimesheet",
+   "form": "aggregateTimesheetForm",
+   "formClass": "com.technoetic.xplanner.forms.AggregateTimesheetForm",
+   "input": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+   "inputExists": true,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 388,
+    "class": "com.technoetic.xplanner.actions.ViewAggregateTimesheetAction",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "redirect": "false",
+     "name": "error",
+     "path": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 386,
+   "path": "/view/dashboard",
+   "urlPath": "/do/view/dashboard",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "view/dashboard",
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 416,
+    "class": "com.technoetic.xplanner.actions.DispatchForward",
+    "props": {
+     "authorizationRequired": "false"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 388,
+   "path": "/view/integrations",
+   "urlPath": "/do/view/integrations",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "view/integrations",
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 390,
+    "class": "com.technoetic.xplanner.actions.DispatchForward",
+    "props": {}
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 390,
+   "path": "/edit/integrations",
+   "urlPath": "/do/edit/integrations",
+   "form": "placeHolderForm",
+   "formClass": "org.apache.struts.action.DynaActionForm",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 392,
+    "class": "com.technoetic.xplanner.actions.IntegrationAction",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/do/view/integrations",
+     "redirect": "true",
+     "exists": "action-path"
+    },
+    {
+     "name": "error",
+     "path": "/do/view/integrations",
+     "exists": "action-path"
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 396,
+   "path": "/view/history",
+   "urlPath": "/do/view/history",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 394,
+    "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/history.jsp",
+     "redirect": "false",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 401,
+   "path": "/view/directory",
+   "urlPath": "/do/view/directory",
+   "form": "view/file",
+   "formClass": "com.technoetic.xplanner.forms.FileManagerForm",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 396,
+    "class": "com.technoetic.xplanner.actions.FileManagerAction",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "name": "display",
+     "path": "/WEB-INF/jsp/view/directory.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 405,
+   "path": "/view/settings",
+   "urlPath": "/do/view/settings",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "view/settings",
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 412,
+    "class": "com.technoetic.xplanner.actions.DispatchForward",
+    "props": {
+     "authorizationRequired": "false"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 407,
+   "path": "/admin/reload-tiles",
+   "urlPath": "/do/admin/reload-tiles",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 398,
+    "class": "org.apache.struts.tiles.actions.ReloadDefinitionsAction",
+    "props": {}
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 409,
+   "path": "/edit/roles",
+   "urlPath": "/do/edit/roles",
+   "form": "edit/roles",
+   "formClass": "com.technoetic.xplanner.forms.RoleEditorForm",
+   "input": "/WEB-INF/jsp/edit/editRoles.jsp",
+   "inputExists": true,
+   "scope": "session",
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 400,
+    "class": "com.technoetic.xplanner.actions.EditRoleAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Project"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 413,
+   "path": "/search/id",
+   "urlPath": "/do/search/id",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 406,
+    "class": "com.technoetic.xplanner.actions.IdSearchAction",
+    "props": {
+     "idSearchHelper": "ref:idSearchHelper"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 415,
+   "path": "/search/content",
+   "urlPath": "/do/search/content",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 410,
+    "class": "com.technoetic.xplanner.actions.ContentSearchAction",
+    "props": {}
+   },
+   "forwards": [
+    {
+     "name": "success",
+     "path": "/WEB-INF/jsp/view/searchResults.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "main",
+   "config": "WEB-INF/struts-config.xml",
+   "line": 419,
+   "path": "/edit/setting",
+   "urlPath": "/do/edit/setting",
+   "form": "edit/setting",
+   "formClass": "com.technoetic.xplanner.forms.ProjectEditorForm",
+   "input": "/WEB-INF/jsp/edit/editSetting.jsp",
+   "inputExists": false,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/action-servlet.xml",
+    "line": 420,
+    "class": "com.technoetic.xplanner.actions.EditObjectAction",
+    "props": {
+     "type": "net.sf.xplanner.domain.Setting"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "mobile",
+   "config": "WEB-INF/mobile-struts-config.xml",
+   "line": 20,
+   "path": "/mobile/login",
+   "urlPath": "/do/mobile/login",
+   "form": "login/authenticate",
+   "formClass": "org.apache.struts.action.DynaActionForm",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "mobile/login",
+   "strutsType": "com.technoetic.xplanner.actions.AuthenticationAction",
+   "springBean": null,
+   "forwards": [
+    {
+     "name": "mobile/login",
+     "path": "/WEB-INF/jsp/wap/login.jsp",
+     "exists": true
+    },
+    {
+     "name": "notAuthenticated",
+     "path": "/WEB-INF/jsp/wap/login.jsp",
+     "exists": true
+    },
+    {
+     "name": "authenticated",
+     "path": "/do/mobile/view/projects",
+     "redirect": "true",
+     "exists": "action-path"
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)",
+   "mobileSecurityFilter": "bypass (mobile-security.xml)"
+  },
+  {
+   "module": "mobile",
+   "config": "WEB-INF/mobile-struts-config.xml",
+   "line": 27,
+   "path": "/mobile/view/projects",
+   "urlPath": "/do/mobile/view/projects",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "mobile/view/projects",
+   "strutsType": "com.technoetic.xplanner.actions.DispatchForward",
+   "springBean": null,
+   "forwards": [
+    {
+     "name": "mobile/view/projects",
+     "path": "/WEB-INF/jsp/wap/projects.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)",
+   "mobileSecurityFilter": "authentication required (FormSecurityFilter /do/mobile/*)"
+  },
+  {
+   "module": "mobile",
+   "config": "WEB-INF/mobile-struts-config.xml",
+   "line": 31,
+   "path": "/mobile/view/project",
+   "urlPath": "/do/mobile/view/project",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "mobile/view/project",
+   "strutsType": "com.technoetic.xplanner.actions.DispatchForward",
+   "springBean": null,
+   "forwards": [
+    {
+     "name": "mobile/view/project",
+     "path": "/WEB-INF/jsp/wap/project.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)",
+   "mobileSecurityFilter": "authentication required (FormSecurityFilter /do/mobile/*)"
+  },
+  {
+   "module": "mobile",
+   "config": "WEB-INF/mobile-struts-config.xml",
+   "line": 35,
+   "path": "/mobile/view/iteration",
+   "urlPath": "/do/mobile/view/iteration",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "mobile/view/iteration",
+   "strutsType": "com.technoetic.xplanner.actions.DispatchForward",
+   "springBean": null,
+   "forwards": [
+    {
+     "name": "mobile/view/iteration",
+     "path": "/WEB-INF/jsp/wap/iteration.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)",
+   "mobileSecurityFilter": "authentication required (FormSecurityFilter /do/mobile/*)"
+  },
+  {
+   "module": "mobile",
+   "config": "WEB-INF/mobile-struts-config.xml",
+   "line": 39,
+   "path": "/mobile/view/story",
+   "urlPath": "/do/mobile/view/story",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "mobile/view/story",
+   "strutsType": "com.technoetic.xplanner.actions.DispatchForward",
+   "springBean": null,
+   "forwards": [
+    {
+     "name": "mobile/view/story",
+     "path": "/WEB-INF/jsp/wap/story.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)",
+   "mobileSecurityFilter": "authentication required (FormSecurityFilter /do/mobile/*)"
+  },
+  {
+   "module": "mobile",
+   "config": "WEB-INF/mobile-struts-config.xml",
+   "line": 43,
+   "path": "/mobile/view/task",
+   "urlPath": "/do/mobile/view/task",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "mobile/view/task",
+   "strutsType": "com.technoetic.xplanner.actions.DispatchForward",
+   "springBean": null,
+   "forwards": [
+    {
+     "name": "mobile/view/task",
+     "path": "/WEB-INF/jsp/wap/task.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)",
+   "mobileSecurityFilter": "authentication required (FormSecurityFilter /do/mobile/*)"
+  },
+  {
+   "module": "mobile",
+   "config": "WEB-INF/mobile-struts-config.xml",
+   "line": 47,
+   "path": "/mobile/view/person",
+   "urlPath": "/do/mobile/view/person",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": "mobile/view/person",
+   "strutsType": "com.technoetic.xplanner.actions.DispatchForward",
+   "springBean": null,
+   "forwards": [
+    {
+     "name": "mobile/view/person",
+     "path": "/WEB-INF/jsp/wap/person.jsp",
+     "exists": true
+    }
+   ],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)",
+   "mobileSecurityFilter": "authentication required (FormSecurityFilter /do/mobile/*)"
+  },
+  {
+   "module": "test",
+   "config": "WEB-INF/test-struts-config.xml",
+   "line": 13,
+   "path": "/edit/dataSample",
+   "urlPath": "/do/edit/dataSample",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/test-action-servlet.xml",
+    "line": 4,
+    "class": "com.technoetic.xplanner.actions.CommandExecutorAction",
+    "props": {
+     "task": "ref:txDataSamplingCommand"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "test",
+   "config": "WEB-INF/test-struts-config.xml",
+   "line": 15,
+   "path": "/edit/missingTimeEntryNotification",
+   "urlPath": "/do/edit/missingTimeEntryNotification",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/test-action-servlet.xml",
+    "line": 9,
+    "class": "com.technoetic.xplanner.actions.CommandExecutorAction",
+    "props": {
+     "task": "ref:missingTimeEntryNotifier"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "test",
+   "config": "WEB-INF/test-struts-config.xml",
+   "line": 17,
+   "path": "/edit/putTheClockForward",
+   "urlPath": "/do/edit/putTheClockForward",
+   "form": null,
+   "formClass": null,
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/test-action-servlet.xml",
+    "line": 14,
+    "class": "com.technoetic.xplanner.actions.PutTheClockForwardAction",
+    "props": {
+     "timeGenerator": "ref:timeGenerator"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "test",
+   "config": "WEB-INF/test-struts-config.xml",
+   "line": 19,
+   "path": "/edit/properties",
+   "urlPath": "/do/edit/properties",
+   "form": "edit/properties",
+   "formClass": "UNDEFINED form-bean",
+   "input": null,
+   "inputExists": null,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/test-action-servlet.xml",
+    "line": 19,
+    "class": "com.technoetic.xplanner.actions.EditPropertiesAction",
+    "props": {}
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "test",
+   "config": "WEB-INF/test-struts-config.xml",
+   "line": 21,
+   "path": "/invalidateCache",
+   "urlPath": "/do/invalidateCache",
+   "form": null,
+   "formClass": null,
+   "input": "/WEB-INF/jsp/admin/invalidateCache.jsp",
+   "inputExists": false,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/test-action-servlet.xml",
+    "line": 22,
+    "class": "com.technoetic.xplanner.actions.admin.InvalidateCacheAction",
+    "props": {
+     "authorizer": "ref:authorizer",
+     "cacheMap": "ref:resultByArgsByMethodName"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "authentication required (FormSecurityFilter /do/*)"
+  },
+  {
+   "module": "test",
+   "config": "WEB-INF/test-struts-config.xml",
+   "line": 23,
+   "path": "/invalidateHibernateCache",
+   "urlPath": "/do/invalidateHibernateCache",
+   "form": null,
+   "formClass": null,
+   "input": "/WEB-INF/jsp/admin/invalidateCache.jsp",
+   "inputExists": false,
+   "scope": null,
+   "parameter": null,
+   "strutsType": null,
+   "springBean": {
+    "file": "WEB-INF/test-action-servlet.xml",
+    "line": 32,
+    "class": "com.technoetic.xplanner.actions.admin.InvalidateHibernateCacheAction",
+    "props": {
+     "sessionFactory": "ref:sessionFactory"
+    }
+   },
+   "forwards": [],
+   "exceptions": [],
+   "webSecurityFilter": "bypass (security.xml security-bypass)"
+  }
+ ]
+}

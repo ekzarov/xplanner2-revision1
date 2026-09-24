@@ -1,0 +1,2359 @@
+[
+ {
+  "jsp": "WEB-INF/jsp/common/baseHeader.jsp",
+  "bytes": 2486,
+  "htmlComments": 2,
+  "scriptlets": 0,
+  "forms": [
+   "/search/content"
+  ],
+  "doLinks": [
+   "/do/logout"
+  ],
+  "actionAttrs": [
+   "/do/logout",
+   "/search/content"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:message",
+   "c:if",
+   "html:img",
+   "html:rewrite",
+   "xplanner:authenticatedUser",
+   "xplanner:link"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/common/footer.jsp",
+  "bytes": 1803,
+  "htmlComments": 0,
+  "scriptlets": 2,
+  "forms": [],
+  "doLinks": [
+   "/do/systemInfo"
+  ],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:message",
+   "html:img"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/common/formattingHelpJS.jsp",
+  "bytes": 313,
+  "htmlComments": 1,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/common/formattingHelpLink.jsp",
+  "bytes": 189,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/view/twikiformat"
+  ],
+  "actionAttrs": [
+   "/xplanner/do/view/twikiformat"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:message"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/common/generalError.jsp",
+  "bytes": 1478,
+  "htmlComments": 0,
+  "scriptlets": 4,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:message",
+   "html:messages",
+   "xplanner:content",
+   "xplanner:contentTitle"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "oid"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/common/header.jsp",
+  "bytes": 374,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "/WEB-INF/jsp/common/baseHeader.jsp"
+  ],
+  "tags": [],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/common/unexpectedError.jsp",
+  "bytes": 6347,
+  "htmlComments": 0,
+  "scriptlets": 11,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:message",
+   "xplanner:box",
+   "xplanner:boxedList",
+   "xplanner:content",
+   "xplanner:contentTitle"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+  "bytes": 2825,
+  "htmlComments": 0,
+  "scriptlets": 3,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/continue/unfinished/stories",
+   "/do/view/iteration"
+  ],
+  "actionAttrs": [
+   "/do/continue/unfinished/stories"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "html:rewrite",
+   "html:select",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:iterationOptions"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "fkey"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editFeature.jsp",
+  "bytes": 3359,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/feature"
+  ],
+  "actionAttrs": [
+   "/do/edit/feature"
+  ],
+  "includes": [
+   "/WEB-INF/jsp/common/formattingHelpLink.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "html:rewrite",
+   "html:text",
+   "html:textarea",
+   "logic:notPresent",
+   "logic:present",
+   "tiles:put",
+   "xplanner:content"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editIteration.jsp",
+  "bytes": 5599,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/iteration"
+  ],
+  "actionAttrs": [
+   "/do/edit/iteration"
+  ],
+  "includes": [
+   "/WEB-INF/jsp/common/formattingHelpLink.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:write",
+   "html:rewrite",
+   "html:text",
+   "html:textarea",
+   "logic:notPresent",
+   "logic:present",
+   "tiles:put",
+   "xplanner:content"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editIterationStatus.jsp",
+  "bytes": 3553,
+  "htmlComments": 0,
+  "scriptlets": 4,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/start/iteration"
+  ],
+  "actionAttrs": [
+   "/do/start/iteration"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "html:errors",
+   "html:rewrite",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:navigation"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "fkey"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editNote.jsp",
+  "bytes": 5286,
+  "htmlComments": 0,
+  "scriptlets": 3,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/note"
+  ],
+  "actionAttrs": [
+   "/do/edit/note"
+  ],
+  "includes": [
+   "/WEB-INF/jsp/common/formattingHelpLink.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:write",
+   "html:file",
+   "html:hidden",
+   "html:link",
+   "html:option",
+   "html:rewrite",
+   "html:select",
+   "html:text",
+   "html:textarea",
+   "logic:notPresent",
+   "logic:present",
+   "tiles:put",
+   "xplanner:authenticatedUser",
+   "xplanner:content",
+   "xplanner:personOptions"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "attachedToId",
+   "formFileName"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editPerson.jsp",
+  "bytes": 8616,
+  "htmlComments": 1,
+  "scriptlets": 4,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/person"
+  ],
+  "actionAttrs": [
+   "/do/edit/person"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:write",
+   "db:useBeans",
+   "html:option",
+   "html:password",
+   "html:rewrite",
+   "html:select",
+   "html:text",
+   "logic:iterate",
+   "logic:notPresent",
+   "logic:present",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:isUserAuthorized",
+   "xplanner:isUserAuthorizedForAny"
+  ],
+  "perms": [
+   "admin.edit.role",
+   "hide",
+   "sysadmin.promote"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editProject.jsp",
+  "bytes": 8232,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/project"
+  ],
+  "actionAttrs": [
+   "/do/edit/project"
+  ],
+  "includes": [
+   "/WEB-INF/jsp/common/formattingHelpLink.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:write",
+   "html:img",
+   "html:option",
+   "html:rewrite",
+   "html:select",
+   "html:text",
+   "html:textarea",
+   "logic:iterate",
+   "logic:notEmpty",
+   "logic:notPresent",
+   "logic:present",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:isUserAuthorized",
+   "xplanner:personOptions"
+  ],
+  "perms": [
+   "hide"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editRoles.jsp",
+  "bytes": 4155,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/roles"
+  ],
+  "actionAttrs": [
+   "/do/edit/roles"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:write",
+   "db:useBean",
+   "db:useBeans",
+   "html:errors",
+   "html:rewrite",
+   "logic:iterate",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:isUserAuthorized",
+   "xplanner:navigation",
+   "xplanner:outline"
+  ],
+  "perms": [
+   "admin.edit.role"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editStory.jsp",
+  "bytes": 8067,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/userstory"
+  ],
+  "actionAttrs": [
+   "/do/edit/userstory"
+  ],
+  "includes": [
+   "/WEB-INF/jsp/common/formattingHelpLink.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "html:option",
+   "html:rewrite",
+   "html:select",
+   "html:text",
+   "html:textarea",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:notPresent",
+   "logic:present",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:personOptions"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editTask.jsp",
+  "bytes": 6949,
+  "htmlComments": 1,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/task"
+  ],
+  "actionAttrs": [
+   "/do/edit/task"
+  ],
+  "includes": [
+   "/WEB-INF/jsp/common/formattingHelpLink.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "html:option",
+   "html:rewrite",
+   "html:select",
+   "html:text",
+   "html:textarea",
+   "logic:notPresent",
+   "logic:present",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:personOptions"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editTaskEstimate.jsp",
+  "bytes": 3346,
+  "htmlComments": 1,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/time"
+  ],
+  "actionAttrs": [
+   "/do/edit/time"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "html:errors",
+   "html:rewrite",
+   "logic:notPresent",
+   "logic:present",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:navigation"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "fkey"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/editTimeEntries.jsp",
+  "bytes": 8577,
+  "htmlComments": 2,
+  "scriptlets": 20,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/time"
+  ],
+  "actionAttrs": [
+   "/do/edit/time"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "db:useBean",
+   "html:img",
+   "html:option",
+   "html:rewrite",
+   "html:select",
+   "html:text",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:personOptions"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "oid"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/importPeople.jsp",
+  "bytes": 3767,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/import/people"
+  ],
+  "actionAttrs": [
+   "/do/import/people"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:write",
+   "html:file",
+   "html:link",
+   "html:rewrite",
+   "logic:iterate",
+   "logic:notEmpty",
+   "tiles:put",
+   "xplanner:content"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "formFileName"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/moveContinueStory.jsp",
+  "bytes": 3075,
+  "htmlComments": 0,
+  "scriptlets": 3,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/move/continue/userstory",
+   "/do/view/iteration"
+  ],
+  "actionAttrs": [
+   "/do/move/continue/userstory"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "html:rewrite",
+   "html:select",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:iterationOptions"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "fkey"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/moveContinueTask.jsp",
+  "bytes": 2753,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/move/continue/task",
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/move/continue/task"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "html:rewrite",
+   "html:select",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:storyOptions"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "fkey"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/edit/moveStories.jsp",
+  "bytes": 1760,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/move/userstories"
+  ],
+  "actionAttrs": [
+   "/do/move/userstories"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "c:forEach",
+   "html:rewrite",
+   "html:select",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:iterationOptions"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/import/stories.jsp",
+  "bytes": 5214,
+  "htmlComments": 0,
+  "scriptlets": 2,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/import/stories"
+  ],
+  "actionAttrs": [
+   "/do/import/stories"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "html:checkbox",
+   "html:file",
+   "html:link",
+   "html:rewrite",
+   "html:text",
+   "logic:present",
+   "tiles:put",
+   "xplanner:content"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/layout/defaultEditLayout.jsp",
+  "bytes": 3051,
+  "htmlComments": 2,
+  "scriptlets": 3,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "/WEB-INF/jsp/common/footer.jsp",
+   "/WEB-INF/jsp/common/formattingHelpJS.jsp",
+   "body",
+   "header"
+  ],
+  "tags": [
+   "bean:message",
+   "html:errors",
+   "html:rewrite",
+   "tiles:insert"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/layout/defaultLayout.jsp",
+  "bytes": 2462,
+  "htmlComments": 2,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "body",
+   "footer",
+   "header"
+  ],
+  "tags": [
+   "html:rewrite",
+   "tiles:getAsString",
+   "tiles:insert"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/layout/iterationTileParams.jsp",
+  "bytes": 2299,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "iteration/globalLinks.jsp",
+   "iteration/links.jsp",
+   "iteration/progress.jsp"
+  ],
+  "tags": [
+   "bean:message",
+   "bean:size",
+   "logic:greaterThan",
+   "logic:notEmpty",
+   "tiles:put",
+   "xplanner:formatDate",
+   "xplanner:twiki"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/layout/viewFooter.jsp",
+  "bytes": 448,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "/WEB-INF/jsp/view/notes.jsp"
+  ],
+  "tags": [
+   "bean:define"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/layout/viewHeader.jsp",
+  "bytes": 388,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "/WEB-INF/jsp/common/header.jsp"
+  ],
+  "tags": [
+   "bean:define"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/layout/viewLayout.jsp",
+  "bytes": 5915,
+  "htmlComments": 4,
+  "scriptlets": 11,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "/WEB-INF/jsp/common/footer.jsp",
+   "/WEB-INF/jsp/view/notes.jsp",
+   "actions",
+   "body",
+   "header",
+   "progress"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "c:param",
+   "c:set",
+   "c:url",
+   "html:errors",
+   "html:img",
+   "html:rewrite",
+   "tiles:getAsString",
+   "tiles:insert"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/layout/viewLayoutNew.jsp",
+  "bytes": 5825,
+  "htmlComments": 4,
+  "scriptlets": 2,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "/WEB-INF/jsp/common/footer.jsp",
+   "actions",
+   "body",
+   "header",
+   "progress"
+  ],
+  "tags": [
+   "bean:define",
+   "c:choose",
+   "c:if",
+   "c:otherwise",
+   "c:param",
+   "c:set",
+   "c:url",
+   "c:when",
+   "html:errors",
+   "html:img",
+   "html:rewrite",
+   "tiles:getAsString",
+   "tiles:insert"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "mode"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/security/login.jsp",
+  "bytes": 3183,
+  "htmlComments": 0,
+  "scriptlets": 2,
+  "forms": [
+   "/login"
+  ],
+  "doLinks": [],
+  "actionAttrs": [
+   "/login"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "html:form",
+   "html:messages",
+   "xplanner:content",
+   "xplanner:contentTitle"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/aggregateTimesheet.jsp",
+  "bytes": 9213,
+  "htmlComments": 1,
+  "scriptlets": 1,
+  "forms": [
+   "view/aggregateTimesheet"
+  ],
+  "doLinks": [
+   "/do/view/iteration",
+   "/do/view/people",
+   "/do/view/project",
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/view/iteration",
+   "/do/view/people",
+   "/do/view/project",
+   "/do/view/userstory"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:write",
+   "cewolf:chart",
+   "cewolf:chartpostprocessor",
+   "cewolf:colorpaint",
+   "cewolf:data",
+   "cewolf:img",
+   "cewolf:producer",
+   "dt:column",
+   "dt:table",
+   "html:form",
+   "html:link",
+   "html:optionsCollection",
+   "html:rewrite",
+   "html:select",
+   "html:submit",
+   "html:text",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:contentTitleArg",
+   "xplanner:link"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/dashboard.jsp",
+  "bytes": 8313,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:parameter",
+   "html:rewrite",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:navigation"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "fkey"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/directory.jsp",
+  "bytes": 3826,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [
+   "/view/directory"
+  ],
+  "doLinks": [
+   "/do/view/directory"
+  ],
+  "actionAttrs": [
+   "/do/view/directory",
+   "/view/directory"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:write",
+   "html:file",
+   "html:form",
+   "html:hidden",
+   "html:link",
+   "html:rewrite",
+   "html:submit",
+   "html:text",
+   "logic:iterate",
+   "logic:present",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:link",
+   "xplanner:linkParam"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/exportLinks.jsp",
+  "bytes": 2376,
+  "htmlComments": 0,
+  "scriptlets": 3,
+  "forms": [],
+  "doLinks": [
+   "/do/export/"
+  ],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:message",
+   "html:rewrite",
+   "xplanner:link"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/feature.jsp",
+  "bytes": 2411,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/edit/feature",
+   "/do/view/history"
+  ],
+  "actionAttrs": [
+   "/do/edit/feature",
+   "/do/view/history"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:message",
+   "db:useBean",
+   "html:rewrite",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:linkParam",
+   "xplanner:twiki"
+  ],
+  "perms": [
+   "edit"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/history.jsp",
+  "bytes": 6822,
+  "htmlComments": 0,
+  "scriptlets": 7,
+  "forms": [],
+  "doLinks": [
+   "/do/view/",
+   "/do/view/person"
+  ],
+  "actionAttrs": [
+   "/do/view/person"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:size",
+   "bean:write",
+   "db:useBean",
+   "dt:column",
+   "dt:setProperty",
+   "dt:table",
+   "html:link",
+   "logic:greaterThan",
+   "logic:notPresent",
+   "logic:present",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:formatDate",
+   "xplanner:link",
+   "xplanner:twiki"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "oid"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/integrations.jsp",
+  "bytes": 10411,
+  "htmlComments": 0,
+  "scriptlets": 8,
+  "forms": [
+   "edit/integrations"
+  ],
+  "doLinks": [
+   "/do/view/person"
+  ],
+  "actionAttrs": [
+   "/do/view/person"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:size",
+   "bean:write",
+   "db:useBean",
+   "db:useBeans",
+   "db:useBeansParameter",
+   "dt:column",
+   "dt:table",
+   "html:errors",
+   "html:form",
+   "html:option",
+   "html:rewrite",
+   "html:select",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:iterate",
+   "logic:notPresent",
+   "logic:present",
+   "xplanner:authenticatedUser",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:formatDate",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:navigation",
+   "xplanner:personOptions"
+  ],
+  "perms": [
+   "integrate"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/iteration.jsp",
+  "bytes": 10734,
+  "htmlComments": 0,
+  "scriptlets": 4,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/reorderstories",
+   "/do/move/userstories",
+   "/do/view/person",
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/edit/reorderstories",
+   "/do/move/userstories",
+   "/do/view/person",
+   "/do/view/userstory"
+  ],
+  "includes": [
+   "../layout/iterationTileParams.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "c:choose",
+   "c:otherwise",
+   "c:when",
+   "db:useBean",
+   "dt:column",
+   "html:img",
+   "html:messages",
+   "html:rewrite",
+   "logic:empty",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:notEmpty",
+   "logic:notEqual",
+   "xplanner:actionButtonsColumn",
+   "xplanner:content",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:progressBar",
+   "xplanner:writableTable"
+  ],
+  "perms": [
+   "edit",
+   "edit,delete"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/iterationAccuracy.jsp",
+  "bytes": 12369,
+  "htmlComments": 0,
+  "scriptlets": 4,
+  "forms": [],
+  "doLinks": [
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/view/userstory"
+  ],
+  "includes": [
+   "../layout/iterationTileParams.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "db:useBean",
+   "dt:column",
+   "dt:table",
+   "html:link",
+   "logic:equal",
+   "xplanner:content",
+   "xplanner:progressBar"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/iterationFeatures.jsp",
+  "bytes": 4276,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/delete/feature",
+   "/do/edit/feature",
+   "/do/view/feature",
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/delete/feature",
+   "/do/edit/feature",
+   "/do/view/feature",
+   "/do/view/userstory"
+  ],
+  "includes": [
+   "../layout/iterationTileParams.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:size",
+   "db:useBean",
+   "html:img",
+   "html:link",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:iterate",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:isUserAuthorized",
+   "xplanner:isUserAuthorizedForAny",
+   "xplanner:link"
+  ],
+  "perms": [
+   "edit",
+   "edit,delete"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/iterationMetrics.jsp",
+  "bytes": 11195,
+  "htmlComments": 1,
+  "scriptlets": 18,
+  "forms": [],
+  "doLinks": [
+   "/do/view/person"
+  ],
+  "actionAttrs": [
+   "/do/view/person"
+  ],
+  "includes": [
+   "../layout/iterationTileParams.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "db:useBean",
+   "dt:column",
+   "dt:setProperty",
+   "dt:table",
+   "logic:notEqual",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:link"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/iterationStatistics.jsp",
+  "bytes": 14436,
+  "htmlComments": 0,
+  "scriptlets": 8,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "../layout/iterationTileParams.jsp"
+  ],
+  "tags": [
+   "bean:message",
+   "cewolf:chart",
+   "cewolf:chartpostprocessor",
+   "cewolf:colorpaint",
+   "cewolf:data",
+   "cewolf:img",
+   "cewolf:map",
+   "cewolf:param",
+   "cewolf:producer",
+   "db:useBean",
+   "html:rewrite",
+   "xplanner:content",
+   "xplanner:propertyEqual"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/iterationTasks.jsp",
+  "bytes": 8972,
+  "htmlComments": 0,
+  "scriptlets": 6,
+  "forms": [],
+  "doLinks": [
+   "/do/view/person",
+   "/do/view/task",
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/view/person",
+   "/do/view/task",
+   "/do/view/userstory"
+  ],
+  "includes": [
+   "../layout/iterationTileParams.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:size",
+   "db:useBean",
+   "dt:column",
+   "dt:setProperty",
+   "html:img",
+   "html:link",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:notEqual",
+   "tiles:put",
+   "xplanner:actionButtonsColumn",
+   "xplanner:content",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:writableTable"
+  ],
+  "perms": [
+   "edit,delete"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/iteration/globalLinks.jsp",
+  "bytes": 2497,
+  "htmlComments": 1,
+  "scriptlets": 2,
+  "forms": [],
+  "doLinks": [
+   "/do/view/dashboard",
+   "/do/view/history",
+   "/do/view/iteration/accuracy",
+   "/do/view/iteration/metrics",
+   "/do/view/iteration/statistics",
+   "/do/view/iteration/tasks"
+  ],
+  "actionAttrs": [
+   "/do/view/dashboard",
+   "/do/view/history",
+   "/do/view/iteration/accuracy",
+   "/do/view/iteration/metrics",
+   "/do/view/iteration/statistics",
+   "/do/view/iteration/tasks"
+  ],
+  "includes": [
+   "../exportLinks.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "c:if",
+   "xplanner:link",
+   "xplanner:linkParam"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/iteration/links.jsp",
+  "bytes": 2146,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/view/iteration",
+   "/do/view/iteration/tasks"
+  ],
+  "actionAttrs": [
+   "/do/view/iteration",
+   "/do/view/iteration/tasks"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "xplanner:action",
+   "xplanner:actionButtons",
+   "xplanner:isUserAuthorized",
+   "xplanner:link"
+  ],
+  "perms": [
+   "edit"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/iteration/progress.jsp",
+  "bytes": 839,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "xplanner:progressBar"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/meStatus.jsp",
+  "bytes": 4930,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "personStoryTableFragment.jsp",
+   "personTaskTableFragment.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "db:useBeans",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:contentTitleArg"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/notes.jsp",
+  "bytes": 5209,
+  "htmlComments": 0,
+  "scriptlets": 5,
+  "forms": [],
+  "doLinks": [
+   "/do/delete/note",
+   "/do/download/attachment",
+   "/do/edit/note",
+   "/do/view/person"
+  ],
+  "actionAttrs": [
+   "/do/delete/note",
+   "/do/download/attachment",
+   "/do/edit/note",
+   "/do/view/person"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:size",
+   "bean:write",
+   "db:useBean",
+   "db:useBeans",
+   "html:img",
+   "html:link",
+   "logic:greaterThan",
+   "logic:iterate",
+   "logic:notEqual",
+   "logic:present",
+   "xplanner:formatDate",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:linkParam",
+   "xplanner:twiki"
+  ],
+  "perms": [
+   "edit"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/people.jsp",
+  "bytes": 6004,
+  "htmlComments": 0,
+  "scriptlets": 4,
+  "forms": [],
+  "doLinks": [
+   "/do/edit/person",
+   "/do/import/people",
+   "/do/view/person"
+  ],
+  "actionAttrs": [
+   "/do/edit/person",
+   "/do/import/people",
+   "/do/view/person"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:size",
+   "db:useBean",
+   "db:useBeans",
+   "dt:column",
+   "dt:setProperty",
+   "html:img",
+   "html:rewrite",
+   "logic:equal",
+   "logic:greaterThan",
+   "xplanner:actionButtonsColumn",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:writableTable"
+  ],
+  "perms": [
+   "admin.hide",
+   "create.person"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/person.jsp",
+  "bytes": 4408,
+  "htmlComments": 1,
+  "scriptlets": 2,
+  "forms": [],
+  "doLinks": [
+   "/do/view/people",
+   "/do/view/timesheet"
+  ],
+  "actionAttrs": [
+   "/do/view/people",
+   "/do/view/timesheet"
+  ],
+  "includes": [
+   "exportLinks.jsp",
+   "personStoryTableFragment.jsp",
+   "personTaskTableFragment.jsp"
+  ],
+  "tags": [
+   "bean:message",
+   "db:useBean",
+   "db:useBeans",
+   "xplanner:actionButtons",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:contentTitleArg",
+   "xplanner:link"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/personStoryTableFragment.jsp",
+  "bytes": 2595,
+  "htmlComments": 0,
+  "scriptlets": 3,
+  "forms": [],
+  "doLinks": [
+   "/do/view/iteration",
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/view/iteration",
+   "/do/view/userstory"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "c:set",
+   "html:link",
+   "logic:iterate",
+   "xplanner:progressBar"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/personTaskTableFragment.jsp",
+  "bytes": 4124,
+  "htmlComments": 0,
+  "scriptlets": 3,
+  "forms": [],
+  "doLinks": [
+   "/do/edit/task",
+   "/do/edit/time",
+   "/do/view/iteration",
+   "/do/view/task",
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/edit/task",
+   "/do/edit/time",
+   "/do/view/iteration",
+   "/do/view/task",
+   "/do/view/userstory"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "db:useBean",
+   "html:img",
+   "html:link",
+   "logic:equal",
+   "logic:iterate",
+   "xplanner:isUserAuthorized",
+   "xplanner:link"
+  ],
+  "perms": [
+   "edit"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/project.jsp",
+  "bytes": 6290,
+  "htmlComments": 1,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/edit/iteration",
+   "/do/view/history",
+   "/do/view/iteration",
+   "/do/view/people"
+  ],
+  "actionAttrs": [
+   "/do/edit/iteration",
+   "/do/view/history",
+   "/do/view/iteration",
+   "/do/view/people"
+  ],
+  "includes": [
+   "exportLinks.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "c:if",
+   "c:set",
+   "db:useBean",
+   "dt:column",
+   "dt:setProperty",
+   "html:rewrite",
+   "logic:equal",
+   "logic:notEmpty",
+   "tiles:put",
+   "xplanner:action",
+   "xplanner:actionButtons",
+   "xplanner:actionButtonsColumn",
+   "xplanner:content",
+   "xplanner:formatDate",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:linkParam",
+   "xplanner:twiki",
+   "xplanner:writableTable"
+  ],
+  "perms": [
+   "create",
+   "edit,delete",
+   "read"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/projectFeatures.jsp",
+  "bytes": 5922,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/delete/feature",
+   "/do/edit/feature",
+   "/do/edit/iteration",
+   "/do/edit/project",
+   "/do/view/feature",
+   "/do/view/history",
+   "/do/view/iteration",
+   "/do/view/people",
+   "/do/view/project/features",
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/delete/feature",
+   "/do/edit/feature",
+   "/do/edit/iteration",
+   "/do/edit/project",
+   "/do/view/feature",
+   "/do/view/history",
+   "/do/view/iteration",
+   "/do/view/people",
+   "/do/view/project/features",
+   "/do/view/userstory"
+  ],
+  "includes": [
+   "exportLinks.jsp"
+  ],
+  "tags": [
+   "bean:message",
+   "bean:size",
+   "db:useBean",
+   "html:img",
+   "html:link",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:iterate",
+   "logic:notEmpty",
+   "tiles:put",
+   "xplanner:content",
+   "xplanner:isUserAuthorized",
+   "xplanner:isUserAuthorizedForAny",
+   "xplanner:link",
+   "xplanner:linkParam",
+   "xplanner:twiki"
+  ],
+  "perms": [
+   "admin.edit",
+   "create",
+   "edit",
+   "edit,delete",
+   "read"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/projects.jsp",
+  "bytes": 6760,
+  "htmlComments": 0,
+  "scriptlets": 4,
+  "forms": [],
+  "doLinks": [
+   "/do/edit/project",
+   "/do/view/aggregateTimesheet",
+   "/do/view/people"
+  ],
+  "actionAttrs": [
+   "/do/edit/project",
+   "/do/view/aggregateTimesheet",
+   "/do/view/people"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:size",
+   "bean:write",
+   "db:useBeans",
+   "db:useBeansParameter",
+   "dt:column",
+   "html:img",
+   "html:rewrite",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:present",
+   "tiles:put",
+   "xplanner:actionButtonsColumn",
+   "xplanner:authenticatedUser",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:isUserAuthorized",
+   "xplanner:isUserAuthorizedForAny",
+   "xplanner:link",
+   "xplanner:writableTable"
+  ],
+  "perms": [
+   "admin.edit,sysadmin.delete",
+   "create.project",
+   "hide"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/searchResults.jsp",
+  "bytes": 2549,
+  "htmlComments": 0,
+  "scriptlets": 3,
+  "forms": [],
+  "doLinks": [
+   "/do/view/"
+  ],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:write",
+   "dt:column",
+   "dt:table",
+   "html:link",
+   "logic:empty",
+   "logic:equal",
+   "logic:notEmpty",
+   "xplanner:content",
+   "xplanner:contentTitle"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/settings.jsp",
+  "bytes": 3368,
+  "htmlComments": 0,
+  "scriptlets": 1,
+  "forms": [],
+  "doLinks": [
+   "/do/edit/setting",
+   "/do/view/aggregateTimesheet",
+   "/do/view/people"
+  ],
+  "actionAttrs": [
+   "/do/edit/setting",
+   "/do/view/aggregateTimesheet",
+   "/do/view/people"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:write",
+   "db:useBeans",
+   "dt:column",
+   "tiles:put",
+   "xplanner:authenticatedUser",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:writableTable"
+  ],
+  "perms": [
+   "admin.edit,sysadmin.delete",
+   "create.project"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/task.jsp",
+  "bytes": 15540,
+  "htmlComments": 4,
+  "scriptlets": 3,
+  "forms": [
+   "<html:rewrite page="
+  ],
+  "doLinks": [
+   "/do/edit/task",
+   "/do/view/history",
+   "/do/view/person",
+   "/do/view/task"
+  ],
+  "actionAttrs": [
+   "/do/edit/task",
+   "/do/view/history",
+   "/do/view/person"
+  ],
+  "includes": [
+   "exportLinks.jsp"
+  ],
+  "tags": [
+   "bean:message",
+   "bean:size",
+   "db:useBean",
+   "db:useBeans",
+   "html:rewrite",
+   "logic:empty",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:iterate",
+   "logic:notEmpty",
+   "logic:notEqual",
+   "logic:present",
+   "tiles:put",
+   "xplanner:actionButtons",
+   "xplanner:authenticatedUser",
+   "xplanner:content",
+   "xplanner:formatDate",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:linkParam",
+   "xplanner:progressBar",
+   "xplanner:twiki"
+  ],
+  "perms": [
+   "edit"
+  ],
+  "roles": [],
+  "params": [
+   "oid"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/timesheet.jsp",
+  "bytes": 9953,
+  "htmlComments": 2,
+  "scriptlets": 0,
+  "forms": [
+   "view/timesheet"
+  ],
+  "doLinks": [
+   "/do/view/iteration",
+   "/do/view/people",
+   "/do/view/project",
+   "/do/view/userstory"
+  ],
+  "actionAttrs": [
+   "/do/view/iteration",
+   "/do/view/people",
+   "/do/view/project",
+   "/do/view/userstory"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:parameter",
+   "bean:write",
+   "cewolf:chart",
+   "cewolf:chartpostprocessor",
+   "cewolf:colorpaint",
+   "cewolf:data",
+   "cewolf:img",
+   "cewolf:producer",
+   "html:form",
+   "html:hidden",
+   "html:link",
+   "html:rewrite",
+   "html:submit",
+   "html:text",
+   "logic:iterate",
+   "xplanner:content",
+   "xplanner:contentTitle",
+   "xplanner:contentTitleArg",
+   "xplanner:link"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/twikiformat.jsp",
+  "bytes": 12365,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "/WEB-INF/jsp/common/footer.jsp"
+  ],
+  "tags": [
+   "html:rewrite"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/view/userstory.jsp",
+  "bytes": 13271,
+  "htmlComments": 1,
+  "scriptlets": 3,
+  "forms": [],
+  "doLinks": [
+   "/do/edit/task",
+   "/do/view/history",
+   "/do/view/person",
+   "/do/view/task"
+  ],
+  "actionAttrs": [
+   "/do/edit/task",
+   "/do/view/history",
+   "/do/view/person",
+   "/do/view/task"
+  ],
+  "includes": [
+   "exportLinks.jsp"
+  ],
+  "tags": [
+   "bean:define",
+   "bean:message",
+   "bean:size",
+   "bean:write",
+   "db:useBean",
+   "dt:column",
+   "html:img",
+   "html:link",
+   "html:rewrite",
+   "logic:empty",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:notEmpty",
+   "logic:notEqual",
+   "tiles:put",
+   "xplanner:actionButtons",
+   "xplanner:actionButtonsColumn",
+   "xplanner:content",
+   "xplanner:isUserAuthorized",
+   "xplanner:link",
+   "xplanner:linkParam",
+   "xplanner:progressBar",
+   "xplanner:twiki",
+   "xplanner:writableTable"
+  ],
+  "perms": [
+   "edit",
+   "edit,delete"
+  ],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/wap/auth.jsp",
+  "bytes": 713,
+  "htmlComments": 0,
+  "scriptlets": 1,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "password",
+   "userId"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/wap/iteration.jsp",
+  "bytes": 1633,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/mobile/view/project",
+   "/do/mobile/view/story"
+  ],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:write",
+   "db:useBean",
+   "logic:iterate"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "oid"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/wap/login.jsp",
+  "bytes": 1088,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/mobile/login"
+  ],
+  "actionAttrs": [
+   "/xplanner/do/mobile/login"
+  ],
+  "includes": [],
+  "tags": [
+   "db:useBeans"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/wap/person.jsp",
+  "bytes": 1389,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/mobile/view/projects"
+  ],
+  "actionAttrs": [
+   "/xplanner/do/mobile/view/projects"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:write",
+   "db:useBean",
+   "logic:notEmpty"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "oid"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/wap/project.jsp",
+  "bytes": 1403,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/mobile/view/iteration",
+   "/do/mobile/view/projects"
+  ],
+  "actionAttrs": [
+   "/xplanner/do/mobile/view/projects"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:write",
+   "db:useBean",
+   "logic:iterate",
+   "logic:notEmpty"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "oid"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/jsp/wap/projects.jsp",
+  "bytes": 799,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/mobile/view/project"
+  ],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:write",
+   "db:useBeans",
+   "logic:iterate"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/wap/story.jsp",
+  "bytes": 1819,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [
+   "/do/mobile/view/iteration",
+   "/do/mobile/view/project",
+   "/do/mobile/view/task"
+  ],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:write",
+   "db:useBean",
+   "logic:iterate"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "WEB-INF/jsp/wap/task.jsp",
+  "bytes": 2328,
+  "htmlComments": 0,
+  "scriptlets": 1,
+  "forms": [],
+  "doLinks": [
+   "/do/mobile/view/iteration",
+   "/do/mobile/view/person",
+   "/do/mobile/view/project",
+   "/do/mobile/view/projects",
+   "/do/mobile/view/story"
+  ],
+  "actionAttrs": [
+   "/xplanner/do/mobile/view/projects"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:write",
+   "db:useBean",
+   "logic:equal",
+   "logic:greaterThan"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": [
+   "oid"
+  ]
+ },
+ {
+  "jsp": "WEB-INF/tags/breadcrumb.tag",
+  "bytes": 1068,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [
+   "globalActions"
+  ],
+  "tags": [
+   "c:choose",
+   "c:forEach",
+   "c:otherwise",
+   "c:when",
+   "tiles:insert",
+   "xplanner:navigation"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "calendar/calendar-i18n.jsp",
+  "bytes": 2105,
+  "htmlComments": 0,
+  "scriptlets": 0,
+  "forms": [],
+  "doLinks": [],
+  "actionAttrs": [],
+  "includes": [],
+  "tags": [
+   "bean:message"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ },
+ {
+  "jsp": "index.jsp",
+  "bytes": 1257,
+  "htmlComments": 0,
+  "scriptlets": 1,
+  "forms": [],
+  "doLinks": [
+   "/do/view/iteration",
+   "/do/view/projects"
+  ],
+  "actionAttrs": [
+   "/do/view/projects"
+  ],
+  "includes": [],
+  "tags": [
+   "bean:size",
+   "db:useBeans",
+   "logic:equal",
+   "logic:greaterThan",
+   "logic:notPresent",
+   "logic:present",
+   "logic:redirect"
+  ],
+  "perms": [],
+  "roles": [],
+  "params": []
+ }
+]

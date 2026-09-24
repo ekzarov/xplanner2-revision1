@@ -1,0 +1,329 @@
+{
+ "file": "WEB-INF/classes/db-changelog.xml",
+ "changeSets": [
+  {
+   "id": "1-1",
+   "author": "maksym",
+   "line": 5
+  },
+  {
+   "id": "1-2",
+   "author": "maksym",
+   "line": 239
+  },
+  {
+   "id": "1-3",
+   "author": "maksym",
+   "line": 269
+  },
+  {
+   "id": "2-1",
+   "author": "maksym",
+   "line": 413
+  },
+  {
+   "id": "2-2",
+   "author": "maksym",
+   "line": 437
+  },
+  {
+   "id": "2-3",
+   "author": "maksym",
+   "line": 481
+  },
+  {
+   "id": "2-4",
+   "author": "maksym",
+   "line": 491
+  },
+  {
+   "id": "2-5",
+   "author": "maksym",
+   "line": 496
+  }
+ ],
+ "inserts": [
+  {
+   "table": "permission",
+   "line": 275,
+   "cols": {
+    "id": "6",
+    "principal": "5",
+    "name": "%",
+    "resource_type": "%",
+    "resource_id": "0",
+    "positive": "true"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 283,
+   "cols": {
+    "id": "7",
+    "principal": "3",
+    "name": "create.project",
+    "resource_type": "system.project",
+    "resource_id": "0",
+    "positive": "false"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 291,
+   "cols": {
+    "id": "8",
+    "principal": "3",
+    "name": "create.person",
+    "resource_type": "system.person",
+    "resource_id": "0",
+    "positive": "false"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 299,
+   "cols": {
+    "id": "9",
+    "principal": "4",
+    "name": "create.project",
+    "resource_type": "system.project",
+    "resource_id": "0",
+    "positive": "false"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 307,
+   "cols": {
+    "id": "10",
+    "principal": "4",
+    "name": "admin%",
+    "resource_type": "%",
+    "resource_id": "0",
+    "positive": "true"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 315,
+   "cols": {
+    "id": "11",
+    "principal": "3",
+    "name": "create%",
+    "resource_type": "%",
+    "resource_id": "0",
+    "positive": "true"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 323,
+   "cols": {
+    "id": "12",
+    "principal": "3",
+    "name": "edit%",
+    "resource_type": "%",
+    "resource_id": "0",
+    "positive": "true"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 331,
+   "cols": {
+    "id": "13",
+    "principal": "3",
+    "name": "integrate%",
+    "resource_type": "%",
+    "resource_id": "0",
+    "positive": "true"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 339,
+   "cols": {
+    "id": "14",
+    "principal": "3",
+    "name": "delete%",
+    "resource_type": "%",
+    "resource_id": "0",
+    "positive": "true"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 347,
+   "cols": {
+    "id": "15",
+    "principal": "2",
+    "name": "read%",
+    "resource_type": "%",
+    "resource_id": "0",
+    "positive": "true"
+   }
+  },
+  {
+   "table": "permission",
+   "line": 355,
+   "cols": {
+    "id": "19",
+    "principal": "3",
+    "name": "delete",
+    "resource_type": "system.project.iteration",
+    "resource_id": "0",
+    "positive": "false"
+   }
+  },
+  {
+   "table": "role",
+   "line": 363,
+   "cols": {
+    "id": "2",
+    "role": "viewer",
+    "lft": "1",
+    "rgt": "8"
+   }
+  },
+  {
+   "table": "role",
+   "line": 369,
+   "cols": {
+    "id": "3",
+    "role": "editor",
+    "lft": "2",
+    "rgt": "7"
+   }
+  },
+  {
+   "table": "role",
+   "line": 375,
+   "cols": {
+    "id": "4",
+    "role": "admin",
+    "lft": "3",
+    "rgt": "6"
+   }
+  },
+  {
+   "table": "role",
+   "line": 381,
+   "cols": {
+    "id": "5",
+    "role": "sysadmin",
+    "lft": "4",
+    "rgt": "5"
+   }
+  },
+  {
+   "table": "patches",
+   "line": 387,
+   "cols": {
+    "system_name": "xplanner",
+    "patch_level": "14",
+    "patch_date": "2011-07-15T15:39:29.0",
+    "patch_in_progress": "F"
+   }
+  },
+  {
+   "table": "identifier",
+   "line": 393,
+   "cols": {
+    "nextId": "19"
+   }
+  },
+  {
+   "table": "person",
+   "line": 396,
+   "cols": {
+    "id": "1",
+    "last_update": "2005-12-07T00:00:00.0",
+    "name": "sysadmin",
+    "email": "no@reply.com",
+    "initials": "SYS",
+    "userId": "sysadmin",
+    "password": "1tGWp1Bdm02Sw4bD7/o0N2ao405Tf8kjxGBW/A==",
+    "is_hidden": "false"
+   }
+  },
+  {
+   "table": "person_role",
+   "line": 407,
+   "cols": {
+    "role_id": "5",
+    "person_id": "1",
+    "project_id": "0"
+   }
+  },
+  {
+   "table": "object_type",
+   "line": 438,
+   "cols": {
+    "id": "1",
+    "last_update": "2010-06-30T09:00:00.0",
+    "description": "User",
+    "name": "User"
+   }
+  },
+  {
+   "table": "object_type",
+   "line": 444,
+   "cols": {
+    "id": "2",
+    "last_update": "2010-06-30T09:00:00.0",
+    "description": "project",
+    "name": "Project"
+   }
+  },
+  {
+   "table": "object_type",
+   "line": 450,
+   "cols": {
+    "id": "3",
+    "last_update": "2010-06-30T09:00:00.0",
+    "description": "iteration",
+    "name": "Iteration"
+   }
+  },
+  {
+   "table": "object_type",
+   "line": 456,
+   "cols": {
+    "id": "4",
+    "last_update": "2010-06-30T09:00:00.0",
+    "description": "userstory",
+    "name": "UserStory"
+   }
+  },
+  {
+   "table": "object_type",
+   "line": 462,
+   "cols": {
+    "id": "5",
+    "last_update": "2010-06-30T09:00:00.0",
+    "description": "task",
+    "name": "Task"
+   }
+  },
+  {
+   "table": "object_type",
+   "line": 468,
+   "cols": {
+    "id": "6",
+    "last_update": "2010-06-30T09:00:00.0",
+    "description": "note",
+    "name": "Note"
+   }
+  },
+  {
+   "table": "object_type",
+   "line": 474,
+   "cols": {
+    "id": "7",
+    "last_update": "2010-06-30T09:00:00.0",
+    "description": "setting",
+    "name": "Setting"
+   }
+  }
+ ]
+}

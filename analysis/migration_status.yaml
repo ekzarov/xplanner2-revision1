@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: awaiting_review
+  stage_status: in_progress
   previous_stage: stage-02
-  next_action: 'Stage 1 re-entry corrections BA-001-05 verified by PM (analysis/stages/stage-01/stage-02-pass-003-dispositions.md: F-001..F-004 accepted, F-001..F-003 extended by sweeps). Owner merges the correction PR; then PM records stage-01 -> stage-02 and launches a new fresh blind Stage 2 pass 004 on the integrated revision.'
+  next_action: 'Publish Stage 2 pass 004 as a separate records PR (owner merge; credential classification decided). Then Stage 1 re-entry for F-001..F-006 on a new correction branch with analysis/stages/stage-01/stage-02-pass-004-dispositions.md, correction PR, and a fresh blind Stage 2 pass 005. Stage 3 access and isolation need a separate owner agreement.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 re-entry after stage-02 pass 003: author confirmed the errors behind reviewer proposals; PM admitted CHK-008 (query property paths against mapped entities) and folded P-2 into CHK-003 (every loader of cited wiring files, duplicate-load effects) after deduplication; BA-001-05 applied CHK-001 (0 failures) and swept queries, loaders, CHK-005 validators and JSP charts/includes.'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 004; reviewer found CHK-003 (F-002, F-003) and CHK-004 (F-001) failing; proposals P-1 (tag-added link parameters), P-2 (mechanical list of unauthenticated surfaces), P-3/P-4 (refine CHK-003: effective configuration consumers, rendering side effects) pending admission until the Stage 1 author confirms the underlying findings.'
 
 constitution:
   status: ratified
@@ -116,6 +116,23 @@ transition_history:
     gate_evidence:
       - 'analysis/reviews/stage-02-pass-003.md'
     owner_approval: null
+  - from: stage-01
+    to: stage-02
+    reason: 'Stage 1 corrections for Stage 2 pass 003 findings merged (PR #9, CI run 36004743168 green); integrated main 18dc6b73c8305971a8d6f2879b8fab6206ba5f04; Stage 1 gates audit:project and audit:workbook pass; open for Stage 2 pass 004.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-24T13:43:20Z'
+    gate_evidence:
+      - 'analysis/stages/stage-01/stage-02-pass-003-dispositions.md'
+      - 'analysis/legacy_reconnaissance.md'
+    owner_approval: null
+  - from: stage-02
+    to: stage-01
+    reason: 'Finding-driven return: Stage 2 pass 004 (analysis/reviews/stage-02-pass-004.md) result findings F-001..F-006 against the thrice-corrected Stage 1 records.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-24T14:44:05Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-02-pass-004.md'
+    owner_approval: null
 
 review_passes:
   - stage: stage-02
@@ -153,6 +170,18 @@ review_passes:
     independence_record: 'analysis/reviews/evidence/S02-P003/independence-record.md'
     reviewed_at: '2026-09-24T12:19:58Z'
     scope: 'Full Stage 2 pass 003 at 0b31638e3c86a29cc293a0f4adda27bf26f1554d: analysis/legacy_reconnaissance.md (e4efcd99d3bbbc978c0de697d6a87228a0066ac715e7d5fb68df088ecb8d76de), analysis/legacy_user_flows.xlsx (73a8e05b2d32cc06521c4556f62e7cd1df15b8d57a8aae8fd4b0922433450e11, 202 rows) and the pass 001/002 dispositions against legacy/xplanner-plus.war; packet S02-P003; Phase A 5d1c2c1d7fae9db70559b4a738ed8e54e544d980f7d68795711e3a2735faf8bb; report SHA-256 0246765a595775d62e7d10067cc265356c08b8cc2317ae30c5a868ece2bfcc02; 474 checks (456 matched, 14 mismatch, 0 not-checked, 4 not-applicable); findings F-001..F-004 (1 medium, 3 low); pass 002 F-001..F-010 and pass 001 F-001..F-008 resolved.'
+    waiver_ids: []
+  - stage: stage-02
+    pass: 4
+    result: findings
+    report: 'analysis/reviews/stage-02-pass-004.md'
+    reviewer: 'BA independent reviewer (subagent a28e538a37766e909 of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer-p004'
+    session_id: 'a28e538a37766e909'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P004/independence-record.md'
+    reviewed_at: '2026-09-24T14:41:14Z'
+    scope: 'Full Stage 2 pass 004 at 18dc6b73c8305971a8d6f2879b8fab6206ba5f04: analysis/legacy_reconnaissance.md (a35a09acfb6345681b292424649f2988e3c24575614681842fa5b1252bc1260b), analysis/legacy_user_flows.xlsx (24630a194e79ba9051b37355148aba52b6dda7fbeee6b43c9290ebb58528670a, 208 rows) and the pass 001-003 dispositions against legacy/xplanner-plus.war; packet S02-P004; Phase A 63ab82d15c0e290e2c9dbf7abc37cc81b39560477afe426972c8b2f01bde3932; report SHA-256 671b9bc9cb727bc806efbf6ef8cd508ac4ebf128b25f131f87bf763db3dd9240; 405 checks (381 matched, 21 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-006 (1 medium, 5 low); all 22 earlier findings resolved.'
     waiver_ids: []
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
@@ -206,6 +235,14 @@ owner_decisions:
     rationale: 'Owner selected option (a) after PM disclosed that it is the same session and that blind isolation cannot be enforced technically.'
     record: 'analysis/legacy_reconnaissance.md'
     residual_risk: 'Same parent session; the reviewer can technically read filled Stage 1 records on disk, so blindness relies on instructions and the reviewer''s self-report. Any exposure before Phase A is saved makes the attempt invalid.'
+  - id: 'legacy-default-credential-classification:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-24T16:12:22Z'
+    scope: 'Only the well-known factory default login pair shipped in the original WAR (ResourceBundle.properties:784, seeded by db-changelog.xml) and described in legacy/README.md:38 is public legacy data; frozen Phase A snapshots of Stage 2 passes 001-004 and their hashes stay unchanged and the pass 004 snapshot may be published with respect to this pair. Not a general A3 exception; no permission to publish working passwords, keys or other discovered credentials. New materials cite credentials by source location only. Before any Stage 3 legacy run, access and isolation are agreed separately; the factory password must not protect a publicly reachable installation, and any configuration happens outside the immutable legacy package.'
+    rationale: 'Reviewer of Stage 2 pass 004 flagged the pair in its frozen Phase A inventory. PM established that the project environment contract is empty and that legacy/README.md names the pair as the default login of the earlier local docker-compose run; whether it is used in earlier running installations is not established (not inspectable within the allowed boundaries), and no claim is made that it is unused anywhere.'
+    record: 'analysis/reviews/evidence/S02-P004/pm-report-transcription.json'
+    residual_risk: 'The pair remains in legacy/README.md, the WAR and the frozen Phase A inventories of passes 001-004 in a public repository; if any earlier installation still uses it, that installation stays exposed until its owner changes the password.'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -236,12 +273,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 corrected after Stage 2 pass 003 findings: 208 scenario rows in 18 epics (Yes 112, Inferred 75, Partial 20, No 1), all static-only and open; awaiting new independent Stage 2 pass 004.'
+  summary: 'Stage 2 pass 004 returned findings (F-001 medium, F-002..F-006 low; 405 checks, 0 blocked; all 22 earlier findings resolved); process returned to Stage 1; Stage 1 records have 208 rows.'
   completed_percent: 0
-  updated_at: '2026-09-24T13:17:39Z'
+  updated_at: '2026-09-24T16:12:22Z'
   agent_reviews:
-    total: 3
-    valid: 3
+    total: 4
+    valid: 4
     blocked: 0
     invalid: 0
     active: 0

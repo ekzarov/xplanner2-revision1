@@ -1,0 +1,619 @@
+== WEB-INF/jsp/common/baseHeader.jsp
+  inputs: action, searchedContent, restrictToProjectId
+  keys: footer.label.user, navigation.me, logout, contentsearch.button.label
+== WEB-INF/jsp/common/footer.jsp
+  keys: app.label.version, footer.message
+== WEB-INF/jsp/common/formattingHelpJS.jsp
+== WEB-INF/jsp/common/formattingHelpLink.jsp
+  keys: form.description.help
+== WEB-INF/jsp/common/generalError.jsp
+  keys: error.title, error.objectNotFound
+== WEB-INF/jsp/common/header.jsp
+== WEB-INF/jsp/common/unexpectedError.jsp
+  keys: error.unknownError, error.moreInfo
+== WEB-INF/jsp/edit/continueUnfinishedStories.jsp
+  inputs: oid, iterationId, merge, fkey, returnto, iteration, action
+  keys: iteration.status.editor.no_future_iteration, ok, cancel
+  L23: <% if (iterationLoader.getIterationOptions(iteration.getProjectId(), true, iteration.getStartDate()).size() == 0) { %>
+== WEB-INF/jsp/edit/editFeature.jsp
+  inputs: oid, returnto, fkey, storyId, id, feature, action
+  keys: feature.editor.name, feature.editor.description, form.update, form.create, form.reset
+  L12: <logic:present parameter="oid">
+  L18: </logic:present>
+  L19: <logic:notPresent parameter="oid">
+  L23: </logic:notPresent>
+  L27: <logic:present parameter="oid">
+  L30: </logic:present>
+  L55: <logic:present parameter="oid">
+  L59: </logic:present>
+  L60: <logic:notPresent parameter="oid">
+  L64: </logic:notPresent>
+== WEB-INF/jsp/edit/editIteration.jsp
+  inputs: oid, returnto, fkey, projectId, id, iteration, startDateString, endDateString, daysWorked, action
+  keys: iteration.editor.name, iteration.editor.status, iteration.editor.start_date, iteration.editor.set_date, format.date, iteration.editor.end_date, iteration.editor.days_worked, iteration.editor.description, form.update, form.create, form.reset
+  L13: <logic:present parameter="oid">
+  L19: </logic:present>
+  L20: <logic:notPresent parameter="oid">
+  L24: </logic:notPresent>
+  L29: <logic:present parameter="oid">
+  L32: </logic:present>
+  L45: <logic:present parameter="oid">
+  L50: </logic:present>
+  L69: <logic:present parameter="oid">
+  L75: </logic:present>
+  L89: <logic:present parameter="oid">
+  L93: </logic:present>
+  L94: <logic:notPresent parameter="oid">
+  L98: </logic:notPresent>
+== WEB-INF/jsp/edit/editIterationStatus.jsp
+  inputs: oid, fkey, returnto, operation, iterationStartConfirmed, closeIterations, start, cancel
+  keys: iteration.status.editor.start_prefix, iteration.status.editor.message_1, iteration.status.editor.message_2, iteration.status.editor.message_3, iteration.status.editor.message_4, ok, cancel
+  L43: <% if(UpdateTimeAction.isFromUpdateTime(request)) { %>
+  L48: <%if(startedIterationsNr.intValue() > 0){%>
+== WEB-INF/jsp/edit/editNote.jsp
+  inputs: oid, id, returnto, projectId, attachedToId, note, author, authorId, action, reset
+  keys: note.editor.subject, note.editor.author, person.not_assigned, note.editor.body, note.editor.current_attachment, note.editor.attachment, form.update, form.create, form.reset, form.back
+  L12: <logic:present parameter="oid">
+  L18: </logic:present>
+  L19: <logic:notPresent parameter="oid">
+  L23: </logic:notPresent>
+  L29: <logic:present parameter="oid">
+  L32: </logic:present>
+  L49: <% if (author != null) { %>
+  L71: <logic:present parameter="oid">
+  L79: </logic:present>
+  L86: <logic:present parameter="oid">
+  L90: </logic:present>
+  L91: <logic:notPresent parameter="oid">
+  L95: </logic:notPresent>
+== WEB-INF/jsp/edit/editPerson.jsp
+  inputs: oid, id, returnto, person, systemAdmin, action
+  keys: person.editor.name, person.editor.userid, person.editor.initials, person.editor.email, person.editor.phone, person.editor.ishidden, person.editor.password.update, person.editor.password.create, person.editor.password_confirm.update, person.editor.password_confirm.create, person.editor.roles, person.roles.tableheading.project, person.roles.tableheading.role, person.editor.role.none, person.editor.role.viewer, person.editor.role.editor, person.editor.role.admin, person.editor.is_sysadmin, form.update, form.create, form.reset
+  L21: <logic:present parameter="oid">
+  L27: </logic:present>
+  L28: <logic:notPresent parameter="oid">
+  L32: </logic:notPresent>
+  L37: <logic:present parameter="oid">
+  L40: </logic:present>
+  L65: <xplanner:isUserAuthorized name="person" permission="hide">
+  L77: </xplanner:isUserAuthorized>
+  L78: <%if (AuthenticatorImpl.getLoginModule(request) != null &&
+  L82: <logic:present parameter="oid">
+  L84: </logic:present>
+  L85: <logic:notPresent parameter="oid">
+  L87: </logic:notPresent>
+  L93: <logic:present parameter="oid">
+  L95: </logic:present>
+  L96: <logic:notPresent parameter="oid">
+  L98: </logic:notPresent>
+  L103: <db:useBeans id="projects" type="net.sf.xplanner.domain.Project"
+  L105: <xplanner:isUserAuthorizedForAny name="projects" permissions="admin.edit.role">
+  L116: <xplanner:isUserAuthorized name="project" permission="admin.edit.role">
+  L138: </xplanner:isUserAuthorized>
+  L142: </xplanner:isUserAuthorizedForAny>
+  L144: <xplanner:isUserAuthorized resourceType="system" permission="sysadmin.promote">
+  L151: </xplanner:isUserAuthorized>
+  L154: <logic:present parameter="oid">
+  L158: </logic:present>
+  L159: <logic:notPresent parameter="oid">
+  L163: </logic:notPresent>
+== WEB-INF/jsp/edit/editProject.jsp
+  inputs: action, personToDelete, oid, id, returnto, project, hidden, optEscapeBrackets, sendemail, personToAddId, send
+  keys: project.editor.name, project.editor.description, project.editor.ishidden, project.editor.optEscapeBrackets, project.editor.sendemail, project.editor.wikiurl, form.update, form.create, form.reset, time_entry_notification.editor.editor_prefix, time_entry_notification.editor.explanation, time_entry_notification.editor.userToAdd, person.not_assigned, form.add, time_entry_notification.editor.receivers_list, projects.tableheading.actions, time_entry_notification.editor.user_name
+  L28: <logic:present parameter="oid">
+  L34: </logic:present>
+  L35: <logic:notPresent parameter="oid">
+  L39: </logic:notPresent>
+  L46: <logic:present parameter="oid">
+  L49: </logic:present>
+  L76: <xplanner:isUserAuthorized name="project" permission="hide">
+  L80: </xplanner:isUserAuthorized>
+  L104: <logic:present parameter="oid">
+  L106: </logic:present>
+  L107: <logic:notPresent parameter="oid">
+  L109: </logic:notPresent>
+  L115: <logic:present parameter="oid">
+  L131: <logic:notEmpty name="project" property="people">
+  L133: </logic:notEmpty>
+  L135: <logic:notEmpty name="project" property="people">
+  L154: </logic:notEmpty>
+  L159: </logic:present>
+== WEB-INF/jsp/edit/editRoles.jsp
+  inputs: oid, returnto, id, action
+  keys: project.prefix, roles.tableheading.persons, roles.tableheading.role, person.editor.role.viewer, person.editor.role.editor, person.editor.role.admin, form.update, form.reset
+  L30: <db:useBean id="project" type="net.sf.xplanner.domain.Project" oid='<%= new Integer(request.getParameter(\"oid\")) %>' />
+  L51: <xplanner:isUserAuthorized name="project" permission="admin.edit.role">
+  L63: <db:useBeans id="persons" type="net.sf.xplanner.domain.Person" where="hidden = false" order="name" />
+  L95: </xplanner:isUserAuthorized>
+== WEB-INF/jsp/edit/editStory.jsp
+  inputs: oid, iterationId, id, returnto, fkey, story, customerId, trackerId, action
+  keys: story.editor.name, story.editor.disposition, story.editor.customer, person.not_assigned, story.editor.tracker, story.editor.status, story.editor.priority, story.editor.order, story.editor.estimated_hours, task.editor.description, form.maxtext, form.update, form.create, form.reset
+  L17: <logic:present parameter="oid">
+  L23: </logic:present>
+  L24: <logic:notPresent parameter="oid">
+  L28: </logic:notPresent>
+  L35: <logic:present parameter="oid">
+  L38: </logic:present>
+  L128: <logic:greaterThan name="story" property="taskBasedEstimatedHours" value="0">
+  L130: </logic:greaterThan>
+  L131: <logic:equal name="story" property="taskBasedEstimatedHours" value="0">
+  L133: </logic:equal>
+  L151: <logic:present parameter="oid">
+  L155: </logic:present>
+  L156: <logic:notPresent parameter="oid">
+  L160: </logic:notPresent>
+== WEB-INF/jsp/edit/editTask.jsp
+  inputs: oid, returnto, fkey, userStoryId, id, completed, task, acceptorId, action
+  keys: task.editor.name, task.editor.type, task.type.feature, task.type.debt, task.type.defect, task.type.ftest, task.type.atest, task.type.overhead, task.editor.disposition, task.editor.acceptor, person.not_assigned, task.editor.estimated_hours, task.editor.description, form.maxtext, form.update, form.create, form.reset
+  L13: <logic:present parameter="oid">
+  L19: </logic:present>
+  L20: <logic:notPresent parameter="oid">
+  L24: </logic:notPresent>
+  L29: <logic:present parameter="oid">
+  L32: </logic:present>
+  L124: <logic:present parameter="oid">
+  L128: </logic:present>
+  L129: <logic:notPresent parameter="oid">
+  L133: </logic:notPresent>
+== WEB-INF/jsp/edit/editTaskEstimate.jsp
+  inputs: fkey, returnto, oid, estimate, action, submit
+  keys: task.editor.edit_prefix, task.editor.create, taskestimate.title, taskestimate.message, taskestimate.label.hours.actual, taskestimate.label.hours, taskestimate.label.hours.estimated, taskestimate.label.hours.new, taskestimate.label.change
+  L15: <logic:present parameter="oid">
+  L18: </logic:present>
+  L19: <logic:notPresent parameter="oid"><bean:message key="task.editor.create"/></logic:notPresent>
+  L22: <logic:present parameter="oid">
+  L25: </logic:present>
+  L26: <logic:notPresent parameter="oid">
+  L29: </logic:notPresent>
+  L46: <logic:present parameter="oid">
+  L49: </logic:present>
+== WEB-INF/jsp/edit/editTimeEntries.jsp
+  inputs: oid, returnto, fkey, taskId, remainingHours, entries, action, submit, reset, rowcount
+  keys: timelog.editor.start_time, timelog.editor.end_time, timelog.editor.report_date, timelog.editor.duration, timelog.editor.remainingHours, timelog.editor.person1, timelog.editor.person2, timelog.editor.description, form.update, form.reset, timelog.editor.insert_time, timelog.editor.timeformat
+  L14: <db:useBean id="task" type="net.sf.xplanner.domain.Task"
+  L97: <% if (entries.isIntervalReadOnly(row)) { %>
+  L105: <% if (entries.isIntervalReadOnly(row)) { %>
+  L116: <% if (entries.isDurationReadOnly(row)) { %>
+  L117: <% if (!entries.isEmpty(row)) { %>
+  L130: <% if (row == rowcount - 1) { %>
+  L174: <% if (!entries.isEmpty(row)) { %>
+== WEB-INF/jsp/edit/importPeople.jsp
+  inputs: returnto, importPeople, action, reset
+  keys: people.import.editor.importFileFormat, import.editor.download.template, import.editor.download.template.location, import.editor.importFile, import.button.label, form.reset, people.import.editor.results, people.import.tableheading.lineNbr, people.import.tableheading.id, people.import.tableheading.loginId, people.import.tableheading.name, people.import.tableheading.status, form.back
+  L53: <logic:notEmpty name="importPeople" property="results">
+  L73: </logic:notEmpty>
+== WEB-INF/jsp/edit/moveContinueStory.jsp
+  inputs: oid, iterationId, merge, fkey, action, returnto, story, actionBtn
+  keys: form.move, form.continue
+  L41: <%if (!story.isFutureIteration()){%>
+== WEB-INF/jsp/edit/moveContinueTask.jsp
+  inputs: oid, merge, fkey, action, returnto, task, actionBtn
+  keys: form.move, form.continue
+== WEB-INF/jsp/edit/moveStories.jsp
+  inputs: selected[${status.index}], iterationId, moveStories, actionBtn
+  keys: form.move
+== WEB-INF/jsp/import/stories.jsp
+  inputs: returnto, oid, importForm, action, reset
+  keys: import.editor.helpMessage, import.editor.download.template, import.editor.download.template.location, form.required.field.indicator, import.editor.worksheetName, import.editor.titleColumn, import.editor.endDateColumn, import.editor.priorityColumn, import.editor.estimateColumn, import.editor.statusColumn, import.editor.onlyIncomplete, import.editor.completedStatus, import.editor.importFile, form.required.field, import.button.label, form.reset, stories.import.imported_stories
+  L34: <logic:present parameter="oid">
+  L37: </logic:present>
+  L103: <% if (importForm.isSubmitted() && RequestUtils.getActionErrors(pageContext, Globals.ERROR_KEY).isEmpty()) { %>
+== WEB-INF/jsp/layout/defaultEditLayout.jsp
+  L25: <% if (showTitleSuffix) { %>
+== WEB-INF/jsp/layout/defaultLayout.jsp
+== WEB-INF/jsp/layout/iterationTileParams.jsp
+  keys: iteration.to, iteration.label.hours, iteration.label.estimated, iteration.label.actual, iteration.label.remaining
+  L23: <logic:notEmpty name="iteration" property="description">
+  L28: </logic:notEmpty>
+  L30: <logic:greaterThan name="storyCount" value="0" >
+  L40: </logic:greaterThan>
+== WEB-INF/jsp/layout/viewFooter.jsp
+== WEB-INF/jsp/layout/viewHeader.jsp
+== WEB-INF/jsp/layout/viewLayout.jsp
+  L55: <% if (isScreenMode) { %>
+  L61: <% if ("true".equals(TilesHelper.getAttribute("showTitle",pageContext))) { %>
+  L108: <% if (isScreenMode) { %>
+  L112: <% if (object != null) {
+== WEB-INF/jsp/layout/viewLayoutNew.jsp
+  L52: <% if ("true".equals(TilesHelper.getAttribute("showTitle",pageContext))) { %>
+== WEB-INF/jsp/security/login.jsp
+  inputs: userId, password, remember, action
+  keys: login.label.user_id, login.label.password, login.remember, login.label, login.instructions
+== WEB-INF/jsp/view/aggregateTimesheet.jsp
+  inputs: aggregateTimesheetForm
+  keys: timesheet.aggregate.title, timesheet.aggregate.label.people, timesheet.label.period_start, timesheet.editor.set_date, format.date, timesheet.label.period_end, timesheet.statistics.hours_by_project, timesheet.label.to, timesheet.statistics.hours_by_iteration, timesheet.statistics.hours_by_story, projects.link.people
+== WEB-INF/jsp/view/dashboard.jsp
+== WEB-INF/jsp/view/directory.jsp
+  inputs: action, directoryId, name, formFile
+  L15: <logic:present name="directory" property="parent">
+  L19: </logic:present>
+  L20: <logic:present name="directory" property="parent">
+  L26: </logic:present>
+== WEB-INF/jsp/view/exportLinks.jsp
+  keys: export.label.formats, export.prefix
+== WEB-INF/jsp/view/feature.jsp
+  keys: feature.prefix, feature.link.edit, history.link
+  L14: <db:useBean id="feature" type="com.technoetic.xplanner.domain.Feature" scope="request"/>
+  L46: <xplanner:isUserAuthorized name="feature" permission="edit">
+  L52: </xplanner:isUserAuthorized> |
+== WEB-INF/jsp/view/history.jsp
+  keys: history, history.title, history.container.title
+  L39: <logic:greaterThan name="HistoryCount" value="0">
+  L47: <db:useBean id="who" type="net.sf.xplanner.domain.Person"
+  L67: </logic:greaterThan>
+  L77: <logic:greaterThan name="containerEventCount" value="0">
+  L84: <db:useBean id="who" type="net.sf.xplanner.domain.Person"
+  L112: <logic:present name="historicalObject">
+  L115: <% if (PropertyUtils.getPropertyDescriptor(historicalObject, "name") != null) { %>
+  L119: </logic:present>
+  L120: <logic:notPresent name="historicalObject">
+  L122: </logic:notPresent>
+  L126: </logic:greaterThan>
+== WEB-INF/jsp/view/integrations.jsp
+  inputs: projectId, action.finish, action.cancel, action.start, defaultIntegration, comment, action.join
+  keys: integrations.title, integrations.current_integrator, integrations.started_at, integrations.waiting_line, integrations.tableheading.who, integrations.tableheading.since, integrations.tableheading.what, integrations.tableheading.actions, integrations.recent_integrations, integrations.state.completed, integrations.state.canceled
+  L23: <db:useBeans id="currentIntegrations" where="state = ? and projectId = ?"
+  L27: </db:useBeans>
+  L29: <db:useBeans id="pendingIntegrations" where="state = ? and projectId = ?"
+  L33: </db:useBeans>
+  L45: <logic:present name="currentIntegration">
+  L49: <db:useBean id="person" type="net.sf.xplanner.domain.Person"
+  L62: <xplanner:isUserAuthorized resourceType="system.project" permission="integrate">
+  L65: </xplanner:isUserAuthorized>
+  L73: </logic:present>
+  L75: <logic:notPresent name="currentIntegration">
+  L83: </logic:notPresent>
+  L86: <% if (pendingIntegrations.size() > 0 || currentIntegrations.size() > 0) { %>
+  L90: <% if (pendingIntegrations.size() > 0) { %>
+  L96: <xplanner:isUserAuthorized resourceType="system.project" permission="integrate">
+  L98: </xplanner:isUserAuthorized>
+  L102: <db:useBean id="person" type="net.sf.xplanner.domain.Person"
+  L116: <xplanner:isUserAuthorized resourceType="system.project" permission="integrate">
+  L118: <% if (n.equals(new Integer(0)) && currentIntegrations.size() == 0) { %>
+  L125: </xplanner:isUserAuthorized>
+  L132: <xplanner:isUserAuthorized resourceType="system.project" permission="integrate">
+  L153: </xplanner:isUserAuthorized>
+  L155: <db:useBeans id="recentIntegrations"
+  L161: </db:useBeans>
+  L168: <logic:greaterThan name="recentIntegrationCount" value="0" >
+  L175: <db:useBean id="person" type="net.sf.xplanner.domain.Person"
+  L191: <logic:equal name="integration" property="state"
+  L194: </logic:equal>
+  L195: <logic:equal name="integration" property="state"
+  L198: </logic:equal>
+  L204: </logic:greaterThan>
+== WEB-INF/jsp/view/iteration.jsp
+  inputs: iterationId, oid
+  keys: iteration.link.save_order, iteration.link.move_multiple, stories.none
+  L20: <db:useBean id="iteration" type="net.sf.xplanner.domain.Iteration" scope="request" />
+  L28: <logic:greaterThan name="storyCount" value="0" >
+  L35: <xplanner:isUserAuthorized name="iteration" permission="edit" >
+  L41: </xplanner:isUserAuthorized>
+  L60: <xplanner:isUserAuthorized name="iteration" permission="edit" >
+  L64: </xplanner:isUserAuthorized>
+  L68: <xplanner:isUserAuthorized name="story" permission='<%=action.getPermission()%>'>
+  L72: </xplanner:isUserAuthorized>
+  L98: <logic:notEmpty name="story" property="customer">
+  L103: </logic:notEmpty>
+  L104: <logic:empty name="story" property="customer">
+  L106: </logic:empty>
+  L143: <logic:notEqual name="story" property="trackerId" value="0">
+  L144: <db:useBean id="tracker" type="net.sf.xplanner.domain.Person"
+  L148: </logic:notEqual>
+  L149: <logic:equal name="story" property="trackerId" value="0">
+  L151: </logic:equal>
+  L160: <xplanner:isUserAuthorized name="iteration" permission="edit" >
+  L162: </xplanner:isUserAuthorized>
+  L163: </logic:greaterThan>
+  L166: <logic:equal name="storyCount" value="0" >
+  L168: </logic:equal>
+== WEB-INF/jsp/view/iterationAccuracy.jsp
+  keys: iteration.labeltooltip.current_status, iteration.label.current_status, iteration.label.task.current_status.tooltip, iteration.label.task, iteration.label.estimated_original_hours, iteration.label.originalEstimate.tooltip, iteration.label.estimated_hours, iteration.label.currentEstimate.tooltip, iteration.label.completed, iteration.label.currentCompleted.tooltip, iteration.label.remaining, iteration.label.currentRemaining.tooltip, iteration.label.overestimated, iteration.label.currentOverestimated.tooltip, iteration.label.underestimated, iteration.label.currentUnderestimated.tooltip, iteration.label.added, iteration.label.currentAdded.tooltip, iteration.label.postponed, iteration.label.currentPostponed.tooltip, iteration.labeltooltip.summary, iteration.label.summary, iteration.label.story.tooltip, iteration.label.story, iteration.label.task.summary.tooltip, iteration.label.original, iteration.label.original.story.tooltip, iteration.label.original.task.tooltip, iteration.label.added.story.tooltip, iteration.label.added.task.tooltip, iteration.label.postponed.story.tooltip, iteration.label.postponed.task.tooltip, iteration.label.total, iteration.label.total.story.tooltip, iteration.label.total.task.tooltip, iteration.label.completed.story.tooltip, iteration.label.completed.task.tooltip, iteration.label.remaining.story.tooltip, iteration.label.remaining.task.tooltip, stories.none
+  L16: <db:useBean id="iteration" type="net.sf.xplanner.domain.Iteration" scope="request" />
+  L21: <% if (iteration.getUserStories().size() > 0) { %>
+  L152: <logic:equal name="iteration" property="current" value="true" >
+  L162: </logic:equal>
+  L185: <% if (iteration.getUserStories().size() == 0) { %>
+== WEB-INF/jsp/view/iterationFeatures.jsp
+  keys: iteration.label.hours, iteration.label.estimated, iteration.label.actual, iteration.label.remaining, person.tableheading.story, person.tableheading.feature, stories.tableheading.actions, stories.none
+  L12: <db:useBean id="iteration" type="net.sf.xplanner.domain.Iteration" scope="request" />
+  L21: <logic:greaterThan name="storyCount" value="0">
+  L37: <xplanner:isUserAuthorizedForAny name="iteration" property="userStories" permissions="edit,delete">
+  L39: </xplanner:isUserAuthorizedForAny>
+  L49: <xplanner:isUserAuthorizedForAny name="iteration" property="userStories" permissions="edit,delete">
+  L51: <xplanner:isUserAuthorized name="feature" permission="edit">
+  L54: </xplanner:isUserAuthorized>
+  L55: <xplanner:isUserAuthorized name="feature" permission="edit">
+  L59: </xplanner:isUserAuthorized>
+  L61: </xplanner:isUserAuthorizedForAny>
+  L67: </logic:greaterThan>
+  L69: <logic:equal name="storyCount" value="0">
+  L71: </logic:equal>
+== WEB-INF/jsp/view/iterationMetrics.jsp
+  keys: iteration.metrics.total_hours, iteration.metrics.avr_pair, iteration.metrics.paired_label, iteration.metrics.unpaired_label, iteration.metrics.accepted_hours, iteration.metrics.worked_label, iteration.metrics.accepted_label
+  L13: <db:useBean id="iteration" type="net.sf.xplanner.domain.Iteration" scope="request" />
+  L45: <% if (!developerMetrics.getName().equals(IterationMetrics.UNASSIGNED_NAME) ) { %>
+  L73: <%if (pairedWidth > 0) { %>
+  L76: <% if (unpairedWidth > 0) { %>
+  L110: <logic:notEqual name="developerMetrics" property="acceptedHours" value="0">
+  L111: <% if (!developerMetrics.getName().equals(IterationMetrics.UNASSIGNED_NAME) ) { %>
+  L117: </logic:notEqual>
+  L121: <logic:notEqual name="developerMetrics" property="acceptedHours" value="0">
+  L124: </logic:notEqual>
+  L128: <logic:notEqual name="developerMetrics" property="acceptedHours" value="0">
+  L130: </logic:notEqual>
+  L134: <logic:notEqual name="developerMetrics" property="acceptedHours" value="0">
+  L136: </logic:notEqual>
+  L140: <logic:notEqual name="developerMetrics" property="acceptedHours" value="0">
+  L142: </logic:notEqual>
+  L146: <logic:notEqual name="developerMetrics" property="remainingTaskHours" value="0">
+  L148: </logic:notEqual>
+  L152: <logic:notEqual name="developerMetrics" property="acceptedHours" value="0">
+  L159: <%if (ownTaskWorkedHoursWidth > 0) { %>
+  L162: <% if (acceptedHoursWithNoWorkedWidth > 0) { %>
+  L166: </logic:notEqual>
+== WEB-INF/jsp/view/iterationStatistics.jsp
+  keys: xplanner.effort.chart.velocity, iteration.statistics.velocity.label, xplanner.effort.chart.progress, iteration.statistics.progress.label, xplanner.effort.chart.burndown, iteration.statistics.burndown.label, iteration.statistics.all_type, iteration.statistics.all_disposition, iteration.statistics.completed_estimated_type, iteration.statistics.completed_estimated_disposition, iteration.statistics.completed_actual_type, iteration.statistics.completed_actual_disposition
+  L17: <db:useBean id="iteration" type="net.sf.xplanner.domain.Iteration" scope="request" />
+  L123: <xplanner:propertyEqual key="xplanner.effort.chart.velocity" value="displayed">
+  L153: </xplanner:propertyEqual>
+  L155: <xplanner:propertyEqual key="xplanner.effort.chart.progress" value="displayed">
+  L191: </xplanner:propertyEqual>
+  L193: <xplanner:propertyEqual key="xplanner.effort.chart.burndown" value="displayed">
+  L228: </xplanner:propertyEqual>
+== WEB-INF/jsp/view/iterationTasks.jsp
+  keys: iteration.label.hours, iteration.label.estimated, iteration.label.actual, iteration.label.remaining, iteration.legend.task_started, iteration.legend.task_completed, iteration.legend.task_unassigned, iteration.legend.task_unestimated, stories.none
+  L18: <db:useBean id="iteration" type="net.sf.xplanner.domain.Iteration" scope="request" />
+  L29: <logic:greaterThan name="storyCount" value="0">
+  L68: <xplanner:isUserAuthorized name="task" permission='<%=action.getPermission()%>'>
+  L72: </xplanner:isUserAuthorized>
+  L92: <logic:notEqual name="task" property="acceptorId" value="0">
+  L93: <db:useBean id="acceptor" type="net.sf.xplanner.domain.Person"
+  L97: </logic:notEqual>
+  L98: <logic:equal name="task" property="acceptorId" value="0">&nbsp;</logic:equal>
+  L114: <%if(toolTip!=""){ %>
+  L169: </logic:greaterThan>
+  L172: <logic:equal name="storyCount" value="0">
+  L174: </logic:equal>
+== WEB-INF/jsp/view/iteration/globalLinks.jsp
+  keys: iteration.link.dashboard, iteration.link.all_tasks, iteration.link.metrics, iteration.link.statistics, iteration.link.accuracy, history.link
+== WEB-INF/jsp/view/iteration/links.jsp
+  keys: iteration.link.stories, iteration.link.all_tasks
+  L13: <xplanner:isUserAuthorized name="iteration" permission="edit" >
+  L15: <xplanner:isUserAuthorized name="iteration" permission='<%=action.getPermission()%>'>
+  L23: </xplanner:isUserAuthorized>
+  L25: </xplanner:isUserAuthorized>
+== WEB-INF/jsp/view/iteration/progress.jsp
+== WEB-INF/jsp/view/meStatus.jsp
+  keys: person.prefix, person.label.name
+  L12: <db:useBeans id="projects" type="net.sf.xplanner.domain.Project" where="hidden = false"/>
+== WEB-INF/jsp/view/notes.jsp
+  keys: notes.label.notes, note.create, notes.label.subject, notes.label.author, notes.label.date, notes.label.attachment, notes.label.attachment.count
+  L14: <db:useBeans id="notes" type="net.sf.xplanner.domain.Note"
+  L23: <% if (isNoteEditor || notes.size() > 0) { %>
+  L29: <% if (isNoteEditor) { %>
+  L43: <logic:greaterThan name="notesCount" value="0" >
+  L50: <xplanner:isUserAuthorized name="note" permission="edit"
+  L62: </xplanner:isUserAuthorized>
+  L70: <db:useBean id="author" type="net.sf.xplanner.domain.Person"
+  L80: <logic:present name="note" property="file">
+  L81: <logic:notEqual name="note" property="file.name" value="">
+  L92: </logic:notEqual>
+  L93: </logic:present>
+  L103: </logic:greaterThan>
+== WEB-INF/jsp/view/people.jsp
+  keys: people.project.title, people.title, people.link.add_person, people.link.import_people
+  L24: <xplanner:isUserAuthorized permission="admin.hide" resourceType="system.person"  >
+  L25: <db:useBeans id="people" type="net.sf.xplanner.domain.Person" order="is_hidden,name asc"/>
+  L26: </xplanner:isUserAuthorized>
+  L27: <xplanner:isUserAuthorized permission="admin.hide" negate="true" resourceType="system.person">
+  L28: <db:useBeans id="people" type="net.sf.xplanner.domain.Person"
+  L30: </xplanner:isUserAuthorized>
+  L31: <db:useBeans id="projects" type="net.sf.xplanner.domain.Project" where="hidden = false"/>
+  L33: <logic:greaterThan name="projectId" value="0" >
+  L34: <db:useBean id="project" type="net.sf.xplanner.domain.Project"
+  L37: </logic:greaterThan>
+  L38: <logic:equal name="projectId" value="0" >
+  L40: </logic:equal>
+  L53: <logic:greaterThan name="peopleCount" value="0">
+  L70: // DEBT replace with the isUserAuthorizedTag
+  L103: </logic:greaterThan>
+  L106: <xplanner:isUserAuthorized resourceType="system.person" permission="create.person">
+  L112: </xplanner:isUserAuthorized>
+== WEB-INF/jsp/view/person.jsp
+  keys: person.prefix, person.label.name, projects.link.people, person.link.timesheet
+  L11: <db:useBean id="person" type="net.sf.xplanner.domain.Person" />
+  L12: <db:useBeans id="projects" type="net.sf.xplanner.domain.Project" where="hidden = false"/>
+== WEB-INF/jsp/view/personStoryTableFragment.jsp
+  keys: person.tableheading.iteration, person.tableheading.story, person.tableheading.priority, person.tableheading.remaining
+== WEB-INF/jsp/view/personTaskTableFragment.jsp
+  keys: person.tableheading.iteration, person.tableheading.story, person.tableheading.task, person.tableheading.acceptor, person.tableheading.remaining, person.tableheading.active, person.tableheading.actions, person.task.active
+  L40: <db:useBean id="task" oid='<%= new Integer(currentTask.getId()) %>'
+  L42: <db:useBean id="story" oid='<%= new Integer(task.getUserStory().getId()) %>'
+  L44: <db:useBean id="iteration" oid='<%= new Integer(story.getIteration().getId()) %>'
+  L57: <logic:equal name="isActive" value="true">
+  L59: </logic:equal>
+  L62: <xplanner:isUserAuthorized name="task" permission="edit" projectId="${iteration.project.id}" >
+  L67: </xplanner:isUserAuthorized>
+== WEB-INF/jsp/view/project.jsp
+  keys: iterations.none, project.link.create_iteration, projects.link.people, history.link
+  L18: <db:useBean id="project" type="net.sf.xplanner.domain.Project" scope="request"/>
+  L31: <logic:notEmpty name="project" property="description">
+  L35: </logic:notEmpty>
+  L50: <xplanner:isUserAuthorized  name="iteration" permission='<%=action.getPermission()%>'>
+  L52: </xplanner:isUserAuthorized>
+  L73: <logic:equal name="iterationCount" value="0" >
+  L75: </logic:equal>
+  L81: <xplanner:isUserAuthorized name="project" permission='<%=action.getPermission()%>'>
+  L85: </xplanner:isUserAuthorized>
+  L87: <xplanner:isUserAuthorized resourceType="system.project.iteration" permission="create" >
+  L90: </xplanner:isUserAuthorized>
+  L95: <xplanner:isUserAuthorized resourceType="system.person" permission="read">
+  L97: </xplanner:isUserAuthorized>
+== WEB-INF/jsp/view/projectFeatures.jsp
+  keys: person.tableheading.iteration, person.tableheading.story, person.tableheading.feature, stories.tableheading.actions, stories.none, project.link.edit, project.link.create_iteration, iteration.link.all_features, projects.link.people, history.link
+  L15: <db:useBean id="project" type="net.sf.xplanner.domain.Project" scope="request" />
+  L20: <logic:notEmpty name="project" property="description">
+  L24: </logic:notEmpty>
+  L29: <logic:greaterThan name="iterationCount" value="0">
+  L38: <xplanner:isUserAuthorizedForAny name="project" property="iterations" permissions="edit,delete">
+  L40: </xplanner:isUserAuthorizedForAny>
+  L53: <xplanner:isUserAuthorizedForAny name="iteration" property="userStories" permissions="edit,delete">
+  L55: <xplanner:isUserAuthorized name="feature" permission="edit">
+  L58: </xplanner:isUserAuthorized>
+  L59: <xplanner:isUserAuthorized name="feature" permission="edit">
+  L63: </xplanner:isUserAuthorized>
+  L65: </xplanner:isUserAuthorizedForAny>
+  L72: </logic:greaterThan>
+  L74: <logic:equal name="storyCount" value="0">
+  L76: </logic:equal>
+  L79: <xplanner:isUserAuthorized name="project" permission="admin.edit" >
+  L82: </xplanner:isUserAuthorized>
+  L83: <xplanner:isUserAuthorized resourceType="system.project.iteration" permission="create" >
+  L86: </xplanner:isUserAuthorized>
+  L90: <xplanner:isUserAuthorized resourceType="system.person" permission="read">
+  L92: </xplanner:isUserAuthorized>
+== WEB-INF/jsp/view/projects.jsp
+  keys: projects.title, projects.none, projects.link.add_project, projects.link.people, projects.link.aggregate.timesheet
+  L32: <db:useBeans id="projects" type="net.sf.xplanner.domain.Project"
+  L51: <db:useBeans id="iterations" type="net.sf.xplanner.domain.Iteration"
+  L54: </db:useBeans>
+  L81: <logic:greaterThan name="projectCount" value="0">
+  L88: <xplanner:isUserAuthorized name="project"
+  L99: </xplanner:isUserAuthorized>
+  L130: <logic:present name="iteration">
+  L135: </logic:present>
+  L137: <xplanner:isUserAuthorizedForAny name="projects" permissions="hide">
+  L142: </xplanner:isUserAuthorizedForAny>
+  L145: </logic:greaterThan>
+  L147: <logic:equal name="projectCount" value="0">
+  L150: </logic:equal>
+  L153: <span class="links"> <xplanner:isUserAuthorized
+  L158: </xplanner:isUserAuthorized> </span>
+== WEB-INF/jsp/view/searchResults.jsp
+  keys: search.results, empty.search.results
+  L19: <logic:notEmpty name="searchResults" >
+  L28: <% if ( "note". equals( result.getResultType())) { %>
+  L40: ${result.matchPrefix}<logic:equal name="result" property="matchInDescription" value="true"><strong></logic:equal>${result.matchingText}<logic:equal name="result" property="matchInDescription" value="true"></strong></logi
+  L44: </logic:notEmpty>
+  L46: <logic:empty name="searchResults">
+  L48: </logic:empty>
+== WEB-INF/jsp/view/settings.jsp
+  keys: projects.title, settings.link.add_setting, projects.link.people, projects.link.aggregate.timesheet
+  L26: <db:useBeans id="settings" type="net.sf.xplanner.domain.Setting" />
+  L52: <xplanner:isUserAuthorized resourceType="system.project" permission="create.project">
+  L54: </xplanner:isUserAuthorized>
+== WEB-INF/jsp/view/task.jsp
+  inputs: oid, action, merge, returnto, completed, reopen, complete
+  keys: task.prefix, task.label.acceptor, task.label.estimated_hours, task.label.created_date, task.label.actual_hours, task.label.reopen, task.label.complete, task.label.timelog, timelog.tableheading.start, timelog.tableheading.end, timelog.tableheading.report_date, timelog.tableheading.duration, timelog.tableheading.pair, timelog.tableheading.description, history.link
+  L18: <db:useBean id="task" type="net.sf.xplanner.domain.Task" scope="request"/>
+  L36: <logic:notEmpty name="task" property="description">
+  L41: </logic:notEmpty>
+  L44: <logic:notEqual name="task" property="acceptorId" value="0">
+  L46: <db:useBean
+  L51: </logic:notEqual>
+  L52: <logic:equal name="task" property="acceptorId" value="0">
+  L54: </logic:equal>
+  L58: <logic:greaterThan name="task" property="estimatedOriginalHours" value="0">
+  L60: </logic:greaterThan>
+  L73: <xplanner:isUserAuthorized name="task" permission="edit">
+  L75: <logic:equal name="task" property="completed" value="true">
+  L84: </logic:equal>
+  L86: <logic:equal name="task" property="completed" value="false">
+  L95: </logic:equal>
+  L97: </xplanner:isUserAuthorized>
+  L101: <db:useBeans id="entries" type="net.sf.xplanner.domain.TimeEntry"
+  L108: <xplanner:isUserAuthorized name="task" permission="edit">
+  L110: <logic:present name="user">
+  L111: <% if (user.getId() == task.getAcceptorId()) { %>
+  L216: </logic:present>
+  L217: </xplanner:isUserAuthorized>
+  L221: <logic:greaterThan name="entryCount" value="0">
+  L246: <logic:greaterThan name="entry" property="duration" value="0">
+  L248: </logic:greaterThan>
+  L251: <logic:notEqual name="entry" property="person1Id" value="0">
+  L252: <db:useBean
+  L257: </logic:notEqual>
+  L258: <logic:notEqual name="entry" property="person2Id" value="0">
+  L259: <db:useBean
+  L264: </logic:notEqual>
+  L266: <td align="left" <logic:empty name="entry" property="description">"bgcolor='#f0f0f0'"</logic:empty>>
+  L273: </logic:greaterThan>
+  L277: <xplanner:isUserAuthorized name="task" permission="edit">
+  L280: <xplanner:isUserAuthorized name="task" permission='<%=action.getPermission()%>'>
+  L290: </xplanner:isUserAuthorized>
+  L292: </xplanner:isUserAuthorized>
+== WEB-INF/jsp/view/timesheet.jsp
+  inputs: timesheetForm
+  keys: timesheet.prefix, timesheet.personName, timesheet.label.period_start, timesheet.editor.set_date, format.date, timesheet.label.period_end, timesheet.label.summary, timesheet.tableheading.project, timesheet.tableheading.iteration, timesheet.tableheading.story, timesheet.tableheading.hours, timesheet.label.total, timesheet.label.daily, timesheet.statistics.hours_by_project, timesheet.label.to, timesheet.statistics.hours_by_iteration, timesheet.statistics.hours_by_story, projects.link.people
+== WEB-INF/jsp/view/twikiformat.jsp
+== WEB-INF/jsp/view/userstory.jsp
+  keys: story.prefix, story.label.estimated_hours, story.label.customer, story.label.actual_hours, story.label.tracker, story.label.remaining_hours, story.label.last_update, story.label.disposition, story.label.status, story.no_tasks, story.link.create_task, history.link
+  L15: <db:useBean id="story" type="net.sf.xplanner.domain.UserStory" scope="request" />
+  L41: <logic:notEmpty name="story" property="description">
+  L46: </logic:notEmpty>
+  L58: <logic:notEmpty name="story" property="customer">
+  L66: </logic:notEmpty>
+  L67: <logic:empty name="story" property="customer">
+  L69: </logic:empty>
+  L73: <logic:notEqual name="story" property="trackerId" value="0">
+  L79: <db:useBean id="tracker" type="net.sf.xplanner.domain.Person"
+  L87: </logic:notEqual>
+  L110: <logic:greaterThan name="taskCount" value="0">
+  L117: <xplanner:isUserAuthorized name="task" permission='<%=action.getPermission()%>'>
+  L120: </xplanner:isUserAuthorized>
+  L141: <logic:notEqual name="task" property="acceptorId" value="0">
+  L142: <db:useBean
+  L147: </logic:notEqual><logic:equal name="task" property="acceptorId" value="0">&nbsp;</logic:equal>
+  L169: </logic:greaterThan>
+  L171: <logic:equal name="taskCount" value="0">
+  L173: </logic:equal>
+  L219: <xplanner:isUserAuthorized name="story" permission='<%=action.getPermission()%>'>
+  L224: </xplanner:isUserAuthorized>
+  L226: <xplanner:isUserAuthorized name="story" permission="edit">
+  L231: </xplanner:isUserAuthorized>
+== WEB-INF/jsp/wap/auth.jsp
+== WEB-INF/jsp/wap/iteration.jsp
+  L8: <db:useBean id="iteration" type="net.sf.xplanner.domain.Iteration"
+== WEB-INF/jsp/wap/login.jsp
+  inputs: userId, password, remember
+  L7: <db:useBeans id="projects" type="net.sf.xplanner.domain.Project" where="hidden = false" />
+== WEB-INF/jsp/wap/person.jsp
+  L10: <db:useBean id="person" type="net.sf.xplanner.domain.Person"
+  L23: <logic:notEmpty name="person" property="phone">
+  L25: </logic:notEmpty>
+  L26: <logic:notEmpty name="person" property="email">
+  L28: </logic:notEmpty>
+== WEB-INF/jsp/wap/project.jsp
+  L5: <db:useBean id="project" type="net.sf.xplanner.domain.Project"
+  L12: <logic:notEmpty name="project" property="currentIteration">
+  L14: </logic:notEmpty>
+== WEB-INF/jsp/wap/projects.jsp
+  L7: <db:useBeans id="projects" type="net.sf.xplanner.domain.Project" where="hidden = false" />
+== WEB-INF/jsp/wap/story.jsp
+  L7: <db:useBean id="story" type="net.sf.xplanner.domain.UserStory"
+  L9: <db:useBean id="iteration" type="net.sf.xplanner.domain.Iteration"
+== WEB-INF/jsp/wap/task.jsp
+  L10: <db:useBean id="task" type="net.sf.xplanner.domain.Task"
+  L12: <db:useBean id="story" type="net.sf.xplanner.domain.UserStory"
+  L14: <db:useBean id="iteration" type="net.sf.xplanner.domain.Iteration"
+  L37: <logic:greaterThan name="task" property="acceptorId" value="0" >
+  L38: <db:useBean id="acceptor" type="net.sf.xplanner.domain.Person" oid='<%= new Integer(task.getAcceptorId()) %>'/>
+  L40: </logic:greaterThan>
+  L41: <logic:equal name="task" property="acceptorId" value="0">
+  L43: </logic:equal>
+== WEB-INF/tags/breadcrumb.tag
+== calendar/calendar-i18n.jsp
+  keys: calendar.sunday, calendar.monday, calendar.tuesday, calendar.wednesday, calendar.thursday, calendar.friday, calendar.saturday, calendar.january, calendar.february, calendar.march, calendar.april, calendar.may, calendar.june, calendar.july, calendar.august, calendar.september, calendar.october, calendar.november, calendar.december, calendar.label.toggle, calendar.label.prev_year, calendar.label.prev_month, calendar.label.go_today, calendar.label.next_month, calendar.label.next_year, calendar.label.sel_date, calendar.label.drag_to_move, calendar.label.part_today, calendar.label.mon_first, calendar.label.sun_first, calendar.label.close, calendar.label.today
+== index.jsp
+  L7: <db:useBeans id="projects" type="net.sf.xplanner.domain.Project" where="hidden = false" />
+  L10: <logic:equal name="projectCount" value="0" >
+  L12: </logic:equal>
+  L14: <logic:greaterThan name="projectCount" value="1" >
+  L16: </logic:greaterThan>
+  L18: <logic:equal name="projectCount" value="1" >
+  L25: <logic:notPresent name="iteration">
+  L27: </logic:notPresent>
+  L28: <logic:present name="iteration">
+  L30: </logic:present>
+  L31: </logic:equal>

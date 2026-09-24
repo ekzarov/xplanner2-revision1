@@ -1,0 +1,42 @@
+{
+  "packet_id": "S02-P004",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "phase_a_checkpoint_verified_at": "2026-09-24T14:08:46Z",
+  "phase_a_snapshot": {
+    "file": "analysis/reviews/evidence/S02-P004/phase-a-inventory.json",
+    "sha256": "63ab82d15c0e290e2c9dbf7abc37cc81b39560477afe426972c8b2f01bde3932",
+    "saved_at_utc": "2026-09-24T14:07:39Z",
+    "items": 119,
+    "snapshot_pin_file": "analysis/reviews/evidence/S02-P004/phase-a-snapshot.sha256",
+    "snapshot_pin_sha256": "28be3b9a02e2e21e26876b3b8b9c4fdc8d0661dd11935315ad2944c160e32105",
+    "pin_verification": "all 18 listed files OK (CRLF-tolerant check)"
+  },
+  "access_log_sha256_at_checkpoint": "51e1e07fb80e3306f831bb21f671a79a988f8f83ee550ef2aa120c2f682c2830",
+  "independence_record_sha256_at_checkpoint": "cc7ca5d7f8a6b5ab86e88970e7cbaafb2724723d2660e5ef8b5098ec12a6e8c0",
+  "phase_a_worktree": {
+    "path": ".migration-tmp/stage-02-p004/phase-a",
+    "head": "18dc6b73c8305971a8d6f2879b8fab6206ba5f04",
+    "git_status_short_lines": 0
+  },
+  "pm_checks": [
+    "all evidence hashes match the reviewer CHECKPOINT and the snapshot pin",
+    "worktree HEAD unchanged and clean",
+    "main tree changes limited to PM status edit and the S02-P004 evidence directory",
+    "access log declares no withheld record opened; only disclosed injected commit subjects mention withheld paths"
+  ],
+  "phase_b_released_at": "2026-09-24T14:08:46Z",
+  "phase_b_pinned_inputs": {
+    "revision": "18dc6b73c8305971a8d6f2879b8fab6206ba5f04",
+    "analysis/legacy_reconnaissance.md": "a35a09acfb6345681b292424649f2988e3c24575614681842fa5b1252bc1260b",
+    "analysis/legacy_user_flows.xlsx": "24630a194e79ba9051b37355148aba52b6dda7fbeee6b43c9290ebb58528670a",
+    "analysis/error-prevention-checklist.md": "2abe6fa4fbd89c227574317fc422618ad7748584b3996c5b1febb1ec902d5165",
+    "analysis/stages/stage-01/stage-02-pass-001-dispositions.md": "5d823882f173f61e58747e17666f4c6d63a07bd1376628f545b82a782b4fb29a",
+    "analysis/stages/stage-01/stage-02-pass-002-dispositions.md": "549a5cf208e496206737f52c5fd0f8990c8c65fe9e5a38c10e209e21d4a37a61",
+    "analysis/stages/stage-01/stage-02-pass-003-dispositions.md": "668a8b6c7dcc98015b8914ace78b2e65e4148470389c4b6d69af640801e1e79a",
+    "analysis/reviews/stage-02-pass-001.md": "73e8fb002fc374f6b82a3c1dda1e51e14f7f91badf0f75bd6a73a2385ccfad85",
+    "analysis/reviews/stage-02-pass-002.md": "545ad428ab41a516e5bf936592b6815617aaa661d47b0d33b09ee6f07fe81b52",
+    "analysis/reviews/stage-02-pass-003.md": "0246765a595775d62e7d10067cc265356c08b8cc2317ae30c5a868ece2bfcc02",
+    "analysis/stages/bootstrap/bootstrap-gate-report.md": "1432e4a4242d3c82401edb7b58750dbbd61e0eac6e162cb93037e698e362ff66",
+    "analysis/migration_status.yaml (working tree, branch stage-02/pass-004, includes the uncommitted stage-01 -> stage-02 transition)": "ab2c9678cd465dcb1ddc46eceb317a339f9902aef67172cecd7f3bc011657cdf"
+  }
+}

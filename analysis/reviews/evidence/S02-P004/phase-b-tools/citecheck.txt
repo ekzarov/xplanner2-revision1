@@ -1,0 +1,10 @@
+file cites 436 ok 432 fail 4 ambiguous 3 unresolved 0
+class cites 174 ok 173 fail 1
+FILE row 9 WEB-INF/classes/xplanner.properties:311 tokens not found: empty
+FILE row 114 WEB-INF/classes/xplanner.properties:277-284 tokens not found: headers
+FILE row 192 WEB-INF/classes/spring-beans.xml:80 tokens not found: rewritten,entry
+FILE row 194 WEB-INF/classes/spring-beans.xml:80 tokens not found: rewritten,entry
+CLASS row 217 missing class net.sf.xplanner.soap.XPlanner
+AMB row 37 projects.jsp:161 -> WEB-INF/jsp/view/projects.jsp|WEB-INF/jsp/wap/projects.jsp
+AMB row 37 project.jsp:96 -> WEB-INF/jsp/view/project.jsp|WEB-INF/jsp/wap/project.jsp
+AMB recon:501 projects.jsp:65-75,82-84 -> WEB-INF/jsp/view/projects.jsp|WEB-INF/jsp/wap/projects.jsp

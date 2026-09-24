@@ -1,0 +1,64 @@
+{
+  "packet_id": "S02-P004",
+  "review_mode": "formal independent pass, Stage 2 control reconnaissance, blind Phase A then Phase B",
+  "expected_result_schema": "exactly one of clean | findings | blocked | invalid, per analysis/reviews/README.md#results",
+  "repository": "https://github.com/ekzarov/xplanner2-revision1",
+  "immutable_revision": "18dc6b73c8305971a8d6f2879b8fab6206ba5f04",
+  "phase_a_worktree": ".migration-tmp/stage-02-p004/phase-a (sparse checkout of the immutable revision; read-only)",
+  "phase_a_worktree_sparse_exclusions": [
+    "analysis/legacy_reconnaissance.md",
+    "analysis/legacy_user_flows.xlsx",
+    "analysis/error-prevention-checklist.md",
+    "analysis/migration_status.yaml",
+    "analysis/stages/bootstrap/",
+    "analysis/stages/stage-01/",
+    "analysis/reviews/stage-02-pass-001.md",
+    "analysis/reviews/stage-02-pass-002.md",
+    "analysis/reviews/stage-02-pass-003.md",
+    "analysis/reviews/evidence/",
+    "analysis/maintenance/",
+    "ARTIFACTS.md",
+    "analysis/tools/README.md",
+    "analysis/process-canvas/",
+    "analysis/agent-system/",
+    "analysis/migration_methodology.html"
+  ],
+  "routing_extract": {
+    "source_path": "analysis/migration_status.yaml",
+    "source_sha256_at_extraction": "ab2c9678cd465dcb1ddc46eceb317a339f9902aef67172cecd7f3bc011657cdf",
+    "source_state": "working tree of branch stage-02/pass-004 after the stage-01 -> stage-02 transition (not yet committed)",
+    "selected_fields": "control.current_stage, the latest stage-02 transition changed_at, next review pass number, immutable revision, authorized scope, permitted operations, instruction paths",
+    "exclusion_rule": "Withhold gate outcomes, blockers, progress counts and summaries, prior findings and correction outcomes (pass 001-003 reports, evidence and dispositions), owner decision rationales about legacy content, Stage 1 self-check notes and learned checks until Phase B.",
+    "file": "analysis/reviews/evidence/S02-P004/routing-extract.json",
+    "sha256": "f0e5137a112e5c9d1708342044a67e69cc8c574811a27aa0814a231edc312d90"
+  },
+  "withheld_until_phase_b": [
+    "analysis/legacy_reconnaissance.md",
+    "analysis/legacy_user_flows.xlsx",
+    "analysis/error-prevention-checklist.md",
+    "analysis/migration_status.yaml (full)",
+    "analysis/reviews/stage-02-pass-001.md .. stage-02-pass-003.md and analysis/reviews/evidence/** (prior passes)",
+    "analysis/stages/stage-01/** (correction outcomes for passes 001-003)",
+    "analysis/maintenance/** (process maintenance record)",
+    "Stage 1 BA scratch .migration-tmp/stage-01/**",
+    "prior reviewer scratch .migration-tmp/stage-02/**, .migration-tmp/stage-02-p002/** and .migration-tmp/stage-02-p003/**",
+    "PM scripts .migration-tmp/*.js and .migration-tmp/stage-0*/*.js",
+    "git history beyond HEAD identity (commit messages summarize results)",
+    "pull request descriptions"
+  ],
+  "forbidden_always": [
+    "any folder outside C:/Work/Legacy/xplanner2-revision1 and the read-only C:/Work/Legacy/legacy-modernization-starter",
+    "examples or links from an earlier migration of this legacy system (constitution amendment A2), e.g. github.com/olsys-ltd/xplanner2",
+    "web, browser, MCP tools, other agents"
+  ],
+  "reviewer_write_allowlist": [
+    "analysis/reviews/evidence/S02-P004/** except routing-extract.json, packet.json and pm-*.json",
+    ".migration-tmp/stage-02-p004/reviewer-scratch/**",
+    ".migration-tmp/temp/**, .migration-tmp/npm-cache/** (temp redirection only)"
+  ],
+  "report_delivery": "The Claude Code client refuses subagent writes of the review report file. The reviewer writes the complete report to .migration-tmp/stage-02-p004/reviewer-scratch/stage-02-pass-004.md and gives its SHA-256 in RESULT; PM verifies and copies it byte-exact to analysis/reviews/stage-02-pass-004.md.",
+  "phase_a_output": "analysis/reviews/evidence/S02-P004/phase-a-inventory.json (A-NNN items with source evidence) plus analysis/reviews/evidence/S02-P004/access-log.md entries; report its SHA-256 in a CHECKPOINT to PM and stop until PM releases Phase B",
+  "checks_and_latest_results": "Stage 1 gates at the immutable revision: withheld until Phase B (they are Stage 1 conclusions).",
+  "runtimes": "Node v22.20.0, Windows tar.exe, git (for rev-parse/status only). No JDK/javap on this machine.",
+  "output_location": "outside the reviewed worktree: main working tree C:/Work/Legacy/xplanner2-revision1 under the allowlist above"
+}

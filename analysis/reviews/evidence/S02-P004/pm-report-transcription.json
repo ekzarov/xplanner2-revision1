@@ -1,0 +1,22 @@
+{
+  "packet_id": "S02-P004",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-004.md",
+  "reason": "The Claude Code client refuses subagent writes of the review report file; the reviewer wrote the complete report into its scratch directory.",
+  "producer": "Reviewer subagent a28e538a37766e909 authored the entire report content and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p004/reviewer-scratch/stage-02-pass-004.md",
+  "source_copy_sha256_declared_by_reviewer": "671b9bc9cb727bc806efbf6ef8cd508ac4ebf128b25f131f87bf763db3dd9240",
+  "pm_changes": [
+    "None. PM copied the scratch copy byte-for-byte after verifying its SHA-256 against RESULT BA-002-04."
+  ],
+  "final_report_sha256": "671b9bc9cb727bc806efbf6ef8cd508ac4ebf128b25f131f87bf763db3dd9240",
+  "final_checks": {
+    "node analysis/tools/artifact-reading.js --file analysis/reviews/stage-02-pass-004.md": "exit 0, errors []",
+    "node analysis/tools/artifact-reference-links.js --check": "exit 0, 208 Markdown documents"
+  },
+  "reviewer_disclosures": "Client-injected commit subjects at launch; one git rev-parse --show-toplevel; one stray python3 invocation stopped without file changes (all accepted as non-substantive). Reviewer flagged that the frozen phase-a-inventory.json contains the legacy default login and password in plain text; owner decision recorded below.",
+  "recorded_at": "2026-09-24T14:44:05Z",
+  "credential_classification": "Owner decision legacy-default-credential-classification:xplanner2-revision1: the well-known factory default login pair shipped in the original WAR (WEB-INF/classes/ResourceBundle.properties:784, login.instructions; seeded by db-changelog.xml) and described in legacy/README.md:38 is classified as public legacy data. This is not a general exception to constitution amendment A3 and does not permit publishing working passwords, keys or other discovered credentials. Whether this pair is used in earlier running installations has NOT been established (the earlier local docker-compose installation named in PREPARATION.md could not be inspected within the allowed boundaries); no claim is made that it is unused anywhere. The frozen Phase A snapshots of passes 001-004 and their hashes stay unchanged; publication of the pass 004 snapshot is permitted with respect to this pair. New materials cite credentials by source location only and describe the insecure behavior without repeating values.",
+  "credential_classification_recorded_at": "2026-09-24T16:12:22Z",
+  "storage_integrity_note": "First push (62cfdbc) stored five CRLF evidence files (phase-a-snapshot.sha256 and four phase-b-tools/*.txt) with Git line-ending normalization, so their committed blobs differed from the pinned SHA-256 values. PM added the project rule analysis/reviews/evidence/** -text to .gitattributes and renormalized; committed blobs now equal the working bytes and pinned hashes (snapshot pin 28be3b9a02e2e21e26876b3b8b9c4fdc8d0661dd11935315ad2944c160e32105). File contents were not changed."
+}
