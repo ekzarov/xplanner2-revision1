@@ -1,0 +1,22 @@
+{
+  "active_stage": "stage-02",
+  "stage_entry_recorded_at": "2026-09-24T07:55:31Z",
+  "review_pass": 1,
+  "report_path": "analysis/reviews/stage-02-pass-001.md",
+  "immutable_revision": "714618408ba56aab6e2c2d447cc773d3d628ccc2",
+  "legacy_git_tree": "3bd350fa5559ce56d2ea6f5136a62197754d4dca",
+  "authorized_scope": "Source-based control reconnaissance of the immutable legacy/ package (XPlanner+ v1.1a4 WAR distribution with local run helpers). legacy/ is this project's fixed baseline version and includes a known MySQL configuration patch from an earlier experiment; do not describe it as an unmodified original delivery. legacy/demo-seed.sql is a prepared demo fixture, not upstream content and not evidence of behavior.",
+  "permitted_operations": "Read-only inspection; extraction of the WAR and own read-only Node scripts in the reviewer scratch directory; no legacy runtime, no remote access, no network, no installs, no git history reads, no repository changes outside the reviewer write allowlist.",
+  "instruction_paths": [
+    "MIGRATION.md",
+    ".specify/memory/constitution.md",
+    "analysis/agent-roles.md",
+    ".agents/skills/migration-ba/SKILL.md",
+    "analysis/migration_methodology.md#stage-02",
+    "analysis/reviews/README.md (Stage 2: Control reconnaissance; Comparison Record Contract; Results; Independence)",
+    "analysis/reviews/stage-NN-pass-NNN-template.md",
+    "analysis/agent_orchestration.md (Formal independent pass; Blind Review Packets; Read-Only Execution; Batches and Checkpoints; Durable Evidence)",
+    "analysis/error-prevention.md (procedure only)",
+    "analysis/legacy_user_flows_template_instructions.md (format of the workbook to be compared in Phase B)"
+  ]
+}

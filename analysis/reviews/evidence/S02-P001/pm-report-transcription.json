@@ -1,0 +1,20 @@
+{
+  "packet_id": "S02-P001",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-001.md",
+  "reason": "The Claude Code client refused the reviewer subagent's attempt to create the Markdown report file ('Subagents should return findings as text, not write report files'). The reviewer did not circumvent the refusal and returned the full report text in RESULT BA-002-01.",
+  "producer": "Reviewer subagent a648f7528e565ff59 authored the entire report content and owns its conclusion. PM only transcribed it.",
+  "pm_changes": [
+    "Decoded HTML entities introduced by message transport (&lt; &gt;) back to the literal characters '<' and '>'. No other character was changed in the first save (SHA-256 20746a46730d11dcbb6972e104b96c0b9b2ffd2011fccf0ec94fd96c16d29352).",
+    "Inserted, verbatim, the eight Contents lines for F-001..F-008 supplied by the reviewer in reply to PM, after artifact-reading.js reported 'section missing from Contents'. The reviewer confirmed that no other part of the report changes.",
+    "Wrapped the single literal yyyy-MM-dd in the C-170 row in backticks, confirmed verbatim by the reviewer, because the status validator placeholder pattern (YYYY-MM-DD, case-insensitive) treated it as a template marker. Intermediate SHA-256 after the Contents insertion was d127bf5b60af72bb29188fb13cbdb20899404c172450ecbcb7cca64113b033fb."
+  ],
+  "final_report_sha256": "73e8fb002fc374f6b82a3c1dda1e51e14f7f91badf0f75bd6a73a2385ccfad85",
+  "final_checks": {
+    "node analysis/tools/artifact-reading.js --file analysis/reviews/stage-02-pass-001.md": "exit 0, errors []",
+    "node analysis/tools/artifact-reference-links.js --check": "exit 0, 194 Markdown documents",
+    "node analysis/tools/status-validator.js": "exit 0, STATUS VALIDATION OK"
+  },
+  "related_pm_edit": "analysis/migration_methodology.md line 270: the Review Report Numbering path for the Stage 2 pass 001 report became a clickable link, because audit:artifact-links requires links to existing files once the report exists. This is a process-copy normalization, not a change to the review.",
+  "recorded_at": "2026-09-24T08:39:06Z"
+}

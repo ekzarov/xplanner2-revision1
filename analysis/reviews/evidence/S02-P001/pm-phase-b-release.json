@@ -1,0 +1,33 @@
+{
+  "packet_id": "S02-P001",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "phase_a_checkpoint_verified_at": "2026-09-24T08:19:15Z",
+  "phase_a_snapshot": {
+    "file": "analysis/reviews/evidence/S02-P001/phase-a-inventory.json",
+    "sha256": "ee62d7fb775edff9b34ab19b201d2ead6ac121e50dd6ab98a0b3f7b6238cf7ac",
+    "saved_at_utc": "2026-09-24T08:18:07Z",
+    "items": 118
+  },
+  "access_log_sha256_at_checkpoint": "11ee4029048065bcf7f10f4eddbd0fb0b0e319a0d9921f1b9bc56f1c8caacc49",
+  "independence_record_sha256_at_checkpoint": "144315ed3acfc5461b4dda8dfab6f726817def936017195c45ddfe99043d0044",
+  "phase_a_worktree": {
+    "path": ".migration-tmp/stage-02/phase-a",
+    "head": "714618408ba56aab6e2c2d447cc773d3d628ccc2",
+    "git_status_short_lines": 0
+  },
+  "pm_checks": [
+    "all five evidence file hashes match the reviewer CHECKPOINT and PM packet",
+    "worktree HEAD unchanged and clean",
+    "main tree changes limited to PM status edit and the evidence directory",
+    "access log declares no withheld record opened; disclosed launch exposure accepted by PM as non-substantive"
+  ],
+  "phase_b_released_at": "2026-09-24T08:19:15Z",
+  "phase_b_pinned_inputs": {
+    "revision": "714618408ba56aab6e2c2d447cc773d3d628ccc2",
+    "analysis/legacy_reconnaissance.md": "6e831b2f4f61f40d22763d4d4c37091191c57abc91062e996a3a22e6885faa4b",
+    "analysis/legacy_user_flows.xlsx": "cb762eae1c66084e2df3d30a70f1364521cd9532e1ba481bc356da43d259492f",
+    "analysis/error-prevention-checklist.md": "92ccefd8b635ad0563da76acb5363fce46609c5a9a9ace7b0a7d856e69ae591a",
+    "analysis/stages/bootstrap/bootstrap-gate-report.md": "1432e4a4242d3c82401edb7b58750dbbd61e0eac6e162cb93037e698e362ff66",
+    "analysis/migration_status.yaml (working tree, branch stage-02/control-review, includes the uncommitted stage-01 -> stage-02 transition)": "969ce373b2d7d28e441c04b376c11abf4ccfb64b7246178d3a94fd770565884e"
+  }
+}

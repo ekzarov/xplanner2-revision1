@@ -267,7 +267,7 @@ blind inventory, then checks both records for omissions and unsupported claims.
 Every independent stage owns its own immutable pass series. A new project
 starts each series at `001`:
 
-- Stage 2: `analysis/reviews/stage-02-pass-001.md`;
+- Stage 2: [`analysis/reviews/stage-02-pass-001.md`](./reviews/stage-02-pass-001.md);
 - Stage 7: `analysis/reviews/stage-07-pass-001.md`;
 - Stage 10: `analysis/reviews/stage-10-pass-001.md`;
 - Stage 14: `analysis/reviews/stage-14-pass-001.md`;

@@ -1,0 +1,3822 @@
+{
+ "packet": "S02-P001",
+ "session_id": "a648f7528e565ff59",
+ "reviewed_revision": "714618408ba56aab6e2c2d447cc773d3d628ccc2",
+ "phase_a_inventory_sha256": "ee62d7fb775edff9b34ab19b201d2ead6ac121e50dd6ab98a0b3f7b6238cf7ac",
+ "inputs": {
+  "legacy_reconnaissance_md": "6e831b2f4f61f40d22763d4d4c37091191c57abc91062e996a3a22e6885faa4b",
+  "legacy_user_flows_xlsx": "cb762eae1c66084e2df3d30a70f1364521cd9532e1ba481bc356da43d259492f",
+  "error_prevention_checklist_md": "92ccefd8b635ad0563da76acb5363fce46609c5a9a9ace7b0a7d856e69ae591a"
+ },
+ "result_vocabulary": [
+  "matched",
+  "mismatch",
+  "not-checked",
+  "not-applicable"
+ ],
+ "counts": {
+  "total": 421,
+  "matched": 404,
+  "mismatch": 10,
+  "not-applicable": 7
+ },
+ "counts_by_direction": {
+  "inventory-to-records:matched": 112,
+  "inventory-to-records:mismatch": 5,
+  "inventory-to-records:not-applicable": 1,
+  "records-to-source:matched": 292,
+  "records-to-source:mismatch": 5,
+  "records-to-source:not-applicable": 6
+ },
+ "checks": [
+  {
+   "id": "C-001",
+   "dir": "inventory-to-records",
+   "item": "A-001 Legacy package content and identity",
+   "loc": "recon Scope And Provenance (version, pom, manifest, hashes)",
+   "res": "matched",
+   "note": "Same identity; hashes equal.",
+   "link": "none"
+  },
+  {
+   "id": "C-002",
+   "dir": "inventory-to-records",
+   "item": "A-002 Known local MySQL configuration patch and its location",
+   "loc": "recon Scope And Provenance; GAP-005 P-01, P-02, P-07",
+   "res": "matched",
+   "note": "Same patch boundary uncertainty; S1 adds ZIP version-needed evidence (verified: 3 of 1090 entries need 2.0).",
+   "link": "none"
+  },
+  {
+   "id": "C-003",
+   "dir": "inventory-to-records",
+   "item": "A-003 Local run helper (not part of upstream)",
+   "loc": "recon Source Inventory \"Local run helpers\"; GAP-008",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-004",
+   "dir": "inventory-to-records",
+   "item": "A-004 WAR file composition",
+   "loc": "recon Source Inventory WAR composition",
+   "res": "matched",
+   "note": "Same counts (964 files, 594 classes, 102 JARs, 73 JSPs).",
+   "link": "none"
+  },
+  {
+   "id": "C-005",
+   "dir": "inventory-to-records",
+   "item": "A-005 Web UI channel: Struts 1.2.9 under /do/*",
+   "loc": "recon Struts row; Runnable Surfaces web UI; epics UF-001..UF-014",
+   "res": "matched",
+   "note": "Same (74+7+6 actions).",
+   "link": "none"
+  },
+  {
+   "id": "C-006",
+   "dir": "inventory-to-records",
+   "item": "A-006 Mobile/WAP channel under /do/mobile/*",
+   "loc": "rows 202-203; recon Mobile channel",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-007",
+   "dir": "inventory-to-records",
+   "item": "A-007 Test/diagnostic action set loaded in the shipped configuration",
+   "loc": "rows 56-57; recon Struts row (test config loaded); Q3 facts",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-008",
+   "dir": "inventory-to-records",
+   "item": "A-008 SOAP channel (Apache Axis 1.4)",
+   "loc": "rows 186-191; recon Web services",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-009",
+   "dir": "inventory-to-records",
+   "item": "A-009 REST channel (Jersey 1.x) under /rest/*",
+   "loc": "rows 193-196; recon Web services",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-010",
+   "dir": "inventory-to-records",
+   "item": "A-010 Spring MVC channel under /setting/*",
+   "loc": "rows 55, 161; recon Spring MVC pages",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-011",
+   "dir": "inventory-to-records",
+   "item": "A-011 iCalendar feed channel /ical/*",
+   "loc": "rows 198-200",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-012",
+   "dir": "inventory-to-records",
+   "item": "A-012 Chart image channel /cewolf/*",
+   "loc": "recon Charts; Runnable Surfaces chart images; rows 100, 140",
+   "res": "matched",
+   "note": "Same surface. Absence of a filter on /cewolf/* is implied by the recon web.xml filter list; Cewolf serves session-stored charts, so no separate behavior.",
+   "link": "none"
+  },
+  {
+   "id": "C-013",
+   "dir": "inventory-to-records",
+   "item": "A-013 Static content and welcome page",
+   "loc": "recon Static assets; GAP-013",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-014",
+   "dir": "inventory-to-records",
+   "item": "A-014 Outbound e-mail channel (SMTP via JavaMail)",
+   "loc": "row 174; recon Data And Integrations SMTP",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-015",
+   "dir": "inventory-to-records",
+   "item": "A-015 Declared but disabled or unwired channels",
+   "loc": "recon web.xml row (JAX-WS only); row 189; Parity-Map Boundary exclusions",
+   "res": "mismatch",
+   "note": "JAX-WS is recorded. Not recorded anywhere: commented NullSecurityFilter (auto-login as default user sysadmin, web.xml:76-83), unused DWR class net.sf.xplanner.dwr.Project, JettyServer standalone launcher, unwired MissingTimeEntryEmailJob.",
+   "link": "F-005"
+  },
+  {
+   "id": "C-016",
+   "dir": "inventory-to-records",
+   "item": "A-016 Servlet filter chain and URL coverage",
+   "loc": "recon web.xml row",
+   "res": "matched",
+   "note": "Same 8 filters / 10 mappings.",
+   "link": "none"
+  },
+  {
+   "id": "C-017",
+   "dir": "inventory-to-records",
+   "item": "A-017 Application start-up listeners",
+   "loc": "recon web.xml row (5 live listeners); rows 60, 161",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-018",
+   "dir": "inventory-to-records",
+   "item": "A-018 Error handling pages",
+   "loc": "rows 51-52",
+   "res": "matched",
+   "note": "Same after reviewer correction RC-02 (ExceptionHandler is not wired).",
+   "link": "none"
+  },
+  {
+   "id": "C-019",
+   "dir": "inventory-to-records",
+   "item": "A-019 Session policy",
+   "loc": "row 20",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-020",
+   "dir": "inventory-to-records",
+   "item": "A-020 Per-request activity log",
+   "loc": "row 64; GAP-013",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-021",
+   "dir": "inventory-to-records",
+   "item": "A-021 Localization and locale switching",
+   "loc": "row 53",
+   "res": "matched",
+   "note": "Same; S1 adds that no UI link exists.",
+   "link": "none"
+  },
+  {
+   "id": "C-022",
+   "dir": "inventory-to-records",
+   "item": "A-022 Transaction and persistence wiring",
+   "loc": "recon Spring context row; Data And Integrations database row",
+   "res": "matched",
+   "note": "Same (grouping difference).",
+   "link": "none"
+  },
+  {
+   "id": "C-023",
+   "dir": "inventory-to-records",
+   "item": "A-023 Web form login",
+   "loc": "rows 8-14",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-024",
+   "dir": "inventory-to-records",
+   "item": "A-024 Remember-me credential cookie",
+   "loc": "rows 15-16; GAP-007; Q3 facts",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-025",
+   "dir": "inventory-to-records",
+   "item": "A-025 Unauthenticated request handling for /do/* and /setting/*",
+   "loc": "rows 10, 17",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-026",
+   "dir": "inventory-to-records",
+   "item": "A-026 Logout",
+   "loc": "row 19",
+   "res": "matched",
+   "note": "Same (cache invalidation on logout not stated; implementation detail).",
+   "link": "none"
+  },
+  {
+   "id": "C-027",
+   "dir": "inventory-to-records",
+   "item": "A-027 Pluggable login modules and effective configuration",
+   "loc": "rows 11, 21; recon Security configuration",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-028",
+   "dir": "inventory-to-records",
+   "item": "A-028 XPlanner database password check and password change",
+   "loc": "rows 11, 13, 43",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-029",
+   "dir": "inventory-to-records",
+   "item": "A-029 HTTP Basic authentication for SOAP and iCal",
+   "loc": "rows 186, 198",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-030",
+   "dir": "inventory-to-records",
+   "item": "A-030 Mobile login and its filter conflict",
+   "loc": "row 203",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-031",
+   "dir": "inventory-to-records",
+   "item": "A-031 Bootstrap system administrator account",
+   "loc": "row 59; recon Legacy migration toolkit",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-032",
+   "dir": "inventory-to-records",
+   "item": "A-032 Role hierarchy and project-scoped role assignment",
+   "loc": "rows 23, 25, 29",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-033",
+   "dir": "inventory-to-records",
+   "item": "A-033 Seeded permission matrix",
+   "loc": "rows 23-24",
+   "res": "matched",
+   "note": "Same (S1 wording \"a person holding a role also holds the enclosing lower roles\" matches the query).",
+   "link": "none"
+  },
+  {
+   "id": "C-034",
+   "dir": "inventory-to-records",
+   "item": "A-034 Resource types used in permission checks",
+   "loc": "rows 23-26, 30, 38 (resource types used in context)",
+   "res": "matched",
+   "note": "Grouping difference: no separate list, but each rule cites its resource type.",
+   "link": "none"
+  },
+  {
+   "id": "C-035",
+   "dir": "inventory-to-records",
+   "item": "A-035 Where permissions are enforced on the server",
+   "loc": "rows 26-27, 190-191, 200",
+   "res": "matched",
+   "note": "Grouping difference. Its missing sub-points are compared separately in the checks for A-037, A-070 and A-080.",
+   "link": "none"
+  },
+  {
+   "id": "C-036",
+   "dir": "inventory-to-records",
+   "item": "A-036 URL role constraints are parsed but not enforced",
+   "loc": "recon Security configuration row",
+   "res": "matched",
+   "note": "Coverage exists; its content is compared in the reconnaissance check \"Security configuration\" (F-004).",
+   "link": "none"
+  },
+  {
+   "id": "C-037",
+   "dir": "inventory-to-records",
+   "item": "A-037 Generic view/edit/delete actions have no server-side permission check",
+   "loc": "rows 26, 28; GAP-007; Q3 facts",
+   "res": "mismatch",
+   "note": "Not recorded. S1 records only UI gating (row 26) and claims an unauthorized action shows the not-authorized error (row 28). Source: ViewObjectAction, EditObjectAction (and subclasses except EditRoleAction/EditPersonHelper role parts) and DeleteObjectAction load/save/delete through CommonDao without Authorizer; the secure repositories are used only by IntegrationEmailNotifier; no @secure forward exists for DispatchForward; URL role constraints are unused.",
+   "link": "F-001"
+  },
+  {
+   "id": "C-038",
+   "dir": "inventory-to-records",
+   "item": "A-038 Channels reachable without authentication",
+   "loc": "rows 187, 195; GAP-007; Q3 facts",
+   "res": "matched",
+   "note": "Same for /rest/* and /servlet/AxisServlet; /cewolf/* see A-012.",
+   "link": "none"
+  },
+  {
+   "id": "C-039",
+   "dir": "inventory-to-records",
+   "item": "A-039 Permission caching and invalidation",
+   "loc": "rows 29, 56",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-040",
+   "dir": "inventory-to-records",
+   "item": "A-040 Hidden projects and hidden people",
+   "loc": "rows 34, 44, 66-67, 72",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-041",
+   "dir": "inventory-to-records",
+   "item": "A-041 Not-authorized page is missing",
+   "loc": "row 28; GAP-003; Q2 facts",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-042",
+   "dir": "inventory-to-records",
+   "item": "A-042 Home redirect (index.jsp)",
+   "loc": "row 18",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-043",
+   "dir": "inventory-to-records",
+   "item": "A-043 Project list",
+   "loc": "rows 26-27, 66-68",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-044",
+   "dir": "inventory-to-records",
+   "item": "A-044 View project and project features",
+   "loc": "rows 74-75, 166",
+   "res": "matched",
+   "note": "Same; S1 adds paging and sort details (verified project.jsp:44).",
+   "link": "none"
+  },
+  {
+   "id": "C-045",
+   "dir": "inventory-to-records",
+   "item": "A-045 Create/edit project",
+   "loc": "rows 69-72, 76-77",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-046",
+   "dir": "inventory-to-records",
+   "item": "A-046 Delete project and other objects (generic delete)",
+   "loc": "rows 45, 73, 82, 114, 129",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-047",
+   "dir": "inventory-to-records",
+   "item": "A-047 Export project (XML, MPX, MSPDI)",
+   "loc": "rows 179-180",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-048",
+   "dir": "inventory-to-records",
+   "item": "A-048 View iteration (stories)",
+   "loc": "rows 83-85",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-049",
+   "dir": "inventory-to-records",
+   "item": "A-049 Reorder stories",
+   "loc": "rows 86-87",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-050",
+   "dir": "inventory-to-records",
+   "item": "A-050 Create/edit iteration",
+   "loc": "rows 79-81",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-051",
+   "dir": "inventory-to-records",
+   "item": "A-051 Start iteration",
+   "loc": "rows 89-91",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-052",
+   "dir": "inventory-to-records",
+   "item": "A-052 Close iteration and continue unfinished stories",
+   "loc": "rows 92-95",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-053",
+   "dir": "inventory-to-records",
+   "item": "A-053 Iteration tasks, features, metrics, statistics and accuracy views",
+   "loc": "rows 97-103",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-054",
+   "dir": "inventory-to-records",
+   "item": "A-054 Export iteration, story, task and person",
+   "loc": "rows 181-184; GAP-003",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-055",
+   "dir": "inventory-to-records",
+   "item": "A-055 Import stories from a spreadsheet",
+   "loc": "rows 105-108",
+   "res": "matched",
+   "note": "Same after reviewer correction RC-01 (worksheet-not-found mapping points to a missing class; S1 row 107 is right).",
+   "link": "none"
+  },
+  {
+   "id": "C-056",
+   "dir": "inventory-to-records",
+   "item": "A-056 Iteration dashboard (task board)",
+   "loc": "row 104; Q2 facts",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-057",
+   "dir": "inventory-to-records",
+   "item": "A-057 Delete iteration restrictions",
+   "loc": "rows 24, 82",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-058",
+   "dir": "inventory-to-records",
+   "item": "A-058 View user story",
+   "loc": "rows 115-116",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-059",
+   "dir": "inventory-to-records",
+   "item": "A-059 Create/edit user story",
+   "loc": "rows 110-113",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-060",
+   "dir": "inventory-to-records",
+   "item": "A-060 Move or continue a story",
+   "loc": "rows 117-119",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-061",
+   "dir": "inventory-to-records",
+   "item": "A-061 Move several stories",
+   "loc": "row 88",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-062",
+   "dir": "inventory-to-records",
+   "item": "A-062 Features of a story",
+   "loc": "row 166; GAP-003; GAP-004",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-063",
+   "dir": "inventory-to-records",
+   "item": "A-063 View task, complete and reopen",
+   "loc": "rows 127-128, 130",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-064",
+   "dir": "inventory-to-records",
+   "item": "A-064 Create/edit task and notification e-mail",
+   "loc": "rows 121-126",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-065",
+   "dir": "inventory-to-records",
+   "item": "A-065 Move or continue a task",
+   "loc": "rows 131-133",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-066",
+   "dir": "inventory-to-records",
+   "item": "A-066 Task estimate page",
+   "loc": "row 139",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-067",
+   "dir": "inventory-to-records",
+   "item": "A-067 Enter and edit time entries",
+   "loc": "rows 135-138",
+   "res": "matched",
+   "note": "Same. S1 lists fewer validation keys (row 138 \"unparsable date/time\"); the other TimeEditorForm keys are grouped there.",
+   "link": "none"
+  },
+  {
+   "id": "C-068",
+   "dir": "inventory-to-records",
+   "item": "A-068 Re-estimate tasks when starting an iteration",
+   "loc": "rows 91, 139",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-069",
+   "dir": "inventory-to-records",
+   "item": "A-069 Person timesheet",
+   "loc": "rows 140-141",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-070",
+   "dir": "inventory-to-records",
+   "item": "A-070 Aggregate timesheet",
+   "loc": "rows 142-143",
+   "res": "mismatch",
+   "note": "Row 142 omits that AggregateTimesheetQuery keeps only projects the signed-in user may read (hasPermission system.project read), a permission-dependent branch.",
+   "link": "F-007"
+  },
+  {
+   "id": "C-071",
+   "dir": "inventory-to-records",
+   "item": "A-071 iCalendar export of tasks and time",
+   "loc": "rows 198-200",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-072",
+   "dir": "inventory-to-records",
+   "item": "A-072 People list",
+   "loc": "rows 33-35",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-073",
+   "dir": "inventory-to-records",
+   "item": "A-073 View person",
+   "loc": "rows 36-38",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-074",
+   "dir": "inventory-to-records",
+   "item": "A-074 Create/edit person, roles and password",
+   "loc": "rows 29-30, 39-44",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-075",
+   "dir": "inventory-to-records",
+   "item": "A-075 Edit project roles",
+   "loc": "row 31",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-076",
+   "dir": "inventory-to-records",
+   "item": "A-076 Import people",
+   "loc": "rows 46-48; GAP-012",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-077",
+   "dir": "inventory-to-records",
+   "item": "A-077 My status page (Me link)",
+   "loc": "row 161; GAP-008",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-078",
+   "dir": "inventory-to-records",
+   "item": "A-078 Notes and attachments",
+   "loc": "rows 145-151",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-079",
+   "dir": "inventory-to-records",
+   "item": "A-079 File manager",
+   "loc": "row 152",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-080",
+   "dir": "inventory-to-records",
+   "item": "A-080 Content search",
+   "loc": "rows 154-158",
+   "res": "mismatch",
+   "note": "Rows 154-158 omit that content-search results are filtered to objects the user may read (ContentSearchHelper.getAuthorizationPredicate -> SearchResultAuthorizationPredicate, permission read).",
+   "link": "F-007"
+  },
+  {
+   "id": "C-081",
+   "dir": "inventory-to-records",
+   "item": "A-081 Search by id",
+   "loc": "rows 157-158",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-082",
+   "dir": "inventory-to-records",
+   "item": "A-082 Object history",
+   "loc": "row 160",
+   "res": "matched",
+   "note": "Coverage exists; content compared in the check for row 160 (F-002). Reviewer correction RC-03 applies to the Phase A wording.",
+   "link": "none"
+  },
+  {
+   "id": "C-083",
+   "dir": "inventory-to-records",
+   "item": "A-083 Wiki-style text formatting",
+   "loc": "rows 162-163",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-084",
+   "dir": "inventory-to-records",
+   "item": "A-084 Continuous-integration queue",
+   "loc": "rows 168-170; GAP-004",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-085",
+   "dir": "inventory-to-records",
+   "item": "A-085 Settings list and editor",
+   "loc": "rows 54-55",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-086",
+   "dir": "inventory-to-records",
+   "item": "A-086 System information page",
+   "loc": "row 50",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-087",
+   "dir": "inventory-to-records",
+   "item": "A-087 Reload Tiles definitions",
+   "loc": "row 58",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-088",
+   "dir": "inventory-to-records",
+   "item": "A-088 Generic object list/edit handler (Spring MVC)",
+   "loc": "row 55",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-089",
+   "dir": "inventory-to-records",
+   "item": "A-089 Run data sampling on demand",
+   "loc": "row 57",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-090",
+   "dir": "inventory-to-records",
+   "item": "A-090 Send missing-time notifications on demand",
+   "loc": "row 57",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-091",
+   "dir": "inventory-to-records",
+   "item": "A-091 Shift the application clock",
+   "loc": "row 57",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-092",
+   "dir": "inventory-to-records",
+   "item": "A-092 Change runtime properties",
+   "loc": "row 57",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-093",
+   "dir": "inventory-to-records",
+   "item": "A-093 Clear permission cache",
+   "loc": "row 56",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-094",
+   "dir": "inventory-to-records",
+   "item": "A-094 Evict Hibernate query cache without login",
+   "loc": "row 56; Q3 facts",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-095",
+   "dir": "inventory-to-records",
+   "item": "A-095 Mobile read-only navigation",
+   "loc": "rows 202-203; recon Mobile channel",
+   "res": "matched",
+   "note": "Same after reviewer correction RC-04 (the auth.jsp link is inside a JSP comment; S1 \"unreferenced\" is right).",
+   "link": "none"
+  },
+  {
+   "id": "C-096",
+   "dir": "inventory-to-records",
+   "item": "A-096 SOAP XPlanner service operations",
+   "loc": "rows 190-191",
+   "res": "matched",
+   "note": "Same (43 operations).",
+   "link": "none"
+  },
+  {
+   "id": "C-097",
+   "dir": "inventory-to-records",
+   "item": "A-097 Axis global configuration",
+   "loc": "rows 186, 188; Q3 facts (adminPassword)",
+   "res": "matched",
+   "note": "Same; JWS handler and unused SimpleAuthenticationHandler not listed (no behavior).",
+   "link": "none"
+  },
+  {
+   "id": "C-098",
+   "dir": "inventory-to-records",
+   "item": "A-098 REST read endpoints",
+   "loc": "rows 193-195",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-099",
+   "dir": "inventory-to-records",
+   "item": "A-099 REST task status update",
+   "loc": "row 196; GAP-007",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-100",
+   "dir": "inventory-to-records",
+   "item": "A-100 Daily missing-time-entry e-mails",
+   "loc": "rows 172-173",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-101",
+   "dir": "inventory-to-records",
+   "item": "A-101 Burn-down data sampling job is defined but not scheduled",
+   "loc": "rows 102, 175-176",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-102",
+   "dir": "inventory-to-records",
+   "item": "A-102 Domain change events without listeners",
+   "loc": "row 177",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-103",
+   "dir": "inventory-to-records",
+   "item": "A-103 Automatic database schema creation and seeding at start-up",
+   "loc": "row 59",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-104",
+   "dir": "inventory-to-records",
+   "item": "A-104 HSQLDB in-process server (conditional)",
+   "loc": "row 60; recon Data And Integrations HSQLDB",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-105",
+   "dir": "inventory-to-records",
+   "item": "A-105 Database dependency",
+   "loc": "recon Data And Integrations database; Configuration row",
+   "res": "matched",
+   "note": "Same. Unconsumed hibernate.dbcp.* keys are not stated; they have no effect.",
+   "link": "none"
+  },
+  {
+   "id": "C-106",
+   "dir": "inventory-to-records",
+   "item": "A-106 Mail server dependency",
+   "loc": "row 174; recon Data And Integrations SMTP",
+   "res": "mismatch",
+   "note": "SMTP recorded. Not recorded: EmailFormatterImpl fetches the e-mail stylesheet over HTTP from xplanner.application.url + /css/email.css (util.HttpClient.getPage), an outbound HTTP dependency that also depends on the GAP-008 URL.",
+   "link": "F-006"
+  },
+  {
+   "id": "C-107",
+   "dir": "inventory-to-records",
+   "item": "A-107 Directory services (not configured)",
+   "loc": "row 21; recon Data And Integrations identity providers",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-108",
+   "dir": "inventory-to-records",
+   "item": "A-108 Configured external URLs",
+   "loc": "GAP-008; recon Data And Integrations wiki/SourceForge",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-109",
+   "dir": "inventory-to-records",
+   "item": "A-109 Third-party libraries (server)",
+   "loc": "recon Third-party libraries; GAP-011",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-110",
+   "dir": "inventory-to-records",
+   "item": "A-110 Client-side libraries and assets",
+   "loc": "recon Static assets",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-111",
+   "dir": "inventory-to-records",
+   "item": "A-111 Persistent entities and tables",
+   "loc": "recon Persistence model; Schema and seed data",
+   "res": "matched",
+   "note": "Same (21 entities).",
+   "link": "none"
+  },
+  {
+   "id": "C-112",
+   "dir": "inventory-to-records",
+   "item": "A-112 Named HQL queries",
+   "loc": "recon Persistence model",
+   "res": "matched",
+   "note": "Same (grouped by purpose).",
+   "link": "none"
+  },
+  {
+   "id": "C-113",
+   "dir": "inventory-to-records",
+   "item": "A-113 Domain vocabularies",
+   "loc": "rows 110, 121, 196; recon Persistence model boundary (column level not reconciled)",
+   "res": "matched",
+   "note": "Grouping difference; the backlog iteration column is inside the declared boundary.",
+   "link": "none"
+  },
+  {
+   "id": "C-114",
+   "dir": "inventory-to-records",
+   "item": "A-114 Identifier generation",
+   "loc": "recon Schema and seed data (declared boundary)",
+   "res": "matched",
+   "note": "Implementation detail inside the declared boundary.",
+   "link": "none"
+  },
+  {
+   "id": "C-115",
+   "dir": "inventory-to-records",
+   "item": "A-115 Struts references to missing files",
+   "loc": "GAP-003; rows 28, 54, 56, 96",
+   "res": "matched",
+   "note": "Same 7 missing JSPs. The unused global forward image/calendar -> /images/calendar.png is not listed; no consumer (checked in JSPs and classes), so no behavior.",
+   "link": "none"
+  },
+  {
+   "id": "C-116",
+   "dir": "inventory-to-records",
+   "item": "A-116 Struts actions with undefined form beans",
+   "loc": "none",
+   "res": "not-applicable",
+   "note": "Undefined form-bean names on 6 mappings; the affected actions read only request parameters (e.g. DeleteObjectAction#doExecute getParameter oid), so no observable behavior is attached.",
+   "link": "E-001"
+  },
+  {
+   "id": "C-117",
+   "dir": "inventory-to-records",
+   "item": "A-117 Unused property override files",
+   "loc": "recon Configuration row; Parity-Map Boundary exclusions",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-118",
+   "dir": "inventory-to-records",
+   "item": "A-118 Dead or unwired code paths",
+   "loc": "recon Parity-Map Boundary exclusions (CsvExporter, TomcatUserImporter, autopatch launchers)",
+   "res": "matched",
+   "note": "Partly; the missing members are counted under A-015 (F-005).",
+   "link": "none"
+  },
+  {
+   "id": "C-119",
+   "dir": "records-to-source",
+   "item": "row 8 Log in with valid credentials / Happy path [Yes]",
+   "loc": "User Flows row 8",
+   "res": "matched",
+   "note": "Supported. 5 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-120",
+   "dir": "records-to-source",
+   "item": "row 9 Log in with valid credentials / Alternative path [Yes]",
+   "loc": "User Flows row 9",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 3 named line element(s) found; status \"Yes\" consistent with A-019,A-023..A-028,A-042. Phase B source read: login.jsp:34-39 and xplanner-custom.properties:49.",
+   "link": "none"
+  },
+  {
+   "id": "C-121",
+   "dir": "records-to-source",
+   "item": "row 10 Log in with valid credentials / Alternative path [Inferred]",
+   "loc": "User Flows row 10",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Inferred\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-122",
+   "dir": "records-to-source",
+   "item": "row 11 Log in with valid credentials / Alternative path [Inferred]",
+   "loc": "User Flows row 11",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-123",
+   "dir": "records-to-source",
+   "item": "row 12 Login rejected / Alternative path [Yes]",
+   "loc": "User Flows row 12",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-124",
+   "dir": "records-to-source",
+   "item": "row 13 Login rejected / Alternative path [Inferred]",
+   "loc": "User Flows row 13",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Inferred\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-125",
+   "dir": "records-to-source",
+   "item": "row 14 Login rejected / Alternative path [Inferred]",
+   "loc": "User Flows row 14",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-126",
+   "dir": "records-to-source",
+   "item": "row 15 Remember me / Happy path [Yes]",
+   "loc": "User Flows row 15",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-127",
+   "dir": "records-to-source",
+   "item": "row 16 Remember me / Alternative path [Inferred]",
+   "loc": "User Flows row 16",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-128",
+   "dir": "records-to-source",
+   "item": "row 17 Access protected pages without a session / Alternative path [Yes]",
+   "loc": "User Flows row 17",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-129",
+   "dir": "records-to-source",
+   "item": "row 18 Access protected pages without a session / Alternative path [Yes]",
+   "loc": "User Flows row 18",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-130",
+   "dir": "records-to-source",
+   "item": "row 19 Log out / Happy path [Yes]",
+   "loc": "User Flows row 19",
+   "res": "matched",
+   "note": "Supported. 5 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-131",
+   "dir": "records-to-source",
+   "item": "row 20 Session expiry / Operational path [Yes]",
+   "loc": "User Flows row 20",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-132",
+   "dir": "records-to-source",
+   "item": "row 21 Alternative login modules (LDAP/JNDI, NTLM, JAAS) / Operational path [Partial]",
+   "loc": "User Flows row 21",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Partial\" consistent with A-019,A-023..A-028,A-042.",
+   "link": "none"
+  },
+  {
+   "id": "C-133",
+   "dir": "records-to-source",
+   "item": "row 23 Role hierarchy and default permissions / Operational path [Inferred]",
+   "loc": "User Flows row 23",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-032..A-041,A-074,A-075.",
+   "link": "none"
+  },
+  {
+   "id": "C-134",
+   "dir": "records-to-source",
+   "item": "row 24 Role hierarchy and default permissions / Alternative path [Inferred]",
+   "loc": "User Flows row 24",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; status \"Inferred\" consistent with A-032..A-041,A-074,A-075.",
+   "link": "none"
+  },
+  {
+   "id": "C-135",
+   "dir": "records-to-source",
+   "item": "row 25 Role hierarchy and default permissions / Alternative path [Inferred]",
+   "loc": "User Flows row 25",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-032..A-041,A-074,A-075.",
+   "link": "none"
+  },
+  {
+   "id": "C-136",
+   "dir": "records-to-source",
+   "item": "row 26 Permission-driven UI actions / Happy path [Yes]",
+   "loc": "User Flows row 26",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-032..A-041,A-074,A-075.",
+   "link": "none"
+  },
+  {
+   "id": "C-137",
+   "dir": "records-to-source",
+   "item": "row 27 Permission-driven UI actions / Alternative path [Yes]",
+   "loc": "User Flows row 27",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-032..A-041,A-074,A-075.",
+   "link": "none"
+  },
+  {
+   "id": "C-138",
+   "dir": "records-to-source",
+   "item": "row 28 Permission-driven UI actions / Alternative path [Partial]",
+   "loc": "User Flows row 28",
+   "res": "mismatch",
+   "note": "Claim \"an action performed without permission shows the not-authorized error\" is not supported for web CRUD: no server-side check exists on those paths (see A-037); AuthorizationException is raised only by RepositorySecurityAdapter, which web actions do not use; DispatchForward checks only mappings with an @secure forward, and none is configured.",
+   "link": "F-001"
+  },
+  {
+   "id": "C-139",
+   "dir": "records-to-source",
+   "item": "row 29 Assign project roles to a person / Happy path [Yes]",
+   "loc": "User Flows row 29",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-032..A-041,A-074,A-075.",
+   "link": "none"
+  },
+  {
+   "id": "C-140",
+   "dir": "records-to-source",
+   "item": "row 30 Assign project roles to a person / Alternative path [Yes]",
+   "loc": "User Flows row 30",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-032..A-041,A-074,A-075.",
+   "link": "none"
+  },
+  {
+   "id": "C-141",
+   "dir": "records-to-source",
+   "item": "row 31 Edit project roles (project role editor) / Happy path [Partial]",
+   "loc": "User Flows row 31",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 1 named line element(s) found; status \"Partial\" consistent with A-032..A-041,A-074,A-075.",
+   "link": "none"
+  },
+  {
+   "id": "C-142",
+   "dir": "records-to-source",
+   "item": "row 33 List people / Happy path [Yes]",
+   "loc": "User Flows row 33",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-143",
+   "dir": "records-to-source",
+   "item": "row 34 List people / Alternative path [Yes]",
+   "loc": "User Flows row 34",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-144",
+   "dir": "records-to-source",
+   "item": "row 35 List people / Alternative path [Yes]",
+   "loc": "User Flows row 35",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-072..A-076. Phase B source read: people.jsp:21-38.",
+   "link": "none"
+  },
+  {
+   "id": "C-145",
+   "dir": "records-to-source",
+   "item": "row 36 View person page / Happy path [Yes]",
+   "loc": "User Flows row 36",
+   "res": "matched",
+   "note": "Supported. 6 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-146",
+   "dir": "records-to-source",
+   "item": "row 37 View person page / Alternative path [Yes]",
+   "loc": "User Flows row 37",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-147",
+   "dir": "records-to-source",
+   "item": "row 38 View person page / Alternative path [Yes]",
+   "loc": "User Flows row 38",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-072..A-076. Phase B source read: person.jsp:72-75.",
+   "link": "none"
+  },
+  {
+   "id": "C-148",
+   "dir": "records-to-source",
+   "item": "row 39 Create person / Happy path [Yes]",
+   "loc": "User Flows row 39",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-149",
+   "dir": "records-to-source",
+   "item": "row 40 Create person / Alternative path [Yes]",
+   "loc": "User Flows row 40",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-150",
+   "dir": "records-to-source",
+   "item": "row 41 Create person / Alternative path [Yes]",
+   "loc": "User Flows row 41",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-151",
+   "dir": "records-to-source",
+   "item": "row 42 Edit person and password / Happy path [Yes]",
+   "loc": "User Flows row 42",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-152",
+   "dir": "records-to-source",
+   "item": "row 43 Edit person and password / Alternative path [Inferred]",
+   "loc": "User Flows row 43",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-153",
+   "dir": "records-to-source",
+   "item": "row 44 Edit person and password / Alternative path [Yes]",
+   "loc": "User Flows row 44",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-154",
+   "dir": "records-to-source",
+   "item": "row 45 Delete person / Alternative path [Inferred]",
+   "loc": "User Flows row 45",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-155",
+   "dir": "records-to-source",
+   "item": "row 46 Import people from a file / Happy path [Yes]",
+   "loc": "User Flows row 46",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-156",
+   "dir": "records-to-source",
+   "item": "row 47 Import people from a file / Alternative path [Yes]",
+   "loc": "User Flows row 47",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-157",
+   "dir": "records-to-source",
+   "item": "row 48 Import people from a file / Alternative path [Partial]",
+   "loc": "User Flows row 48",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Partial\" consistent with A-072..A-076.",
+   "link": "none"
+  },
+  {
+   "id": "C-158",
+   "dir": "records-to-source",
+   "item": "row 50 System information page / Happy path [Yes]",
+   "loc": "User Flows row 50",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-159",
+   "dir": "records-to-source",
+   "item": "row 51 Error pages / Alternative path [Yes]",
+   "loc": "User Flows row 51",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-160",
+   "dir": "records-to-source",
+   "item": "row 52 Error pages / Alternative path [Yes]",
+   "loc": "User Flows row 52",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-161",
+   "dir": "records-to-source",
+   "item": "row 53 Change display language / Alternative path [Partial]",
+   "loc": "User Flows row 53",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Partial\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-162",
+   "dir": "records-to-source",
+   "item": "row 54 Settings pages (work in progress) / Alternative path [Partial]",
+   "loc": "User Flows row 54",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Partial\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-163",
+   "dir": "records-to-source",
+   "item": "row 55 Settings pages (work in progress) / Alternative path [Inferred]",
+   "loc": "User Flows row 55",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-164",
+   "dir": "records-to-source",
+   "item": "row 56 Administrative and test actions / Operational path [Inferred]",
+   "loc": "User Flows row 56",
+   "res": "matched",
+   "note": "Supported. 5 citation(s) checked, none broken; 2 named line element(s) found; status \"Inferred\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-165",
+   "dir": "records-to-source",
+   "item": "row 57 Administrative and test actions / Operational path [Inferred]",
+   "loc": "User Flows row 57",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-166",
+   "dir": "records-to-source",
+   "item": "row 58 Administrative and test actions / Operational path [Inferred]",
+   "loc": "User Flows row 58",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-167",
+   "dir": "records-to-source",
+   "item": "row 59 Startup schema creation and seed data / Operational path [Yes]",
+   "loc": "User Flows row 59",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-168",
+   "dir": "records-to-source",
+   "item": "row 60 Startup schema creation and seed data / Operational path [Inferred]",
+   "loc": "User Flows row 60",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Inferred\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-169",
+   "dir": "records-to-source",
+   "item": "row 61 Configuration layering and request encoding / Operational path [Inferred]",
+   "loc": "User Flows row 61",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-170",
+   "dir": "records-to-source",
+   "item": "row 62 Configuration layering and request encoding / Operational path [Yes]",
+   "loc": "User Flows row 62",
+   "res": "mismatch",
+   "note": "Row states yyyy-MM-dd / yyyy-MM-dd HH:mm for the shipped bundles. ResourceBundle_es/fr/it/pt_br.properties define format.date=dd-MM-yyyy; ResourceBundle_es.properties:8 defines format.datetime=dd-MM-yyyy HH:MM (month letters for minutes); js/global.js datepicker stays yy-mm-dd. Date entry is locale-dependent.",
+   "link": "F-003"
+  },
+  {
+   "id": "C-171",
+   "dir": "records-to-source",
+   "item": "row 63 Configuration layering and request encoding / Operational path [Yes]",
+   "loc": "User Flows row 63",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-172",
+   "dir": "records-to-source",
+   "item": "row 64 Activity logging / Operational path [Yes]",
+   "loc": "User Flows row 64",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-017,A-018,A-020,A-021,A-085..A-094,A-103,A-104.",
+   "link": "none"
+  },
+  {
+   "id": "C-173",
+   "dir": "records-to-source",
+   "item": "row 66 List projects / Happy path [Yes]",
+   "loc": "User Flows row 66",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-174",
+   "dir": "records-to-source",
+   "item": "row 67 List projects / Alternative path [Yes]",
+   "loc": "User Flows row 67",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-175",
+   "dir": "records-to-source",
+   "item": "row 68 List projects / Alternative path [Yes]",
+   "loc": "User Flows row 68",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-176",
+   "dir": "records-to-source",
+   "item": "row 69 Create project / Happy path [Yes]",
+   "loc": "User Flows row 69",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-177",
+   "dir": "records-to-source",
+   "item": "row 70 Create project / Alternative path [Yes]",
+   "loc": "User Flows row 70",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-178",
+   "dir": "records-to-source",
+   "item": "row 71 Create project / Alternative path [Inferred]",
+   "loc": "User Flows row 71",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-179",
+   "dir": "records-to-source",
+   "item": "row 72 Edit project / Happy path [Yes]",
+   "loc": "User Flows row 72",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-180",
+   "dir": "records-to-source",
+   "item": "row 73 Delete project / Happy path [Yes]",
+   "loc": "User Flows row 73",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-181",
+   "dir": "records-to-source",
+   "item": "row 74 View project / Happy path [Yes]",
+   "loc": "User Flows row 74",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-043..A-047. Phase B source read: project.jsp:44 (pagesize 10, defaultsort 5 descending).",
+   "link": "none"
+  },
+  {
+   "id": "C-182",
+   "dir": "records-to-source",
+   "item": "row 75 View project / Alternative path [Partial]",
+   "loc": "User Flows row 75",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Partial\" consistent with A-043..A-047. Phase B source read: project.jsp:73 (no iterationCount bean).",
+   "link": "none"
+  },
+  {
+   "id": "C-183",
+   "dir": "records-to-source",
+   "item": "row 76 Missing time entry notification receivers / Happy path [Yes]",
+   "loc": "User Flows row 76",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-184",
+   "dir": "records-to-source",
+   "item": "row 77 Missing time entry notification receivers / Alternative path [Yes]",
+   "loc": "User Flows row 77",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-043..A-047.",
+   "link": "none"
+  },
+  {
+   "id": "C-185",
+   "dir": "records-to-source",
+   "item": "row 79 Create iteration / Happy path [Yes]",
+   "loc": "User Flows row 79",
+   "res": "matched",
+   "note": "Supported. 5 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-186",
+   "dir": "records-to-source",
+   "item": "row 80 Create iteration / Alternative path [Yes]",
+   "loc": "User Flows row 80",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-187",
+   "dir": "records-to-source",
+   "item": "row 81 Edit iteration / Happy path [Yes]",
+   "loc": "User Flows row 81",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-188",
+   "dir": "records-to-source",
+   "item": "row 82 Delete iteration / Happy path [Yes]",
+   "loc": "User Flows row 82",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-189",
+   "dir": "records-to-source",
+   "item": "row 83 View iteration stories / Happy path [Yes]",
+   "loc": "User Flows row 83",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-190",
+   "dir": "records-to-source",
+   "item": "row 84 View iteration stories / Alternative path [Yes]",
+   "loc": "User Flows row 84",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-191",
+   "dir": "records-to-source",
+   "item": "row 85 View iteration stories / Alternative path [Yes]",
+   "loc": "User Flows row 85",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-192",
+   "dir": "records-to-source",
+   "item": "row 86 Reorder stories / Happy path [Yes]",
+   "loc": "User Flows row 86",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-193",
+   "dir": "records-to-source",
+   "item": "row 87 Reorder stories / Alternative path [Yes]",
+   "loc": "User Flows row 87",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-194",
+   "dir": "records-to-source",
+   "item": "row 88 Move multiple stories / Happy path [Yes]",
+   "loc": "User Flows row 88",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-195",
+   "dir": "records-to-source",
+   "item": "row 89 Start iteration / Happy path [Yes]",
+   "loc": "User Flows row 89",
+   "res": "matched",
+   "note": "Supported. 5 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-196",
+   "dir": "records-to-source",
+   "item": "row 90 Start iteration / Alternative path [Yes]",
+   "loc": "User Flows row 90",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-197",
+   "dir": "records-to-source",
+   "item": "row 91 Start iteration / Alternative path [Inferred]",
+   "loc": "User Flows row 91",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-198",
+   "dir": "records-to-source",
+   "item": "row 92 Close iteration and continue unfinished stories / Happy path [Yes]",
+   "loc": "User Flows row 92",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-199",
+   "dir": "records-to-source",
+   "item": "row 93 Close iteration and continue unfinished stories / Happy path [Yes]",
+   "loc": "User Flows row 93",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-200",
+   "dir": "records-to-source",
+   "item": "row 94 Close iteration and continue unfinished stories / Alternative path [Yes]",
+   "loc": "User Flows row 94",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-201",
+   "dir": "records-to-source",
+   "item": "row 95 Close iteration and continue unfinished stories / Alternative path [Yes]",
+   "loc": "User Flows row 95",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-202",
+   "dir": "records-to-source",
+   "item": "row 96 Tabbed iteration view / Alternative path [Partial]",
+   "loc": "User Flows row 96",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Partial\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-203",
+   "dir": "records-to-source",
+   "item": "row 97 View all tasks of an iteration / Happy path [Yes]",
+   "loc": "User Flows row 97",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-204",
+   "dir": "records-to-source",
+   "item": "row 98 Iteration metrics / Happy path [Yes]",
+   "loc": "User Flows row 98",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-048..A-057. Phase B source read: iterationMetrics.jsp:30,56-57.",
+   "link": "none"
+  },
+  {
+   "id": "C-205",
+   "dir": "records-to-source",
+   "item": "row 99 Iteration metrics / Alternative path [Yes]",
+   "loc": "User Flows row 99",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-048..A-057. Phase B source read: iterationMetrics.jsp:96.",
+   "link": "none"
+  },
+  {
+   "id": "C-206",
+   "dir": "records-to-source",
+   "item": "row 100 Iteration statistics charts / Happy path [Yes]",
+   "loc": "User Flows row 100",
+   "res": "matched",
+   "note": "Supported. 6 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-207",
+   "dir": "records-to-source",
+   "item": "row 101 Iteration statistics charts / Alternative path [Yes]",
+   "loc": "User Flows row 101",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-208",
+   "dir": "records-to-source",
+   "item": "row 102 Iteration statistics charts / Alternative path [Inferred]",
+   "loc": "User Flows row 102",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-209",
+   "dir": "records-to-source",
+   "item": "row 103 Iteration accuracy / Happy path [Yes]",
+   "loc": "User Flows row 103",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-048..A-057. Phase B source read: iterationAccuracy.jsp:21.",
+   "link": "none"
+  },
+  {
+   "id": "C-210",
+   "dir": "records-to-source",
+   "item": "row 104 Iteration task board (dashboard) / Happy path [Partial]",
+   "loc": "User Flows row 104",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Partial\" consistent with A-048..A-057. Phase B source read: globalLinks.jsp:12-19; dashboard.jsp:132.",
+   "link": "none"
+  },
+  {
+   "id": "C-211",
+   "dir": "records-to-source",
+   "item": "row 105 Import stories from a spreadsheet / Happy path [Yes]",
+   "loc": "User Flows row 105",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-212",
+   "dir": "records-to-source",
+   "item": "row 106 Import stories from a spreadsheet / Alternative path [Yes]",
+   "loc": "User Flows row 106",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-213",
+   "dir": "records-to-source",
+   "item": "row 107 Import stories from a spreadsheet / Alternative path [Partial]",
+   "loc": "User Flows row 107",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Partial\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-214",
+   "dir": "records-to-source",
+   "item": "row 108 Import stories from a spreadsheet / Alternative path [Inferred]",
+   "loc": "User Flows row 108",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Inferred\" consistent with A-048..A-057.",
+   "link": "none"
+  },
+  {
+   "id": "C-215",
+   "dir": "records-to-source",
+   "item": "row 110 Create user story / Happy path [Yes]",
+   "loc": "User Flows row 110",
+   "res": "matched",
+   "note": "Supported. 5 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-058..A-061. Phase B source read: ResourceBundle.properties:442-479 (dispositions, statuses).",
+   "link": "none"
+  },
+  {
+   "id": "C-216",
+   "dir": "records-to-source",
+   "item": "row 111 Create user story / Alternative path [Inferred]",
+   "loc": "User Flows row 111",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-058..A-061.",
+   "link": "none"
+  },
+  {
+   "id": "C-217",
+   "dir": "records-to-source",
+   "item": "row 112 Create user story / Alternative path [Yes]",
+   "loc": "User Flows row 112",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-058..A-061.",
+   "link": "none"
+  },
+  {
+   "id": "C-218",
+   "dir": "records-to-source",
+   "item": "row 113 Edit user story / Happy path [Yes]",
+   "loc": "User Flows row 113",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Yes\" consistent with A-058..A-061.",
+   "link": "none"
+  },
+  {
+   "id": "C-219",
+   "dir": "records-to-source",
+   "item": "row 114 Delete user story / Happy path [Yes]",
+   "loc": "User Flows row 114",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-058..A-061.",
+   "link": "none"
+  },
+  {
+   "id": "C-220",
+   "dir": "records-to-source",
+   "item": "row 115 View user story / Happy path [Yes]",
+   "loc": "User Flows row 115",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-058..A-061.",
+   "link": "none"
+  },
+  {
+   "id": "C-221",
+   "dir": "records-to-source",
+   "item": "row 116 View user story / Alternative path [Yes]",
+   "loc": "User Flows row 116",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-058..A-061.",
+   "link": "none"
+  },
+  {
+   "id": "C-222",
+   "dir": "records-to-source",
+   "item": "row 117 Move or continue a story / Happy path [Yes]",
+   "loc": "User Flows row 117",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-058..A-061.",
+   "link": "none"
+  },
+  {
+   "id": "C-223",
+   "dir": "records-to-source",
+   "item": "row 118 Move or continue a story / Alternative path [Inferred]",
+   "loc": "User Flows row 118",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Inferred\" consistent with A-058..A-061.",
+   "link": "none"
+  },
+  {
+   "id": "C-224",
+   "dir": "records-to-source",
+   "item": "row 119 Move or continue a story / Alternative path [Yes]",
+   "loc": "User Flows row 119",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-058..A-061.",
+   "link": "none"
+  },
+  {
+   "id": "C-225",
+   "dir": "records-to-source",
+   "item": "row 121 Create task / Happy path [Yes]",
+   "loc": "User Flows row 121",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-063..A-066. Phase B source read: ResourceBundle.properties:528-533 (task types).",
+   "link": "none"
+  },
+  {
+   "id": "C-226",
+   "dir": "records-to-source",
+   "item": "row 122 Create task / Alternative path [Yes]",
+   "loc": "User Flows row 122",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Yes\" consistent with A-063..A-066. Phase B source read: editTask.jsp:50-53.",
+   "link": "none"
+  },
+  {
+   "id": "C-227",
+   "dir": "records-to-source",
+   "item": "row 123 Create task / Alternative path [Inferred]",
+   "loc": "User Flows row 123",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-228",
+   "dir": "records-to-source",
+   "item": "row 124 Create task / Alternative path [Yes]",
+   "loc": "User Flows row 124",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-229",
+   "dir": "records-to-source",
+   "item": "row 125 Task e-mail notification / Operational path [Inferred]",
+   "loc": "User Flows row 125",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Inferred\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-230",
+   "dir": "records-to-source",
+   "item": "row 126 Edit task / Happy path [Yes]",
+   "loc": "User Flows row 126",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Yes\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-231",
+   "dir": "records-to-source",
+   "item": "row 127 Complete or reopen task / Happy path [Yes]",
+   "loc": "User Flows row 127",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-232",
+   "dir": "records-to-source",
+   "item": "row 128 Complete or reopen task / Alternative path [Yes]",
+   "loc": "User Flows row 128",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-233",
+   "dir": "records-to-source",
+   "item": "row 129 Delete task / Happy path [Yes]",
+   "loc": "User Flows row 129",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-234",
+   "dir": "records-to-source",
+   "item": "row 130 View task / Happy path [Yes]",
+   "loc": "User Flows row 130",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-235",
+   "dir": "records-to-source",
+   "item": "row 131 Move or continue a task / Happy path [Yes]",
+   "loc": "User Flows row 131",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-236",
+   "dir": "records-to-source",
+   "item": "row 132 Move or continue a task / Alternative path [Inferred]",
+   "loc": "User Flows row 132",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Inferred\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-237",
+   "dir": "records-to-source",
+   "item": "row 133 Move or continue a task / Alternative path [Yes]",
+   "loc": "User Flows row 133",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-063..A-066.",
+   "link": "none"
+  },
+  {
+   "id": "C-238",
+   "dir": "records-to-source",
+   "item": "row 135 Record time on a task / Happy path [Yes]",
+   "loc": "User Flows row 135",
+   "res": "matched",
+   "note": "Supported. 6 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-051,A-067..A-070.",
+   "link": "none"
+  },
+  {
+   "id": "C-239",
+   "dir": "records-to-source",
+   "item": "row 136 Record time on a task / Alternative path [Yes]",
+   "loc": "User Flows row 136",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-051,A-067..A-070.",
+   "link": "none"
+  },
+  {
+   "id": "C-240",
+   "dir": "records-to-source",
+   "item": "row 137 Record time on a task / Alternative path [Inferred]",
+   "loc": "User Flows row 137",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-051,A-067..A-070.",
+   "link": "none"
+  },
+  {
+   "id": "C-241",
+   "dir": "records-to-source",
+   "item": "row 138 Record time on a task / Alternative path [Inferred]",
+   "loc": "User Flows row 138",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-051,A-067..A-070.",
+   "link": "none"
+  },
+  {
+   "id": "C-242",
+   "dir": "records-to-source",
+   "item": "row 139 Re-estimate task (legacy page) / Alternative path [Partial]",
+   "loc": "User Flows row 139",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 2 named line element(s) found; status \"Partial\" consistent with A-051,A-067..A-070.",
+   "link": "none"
+  },
+  {
+   "id": "C-243",
+   "dir": "records-to-source",
+   "item": "row 140 Personal timesheet / Happy path [Yes]",
+   "loc": "User Flows row 140",
+   "res": "matched",
+   "note": "Supported. 6 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-051,A-067..A-070.",
+   "link": "none"
+  },
+  {
+   "id": "C-244",
+   "dir": "records-to-source",
+   "item": "row 141 Personal timesheet / Alternative path [Yes]",
+   "loc": "User Flows row 141",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-051,A-067..A-070.",
+   "link": "none"
+  },
+  {
+   "id": "C-245",
+   "dir": "records-to-source",
+   "item": "row 142 Aggregate timesheet / Happy path [Yes]",
+   "loc": "User Flows row 142",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-051,A-067..A-070.",
+   "link": "none"
+  },
+  {
+   "id": "C-246",
+   "dir": "records-to-source",
+   "item": "row 143 Aggregate timesheet / Alternative path [Yes]",
+   "loc": "User Flows row 143",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-051,A-067..A-070.",
+   "link": "none"
+  },
+  {
+   "id": "C-247",
+   "dir": "records-to-source",
+   "item": "row 145 Add note to an object / Happy path [Yes]",
+   "loc": "User Flows row 145",
+   "res": "matched",
+   "note": "Supported. 5 citation(s) checked, none broken; 3 named line element(s) found; status \"Yes\" consistent with A-078,A-079.",
+   "link": "none"
+  },
+  {
+   "id": "C-248",
+   "dir": "records-to-source",
+   "item": "row 146 Add note to an object / Alternative path [Yes]",
+   "loc": "User Flows row 146",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-078,A-079.",
+   "link": "none"
+  },
+  {
+   "id": "C-249",
+   "dir": "records-to-source",
+   "item": "row 147 Add note to an object / Alternative path [Yes]",
+   "loc": "User Flows row 147",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-078,A-079. Phase B source read: notes.jsp:89-90.",
+   "link": "none"
+  },
+  {
+   "id": "C-250",
+   "dir": "records-to-source",
+   "item": "row 148 Add note to an object / Alternative path [Inferred]",
+   "loc": "User Flows row 148",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-078,A-079.",
+   "link": "none"
+  },
+  {
+   "id": "C-251",
+   "dir": "records-to-source",
+   "item": "row 149 Edit and delete note / Happy path [Yes]",
+   "loc": "User Flows row 149",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-078,A-079.",
+   "link": "none"
+  },
+  {
+   "id": "C-252",
+   "dir": "records-to-source",
+   "item": "row 150 Edit and delete note / Alternative path [Yes]",
+   "loc": "User Flows row 150",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-078,A-079. Phase B source read: notes.jsp:58 (confirm).",
+   "link": "none"
+  },
+  {
+   "id": "C-253",
+   "dir": "records-to-source",
+   "item": "row 151 Download attachment / Happy path [Yes]",
+   "loc": "User Flows row 151",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-078,A-079.",
+   "link": "none"
+  },
+  {
+   "id": "C-254",
+   "dir": "records-to-source",
+   "item": "row 152 File manager (directories) / Alternative path [Partial]",
+   "loc": "User Flows row 152",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 1 named line element(s) found; status \"Partial\" consistent with A-078,A-079.",
+   "link": "none"
+  },
+  {
+   "id": "C-255",
+   "dir": "records-to-source",
+   "item": "row 154 Search content / Happy path [Yes]",
+   "loc": "User Flows row 154",
+   "res": "matched",
+   "note": "Supported. 6 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-062,A-077,A-080..A-083.",
+   "link": "none"
+  },
+  {
+   "id": "C-256",
+   "dir": "records-to-source",
+   "item": "row 155 Search content / Alternative path [Yes]",
+   "loc": "User Flows row 155",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Yes\" consistent with A-062,A-077,A-080..A-083.",
+   "link": "none"
+  },
+  {
+   "id": "C-257",
+   "dir": "records-to-source",
+   "item": "row 156 Search content / Alternative path [Inferred]",
+   "loc": "User Flows row 156",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-062,A-077,A-080..A-083.",
+   "link": "none"
+  },
+  {
+   "id": "C-258",
+   "dir": "records-to-source",
+   "item": "row 157 Jump to object by ID / Happy path [Inferred]",
+   "loc": "User Flows row 157",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 2 named line element(s) found; status \"Inferred\" consistent with A-062,A-077,A-080..A-083.",
+   "link": "none"
+  },
+  {
+   "id": "C-259",
+   "dir": "records-to-source",
+   "item": "row 158 Jump to object by ID / Alternative path [Inferred]",
+   "loc": "User Flows row 158",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-062,A-077,A-080..A-083.",
+   "link": "none"
+  },
+  {
+   "id": "C-260",
+   "dir": "records-to-source",
+   "item": "row 159 Breadcrumb navigation / Happy path [Yes]",
+   "loc": "User Flows row 159",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; status \"Yes\" consistent with A-062,A-077,A-080..A-083. Phase B source read: ResourceBundle.properties:75 (navigation.top); NavigationBarTag.",
+   "link": "none"
+  },
+  {
+   "id": "C-261",
+   "dir": "records-to-source",
+   "item": "row 160 Object and project history / Happy path [Yes]",
+   "loc": "User Flows row 160",
+   "res": "mismatch",
+   "note": "Row lists created/updated among recorded history actions. HistorySupport.saveEvent is called only by Start/CloseIterationAction, Continuer, MoveContinueStory, MoveContinueTaskAction, UpdateTimeAction (reestimated) and SOAP XPlanner.saveHistory; RepositoryHistoryAdapter (created/updated/deleted) is not on the web edit path (EditObjectAction/DeleteObjectAction use CommonDao). Project container history (getContainerEvents) shows only created/deleted events, which the web UI never writes.",
+   "link": "F-002"
+  },
+  {
+   "id": "C-262",
+   "dir": "records-to-source",
+   "item": "row 161 My status page / Happy path [Yes]",
+   "loc": "User Flows row 161",
+   "res": "matched",
+   "note": "Supported. 5 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-062,A-077,A-080..A-083.",
+   "link": "none"
+  },
+  {
+   "id": "C-263",
+   "dir": "records-to-source",
+   "item": "row 162 Wiki-style formatting of descriptions / Happy path [Inferred]",
+   "loc": "User Flows row 162",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-062,A-077,A-080..A-083.",
+   "link": "none"
+  },
+  {
+   "id": "C-264",
+   "dir": "records-to-source",
+   "item": "row 163 Wiki-style formatting of descriptions / Alternative path [Partial]",
+   "loc": "User Flows row 163",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 0 named line element(s) found; status \"Partial\" consistent with A-062,A-077,A-080..A-083. Phase B source read: formattingHelpLink.jsp (hard-coded /xplanner).",
+   "link": "none"
+  },
+  {
+   "id": "C-265",
+   "dir": "records-to-source",
+   "item": "row 164 Switch page width / Alternative path [Yes]",
+   "loc": "User Flows row 164",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-062,A-077,A-080..A-083. Phase B source read: footer.jsp:11-14; js/global.js:1-10.",
+   "link": "none"
+  },
+  {
+   "id": "C-266",
+   "dir": "records-to-source",
+   "item": "row 165 Share on social networks / Alternative path [Yes]",
+   "loc": "User Flows row 165",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-062,A-077,A-080..A-083. Phase B source read: viewLayout.jsp:73-95.",
+   "link": "none"
+  },
+  {
+   "id": "C-267",
+   "dir": "records-to-source",
+   "item": "row 166 Features (story features) / Alternative path [Partial]",
+   "loc": "User Flows row 166",
+   "res": "matched",
+   "note": "Supported. 11 citation(s) checked, none broken; 1 named line element(s) found; status \"Partial\" consistent with A-062,A-077,A-080..A-083.",
+   "link": "none"
+  },
+  {
+   "id": "C-268",
+   "dir": "records-to-source",
+   "item": "row 168 Integration queue / Alternative path [Partial]",
+   "loc": "User Flows row 168",
+   "res": "matched",
+   "note": "Supported. 6 citation(s) checked, none broken; 0 named line element(s) found; status \"Partial\" consistent with A-084.",
+   "link": "none"
+  },
+  {
+   "id": "C-269",
+   "dir": "records-to-source",
+   "item": "row 169 Integration queue / Alternative path [Inferred]",
+   "loc": "User Flows row 169",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-084.",
+   "link": "none"
+  },
+  {
+   "id": "C-270",
+   "dir": "records-to-source",
+   "item": "row 170 Integration queue / Operational path [Inferred]",
+   "loc": "User Flows row 170",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-084.",
+   "link": "none"
+  },
+  {
+   "id": "C-271",
+   "dir": "records-to-source",
+   "item": "row 172 Daily missing time entry reminder / Operational path [Inferred]",
+   "loc": "User Flows row 172",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-100..A-102,A-106.",
+   "link": "none"
+  },
+  {
+   "id": "C-272",
+   "dir": "records-to-source",
+   "item": "row 173 Daily missing time entry reminder / Operational path [Inferred]",
+   "loc": "User Flows row 173",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-100..A-102,A-106.",
+   "link": "none"
+  },
+  {
+   "id": "C-273",
+   "dir": "records-to-source",
+   "item": "row 174 Daily missing time entry reminder / Operational path [Yes]",
+   "loc": "User Flows row 174",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-100..A-102,A-106.",
+   "link": "none"
+  },
+  {
+   "id": "C-274",
+   "dir": "records-to-source",
+   "item": "row 175 Data sampling for burn-down / Operational path [Inferred]",
+   "loc": "User Flows row 175",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-100..A-102,A-106.",
+   "link": "none"
+  },
+  {
+   "id": "C-275",
+   "dir": "records-to-source",
+   "item": "row 176 Data sampling for burn-down / Operational path [Inferred]",
+   "loc": "User Flows row 176",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 0 named line element(s) found; status \"Inferred\" consistent with A-100..A-102,A-106.",
+   "link": "none"
+  },
+  {
+   "id": "C-276",
+   "dir": "records-to-source",
+   "item": "row 177 Per-change e-mail listener / Operational path [Inferred]",
+   "loc": "User Flows row 177",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-100..A-102,A-106.",
+   "link": "none"
+  },
+  {
+   "id": "C-277",
+   "dir": "records-to-source",
+   "item": "row 179 Export menu / Happy path [Yes]",
+   "loc": "User Flows row 179",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-047,A-054.",
+   "link": "none"
+  },
+  {
+   "id": "C-278",
+   "dir": "records-to-source",
+   "item": "row 180 Export project / Happy path [Yes]",
+   "loc": "User Flows row 180",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-047,A-054.",
+   "link": "none"
+  },
+  {
+   "id": "C-279",
+   "dir": "records-to-source",
+   "item": "row 181 Export iteration / Happy path [Yes]",
+   "loc": "User Flows row 181",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-047,A-054.",
+   "link": "none"
+  },
+  {
+   "id": "C-280",
+   "dir": "records-to-source",
+   "item": "row 182 Export iteration / Alternative path [Partial]",
+   "loc": "User Flows row 182",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"Partial\" consistent with A-047,A-054.",
+   "link": "none"
+  },
+  {
+   "id": "C-281",
+   "dir": "records-to-source",
+   "item": "row 183 Export story, task and person / Happy path [Yes]",
+   "loc": "User Flows row 183",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-047,A-054.",
+   "link": "none"
+  },
+  {
+   "id": "C-282",
+   "dir": "records-to-source",
+   "item": "row 184 Export story, task and person / Alternative path [Partial]",
+   "loc": "User Flows row 184",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 0 named line element(s) found; status \"Partial\" consistent with A-047,A-054.",
+   "link": "none"
+  },
+  {
+   "id": "C-283",
+   "dir": "records-to-source",
+   "item": "row 186 SOAP service access / Happy path [Yes]",
+   "loc": "User Flows row 186",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-008,A-015,A-096,A-097.",
+   "link": "none"
+  },
+  {
+   "id": "C-284",
+   "dir": "records-to-source",
+   "item": "row 187 SOAP service access / Alternative path [Inferred]",
+   "loc": "User Flows row 187",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-008,A-015,A-096,A-097.",
+   "link": "none"
+  },
+  {
+   "id": "C-285",
+   "dir": "records-to-source",
+   "item": "row 188 SOAP service access / Alternative path [Yes]",
+   "loc": "User Flows row 188",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 0 named line element(s) found; status \"Yes\" consistent with A-008,A-015,A-096,A-097.",
+   "link": "none"
+  },
+  {
+   "id": "C-286",
+   "dir": "records-to-source",
+   "item": "row 189 SOAP service access / Operational path [No]",
+   "loc": "User Flows row 189",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 1 named line element(s) found; status \"No\" consistent with A-008,A-015,A-096,A-097.",
+   "link": "none"
+  },
+  {
+   "id": "C-287",
+   "dir": "records-to-source",
+   "item": "row 190 SOAP read operations / Happy path [Inferred]",
+   "loc": "User Flows row 190",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-008,A-015,A-096,A-097.",
+   "link": "none"
+  },
+  {
+   "id": "C-288",
+   "dir": "records-to-source",
+   "item": "row 191 SOAP write operations / Happy path [Inferred]",
+   "loc": "User Flows row 191",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-008,A-015,A-096,A-097.",
+   "link": "none"
+  },
+  {
+   "id": "C-289",
+   "dir": "records-to-source",
+   "item": "row 193 REST read endpoints / Happy path [Yes]",
+   "loc": "User Flows row 193",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Yes\" consistent with A-009,A-098,A-099.",
+   "link": "none"
+  },
+  {
+   "id": "C-290",
+   "dir": "records-to-source",
+   "item": "row 194 REST read endpoints / Alternative path [Inferred]",
+   "loc": "User Flows row 194",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; status \"Inferred\" consistent with A-009,A-098,A-099.",
+   "link": "none"
+  },
+  {
+   "id": "C-291",
+   "dir": "records-to-source",
+   "item": "row 195 REST read endpoints / Alternative path [Inferred]",
+   "loc": "User Flows row 195",
+   "res": "matched",
+   "note": "Supported. 1 citation(s) checked, none broken; 1 named line element(s) found; status \"Inferred\" consistent with A-009,A-098,A-099.",
+   "link": "none"
+  },
+  {
+   "id": "C-292",
+   "dir": "records-to-source",
+   "item": "row 196 REST task status update / Happy path [Inferred]",
+   "loc": "User Flows row 196",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; status \"Inferred\" consistent with A-009,A-098,A-099.",
+   "link": "none"
+  },
+  {
+   "id": "C-293",
+   "dir": "records-to-source",
+   "item": "row 198 Personal iCal feed / Happy path [Yes]",
+   "loc": "User Flows row 198",
+   "res": "matched",
+   "note": "Supported. 2 citation(s) checked, none broken; 1 named line element(s) found; status \"Yes\" consistent with A-071.",
+   "link": "none"
+  },
+  {
+   "id": "C-294",
+   "dir": "records-to-source",
+   "item": "row 199 Personal iCal feed / Alternative path [Inferred]",
+   "loc": "User Flows row 199",
+   "res": "matched",
+   "note": "Supported. 0 citation(s) checked, none broken; status \"Inferred\" consistent with A-071.",
+   "link": "none"
+  },
+  {
+   "id": "C-295",
+   "dir": "records-to-source",
+   "item": "row 200 Personal iCal feed / Alternative path [Inferred]",
+   "loc": "User Flows row 200",
+   "res": "matched",
+   "note": "Supported. 0 citation(s) checked, none broken; status \"Inferred\" consistent with A-071.",
+   "link": "none"
+  },
+  {
+   "id": "C-296",
+   "dir": "records-to-source",
+   "item": "row 202 WAP login and browsing / Happy path [Partial]",
+   "loc": "User Flows row 202",
+   "res": "matched",
+   "note": "Supported. 4 citation(s) checked, none broken; 2 named line element(s) found; status \"Partial\" consistent with A-030,A-095.",
+   "link": "none"
+  },
+  {
+   "id": "C-297",
+   "dir": "records-to-source",
+   "item": "row 203 WAP login and browsing / Alternative path [Inferred]",
+   "loc": "User Flows row 203",
+   "res": "matched",
+   "note": "Supported. 3 citation(s) checked, none broken; 2 named line element(s) found; status \"Inferred\" consistent with A-030,A-095.",
+   "link": "none"
+  },
+  {
+   "id": "C-298",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Scope: legacy files and SHA-256",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Four hashes equal Phase A/B re-computation.",
+   "link": "none"
+  },
+  {
+   "id": "C-299",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Scope: version metadata (1.1a4, build 426, pom 1.1, JDK 1.6.0_29, all classes 50.0)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "xplanner.properties:155-157, pom.properties, MANIFEST.MF; own parser: 594 classes version 50.0.",
+   "link": "none"
+  },
+  {
+   "id": "C-300",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Scope: ZIP rewrite sign on exactly 3 of 1090 entries",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Own central-directory parse: 1087 entries version-needed 1.0, 3 entries 2.0 (spring-beans.xml, xplanner-custom.properties, xplanner.properties). S1 entry numbers 864/877/878 are 0-based (1-based 865/878/879): wording difference.",
+   "link": "none"
+  },
+  {
+   "id": "C-301",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Scope: known patch locations (xplanner.properties:9-17, xplanner-custom.properties:18-24, spring-beans.xml:65-68)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Lines contain the MySQL settings and the autocommit comment.",
+   "link": "none"
+  },
+  {
+   "id": "C-302",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Scope: evidence exclusions (README, PREPARATION.md, releaseNotes, demo-seed.sql, activity log)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Consistent with authorized scope and A2.",
+   "link": "none"
+  },
+  {
+   "id": "C-303",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: WAR composition table",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "964 files; 594/102/73/24/43/10 match own counts.",
+   "link": "none"
+  },
+  {
+   "id": "C-304",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: web.xml row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "8 filters, 10 mappings, 5 live listeners, 6 live servlets, 3 error pages, timeout 30, welcome index.jsp (own XML parse).",
+   "link": "none"
+  },
+  {
+   "id": "C-305",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: Struts row (87 mappings, 24 form beans, 47 global forwards, 3 global exceptions)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "47 forward elements (one duplicate name view/integrations; the reviewer's 46 were distinct names): wording difference.",
+   "link": "none"
+  },
+  {
+   "id": "C-306",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: JSP row (73 JSPs by directory)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "31+16+8+7+7+1+1+index+calendar-i18n = 73.",
+   "link": "none"
+  },
+  {
+   "id": "C-307",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: referenced but absent resources",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "7 JSPs, Feature class, importer.MissingWorksheetException (real class is in importer.spreadsheet), jrxml templates all confirmed. net.sf.xplanner.soap.XPlanner is referenced only by the inactive sun-jaxws.xml (\"live\" is loose wording).",
+   "link": "none"
+  },
+  {
+   "id": "C-308",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: Tiles row (5 definitions)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "4 in tiles-definitions.xml + 1 in tiles-pages.xml.",
+   "link": "none"
+  },
+  {
+   "id": "C-309",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: Spring context row (58+5+13+14+3 beans, Liquibase first, scan, schedule)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Top-level bean counts reproduced exactly.",
+   "link": "none"
+  },
+  {
+   "id": "C-310",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: compiled classes row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "594 classes; package figures are grouped differently from the reviewer's but not contradicted.",
+   "link": "none"
+  },
+  {
+   "id": "C-311",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: persistence model row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "21 entities; only Metrics.xml loaded; Integration/Feature unmapped.",
+   "link": "none"
+  },
+  {
+   "id": "C-312",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: schema and seed data row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "8 change sets; 21 createTable, 4 addPrimaryKey, 2 createIndex, 10 addForeignKeyConstraint, 26 insert, 3 addColumn, 1 renameTable, 3 preConditions reproduced.",
+   "link": "none"
+  },
+  {
+   "id": "C-313",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: legacy migration toolkit row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "No autopatch launcher consumer found by reviewer either.",
+   "link": "none"
+  },
+  {
+   "id": "C-314",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: configuration row (317 lines, load order, effective values)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "xplanner.properties has 317 lines; load order per XPlannerProperties$PropertyInitializer; values match.",
+   "link": "none"
+  },
+  {
+   "id": "C-315",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: security configuration row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "mismatch",
+   "note": "States \"Role constraints are all *\". mobile-security.xml:12-14 lists viewer, editor, admin. The record also does not say that constraint roles are never evaluated (SecurityConfiguration#isAuthorized has no caller), which is what makes the mobile role list ineffective.",
+   "link": "F-004"
+  },
+  {
+   "id": "C-316",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: web services row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "43 SOAP operations, 8 bean mappings, Version service, 4 REST methods, iCal feed.",
+   "link": "none"
+  },
+  {
+   "id": "C-317",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: Spring MVC pages row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-318",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: mobile channel row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same; auth.jsp link is commented out (see RC-04).",
+   "link": "none"
+  },
+  {
+   "id": "C-319",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: jobs and e-mail row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-320",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: export and reports row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same; no JSP uses export=\"true\" (grep).",
+   "link": "none"
+  },
+  {
+   "id": "C-321",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: charts row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "6 pies + velocity + burn-down in iterationStatistics.jsp; 3 pies per timesheet page.",
+   "link": "none"
+  },
+  {
+   "id": "C-322",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: internationalisation row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "10 bundles; no UI link to changeLocale.",
+   "link": "none"
+  },
+  {
+   "id": "C-323",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: static assets row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same; no JSP reference to Dashboard.swf or js/chart.html.",
+   "link": "none"
+  },
+  {
+   "id": "C-324",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: third-party libraries row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-325",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: container and build metadata row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same context paths.",
+   "link": "none"
+  },
+  {
+   "id": "C-326",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Source Inventory: local run helpers row",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-327",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: web UI",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-328",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: personal status page",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-329",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: settings pages (blocked partial)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-330",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: mobile WAP",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-331",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: SOAP clients",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-332",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: REST clients and task board",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-333",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: calendar clients",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-334",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: chart images",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-335",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: daily job",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "spring-beans.xml:362-367.",
+   "link": "none"
+  },
+  {
+   "id": "C-336",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: data sampling",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-337",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: schema bootstrap",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-338",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: admin and test utilities",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-339",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Runnable Surfaces: activity log",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-340",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: relational database",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-341",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: HSQLDB optional mode",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-342",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: Liquibase",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-343",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: SMTP",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Recorded parts are right; the missing HTTP stylesheet fetch is counted at A-106.",
+   "link": "none"
+  },
+  {
+   "id": "C-344",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: file storage for attachments",
+   "loc": "legacy_reconnaissance.md",
+   "res": "mismatch",
+   "note": "Records \"whether file bytes are stored in the database or on disk was not determined\". Bytecode determines it: FileSystemImpl#createFile builds a Hibernate Blob (Hibernate.createBlob) and calls File.setData; File maps @Column(data) on table xfile. Bytes are stored in the database.",
+   "link": "F-008"
+  },
+  {
+   "id": "C-345",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: identity providers",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-346",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: external wiki",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-347",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: Twitter and Facebook",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "viewLayout.jsp:73-95.",
+   "link": "none"
+  },
+  {
+   "id": "C-348",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: SourceForge links",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-349",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: SOAP, REST and iCal clients",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-350",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: export consumers",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-351",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Data And Integrations: spreadsheets and CSV",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-352",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: sha256sum legacy/*",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Re-computed.",
+   "link": "none"
+  },
+  {
+   "id": "C-353",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: unzip listing (1090 entries, 34,862,846 bytes)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Own central-directory parse gives the same totals.",
+   "link": "none"
+  },
+  {
+   "id": "C-354",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: extraction 964 files",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-355",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: classdump 594 / 0 errors / 50.0",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same with own parser.",
+   "link": "none"
+  },
+  {
+   "id": "C-356",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: zipmeta",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same as the ZIP check above.",
+   "link": "none"
+  },
+  {
+   "id": "C-357",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: 31 provenance notes",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "31 rows carry a \"Provenance (fixed baseline\" note.",
+   "link": "none"
+  },
+  {
+   "id": "C-358",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: enumerate.js category counts",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Counts reproduced.",
+   "link": "none"
+  },
+  {
+   "id": "C-359",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: linkgraph (87 paths, 7 missing JSP targets)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "All 87 action paths are cited in row evidence (reviewer script); 7 missing JSPs confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-360",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: descriptor class-reference check counts (295/183/5+1)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "not-applicable",
+   "note": "Author tool metric with a different counting scope; the substantive unresolved references are checked above.",
+   "link": "E-002"
+  },
+  {
+   "id": "C-361",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: grep/sed/awk inspections",
+   "loc": "legacy_reconnaissance.md",
+   "res": "not-applicable",
+   "note": "Process statement, not a legacy claim.",
+   "link": "E-002"
+  },
+  {
+   "id": "C-362",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: build-workbook (18 epics, 179 rows)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Workbook dump: 18 epics, 179 detail rows, I:N blank.",
+   "link": "none"
+  },
+  {
+   "id": "C-363",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: sync:workbook-progress 0 / 179",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Row 3 shows 0.0% (0 / 179).",
+   "link": "none"
+  },
+  {
+   "id": "C-364",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: audit:workbook OK",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Re-run by reviewer: exit 0, WORKBOOK AUDIT OK.",
+   "link": "none"
+  },
+  {
+   "id": "C-365",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: audit:project",
+   "loc": "legacy_reconnaissance.md",
+   "res": "not-applicable",
+   "note": "Not in the reviewer's permitted command list; project configuration, not legacy behavior.",
+   "link": "E-002"
+  },
+  {
+   "id": "C-366",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: audit:artifact-links",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Re-run by reviewer (repository-wide) before the report was added: see Automated and Manual Gates.",
+   "link": "none"
+  },
+  {
+   "id": "C-367",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: artifact-reading.js on the reconnaissance",
+   "loc": "legacy_reconnaissance.md",
+   "res": "not-applicable",
+   "note": "Reviewer may run artifact-reading only on its own report.",
+   "link": "E-002"
+  },
+  {
+   "id": "C-368",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: audit:workbook:excel",
+   "loc": "legacy_reconnaissance.md",
+   "res": "not-applicable",
+   "note": "Not permitted for the reviewer (Excel COM); structural check only.",
+   "link": "E-002"
+  },
+  {
+   "id": "C-369",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Build/Run evidence: visual render pass blocked",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Recorded as blocked (GAP-010); no pass claimed.",
+   "link": "none"
+  },
+  {
+   "id": "C-370",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-001 no decompiler",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same limitation applies to the reviewer.",
+   "link": "none"
+  },
+  {
+   "id": "C-371",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-002 nothing live",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-372",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-003 missing resources",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-373",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-004 Integration/Feature unmapped",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-374",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-005 provenance",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-375",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-006 demo-seed fixture",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed (first bytes only).",
+   "link": "none"
+  },
+  {
+   "id": "C-376",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-007 security-relevant behavior list",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Every listed item confirmed (task.jsp:102 HQL concatenation verified). The missing item is counted at A-037 (F-001).",
+   "link": "none"
+  },
+  {
+   "id": "C-377",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-008 context paths",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-378",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-009 data/permission rules unsettled",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same boundary.",
+   "link": "none"
+  },
+  {
+   "id": "C-379",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-010 render blocked",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Process gap stated honestly.",
+   "link": "none"
+  },
+  {
+   "id": "C-380",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-011 JARs not analysed",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same boundary.",
+   "link": "none"
+  },
+  {
+   "id": "C-381",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-012 people template mismatch",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-382",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-013 activity log",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-383",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-005 P-01",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-384",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-005 P-02",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-385",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-005 P-03",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed; row list plausible (31 notes).",
+   "link": "none"
+  },
+  {
+   "id": "C-386",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-005 P-04",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-387",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-005 P-05",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-388",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-005 P-06",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-389",
+   "dir": "records-to-source",
+   "item": "reconnaissance: GAP-005 P-07",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "README vs compose contradiction confirmed.",
+   "link": "none"
+  },
+  {
+   "id": "C-390",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Owner decisions table Q1-Q4",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "IDs and states match migration_status.yaml owner_decisions.",
+   "link": "none"
+  },
+  {
+   "id": "C-391",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: features",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "links.jsp:32-35 is a commented block.",
+   "link": "none"
+  },
+  {
+   "id": "C-392",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: integration queue",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "No live link found by reviewer JSP scan.",
+   "link": "none"
+  },
+  {
+   "id": "C-393",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: settings pages",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-394",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: jrpdf",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-395",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: tabbed iteration view",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-396",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: not-authorized page",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-397",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: WAP",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-398",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: JAX-WS",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-399",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: file manager by URL only",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Only self-links in directory.jsp.",
+   "link": "none"
+  },
+  {
+   "id": "C-400",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: project role editor by URL only",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "No link to /do/edit/roles found.",
+   "link": "none"
+  },
+  {
+   "id": "C-401",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: task re-estimate page",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-402",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: task board parameter mismatch",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-403",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: delete person, change locale, formatting help",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-404",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q2 facts: admin/test utilities",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-405",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: remember-me cookies",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-406",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: salted MD5",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-407",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: no filter on /rest/*",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-408",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: /servlet/AxisServlet",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-409",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: Axis adminPassword",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-410",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: invalidateHibernateCache bypass",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-411",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: test/admin actions in production",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-412",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: HQL concatenation in task.jsp",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "task.jsp:101-103.",
+   "link": "none"
+  },
+  {
+   "id": "C-413",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: system info page",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-414",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: credentials in shipped properties",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same (values not reproduced).",
+   "link": "none"
+  },
+  {
+   "id": "C-415",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q3 facts: wap/auth.jsp",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Same.",
+   "link": "none"
+  },
+  {
+   "id": "C-416",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Q4 facts: people import",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "ResourceBundle.properties:572-574; ImportPeopleAction.",
+   "link": "none"
+  },
+  {
+   "id": "C-417",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Parity-Map Boundary: epics, row count and status counts",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "18 epics; 179 rows; Yes 112, Inferred 48, Partial 18, No 1; all red, I:N blank.",
+   "link": "none"
+  },
+  {
+   "id": "C-418",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Parity-Map Boundary: mechanical cross-check (87 actions, 67 of 73 JSPs)",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Reviewer script: all 87 action paths cited; uncited JSPs are the 5 layout fragments and wap/auth.jsp (others cited by base name).",
+   "link": "none"
+  },
+  {
+   "id": "C-419",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Parity-Map Boundary: exclusions list",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "Listed exclusions are genuinely without behavior; the missing entries are counted at A-015.",
+   "link": "none"
+  },
+  {
+   "id": "C-420",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Parity-Map Boundary: derivation statement",
+   "loc": "legacy_reconnaissance.md",
+   "res": "matched",
+   "note": "No prior-migration content detected in rows; consistent with A2.",
+   "link": "none"
+  },
+  {
+   "id": "C-421",
+   "dir": "records-to-source",
+   "item": "reconnaissance: Stage 1 Exit Checklist",
+   "loc": "legacy_reconnaissance.md",
+   "res": "not-applicable",
+   "note": "Author self-assessment; closure is decided by this pass and PM.",
+   "link": "E-002"
+  }
+ ]
+}
