@@ -1,0 +1,19 @@
+{
+  "packet_id": "S02-P003",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-003.md",
+  "reason": "The Claude Code client refuses subagent writes of the review report file; the reviewer wrote the complete report into its scratch directory.",
+  "producer": "Reviewer subagent a518a65e940024688 authored the entire report content and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p003/reviewer-scratch/stage-02-pass-003.md",
+  "source_copy_sha256_declared_by_reviewer": "0246765a595775d62e7d10067cc265356c08b8cc2317ae30c5a868ece2bfcc02",
+  "pm_changes": [
+    "None. PM copied the scratch copy byte-for-byte after verifying its SHA-256 against RESULT BA-002-03."
+  ],
+  "final_report_sha256": "0246765a595775d62e7d10067cc265356c08b8cc2317ae30c5a868ece2bfcc02",
+  "final_checks": {
+    "node analysis/tools/artifact-reading.js --file analysis/reviews/stage-02-pass-003.md": "exit 0, errors []",
+    "node analysis/tools/artifact-reference-links.js --check": "exit 0, 204 Markdown documents"
+  },
+  "reviewer_disclosures": "Client-injected commit subjects at launch (accepted by PM as non-substantive); one large command output stored by the client in its own tool-results folder outside the project, not opened by the reviewer (access-log #34).",
+  "recorded_at": "2026-09-24T12:21:56Z"
+}

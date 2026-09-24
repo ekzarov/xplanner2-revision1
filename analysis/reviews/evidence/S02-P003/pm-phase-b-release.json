@@ -1,0 +1,38 @@
+{
+  "packet_id": "S02-P003",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "phase_a_checkpoint_verified_at": "2026-09-24T12:01:19Z",
+  "phase_a_snapshot": {
+    "file": "analysis/reviews/evidence/S02-P003/phase-a-inventory.json",
+    "sha256": "5d1c2c1d7fae9db70559b4a738ed8e54e544d980f7d68795711e3a2735faf8bb",
+    "saved_at_utc": "2026-09-24T11:59:51Z",
+    "items": 127
+  },
+  "access_log_sha256_at_checkpoint": "f49a8511abc5e2b841baedf3802b3c8a881955e1ef1e8259bad5e9446e588baf",
+  "independence_record_sha256_at_checkpoint": "c61a791010ad8165e7dd33f52c2b26c97fda5049fba625185e9c0b99589c3c2d",
+  "checkpoint_file_sha256": "cc85d9495953b5f11d2360277144def01e83dbbd177c524ddf9b2e61d6bf44ec",
+  "phase_a_worktree": {
+    "path": ".migration-tmp/stage-02-p003/phase-a",
+    "head": "0b31638e3c86a29cc293a0f4adda27bf26f1554d",
+    "git_status_short_lines": 0
+  },
+  "pm_checks": [
+    "all six evidence file hashes match the reviewer CHECKPOINT and PM packet",
+    "worktree HEAD unchanged and clean",
+    "main tree changes limited to PM status edit and the S02-P003 evidence directory",
+    "access log mentions of withheld paths are only the disclosed client-injected commit subjects, accepted by PM as non-substantive"
+  ],
+  "phase_b_released_at": "2026-09-24T12:01:19Z",
+  "phase_b_pinned_inputs": {
+    "revision": "0b31638e3c86a29cc293a0f4adda27bf26f1554d",
+    "analysis/legacy_reconnaissance.md": "e4efcd99d3bbbc978c0de697d6a87228a0066ac715e7d5fb68df088ecb8d76de",
+    "analysis/legacy_user_flows.xlsx": "73a8e05b2d32cc06521c4556f62e7cd1df15b8d57a8aae8fd4b0922433450e11",
+    "analysis/error-prevention-checklist.md": "ea8f330956ff82b5bf05a2f62439225c337cb8a7c43d81b2486074bac8e14138",
+    "analysis/stages/stage-01/stage-02-pass-001-dispositions.md": "5d823882f173f61e58747e17666f4c6d63a07bd1376628f545b82a782b4fb29a",
+    "analysis/stages/stage-01/stage-02-pass-002-dispositions.md": "549a5cf208e496206737f52c5fd0f8990c8c65fe9e5a38c10e209e21d4a37a61",
+    "analysis/reviews/stage-02-pass-001.md": "73e8fb002fc374f6b82a3c1dda1e51e14f7f91badf0f75bd6a73a2385ccfad85",
+    "analysis/reviews/stage-02-pass-002.md": "545ad428ab41a516e5bf936592b6815617aaa661d47b0d33b09ee6f07fe81b52",
+    "analysis/stages/bootstrap/bootstrap-gate-report.md": "1432e4a4242d3c82401edb7b58750dbbd61e0eac6e162cb93037e698e362ff66",
+    "analysis/migration_status.yaml (working tree, branch stage-02/pass-003, includes the uncommitted stage-01 -> stage-02 transition)": "183a3d7b2b20aaa06e9adf52587bca357e75d2fe6afeeb3aca5846b0c1cc1ba3"
+  }
+}
