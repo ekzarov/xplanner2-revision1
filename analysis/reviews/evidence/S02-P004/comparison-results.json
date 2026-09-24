@@ -1,0 +1,3507 @@
+{
+ "schema": "S02-P004 comparison ledger v1",
+ "reviewedRevision": "18dc6b73c8305971a8d6f2879b8fab6206ba5f04",
+ "phaseA": {
+  "file": "phase-a-inventory.json",
+  "sha256": "63ab82d15c0e290e2c9dbf7abc37cc81b39560477afe426972c8b2f01bde3932"
+ },
+ "inputs": {
+  "reconnaissance": "a35a09acfb6345681b292424649f2988e3c24575614681842fa5b1252bc1260b",
+  "workbook": "24630a194e79ba9051b37355148aba52b6dda7fbeee6b43c9290ebb58528670a",
+  "checklist": "2abe6fa4fbd89c227574317fc422618ad7748584b3996c5b1febb1ec902d5165"
+ },
+ "totals": {
+  "items": 405,
+  "matched": 381,
+  "mismatch": 21,
+  "not-applicable": 3
+ },
+ "byDirection": {
+  "inventory-to-records": 121,
+  "records-to-source": 284
+ },
+ "items": [
+  {
+   "id": "C-001",
+   "direction": "inventory-to-records",
+   "inventory": "A-001",
+   "item": "Legacy package composition",
+   "records": "Scope And Provenance; Source Inventory WAR composition",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-002",
+   "direction": "inventory-to-records",
+   "inventory": "A-002",
+   "item": "Product identity and version",
+   "records": "Scope And Provenance (version, build, pom, manifest)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-003",
+   "direction": "inventory-to-records",
+   "inventory": "A-003",
+   "item": "Local run helper (packaging context)",
+   "records": "Source Inventory row Local run helpers; P-07",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-004",
+   "direction": "inventory-to-records",
+   "inventory": "A-004",
+   "item": "Known MySQL configuration patch in the baseline",
+   "records": "Scope And Provenance known patch; GAP-005 P-01, P-02",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-005",
+   "direction": "inventory-to-records",
+   "inventory": "A-005",
+   "item": "demo-seed.sql is a prepared fixture",
+   "records": "Scope And Provenance exclusions; GAP-006",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-006",
+   "direction": "inventory-to-records",
+   "inventory": "A-006",
+   "item": "Container-specific descriptors and assumed context paths",
+   "records": "Source Inventory Container metadata; GAP-008",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-007",
+   "direction": "inventory-to-records",
+   "inventory": "A-007",
+   "item": "Shipped runtime artefact: activity log in WAR root",
+   "records": "GAP-013; row 72; Runnable Surfaces Activity log",
+   "result": "mismatch",
+   "link": "F-005",
+   "note": ""
+  },
+  {
+   "id": "C-008",
+   "direction": "inventory-to-records",
+   "inventory": "A-010",
+   "item": "Web HTML channel (Struts 1.2, /do/*)",
+   "records": "Source Inventory Struts row; rows by action (87 paths cited per Parity-Map Boundary cross-check)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-009",
+   "direction": "inventory-to-records",
+   "inventory": "A-011",
+   "item": "Mobile WAP/WML channel (/do/mobile/*)",
+   "records": "rows 230-232; Source Inventory Mobile row",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-010",
+   "direction": "inventory-to-records",
+   "inventory": "A-012",
+   "item": "SOAP channel (Apache Axis 1.4)",
+   "records": "rows 213-219; Source Inventory Web services; Q3 facts (Axis adminPassword, /servlet/AxisServlet)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-011",
+   "direction": "inventory-to-records",
+   "inventory": "A-013",
+   "item": "REST channel (Jersey 1.x on Spring, /rest/*)",
+   "records": "rows 221-224",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-012",
+   "direction": "inventory-to-records",
+   "inventory": "A-014",
+   "item": "iCalendar channel (/ical/*)",
+   "records": "rows 226-228",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-013",
+   "direction": "inventory-to-records",
+   "inventory": "A-015",
+   "item": "Spring MVC channel (/setting/*)",
+   "records": "rows 60, 187; Source Inventory Spring MVC pages",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-014",
+   "direction": "inventory-to-records",
+   "inventory": "A-016",
+   "item": "Chart image channel (/cewolf/*)",
+   "records": "Runnable Surfaces Chart images; Source Inventory Charts",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-015",
+   "direction": "inventory-to-records",
+   "inventory": "A-017",
+   "item": "Static resources and welcome file",
+   "records": "Source Inventory Static assets; Parity-Map Boundary exclusions",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-016",
+   "direction": "inventory-to-records",
+   "inventory": "A-018",
+   "item": "Disabled or unwired channels",
+   "records": "row 217; Source Inventory Dormant code",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-017",
+   "direction": "inventory-to-records",
+   "inventory": "A-020",
+   "item": "Servlet filter chain",
+   "records": "Source Inventory web.xml row; rows 17, 71, 72",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-018",
+   "direction": "inventory-to-records",
+   "inventory": "A-021",
+   "item": "Context listeners and startup hooks",
+   "records": "Source Inventory web.xml row (5 listeners); rows 55, 66, 187",
+   "result": "matched",
+   "link": "none",
+   "note": "SystemInfo startup log sub-claim: see separate not-applicable item"
+  },
+  {
+   "id": "C-019",
+   "direction": "inventory-to-records",
+   "inventory": "A-022",
+   "item": "Struts-to-Spring action wiring",
+   "records": "row 65; Source Inventory Spring row",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-020",
+   "direction": "inventory-to-records",
+   "inventory": "A-023",
+   "item": "Spring root context composition",
+   "records": "Source Inventory Spring row",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-021",
+   "direction": "inventory-to-records",
+   "inventory": "A-024",
+   "item": "Property loading and effective overrides",
+   "records": "row 67",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-022",
+   "direction": "inventory-to-records",
+   "inventory": "A-025",
+   "item": "Effective configuration values and their consumers",
+   "records": "Source Inventory Configuration row; rows 9, 11, 21, 93, 108-110, 121, 177, 188, 196, 201, 203, 206",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-004: exportLinks.jsp consumes xplanner.export.formats (Phase A had no consumer)"
+  },
+  {
+   "id": "C-023",
+   "direction": "inventory-to-records",
+   "inventory": "A-026",
+   "item": "Hibernate properties do not reach the Spring SessionFactory",
+   "records": "missing: Source Inventory Configuration row and GAP-005 P-01 describe XPlannerMySQLDialect as effective",
+   "result": "mismatch",
+   "link": "F-003",
+   "note": ""
+  },
+  {
+   "id": "C-024",
+   "direction": "inventory-to-records",
+   "inventory": "A-027",
+   "item": "Internationalisation",
+   "records": "row 58; rows 68-70; Source Inventory Internationalisation",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-001: 10 ResourceBundle files (Phase A counted EmailResourceBundle)"
+  },
+  {
+   "id": "C-025",
+   "direction": "inventory-to-records",
+   "inventory": "A-028",
+   "item": "Logging and activity audit",
+   "records": "row 72",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-026",
+   "direction": "inventory-to-records",
+   "inventory": "A-029",
+   "item": "Page layout composition (Tiles)",
+   "records": "Source Inventory Tiles row; Parity-Map Boundary exclusions (tiles:print, PrintLinkTag \"no user\"); rows 184, 190, 55",
+   "result": "mismatch",
+   "link": "F-004",
+   "note": ""
+  },
+  {
+   "id": "C-027",
+   "direction": "inventory-to-records",
+   "inventory": "A-030",
+   "item": "Permission caching and invalidation",
+   "records": "rows 33, 61; Source Inventory Spring row (cache advisor)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-028",
+   "direction": "inventory-to-records",
+   "inventory": "A-031",
+   "item": "Persistence wiring",
+   "records": "Source Inventory Spring and Persistence rows; rows 64-65",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-029",
+   "direction": "inventory-to-records",
+   "inventory": "A-032",
+   "item": "Unloaded legacy mapping files and unmapped classes",
+   "records": "GAP-004; rows 192, 194; Source Inventory Persistence row",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-030",
+   "direction": "inventory-to-records",
+   "inventory": "A-033",
+   "item": "Identifier generation",
+   "records": "Source Inventory Persistence row (entity Identifier); row 181 (single ID space implied)",
+   "result": "matched",
+   "link": "none",
+   "note": "wording/grouping difference: generator not named"
+  },
+  {
+   "id": "C-031",
+   "direction": "inventory-to-records",
+   "inventory": "A-040",
+   "item": "Web form login",
+   "records": "rows 8, 9; row 64 claims the default credential is documented only in legacy/README.md",
+   "result": "mismatch",
+   "link": "F-001",
+   "note": ""
+  },
+  {
+   "id": "C-032",
+   "direction": "inventory-to-records",
+   "inventory": "A-041",
+   "item": "XPlanner password login module",
+   "records": "rows 11-13",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-033",
+   "direction": "inventory-to-records",
+   "inventory": "A-042",
+   "item": "Remember-me cookie authentication",
+   "records": "rows 15-16",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-034",
+   "direction": "inventory-to-records",
+   "inventory": "A-043",
+   "item": "Logout",
+   "records": "row 19",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-035",
+   "direction": "inventory-to-records",
+   "inventory": "A-044",
+   "item": "URL security constraints enforce authentication only",
+   "records": "rows 17, 32",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-036",
+   "direction": "inventory-to-records",
+   "inventory": "A-045",
+   "item": "Mobile login reachability",
+   "records": "row 231",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-037",
+   "direction": "inventory-to-records",
+   "inventory": "A-046",
+   "item": "HTTP Basic authentication for SOAP and iCal",
+   "records": "row 213",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-038",
+   "direction": "inventory-to-records",
+   "inventory": "A-047",
+   "item": "Optional login modules (not configured)",
+   "records": "row 21; Source Inventory Security configuration",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-039",
+   "direction": "inventory-to-records",
+   "inventory": "A-048",
+   "item": "Role model",
+   "records": "rows 23, 25",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-040",
+   "direction": "inventory-to-records",
+   "inventory": "A-049",
+   "item": "Permission model and seeded permissions",
+   "records": "rows 23-24",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-041",
+   "direction": "inventory-to-records",
+   "inventory": "A-050",
+   "item": "Where authorization is enforced server-side",
+   "records": "rows 28-30; Runnable Surfaces enforcement table",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-002: DispatchForward#<init> sets isAuthorizationRequired=true; Stage 1 row 28 is correct"
+  },
+  {
+   "id": "C-042",
+   "direction": "inventory-to-records",
+   "inventory": "A-051",
+   "item": "UI permission gating (tags and domain action metadata)",
+   "records": "row 26; display-level rows listed under the CHK-002 sweep",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-043",
+   "direction": "inventory-to-records",
+   "inventory": "A-052",
+   "item": "Endpoints reachable without authentication",
+   "records": "Q3 facts; rows 61, 214, 223; GAP-007",
+   "result": "mismatch",
+   "link": "F-005",
+   "note": ""
+  },
+  {
+   "id": "C-044",
+   "direction": "inventory-to-records",
+   "inventory": "A-053",
+   "item": "Session handling",
+   "records": "row 20",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-045",
+   "direction": "inventory-to-records",
+   "inventory": "A-054",
+   "item": "Error handling paths",
+   "records": "rows 45, 56-57",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-046",
+   "direction": "inventory-to-records",
+   "inventory": "A-055",
+   "item": "System information page",
+   "records": "row 55",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-047",
+   "direction": "inventory-to-records",
+   "inventory": "A-056",
+   "item": "Not-authorized path is broken",
+   "records": "row 28; GAP-003",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-002"
+  },
+  {
+   "id": "C-048",
+   "direction": "inventory-to-records",
+   "inventory": "A-057",
+   "item": "Test and administration actions active in the production module",
+   "records": "rows 61-63",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-049",
+   "direction": "inventory-to-records",
+   "inventory": "A-060",
+   "item": "Home redirect (index.jsp)",
+   "records": "row 18",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-050",
+   "direction": "inventory-to-records",
+   "inventory": "A-061",
+   "item": "Projects list",
+   "records": "rows 27, 74-76",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-051",
+   "direction": "inventory-to-records",
+   "inventory": "A-062",
+   "item": "Create or update project",
+   "records": "rows 77-80",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-052",
+   "direction": "inventory-to-records",
+   "inventory": "A-063",
+   "item": "Maintain missing-time-entry notification receivers",
+   "records": "rows 84-85",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-053",
+   "direction": "inventory-to-records",
+   "inventory": "A-064",
+   "item": "Delete project",
+   "records": "row 81",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-003: Hibernate removes the owned notification_receivers join rows, so the FK does not block (Stage 1 correct)"
+  },
+  {
+   "id": "C-054",
+   "direction": "inventory-to-records",
+   "inventory": "A-065",
+   "item": "View project",
+   "records": "rows 82-83",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-055",
+   "direction": "inventory-to-records",
+   "inventory": "A-066",
+   "item": "Exports",
+   "records": "rows 206-211",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-004"
+  },
+  {
+   "id": "C-056",
+   "direction": "inventory-to-records",
+   "inventory": "A-070",
+   "item": "Create or edit iteration",
+   "records": "rows 87-88",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-057",
+   "direction": "inventory-to-records",
+   "inventory": "A-071",
+   "item": "View iteration (stories)",
+   "records": "rows 91-93",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-058",
+   "direction": "inventory-to-records",
+   "inventory": "A-072",
+   "item": "Start iteration",
+   "records": "rows 97-99",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-059",
+   "direction": "inventory-to-records",
+   "inventory": "A-073",
+   "item": "Close iteration",
+   "records": "row 100",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-060",
+   "direction": "inventory-to-records",
+   "inventory": "A-074",
+   "item": "Continue unfinished stories",
+   "records": "rows 101-103",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-061",
+   "direction": "inventory-to-records",
+   "inventory": "A-075",
+   "item": "Reorder stories",
+   "records": "rows 94-95",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-062",
+   "direction": "inventory-to-records",
+   "inventory": "A-076",
+   "item": "Move several stories to another iteration",
+   "records": "row 96",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-063",
+   "direction": "inventory-to-records",
+   "inventory": "A-077",
+   "item": "Delete iteration",
+   "records": "row 90",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-064",
+   "direction": "inventory-to-records",
+   "inventory": "A-078",
+   "item": "Iteration analysis views",
+   "records": "rows 105-113; row 113 and Q2 facts describe a link/REST parameter mismatch that LinkTag resolves",
+   "result": "mismatch",
+   "link": "F-002",
+   "note": "RC-005: metrics repository is null (Stage 1 rows 106-107 correct)"
+  },
+  {
+   "id": "C-065",
+   "direction": "inventory-to-records",
+   "inventory": "A-079",
+   "item": "Import stories from spreadsheet",
+   "records": "rows 114-118",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-066",
+   "direction": "inventory-to-records",
+   "inventory": "A-080",
+   "item": "Create or edit story",
+   "records": "rows 120-123",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-067",
+   "direction": "inventory-to-records",
+   "inventory": "A-081",
+   "item": "View story",
+   "records": "rows 126-127",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-068",
+   "direction": "inventory-to-records",
+   "inventory": "A-082",
+   "item": "Move or continue story",
+   "records": "rows 128-131",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-069",
+   "direction": "inventory-to-records",
+   "inventory": "A-083",
+   "item": "Delete story",
+   "records": "row 125",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-070",
+   "direction": "inventory-to-records",
+   "inventory": "A-084",
+   "item": "Create or edit task",
+   "records": "rows 133-137",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-071",
+   "direction": "inventory-to-records",
+   "inventory": "A-085",
+   "item": "Complete or reopen task",
+   "records": "rows 139-140",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-072",
+   "direction": "inventory-to-records",
+   "inventory": "A-086",
+   "item": "View task",
+   "records": "row 142; Q3 facts (HQL concatenation)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-073",
+   "direction": "inventory-to-records",
+   "inventory": "A-087",
+   "item": "Move or continue task",
+   "records": "rows 143-146",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-074",
+   "direction": "inventory-to-records",
+   "inventory": "A-088",
+   "item": "Delete task",
+   "records": "row 141",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-075",
+   "direction": "inventory-to-records",
+   "inventory": "A-089",
+   "item": "Enter and edit time",
+   "records": "rows 148-160",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-076",
+   "direction": "inventory-to-records",
+   "inventory": "A-090",
+   "item": "Personal timesheet",
+   "records": "rows 161-163",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-077",
+   "direction": "inventory-to-records",
+   "inventory": "A-091",
+   "item": "Aggregate timesheet",
+   "records": "rows 164-166",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-078",
+   "direction": "inventory-to-records",
+   "inventory": "A-092",
+   "item": "iCalendar feed",
+   "records": "rows 226-228",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-006: task.story is unmapped; Stage 1 row 226 correct"
+  },
+  {
+   "id": "C-079",
+   "direction": "inventory-to-records",
+   "inventory": "A-093",
+   "item": "People list",
+   "records": "rows 37-39",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-080",
+   "direction": "inventory-to-records",
+   "inventory": "A-094",
+   "item": "Create or edit person, roles and password",
+   "records": "rows 31, 33-34, 43-48",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-011: limit resolved by bytecode listing of EditPersonHelper#modifyRoles"
+  },
+  {
+   "id": "C-081",
+   "direction": "inventory-to-records",
+   "inventory": "A-095",
+   "item": "View person and 'Me' status",
+   "records": "rows 40-42, 187",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-082",
+   "direction": "inventory-to-records",
+   "inventory": "A-096",
+   "item": "Delete person",
+   "records": "row 49",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-083",
+   "direction": "inventory-to-records",
+   "inventory": "A-097",
+   "item": "Import people",
+   "records": "rows 50-53",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-084",
+   "direction": "inventory-to-records",
+   "inventory": "A-098",
+   "item": "Edit project roles",
+   "records": "row 35",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-007: EditRoleAction#beforeObjectCommit overrides no hook; Stage 1 row 35 correct"
+  },
+  {
+   "id": "C-085",
+   "direction": "inventory-to-records",
+   "inventory": "A-099",
+   "item": "Create or edit note with attachment",
+   "records": "rows 168-171",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-086",
+   "direction": "inventory-to-records",
+   "inventory": "A-100",
+   "item": "Notes panel, delete note, download attachment",
+   "records": "rows 172-174",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-087",
+   "direction": "inventory-to-records",
+   "inventory": "A-101",
+   "item": "File manager",
+   "records": "row 175",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-088",
+   "direction": "inventory-to-records",
+   "inventory": "A-102",
+   "item": "Continuous-integration queue",
+   "records": "rows 194-196",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-089",
+   "direction": "inventory-to-records",
+   "inventory": "A-103",
+   "item": "Search by id",
+   "records": "rows 181-183",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-090",
+   "direction": "inventory-to-records",
+   "inventory": "A-104",
+   "item": "Content search",
+   "records": "rows 177-180",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-091",
+   "direction": "inventory-to-records",
+   "inventory": "A-105",
+   "item": "Object history",
+   "records": "rows 185-186",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-092",
+   "direction": "inventory-to-records",
+   "inventory": "A-106",
+   "item": "Settings",
+   "records": "rows 59-60",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-093",
+   "direction": "inventory-to-records",
+   "inventory": "A-107",
+   "item": "Features",
+   "records": "row 192",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-094",
+   "direction": "inventory-to-records",
+   "inventory": "A-108",
+   "item": "Wiki-style text formatting",
+   "records": "rows 188-189; Data And Integrations External wiki",
+   "result": "mismatch",
+   "link": "F-006",
+   "note": ""
+  },
+  {
+   "id": "C-095",
+   "direction": "inventory-to-records",
+   "inventory": "A-109",
+   "item": "Header, breadcrumb and navigation",
+   "records": "rows 177, 184, 187",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-096",
+   "direction": "inventory-to-records",
+   "inventory": "A-110",
+   "item": "Mobile login and read-only views",
+   "records": "rows 230-232",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-097",
+   "direction": "inventory-to-records",
+   "inventory": "A-111",
+   "item": "Unreferenced debug page wap/auth.jsp",
+   "records": "Source Inventory Mobile row; Q3 facts (unreachable debug page)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-098",
+   "direction": "inventory-to-records",
+   "inventory": "A-112",
+   "item": "SOAP API operations",
+   "records": "rows 213-219",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-008: deleteAttribute unmapped paths; attribute operations unchecked (Stage 1 rows 216, 219 correct)"
+  },
+  {
+   "id": "C-099",
+   "direction": "inventory-to-records",
+   "inventory": "A-113",
+   "item": "REST read API",
+   "records": "rows 221-223",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-100",
+   "direction": "inventory-to-records",
+   "inventory": "A-114",
+   "item": "REST task status update",
+   "records": "row 224",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-012: unknown status value maps to notStarted"
+  },
+  {
+   "id": "C-101",
+   "direction": "inventory-to-records",
+   "inventory": "A-120",
+   "item": "Missing time entry notification job",
+   "records": "rows 198-201",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-013: Phase A doubt about EmailMessageImpl in the scheduler thread withdrawn (recipient lookup uses the repository)"
+  },
+  {
+   "id": "C-102",
+   "direction": "inventory-to-records",
+   "inventory": "A-121",
+   "item": "Data sampling job is defined but not scheduled",
+   "records": "rows 111, 202-203",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-103",
+   "direction": "inventory-to-records",
+   "inventory": "A-122",
+   "item": "Database migration at application startup",
+   "records": "row 64",
+   "result": "matched",
+   "link": "none",
+   "note": "RC-009: changeSet 1-1 creates 19 tables, 21 in total"
+  },
+  {
+   "id": "C-104",
+   "direction": "inventory-to-records",
+   "inventory": "A-123",
+   "item": "Standalone tools packaged in the WAR",
+   "records": "Source Inventory Dormant code and Legacy migration toolkit rows",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-105",
+   "direction": "inventory-to-records",
+   "inventory": "A-130",
+   "item": "Database schema and foreign keys",
+   "records": "Source Inventory Schema row; rows 49, 175",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-106",
+   "direction": "inventory-to-records",
+   "inventory": "A-131",
+   "item": "Entity mapping and cascades",
+   "records": "rows 81, 90, 125, 141",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-107",
+   "direction": "inventory-to-records",
+   "inventory": "A-132",
+   "item": "Domain enumerations and derived values",
+   "records": "rows 120, 133, 194",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-108",
+   "direction": "inventory-to-records",
+   "inventory": "A-133",
+   "item": "Query and persistence paths",
+   "records": "Source Inventory Persistence row; Q3 facts; GAP-011",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-109",
+   "direction": "inventory-to-records",
+   "inventory": "A-134",
+   "item": "Domain event bus without listeners",
+   "records": "row 204",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-110",
+   "direction": "inventory-to-records",
+   "inventory": "A-135",
+   "item": "Seeded reference data",
+   "records": "row 64; Source Inventory Schema row",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-111",
+   "direction": "inventory-to-records",
+   "inventory": "A-140",
+   "item": "Relational database",
+   "records": "Data And Integrations DB rows; rows 64-67",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-112",
+   "direction": "inventory-to-records",
+   "inventory": "A-141",
+   "item": "SMTP e-mail",
+   "records": "row 201; Data And Integrations SMTP",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-113",
+   "direction": "inventory-to-records",
+   "inventory": "A-142",
+   "item": "Outbound HTTP calls",
+   "records": "row 200 (e-mail CSS fetch); wiki fetch unrecorded",
+   "result": "mismatch",
+   "link": "F-006",
+   "note": ""
+  },
+  {
+   "id": "C-114",
+   "direction": "inventory-to-records",
+   "inventory": "A-143",
+   "item": "Directory and Windows authentication (optional)",
+   "records": "Data And Integrations identity providers",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-115",
+   "direction": "inventory-to-records",
+   "inventory": "A-144",
+   "item": "Library inventory",
+   "records": "Source Inventory Third-party libraries",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-116",
+   "direction": "inventory-to-records",
+   "inventory": "A-145",
+   "item": "Runtime platform dependencies",
+   "records": "Runnable Surfaces Web UI and Chart images rows",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-117",
+   "direction": "inventory-to-records",
+   "inventory": "A-150",
+   "item": "Missing resources referenced by active configuration",
+   "records": "GAP-003; Source Inventory absent resources",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-118",
+   "direction": "inventory-to-records",
+   "inventory": "A-151",
+   "item": "JasperReports templates missing",
+   "records": "GAP-003; rows 209, 211",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-119",
+   "direction": "inventory-to-records",
+   "inventory": "A-152",
+   "item": "Other code paths expected to fail or be inert",
+   "records": "rows 60, 187, 218; GAP-008",
+   "result": "matched",
+   "link": "none",
+   "note": "TaskRepositoryHibernate named-query constants and IterationRepository static HQL are uncalled code (no scenario effect); covered by the dormant-code candidate list"
+  },
+  {
+   "id": "C-120",
+   "direction": "inventory-to-records",
+   "inventory": "A-021 (sub-claim)",
+   "item": "SystemInfo writes an XPLANNER INFO block to the log at startup",
+   "records": "not recorded",
+   "result": "not-applicable",
+   "link": "E-001",
+   "note": "internal diagnostic console output, no user, operator or integration contract"
+  },
+  {
+   "id": "C-121",
+   "direction": "inventory-to-records",
+   "inventory": "A-132 (sub-claim)",
+   "item": "TimeEntry effort doubles only when xplanner.pairprogramming=double (not shipped; default single)",
+   "records": "not recorded",
+   "result": "not-applicable",
+   "link": "E-002",
+   "note": "inactive option; shipped behaviour (effort = duration) is what rows 142, 106 describe"
+  },
+  {
+   "id": "C-122",
+   "direction": "records-to-source",
+   "record": "workbook row 8 (Log in with valid credentials / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-123",
+   "direction": "records-to-source",
+   "record": "workbook row 9 (Log in with valid credentials / Alternative path, Yes)",
+   "result": "mismatch",
+   "link": "F-001",
+   "note": ""
+  },
+  {
+   "id": "C-124",
+   "direction": "records-to-source",
+   "record": "workbook row 10 (Log in with valid credentials / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-125",
+   "direction": "records-to-source",
+   "record": "workbook row 11 (Log in with valid credentials / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-126",
+   "direction": "records-to-source",
+   "record": "workbook row 12 (Login rejected / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-127",
+   "direction": "records-to-source",
+   "record": "workbook row 13 (Login rejected / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-128",
+   "direction": "records-to-source",
+   "record": "workbook row 14 (Login rejected / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-129",
+   "direction": "records-to-source",
+   "record": "workbook row 15 (Remember me / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-130",
+   "direction": "records-to-source",
+   "record": "workbook row 16 (Remember me / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-131",
+   "direction": "records-to-source",
+   "record": "workbook row 17 (Access protected pages without a session / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-132",
+   "direction": "records-to-source",
+   "record": "workbook row 18 (Access protected pages without a session / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-133",
+   "direction": "records-to-source",
+   "record": "workbook row 19 (Log out / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-134",
+   "direction": "records-to-source",
+   "record": "workbook row 20 (Session expiry / Operational path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-135",
+   "direction": "records-to-source",
+   "record": "workbook row 21 (Alternative login modules (LDAP/JNDI, NTLM, JAAS) / Operational path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-136",
+   "direction": "records-to-source",
+   "record": "workbook row 23 (Role hierarchy and default permissions / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-137",
+   "direction": "records-to-source",
+   "record": "workbook row 24 (Role hierarchy and default permissions / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-138",
+   "direction": "records-to-source",
+   "record": "workbook row 25 (Role hierarchy and default permissions / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-139",
+   "direction": "records-to-source",
+   "record": "workbook row 26 (Permission-driven UI actions / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-140",
+   "direction": "records-to-source",
+   "record": "workbook row 27 (Permission-driven UI actions / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-141",
+   "direction": "records-to-source",
+   "record": "workbook row 28 (Permission-driven UI actions / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-142",
+   "direction": "records-to-source",
+   "record": "workbook row 29 (Server-side permission enforcement / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-143",
+   "direction": "records-to-source",
+   "record": "workbook row 30 (Server-side permission enforcement / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-144",
+   "direction": "records-to-source",
+   "record": "workbook row 31 (Server-side permission enforcement / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-145",
+   "direction": "records-to-source",
+   "record": "workbook row 32 (Server-side permission enforcement / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-146",
+   "direction": "records-to-source",
+   "record": "workbook row 33 (Assign project roles to a person / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-147",
+   "direction": "records-to-source",
+   "record": "workbook row 34 (Assign project roles to a person / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-148",
+   "direction": "records-to-source",
+   "record": "workbook row 35 (Edit project roles (project role editor) / Happy path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-149",
+   "direction": "records-to-source",
+   "record": "workbook row 37 (List people / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-150",
+   "direction": "records-to-source",
+   "record": "workbook row 38 (List people / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-151",
+   "direction": "records-to-source",
+   "record": "workbook row 39 (List people / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-152",
+   "direction": "records-to-source",
+   "record": "workbook row 40 (View person page / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-153",
+   "direction": "records-to-source",
+   "record": "workbook row 41 (View person page / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-154",
+   "direction": "records-to-source",
+   "record": "workbook row 42 (View person page / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-155",
+   "direction": "records-to-source",
+   "record": "workbook row 43 (Create person / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-156",
+   "direction": "records-to-source",
+   "record": "workbook row 44 (Create person / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-157",
+   "direction": "records-to-source",
+   "record": "workbook row 45 (Create person / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-158",
+   "direction": "records-to-source",
+   "record": "workbook row 46 (Edit person and password / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-159",
+   "direction": "records-to-source",
+   "record": "workbook row 47 (Edit person and password / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-160",
+   "direction": "records-to-source",
+   "record": "workbook row 48 (Edit person and password / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-161",
+   "direction": "records-to-source",
+   "record": "workbook row 49 (Delete person / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-162",
+   "direction": "records-to-source",
+   "record": "workbook row 50 (Import people from a file / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-163",
+   "direction": "records-to-source",
+   "record": "workbook row 51 (Import people from a file / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-164",
+   "direction": "records-to-source",
+   "record": "workbook row 52 (Import people from a file / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-165",
+   "direction": "records-to-source",
+   "record": "workbook row 53 (Import people from a file / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-166",
+   "direction": "records-to-source",
+   "record": "workbook row 55 (System information page / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-167",
+   "direction": "records-to-source",
+   "record": "workbook row 56 (Error pages / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-168",
+   "direction": "records-to-source",
+   "record": "workbook row 57 (Error pages / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-169",
+   "direction": "records-to-source",
+   "record": "workbook row 58 (Change display language / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-170",
+   "direction": "records-to-source",
+   "record": "workbook row 59 (Settings pages (work in progress) / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-171",
+   "direction": "records-to-source",
+   "record": "workbook row 60 (Settings pages (work in progress) / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-172",
+   "direction": "records-to-source",
+   "record": "workbook row 61 (Administrative and test actions / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-173",
+   "direction": "records-to-source",
+   "record": "workbook row 62 (Administrative and test actions / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-174",
+   "direction": "records-to-source",
+   "record": "workbook row 63 (Administrative and test actions / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-175",
+   "direction": "records-to-source",
+   "record": "workbook row 64 (Startup schema creation and seed data / Operational path, Yes)",
+   "result": "mismatch",
+   "link": "F-001",
+   "note": ""
+  },
+  {
+   "id": "C-176",
+   "direction": "records-to-source",
+   "record": "workbook row 65 (Startup schema creation and seed data / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-177",
+   "direction": "records-to-source",
+   "record": "workbook row 66 (Startup schema creation and seed data / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-178",
+   "direction": "records-to-source",
+   "record": "workbook row 67 (Configuration layering and request encoding / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-179",
+   "direction": "records-to-source",
+   "record": "workbook row 68 (Configuration layering and request encoding / Operational path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-180",
+   "direction": "records-to-source",
+   "record": "workbook row 69 (Configuration layering and request encoding / Operational path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-181",
+   "direction": "records-to-source",
+   "record": "workbook row 70 (Configuration layering and request encoding / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-182",
+   "direction": "records-to-source",
+   "record": "workbook row 71 (Configuration layering and request encoding / Operational path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-183",
+   "direction": "records-to-source",
+   "record": "workbook row 72 (Activity logging / Operational path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-184",
+   "direction": "records-to-source",
+   "record": "workbook row 74 (List projects / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-185",
+   "direction": "records-to-source",
+   "record": "workbook row 75 (List projects / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-186",
+   "direction": "records-to-source",
+   "record": "workbook row 76 (List projects / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-187",
+   "direction": "records-to-source",
+   "record": "workbook row 77 (Create project / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-188",
+   "direction": "records-to-source",
+   "record": "workbook row 78 (Create project / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-189",
+   "direction": "records-to-source",
+   "record": "workbook row 79 (Create project / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-190",
+   "direction": "records-to-source",
+   "record": "workbook row 80 (Edit project / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-191",
+   "direction": "records-to-source",
+   "record": "workbook row 81 (Delete project / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-192",
+   "direction": "records-to-source",
+   "record": "workbook row 82 (View project / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-193",
+   "direction": "records-to-source",
+   "record": "workbook row 83 (View project / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-194",
+   "direction": "records-to-source",
+   "record": "workbook row 84 (Missing time entry notification receivers / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-195",
+   "direction": "records-to-source",
+   "record": "workbook row 85 (Missing time entry notification receivers / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-196",
+   "direction": "records-to-source",
+   "record": "workbook row 87 (Create iteration / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-197",
+   "direction": "records-to-source",
+   "record": "workbook row 88 (Create iteration / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-198",
+   "direction": "records-to-source",
+   "record": "workbook row 89 (Edit iteration / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-199",
+   "direction": "records-to-source",
+   "record": "workbook row 90 (Delete iteration / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-200",
+   "direction": "records-to-source",
+   "record": "workbook row 91 (View iteration stories / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-201",
+   "direction": "records-to-source",
+   "record": "workbook row 92 (View iteration stories / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-202",
+   "direction": "records-to-source",
+   "record": "workbook row 93 (View iteration stories / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-203",
+   "direction": "records-to-source",
+   "record": "workbook row 94 (Reorder stories / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-204",
+   "direction": "records-to-source",
+   "record": "workbook row 95 (Reorder stories / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-205",
+   "direction": "records-to-source",
+   "record": "workbook row 96 (Move multiple stories / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-206",
+   "direction": "records-to-source",
+   "record": "workbook row 97 (Start iteration / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-207",
+   "direction": "records-to-source",
+   "record": "workbook row 98 (Start iteration / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-208",
+   "direction": "records-to-source",
+   "record": "workbook row 99 (Start iteration / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-209",
+   "direction": "records-to-source",
+   "record": "workbook row 100 (Close iteration and continue unfinished stories / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-210",
+   "direction": "records-to-source",
+   "record": "workbook row 101 (Close iteration and continue unfinished stories / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-211",
+   "direction": "records-to-source",
+   "record": "workbook row 102 (Close iteration and continue unfinished stories / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-212",
+   "direction": "records-to-source",
+   "record": "workbook row 103 (Close iteration and continue unfinished stories / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-213",
+   "direction": "records-to-source",
+   "record": "workbook row 104 (Tabbed iteration view / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-214",
+   "direction": "records-to-source",
+   "record": "workbook row 105 (View all tasks of an iteration / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-215",
+   "direction": "records-to-source",
+   "record": "workbook row 106 (Iteration metrics / Happy path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-216",
+   "direction": "records-to-source",
+   "record": "workbook row 107 (Iteration metrics / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-217",
+   "direction": "records-to-source",
+   "record": "workbook row 108 (Iteration statistics charts / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-218",
+   "direction": "records-to-source",
+   "record": "workbook row 109 (Iteration statistics charts / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-219",
+   "direction": "records-to-source",
+   "record": "workbook row 110 (Iteration statistics charts / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-220",
+   "direction": "records-to-source",
+   "record": "workbook row 111 (Iteration statistics charts / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-221",
+   "direction": "records-to-source",
+   "record": "workbook row 112 (Iteration accuracy / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-222",
+   "direction": "records-to-source",
+   "record": "workbook row 113 (Iteration task board (dashboard) / Happy path, Partial)",
+   "result": "mismatch",
+   "link": "F-002",
+   "note": ""
+  },
+  {
+   "id": "C-223",
+   "direction": "records-to-source",
+   "record": "workbook row 114 (Import stories from a spreadsheet / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-224",
+   "direction": "records-to-source",
+   "record": "workbook row 115 (Import stories from a spreadsheet / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-225",
+   "direction": "records-to-source",
+   "record": "workbook row 116 (Import stories from a spreadsheet / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-226",
+   "direction": "records-to-source",
+   "record": "workbook row 117 (Import stories from a spreadsheet / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-227",
+   "direction": "records-to-source",
+   "record": "workbook row 118 (Import stories from a spreadsheet / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-228",
+   "direction": "records-to-source",
+   "record": "workbook row 120 (Create user story / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-229",
+   "direction": "records-to-source",
+   "record": "workbook row 121 (Create user story / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-230",
+   "direction": "records-to-source",
+   "record": "workbook row 122 (Create user story / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-231",
+   "direction": "records-to-source",
+   "record": "workbook row 123 (Create user story / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-232",
+   "direction": "records-to-source",
+   "record": "workbook row 124 (Edit user story / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-233",
+   "direction": "records-to-source",
+   "record": "workbook row 125 (Delete user story / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-234",
+   "direction": "records-to-source",
+   "record": "workbook row 126 (View user story / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-235",
+   "direction": "records-to-source",
+   "record": "workbook row 127 (View user story / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-236",
+   "direction": "records-to-source",
+   "record": "workbook row 128 (Move or continue a story / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-237",
+   "direction": "records-to-source",
+   "record": "workbook row 129 (Move or continue a story / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-238",
+   "direction": "records-to-source",
+   "record": "workbook row 130 (Move or continue a story / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-239",
+   "direction": "records-to-source",
+   "record": "workbook row 131 (Move or continue a story / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-240",
+   "direction": "records-to-source",
+   "record": "workbook row 133 (Create task / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-241",
+   "direction": "records-to-source",
+   "record": "workbook row 134 (Create task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-242",
+   "direction": "records-to-source",
+   "record": "workbook row 135 (Create task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-243",
+   "direction": "records-to-source",
+   "record": "workbook row 136 (Create task / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-244",
+   "direction": "records-to-source",
+   "record": "workbook row 137 (Task e-mail notification / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-245",
+   "direction": "records-to-source",
+   "record": "workbook row 138 (Edit task / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-246",
+   "direction": "records-to-source",
+   "record": "workbook row 139 (Complete or reopen task / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-247",
+   "direction": "records-to-source",
+   "record": "workbook row 140 (Complete or reopen task / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-248",
+   "direction": "records-to-source",
+   "record": "workbook row 141 (Delete task / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-249",
+   "direction": "records-to-source",
+   "record": "workbook row 142 (View task / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-250",
+   "direction": "records-to-source",
+   "record": "workbook row 143 (Move or continue a task / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-251",
+   "direction": "records-to-source",
+   "record": "workbook row 144 (Move or continue a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-252",
+   "direction": "records-to-source",
+   "record": "workbook row 145 (Move or continue a task / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-253",
+   "direction": "records-to-source",
+   "record": "workbook row 146 (Move or continue a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-254",
+   "direction": "records-to-source",
+   "record": "workbook row 148 (Record time on a task / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-255",
+   "direction": "records-to-source",
+   "record": "workbook row 149 (Record time on a task / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-256",
+   "direction": "records-to-source",
+   "record": "workbook row 150 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-257",
+   "direction": "records-to-source",
+   "record": "workbook row 151 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-258",
+   "direction": "records-to-source",
+   "record": "workbook row 152 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-259",
+   "direction": "records-to-source",
+   "record": "workbook row 153 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-260",
+   "direction": "records-to-source",
+   "record": "workbook row 154 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-261",
+   "direction": "records-to-source",
+   "record": "workbook row 155 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-262",
+   "direction": "records-to-source",
+   "record": "workbook row 156 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-263",
+   "direction": "records-to-source",
+   "record": "workbook row 157 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-264",
+   "direction": "records-to-source",
+   "record": "workbook row 158 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-265",
+   "direction": "records-to-source",
+   "record": "workbook row 159 (Record time on a task / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-266",
+   "direction": "records-to-source",
+   "record": "workbook row 160 (Re-estimate task (legacy page) / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-267",
+   "direction": "records-to-source",
+   "record": "workbook row 161 (Personal timesheet / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-268",
+   "direction": "records-to-source",
+   "record": "workbook row 162 (Personal timesheet / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-269",
+   "direction": "records-to-source",
+   "record": "workbook row 163 (Personal timesheet / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-270",
+   "direction": "records-to-source",
+   "record": "workbook row 164 (Aggregate timesheet / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-271",
+   "direction": "records-to-source",
+   "record": "workbook row 165 (Aggregate timesheet / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-272",
+   "direction": "records-to-source",
+   "record": "workbook row 166 (Aggregate timesheet / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-273",
+   "direction": "records-to-source",
+   "record": "workbook row 168 (Add note to an object / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-274",
+   "direction": "records-to-source",
+   "record": "workbook row 169 (Add note to an object / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-275",
+   "direction": "records-to-source",
+   "record": "workbook row 170 (Add note to an object / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-276",
+   "direction": "records-to-source",
+   "record": "workbook row 171 (Add note to an object / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-277",
+   "direction": "records-to-source",
+   "record": "workbook row 172 (Edit and delete note / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-278",
+   "direction": "records-to-source",
+   "record": "workbook row 173 (Edit and delete note / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-279",
+   "direction": "records-to-source",
+   "record": "workbook row 174 (Download attachment / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-280",
+   "direction": "records-to-source",
+   "record": "workbook row 175 (File manager (directories) / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-281",
+   "direction": "records-to-source",
+   "record": "workbook row 177 (Search content / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-282",
+   "direction": "records-to-source",
+   "record": "workbook row 178 (Search content / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-283",
+   "direction": "records-to-source",
+   "record": "workbook row 179 (Search content / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-284",
+   "direction": "records-to-source",
+   "record": "workbook row 180 (Search content / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-285",
+   "direction": "records-to-source",
+   "record": "workbook row 181 (Jump to object by ID / Happy path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-286",
+   "direction": "records-to-source",
+   "record": "workbook row 182 (Jump to object by ID / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-287",
+   "direction": "records-to-source",
+   "record": "workbook row 183 (Jump to object by ID / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-288",
+   "direction": "records-to-source",
+   "record": "workbook row 184 (Breadcrumb navigation / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-289",
+   "direction": "records-to-source",
+   "record": "workbook row 185 (Object and project history / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-290",
+   "direction": "records-to-source",
+   "record": "workbook row 186 (Object and project history / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-291",
+   "direction": "records-to-source",
+   "record": "workbook row 187 (My status page / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-292",
+   "direction": "records-to-source",
+   "record": "workbook row 188 (Wiki-style formatting of descriptions / Happy path, Inferred)",
+   "result": "mismatch",
+   "link": "F-006",
+   "note": ""
+  },
+  {
+   "id": "C-293",
+   "direction": "records-to-source",
+   "record": "workbook row 189 (Wiki-style formatting of descriptions / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-294",
+   "direction": "records-to-source",
+   "record": "workbook row 190 (Switch page width / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-295",
+   "direction": "records-to-source",
+   "record": "workbook row 191 (Share on social networks / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-296",
+   "direction": "records-to-source",
+   "record": "workbook row 192 (Features (story features) / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-297",
+   "direction": "records-to-source",
+   "record": "workbook row 194 (Integration queue / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-298",
+   "direction": "records-to-source",
+   "record": "workbook row 195 (Integration queue / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-299",
+   "direction": "records-to-source",
+   "record": "workbook row 196 (Integration queue / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-300",
+   "direction": "records-to-source",
+   "record": "workbook row 198 (Daily missing time entry reminder / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-301",
+   "direction": "records-to-source",
+   "record": "workbook row 199 (Daily missing time entry reminder / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-302",
+   "direction": "records-to-source",
+   "record": "workbook row 200 (Daily missing time entry reminder / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-303",
+   "direction": "records-to-source",
+   "record": "workbook row 201 (Daily missing time entry reminder / Operational path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-304",
+   "direction": "records-to-source",
+   "record": "workbook row 202 (Data sampling for burn-down / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-305",
+   "direction": "records-to-source",
+   "record": "workbook row 203 (Data sampling for burn-down / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-306",
+   "direction": "records-to-source",
+   "record": "workbook row 204 (Per-change e-mail listener / Operational path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-307",
+   "direction": "records-to-source",
+   "record": "workbook row 206 (Export menu / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-308",
+   "direction": "records-to-source",
+   "record": "workbook row 207 (Export project / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-309",
+   "direction": "records-to-source",
+   "record": "workbook row 208 (Export iteration / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-310",
+   "direction": "records-to-source",
+   "record": "workbook row 209 (Export iteration / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-311",
+   "direction": "records-to-source",
+   "record": "workbook row 210 (Export story, task and person / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-312",
+   "direction": "records-to-source",
+   "record": "workbook row 211 (Export story, task and person / Alternative path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-313",
+   "direction": "records-to-source",
+   "record": "workbook row 213 (SOAP service access / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-314",
+   "direction": "records-to-source",
+   "record": "workbook row 214 (SOAP service access / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-315",
+   "direction": "records-to-source",
+   "record": "workbook row 215 (SOAP service access / Alternative path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-316",
+   "direction": "records-to-source",
+   "record": "workbook row 216 (SOAP service access / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-317",
+   "direction": "records-to-source",
+   "record": "workbook row 217 (SOAP service access / Operational path, No)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-318",
+   "direction": "records-to-source",
+   "record": "workbook row 218 (SOAP read operations / Happy path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-319",
+   "direction": "records-to-source",
+   "record": "workbook row 219 (SOAP write operations / Happy path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-320",
+   "direction": "records-to-source",
+   "record": "workbook row 221 (REST read endpoints / Happy path, Yes)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-321",
+   "direction": "records-to-source",
+   "record": "workbook row 222 (REST read endpoints / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-322",
+   "direction": "records-to-source",
+   "record": "workbook row 223 (REST read endpoints / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-323",
+   "direction": "records-to-source",
+   "record": "workbook row 224 (REST task status update / Happy path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-324",
+   "direction": "records-to-source",
+   "record": "workbook row 226 (Personal iCal feed / Happy path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-325",
+   "direction": "records-to-source",
+   "record": "workbook row 227 (Personal iCal feed / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-326",
+   "direction": "records-to-source",
+   "record": "workbook row 228 (Personal iCal feed / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-327",
+   "direction": "records-to-source",
+   "record": "workbook row 230 (WAP login and browsing / Happy path, Partial)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-328",
+   "direction": "records-to-source",
+   "record": "workbook row 231 (WAP login and browsing / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-329",
+   "direction": "records-to-source",
+   "record": "workbook row 232 (WAP login and browsing / Alternative path, Inferred)",
+   "result": "matched",
+   "link": "none",
+   "note": "citations resolved (citecheck), statement compared with Phase A item(s) and, where noted in the report, re-read in source"
+  },
+  {
+   "id": "C-330",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Scope And Provenance (identity, hashes, ZIP rewrite sign: 3 of 1090 entries version-needed 2.0)",
+   "result": "matched",
+   "link": "none",
+   "note": "ZIP central directory re-read: entries 865/878/879 1-based = 864/877/878 0-based"
+  },
+  {
+   "id": "C-331",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: WAR composition table",
+   "result": "matched",
+   "link": "none",
+   "note": "figures.js"
+  },
+  {
+   "id": "C-332",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Web application descriptor",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-333",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Struts controller (87 mappings, 24 form beans, 47 global forwards, 3 global exceptions)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-334",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Screens (JSP)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-335",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Referenced but absent resources",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-336",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Tiles (\"tiles:print has no user\")",
+   "result": "mismatch",
+   "link": "F-004",
+   "note": ""
+  },
+  {
+   "id": "C-337",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Spring 3.0.5 context (58+5+13+14+3 beans; double loading)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-338",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Compiled application classes",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-339",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Persistence model and query sweep",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-340",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Schema and seed data",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-341",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Dormant and unreferenced code",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-342",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Legacy migration toolkit",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-343",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Configuration (\"Effective settings ... with the XPlannerMySQLDialect\")",
+   "result": "mismatch",
+   "link": "F-003",
+   "note": ""
+  },
+  {
+   "id": "C-344",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Security configuration",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-345",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Web services",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-346",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Spring MVC pages",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-347",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Mobile channel",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-348",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Jobs and e-mail",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-349",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Export and reports",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-350",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Charts",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-351",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Internationalisation",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-352",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Static assets",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-353",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Third-party libraries",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-354",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Container and build metadata",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-355",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Source Inventory: Local run helpers",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-356",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Runnable Surfaces table (13 surfaces)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-357",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Runnable Surfaces: server-side enforcement table (9 rows) and AF-01/AF-02",
+   "result": "matched",
+   "link": "none",
+   "note": "DispatchForward, EditRoleAction, ViewIterationMetricsAction re-listed"
+  },
+  {
+   "id": "C-358",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Runnable Surfaces: row-level CHK-002 sweep lists",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-359",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Data And Integrations: relational database row (\"XPlannerMySQLDialect shows the package supports MySQL\")",
+   "result": "matched",
+   "link": "none",
+   "note": "statement about package support is correct; effectiveness is F-003"
+  },
+  {
+   "id": "C-360",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Data And Integrations: HSQLDB, Liquibase, SMTP, e-mail CSS fetch, file storage, identity providers rows",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-361",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Data And Integrations: External wiki row (\"Example endpoints only\")",
+   "result": "mismatch",
+   "link": "F-006",
+   "note": ""
+  },
+  {
+   "id": "C-362",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Data And Integrations: social, SourceForge, SOAP/REST/iCal clients, export consumers, spreadsheet rows",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-363",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Build, Run, And Test Evidence: result figures (counts, audits)",
+   "result": "matched",
+   "link": "none",
+   "note": "figures regenerated; audit:workbook re-run"
+  },
+  {
+   "id": "C-364",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Build, Run, And Test Evidence: author scratch tool outputs under .migration-tmp/stage-01/",
+   "result": "not-applicable",
+   "link": "E-003",
+   "note": "forbidden input for this pass; the figures they produced were regenerated independently"
+  },
+  {
+   "id": "C-365",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Known Gaps: GAP-001..GAP-006, GAP-008..GAP-012, GAP-014",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-366",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Known Gaps: GAP-007 security facts",
+   "result": "mismatch",
+   "link": "F-001",
+   "note": ""
+  },
+  {
+   "id": "C-367",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Known Gaps: GAP-013 activity log",
+   "result": "mismatch",
+   "link": "F-005",
+   "note": ""
+  },
+  {
+   "id": "C-368",
+   "direction": "records-to-source",
+   "record": "reconnaissance: GAP-005 per-conclusion impact P-01 (lists XPlannerMySQLDialect as an effective conclusion)",
+   "result": "mismatch",
+   "link": "F-003",
+   "note": ""
+  },
+  {
+   "id": "C-369",
+   "direction": "records-to-source",
+   "record": "reconnaissance: GAP-005 per-conclusion impact P-02..P-07",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-370",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Owner Decisions table (Q1-Q4)",
+   "result": "matched",
+   "link": "none",
+   "note": "recorded decisions only; decisions themselves are not reviewed"
+  },
+  {
+   "id": "C-371",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Q2 facts (19 surfaces) except the task board",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-372",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Q2 facts: Iteration task board \"parameter mismatch\"",
+   "result": "mismatch",
+   "link": "F-002",
+   "note": ""
+  },
+  {
+   "id": "C-373",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Q3 facts (18 observations)",
+   "result": "mismatch",
+   "link": "F-001",
+   "note": "also F-005: live activity log and index.jsp exposure absent"
+  },
+  {
+   "id": "C-374",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Q4 facts",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-375",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Parity-Map Boundary: coverage cross-check (87 paths, 68 of 73 JSPs)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-376",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Parity-Map Boundary: exclusions (\"tiles:print definition and PrintLinkTag (no user)\")",
+   "result": "mismatch",
+   "link": "F-004",
+   "note": ""
+  },
+  {
+   "id": "C-377",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Parity-Map Boundary: derivation statement and first-pass status",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-378",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Return Correction Evidence table",
+   "result": "matched",
+   "link": "none",
+   "note": "see prior-finding items"
+  },
+  {
+   "id": "C-379",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Stage 1 Exit Checklist (author self-assessment; render box unticked)",
+   "result": "matched",
+   "link": "none",
+   "note": ""
+  },
+  {
+   "id": "C-380",
+   "direction": "records-to-source",
+   "record": "reconnaissance: Error Prevention section (self-checks BA-001-01..05)",
+   "result": "matched",
+   "link": "none",
+   "note": "claims compared with the Checklist Review"
+  },
+  {
+   "id": "C-381",
+   "direction": "records-to-source",
+   "record": "prior finding pass-001 F-001 server-side permission enforcement",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 26, 28-32; enforcement table: resolved"
+  },
+  {
+   "id": "C-382",
+   "direction": "records-to-source",
+   "record": "prior finding pass-001 F-002 history recording",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 185-186: resolved"
+  },
+  {
+   "id": "C-383",
+   "direction": "records-to-source",
+   "record": "prior finding pass-001 F-003 date formats per locale",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 68-70: resolved"
+  },
+  {
+   "id": "C-384",
+   "direction": "records-to-source",
+   "record": "prior finding pass-001 F-004 mobile role constraints",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 32, 231: resolved"
+  },
+  {
+   "id": "C-385",
+   "direction": "records-to-source",
+   "record": "prior finding pass-001 F-005 dormant code",
+   "result": "matched",
+   "link": "none",
+   "note": "Source Inventory dormant row: resolved"
+  },
+  {
+   "id": "C-386",
+   "direction": "records-to-source",
+   "record": "prior finding pass-001 F-006 e-mail CSS fetch",
+   "result": "matched",
+   "link": "none",
+   "note": "row 200: resolved"
+  },
+  {
+   "id": "C-387",
+   "direction": "records-to-source",
+   "record": "prior finding pass-001 F-007 search/aggregate filtering",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 166, 179: resolved"
+  },
+  {
+   "id": "C-388",
+   "direction": "records-to-source",
+   "record": "prior finding pass-001 F-008 attachment storage",
+   "result": "matched",
+   "link": "none",
+   "note": "row 171: resolved"
+  },
+  {
+   "id": "C-389",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-001 time-entry and iteration validation",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 88, 151-159: resolved"
+  },
+  {
+   "id": "C-390",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-002 delete cascades",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 49, 81, 90, 125, 141, 173, 175: resolved"
+  },
+  {
+   "id": "C-391",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-003 Facebook like widget",
+   "result": "matched",
+   "link": "none",
+   "note": "row 191: resolved"
+  },
+  {
+   "id": "C-392",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-004 attachment count",
+   "result": "matched",
+   "link": "none",
+   "note": "row 170: resolved"
+  },
+  {
+   "id": "C-393",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-005 login and start-iteration branches",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 14, 97: resolved"
+  },
+  {
+   "id": "C-394",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-006 hidden-project decorator",
+   "result": "matched",
+   "link": "none",
+   "note": "row 75: resolved"
+  },
+  {
+   "id": "C-395",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-007 sysadmin grant rule",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 31, 34: resolved"
+  },
+  {
+   "id": "C-396",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-008 story import errors and cookies",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 116, 118: resolved"
+  },
+  {
+   "id": "C-397",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-009 task type labels",
+   "result": "matched",
+   "link": "none",
+   "note": "row 134: resolved"
+  },
+  {
+   "id": "C-398",
+   "direction": "records-to-source",
+   "record": "prior finding pass-002 F-010 superseded figures",
+   "result": "matched",
+   "link": "none",
+   "note": "reconnaissance figures: resolved"
+  },
+  {
+   "id": "C-399",
+   "direction": "records-to-source",
+   "record": "prior finding pass-003 F-001 unmapped query paths",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 11, 194, 209, 211, 218, 219, 226: resolved"
+  },
+  {
+   "id": "C-400",
+   "direction": "records-to-source",
+   "record": "prior finding pass-003 F-002 second Spring context",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 64, 65, 198, 199: resolved"
+  },
+  {
+   "id": "C-401",
+   "direction": "records-to-source",
+   "record": "prior finding pass-003 F-003 validation keys",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 52, 123, 130, 131, 136, 145, 146: resolved"
+  },
+  {
+   "id": "C-402",
+   "direction": "records-to-source",
+   "record": "prior finding pass-003 F-004 progress chart",
+   "result": "matched",
+   "link": "none",
+   "note": "rows 108-111: resolved"
+  },
+  {
+   "id": "C-403",
+   "direction": "records-to-source",
+   "record": "CHK-001 citation check: 436 file:line citations and 174 class/method citations in 208 rows and the reconnaissance",
+   "result": "matched",
+   "link": "none",
+   "note": "432 automatic passes, 4 heuristic misses verified by hand, 3 basename-ambiguous citations resolved from context, 1 intentionally absent class"
+  },
+  {
+   "id": "C-404",
+   "direction": "records-to-source",
+   "record": "CHK-005 validator key coverage (17 validators, 47 keys incl. inherited)",
+   "result": "matched",
+   "link": "none",
+   "note": "41 distinct keys, 0 uncovered"
+  },
+  {
+   "id": "C-405",
+   "direction": "records-to-source",
+   "record": "CHK-007 figures (208 rows: 112 Yes, 75 Inferred, 20 Partial, 1 No; 18 epics; inventory counts)",
+   "result": "matched",
+   "link": "none",
+   "note": "figures.js and xlsx2json.js"
+  }
+ ]
+}

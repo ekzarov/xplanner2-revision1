@@ -1,0 +1,3324 @@
+{
+ "classRefs": [
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 17,
+   "name": "javax.servlet.jsp.JspException",
+   "found": "container/JRE (not bundled)"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 22,
+   "name": "javax.servlet.ServletException",
+   "found": "container/JRE (not bundled)"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 27,
+   "name": "java.lang.Throwable",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 56,
+   "name": "com.technoetic.xplanner.filters.ActivityLogFilter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 61,
+   "name": "org.springframework.orm.hibernate3.support.OpenSessionInViewFilter",
+   "found": "spring-orm-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 66,
+   "name": "com.technoetic.xplanner.db.hibernate.HibernateSessionFilter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 71,
+   "name": "com.technoetic.xplanner.filters.ServletRequestFilter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 87,
+   "name": "com.technoetic.xplanner.security.filter.FormSecurityFilter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 100,
+   "name": "com.technoetic.xplanner.security.filter.FormSecurityFilter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 113,
+   "name": "com.technoetic.xplanner.security.filter.BasicSecurityFilter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 123,
+   "name": "com.technoetic.xplanner.filters.RequestCharacterEncodingFilter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 187,
+   "name": "org.springframework.web.util.Log4jConfigListener",
+   "found": "spring-web-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 191,
+   "name": "com.technoetic.xplanner.filters.HsqldbServerContextListener",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 195,
+   "name": "org.springframework.web.context.ContextLoaderListener",
+   "found": "spring-web-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 199,
+   "name": "org.springframework.web.context.request.RequestContextListener",
+   "found": "spring-web-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 203,
+   "name": "net.sf.xplanner.context.ContextLoaderListener",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 208,
+   "name": "org.apache.axis.transport.http.AxisServlet",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 213,
+   "name": "de.laures.cewolf.CewolfRenderer",
+   "found": "cewolf-1.0.jar"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 229,
+   "name": "net.sf.xplanner.struts.XPlannerActionServlet",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 253,
+   "name": "com.technoetic.xplanner.ical.iCalServlet",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 258,
+   "name": "com.sun.jersey.spi.spring.container.servlet.SpringServlet",
+   "found": "jersey-spring-1.5.jar"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 260,
+   "name": "com.sun.jersey.api.json.POJOMappingFeature",
+   "found": "NOT FOUND"
+  },
+  {
+   "cfg": "WEB-INF/web.xml",
+   "line": 266,
+   "name": "org.springframework.web.servlet.DispatcherServlet",
+   "found": "spring-webmvc-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 11,
+   "name": "org.apache.struts.action.ActionFormBean",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 13,
+   "name": "com.technoetic.xplanner.forms.ProjectEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 15,
+   "name": "com.technoetic.xplanner.forms.ProjectEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 17,
+   "name": "com.technoetic.xplanner.forms.IterationEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 19,
+   "name": "com.technoetic.xplanner.forms.IterationStatusEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 21,
+   "name": "com.technoetic.xplanner.forms.IterationStatusEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 24,
+   "name": "com.technoetic.xplanner.forms.FeatureEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 26,
+   "name": "com.technoetic.xplanner.forms.UserStoryEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 33,
+   "name": "com.technoetic.xplanner.forms.MoveContinueStoryForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 35,
+   "name": "com.technoetic.xplanner.forms.NoteEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 37,
+   "name": "com.technoetic.xplanner.forms.TaskEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 39,
+   "name": "com.technoetic.xplanner.forms.ReorderStoriesForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 41,
+   "name": "com.technoetic.xplanner.forms.MoveStoriesForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 43,
+   "name": "com.technoetic.xplanner.forms.MoveContinueTaskForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 45,
+   "name": "com.technoetic.xplanner.forms.ContinueUnfinishedStoriesForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 47,
+   "name": "com.technoetic.xplanner.forms.PersonEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 49,
+   "name": "com.technoetic.xplanner.forms.ImportPeopleForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 51,
+   "name": "com.technoetic.xplanner.forms.ImportStoriesForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 53,
+   "name": "com.technoetic.xplanner.forms.TimeEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 59,
+   "name": "com.technoetic.xplanner.forms.PersonTimesheetForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 61,
+   "name": "com.technoetic.xplanner.forms.AggregateTimesheetForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 63,
+   "name": "org.apache.struts.action.DynaActionForm",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 65,
+   "name": "com.technoetic.xplanner.forms.FileManagerForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 67,
+   "name": "org.apache.struts.action.DynaActionForm",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 68,
+   "name": "java.lang.String",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 69,
+   "name": "java.lang.String",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 70,
+   "name": "java.lang.String",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 71,
+   "name": "java.util.List",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 74,
+   "name": "com.technoetic.xplanner.forms.RoleEditorForm",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 83,
+   "name": "com.technoetic.xplanner.domain.repository.ObjectNotFoundException",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 85,
+   "name": "org.hibernate.UnresolvableObjectException",
+   "found": "hibernate-core-3.6.5.Final.jar"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 88,
+   "name": "com.technoetic.xplanner.security.auth.AuthorizationException",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 94,
+   "name": "org.apache.struts.action.ActionForward",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 324,
+   "name": "com.technoetic.xplanner.domain.repository.DuplicateUserIdException",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 335,
+   "name": "com.technoetic.xplanner.importer.WrongImportFileSpreadsheetImporterException",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 338,
+   "name": "com.technoetic.xplanner.importer.MissingFieldSpreadsheetImporterException",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 341,
+   "name": "com.technoetic.xplanner.importer.MissingColumnHeaderSpreadsheetImporterException",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 344,
+   "name": "com.technoetic.xplanner.importer.MissingWorksheetException",
+   "found": "NOT FOUND"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 426,
+   "name": "org.springframework.web.struts.DelegatingTilesRequestProcessor",
+   "found": "spring-struts-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 429,
+   "name": "org.apache.struts.tiles.TilesPlugin",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 438,
+   "name": "org.springframework.web.struts.ContextLoaderPlugIn",
+   "found": "spring-struts-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 8,
+   "name": "org.apache.struts.action.ActionFormBean",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 13,
+   "name": "org.apache.struts.action.ActionForward",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 18,
+   "name": "org.apache.struts.action.ActionMapping",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 21,
+   "name": "com.technoetic.xplanner.actions.AuthenticationAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 27,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 31,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 35,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 39,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 43,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 47,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/test-struts-config.xml",
+   "line": 7,
+   "name": "org.apache.struts.action.ActionForward",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 6,
+   "name": "com.technoetic.xplanner.actions.ChangeLocaleAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 8,
+   "name": "com.technoetic.xplanner.actions.SystemInfoAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 10,
+   "name": "com.technoetic.xplanner.actions.AuthenticationAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 12,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 16,
+   "name": "com.technoetic.xplanner.actions.LogoutAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 25,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 29,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 33,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 35,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 39,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 41,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 45,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 47,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 54,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 56,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 63,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 65,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 72,
+   "name": "com.technoetic.xplanner.actions.EditProjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 74,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 78,
+   "name": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 80,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 84,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 86,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 90,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 92,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 96,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 98,
+   "name": "net.sf.xplanner.domain.Feature",
+   "found": "NOT FOUND"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 102,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 104,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 108,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 110,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 114,
+   "name": "com.technoetic.xplanner.actions.ViewIterationMetricsAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 116,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 120,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 122,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 126,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 128,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 132,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 134,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 141,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 143,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 150,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 152,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 159,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 161,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 168,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 170,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 177,
+   "name": "com.technoetic.xplanner.actions.EditIterationAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 179,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 183,
+   "name": "com.technoetic.xplanner.actions.StartIterationAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 185,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 190,
+   "name": "com.technoetic.xplanner.actions.CloseIterationAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 192,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 196,
+   "name": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 198,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 202,
+   "name": "com.technoetic.xplanner.actions.EditObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 204,
+   "name": "net.sf.xplanner.domain.Feature",
+   "found": "NOT FOUND"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 208,
+   "name": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 210,
+   "name": "net.sf.xplanner.domain.Feature",
+   "found": "NOT FOUND"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 214,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 216,
+   "name": "net.sf.xplanner.domain.UserStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 220,
+   "name": "com.technoetic.xplanner.actions.EditStoryAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 222,
+   "name": "net.sf.xplanner.domain.UserStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 226,
+   "name": "com.technoetic.xplanner.actions.MoveContinueStoryAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 228,
+   "name": "net.sf.xplanner.domain.UserStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 232,
+   "name": "com.technoetic.xplanner.actions.ContinueUnfinishedStoriesAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 234,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 238,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 240,
+   "name": "net.sf.xplanner.domain.UserStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 247,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 249,
+   "name": "net.sf.xplanner.domain.UserStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 256,
+   "name": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 258,
+   "name": "net.sf.xplanner.domain.UserStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 262,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 264,
+   "name": "net.sf.xplanner.domain.Task",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 268,
+   "name": "com.technoetic.xplanner.actions.EditTaskAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 270,
+   "name": "net.sf.xplanner.domain.Task",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 274,
+   "name": "com.technoetic.xplanner.actions.MoveContinueTaskAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 276,
+   "name": "net.sf.xplanner.domain.Task",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 280,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 282,
+   "name": "net.sf.xplanner.domain.Task",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 289,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 291,
+   "name": "net.sf.xplanner.domain.Task",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 298,
+   "name": "org.apache.struts.action.Action",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 300,
+   "name": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 302,
+   "name": "net.sf.xplanner.domain.Task",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 306,
+   "name": "com.technoetic.xplanner.actions.EditNoteAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 311,
+   "name": "net.sf.xplanner.domain.Note",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 315,
+   "name": "com.technoetic.xplanner.actions.DeleteNoteAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 317,
+   "name": "net.sf.xplanner.domain.Note",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 321,
+   "name": "com.technoetic.xplanner.actions.DownloadAttachmentAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 323,
+   "name": "net.sf.xplanner.domain.Note",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 327,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 333,
+   "name": "com.technoetic.xplanner.actions.ExportAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 335,
+   "name": "net.sf.xplanner.domain.Person",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 342,
+   "name": "com.technoetic.xplanner.actions.ViewPersonAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 344,
+   "name": "net.sf.xplanner.domain.Person",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 352,
+   "name": "com.technoetic.xplanner.actions.EditPersonAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 354,
+   "name": "net.sf.xplanner.domain.Person",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 359,
+   "name": "com.technoetic.xplanner.actions.ImportPeopleAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 361,
+   "name": "com.technoetic.xplanner.actions.ImportStoriesAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 363,
+   "name": "com.technoetic.xplanner.importer.SpreadsheetStoryImporter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 366,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 370,
+   "name": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 372,
+   "name": "net.sf.xplanner.domain.Person",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 376,
+   "name": "com.technoetic.xplanner.actions.UpdateTimeAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 380,
+   "name": "com.technoetic.xplanner.actions.ReorderStoriesAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 382,
+   "name": "com.technoetic.xplanner.actions.MoveStoriesAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 384,
+   "name": "com.technoetic.xplanner.actions.UpdateTimeNotificationReceivers",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 386,
+   "name": "com.technoetic.xplanner.actions.ViewTimesheetAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 388,
+   "name": "com.technoetic.xplanner.actions.ViewAggregateTimesheetAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 390,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 392,
+   "name": "com.technoetic.xplanner.actions.IntegrationAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 394,
+   "name": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 396,
+   "name": "com.technoetic.xplanner.actions.FileManagerAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 398,
+   "name": "org.apache.struts.tiles.actions.ReloadDefinitionsAction",
+   "found": "struts-1.2.9.jar"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 400,
+   "name": "com.technoetic.xplanner.actions.EditRoleAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 402,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 406,
+   "name": "com.technoetic.xplanner.actions.IdSearchAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 410,
+   "name": "com.technoetic.xplanner.actions.ContentSearchAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 412,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 416,
+   "name": "com.technoetic.xplanner.actions.DispatchForward",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 420,
+   "name": "com.technoetic.xplanner.actions.EditObjectAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/action-servlet.xml",
+   "line": 422,
+   "name": "net.sf.xplanner.domain.Setting",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/test-action-servlet.xml",
+   "line": 5,
+   "name": "com.technoetic.xplanner.actions.CommandExecutorAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/test-action-servlet.xml",
+   "line": 10,
+   "name": "com.technoetic.xplanner.actions.CommandExecutorAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/test-action-servlet.xml",
+   "line": 15,
+   "name": "com.technoetic.xplanner.actions.PutTheClockForwardAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/test-action-servlet.xml",
+   "line": 19,
+   "name": "com.technoetic.xplanner.actions.EditPropertiesAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/test-action-servlet.xml",
+   "line": 22,
+   "name": "com.technoetic.xplanner.actions.admin.InvalidateCacheAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/test-action-servlet.xml",
+   "line": 32,
+   "name": "com.technoetic.xplanner.actions.admin.InvalidateHibernateCacheAction",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 18,
+   "name": "com.technoetic.xplanner.XPlannerProperties",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 30,
+   "name": "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer",
+   "found": "spring-beans-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 39,
+   "name": "org.springframework.context.support.ReloadableResourceBundleMessageSource",
+   "found": "spring-context-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 46,
+   "name": "net.sf.xplanner.struts.XPlannerMessageResources",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 50,
+   "name": "net.sf.xplanner.rest",
+   "found": "NOT FOUND"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 52,
+   "name": "com.technoetic.xplanner.DomainSpecificPropertiesFactory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 60,
+   "name": "org.apache.commons.dbcp.BasicDataSource",
+   "found": "commons-dbcp-1.2.2.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 71,
+   "name": "liquibase.integration.spring.SpringLiquibase",
+   "found": "liquibase-core-2.0.1.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 77,
+   "name": "org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean",
+   "found": "spring-orm-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 79,
+   "name": "net.sf.xplanner.domain",
+   "found": "NOT FOUND"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 85,
+   "name": "org.springframework.orm.hibernate3.HibernateTransactionManager",
+   "found": "spring-orm-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 90,
+   "name": "org.springframework.transaction.support.TransactionTemplate",
+   "found": "spring-tx-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 92,
+   "name": "com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 97,
+   "name": "com.technoetic.xplanner.domain.repository.ObjectRepositororyFactory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 100,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 100,
+   "name": "com.technoetic.xplanner.domain.repository.RepositoryHistoryAdapter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 105,
+   "name": "com.technoetic.xplanner.domain.repository.ObjectRepositororyFactory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 108,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 108,
+   "name": "com.technoetic.xplanner.domain.repository.RepositoryHistoryAdapter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 109,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 109,
+   "name": "com.technoetic.xplanner.domain.repository.RepositorySecurityAdapter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 114,
+   "name": "com.technoetic.xplanner.domain.repository.MetaRepositoryImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 119,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 119,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 121,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 121,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 125,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 125,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 127,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 127,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 131,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 131,
+   "name": "net.sf.xplanner.domain.UserStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 133,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 133,
+   "name": "net.sf.xplanner.domain.UserStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 137,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 137,
+   "name": "net.sf.xplanner.domain.Task",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 139,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 139,
+   "name": "net.sf.xplanner.domain.Task",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 143,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 143,
+   "name": "net.sf.xplanner.domain.Person",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 145,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 145,
+   "name": "net.sf.xplanner.domain.Person",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 146,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 147,
+   "name": "com.technoetic.xplanner.domain.repository.PersonHibernateObjectRepository",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 151,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 151,
+   "name": "net.sf.xplanner.domain.Role",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 153,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 153,
+   "name": "net.sf.xplanner.domain.Role",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 157,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 157,
+   "name": "net.sf.xplanner.domain.Note",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 159,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 159,
+   "name": "net.sf.xplanner.domain.Note",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 165,
+   "name": "com.technoetic.xplanner.domain.repository.RoleRepositoryImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 166,
+   "name": "com.technoetic.xplanner.domain.repository.RoleAssociationRepositoryImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 173,
+   "name": "com.technoetic.xplanner.domain.DomainMetaDataRepository",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 177,
+   "name": "com.technoetic.xplanner.metrics.IterationMetrics",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 178,
+   "name": "com.technoetic.xplanner.tags.IterationLoader",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 181,
+   "name": "com.technoetic.xplanner.actions.MoveContinueStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 182,
+   "name": "com.technoetic.xplanner.actions.StoryContinuer",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 185,
+   "name": "com.technoetic.xplanner.actions.TaskContinuer",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 186,
+   "name": "com.technoetic.xplanner.domain.repository.TaskRepositoryHibernate",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 189,
+   "name": "com.technoetic.xplanner.db.TaskQueryHelper",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 190,
+   "name": "com.technoetic.xplanner.db.TaskQueryDao",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 193,
+   "name": "org.springframework.aop.framework.ProxyFactoryBean",
+   "found": "spring-aop-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 196,
+   "name": "com.technoetic.xplanner.actions.EditPersonHelper",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 206,
+   "name": "com.technoetic.xplanner.domain.DomainObjectWikiLinkFormatter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 210,
+   "name": "com.technoetic.xplanner.db.SearchContentQuery",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 211,
+   "name": "com.technoetic.xplanner.db.SearchResultFactory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 215,
+   "name": "net.sf.xplanner.domain.Project",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 216,
+   "name": "net.sf.xplanner.domain.Iteration",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 217,
+   "name": "net.sf.xplanner.domain.UserStory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 218,
+   "name": "net.sf.xplanner.domain.Task",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 219,
+   "name": "net.sf.xplanner.domain.Note",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 223,
+   "name": "com.technoetic.xplanner.db.ContentSearchHelper",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 230,
+   "name": "com.technoetic.xplanner.importer.spreadsheet.Spreadsheet",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 231,
+   "name": "com.technoetic.xplanner.importer.SpreadsheetStoryFactory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 232,
+   "name": "com.technoetic.xplanner.importer.spreadsheet.SpreadsheetStoryReader",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 233,
+   "name": "com.technoetic.xplanner.importer.SpreadsheetStoryImporter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 236,
+   "name": "com.technoetic.xplanner.export.XmlExporter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 237,
+   "name": "com.technoetic.xplanner.export.MpxExporter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 238,
+   "name": "com.technoetic.xplanner.export.MspdiExporter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 239,
+   "name": "com.technoetic.xplanner.export.PdfExporter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 240,
+   "name": "com.technoetic.xplanner.export.PdfReportExporter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 245,
+   "name": "com.technoetic.xplanner.SystemInfo",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 246,
+   "name": "com.technoetic.xplanner.util.TimeGenerator",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 247,
+   "name": "com.technoetic.xplanner.importer.util.IOStreamFactory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 248,
+   "name": "org.springframework.ui.velocity.VelocityEngineFactoryBean",
+   "found": "spring-context-support-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 254,
+   "name": "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader",
+   "found": "velocity-dep-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 262,
+   "name": "com.technoetic.xplanner.util.HttpClient",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 263,
+   "name": "com.technoetic.xplanner.file.FileSystemImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 284,
+   "name": "com.technoetic.xplanner.mail.EmailFormatterImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 285,
+   "name": "com.technoetic.xplanner.mail.EmailMessageFactory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 288,
+   "name": "java.lang.Class",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 288,
+   "name": "net.sf.xplanner.domain.Person",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 292,
+   "name": "com.technoetic.xplanner.mail.EmailNotificationSupport",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 295,
+   "name": "com.technoetic.xplanner.mail.MissingTimeEntryNotifier",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 303,
+   "name": "com.technoetic.xplanner.charts.DataSamplerImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 304,
+   "name": "com.technoetic.xplanner.charts.DataSamplingCommand",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 308,
+   "name": "org.springframework.transaction.interceptor.TransactionProxyFactoryBean",
+   "found": "spring-tx-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 325,
+   "name": "org.springframework.transaction.interceptor.TransactionProxyFactoryBean",
+   "found": "spring-tx-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 343,
+   "name": "org.springframework.scheduling.quartz.JobDetailBean",
+   "found": "spring-context-support-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 345,
+   "name": "com.technoetic.xplanner.charts.DataSamplingJob",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 369,
+   "name": "org.springframework.scheduling.quartz.CronTriggerBean",
+   "found": "spring-context-support-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 404,
+   "name": "net.sf.xplanner.events.EventManager",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 408,
+   "name": "net.sf.xplanner.util.DaoScanner",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-beans.xml",
+   "line": 411,
+   "name": "org.codehaus.jackson.jaxrs.JacksonJsonProvider",
+   "found": "jackson-jaxrs-1.7.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 17,
+   "name": "net.sf.xplanner.dao.impl.CommonDao",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 21,
+   "name": "net.sf.xplanner.dao.impl.TaskDaoImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 25,
+   "name": "net.sf.xplanner.dao.impl.UserStoryDaoImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 29,
+   "name": "net.sf.xplanner.dao.impl.ProjectDaoImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 33,
+   "name": "net.sf.xplanner.dao.impl.ViewDaoImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 37,
+   "name": "net.sf.xplanner.rest.ViewManager",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 41,
+   "name": "net.sf.xplanner.rest.UpdateManager",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 45,
+   "name": "net.sf.xplanner.dao.impl.DataSampleDaoImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 49,
+   "name": "net.sf.xplanner.dao.impl.SettingDaoImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 53,
+   "name": "net.sf.xplanner.dao.impl.ObjectTypeDaoImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 57,
+   "name": "net.sf.xplanner.dao.impl.AttributeDaoImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 61,
+   "name": "com.technoetic.xplanner.db.IdSearchHelper",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-dao.xml",
+   "line": 63,
+   "name": "com.technoetic.xplanner.history.HistorySupport",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 12,
+   "name": "org.springframework.aop.framework.ProxyFactoryBean",
+   "found": "spring-aop-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 15,
+   "name": "com.technoetic.xplanner.security.AuthenticatorImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 26,
+   "name": "com.technoetic.xplanner.security.module.LoginModuleLoader",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 37,
+   "name": "com.technoetic.xplanner.security.LoginContext",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 38,
+   "name": "com.technoetic.xplanner.security.module.jaas.JaasLoginModuleAdapterFactory",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 39,
+   "name": "com.technoetic.xplanner.security.module.ntlm.NtlmLoginModule",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 40,
+   "name": "com.technoetic.xplanner.security.module.ntlm.NtlmLoginHelperImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 41,
+   "name": "com.technoetic.xplanner.security.module.jndi.JNDILoginModule",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 42,
+   "name": "com.sabre.security.jndi.JNDIAuthenticatorImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 43,
+   "name": "com.technoetic.xplanner.security.module.XPlannerLoginModule",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 44,
+   "name": "com.technoetic.xplanner.security.module.LoginSupportImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 49,
+   "name": "com.technoetic.xplanner.security.auth.AuthorizerInitializer",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 52,
+   "name": "com.technoetic.xplanner.security.auth.AuthorizerImpl",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 54,
+   "name": "org.springframework.aop.framework.ProxyFactoryBean",
+   "found": "spring-aop-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 57,
+   "name": "com.technoetic.xplanner.security.auth.AuthorizerQueryHelper",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 66,
+   "name": "org.springframework.aop.framework.ProxyFactoryBean",
+   "found": "spring-aop-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-security.xml",
+   "line": 69,
+   "name": "com.technoetic.xplanner.security.auth.PrincipalSpecificPermissionHelper",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-caching.xml",
+   "line": 7,
+   "name": "java.util.HashMap",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-caching.xml",
+   "line": 9,
+   "name": "org.springframework.aop.support.NameMatchMethodPointcutAdvisor",
+   "found": "spring-aop-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-caching.xml",
+   "line": 11,
+   "name": "com.technoetic.xplanner.db.MethodCacheInterceptor",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-caching.xml",
+   "line": 23,
+   "name": "org.springframework.aop.support.NameMatchMethodPointcutAdvisor",
+   "found": "spring-aop-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-caching.xml",
+   "line": 25,
+   "name": "com.technoetic.xplanner.db.MethodCacheInterceptor",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-caching.xml",
+   "line": 35,
+   "name": "org.springframework.aop.support.NameMatchMethodPointcutAdvisor",
+   "found": "spring-aop-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-caching.xml",
+   "line": 37,
+   "name": "com.technoetic.xplanner.db.MethodCacheInvalidateForSelectedArgumentsInterceptor",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-caching.xml",
+   "line": 57,
+   "name": "org.springframework.aop.support.NameMatchMethodPointcutAdvisor",
+   "found": "spring-aop-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-caching.xml",
+   "line": 59,
+   "name": "com.technoetic.xplanner.db.CacheInvalidateForPersonAnywhereInAttrListInterceptor",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-web.xml",
+   "line": 12,
+   "name": "net.sf.xplanner.web",
+   "found": "NOT FOUND"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-web.xml",
+   "line": 14,
+   "name": "org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping",
+   "found": "spring-webmvc-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-web.xml",
+   "line": 17,
+   "name": "org.springframework.web.servlet.view.tiles.TilesConfigurer",
+   "found": "spring-struts-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-web.xml",
+   "line": 26,
+   "name": "org.springframework.web.servlet.view.InternalResourceViewResolver",
+   "found": "spring-webmvc-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/spring-web.xml",
+   "line": 27,
+   "name": "org.springframework.web.servlet.view.JstlView",
+   "found": "spring-webmvc-3.0.5.RELEASE.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 6,
+   "name": "org.apache.axis.attachments.AttachmentsImpl",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 11,
+   "name": "org.apache.axis.handlers.JWSHandler",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 14,
+   "name": "org.apache.axis.handlers.JWSHandler",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 20,
+   "name": "org.apache.axis.handlers.SimpleAuthenticationHandler",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 21,
+   "name": "org.apache.axis.transport.local.LocalResponder",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 22,
+   "name": "org.apache.axis.handlers.http.URLMapper",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 23,
+   "name": "org.apache.axis.providers.java.MsgProvider",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 24,
+   "name": "org.apache.axis.providers.java.RPCProvider",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 27,
+   "name": "com.technoetic.xplanner.soap.XPlanner",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 31,
+   "name": "org.apache.axis.Version",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 36,
+   "name": "org.apache.axis.handlers.http.HTTPAuthHandler",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 41,
+   "name": "org.apache.axis.transport.local.LocalResponder",
+   "found": "axis-1.4.jar"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 44,
+   "name": "com.technoetic.xplanner.soap.domain.ProjectData",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 45,
+   "name": "com.technoetic.xplanner.soap.domain.IterationData",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 46,
+   "name": "com.technoetic.xplanner.soap.domain.UserStoryData",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 47,
+   "name": "com.technoetic.xplanner.soap.domain.TaskData",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 48,
+   "name": "com.technoetic.xplanner.soap.domain.FeatureData",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 49,
+   "name": "com.technoetic.xplanner.soap.domain.TimeEntryData",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 50,
+   "name": "com.technoetic.xplanner.soap.domain.NoteData",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/server-config.wsdd",
+   "line": 51,
+   "name": "com.technoetic.xplanner.soap.domain.PersonData",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/sun-jaxws.xml",
+   "line": 3,
+   "name": "net.sf.xplanner.soap.XPlanner",
+   "found": "NOT FOUND"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 16,
+   "name": "com.technoetic.xplanner.tags.OutlineTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 22,
+   "name": "com.technoetic.xplanner.tags.util.BoxTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 43,
+   "name": "com.technoetic.xplanner.tags.util.BoxedListTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 69,
+   "name": "com.technoetic.xplanner.tags.PersonOptionsTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 95,
+   "name": "com.technoetic.xplanner.tags.IterationOptionsTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 126,
+   "name": "com.technoetic.xplanner.tags.StoryOptionsTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 147,
+   "name": "net.sf.xplanner.tags.NavigationBarTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 178,
+   "name": "com.technoetic.xplanner.tags.TwikiTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 194,
+   "name": "com.technoetic.xplanner.tags.PropertyTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 205,
+   "name": "com.technoetic.xplanner.tags.PropertyEqualTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 221,
+   "name": "com.technoetic.xplanner.tags.ProgressBarDelegatorTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 252,
+   "name": "com.technoetic.xplanner.tags.LinkParamTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 281,
+   "name": "com.technoetic.xplanner.tags.domain.ActionTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 305,
+   "name": "com.technoetic.xplanner.tags.LinkTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 490,
+   "name": "com.technoetic.xplanner.tags.AuthenticatedUserTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 491,
+   "name": "com.technoetic.xplanner.tags.AuthenticatedUserTEI",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 502,
+   "name": "com.technoetic.xplanner.tags.IsUserInRoleTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 526,
+   "name": "com.technoetic.xplanner.tags.IsUserAuthorizedTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 580,
+   "name": "com.technoetic.xplanner.tags.IsUserAuthorizedForAnyTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 624,
+   "name": "com.technoetic.xplanner.tags.FormatDateTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 670,
+   "name": "com.technoetic.xplanner.tags.ContentTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 681,
+   "name": "com.technoetic.xplanner.tags.ContentTitleTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 697,
+   "name": "com.technoetic.xplanner.tags.ContentTitleArgTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 708,
+   "name": "com.technoetic.xplanner.tags.PrintLinkTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 718,
+   "name": "com.technoetic.xplanner.tags.displaytag.WritableTableTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 719,
+   "name": "org.displaytag.tags.TableTagExtraInfo",
+   "found": "displaytag-1.0.jar"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 816,
+   "name": "org.displaytag.decorator.TableDecorator",
+   "found": "displaytag-1.0.jar"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 932,
+   "name": "java.lang.String",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 953,
+   "name": "java.lang.String",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 976,
+   "name": "com.technoetic.xplanner.tags.displaytag.ActionButtonsTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 977,
+   "name": "com.technoetic.xplanner.tags.displaytag.ActionButtonsTagInfo",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 1007,
+   "name": "com.technoetic.xplanner.tags.displaytag.ActionButtonsColumnTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 1008,
+   "name": "com.technoetic.xplanner.tags.displaytag.ActionButtonsTagInfo",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner.tld",
+   "line": 1250,
+   "name": "org.displaytag.decorator.ColumnDecorator",
+   "found": "displaytag-1.0.jar"
+  },
+  {
+   "cfg": "WEB-INF/xplanner-db.tld",
+   "line": 13,
+   "name": "com.technoetic.xplanner.tags.db.UseBeanTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner-db.tld",
+   "line": 14,
+   "name": "com.technoetic.xplanner.tags.db.UseBeanTEI",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner-db.tld",
+   "line": 45,
+   "name": "com.technoetic.xplanner.tags.db.UseBeansTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner-db.tld",
+   "line": 46,
+   "name": "com.technoetic.xplanner.tags.db.UseBeansTEI",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplanner-db.tld",
+   "line": 82,
+   "name": "com.technoetic.xplanner.tags.db.UseBeansParameterTag",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplannerplus-functions.tld",
+   "line": 19,
+   "name": "net.sf.xplanner.functions.Functions",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/xplannerplus-functions.tld",
+   "line": 20,
+   "name": "java.util.List",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/xplannerplus-functions.tld",
+   "line": 20,
+   "name": "java.lang.String",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/xplannerplus-functions.tld",
+   "line": 20,
+   "name": "java.lang.Object",
+   "found": "JRE"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 7,
+   "name": "org.apache.log4j.ConsoleAppender",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 9,
+   "name": "org.apache.log4j.PatternLayout",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 12,
+   "name": "org.apache.log4j.varia.LevelRangeFilter",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 17,
+   "name": "org.apache.log4j.ConsoleAppender",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 18,
+   "name": "org.apache.log4j.PatternLayout",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 25,
+   "name": "org.apache.log4j.varia.LevelRangeFilter",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 29,
+   "name": "org.apache.log4j.ConsoleAppender",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 30,
+   "name": "org.apache.log4j.PatternLayout",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 35,
+   "name": "org.apache.log4j.RollingFileAppender",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 39,
+   "name": "org.apache.log4j.PatternLayout",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 44,
+   "name": "org.apache.log4j.RollingFileAppender",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 49,
+   "name": "org.apache.log4j.PatternLayout",
+   "found": "log4j-1.2.15.jar"
+  },
+  {
+   "cfg": "WEB-INF/classes/log4j-war.xml",
+   "line": 54,
+   "name": "com.technoetic.xplanner.filters.ActivityLogFilter",
+   "found": "WEB-INF/classes"
+  },
+  {
+   "cfg": "WEB-INF/classes/ehcache.xml",
+   "line": 12,
+   "name": "java.io.tmpdir",
+   "found": "JRE"
+  }
+ ],
+ "pathRefs": [
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 84,
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 86,
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 89,
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 95,
+   "path": "/WEB-INF/jsp/view/projects.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 96,
+   "path": "/WEB-INF/jsp/view/project.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 97,
+   "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 98,
+   "path": "/WEB-INF/jsp/view/iteration.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 99,
+   "path": "/WEB-INF/jsp/view/iteration.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 100,
+   "path": "/WEB-INF/jsp/view/iterationTasks.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 101,
+   "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 102,
+   "path": "/WEB-INF/jsp/view/iterationAccuracy.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 103,
+   "path": "/WEB-INF/jsp/view/iterationMetrics.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 104,
+   "path": "/WEB-INF/jsp/view/iterationIterations.jsp",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 105,
+   "path": "/WEB-INF/jsp/view/userstory.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 106,
+   "path": "/WEB-INF/jsp/view/task.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 107,
+   "path": "/WEB-INF/jsp/view/feature.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 108,
+   "path": "/WEB-INF/jsp/view/people.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 109,
+   "path": "/WEB-INF/jsp/view/person.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 110,
+   "path": "/WEB-INF/jsp/view/taskhistory.jsp",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 111,
+   "path": "/WEB-INF/jsp/view/viewtext.jsp",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 112,
+   "path": "/WEB-INF/jsp/view/twikiformat.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 113,
+   "path": "/WEB-INF/jsp/view/integrations.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 114,
+   "path": "/WEB-INF/jsp/view/timesheet.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 115,
+   "path": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 116,
+   "path": "/WEB-INF/jsp/view/history.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 117,
+   "path": "/WEB-INF/jsp/edit/editProject.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 118,
+   "path": "/WEB-INF/jsp/edit/editIteration.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 119,
+   "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 120,
+   "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 121,
+   "path": "/WEB-INF/jsp/edit/moveStories.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 122,
+   "path": "/WEB-INF/jsp/edit/editFeature.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 123,
+   "path": "/WEB-INF/jsp/edit/editStory.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 124,
+   "path": "/WEB-INF/jsp/edit/moveContinueStory.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 126,
+   "path": "/WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 127,
+   "path": "/WEB-INF/jsp/edit/editTask.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 128,
+   "path": "/WEB-INF/jsp/edit/moveContinueTask.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 130,
+   "path": "/WEB-INF/jsp/edit/editTaskEstimate.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 131,
+   "path": "/WEB-INF/jsp/edit/editPerson.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 132,
+   "path": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 134,
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 135,
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 137,
+   "path": "/images/calendar.png",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 139,
+   "path": "/WEB-INF/jsp/security/notAuthorized.jsp",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 140,
+   "path": "/WEB-INF/jsp/edit/editRoles.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 143,
+   "path": "/WEB-INF/jsp/view/dashboard.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 144,
+   "path": "/WEB-INF/jsp/view/settings.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 145,
+   "path": "/WEB-INF/jsp/view/integrations.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 161,
+   "path": "/WEB-INF/jsp/common/unexpectedError.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 165,
+   "path": "/WEB-INF/jsp/security/login.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 182,
+   "path": "/WEB-INF/jsp/view/project.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 186,
+   "path": "/WEB-INF/jsp/view/projectFeatures.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 195,
+   "path": "/WEB-INF/jsp/edit/editProject.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 200,
+   "path": "/WEB-INF/jsp/view/iterationTabs.jsp",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 204,
+   "path": "/WEB-INF/jsp/view/iteration.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 208,
+   "path": "/WEB-INF/jsp/view/feature.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 212,
+   "path": "/WEB-INF/jsp/view/iterationTasks.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 216,
+   "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 220,
+   "path": "/WEB-INF/jsp/view/iterationMetrics.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 224,
+   "path": "/WEB-INF/jsp/view/iterationStatistics.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 228,
+   "path": "/WEB-INF/jsp/view/iterationAccuracy.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 242,
+   "path": "/WEB-INF/jsp/edit/editIteration.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 245,
+   "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 251,
+   "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 259,
+   "path": "/WEB-INF/jsp/edit/editFeature.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 266,
+   "path": "/WEB-INF/jsp/view/userstory.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 269,
+   "path": "/WEB-INF/jsp/edit/editStory.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 273,
+   "path": "/WEB-INF/jsp/edit/moveContinueStory.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 277,
+   "path": "/WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 288,
+   "path": "/WEB-INF/jsp/view/task.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 291,
+   "path": "/WEB-INF/jsp/edit/editTask.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 293,
+   "path": "/WEB-INF/jsp/edit/moveContinueTask.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 301,
+   "path": "/WEB-INF/jsp/edit/editTaskEstimate.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 306,
+   "path": "/WEB-INF/jsp/edit/editNote.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 318,
+   "path": "/WEB-INF/jsp/view/person.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 321,
+   "path": "/WEB-INF/jsp/edit/editPerson.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 325,
+   "path": "/WEB-INF/jsp/edit/editPerson.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 329,
+   "path": "/WEB-INF/jsp/edit/importPeople.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 332,
+   "path": "/WEB-INF/jsp/import/stories.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 336,
+   "path": "/WEB-INF/jsp/import/stories.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 339,
+   "path": "/WEB-INF/jsp/import/stories.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 342,
+   "path": "/WEB-INF/jsp/import/stories.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 345,
+   "path": "/WEB-INF/jsp/import/stories.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 350,
+   "path": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 353,
+   "path": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 360,
+   "path": "/WEB-INF/jsp/view/iteration.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 364,
+   "path": "/WEB-INF/jsp/edit/moveStories.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 368,
+   "path": "/WEB-INF/jsp/edit/editProject.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 374,
+   "path": "/WEB-INF/jsp/view/timesheet.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 377,
+   "path": "/WEB-INF/jsp/view/timesheet.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 380,
+   "path": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 383,
+   "path": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 397,
+   "path": "/WEB-INF/jsp/view/history.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 402,
+   "path": "/WEB-INF/jsp/view/directory.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 409,
+   "path": "/WEB-INF/jsp/edit/editRoles.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 416,
+   "path": "/WEB-INF/jsp/view/searchResults.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 420,
+   "path": "/WEB-INF/jsp/edit/editSetting.jsp",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 430,
+   "path": "/WEB-INF/tiles-definitions.xml",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/struts-config.xml",
+   "line": 440,
+   "path": "/WEB-INF/action-servlet.xml,/WEB-INF/classes/spring-beans.xml,/WEB-INF/test-action-servlet.xml",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 22,
+   "path": "/WEB-INF/jsp/wap/login.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 23,
+   "path": "/WEB-INF/jsp/wap/login.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 28,
+   "path": "/WEB-INF/jsp/wap/projects.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 32,
+   "path": "/WEB-INF/jsp/wap/project.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 36,
+   "path": "/WEB-INF/jsp/wap/iteration.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 40,
+   "path": "/WEB-INF/jsp/wap/story.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 44,
+   "path": "/WEB-INF/jsp/wap/task.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/mobile-struts-config.xml",
+   "line": 48,
+   "path": "/WEB-INF/jsp/wap/person.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/test-struts-config.xml",
+   "line": 21,
+   "path": "/WEB-INF/jsp/admin/invalidateCache.jsp",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/test-struts-config.xml",
+   "line": 23,
+   "path": "/WEB-INF/jsp/admin/invalidateCache.jsp",
+   "exists": false
+  },
+  {
+   "cfg": "WEB-INF/tiles-definitions.xml",
+   "line": 5,
+   "path": "/WEB-INF/jsp/layout/defaultLayout.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-definitions.xml",
+   "line": 7,
+   "path": "/WEB-INF/jsp/common/header.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-definitions.xml",
+   "line": 9,
+   "path": "/WEB-INF/jsp/common/footer.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-definitions.xml",
+   "line": 11,
+   "path": "/WEB-INF/jsp/layout/viewLayout.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-definitions.xml",
+   "line": 20,
+   "path": "/WEB-INF/jsp/common/footer.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-definitions.xml",
+   "line": 21,
+   "path": "/WEB-INF/jsp/layout/viewHeader.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-definitions.xml",
+   "line": 29,
+   "path": "/WEB-INF/jsp/layout/defaultEditLayout.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-definitions.xml",
+   "line": 30,
+   "path": "/WEB-INF/jsp/common/baseHeader.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-definitions.xml",
+   "line": 33,
+   "path": "/WEB-INF/jsp/common/footer.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-pages.xml",
+   "line": 6,
+   "path": "/WEB-INF/jsp/layout/viewLayoutNew.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-pages.xml",
+   "line": 14,
+   "path": "/WEB-INF/jsp/common/footer.jsp",
+   "exists": true
+  },
+  {
+   "cfg": "WEB-INF/tiles-pages.xml",
+   "line": 15,
+   "path": "/WEB-INF/jsp/layout/viewHeader.jsp",
+   "exists": true
+  }
+ ]
+}
