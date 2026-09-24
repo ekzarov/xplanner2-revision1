@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: in_progress
+  stage_status: awaiting_review
   previous_stage: stage-02
-  next_action: 'Publish Stage 2 pass 004 as a separate records PR (owner merge; credential classification decided). Then Stage 1 re-entry for F-001..F-006 on a new correction branch with analysis/stages/stage-01/stage-02-pass-004-dispositions.md, correction PR, and a fresh blind Stage 2 pass 005. Stage 3 access and isolation need a separate owner agreement.'
+  next_action: 'Stage 1 re-entry corrections BA-001-06 verified by PM (analysis/stages/stage-01/stage-02-pass-004-dispositions.md: F-001..F-006 accepted, F-003/F-005 extended; CHK-009 scan 0 hits in new material). Owner merges the correction PR; then PM records stage-01 -> stage-02 and launches a new fresh blind Stage 2 pass 005. Stage 3 access and isolation need a separate owner agreement.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 re-entry after stage-02 pass 004; reviewer found CHK-003 (F-002, F-003) and CHK-004 (F-001) failing; proposals P-1 (tag-added link parameters), P-2 (mechanical list of unauthenticated surfaces), P-3/P-4 (refine CHK-003: effective configuration consumers, rendering side effects) pending admission until the Stage 1 author confirms the underlying findings.'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 004: author confirmed the errors behind all four reviewer proposals; PM admitted CHK-010 (framework-added link parameters) and CHK-011 (mechanical list of unauthenticated surfaces) and refined CHK-003 with setting consumers and rendering-path side effects (P-3, P-4) after deduplication; BA-001-06 applied CHK-001 (0 failures) and CHK-009 (0 credential hits).'
 
 constitution:
   status: ratified
@@ -273,9 +273,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 2 pass 004 returned findings (F-001 medium, F-002..F-006 low; 405 checks, 0 blocked; all 22 earlier findings resolved); process returned to Stage 1; Stage 1 records have 208 rows.'
+  summary: 'Stage 1 corrected after Stage 2 pass 004 findings: 210 scenario rows in 18 epics (Yes 113, Inferred 77, Partial 19, No 1), all static-only and open; awaiting new independent Stage 2 pass 005.'
   completed_percent: 0
-  updated_at: '2026-09-24T16:12:22Z'
+  updated_at: '2026-09-24T18:55:17Z'
   agent_reviews:
     total: 4
     valid: 4
