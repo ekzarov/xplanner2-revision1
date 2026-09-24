@@ -1,0 +1,4885 @@
+{
+ "packet_id": "S02-P002",
+ "task_id": "BA-002-02",
+ "stage": "stage-02",
+ "pass": 2,
+ "phase": "A (blind source inventory)",
+ "reviewer": "BA independent reviewer (subagent aed5642d8baeb3e36 of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)",
+ "reviewer_id": "claude-opus-5-5-ba-reviewer-p002",
+ "session_id": "aed5642d8baeb3e36",
+ "immutable_revision": "ab29a84819f2c7f0753f006a168cfff96d36b7d5",
+ "legacy_git_tree": "3bd350fa5559ce56d2ea6f5136a62197754d4dca (from routing extract; not recomputed)",
+ "legacy_war_sha256": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+ "allowed_inputs": [
+  "phase-a sparse worktree at the immutable revision (instructions + legacy/)",
+  "analysis/reviews/evidence/S02-P002/packet.json",
+  "analysis/reviews/evidence/S02-P002/routing-extract.json"
+ ],
+ "withheld_not_opened": [
+  "analysis/legacy_reconnaissance.md",
+  "analysis/legacy_user_flows.xlsx",
+  "analysis/error-prevention-checklist.md",
+  "analysis/migration_status.yaml",
+  "analysis/stages/stage-01/",
+  "analysis/reviews/stage-02-pass-001.md",
+  "analysis/reviews/evidence/S02-P001/",
+  "analysis/maintenance/",
+  ".migration-tmp/stage-01/",
+  ".migration-tmp/stage-02/",
+  "PM scripts",
+  "git history"
+ ],
+ "method": "WAR extracted with Windows tar into reviewer scratch; descriptors/JSPs read directly; classes parsed with own read-only Node class-file parser (classdump.js) and bytecode disassembler (disasm.js); Struts actions and JSP facts enumerated mechanically (struts-enum.js, jsp-enum.js) with regex self-check against grep counts; negative searches paired with positive controls. Evidence cites shipped-file line numbers or class/method symbols (never derived line numbers).",
+ "confidence_vocabulary": {
+  "confirmed-static": "read directly from shipped descriptor/markup/config or class metadata",
+  "inferred": "derived from bytecode references/wiring; runtime not observed",
+  "excluded": "outside behaviour evidence by authority"
+ },
+ "item_count": 129,
+ "counts_by_category": {
+  "baseline": 8,
+  "dependency": 5,
+  "data": 9,
+  "channel": 8,
+  "security": 14,
+  "entry-point": 6,
+  "error": 5,
+  "authorization": 6,
+  "scenario": 57,
+  "background": 6,
+  "integration": 5
+ },
+ "counts_by_confidence": {
+  "confirmed-static": 67,
+  "inferred": 61,
+  "excluded": 1
+ },
+ "coverage": "All shipped descriptors (web.xml, 3 Struts configs, 2 action bean files, 3 security XMLs, tiles x2, wsdd, sun-jaxws, container descriptors), all Spring XMLs, loaded property files, Liquibase changelog, all 74 JSP/tag/html view files (condensed or grep reads), all 594 classes (metadata; selected methods disassembled), jar list. Not exhaustively read: individual message-bundle texts, non-loaded mappings/*.xml, JS libraries, CSS, images, third-party jar internals.",
+ "unresolved_source_access": "No JDK/javap: logic read from own disassembler only for selected methods; runtime-only behaviour (rendering, e-mail delivery, charts, Axis dispatch, authorization effects) unverified.",
+ "items": [
+  {
+   "id": "A-001",
+   "category": "baseline",
+   "item": "Legacy package identity: XPlanner+ WAR v1.1a4, build revision 426, build date 04/12/2011; Maven artifact net.sf:xplanner-plus:1.1",
+   "conditions_outcome": "Single deployable WAR, 1090 entries / 964 files (594 .class, 102 jars, 73 .jsp). Version shown in footer (footer.jsp 19-25).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 155-157",
+    "legacy/xplanner-plus.war!/META-INF/maven/net.sf/xplanner-plus/pom.properties",
+    "tar -tf legacy/xplanner-plus.war (entry counts)",
+    "sha256(legacy/xplanner-plus.war)=46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "A1: WAR only; no Java source. Class behaviour read from bytecode metadata and own disassembly."
+  },
+  {
+   "id": "A-002",
+   "category": "baseline",
+   "item": "Known MySQL configuration patch present in BOTH property files (not only xplanner-custom.properties)",
+   "conditions_outcome": "Effective DB: dialect XPlannerMySQLDialect, driver com.mysql.jdbc.Driver, url jdbc:mysql://db/xplanner, user/password xplanner/xplanner. Custom file overrides base; both carry the same values.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner-custom.properties lines 18-24",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 9-17",
+    "legacy/README.md (states only xplanner-custom.properties patched)",
+    "legacy/docker-compose.yml comment (states WEB-INF/classes/xplanner.properties)"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Which file was changed by the earlier experiment cannot be proven from bytes (entry timestamps unchanged). Packaging docs disagree."
+  },
+  {
+   "id": "A-003",
+   "category": "baseline",
+   "item": "Further non-upstream-looking change in spring-beans.xml: dataSource defaultAutoCommit=false with a comment about MySQL pooled connections and the login module changePassword",
+   "conditions_outcome": "Pool-wide autocommit disabled; comment explains commit/rollback failure in changePassword under MySQL.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 60-69"
+   ],
+   "confidence": "inferred",
+   "limits": "Provenance (upstream vs local experiment) unknown; README patch description does not mention it. Treat as part of the fixed baseline, flag for owner/Stage 1 description."
+  },
+  {
+   "id": "A-004",
+   "category": "baseline",
+   "item": "Property loading order: xplanner.properties, then override file named by system property xplanner.overrides (default xplanner-custom.properties)",
+   "conditions_outcome": "Seven other xplanner-custom-*.properties variants are shipped but not loaded (apdbuild3, apdbuild6, before-standalone-install-backup, production, standalone-install, template, war-install).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/XPlannerProperties$PropertyInitializer.class :: string constants \"xplanner.properties\",\"xplanner.overrides\",\"xplanner-custom.properties\"",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner-custom-*.properties (listing)"
+   ],
+   "confidence": "inferred",
+   "limits": "Load order inferred from constants; not disassembled in full."
+  },
+  {
+   "id": "A-005",
+   "category": "baseline",
+   "item": "Shipped runtime residue: xplanner-plus-activity.log (216 lines, activity of 12/03 2011) at web-app root",
+   "conditions_outcome": "Served as a static file under the context root (no filter covers it). Contains timestamps, IP 127.0.0.1, action names.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/xplanner-plus-activity.log",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/log4j-war.xml ACTIVITY_FILE appender"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Not behaviour; packaging artefact."
+  },
+  {
+   "id": "A-006",
+   "category": "baseline",
+   "item": "Local run helpers (packaging context only, not behaviour evidence): docker-compose MySQL 5.7 + Tomcat 9/JRE 8, WAR mounted as xplanner-legacy.war, CATALINA_OPTS -Xverify:none; README default login sysadmin/admin at /xplanner-plus",
+   "conditions_outcome": "Context path per compose = /xplanner-legacy; README says /xplanner-plus.",
+   "evidence": [
+    "legacy/docker-compose.yml lines 1-55",
+    "legacy/README.md"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Per PM Q2: packaging/run context only."
+  },
+  {
+   "id": "A-007",
+   "category": "baseline",
+   "item": "legacy/demo-seed.sql is a demo fixture (wipes projects and inserts an \"Acme Web Store\" demo project for user alex); excluded as behaviour evidence",
+   "conditions_outcome": "Classified only; not used for behaviour.",
+   "evidence": [
+    "legacy/demo-seed.sql header lines 1-25 (minimal look)",
+    "routing-extract.json authorized_scope"
+   ],
+   "confidence": "excluded",
+   "limits": "Exclusion authority: routing extract authorized_scope."
+  },
+  {
+   "id": "A-008",
+   "category": "baseline",
+   "item": "Context-path inconsistencies across descriptors and hard-coded links",
+   "conditions_outcome": "META-INF/context.xml path=/xplanner-plus; geronimo-web.xml /xplanner; sun-web.xml /xplanner-plus; compose deploys /xplanner-legacy; xplanner.application.url overridden to http://localhost:8080/xplanner (base: /xplanner-plus). WAP pages and formattingHelpLink.jsp hard-code /xplanner/...; header \"Me\" link and emails use xplanner.application.url.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/META-INF/context.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/geronimo-web.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/sun-web.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner-custom.properties line 30",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties line 138",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/formattingHelpLink.jsp line 1",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/wap/projects.jsp",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/baseHeader.jsp line 17",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/context/ContextLoaderListener.class :: strings appUrl, xplanner.application.url"
+   ],
+   "confidence": "inferred",
+   "limits": "Whether links break depends on deployed context path (runtime)."
+  },
+  {
+   "id": "A-009",
+   "category": "dependency",
+   "item": "Application stack: Struts 1.2.9 + Tiles, Spring 3.0.5 (context, MVC, ORM, struts integration, task), Hibernate 3.6.5 annotations + EhCache 1.2.3, Liquibase 2.0.1, Jersey 1.1.5 + Jackson 1.7.4, Axis 1.4, Quartz 1.5.2, Velocity 1.5, JavaMail 1.4.3, displaytag 1.0, Cewolf 1.0/JFreeChart 1.0.11, iText 1.01, JasperReports 1.0.2, MPXJ 3.0.1, POI 3.5, Radeox (wiki), jcifs 1.0.1 (NTLM), commons-dbcp 1.2.2, mysql-connector 5.1.13, hsqldb 2.2.4, Jetty 5.1.10",
+   "conditions_outcome": "Exhaustive jar list in breakdowns.jars (102).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/lib/ (listing)"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Versions from jar file names."
+  },
+  {
+   "id": "A-010",
+   "category": "dependency",
+   "item": "Client-side libraries: jQuery 1.5.1, jQuery UI 1.8.11, jquery.jqote2, dojo (cross-domain build, used by iterationStatistics.jsp), overlib, tooltip.js, calendar widget, swfobject; Dashboard.swf/expressInstall.swf present but unreferenced",
+   "conditions_outcome": "Flash assets have no JSP/JS reference (grep; control tooltip.js found).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/js/",
+    "legacy/xplanner-plus.war!/calendar/",
+    "legacy/xplanner-plus.war!/flash/",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iterationStatistics.jsp line 20"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-011",
+   "category": "dependency",
+   "item": "Servlet 2.4 web application (javax.* namespace), distributable, display-name XPlanner+",
+   "conditions_outcome": "Requires a javax.servlet container.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 1-14"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-012",
+   "category": "dependency",
+   "item": "Persistence: DBCP BasicDataSource from hibernate.connection.* properties; AnnotationSessionFactoryBean scanning net.sf.xplanner.domain + mappings/Metrics.xml only; Hibernate 2nd-level and query cache enabled (EhCache)",
+   "conditions_outcome": "Other mappings/*.xml files (16) are shipped but not loaded.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 60-81",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 57-58, 202-203",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/mappings/"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-013",
+   "category": "dependency",
+   "item": "Transactions: HibernateTransactionManager, @Transactional annotation-driven, CheckedExceptionHandlingTransactionTemplate; OpenSessionInView and HibernateSessionFilter on /*",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 85-93",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-dao.xml line 15",
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 59-67, 140-152"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-014",
+   "category": "data",
+   "item": "Schema created/migrated and seeded at application startup by Liquibase (SpringLiquibase, changelog db-changelog.xml, contexts \"test, production\"); sessionFactory depends-on liquibase",
+   "conditions_outcome": "Changesets 1-1 (19 tables, precondition: attribute table absent), 1-2 (keys/indexes/FKs), 1-3 (seed), 2-1 (object_type, setting), 2-2 (object types), 2-3 (last_update on xdir/xfile), 2-4 (project.backlog_id), 2-5 (rename role->roles). Normal startup mutates the database.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 71-81",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/db-changelog.xml changesets 1-1..2-5"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-015",
+   "category": "data",
+   "item": "Seeded roles as nested set: viewer(1-8) > editor(2-7) > admin(3-6) > sysadmin(4-5)",
+   "conditions_outcome": "Role hierarchy used by authorization (role/lft/rgt).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/db-changelog.xml lines 363-386"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Direction of permission inheritance inferred (see authorization items)."
+  },
+  {
+   "id": "A-016",
+   "category": "data",
+   "item": "Seeded permissions: sysadmin %/%; editor create.project, create.person, create%, edit%, integrate%, delete%, delete on system.project.iteration; admin create.project, admin%/%; viewer read%/%",
+   "conditions_outcome": "All with resource_id 0 (any resource).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/db-changelog.xml lines 275-361"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-017",
+   "category": "data",
+   "item": "Seeded system user: person id 1 userId sysadmin, name sysadmin, initials SYS, email no@reply.com, password hash 1tGWp1Bdm02Sw4bD7/o0N2ao405Tf8kjxGBW/A==, role sysadmin on project 0; patch level 14; identifier nextId 19",
+   "conditions_outcome": "README states default login sysadmin/admin (hash not verified).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/db-changelog.xml lines 387-411",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/install/BootstrapSystemUser.class :: same hash constant"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Plaintext password not derivable statically."
+  },
+  {
+   "id": "A-018",
+   "category": "data",
+   "item": "Seeded object types (User, Project, Iteration, UserStory, Task, Note, Setting) for the Settings feature",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/db-changelog.xml changeset 2-2 lines 437-480"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-019",
+   "category": "data",
+   "item": "Domain/persistence model: 21 JPA entities mapped to 21 tables (breakdowns.entities), identifier table for id allocation, attribute table for per-object key/value attributes",
+   "conditions_outcome": "Main aggregates: Project -> Iteration -> UserStory -> Task -> TimeEntry; Person, PersonRole, Role, Permission; Note -> File (xfile) in Directory (xdir); History; DataSample; Integration; NotificationReceivers; Setting/ObjectType; Patches.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/domain/ @Entity/@Table annotations",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/db-changelog.xml createTable"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-020",
+   "category": "data",
+   "item": "Cascade rules: Project->iterations ALL; Iteration->userStories REMOVE; UserStory->tasks REMOVE; Task->timeEntries REMOVE (ordered by reportDate); Project.backlog REMOVE; Project notification receivers many-to-many",
+   "conditions_outcome": "Deleting a parent removes children.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/domain/Project.class :: getIterations/getBacklog annotations",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/domain/Iteration.class :: getUserStories",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/domain/UserStory.class :: getTasks",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/domain/Task.class :: getTimeEntries"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-021",
+   "category": "data",
+   "item": "Legacy tacitknowledge autopatch migrations (StandaloneMigrationLauncher, HsqlAwareStandaloneMigrationLauncher, BootstrapSystemUser) are standalone/main-based and not wired into web startup",
+   "conditions_outcome": "Inactive in the web runtime; Liquibase is the active mechanism.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/tacitknowledge/util/migration/jdbc/StandaloneMigrationLauncher.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/install/BootstrapSystemUser.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 16-17"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-022",
+   "category": "data",
+   "item": "HsqldbServerContextListener registered but only starts an in-process HSQLDB when xplanner.migration.databasetype=hsqldb (effective value mysql)",
+   "conditions_outcome": "Inactive with shipped configuration.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 190-192",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/filters/HsqldbServerContextListener.class :: constants",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties line 16"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-023",
+   "category": "channel",
+   "item": "Web UI channel: Struts ActionServlet (net.sf.xplanner.struts.XPlannerActionServlet) on /do/*, configs struts-config.xml + mobile-struts-config.xml + test-struts-config.xml (single default module), Spring DelegatingTilesRequestProcessor resolving action beans from action-servlet.xml, spring-beans.xml, test-action-servlet.xml",
+   "conditions_outcome": "87 action mappings (74 main, 7 mobile, 6 test); every mapping enumerated in breakdowns.strutsActions with handler, form, forwards and target existence.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 227-249, 283-286",
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 152-441",
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/test-action-servlet.xml"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-024",
+   "category": "channel",
+   "item": "Mobile WAP/WML channel /do/mobile/*: login, projects, project, iteration, story, task, person (read-only WML cards)",
+   "conditions_outcome": "Separate MobileSecurityFilter (bypass /do/mobile/login, /do/mobile/notAuthorized) but WebSecurityFilter is also mapped to /do/* and runs after it without those bypasses, so an unauthenticated /do/mobile/login is redirected to /do/login. Mobile view actions use DispatchForward instantiated by Struts type (not Spring): authorizationRequired=true and authorizer not injected; WML links pass no projectId -> forward security/notAuthorized (JSP missing). WML links hard-code /xplanner context.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/mobile-struts-config.xml lines 20-49",
+    "legacy/xplanner-plus.war!/WEB-INF/mobile-security.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/security.xml lines 2-6",
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 98-109, 155-163",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/DispatchForward.class :: execute/isSecure/<init> (disassembled)",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/wap/*.jsp"
+   ],
+   "confidence": "inferred",
+   "limits": "Channel appears non-functional as shipped; must be confirmed live (Stage 3)."
+  },
+  {
+   "id": "A-025",
+   "category": "channel",
+   "item": "SOAP channel (Axis 1.4): AxisServlet on /soap/* and /servlet/AxisServlet; services XPlanner (com.technoetic.xplanner.soap.XPlanner, allowedMethods *) and Version; bean mappings for Project/Iteration/UserStory/Task/Feature/TimeEntry/Note/Person data (namespace http://xplanner.org/soap)",
+   "conditions_outcome": "Operations: get/add/remove/update for projects, iterations, user stories, tasks, time entries, notes, people; getCurrentIteration, getCurrentTasksForPerson, getPlannedTasksForPerson, getNotesForObject, attribute get/set/delete (with prefix). Methods call hasPermission/selectAccessibleObjects.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/server-config.wsdd lines 25-51",
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 206-209, 298-306",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/soap/XPlanner.class :: public methods",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/soap/deploy.xml"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Operation semantics/authorization not disassembled per method."
+  },
+  {
+   "id": "A-026",
+   "category": "security",
+   "item": "SOAP authentication: BasicSecurityFilter (Basic realm=\"XPlanner\", 401 challenge) mapped to /soap/* only; /servlet/AxisServlet mapping is not covered by any security filter; soap-security.xml constraints use role \"*\"; wsdd adminPassword=admin; JWS handlers in request flow",
+   "conditions_outcome": "Alternate unauthenticated SOAP path may exist; exploitability unknown.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 111-119, 168-176, 298-306",
+    "legacy/xplanner-plus.war!/WEB-INF/soap-security.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/server-config.wsdd lines 3-19",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/filter/BasicSecurityFilter.class :: strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Axis dispatch on /servlet/AxisServlet without path info not verified."
+  },
+  {
+   "id": "A-027",
+   "category": "channel",
+   "item": "iCalendar feed: iCalServlet on /ical/* behind Basic auth; request must name a *.ics file; allowed for own calendar or with system.person admin.edit; emits VCALENDAR 1.0 (PRODID -//Iris Advies//XPlanner//EN) of the person's incomplete tasks and time entries with links do/view/task?oid=; content-type application/x-msoutlook",
+   "conditions_outcome": "Errors: \"No iCal file requested.\", \"No .ics suffix for requested iCal file.\", \"No authorization for accessing calendar for ...\".",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 251-254, 173-176, 308-311",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/ical/iCalServlet.class :: doGet, generateTaskData, generateTimeEntryData, strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-028",
+   "category": "channel",
+   "item": "REST channel (Jersey SpringServlet, JSON POJO mapping) on /rest/*: GET /rest/view (text \"Hi there!\"), GET /rest/view/project/{projectId} (xml/json ProjectView), GET /rest/view/iteration/{iterationId}/userstories (UserStoryView[]), POST /rest/update/task/{taskId}/status (form status, originalEstimate)",
+   "conditions_outcome": "Update outcomes: \"Task not found\", \"Task status not changed\", \"Moving Task to not started not implemented\", \"Task updated\" (Result{error,code,decription}). Consumer: dashboard.jsp GET only.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 256-263, 288-291",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/rest/ViewService.class :: @Path annotations",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/rest/UpdateService.class :: @Path/@POST",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/rest/UpdateManager.class :: updateTaskStatus strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml line 50",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-dao.xml lines 37-43"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-029",
+   "category": "security",
+   "item": "REST endpoints have no authentication filter: no security filter mapping covers /rest/* (only ServletRequestFilter, OpenSessionInView, HibernateSessionFilter on /*)",
+   "conditions_outcome": "Unauthenticated read of project/iteration data and unauthenticated task status/estimate update appear possible.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 130-181 (all filter mappings)"
+   ],
+   "confidence": "inferred",
+   "limits": "Must be confirmed live."
+  },
+  {
+   "id": "A-030",
+   "category": "channel",
+   "item": "Spring MVC channel (DispatcherServlet, spring-web.xml, component-scan net.sf.xplanner.web) on /setting/*: /setting/me/status/{id} (MePage -> view/meStatus.jsp), /setting/{objectType}/list and /setting/{objectType}/edit/{objectId} (CommonObjectHandler, returns view names, prints to System.out)",
+   "conditions_outcome": "Protected by WebSecurityFilter (/setting/*). CommonObjectHandler targets have no matching JSP evidence.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 264-272, 313-316, 164-167",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-web.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/web/MePage.class :: @RequestMapping",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/web/CommonObjectHandler.class :: @RequestMapping"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Behaviour of the generic handler at runtime unknown."
+  },
+  {
+   "id": "A-031",
+   "category": "channel",
+   "item": "Chart rendering servlet: Cewolf CewolfRenderer on /cewolf/* (load-on-startup, overlib URL), no security filter",
+   "conditions_outcome": "Renders charts produced by JSP chart tags.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 211-225, 293-296"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-032",
+   "category": "channel",
+   "item": "Inactive/dead channel configuration: JAX-WS endpoint in sun-jaxws.xml (net.sf.xplanner.soap.XPlanner - class absent; WSServlet and listener commented out); XFire Spring config commented out; DWR remoting class net.sf.xplanner.dwr.Project without any DWR servlet",
+   "conditions_outcome": "Not reachable as shipped.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/sun-jaxws.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 34-37, 183-185, 273-282",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/dwr/Project.class"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-033",
+   "category": "entry-point",
+   "item": "Welcome page index.jsp: queries non-hidden projects; 0 or >1 -> redirect /do/view/projects; exactly 1 -> redirect to its current iteration (/do/view/iteration?oid=) or /do/view/projects if none",
+   "conditions_outcome": "index.jsp is not under any security filter mapping (security.xml lists it but WebSecurityFilter maps only /do/* and /setting/*).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/index.jsp lines 7-31",
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 321-323"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-034",
+   "category": "entry-point",
+   "item": "Static public resources without authentication: import templates files/peopleImportTemplate.xls and storiesImportTemplate.xls, css, js, images, calendar, flash",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/files/",
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml filter mappings"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-035",
+   "category": "entry-point",
+   "item": "Web container settings: session timeout 30 minutes; UTF-8 request encoding filter on /do/*; container error pages for JspException, ServletException and Throwable -> /WEB-INF/jsp/common/unexpectedError.jsp",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 16-29, 121-128, 178-181, 318-320"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-036",
+   "category": "entry-point",
+   "item": "Filter chain inventory: ActivityLogFilter(/do/*), ServletRequestFilter(/*), OpenSessionInViewFilter(/*, REQUEST+ERROR), HibernateSessionFilter(/*, REQUEST+ERROR), MobileSecurityFilter(/do/mobile/*), WebSecurityFilter(/do/*, /setting/*), BasicSecurityFilter(/soap/*, /ical/*), RequestCharacterEncodingFilter(/do/*); NullSecurityFilter (auto-login as sysadmin) is commented out",
+   "conditions_outcome": "Exhaustive list in breakdowns.webXml.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 54-181"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-037",
+   "category": "entry-point",
+   "item": "Listener inventory: Log4jConfigListener, HsqldbServerContextListener, Spring ContextLoaderListener (spring-beans.xml), RequestContextListener, net.sf.xplanner ContextLoaderListener (publishes iterationTypes and appUrl)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 186-204",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/context/ContextLoaderListener.class :: strings"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-038",
+   "category": "security",
+   "item": "Form login /do/login (AuthenticationAction): fields userId, password, remember (checkbox checked by default, value Y), submit \"action\"; empty action shows login page; success -> saved GET URL if any else redirect /do/view/projects; failure -> message login.failed plus per-login-module messages; optional login.instructions.url help link (empty in shipped config)",
+   "conditions_outcome": "Login page hides navigation.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 164-167",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/security/login.jsp lines 16-59",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/AuthenticationAction.class :: execute (disassembled)",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties line 311"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-039",
+   "category": "security",
+   "item": "Authentication gate (FormSecurityFilter): all /do/* and /setting/* requests except bypass /do/login, /do/notAuthorized, /do/invalidateHibernateCache require a subject in session or a valid credential cookie; otherwise the cookie is removed, GET URL saved, and the browser redirected to /do/login",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/security.xml lines 2-6",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/config/SecurityConfiguration.class :: isSecureRequest (disassembled)",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/filter/AbstractSecurityFilter.class :: doFilter",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/filter/FormSecurityFilter.class :: isAuthenticated/onAuthenticationFailure"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-040",
+   "category": "security",
+   "item": "URL role constraints in security.xml/mobile-security.xml/soap-security.xml are not enforced by the filters (only the bypass list matters); SecurityConfiguration.isAuthorized has no caller outside its class; constraints mostly use role \"*\"",
+   "conditions_outcome": "Authentication-only gate.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/config/SecurityConfiguration.class :: isAuthorized; ref search",
+    "legacy/xplanner-plus.war!/WEB-INF/security.xml lines 9-39"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-041",
+   "category": "security",
+   "item": "Remember-me: cookies \"userid\" and \"password\"; password cookie holds Base64 of the plaintext password; used for silent re-authentication by FormSecurityFilter",
+   "conditions_outcome": "Reversible credential stored client-side.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/CredentialCookie.class :: set (disassembled), constants",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/AuthenticationAction.class :: remember=Y branch"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-042",
+   "category": "security",
+   "item": "Login modules: only XPlannerLoginModule configured (xplanner.security.login[0], userIdCaseSensitive=true); MD5+salt digest; messages authenticationFailed, passwordNotSet, userNotFound, storageError, serverConfigurationError; supports password change",
+   "conditions_outcome": "JNDI/LDAP (com.sabre JNDIAuthenticatorImpl), NTLM (jcifs, default domain constant \"YANDEX\") and JAAS adapter are wired as Spring prototypes but their property blocks are commented out -> inactive.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 162-190",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-security.xml lines 12-44",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/module/XPlannerLoginModule.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/module/LoginModuleLoader.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/module/ntlm/NtlmLoginModule.class"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-043",
+   "category": "security",
+   "item": "Logout /do/logout: authenticator.logout (invalidates cached permissions of the principal) then forward security/login (/do/login)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml line 16",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/LogoutAction.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-caching.xml lines 34-54"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-044",
+   "category": "security",
+   "item": "Unauthenticated administrative action: /do/invalidateHibernateCache (in security bypass) evicts Hibernate query cache",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/security.xml line 5",
+    "legacy/xplanner-plus.war!/WEB-INF/test-struts-config.xml line 23",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/admin/InvalidateHibernateCacheAction.class :: SessionFactory.evictQueries"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-045",
+   "category": "error",
+   "item": "Not-authorized handling broken: /do/notAuthorized and global forward security/notAuthorized point to /WEB-INF/jsp/security/notAuthorized.jsp which is not in the WAR; DispatchForward and ImportPeopleAction use this forward",
+   "conditions_outcome": "Denied access likely ends in a container error instead of a message.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 139, 169",
+    "breakdowns.globalForwards (MISSING)"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-046",
+   "category": "authorization",
+   "item": "Permission model: permission rows (principal = role or person, name pattern with %, resource_type hierarchy system.project > .iteration > .story > .task > .time_entry, plus system.project.integration, system.person, system.note, system.setting; resource_id; positive/negative), person_role per project (project_id 0 = all projects), roles nested set; AuthorizerImpl matching; results cached (MethodCacheInterceptor) and invalidated on logout and on modifyRoles",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/auth/AuthorizerImpl.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/auth/AuthorizerQueryHelper.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/security/auth/PrincipalSpecificPermissionHelper.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-caching.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-security.xml lines 49-76"
+   ],
+   "confidence": "inferred",
+   "limits": "Exact matching/inheritance semantics not fully disassembled."
+  },
+  {
+   "id": "A-047",
+   "category": "authorization",
+   "item": "Role capability matrix (derived from seed + actionbuttons properties): viewer = read; editor = read + create/edit/delete/integrate on project content, create project and person; admin = editor + admin.* (project edit admin.edit, role editing admin.edit.role, admin.hide); sysadmin = all (%), including project delete (sysadmin.delete), sysadmin.promote, hide",
+   "conditions_outcome": "Assumes lower-role permissions are inherited upward through the nested set.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/db-changelog.xml lines 275-386",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 261-266",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/domain/DomainMetaDataRepository.class :: init"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-048",
+   "category": "authorization",
+   "item": "UI action buttons per domain type with required permission: project edit (admin.edit), delete (sysadmin.delete, confirm); iteration edit, delete (confirm), createStory, start (only when not active), close (only when active), importStories - all edit/delete; story edit, delete (confirm), move/continue; task edit, delete (confirm), move/continue, edit time; person edit",
+   "conditions_outcome": "Rendered through xplanner:actionButtons + isUserAuthorized.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/domain/DomainMetaDataRepository.class :: init (disassembled)",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/domain/DomainMetaDataRepository$1.class :: isVisible",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/domain/DomainMetaDataRepository$2.class :: isVisible"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-049",
+   "category": "security",
+   "item": "Server-side authorization gap (inferred): ViewObjectAction loads any object by oid without a permission check; EditObjectAction/DeleteObjectAction and most edit actions use CommonDao directly with no Authorizer reference; only DispatchForward (project read), EditPersonHelper/EditRoleAction (admin.edit.role, sysadmin), ImportPeopleAction, iCal, SOAP and search result predicates consult the authorizer; secure repositories (RepositorySecurityAdapter) are used only by email/metrics helpers",
+   "conditions_outcome": "Hiding buttons may be the only barrier for direct URL access by lower roles.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/ViewObjectAction.class :: isSecure/doExecute (disassembled)",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/DeleteObjectAction.class :: member refs",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditObjectAction.class :: member refs",
+    "classes.json ref search Authorizer.hasPermission"
+   ],
+   "confidence": "inferred",
+   "limits": "High-impact; needs live role-based check (Stage 3)."
+  },
+  {
+   "id": "A-050",
+   "category": "authorization",
+   "item": "DispatchForward views with default authorizationRequired=true require projectId and project read permission (e.g. /do/view/integrations); views configured authorizationRequired=false skip it (view/projects, view/people, view/twikiformat, view/settings, view/dashboard, notAuthorized); \"@secure\" forward can override",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/DispatchForward.class :: execute (disassembled)",
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml lines 12-31, 327-331, 390, 412-418"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-051",
+   "category": "authorization",
+   "item": "Project list visibility: projects filtered by \"read\" permission for the current user; hidden column shown only with \"hide\" permission",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/projects.jsp lines 32-48, 137-142"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-052",
+   "category": "authorization",
+   "item": "Note edit/delete allowed to the note author or users with note edit permission (allowedUser); \"add note\" shown when user has edit on note for the project",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/notes.jsp lines 19-62"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-053",
+   "category": "security",
+   "item": "Test/support actions loaded in production and reachable by any authenticated user: /do/edit/dataSample (run data sampling), /do/edit/missingTimeEntryNotification (send reminder emails now), /do/edit/putTheClockForward?dayOffset (shift application clock), /do/edit/properties?propertyName&propertyValue (override runtime configuration properties), /do/invalidateCache (clear permission cache), /do/admin/reload-tiles, /do/systemInfo",
+   "conditions_outcome": "No UI links; URL-only.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/test-struts-config.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/test-action-servlet.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml line 233",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditPropertiesAction.class :: execute (disassembled)",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/PutTheClockForwardAction.class"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-054",
+   "category": "security",
+   "item": "JSPs query the database directly through the custom db taglib (db:useBean / db:useBeans with HQL where/order clauses); some where clauses concatenate request parameters (task.jsp \"task.id = \" + request.getParameter(\"oid\"); notes.jsp \"attachedToId=\" + oid) - possible HQL injection; db:useBean loads any object by oid",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/task.jsp lines 101-103",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/notes.jsp lines 13-15",
+    "legacy/xplanner-plus.war!/WEB-INF/xplanner-db.tld",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/tags/db/"
+   ],
+   "confidence": "inferred",
+   "limits": "Injection exploitability not verified."
+  },
+  {
+   "id": "A-055",
+   "category": "entry-point",
+   "item": "Custom tag libraries and layouts: xplanner.tld (content, links, action buttons, authorization tags, progress bars, twiki, person/iteration/story options, navigation), xplanner-db.tld, xplannerplus-functions.tld, displaytag-12, cewolf-1.1, Struts tlds, breadcrumb.tag; Tiles layouts tiles:default, tiles:view, tiles:print, tiles:edit, viewLayout (tiles-pages.xml)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/*.tld",
+    "legacy/xplanner-plus.war!/WEB-INF/tags/breadcrumb.tag",
+    "legacy/xplanner-plus.war!/WEB-INF/tiles-definitions.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/tiles-pages.xml"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-056",
+   "category": "security",
+   "item": "Information disclosure on error: unexpectedError.jsp shows exception message, full stack trace, build/database/app-server/memory/system-property details and request data; /do/systemInfo (linked from footer) shows the same system information",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/unexpectedError.jsp lines 18-116",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/footer.jsp line 38",
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 160-162"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-057",
+   "category": "security",
+   "item": "Activity log written into the web-app root (${xplanner-plus.root}/xplanner-plus-activity.log) where static files are served without authentication; log lines contain user id, remote address, action and query string",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/log4j-war.xml ACTIVITY_FILE",
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 41-52",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/filters/ActivityLogFilterHelper.class :: LOG_LINE_PATTERN"
+   ],
+   "confidence": "inferred",
+   "limits": "Depends on WAR expansion and container static serving."
+  },
+  {
+   "id": "A-058",
+   "category": "scenario",
+   "item": "Projects list /do/view/projects: table with action buttons (edit/delete by permission), ID, name, current iteration link, hidden flag (if hide permission), sortable; \"Add project\" link (system.project create.project); global links People and Aggregate timesheet; message projects.none when empty",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/projects.jsp lines 32-167",
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml lines 29-31"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-059",
+   "category": "scenario",
+   "item": "View project /do/view/project?oid: twiki description; iterations table (actions, id, name, start/end dates, days worked, story count; default sort descending, page size 10); project actions; \"create iteration\" (system.project.iteration create); People (system.person read); export links; history; notes; message iterations.none",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/project.jsp lines 18-112"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-060",
+   "category": "scenario",
+   "item": "Create/edit project /do/edit/project: name, description (twiki help), hidden (hide permission), optEscapeBrackets, sendemail (missing-time-entry reminders to acceptors), wiki URL; create or update",
+   "conditions_outcome": "Project-specific options stored as attributes (AttributeDao).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editProject.jsp lines 42-110",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditProjectAction.class :: member refs/strings"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-061",
+   "category": "scenario",
+   "item": "Time-entry notification receivers on the project edit page (existing project only): add person, remove person via /do/edit/project/notification",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editProject.jsp lines 115-159",
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 368-372",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/UpdateTimeNotificationReceivers.class"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-062",
+   "category": "scenario",
+   "item": "Delete project /do/delete/project?oid (JS confirmation action.delete.confirmation; sysadmin.delete); cascades to iterations; delete event published; returns to returnto or projects",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/DeleteObjectAction.class :: member refs",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/domain/DomainMetaDataRepository.class :: init"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-063",
+   "category": "scenario",
+   "item": "Project export: /do/export/project/xml (text/xml export.xml), /mpx (application/mpx export.mpx), /mspdi (application/mspdi export.xml), offered through the export pop-up built from xplanner.export.formats",
+   "conditions_outcome": "XML export excludes password field (constant list).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml lines 45-70",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/exportLinks.jsp lines 16-40",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/export/XmlExporter.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/export/MpxExporter.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/export/MspdiExporter.class"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-064",
+   "category": "scenario",
+   "item": "View iteration /do/view/iteration?oid: header dates, progress bar, estimated/actual/remaining hours; stories table (select checkbox and editable order when edit permission, id, order, name, priority, customer, progress, actual (html progress impl), remaining, estimated, original estimate, task count, tracker, disposition, status) with row actions; message stories.none",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iteration.jsp lines 20-176",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/layout/iterationTileParams.jsp"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-065",
+   "category": "scenario",
+   "item": "Iteration global links: dashboard (only active iteration), export, all tasks, metrics, statistics (only when xplanner.statistics=on), accuracy, history",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iteration/globalLinks.jsp lines 14-45",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties line 197"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-066",
+   "category": "scenario",
+   "item": "Create/edit iteration /do/edit/iteration: name, status (display on edit), start/end date with calendar, days worked (edit only), description; new iteration created inactive for project fkey",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editIteration.jsp lines 27-104",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditIterationAction.class :: member refs"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-067",
+   "category": "scenario",
+   "item": "Delete iteration (confirm) cascading stories; iteration delete also granted explicitly to editor (system.project.iteration delete)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml lines 196-200",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/db-changelog.xml lines 355-361"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-068",
+   "category": "scenario",
+   "item": "Start iteration /do/start/iteration: confirmation page (OK/Cancel); if other iterations of the project are started, checkbox (default on) to close them; can be entered from time entry on a not-started iteration (message_1); generates opening data samples and history event \"started\"",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editIterationStatus.jsp lines 31-75",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/StartIterationAction.class :: member refs/strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-069",
+   "category": "scenario",
+   "item": "Close iteration /do/close/iteration: sets status inactive, closing data samples, history \"closed\", then redirects to continue-unfinished-stories",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 251-255",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/CloseIterationAction.class :: member refs/strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-070",
+   "category": "scenario",
+   "item": "Continue unfinished stories after close: choose a target future iteration of the same project; OK continues each incomplete story (continuation copy); Cancel; message no_future_iteration if none",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/continueUnfinishedStories.jsp lines 23-49",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/ContinueUnfinishedStoriesAction.class"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-071",
+   "category": "scenario",
+   "item": "Iteration all-tasks view /do/view/iteration/tasks: tasks grouped by story with order, acceptor, status icon (open/started/completed), original/current estimate, actual, remaining, disposition, type; legend (started, completed, unassigned, unestimated)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iterationTasks.jsp lines 42-173"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-072",
+   "category": "scenario",
+   "item": "Iteration metrics /do/view/iteration/metrics: total hours, average pairing %, per-developer total/paired/solo hours and paired bar; accepted hours per developer (story, task, own worked, remaining, worked-of-accepted bar)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iterationMetrics.jsp lines 24-177",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/metrics/IterationMetrics.class"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-073",
+   "category": "scenario",
+   "item": "Iteration statistics /do/view/iteration/statistics: 3D pie charts by task type and disposition (count, estimated hours, actual hours), velocity charts, burn-down chart from data samples; chart visibility properties (burndown/progress displayed, velocity notDisplayed, 800x400, include weekends)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iterationStatistics.jsp lines 24-293",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 66-73"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Server-side chart rendering needs a headless AWT environment (property comment lines 193-197)."
+  },
+  {
+   "id": "A-074",
+   "category": "scenario",
+   "item": "Iteration accuracy /do/view/iteration/accuracy: current status and summary hour tables (original, added, postponed, total, completed, remaining for story and task levels) and per-story accuracy bars (orig vs est, actual vs orig, actual vs est)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iterationAccuracy.jsp lines 27-186"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-075",
+   "category": "scenario",
+   "item": "Iteration dashboard /do/view/dashboard?iterationId: three-column task board (not started / in progress / done) filled from GET rest/view/iteration/${param.fkey}/userstories; drag-and-drop is client-side only (no update call found)",
+   "conditions_outcome": "The page uses param fkey while the link passes iterationId (possible empty data).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/dashboard.jsp lines 101-132",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iteration/globalLinks.jsp lines 14-18"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-076",
+   "category": "scenario",
+   "item": "Reorder stories: edit order numbers and \"save order\" (POST /do/edit/reorderstories iterationId, orderNo[], storyId[]) or submit on Enter; jQuery sortable in iteration.js",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iteration.jsp lines 33-88, 160-162",
+    "legacy/xplanner-plus.war!/js/iteration.js line 13",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/ReorderStoriesAction.class"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-077",
+   "category": "scenario",
+   "item": "Move multiple selected stories to another iteration (/do/move/userstories, target iteration select, Move); redirect to source iteration",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iteration.jsp lines 38-40",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/moveStories.jsp",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/MoveStoriesAction.class :: strings"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-078",
+   "category": "scenario",
+   "item": "Import stories from Excel /do/import/stories: worksheet name, column headers (title, end date, priority, estimate, status), only incomplete, completed status marker, file (required fields marked); defaults from properties (worksheet Features, completed status C); errors corrupted file, missing required field, wrong header, worksheet not found; success message with count; template download link",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/import/stories.jsp lines 23-105",
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 332-346",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 278-284",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/importer/SpreadsheetStoryImporter.class"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-079",
+   "category": "scenario",
+   "item": "Iteration export xml/mpx/mspdi/pdf/jrpdf; story export pdf/jrpdf; task export pdf/jrpdf; person export jrpdf",
+   "conditions_outcome": "jrpdf (JasperReports) exporters reference com/technoetic/xplanner/export/reports/JR*.jrxml which are absent from the WAR and jars -> jrpdf exports likely fail.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml lines 132-175, 238-254, 280-296, 333-340",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/export/PdfReportExporter.class :: strings",
+    "find *.jrxml (none; control found .vm)"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-080",
+   "category": "scenario",
+   "item": "View story /do/view/userstory?oid: progress bar, description, priority, estimated (task-based original), customer, actual, tracker + remaining (if tracker), last update, disposition, status; tasks table (actions, id, name, type, progress, acceptor, original estimate, estimate, actual, remaining, disposition); \"create task\" (edit permission); export; history; notes; message story.no_tasks",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/userstory.jsp lines 15-248"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-081",
+   "category": "scenario",
+   "item": "Create/edit story /do/edit/userstory: name, disposition (planned, carried over, added), customer, tracker, status (draft, defined, estimated, planned, implemented, verified, accepted), priority, order, estimated hours (editable only when no task-based estimate), description; new story disposition determined by iteration state; default priority property 4",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editStory.jsp lines 33-166",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditStoryAction.class :: member refs",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties line 150"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-082",
+   "category": "scenario",
+   "item": "Move / continue story /do/move/continue/userstory: target iteration select; Move relocates story (history moved/moved in/moved out); Continue (not offered for future iterations) creates a continuation in the target with unfinished work, notes and cross-links, history continued",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/moveContinueStory.jsp lines 20-52",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/MoveContinueStory.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/Continuer.class :: strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-083",
+   "category": "scenario",
+   "item": "Delete story (confirm) cascading tasks",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml lines 256-260"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-084",
+   "category": "scenario",
+   "item": "View task /do/view/task?oid: progress, description, acceptor, estimate (original), created date, actual; Complete / Reopen buttons (edit permission); time log table (start, end, report date, duration, pair people, description); actions; export; history; notes. Inline time-entry form is commented out.",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/task.jsp lines 18-303"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-085",
+   "category": "scenario",
+   "item": "Create/edit task /do/edit/task: name, type (feature, debt, defect, ftest, atest, overhead), disposition (planned, discovered, added, carried over), acceptor, estimated hours, description",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editTask.jsp lines 27-139"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-086",
+   "category": "scenario",
+   "item": "Task e-mail notification on create/update: Velocity templates email_notification_task_created/updated sent to the (new and previous) acceptor when the editor differs; subjects task.created.* / task.updated.*",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditTaskAction.class :: sendNotification (disassembled), strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/mail/velocity/*.vm"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-087",
+   "category": "scenario",
+   "item": "Complete / reopen task via POST /do/edit/task (complete | reopen) from task view",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/task.jsp lines 73-97"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-088",
+   "category": "scenario",
+   "item": "Move / continue task to another story (/do/move/continue/task, target story select; messages task.moved.from.to / moved out / moved in)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/moveContinueTask.jsp",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/MoveContinueTaskAction.class :: strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-089",
+   "category": "scenario",
+   "item": "Delete task (confirm) cascading time entries",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml lines 300-304"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-090",
+   "category": "scenario",
+   "item": "Edit time entries /do/edit/time?oid: grid of start time, end time, report date, duration, person1, optional pair person2, description (max length), delete checkbox; remaining hours on last row; \"insert current time\"; reset; time format hint; form kept in session; when the iteration is not started the user is sent through the start-iteration confirmation first",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editTimeEntries.jsp lines 56-209",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/UpdateTimeAction.class :: member refs/strings",
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 245-248, 350-355"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-091",
+   "category": "scenario",
+   "item": "Re-estimate task (UpdateTimeAction UPDATE_ESTIMATE via editTaskEstimate.jsp: actual, estimated, new estimate) with history \"reestimated\"; /do/edit/task/estimate itself maps to a no-op org.apache.struts.action.Action",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editTaskEstimate.jsp lines 41-72",
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml line 298",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/UpdateTimeAction.class :: strings \"reestimated\",\"Estimate changed from \""
+   ],
+   "confidence": "inferred",
+   "limits": "Entry path to editTaskEstimate.jsp not located."
+  },
+  {
+   "id": "A-092",
+   "category": "scenario",
+   "item": "People list /do/view/people[?projectId]: hidden people only with admin.hide; optional project filter title; columns userId, name, initials, phone, e-mail (mailto); edit button for self or admin.edit on some project; \"add person\" and \"import people\" (system.person create.person)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/people.jsp lines 22-117"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-093",
+   "category": "scenario",
+   "item": "View person /do/view/person?oid: active, planned, completed tasks, stories as customer, stories as tracker, future tasks; edit (self or admin.edit); people; timesheet; export",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/person.jsp lines 11-86",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/ViewPersonAction.class :: strings"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-094",
+   "category": "scenario",
+   "item": "Create/edit person /do/edit/person: name, user id, initials, e-mail, phone, hidden (hide), new password + confirmation (only if login module can change passwords), per-project role none/viewer/editor/admin for projects where the editor has admin.edit.role, system administrator checkbox (sysadmin.promote); duplicate user id -> person.editor.userid_exist",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editPerson.jsp lines 35-169",
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 321-326",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditPersonAction.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditPersonHelper.class :: strings"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-095",
+   "category": "scenario",
+   "item": "Import people /do/import/people: file upload; parser reads text lines split by commas into person fields; per-line result (line, id, login id, name, status: wrong_entry_format, empty_userId, userId_exists, success); template link is an .xls file",
+   "conditions_outcome": "Template format (xls) vs line/comma parser mismatch.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/importPeople.jsp lines 20-78",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/ImportPeopleAction.class :: refs BufferedReader.readLine/String.split, strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-096",
+   "category": "scenario",
+   "item": "Delete person /do/delete/person exists (DeleteObjectAction) but no delete button is defined for person",
+   "conditions_outcome": "URL-only.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml lines 370-374",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/domain/DomainMetaDataRepository.class :: person mappings: edit only"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-097",
+   "category": "scenario",
+   "item": "Project roles editor /do/edit/roles?oid: list all non-hidden persons with viewer/editor/admin select for the project; requires admin.edit.role; no navigation link found",
+   "conditions_outcome": "Orphan (URL-only).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editRoles.jsp lines 30-95",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditRoleAction.class",
+    "grep edit/roles (only editRoles.jsp)"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-098",
+   "category": "scenario",
+   "item": "\"Me\" status page /setting/me/status/{id} (header link \"navigation.me\"): current active/pending/completed/future tasks and stories as customer/tracker for the person",
+   "conditions_outcome": "Header link built from xplanner.application.url.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/baseHeader.jsp lines 13-19",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/web/MePage.class",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/meStatus.jsp"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-099",
+   "category": "scenario",
+   "item": "Person timesheet /do/view/timesheet?oid: period start/end with calendar; summary hours by project/iteration/story with total; daily totals; pie charts by project, iteration, story",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/timesheet.jsp lines 26-191"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-100",
+   "category": "scenario",
+   "item": "Aggregate timesheet /do/view/aggregateTimesheet: choose people (non-hidden) and period; table project/iteration/story/hours; three pie charts",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/aggregateTimesheet.jsp lines 40-238",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/ViewAggregateTimesheetAction.class :: strings"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-101",
+   "category": "scenario",
+   "item": "Notes on project, iteration, story, task, feature views (view layout includes notes.jsp): list subject, author, date, attachment link + count, twiki body; add/edit/delete per permission with JS confirm",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/layout/viewLayout.jsp lines 112-119",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/notes.jsp"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-102",
+   "category": "scenario",
+   "item": "Note editor /do/edit/note: subject, author (current user hidden, else selectable), body, current attachment, attachment upload (multipart) stored in the database virtual file system under /attachments/project/<projectId>",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/edit/editNote.jsp lines 27-106",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/EditNoteAction.class :: strings/refs",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/file/FileSystemImpl.class"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-103",
+   "category": "scenario",
+   "item": "Download note attachment /do/download/attachment?oid (content type from file, Content-disposition note;filename=)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/DownloadAttachmentAction.class :: strings/refs"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-104",
+   "category": "scenario",
+   "item": "File manager /do/view/directory: list, upload, download, delete file, mkdir, rmdir over the xdir/xfile virtual file system; no navigation link found",
+   "conditions_outcome": "Orphan (URL-only).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/directory.jsp",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/FileManagerAction.class :: strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-105",
+   "category": "scenario",
+   "item": "History /do/view/history?oid&@type[&container=true]: events (action, by, when, description) for an object, or container events with object type/name; actions created, updated, deleted, reestimated, started, closed, moved, moved in, moved out, continued",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/history.jsp",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/history/HistorySupport.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/history/History2.class :: strings"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-106",
+   "category": "scenario",
+   "item": "Content search (header box, /do/search/content?searchedContent): numeric input treated as id search; text searched across project/iteration/story/task/note; global scope (search.content.globalScopeEnable=true) or restricted to project; results type/id/title/match, filtered by read permission; empty.search.results; contentsearch.invalid_id",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/baseHeader.jsp lines 22-35",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/searchResults.jsp",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/ContentSearchAction.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/SearchResultAuthorizationPredicate.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties line 287"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-107",
+   "category": "scenario",
+   "item": "ID search /do/search/id?searchedId -> redirect /do/view/<type>?oid=; errors idsearch.error.missingId, badId, idNotFound",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/IdSearchAction.class :: strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-108",
+   "category": "scenario",
+   "item": "Integration queue /do/view/integrations?projectId (project read): current integrator and start time; waiting line; join (person, comment); start, finish, cancel, leave; recent finished/cancelled integrations with duration/state; e-mail notification via IntegrationEmailNotifier (listener list property) with link /do/view/integrations?projectId=; errors noperson, alreadyactive; no navigation link found",
+   "conditions_outcome": "Orphan (URL/e-mail only).",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/integrations.jsp",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/IntegrationAction.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/IntegrationEmailNotifier.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 86-87"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-109",
+   "category": "scenario",
+   "item": "Wiki-style text formatting (TwikiFormat) for descriptions, notes, history and time-entry descriptions: bracket escaping (project option / xplanner.escape.brackets), verbatim/pre, quoting; link schemes project:/iteration:/story:/task:/person: -> /do/view/<type>?oid; external schemes sourceforge, cvs, jira (codehaus), wiki (c2.com), cq (Sabre ClearQuest URL); WikiWords linked through GenericWikiAdapter to http://localhost:9090/vqw/jsp/Wiki",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 92-127, 268",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/wiki/TwikiFormat.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/wiki/DomainObjectSchemeHandler.class"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-110",
+   "category": "scenario",
+   "item": "Formatting help page /do/view/twikiformat (pop-up); the static help link hard-codes /xplanner/do/view/twikiformat",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/formattingHelpJS.jsp line 4",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/formattingHelpLink.jsp line 1",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/twikiformat.jsp"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-111",
+   "category": "scenario",
+   "item": "Settings /do/view/settings: list of Setting entities (id, name) and \"add setting\" (/do/edit/setting, create.project) whose input JSP editSetting.jsp is missing; no navigation link found",
+   "conditions_outcome": "Orphan and partially broken.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/settings.jsp lines 26-59",
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 405, 419-421",
+    "breakdowns.strutsActions (MISSING input)"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-112",
+   "category": "scenario",
+   "item": "Features (story features): /do/view/feature, /do/edit/feature, /do/delete/feature, /do/view/iteration/features, /do/view/project/features; action beans reference net.sf.xplanner.domain.Feature which does not exist (only non-entity com.technoetic.xplanner.domain.Feature); iteration feature links commented out; UserStory.getFeatures is @Transient",
+   "conditions_outcome": "Feature surfaces likely fail or are empty.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml lines 96-100, 202-212",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/view/iteration/globalLinks.jsp line 26",
+    "class search Feature (positive control Setting)",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/domain/UserStory.class :: getFeatures @Transient"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-113",
+   "category": "scenario",
+   "item": "Localization: message bundles default (en), da, de, es, fr, it, ja, pt_br, ru and a \"--\" variant; Spring ReloadableResourceBundleMessageSource bridged to Struts; locale switch /do/changeLocale?language&returnto (no UI link); date format yyyy-MM-dd; separate EmailResourceBundle",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/ResourceBundle*.properties",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 39-48",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/actions/ChangeLocaleAction.class :: strings"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-114",
+   "category": "scenario",
+   "item": "Social and external links on view pages: Twitter status link, Facebook feed dialog (app_id 198634833492606), OpenGraph meta tags; footer SourceForge link, support e-mail/issue URL, system info link, optional sf.net logo",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/layout/viewLayout.jsp lines 44-88",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/footer.jsp lines 17-39",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 289-309"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-115",
+   "category": "error",
+   "item": "Global Struts exceptions: ObjectNotFoundException and Hibernate UnresolvableObjectException -> generalError.jsp \"error.objectNotFound\" (with id); AuthorizationException -> generalError.jsp \"security.notauthorized\"",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/struts-config.xml lines 81-90",
+    "legacy/xplanner-plus.war!/WEB-INF/jsp/common/generalError.jsp lines 16-31"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-116",
+   "category": "error",
+   "item": "Broken forward/input targets (files absent from the WAR): view/iterationTabs.jsp, iterationIterations.jsp (global view/iteration/statistics), taskhistory.jsp, viewtext.jsp, security/notAuthorized.jsp, images/calendar.png, edit/editSetting.jsp, admin/invalidateCache.jsp",
+   "conditions_outcome": "Listed mechanically in breakdowns.",
+   "evidence": [
+    "breakdowns.strutsActions / breakdowns.globalForwards target=MISSING"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Runtime effect depends on whether the forward is used."
+  },
+  {
+   "id": "A-117",
+   "category": "error",
+   "item": "Undeclared form-bean names on actions (iterationEditorForm, featureEditorForm, userStoryEditorForm, edit/task/estimate, /download/attachment, edit/properties)",
+   "conditions_outcome": "Struts creates no form for them; impact unknown.",
+   "evidence": [
+    "breakdowns.strutsActions formDeclared=false"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-118",
+   "category": "error",
+   "item": "Form validation branches (Struts validate=true; ActionForm.validate): project missing name; iteration missing name, bad start/end date, non-positive interval; story missing name, negative estimate, invalid priority, same iteration; task missing name, negative estimate, bad created date, same story; note missing subject/author/body; person missing name/user id/e-mail/initials, password mismatch; time entries unparsable time/number, missing time/person/report date, same pair people, negative/overlapping interval, both interval and duration, description too long; timesheets unparsable date; import no file, missing worksheet/title/end-date/priority column or completed status; continue in same iteration; invalid order number; feature missing name",
+   "conditions_outcome": "Exhaustive key list per form in breakdowns.formValidation.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 244-247",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/forms/*Form.class :: validate + message-key constants"
+   ],
+   "confidence": "inferred",
+   "limits": "Exact conditions per key not disassembled; message texts in ResourceBundle*.properties not individually read."
+  },
+  {
+   "id": "A-119",
+   "category": "background",
+   "item": "Missing-time-entry reminder job: Spring task scheduler runs missingTimeEntryNotifier.execute daily at 00:05 (cron \"0 5 0 * * *\"); e-mails acceptors and project leads about tasks without time entries; governed by project sendemail attribute and xplanner.project.send.notification=true; manual trigger /do/edit/missingTimeEntryNotification",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 295-298, 362-367",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/mail/MissingTimeEntryNotifier.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties line 83"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-120",
+   "category": "background",
+   "item": "Data sampling (burn-down data): Quartz JobDetail datasamplingJob and CronTrigger \"0 55 23 ? 1-12 *\" are defined but the SchedulerFactoryBean is commented out, so no nightly run; samples are generated when an iteration is started/closed/edited and by /do/edit/dataSample; optional auto-extension of iteration end date (iteration.automatically.extend.endDate=false)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 303-338, 343-402",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/charts/DataSamplerImpl.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties line 314"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-121",
+   "category": "background",
+   "item": "Scheduler/executor pools (task:scheduler and task:executor, pool size 10)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 362-363"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-122",
+   "category": "background",
+   "item": "Startup initialization: AuthorizerInitializer (eager singleton), DomainMetaDataRepository.init, DaoScanner.init, Liquibase update, IntegrationAction.init (listeners from property), CewolfServlet and Spring DispatcherServlet load-on-startup",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-security.xml lines 49-50",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 71-75, 173, 408-409",
+    "legacy/xplanner-plus.war!/WEB-INF/action-servlet.xml line 392"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-123",
+   "category": "background",
+   "item": "Request activity logging: ActivityLogFilter writes START/END lines (time, user, IP, action, duration, query) for /do/* to the activity log; general logging to console (file appender commented out)",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/web.xml lines 54-57, 130-133",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/log4j-war.xml",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/filters/ActivityLogFilterHelper.class"
+   ],
+   "confidence": "confirmed-static",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-124",
+   "category": "background",
+   "item": "Domain event bus: EventManager publishes create/update/delete events (e.g. DeleteObjectAction); EmailPerChangeListener/EmailHelper exist but are not registered as beans -> no per-change e-mails",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-beans.xml lines 404-406",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/events/EventManager.class",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/net/sf/xplanner/email/EmailPerChangeListener.class"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-125",
+   "category": "integration",
+   "item": "SMTP e-mail (JavaMail): host localhost, port 25, from xplanner@xplannerplus.org; optional SMTP auth + STARTTLS when xplanner.mail.smtp.user/password set (commented); HTML mail with email.css; used by task notifications, missing-time reminders, integration notifications",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 78-80",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner-custom.properties lines 29-34",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/mail/EmailMessageImpl.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/mail/EmailFormatterImpl.class :: strings"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-126",
+   "category": "integration",
+   "item": "Directory/SSO integrations available but inactive: LDAP/JNDI login module, NTLM domain login (jcifs), JAAS login-module adapter",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/xplanner.properties lines 167-190",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/spring-security.xml lines 38-43"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-127",
+   "category": "integration",
+   "item": "MS Project interoperability (MPX, MSPDI via MPXJ), PDF (iText, JasperReports), XML export; displaytag table exports (csv/excel/xml/pdf) configured but no table enables export",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/org/displaytag/properties/TableTag.properties lines 7-40",
+    "grep export=\"true\" in JSPs (none)"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-128",
+   "category": "integration",
+   "item": "Spreadsheet import via POI (stories) and line-based people import; download templates under /files",
+   "conditions_outcome": "",
+   "evidence": [
+    "legacy/xplanner-plus.war!/files/storiesImportTemplate.xls",
+    "legacy/xplanner-plus.war!/files/peopleImportTemplate.xls",
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/Spreadsheet.class"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  },
+  {
+   "id": "A-129",
+   "category": "integration",
+   "item": "Development-only embedded launcher com.technoetic.xplanner.webservers.JettyServer (context /xplanner) with bundled jetty jar",
+   "conditions_outcome": "Not used when deployed in a container.",
+   "evidence": [
+    "legacy/xplanner-plus.war!/WEB-INF/classes/com/technoetic/xplanner/webservers/JettyServer.class :: strings",
+    "legacy/xplanner-plus.war!/WEB-INF/lib/jetty-5.1.10.jar"
+   ],
+   "confidence": "inferred",
+   "limits": "Static source only; no runtime observation (Stage 3)."
+  }
+ ],
+ "breakdowns": {
+  "strutsActions": [
+   {
+    "url": "/do/changeLocale",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ChangeLocaleAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/systemInfo",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.SystemInfoAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "success",
+      "path": "/WEB-INF/jsp/common/unexpectedError.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/login",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.AuthenticationAction",
+    "form": "login/authenticate",
+    "formDeclared": true,
+    "parameter": "security/login",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "notAuthenticated",
+      "path": "/WEB-INF/jsp/security/login.jsp",
+      "target": "yes"
+     },
+     {
+      "name": "authenticated",
+      "path": "/do/view/projects",
+      "redirect": "true",
+      "target": "action"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/notAuthorized",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "security/notAuthorized",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/logout",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.LogoutAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/twikiformat",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "view/twikiformat",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/projects",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "view/projects",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/project",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/project.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/project/features",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/projectFeatures.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/project/xml",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/project/mpx",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/project/mspdi",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/project",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditProjectAction",
+    "form": "edit/project",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editProject.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/delete/project",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DeleteObjectAction",
+    "form": "edit/project",
+    "formDeclared": true,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/iterationTabs",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/iterationTabs.jsp",
+      "target": "MISSING"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/iteration",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/iteration.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/feature",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/feature.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/iteration/tasks",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/iterationTasks.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/iteration/features",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/iteration/metrics",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewIterationMetricsAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/iterationMetrics.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/iteration/statistics",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/iterationStatistics.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/iteration/accuracy",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/iterationAccuracy.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/iteration/xml",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/iteration/mpx",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/iteration/mspdi",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/iteration/pdf",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/iteration/jrpdf",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/iteration",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditIterationAction",
+    "form": "edit/iteration",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editIteration.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/start/iteration",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.StartIterationAction",
+    "form": "start/iteration",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+    "inputTarget": "yes",
+    "forwards": [
+     {
+      "name": "edit/time",
+      "path": "/do/edit/time",
+      "redirect": "false",
+      "target": "action"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/close/iteration",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.CloseIterationAction",
+    "form": "close/iteration",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+    "inputTarget": "yes",
+    "forwards": [
+     {
+      "name": "onclose",
+      "path": "/do/continue/unfinished/stories",
+      "redirect": "true",
+      "target": "action"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/delete/iteration",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DeleteObjectAction",
+    "form": "iterationEditorForm",
+    "formDeclared": false,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/feature",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditObjectAction",
+    "form": "edit/feature",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editFeature.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/delete/feature",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DeleteObjectAction",
+    "form": "featureEditorForm",
+    "formDeclared": false,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/userstory",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/userstory.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/userstory",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditStoryAction",
+    "form": "edit/userstory",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editStory.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/move/continue/userstory",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.MoveContinueStoryAction",
+    "form": "move/continue/userstory",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/moveContinueStory.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/continue/unfinished/stories",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ContinueUnfinishedStoriesAction",
+    "form": "continue/unfinished/stories",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/userstory/pdf",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/userstory/jrpdf",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/delete/userstory",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DeleteObjectAction",
+    "form": "userStoryEditorForm",
+    "formDeclared": false,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/task",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/task.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/task",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditTaskAction",
+    "form": "edit/task",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editTask.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/move/continue/task",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.MoveContinueTaskAction",
+    "form": "move/continue/task",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/moveContinueTask.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/task/pdf",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/task/jrpdf",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/task/estimate",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:org.apache.struts.action.Action",
+    "form": "edit/task/estimate",
+    "formDeclared": false,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editTaskEstimate.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/delete/task",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DeleteObjectAction",
+    "form": "edit/task",
+    "formDeclared": true,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/note",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditNoteAction",
+    "form": "edit/note",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editNote.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/delete/note",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DeleteNoteAction",
+    "form": "edit/note",
+    "formDeclared": true,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/download/attachment",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DownloadAttachmentAction",
+    "form": "/download/attachment",
+    "formDeclared": false,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/people",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "view/people",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/export/person/jrpdf",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ExportAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/person",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewPersonAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/person.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/person",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditPersonAction",
+    "form": "edit/person",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editPerson.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": [
+     {
+      "type": "com.technoetic.xplanner.domain.repository.DuplicateUserIdException",
+      "key": "person.editor.userid_exist",
+      "path": "/WEB-INF/jsp/edit/editPerson.jsp",
+      "target": "yes"
+     }
+    ]
+   },
+   {
+    "url": "/do/import/people",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ImportPeopleAction",
+    "form": "import/people",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/importPeople.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/import/stories",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ImportStoriesAction",
+    "form": "import",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/import/stories.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": [
+     {
+      "type": "com.technoetic.xplanner.importer.WrongImportFileSpreadsheetImporterException",
+      "key": "import.status.corrupted_file",
+      "path": "/WEB-INF/jsp/import/stories.jsp",
+      "target": "yes"
+     },
+     {
+      "type": "com.technoetic.xplanner.importer.MissingFieldSpreadsheetImporterException",
+      "key": "import.status.missing_required_field",
+      "path": "/WEB-INF/jsp/import/stories.jsp",
+      "target": "yes"
+     },
+     {
+      "type": "com.technoetic.xplanner.importer.MissingColumnHeaderSpreadsheetImporterException",
+      "key": "import.status.wrong_header",
+      "path": "/WEB-INF/jsp/import/stories.jsp",
+      "target": "yes"
+     },
+     {
+      "type": "com.technoetic.xplanner.importer.MissingWorksheetException",
+      "key": "import.status.worksheet_not_found",
+      "path": "/WEB-INF/jsp/import/stories.jsp",
+      "target": "yes"
+     }
+    ]
+   },
+   {
+    "url": "/do/delete/person",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DeleteObjectAction",
+    "form": "edit/person",
+    "formDeclared": true,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/time",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.UpdateTimeAction",
+    "form": "edit/time",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+    "inputTarget": "yes",
+    "forwards": [
+     {
+      "name": "redirect",
+      "path": "/do/view/task",
+      "redirect": "true",
+      "target": "action"
+     },
+     {
+      "name": "error",
+      "path": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+      "redirect": "false",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/reorderstories",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ReorderStoriesAction",
+    "form": "edit/reorderstories",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/do/view/iteration",
+    "inputTarget": "action",
+    "forwards": [
+     {
+      "name": "redirect",
+      "path": "/do/view/iteration",
+      "redirect": "true",
+      "target": "action"
+     },
+     {
+      "name": "error",
+      "path": "/WEB-INF/jsp/view/iteration.jsp",
+      "redirect": "false",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/move/userstories",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.MoveStoriesAction",
+    "form": "move/userstories",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/moveStories.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/project/notification",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.UpdateTimeNotificationReceivers",
+    "form": "edit/project",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editProject.jsp",
+    "inputTarget": "yes",
+    "forwards": [
+     {
+      "name": "project/notification",
+      "path": "/do/edit/project/notification",
+      "redirect": "false",
+      "target": "action"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/timesheet",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewTimesheetAction",
+    "form": "timesheetForm",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/view/timesheet.jsp",
+    "inputTarget": "yes",
+    "forwards": [
+     {
+      "name": "error",
+      "path": "/WEB-INF/jsp/view/timesheet.jsp",
+      "redirect": "false",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/aggregateTimesheet",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewAggregateTimesheetAction",
+    "form": "aggregateTimesheetForm",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+    "inputTarget": "yes",
+    "forwards": [
+     {
+      "name": "error",
+      "path": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+      "redirect": "false",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/dashboard",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "view/dashboard",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/integrations",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "view/integrations",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/integrations",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.IntegrationAction",
+    "form": "placeHolderForm",
+    "formDeclared": true,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/do/view/integrations",
+      "redirect": "true",
+      "target": "action"
+     },
+     {
+      "name": "error",
+      "path": "/do/view/integrations",
+      "target": "action"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/history",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ViewObjectAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/history.jsp",
+      "redirect": "false",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/directory",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.FileManagerAction",
+    "form": "view/file",
+    "formDeclared": true,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "display",
+      "path": "/WEB-INF/jsp/view/directory.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/view/settings",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "view/settings",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/admin/reload-tiles",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:org.apache.struts.tiles.actions.ReloadDefinitionsAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/roles",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditRoleAction",
+    "form": "edit/roles",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editRoles.jsp",
+    "inputTarget": "yes",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/search/id",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.IdSearchAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/search/content",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.ContentSearchAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "success",
+      "path": "/WEB-INF/jsp/view/searchResults.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/setting",
+    "config": "WEB-INF/struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditObjectAction",
+    "form": "edit/setting",
+    "formDeclared": true,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/edit/editSetting.jsp",
+    "inputTarget": "MISSING",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/mobile/login",
+    "config": "WEB-INF/mobile-struts-config.xml",
+    "handler": "type:com.technoetic.xplanner.actions.AuthenticationAction",
+    "form": "login/authenticate",
+    "formDeclared": true,
+    "parameter": "mobile/login",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "mobile/login",
+      "path": "/WEB-INF/jsp/wap/login.jsp",
+      "target": "yes"
+     },
+     {
+      "name": "notAuthenticated",
+      "path": "/WEB-INF/jsp/wap/login.jsp",
+      "target": "yes"
+     },
+     {
+      "name": "authenticated",
+      "path": "/do/mobile/view/projects",
+      "redirect": "true",
+      "target": "action"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/mobile/view/projects",
+    "config": "WEB-INF/mobile-struts-config.xml",
+    "handler": "type:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "mobile/view/projects",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "mobile/view/projects",
+      "path": "/WEB-INF/jsp/wap/projects.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/mobile/view/project",
+    "config": "WEB-INF/mobile-struts-config.xml",
+    "handler": "type:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "mobile/view/project",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "mobile/view/project",
+      "path": "/WEB-INF/jsp/wap/project.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/mobile/view/iteration",
+    "config": "WEB-INF/mobile-struts-config.xml",
+    "handler": "type:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "mobile/view/iteration",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "mobile/view/iteration",
+      "path": "/WEB-INF/jsp/wap/iteration.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/mobile/view/story",
+    "config": "WEB-INF/mobile-struts-config.xml",
+    "handler": "type:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "mobile/view/story",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "mobile/view/story",
+      "path": "/WEB-INF/jsp/wap/story.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/mobile/view/task",
+    "config": "WEB-INF/mobile-struts-config.xml",
+    "handler": "type:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "mobile/view/task",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "mobile/view/task",
+      "path": "/WEB-INF/jsp/wap/task.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/mobile/view/person",
+    "config": "WEB-INF/mobile-struts-config.xml",
+    "handler": "type:com.technoetic.xplanner.actions.DispatchForward",
+    "form": null,
+    "formDeclared": null,
+    "parameter": "mobile/view/person",
+    "input": null,
+    "inputTarget": null,
+    "forwards": [
+     {
+      "name": "mobile/view/person",
+      "path": "/WEB-INF/jsp/wap/person.jsp",
+      "target": "yes"
+     }
+    ],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/dataSample",
+    "config": "WEB-INF/test-struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.CommandExecutorAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/missingTimeEntryNotification",
+    "config": "WEB-INF/test-struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.CommandExecutorAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/putTheClockForward",
+    "config": "WEB-INF/test-struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.PutTheClockForwardAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/edit/properties",
+    "config": "WEB-INF/test-struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.EditPropertiesAction",
+    "form": "edit/properties",
+    "formDeclared": false,
+    "parameter": null,
+    "input": null,
+    "inputTarget": null,
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/invalidateCache",
+    "config": "WEB-INF/test-struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.admin.InvalidateCacheAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/admin/invalidateCache.jsp",
+    "inputTarget": "MISSING",
+    "forwards": [],
+    "exceptions": []
+   },
+   {
+    "url": "/do/invalidateHibernateCache",
+    "config": "WEB-INF/test-struts-config.xml",
+    "handler": "spring:com.technoetic.xplanner.actions.admin.InvalidateHibernateCacheAction",
+    "form": null,
+    "formDeclared": null,
+    "parameter": null,
+    "input": "/WEB-INF/jsp/admin/invalidateCache.jsp",
+    "inputTarget": "MISSING",
+    "forwards": [],
+    "exceptions": []
+   }
+  ],
+  "globalForwards": [
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/projects",
+    "path": "/WEB-INF/jsp/view/projects.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/project",
+    "path": "/WEB-INF/jsp/view/project.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/project/features",
+    "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/iterationTabs",
+    "path": "/WEB-INF/jsp/view/iteration.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/iteration",
+    "path": "/WEB-INF/jsp/view/iteration.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/iteration/tasks",
+    "path": "/WEB-INF/jsp/view/iterationTasks.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/iteration/features",
+    "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/iteration/accuracy",
+    "path": "/WEB-INF/jsp/view/iterationAccuracy.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/iteration/metrics",
+    "path": "/WEB-INF/jsp/view/iterationMetrics.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/iteration/statistics",
+    "path": "/WEB-INF/jsp/view/iterationIterations.jsp",
+    "target": "MISSING"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/userstory",
+    "path": "/WEB-INF/jsp/view/userstory.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/task",
+    "path": "/WEB-INF/jsp/view/task.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/feature",
+    "path": "/WEB-INF/jsp/view/feature.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/people",
+    "path": "/WEB-INF/jsp/view/people.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/person",
+    "path": "/WEB-INF/jsp/view/person.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/taskhistory",
+    "path": "/WEB-INF/jsp/view/taskhistory.jsp",
+    "target": "MISSING"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/text",
+    "path": "/WEB-INF/jsp/view/viewtext.jsp",
+    "target": "MISSING"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/twikiformat",
+    "path": "/WEB-INF/jsp/view/twikiformat.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/integrations",
+    "path": "/WEB-INF/jsp/view/integrations.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/timesheet",
+    "path": "/WEB-INF/jsp/view/timesheet.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/aggregateTimesheet",
+    "path": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/history",
+    "path": "/WEB-INF/jsp/view/history.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/project",
+    "path": "/WEB-INF/jsp/edit/editProject.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/iteration",
+    "path": "/WEB-INF/jsp/edit/editIteration.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "start/iteration",
+    "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "close/iteration",
+    "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "move/userstories",
+    "path": "/WEB-INF/jsp/edit/moveStories.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/feature",
+    "path": "/WEB-INF/jsp/edit/editFeature.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/userstory",
+    "path": "/WEB-INF/jsp/edit/editStory.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "move/continue/userstory",
+    "path": "/WEB-INF/jsp/edit/moveContinueStory.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "continue/unfinished/stories",
+    "path": "/WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/task",
+    "path": "/WEB-INF/jsp/edit/editTask.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "move/continue/task",
+    "path": "/WEB-INF/jsp/edit/moveContinueTask.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/task/estimate",
+    "path": "/WEB-INF/jsp/edit/editTaskEstimate.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/person",
+    "path": "/WEB-INF/jsp/edit/editPerson.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/time",
+    "path": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "error",
+    "path": "/WEB-INF/jsp/common/generalError.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "error/objectNotFound",
+    "path": "/WEB-INF/jsp/common/generalError.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "image/calendar",
+    "path": "/images/calendar.png",
+    "target": "MISSING"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "security/login",
+    "path": "/do/login",
+    "target": "action"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "security/notAuthorized",
+    "path": "/WEB-INF/jsp/security/notAuthorized.jsp",
+    "target": "MISSING"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/roles",
+    "path": "/WEB-INF/jsp/edit/editRoles.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "search/id",
+    "path": "/do/search/id",
+    "target": "action"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "search/content",
+    "path": "/do/search/content",
+    "target": "action"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/dashboard",
+    "path": "/WEB-INF/jsp/view/dashboard.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/settings",
+    "path": "/WEB-INF/jsp/view/settings.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/integrations",
+    "path": "/WEB-INF/jsp/view/integrations.jsp",
+    "target": "yes"
+   }
+  ],
+  "globalExceptions": [
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "type": "com.technoetic.xplanner.domain.repository.ObjectNotFoundException",
+    "key": "error.objectNotFound",
+    "path": "/WEB-INF/jsp/common/generalError.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "type": "org.hibernate.UnresolvableObjectException",
+    "key": "error.objectNotFound",
+    "path": "/WEB-INF/jsp/common/generalError.jsp",
+    "target": "yes"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "type": "com.technoetic.xplanner.security.auth.AuthorizationException",
+    "key": "security.notauthorized",
+    "path": "/WEB-INF/jsp/common/generalError.jsp",
+    "target": "yes"
+   }
+  ],
+  "formBeans": [
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/project",
+    "type": "com.technoetic.xplanner.forms.ProjectEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/setting",
+    "type": "com.technoetic.xplanner.forms.ProjectEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/iteration",
+    "type": "com.technoetic.xplanner.forms.IterationEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "start/iteration",
+    "type": "com.technoetic.xplanner.forms.IterationStatusEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "close/iteration",
+    "type": "com.technoetic.xplanner.forms.IterationStatusEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/feature",
+    "type": "com.technoetic.xplanner.forms.FeatureEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/userstory",
+    "type": "com.technoetic.xplanner.forms.UserStoryEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "move/continue/userstory",
+    "type": "com.technoetic.xplanner.forms.MoveContinueStoryForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/note",
+    "type": "com.technoetic.xplanner.forms.NoteEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/task",
+    "type": "com.technoetic.xplanner.forms.TaskEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/reorderstories",
+    "type": "com.technoetic.xplanner.forms.ReorderStoriesForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "move/userstories",
+    "type": "com.technoetic.xplanner.forms.MoveStoriesForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "move/continue/task",
+    "type": "com.technoetic.xplanner.forms.MoveContinueTaskForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "continue/unfinished/stories",
+    "type": "com.technoetic.xplanner.forms.ContinueUnfinishedStoriesForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/person",
+    "type": "com.technoetic.xplanner.forms.PersonEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "import/people",
+    "type": "com.technoetic.xplanner.forms.ImportPeopleForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "import",
+    "type": "com.technoetic.xplanner.forms.ImportStoriesForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/time",
+    "type": "com.technoetic.xplanner.forms.TimeEditorForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "timesheetForm",
+    "type": "com.technoetic.xplanner.forms.PersonTimesheetForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "aggregateTimesheetForm",
+    "type": "com.technoetic.xplanner.forms.AggregateTimesheetForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "placeHolderForm",
+    "type": "org.apache.struts.action.DynaActionForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "view/file",
+    "type": "com.technoetic.xplanner.forms.FileManagerForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "login/authenticate",
+    "type": "org.apache.struts.action.DynaActionForm"
+   },
+   {
+    "file": "WEB-INF/struts-config.xml",
+    "name": "edit/roles",
+    "type": "com.technoetic.xplanner.forms.RoleEditorForm"
+   }
+  ],
+  "jspFiles": [
+   {
+    "file": "WEB-INF/jsp/common/baseHeader.jsp",
+    "lines": 63,
+    "forms": [
+     "/search/content"
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/logout",
+     "/search/content"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/common/dragdrop.html",
+    "lines": 250,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/common/footer.jsp",
+    "lines": 42,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/common/formattingHelpJS.jsp",
+    "lines": 13,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/common/formattingHelpLink.jsp",
+    "lines": 5,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/common/generalError.jsp",
+    "lines": 33,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/common/header.jsp",
+    "lines": 5,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/common/unexpectedError.jsp",
+    "lines": 139,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+    "lines": 51,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/continue/unfinished/stories"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editFeature.jsp",
+    "lines": 78,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/edit/feature"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editIteration.jsp",
+    "lines": 109,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/edit/iteration"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editIterationStatus.jsp",
+    "lines": 81,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/start/iteration"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editNote.jsp",
+    "lines": 109,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/edit/note"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editPerson.jsp",
+    "lines": 176,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [
+     "hide",
+     "admin.edit.role",
+     "sysadmin.promote"
+    ],
+    "authzTags": 4,
+    "actionLinks": [
+     "/do/edit/person"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editProject.jsp",
+    "lines": 167,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [
+     "hide"
+    ],
+    "authzTags": 1,
+    "actionLinks": [
+     "/do/edit/project"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editRoles.jsp",
+    "lines": 97,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [
+     "admin.edit.role"
+    ],
+    "authzTags": 1,
+    "actionLinks": [
+     "/do/edit/roles"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editStory.jsp",
+    "lines": 174,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/edit/userstory"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editTask.jsp",
+    "lines": 146,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/edit/task"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editTaskEstimate.jsp",
+    "lines": 81,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/edit/time"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/editTimeEntries.jsp",
+    "lines": 210,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/edit/time"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/importPeople.jsp",
+    "lines": 81,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/import/people"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/moveContinueStory.jsp",
+    "lines": 61,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/move/continue/userstory"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/moveContinueTask.jsp",
+    "lines": 55,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/move/continue/task"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/edit/moveStories.jsp",
+    "lines": 41,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/move/userstories"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/import/stories.jsp",
+    "lines": 106,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/import/stories"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/layout/defaultEditLayout.jsp",
+    "lines": 67,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/layout/defaultLayout.jsp",
+    "lines": 51,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/layout/iterationTileParams.jsp",
+    "lines": 43,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/layout/viewFooter.jsp",
+    "lines": 10,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/layout/viewHeader.jsp",
+    "lines": 10,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/layout/viewLayout.jsp",
+    "lines": 129,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/layout/viewLayoutNew.jsp",
+    "lines": 119,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/security/login.jsp",
+    "lines": 69,
+    "forms": [
+     "/login"
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/login"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/aggregateTimesheet.jsp",
+    "lines": 241,
+    "forms": [
+     "view/aggregateTimesheet"
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "view/aggregateTimesheet",
+     "/do/view/project",
+     "/do/view/iteration",
+     "/do/view/userstory",
+     "/do/view/people"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/dashboard.jsp",
+    "lines": 253,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/view/directory.jsp",
+    "lines": 83,
+    "forms": [
+     "/view/directory"
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/view/directory",
+     "/view/directory"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/exportLinks.jsp",
+    "lines": 40,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/view/feature.jsp",
+    "lines": 60,
+    "forms": [],
+    "permissions": [
+     "edit"
+    ],
+    "authzTags": 1,
+    "actionLinks": [
+     "/do/edit/feature",
+     "/do/view/history"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/history.jsp",
+    "lines": 128,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/view/person"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/integrations.jsp",
+    "lines": 208,
+    "forms": [
+     "edit/integrations"
+    ],
+    "permissions": [
+     "integrate"
+    ],
+    "authzTags": 1,
+    "actionLinks": [
+     "edit/integrations",
+     "/do/view/person"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/iteration.jsp",
+    "lines": 177,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [
+     "edit"
+    ],
+    "authzTags": 2,
+    "actionLinks": [
+     "/do/edit/reorderstories",
+     "/do/view/userstory",
+     "/do/view/person"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/iterationAccuracy.jsp",
+    "lines": 190,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/view/userstory"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/iterationFeatures.jsp",
+    "lines": 74,
+    "forms": [],
+    "permissions": [
+     "edit"
+    ],
+    "authzTags": 2,
+    "actionLinks": [
+     "/do/view/userstory",
+     "/do/view/feature",
+     "/do/edit/feature",
+     "/do/delete/feature"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/iterationMetrics.jsp",
+    "lines": 178,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/view/person"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/iterationStatistics.jsp",
+    "lines": 301,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/view/iterationTasks.jsp",
+    "lines": 177,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 1,
+    "actionLinks": [
+     "/do/view/userstory",
+     "/do/view/task",
+     "/do/view/person"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/iteration/globalLinks.jsp",
+    "lines": 46,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/view/dashboard",
+     "/do/view/iteration/tasks",
+     "/do/view/iteration/metrics",
+     "/do/view/iteration/statistics",
+     "/do/view/iteration/accuracy",
+     "/do/view/history"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/iteration/links.jsp",
+    "lines": 40,
+    "forms": [],
+    "permissions": [
+     "edit"
+    ],
+    "authzTags": 2,
+    "actionLinks": [
+     "/do/view/iteration",
+     "/do/view/iteration/tasks"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/iteration/progress.jsp",
+    "lines": 16,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/view/meStatus.jsp",
+    "lines": 114,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/view/notes.jsp",
+    "lines": 105,
+    "forms": [],
+    "permissions": [
+     "edit"
+    ],
+    "authzTags": 1,
+    "actionLinks": [
+     "/do/edit/note",
+     "/do/delete/note",
+     "/do/view/person",
+     "/do/download/attachment"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/people.jsp",
+    "lines": 121,
+    "forms": [],
+    "permissions": [
+     "admin.hide",
+     "create.person"
+    ],
+    "authzTags": 3,
+    "actionLinks": [
+     "/do/view/person",
+     "/do/edit/person",
+     "/do/import/people"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/person.jsp",
+    "lines": 90,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/view/people",
+     "/do/view/timesheet"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/personStoryTableFragment.jsp",
+    "lines": 60,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/view/iteration",
+     "/do/view/userstory"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/personTaskTableFragment.jsp",
+    "lines": 76,
+    "forms": [],
+    "permissions": [
+     "edit"
+    ],
+    "authzTags": 1,
+    "actionLinks": [
+     "/do/view/iteration",
+     "/do/view/userstory",
+     "/do/view/task",
+     "/do/edit/time",
+     "/do/edit/task"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/project.jsp",
+    "lines": 113,
+    "forms": [],
+    "permissions": [
+     "create",
+     "read"
+    ],
+    "authzTags": 4,
+    "actionLinks": [
+     "/do/view/iteration",
+     "/do/edit/iteration",
+     "/do/view/people",
+     "/do/view/history"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/projectFeatures.jsp",
+    "lines": 104,
+    "forms": [],
+    "permissions": [
+     "edit",
+     "admin.edit",
+     "create",
+     "read"
+    ],
+    "authzTags": 6,
+    "actionLinks": [
+     "/do/view/iteration",
+     "/do/view/userstory",
+     "/do/view/feature",
+     "/do/edit/feature",
+     "/do/delete/feature",
+     "/do/edit/project",
+     "/do/edit/iteration",
+     "/do/view/project/features",
+     "/do/view/people",
+     "/do/view/history"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/projects.jsp",
+    "lines": 174,
+    "forms": [],
+    "permissions": [
+     "create.project"
+    ],
+    "authzTags": 3,
+    "actionLinks": [
+     "/do/edit/project",
+     "/do/view/people",
+     "/do/view/aggregateTimesheet"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/searchResults.jsp",
+    "lines": 50,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/view/settings.jsp",
+    "lines": 63,
+    "forms": [],
+    "permissions": [
+     "create.project"
+    ],
+    "authzTags": 1,
+    "actionLinks": [
+     "setting",
+     "/do/edit/setting",
+     "/do/view/people",
+     "/do/view/aggregateTimesheet"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/task.jsp",
+    "lines": 304,
+    "forms": [
+     "<html:rewrite page="
+    ],
+    "permissions": [
+     "edit"
+    ],
+    "authzTags": 2,
+    "actionLinks": [
+     "/do/view/person",
+     "/do/edit/task",
+     "/do/view/history"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/timesheet.jsp",
+    "lines": 195,
+    "forms": [
+     "view/timesheet"
+    ],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "view/timesheet",
+     "/do/view/project",
+     "/do/view/iteration",
+     "/do/view/userstory",
+     "/do/view/people"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/view/twikiformat.jsp",
+    "lines": 335,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/view/userstory.jsp",
+    "lines": 251,
+    "forms": [],
+    "permissions": [
+     "edit"
+    ],
+    "authzTags": 3,
+    "actionLinks": [
+     "/do/view/person",
+     "/do/view/task",
+     "/do/edit/task",
+     "/do/view/history"
+    ]
+   },
+   {
+    "file": "WEB-INF/jsp/wap/auth.jsp",
+    "lines": 14,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/wap/iteration.jsp",
+    "lines": 37,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/wap/login.jsp",
+    "lines": 25,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/wap/person.jsp",
+    "lines": 32,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/wap/project.jsp",
+    "lines": 32,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/wap/projects.jsp",
+    "lines": 17,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/wap/story.jsp",
+    "lines": 42,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/jsp/wap/task.jsp",
+    "lines": 47,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "WEB-INF/tags/breadcrumb.tag",
+    "lines": 25,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": []
+   },
+   {
+    "file": "index.jsp",
+    "lines": 32,
+    "forms": [],
+    "permissions": [],
+    "authzTags": 0,
+    "actionLinks": [
+     "/do/view/projects"
+    ]
+   }
+  ],
+  "webXml": {
+   "filters": [
+    [
+     "ActivityLogFilter",
+     "com.technoetic.xplanner.filters.ActivityLogFilter"
+    ],
+    [
+     "OpenSessionInViewFilter",
+     "org.springframework.orm.hibernate3.support.OpenSessionInViewFilter"
+    ],
+    [
+     "HibernateSessionFilter",
+     "com.technoetic.xplanner.db.hibernate.HibernateSessionFilter"
+    ],
+    [
+     "ServletRequestFilter",
+     "com.technoetic.xplanner.filters.ServletRequestFilter"
+    ],
+    [
+     "WebSecurityFilter",
+     "com.technoetic.xplanner.security.filter.FormSecurityFilter"
+    ],
+    [
+     "MobileSecurityFilter",
+     "com.technoetic.xplanner.security.filter.FormSecurityFilter"
+    ],
+    [
+     "BasicSecurityFilter",
+     "com.technoetic.xplanner.security.filter.BasicSecurityFilter"
+    ],
+    [
+     "RequestCharacterEncodingFilter",
+     "com.technoetic.xplanner.filters.RequestCharacterEncodingFilter"
+    ]
+   ],
+   "filterMappings": [
+    [
+     "ActivityLogFilter",
+     "/do/*"
+    ],
+    [
+     "ServletRequestFilter",
+     "/*"
+    ],
+    [
+     "OpenSessionInViewFilter",
+     "/*"
+    ],
+    [
+     "HibernateSessionFilter",
+     "/*"
+    ],
+    [
+     "MobileSecurityFilter",
+     "/do/mobile/*"
+    ],
+    [
+     "WebSecurityFilter",
+     "/do/*"
+    ],
+    [
+     "WebSecurityFilter",
+     "/setting/*"
+    ],
+    [
+     "BasicSecurityFilter",
+     "/soap/*"
+    ],
+    [
+     "BasicSecurityFilter",
+     "/ical/*"
+    ],
+    [
+     "RequestCharacterEncodingFilter",
+     "/do/*"
+    ]
+   ],
+   "servlets": [
+    [
+     "AxisServlet",
+     "org.apache.axis.transport.http.AxisServlet"
+    ],
+    [
+     "CewolfServlet",
+     "de.laures.cewolf.CewolfRenderer"
+    ],
+    [
+     "XPlannerServlet",
+     "net.sf.xplanner.struts.XPlannerActionServlet"
+    ],
+    [
+     "iCalServlet",
+     "com.technoetic.xplanner.ical.iCalServlet"
+    ],
+    [
+     "Jersey",
+     "com.sun.jersey.spi.spring.container.servlet.SpringServlet"
+    ],
+    [
+     "SpringServlet",
+     "org.springframework.web.servlet.DispatcherServlet"
+    ]
+   ],
+   "servletMappings": [
+    [
+     "XPlannerServlet",
+     "/do/*"
+    ],
+    [
+     "Jersey",
+     "/rest/*"
+    ],
+    [
+     "CewolfServlet",
+     "/cewolf/*"
+    ],
+    [
+     "AxisServlet",
+     "/servlet/AxisServlet"
+    ],
+    [
+     "AxisServlet",
+     "/soap/*"
+    ],
+    [
+     "iCalServlet",
+     "/ical/*"
+    ],
+    [
+     "SpringServlet",
+     "/setting/*"
+    ]
+   ],
+   "listeners": [
+    [
+     "org.springframework.web.util.Log4jConfigListener"
+    ],
+    [
+     "com.technoetic.xplanner.filters.HsqldbServerContextListener"
+    ],
+    [
+     "org.springframework.web.context.ContextLoaderListener"
+    ],
+    [
+     "org.springframework.web.context.request.RequestContextListener"
+    ],
+    [
+     "net.sf.xplanner.context.ContextLoaderListener"
+    ]
+   ]
+  },
+  "entities": [
+   {
+    "class": "net.sf.xplanner.domain.Attribute",
+    "table": "attribute"
+   },
+   {
+    "class": "net.sf.xplanner.domain.DataSample",
+    "table": "datasample"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Directory",
+    "table": "xdir"
+   },
+   {
+    "class": "net.sf.xplanner.domain.File",
+    "table": "xfile"
+   },
+   {
+    "class": "net.sf.xplanner.domain.History",
+    "table": "history"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Identifier",
+    "table": "identifier"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Integration",
+    "table": "integration"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Iteration",
+    "table": "iteration"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Note",
+    "table": "note"
+   },
+   {
+    "class": "net.sf.xplanner.domain.NotificationReceivers",
+    "table": "notification_receivers"
+   },
+   {
+    "class": "net.sf.xplanner.domain.ObjectType",
+    "table": "object_type"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Patches",
+    "table": "patches"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Permission",
+    "table": "permission"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Person",
+    "table": "person"
+   },
+   {
+    "class": "net.sf.xplanner.domain.PersonRole",
+    "table": "person_role"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Project",
+    "table": "project"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Role",
+    "table": "roles"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Setting",
+    "table": "setting"
+   },
+   {
+    "class": "net.sf.xplanner.domain.Task",
+    "table": "task"
+   },
+   {
+    "class": "net.sf.xplanner.domain.TimeEntry",
+    "table": "time_entry"
+   },
+   {
+    "class": "net.sf.xplanner.domain.UserStory",
+    "table": "story"
+   }
+  ],
+  "jars": [
+   "activation-1.0.2.jar",
+   "antlr-2.7.6.jar",
+   "aopalliance-1.0.jar",
+   "asm-3.1.jar",
+   "avalon-framework-4.1.3.jar",
+   "axis-1.4.jar",
+   "axis-ant.jar",
+   "axis-schema.jar",
+   "batik-awt-util-1.5.jar",
+   "batik-dom-1.6.jar",
+   "batik-svggen-1.6.jar",
+   "batik-util-1.6.jar",
+   "batik-xml-1.6.jar",
+   "c3p0-0.9.0.jar",
+   "c3p0-oracle-thin-extras-0.9.0.jar",
+   "cewolf-1.0.jar",
+   "cglib-nodep-2.1_3.jar",
+   "commons-beanutils-1.6.1.jar",
+   "commons-beanutils-1.7.0.jar",
+   "commons-beanutils-core-1.7.0.jar",
+   "commons-betwixt-0.8.jar",
+   "commons-collections-3.1.jar",
+   "commons-dbcp-1.2.2.jar",
+   "commons-digester-1.7.jar",
+   "commons-discovery-0.2.jar",
+   "commons-fileupload-1.0.jar",
+   "commons-lang-2.1.jar",
+   "commons-logging-1.1.jar",
+   "commons-pool-1.5.jar",
+   "commons-resources.jar",
+   "commons-services.jar",
+   "commons-validator-1.1.4.jar",
+   "displaytag-1.0.jar",
+   "dom4j-1.6.1.jar",
+   "ehcache-1.2.3.jar",
+   "hibernate-commons-annotations-3.2.0.Final.jar",
+   "hibernate-core-3.6.5.Final.jar",
+   "hibernate-jpa-2.0-api-1.0.0.Final.jar",
+   "hsqldb-2.2.4.jar",
+   "itext-1.01.jar",
+   "itext-xml-1.01.jar",
+   "jackson-core-asl-1.7.4.jar",
+   "jackson-jaxrs-1.7.4.jar",
+   "jackson-mapper-asl-1.7.4.jar",
+   "jakarta-oro__V2.0.6.jar",
+   "jasperreports-1.0.2.jar",
+   "javassist-3.8.0.GA.jar",
+   "jaxrpc.jar",
+   "jcifs-1.0.1.jar",
+   "jcommon-1.0.0.jar",
+   "jdbc-stdext-2.0.jar",
+   "jdom-0.7.jar",
+   "jersey-core-1.1.5.jar",
+   "jersey-server-1.1.5.jar",
+   "jersey-spring-1.5.jar",
+   "jetty-5.1.10.jar",
+   "jfreechart-1.0.11.jar",
+   "jsr311-api-1.1.1.jar",
+   "jstl-1.1.2.jar",
+   "jta-1.1.jar",
+   "liquibase-core-2.0.1.jar",
+   "log4j-1.2.15.jar",
+   "logkit-1.0.1.jar",
+   "mail-1.4.3.jar",
+   "mpxj-3.0.1.jar",
+   "mysql-connector-java-5.1.13.jar",
+   "odmg-3.0.jar",
+   "oro-2.0.8.jar",
+   "oscore-2.2.4.jar",
+   "p6spy-1.3.jar",
+   "poi-3.5-FINAL.jar",
+   "proxytoys-0.2.1.jar",
+   "quartz-1.5.2.jar",
+   "radeox-1.0b2-forked-22Apr2004.jar",
+   "saaj.jar",
+   "sitemesh-2.2.1.jar",
+   "slf4j-api-1.6.1.jar",
+   "slf4j-jcl-1.6.1.jar",
+   "spring-aop-3.0.5.RELEASE.jar",
+   "spring-asm-3.0.5.RELEASE.jar",
+   "spring-beans-3.0.5.RELEASE.jar",
+   "spring-context-3.0.5.RELEASE.jar",
+   "spring-context-support-3.0.5.RELEASE.jar",
+   "spring-core-3.0.5.RELEASE.jar",
+   "spring-expression-3.0.5.RELEASE.jar",
+   "spring-jdbc-3.0.5.RELEASE.jar",
+   "spring-orm-3.0.5.RELEASE.jar",
+   "spring-struts-3.0.5.RELEASE.jar",
+   "spring-tx-3.0.5.RELEASE.jar",
+   "spring-web-3.0.5.RELEASE.jar",
+   "spring-webmvc-3.0.5.RELEASE.jar",
+   "standard-1.1.2.jar",
+   "start-6.1.17.jar",
+   "struts-1.2.9.jar",
+   "tk-autopatch-0.7.3.jar",
+   "tk-util-1.0.1.jar",
+   "velocity-1.5.jar",
+   "velocity-dep-1.4.jar",
+   "wsdl4j-1.5.1.jar",
+   "xml-apis-1.0.b2.jar",
+   "xpp3_min-1.1.3.4.O.jar",
+   "xstream-1.1.3.jar"
+  ],
+  "classPackages": {
+   "com.sabre.security.jndi": 5,
+   "com.sabre.security.jndi.util": 2,
+   "com.tacitknowledge.util.migration.jdbc": 6,
+   "com.technoetic.xplanner": 11,
+   "com.technoetic.xplanner.actions": 55,
+   "com.technoetic.xplanner.actions.admin": 2,
+   "com.technoetic.xplanner.charts": 18,
+   "com.technoetic.xplanner.charts.timesheet": 3,
+   "com.technoetic.xplanner.db": 30,
+   "com.technoetic.xplanner.db.hibernate": 16,
+   "com.technoetic.xplanner.db.hsqldb": 2,
+   "com.technoetic.xplanner.db.jdbc": 1,
+   "com.technoetic.xplanner.domain": 39,
+   "com.technoetic.xplanner.domain.ext": 1,
+   "com.technoetic.xplanner.domain.io": 5,
+   "com.technoetic.xplanner.domain.repository": 23,
+   "com.technoetic.xplanner.domain.virtual": 3,
+   "com.technoetic.xplanner.export": 18,
+   "com.technoetic.xplanner.file": 5,
+   "com.technoetic.xplanner.filters": 6,
+   "com.technoetic.xplanner.format": 6,
+   "com.technoetic.xplanner.forms": 27,
+   "com.technoetic.xplanner.history": 2,
+   "com.technoetic.xplanner.ical": 1,
+   "com.technoetic.xplanner.importer": 7,
+   "com.technoetic.xplanner.importer.spreadsheet": 9,
+   "com.technoetic.xplanner.importer.util": 1,
+   "com.technoetic.xplanner.mail": 9,
+   "com.technoetic.xplanner.metrics": 6,
+   "com.technoetic.xplanner.security": 10,
+   "com.technoetic.xplanner.security.auth": 13,
+   "com.technoetic.xplanner.security.config": 5,
+   "com.technoetic.xplanner.security.filter": 4,
+   "com.technoetic.xplanner.security.install": 1,
+   "com.technoetic.xplanner.security.module": 6,
+   "com.technoetic.xplanner.security.module.jaas": 3,
+   "com.technoetic.xplanner.security.module.jndi": 1,
+   "com.technoetic.xplanner.security.module.ntlm": 3,
+   "com.technoetic.xplanner.security.util": 2,
+   "com.technoetic.xplanner.soap": 4,
+   "com.technoetic.xplanner.soap.domain": 9,
+   "com.technoetic.xplanner.tags": 39,
+   "com.technoetic.xplanner.tags.db": 6,
+   "com.technoetic.xplanner.tags.displaytag": 19,
+   "com.technoetic.xplanner.tags.domain": 2,
+   "com.technoetic.xplanner.tags.util": 2,
+   "com.technoetic.xplanner.tx": 2,
+   "com.technoetic.xplanner.util": 18,
+   "com.technoetic.xplanner.views": 6,
+   "com.technoetic.xplanner.webservers": 1,
+   "com.technoetic.xplanner.wiki": 11,
+   "com.thoughtworks.proxy.kit": 1,
+   "com.thoughtworks.proxy.toys.decorate": 1,
+   "com.thoughtworks.proxy.toys.echo": 1,
+   "net.sf.xplanner.context": 1,
+   "net.sf.xplanner.dao": 12,
+   "net.sf.xplanner.dao.impl": 13,
+   "net.sf.xplanner.domain": 37,
+   "net.sf.xplanner.domain.enums": 3,
+   "net.sf.xplanner.domain.view": 4,
+   "net.sf.xplanner.dwr": 1,
+   "net.sf.xplanner.email": 4,
+   "net.sf.xplanner.events": 6,
+   "net.sf.xplanner.functions": 1,
+   "net.sf.xplanner.hibernate": 2,
+   "net.sf.xplanner.rest": 5,
+   "net.sf.xplanner.struts": 2,
+   "net.sf.xplanner.tags": 1,
+   "net.sf.xplanner.tags.domain": 1,
+   "net.sf.xplanner.util": 1,
+   "net.sf.xplanner.web": 3,
+   "org.apache.struts.upload": 1,
+   "org.displaytag.pagination": 2,
+   "org.displaytag.properties": 3,
+   "org.displaytag.tags": 2
+  },
+  "formValidation": [
+   {
+    "form": "com.technoetic.xplanner.forms.AbstractEditorForm",
+    "hasValidate": false,
+    "messageKeys": [
+     "format.datetime",
+     "format.date"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.AggregateTimesheetForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "format.date",
+     "timesheet.error.unparsable_date"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.ContinueUnfinishedStoriesForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "iteration.status.editor.continue_in_same_iteration"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.FeatureEditorForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "feature.editor.missing_name"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.FileManagerForm",
+    "hasValidate": false,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.ImportForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "import.status.no_import_file"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.ImportPeopleForm",
+    "hasValidate": false,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.ImportStoriesForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "import.status.worksheet_name",
+     "import.status.no_title_column",
+     "import.status.no_end_date_column",
+     "import.status.no_priority_column",
+     "import.status.no_completed_story_status"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.IterationEditorForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "iteration.editor.missing_name",
+     "iteration.editor.bad_start_date",
+     "iteration.editor.bad_end_date",
+     "iteration.editor.nonpositive_interval"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.IterationStatusEditorForm",
+    "hasValidate": false,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.MoveContinueStoryForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "story.editor.missing_name",
+     "story.editor.same_iteration"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.MoveContinueTaskForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "task.editor.missing_name",
+     "task.editor.same_story"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.MoveStoriesForm",
+    "hasValidate": false,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.NoteEditorForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "note.editor.missing_subject",
+     "note.editor.missing_author",
+     "note.editor.missing_body"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.PeopleImportResult",
+    "hasValidate": false,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.PersonEditorForm$1",
+    "hasValidate": false,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.PersonEditorForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "person.editor.missing_name",
+     "person.editor.missing_user_id",
+     "person.editor.missing_email",
+     "person.editor.missing_initials",
+     "person.editor.password_mismatch"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.PersonTimesheetForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "format.date",
+     "timesheet.error.unparsable_date"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.ProjectEditorForm$PersonInfo",
+    "hasValidate": false,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.ProjectEditorForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "project.editor.missing_name"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.ReorderStoriesForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "story.editor.invalid.order.number"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.RoleEditorForm$1",
+    "hasValidate": false,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.RoleEditorForm",
+    "hasValidate": true,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.TaskEditorForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "format.date",
+     "task.editor.bad_created_date",
+     "task.editor.missing_name",
+     "task.editor.negative_estimated_hours"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.TimeEditorForm$TimeEntryMemento",
+    "hasValidate": false,
+    "messageKeys": []
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.TimeEditorForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "edittime.error.unparsable_time",
+     "edittime.error.unparsable_number",
+     "edittime.error.missing_time",
+     "edittime.error.missing_person",
+     "edittime.error.same_people",
+     "edittime.error.negative_interval",
+     "edittime.error.overlapping_interval",
+     "edittime.error.both_interval_and_duration",
+     "edittime.error.missing_report_date",
+     "edittime.error.long_description"
+    ]
+   },
+   {
+    "form": "com.technoetic.xplanner.forms.UserStoryEditorForm",
+    "hasValidate": true,
+    "messageKeys": [
+     "story.editor.missing_name",
+     "story.editor.negative_estimated_hours",
+     "story.editor.invalid_priority",
+     "story.editor.same_iteration",
+     "xplanner.story.defaultpriority"
+    ]
+   }
+  ]
+ }
+}
