@@ -233,6 +233,17 @@ the process and a control stage is entered again, a pass from the earlier
 entry is stale: the new pass timestamp must fall after the latest entry into
 that stage and before its next transition.
 
+**Project rule, xplanner2-revision1 (owner decision
+`legacy-default-credential-classification:xplanner2-revision1`, constitution
+amendment A3):** reviewers never copy a password, key, token or login pair into
+reports, inventories, ledgers, access logs, scripts or other evidence. Cite the
+source location (file and line or symbol) and describe the insecure behavior
+instead. Before returning a checkpoint or result, the reviewer searches its new
+evidence for credential values found in the sources and reports any hit to PM.
+PM repeats this rule in every review packet and applies the matching project
+check before publication. Already frozen snapshots are not rewritten for this
+rule; any exception needs a recorded owner decision.
+
 ## Error Prevention Learning
 
 Every new control report and Stage 17 peer report follows the
