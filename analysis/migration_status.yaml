@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: awaiting_review
-  previous_stage: bootstrap
-  next_action: 'Stage 1 draft (BA-001-01 plus BA-001-02 provenance correction) verified by PM; owner merges the Stage 1 pull request; then PM records stage-01 -> stage-02 and launches the fresh blind Stage 2 BA subagent (owner-selected option a) on the merged main revision with a neutral Phase A packet.'
+  stage_status: in_progress
+  previous_stage: stage-02
+  next_action: 'Stage 1 re-entry from analysis/reviews/stage-02-pass-001.md: the Stage 1 author verifies F-001..F-008 against the legacy source, corrects the reconnaissance and parity map, and records per-finding dispositions in analysis/stages/stage-01/stage-02-pass-001-dispositions.md; PM then reruns Stage 1 gates and launches a new fresh blind Stage 2 pass 002.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 first entry; checklist had no learned checks during authoring; BA self-check in analysis/legacy_reconnaissance.md#read-error-prevention; PM admitted CHK-001 (per-file line citations, mechanically verified) from the BA self-detected error after the four-condition review; withheld from Stage 2 Phase A.'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 001; reviewer proposals P-1 (server-side permission trace), P-2 (side-effect writer on the call path per channel), P-3 (all locale variants) are pending admission until the Stage 1 author confirms the underlying findings; CHK-001 independently passed.'
 
 constitution:
   status: ratified
@@ -66,8 +66,36 @@ transition_history:
       approved_at: '2026-09-23T15:53:30Z'
       record: '.specify/memory/constitution.md'
       scope: 'Enter Stage 1 (reconnaissance: legacy source to parity map), BA lead with Architect support; read-only inspection of the immutable legacy/ package filling analysis/legacy_reconnaissance.md and analysis/legacy_user_flows.xlsx; excludes legacy runtime start and remote access (Stage 3, separate grant), stack choice and target code; material only to the current agreed Claude session; transition recorded after the ratification commit is pushed and CI is green on the pull request.'
+  - from: stage-01
+    to: stage-02
+    reason: 'Stage 1 draft merged to main at 714618408ba56aab6e2c2d447cc773d3d628ccc2 (PR #2, CI run 35971858631 green); Stage 1 gates audit:project and audit:workbook pass; open for independent Stage 2 control.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-24T07:55:31Z'
+    gate_evidence:
+      - 'analysis/legacy_reconnaissance.md'
+    owner_approval: null
+  - from: stage-02
+    to: stage-01
+    reason: 'Finding-driven return: Stage 2 pass 001 (analysis/reviews/stage-02-pass-001.md) result findings F-001..F-008 against the Stage 1 parity map and reconnaissance.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-24T08:39:41Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-02-pass-001.md'
+    owner_approval: null
 
-review_passes: []
+review_passes:
+  - stage: stage-02
+    pass: 1
+    result: findings
+    report: 'analysis/reviews/stage-02-pass-001.md'
+    reviewer: 'BA independent reviewer (subagent a648f7528e565ff59 of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer'
+    session_id: 'a648f7528e565ff59'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P001/independence-record.md'
+    reviewed_at: '2026-09-24T08:39:06Z'
+    scope: 'Full Stage 2 pass 001 at 714618408ba56aab6e2c2d447cc773d3d628ccc2: analysis/legacy_reconnaissance.md (6e831b2f4f61f40d22763d4d4c37091191c57abc91062e996a3a22e6885faa4b) and analysis/legacy_user_flows.xlsx (cb762eae1c66084e2df3d30a70f1364521cd9532e1ba481bc356da43d259492f, 179 rows) against legacy/xplanner-plus.war; packet S02-P001; report SHA-256 73e8fb002fc374f6b82a3c1dda1e51e14f7f91badf0f75bd6a73a2385ccfad85; 421 checks (404 matched, 10 mismatch, 0 not-checked, 7 not-applicable); findings F-001..F-008 (1 high, 2 medium, 5 low).'
+    waiver_ids: []
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -150,12 +178,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 draft: 179 scenario rows in 18 epics (Yes 112, Inferred 48, Partial 18, No 1), all static-only and open; legacy/ treated as fixed project baseline (Q1 decided, P-01..P-07 provenance impacts on 31 rows); gaps GAP-001..GAP-013; Q2-Q4 deferred; awaiting independent Stage 2 review.'
+  summary: 'Stage 2 pass 001 returned findings (F-001 high, F-002/F-007 medium, 5 low; 421 checks, 0 blocked); process returned to Stage 1 for correction; Stage 1 draft has 179 rows.'
   completed_percent: 0
-  updated_at: '2026-09-24T07:50:37Z'
+  updated_at: '2026-09-24T08:39:41Z'
   agent_reviews:
-    total: 0
-    valid: 0
+    total: 1
+    valid: 1
     blocked: 0
     invalid: 0
     active: 0
