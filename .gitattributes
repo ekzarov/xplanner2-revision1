@@ -12,3 +12,6 @@
 *.png binary
 *.jpg binary
 *.jpeg binary
+
+# Review evidence is hash-pinned: store exact bytes, no line-ending conversion.
+analysis/reviews/evidence/** -text
