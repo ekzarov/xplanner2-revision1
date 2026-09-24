@@ -312,7 +312,7 @@ the legacy fact and records the approved target deviation separately.
 
 The primary agent records dispositions with stable finding IDs, source links,
 changed reconnaissance sections/map rows and remaining unknowns. A correction
-record may live under `analysis/stages/stage-01/`; it is not another independent
+record may live under [`analysis/stages/stage-01/`](../stages/stage-01/); it is not another independent
 review or another canonical map. Existing evidence that remains valid is retained.
 
 On the next Stage 2 entry, a fresh eligible agent performs a new full in-scope
