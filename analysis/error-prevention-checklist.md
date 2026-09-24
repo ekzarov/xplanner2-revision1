@@ -20,3 +20,4 @@ the learned checks only in Phase B. Follow [the instruction](error-prevention.md
 
 | Check | When applicable | Basis | How to check |
 |---|---|---|---|
+| CHK-001 Cited line numbers resolve to the cited file | Any stage record or review that cites a line number in a source, descriptor, JSP or other file as evidence | Self-detected Stage 1 error corrected before handoff: [`analysis/legacy_reconnaissance.md`](./legacy_reconnaissance.md#read-error-prevention); rule: [`analysis/legacy_user_flows_template_instructions.md`](./legacy_user_flows_template_instructions.md) (cite derived artifacts by symbol) | Take line numbers only from a per-file numbered read, never from a concatenated multi-file listing. Before handoff, check mechanically that every cited `file:line` exists in that file and that the line contains the cited element; any mismatch fails. |

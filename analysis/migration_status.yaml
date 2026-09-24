@@ -32,10 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: not_started
+  stage_status: awaiting_review
   previous_stage: bootstrap
-  next_action: 'PM assigns Stage 1 reconnaissance to BA (lead) with skill .agents/skills/migration-ba/SKILL.md within the authorized scope (read-only legacy/ inspection into analysis/legacy_reconnaissance.md and analysis/legacy_user_flows.xlsx); owner merge of PR #1 is pending and separate.'
+  next_action: 'Stage 1 draft (BA-001-01 plus BA-001-02 provenance correction) verified by PM; owner merges the Stage 1 pull request; then PM records stage-01 -> stage-02 and launches the fresh blind Stage 2 BA subagent (owner-selected option a) on the merged main revision with a neutral Phase A packet.'
   automatic_advancement: false
+  prevention_self_check: 'stage-01 first entry; checklist had no learned checks during authoring; BA self-check in analysis/legacy_reconnaissance.md#read-error-prevention; PM admitted CHK-001 (per-file line citations, mechanically verified) from the BA self-detected error after the four-condition review; withheld from Stage 2 Phase A.'
 
 constitution:
   status: ratified
@@ -96,6 +97,29 @@ owner_decisions:
     scope: 'Enter Stage 1 (reconnaissance: legacy source to parity map), BA lead with Architect support; read-only inspection of the immutable legacy/ package filling analysis/legacy_reconnaissance.md and analysis/legacy_user_flows.xlsx; excludes legacy runtime start and remote access (Stage 3, separate grant), stack choice and target code; material only to the current agreed Claude session; transition recorded after the ratification commit is pushed and CI is green on the pull request.'
     rationale: 'Owner confirmed the exact scoped Stage 1 authorization wording after ratification, separately from ratification.'
     record: '.specify/memory/constitution.md'
+  - id: 'legacy-baseline-provenance:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-24T07:41:08Z'
+    scope: 'Q1/GAP-005: no original unpatched XPlanner+ v1.1a4 WAR will be supplied. legacy/ is investigated as this project''s fixed baseline version, never described as an unmodified original delivery; the known MySQL patch and provenance limits stay explicit; where original behavior cannot be separated from patch effects the uncertainty and its impact on specific conclusions are recorded; other content is not assumed unmodified; checks blocked by the missing original are named with their requirement, without stopping the rest of reconnaissance.'
+    rationale: 'Owner decision on BA question Q1 during Stage 1.'
+    record: 'analysis/legacy_reconnaissance.md'
+    residual_risk: 'Patch-affected behavior cannot be attributed to upstream XPlanner; conclusions touching patched areas remain uncertain.'
+  - id: 'legacy-open-questions-q2-q4:xplanner2-revision1'
+    decision: deferred
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-24T07:41:08Z'
+    scope: 'Q2 (parity scope for broken or dormant surfaces), Q3 (disposition of insecure legacy behavior, GAP-007), Q4 (people-import format, GAP-012) stay open until the corresponding Stage 4 and Stage 9 decisions. Until then agents record observed behavior, contradictions and risks tied to facts and affected functions and do not choose what to carry over, fix or exclude. Insecure legacy behavior is not permission to carry it into the new application.'
+    rationale: 'Owner deferred these decisions to their governing stages.'
+    record: 'analysis/legacy_reconnaissance.md'
+  - id: 'stage-02-reviewer-launch:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-24T07:41:08Z'
+    scope: 'Stage 2 fresh blind BA reviewer is launched by PM as a new subagent with fresh context inside the current agreed Claude session (option a), not as an owner-launched separate session.'
+    rationale: 'Owner selected option (a) after PM disclosed that it is the same session and that blind isolation cannot be enforced technically.'
+    record: 'analysis/legacy_reconnaissance.md'
+    residual_risk: 'Same parent session; the reviewer can technically read filled Stage 1 records on disk, so blindness relies on instructions and the reviewer''s self-report. Any exposure before Phase A is saved makes the attempt invalid.'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -126,9 +150,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Bootstrap closed: audits pass on starter ae3cca61, constitution 1.0.0 ratified with amendments A1-A3, Stage 1 authorized within exact scope, PR CI green; Stage 1 entered, not started.'
+  summary: 'Stage 1 draft: 179 scenario rows in 18 epics (Yes 112, Inferred 48, Partial 18, No 1), all static-only and open; legacy/ treated as fixed project baseline (Q1 decided, P-01..P-07 provenance impacts on 31 rows); gaps GAP-001..GAP-013; Q2-Q4 deferred; awaiting independent Stage 2 review.'
   completed_percent: 0
-  updated_at: '2026-09-23T15:58:01Z'
+  updated_at: '2026-09-24T07:50:37Z'
   agent_reviews:
     total: 0
     valid: 0
