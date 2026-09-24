@@ -1,0 +1,19 @@
+{
+  "packet_id": "S02-P002",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-002.md",
+  "reason": "The Claude Code client refuses subagent writes of the review report file. The reviewer wrote the complete report text into its scratch directory and returned it in RESULT BA-002-02.",
+  "producer": "Reviewer subagent aed5642d8baeb3e36 authored the entire report content and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p002/reviewer-scratch/stage-02-pass-002.md",
+  "source_copy_sha256_declared_by_reviewer": "545ad428ab41a516e5bf936592b6815617aaa661d47b0d33b09ee6f07fe81b52",
+  "pm_changes": [
+    "None. PM copied the reviewer's scratch copy byte-for-byte after verifying its SHA-256 against the value in RESULT BA-002-02."
+  ],
+  "final_report_sha256": "545ad428ab41a516e5bf936592b6815617aaa661d47b0d33b09ee6f07fe81b52",
+  "final_checks": {
+    "node analysis/tools/artifact-reading.js --file analysis/reviews/stage-02-pass-002.md": "exit 0, errors []",
+    "node analysis/tools/artifact-reference-links.js --check": "exit 0, 199 Markdown documents"
+  },
+  "reviewer_disclosed_deviation": "One git status --short in the main tree at 2026-09-24T09:57:40Z, outside the worktree-only git permission; output identical to the injected launch snapshot; no history read (access-log entry 67). PM assessment: non-substantive, recorded; the attempt remains valid.",
+  "recorded_at": "2026-09-24T10:12:00Z"
+}

@@ -1,0 +1,37 @@
+{
+  "packet_id": "S02-P002",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "phase_a_checkpoint_verified_at": "2026-09-24T09:46:16Z",
+  "phase_a_snapshot": {
+    "file": "analysis/reviews/evidence/S02-P002/phase-a-inventory.json",
+    "sha256": "5a39cd59b414f375f4d929d853794ff37246518440aa26f9e960eb180156ff7f",
+    "saved_at_utc": "2026-09-24T09:45:21Z",
+    "items": 129
+  },
+  "access_log_sha256_at_checkpoint": "503c9f47182bf9b8ce86974aa96c82124fde44790c1a56fbb60a1f28e8b2c928",
+  "independence_record_sha256_at_checkpoint": "869fd10d29a5dbb8d2cd6f2f815d228b4033d1ca28023e2a9c30a33057c950c6",
+  "phase_a_worktree": {
+    "path": ".migration-tmp/stage-02-p002/phase-a",
+    "head": "ab29a84819f2c7f0753f006a168cfff96d36b7d5",
+    "git_status_short_lines": 0
+  },
+  "pm_checks": [
+    "all five evidence file hashes match the reviewer CHECKPOINT and PM packet",
+    "worktree HEAD unchanged and clean",
+    "main tree changes limited to PM status edit and the S02-P002 evidence directory",
+    "access log declares no withheld record opened; the only withheld-path mentions are the disclosed client-injected gitStatus snapshot and commit subjects, accepted by PM as non-substantive"
+  ],
+  "phase_b_released_at": "2026-09-24T09:46:16Z",
+  "phase_b_pinned_inputs": {
+    "revision": "ab29a84819f2c7f0753f006a168cfff96d36b7d5",
+    "analysis/legacy_reconnaissance.md": "faecd7ab62fd99f458e89a110dd2f8b485d1a9cfb47323ae0f8cc0269a68fbff",
+    "analysis/legacy_user_flows.xlsx": "1d8863d09cc928ba3fa9007402615a017aea265b56c52ee72386add4cacccf17",
+    "analysis/error-prevention-checklist.md": "c4d1f2a73e246393546cbdf02c05ec9f9fe4ae045e97b31923a1ebaff9f6ed11",
+    "analysis/stages/stage-01/stage-02-pass-001-dispositions.md": "5d823882f173f61e58747e17666f4c6d63a07bd1376628f545b82a782b4fb29a",
+    "analysis/reviews/stage-02-pass-001.md": "73e8fb002fc374f6b82a3c1dda1e51e14f7f91badf0f75bd6a73a2385ccfad85",
+    "analysis/reviews/evidence/S02-P001/comparison-results.json": "4e7e2b6e21404aa9e63f037032fe47ea8bf329f17343bef92e0d7c4ca4bae1e1",
+    "analysis/reviews/evidence/S02-P001/phase-a-inventory.json": "ee62d7fb775edff9b34ab19b201d2ead6ac121e50dd6ab98a0b3f7b6238cf7ac",
+    "analysis/stages/bootstrap/bootstrap-gate-report.md": "1432e4a4242d3c82401edb7b58750dbbd61e0eac6e162cb93037e698e362ff66",
+    "analysis/migration_status.yaml (working tree, branch stage-02/pass-002, includes the uncommitted stage-01 -> stage-02 transition)": "e641a84ff6be01e7ef1fc7b5fea618d4d805388cb024272c72fd7bfce3e1d022"
+  }
+}
