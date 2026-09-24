@@ -678,6 +678,13 @@ invoked speculatively.
 
 ## Remote CI Closure
 
+Use [Review And Correction PRs](analysis/migration_methodology.md#review-and-correction-prs)
+for publication boundaries: a completed control record and its later fixes use
+separate PRs. PM publishes truthful negative results without waiting for fixes;
+required CI and owner merge still apply. Planning controls consume integrated
+candidates; Stage 17 code peer review remains before merge. Never combine these
+rules into a general permission to merge unreviewed code.
+
 Local gates are necessary but do not close a repository change. Ordinary work
 uses a branch and pull request. After each push, the orchestrator waits for all
 required GitHub Actions workflows attached to the exact commit SHA and records

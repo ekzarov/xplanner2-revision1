@@ -191,6 +191,11 @@ allowed; retaining the required fields and durable references is mandatory.
 - PM verifies output existence, input/result versions, write boundaries and
   evidence before integration. It does not rerun an entire specialist task by
   default, rewrite a review verdict or accept a chat-only completion claim.
+- PM applies [Review And Correction PRs](migration_methodology.md#review-and-correction-prs):
+  publish each completed control attempt separately, then assign corrections
+  after owner merge. Preserve in-flight work and single-writer ownership when
+  separating branches. A records PR merge is not a clean verdict; Stage 17 peer
+  review remains before merge. Commit/push permission is not merge authority.
 - PM is the single coordinating writer of migration status and shared graph/
   checklist updates. Specialists supply proposals and exact evidence. Existing
   stage permissions still decide when each shared record may change. Lead

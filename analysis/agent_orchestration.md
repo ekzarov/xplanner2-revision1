@@ -215,11 +215,20 @@ Any reviewer-created repository change makes the attempt `invalid`.
 
 ## Remote CI Closure
 
+Follow [Review And Correction PRs](migration_methodology.md#review-and-correction-prs):
+PM publishes a completed control attempt separately from author corrections,
+preserving its actual verdict and safe ownership of in-flight changes. The next
+planning control waits for its candidate's owner-approved merge; Stage 17 code
+peer review still happens before merge. Do not ask the owner to choose between
+combining or separating these PRs on each return; the default is separation.
+
 PM owns coordination of remote verification after every authorized push. For
 ordinary governed work it creates a branch and pull request, runs the local
 repository gates, and then waits for every required GitHub Actions workflow on
 the exact pushed commit SHA. It records the workflow names, run URLs, commit
-SHA, and final conclusions in the delivery or review record.
+SHA, and final conclusions in existing PR metadata and the next mutable work or
+handoff record. Never reopen an immutable delivery or review record to append
+later publication facts.
 
 The work remains incomplete while any required run is queued, in progress,
 failed, cancelled, skipped unexpectedly, or absent. Local green checks do not

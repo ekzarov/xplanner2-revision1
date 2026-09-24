@@ -73,6 +73,32 @@ test('Bootstrap records failures before correction approval and upgrades without
   assert(!read('analysis/migration_methodology.html').includes('5 audits'));
 });
 
+test('control-record PRs stay separate from corrections without permitting unreviewed code merge', () => {
+  const anchor = '#review-and-correction-prs';
+  for (const file of ['MIGRATION.md', 'analysis/process-contract.md',
+    'analysis/agent-roles.md', 'analysis/agent_orchestration.md',
+    'analysis/reviews/README.md', 'analysis/reviews/stage-NN-pass-NNN-template.md',
+    'analysis/process-cheatsheet.md', 'analysis/migration_methodology.html']) {
+    assert(read(file).includes(anchor), file);
+  }
+  const procedure = read('analysis/migration_methodology.md')
+    .split('## Review And Correction PRs')[1].split('## Stage Control')[0]
+    .replace(/\s+/g, ' ');
+  for (const rule of ['one records PR', 'corrections are a separate PR',
+    'owner merges the control-record PR', 'Do not reset, discard, overwrite',
+    'Phase A still withholds prior findings', 'Saving Phase A does not require its own PR',
+    'negative verdict is not a failed CI run', 'keep the PR blocked',
+    '**before owner merge**', 'Stage 18', 'Stage 19', 'sealed review']) {
+    assert(procedure.includes(rule), rule);
+  }
+  const data = JSON.parse(read('analysis/process-canvas/data.json'));
+  assert(data.stages.find(stage => stage.id === 'stage-01').actions.some(action => action.includes('owner merge')));
+  assert(data.stages.find(stage => stage.id === 'stage-02').actions.some(action => action.includes('Merge is not a clean verdict')));
+  const html = cheerio.load(read('analysis/migration_methodology.html'));
+  assert.equal(html('#review-pr-boundary').length, 1);
+  assert(html('#review-pr-boundary').text().includes('before merge'));
+});
+
 test('cheat sheet covers every stage and artifact without changing the shared flow', () => {
   const {readContract} = require('./process-contract');
   const MarkdownIt = require('markdown-it');

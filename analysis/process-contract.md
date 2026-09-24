@@ -19,6 +19,7 @@ affected action until the process maintainer resolves it.
 - [Shared UI baseline](#shared-ui-baseline)
 - [Feature dependencies](#feature-dependencies)
 - [Stage boundaries](#stage-boundaries)
+- [Review publication](#review-publication)
 - [Stage flow](#stage-flow)
 - [Closing evidence](#closing-evidence)
 - [Artifact responsibilities](#artifact-responsibilities)
@@ -142,6 +143,18 @@ a constitutional amendment. Moving wording here never waives required work.
 | V: controlled knowledge before design | [Knowledge guide](knowledge/README.md). Stage 13 produces the source-linked OKF bundle with stable IDs, provenance and manifest hashes; Stage 14 independently checks it before SDD consumes it. Permitted scope exceptions retain residual risk and the next applicable independent control. |
 | VIII: integration and remote verification | [Remote CI closure](../MIGRATION.md#remote-ci-closure) and configured repository workflows. Owner-only merge authority and exact-commit success for every required remote workflow remain mandatory; local tests are not a substitute. |
 | X: executable engineering-quality rules | [Quality-profile procedure](migration_methodology.md#engineering-quality-profile) at Stage 9 specifies tools, strings, fixtures and commands; Stage 17 implements the approved rules without weakening them. |
+
+## Review Publication
+
+[Review And Correction PRs](migration_methodology.md#review-and-correction-prs)
+owns the publication sequence. Planning candidates are integrated before formal
+control; each completed control attempt is a separate records PR, even when its
+verdict is negative. Findings and truthful return state are preserved, not treated
+as acceptance. Corrections follow in a separate PR before the next required
+control. Required CI and owner merge apply to each PR. Stage 17 code peer review
+remains before merge; Stage 18 records-only restrictions and Stage 19 owner
+acceptance remain unchanged. In-flight writes are preserved and coordinated;
+sealed reports are not edited to append later publication facts.
 
 ## Error Prevention
 

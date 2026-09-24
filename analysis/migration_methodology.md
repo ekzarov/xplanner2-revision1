@@ -147,6 +147,75 @@ The practical chain is:
   a browser journey signs in, performs the changed action, checks the result,
   and signs out against the deployed revision.
 
+## Review And Correction PRs
+
+**One completed control pass is one records PR; its corrections are a separate PR.**
+PM follows this sequence by default, without asking whether to combine the
+report with its fixes. Commit/push permissions and owner-only merge authority
+still apply. This is a publication boundary, not a new stage or approval.
+
+1. **Publish the candidate.** At Stages 1-16, publish the completed authoring
+   artifact set through a scoped PR before launching its next formal control.
+   Run applicable local gates and required remote CI on the exact PR head; the
+   owner merges. Pin the actual integrated revision in the next review packet.
+   Merging a draft makes it available for control, not approved by that control.
+2. **Publish the control result.** For each Stage 2, 7, 10, 14, 16 or 19 attempt,
+   PM archives the unchanged reviewer report and evidence in a separate records
+   PR, with only directly related, stage-permitted status/checklist/graph updates.
+   The same separation applies to pre-implementation verification or owner-decision
+   records that cause a return, including Stages 3 and 12. Record the actual result
+   and classified return promptly; do not wait
+   for fixes or pretend that the PR has already merged. Do not include changes
+   to the reviewed artifacts or unrelated process maintenance in this PR.
+3. **Preserve negative results.** A report with `findings`, `blocked` or `invalid`
+   can be published as an honest record. Its PR must still pass the checks
+   applicable to the recorded state; a negative verdict is not a failed CI run.
+   Never change the verdict, erase blockers, claim a stage closed, weaken CI or
+   run a success-only gate under false state to make the records PR green.
+   If required CI cannot accept a truthful record, keep the PR blocked and
+   escalate the gate/process conflict. Owner merge records the outcome, not
+   agreement with every finding, closure of findings or permission to advance.
+4. **Correct separately.** After the owner merges the control-record PR, PM
+   assigns correction work on a new branch from that integrated revision.
+   The author verifies each finding, fixes its owning artifacts and records
+   per-finding dispositions. Corrections and dispositions form their own PR,
+   linked to the triggering report and finding IDs. The old report and evidence
+   remain immutable; disagreement is recorded in dispositions, not edited into
+   the reviewer's conclusion. Required gates/CI and owner merge apply again.
+5. **Review the corrected candidate.** Only after the correction PR is merged,
+   pin its actual integrated revision and launch the next required control with
+   a new numbered report. Independent controls use a fresh eligible session.
+   Stage 2/19 Phase A still withholds prior findings and correction outcomes;
+   Phase B reconciles them. Saving Phase A does not require its own PR.
+
+**Example:** Stage 1 draft PR -> owner merge -> Stage 2 pass 001 records PR
+(`findings`, return to Stage 1) -> owner merge -> Stage 1 correction PR -> owner
+merge -> fresh Stage 2 pass 002. Each merge waits for required CI; none supplies
+a separate stage-specific owner approval. Preserve the source SHA reviewed even
+if merge creates another SHA; never relabel old evidence as review of the merge.
+
+**In-flight work:** if correction work already exists when applying this rule,
+PM coordinates with its writer before switching branches or moving files. Freeze
+the records-only PR scope and preserve all unfinished corrections in a separate
+branch/worktree or attributable snapshot, then base the correction PR on the
+merged records revision. Do not reset, discard, overwrite or accidentally stage
+another agent's work. Pause affected writers if safe separation is unavailable.
+
+**Implementation and delivery boundary:** this is not a universal "merge first,
+review later" rule. Stage 16 approval still precedes implementation. Stage 17
+code, tests and SDD stay in one candidate PR, with clean code peer review and
+required CI **before owner merge**. Stage 18 deploys that reviewed candidate;
+delivery records keep the existing records-only descendant restrictions.
+Stage 19 publishes acceptance evidence separately, never fixes the deployed
+candidate in its review PR and never substitutes merge for owner acceptance.
+
+PM records publication PRs, exact CI head/results and actual merge revisions in
+existing PR metadata and the next mutable work/handoff record. Do not amend a
+sealed review to append later CI/merge facts, add a second status file, invent
+future transitions or create an extra PR merely to record its own merge SHA.
+Use the [remote CI closure rule](../MIGRATION.md#remote-ci-closure) and
+[return procedure](reviews/README.md#return-and-correction-protocol).
+
 ## Stage Control
 
 - [`analysis/migration_status.yaml`](./migration_status.yaml) is the only current-stage checkpoint.
@@ -636,10 +705,10 @@ removed before the review is considered operationally complete.
 - [stages/stage-03/walkthrough-NNN.md](https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/stages/templates/walkthrough-NNN-template.md): Stage 3: walkthrough findings, observed behavior and runtime evidence that contradict or extend the map.
 - [stages/stage-04/stage-04-requirements-revision.md](https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/stages/templates/stage-04-requirements-revision-template.md): Stage 4: mapping errors found during requirements revision. An owner decision to change correctly recorded legacy behavior stays at Stage 4.
 
-1. The primary agent reads the triggering record and earlier unresolved findings, then checks the legacy source, configuration and linked runtime evidence. Observed differences are investigated, not silently discarded.
+1. After the owner merges the triggering record PR, PM assigns a separate correction branch. Preserve in-flight work. The primary agent reads the triggering record and unresolved findings, then checks source, configuration and runtime evidence.
 2. Correct the current map and reconnaissance; check related roles and mechanisms. Expand discovery if the baseline is unreliable, without automatically starting from zero.
-3. Record each finding ID, disposition, evidence, changed rows/files and remaining work. Update status and run the Stage 1 gates; the original review stays immutable.
-4. A fresh Stage 2 agent starts a new blind Phase A. Previous findings and correction records become available only in Phase B; fixes do not replace independent acceptance.
+3. Record finding IDs, dispositions, evidence, changed rows/files and remaining work. Update status and publish the correction PR; required gates/CI and owner merge apply. The original review stays immutable.
+4. After the correction PR is merged, a fresh Stage 2 agent starts a new blind Phase A on the integrated revision. Previous findings and correction records become available only in Phase B; fixes do not replace independent acceptance.
 
 [Return instructions](reviews/README.md#stage-1-re-entry) · [Real XPlanner correction record](https://github.com/olsys-ltd/xplanner2/blob/62a21930d8d7c19017ac9ed9e4a474a614e30842/analysis/stages/stage-01/stage-02-pass-001-dispositions.md)
 <!-- STAGE_REENTRY_1_END -->
