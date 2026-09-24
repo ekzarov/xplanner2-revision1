@@ -34,7 +34,7 @@ control:
   current_stage: stage-01
   stage_status: awaiting_review
   previous_stage: stage-02
-  next_action: 'Stage 1 re-entry corrections BA-001-03 verified by PM (dispositions in analysis/stages/stage-01/stage-02-pass-001-dispositions.md: F-001..F-008 accepted, F-001 narrowed; AF-01/AF-02 added). Owner merges the corrections PR; then PM records stage-01 -> stage-02 and launches a new fresh blind Stage 2 pass 002 (new subagent, sparse Phase A worktree withholding Stage 1 records, pass-001 report and dispositions until Phase B).'
+  next_action: 'Stage 1 corrections merged (PR #4, main d84d6f6). Process synchronization to starter f0aefe2 is pending owner merge (analysis/maintenance/starter-sync-2026-09-24-f0aefe2.md). After that merge, PM records stage-01 -> stage-02 and launches a new fresh blind Stage 2 pass 002 on the integrated revision (new subagent, sparse Phase A worktree withholding Stage 1 records, pass-001 report and dispositions until Phase B).'
   automatic_advancement: false
   prevention_self_check: 'stage-01 re-entry after stage-02 pass 001: author confirmed the errors behind reviewer proposals; PM admitted CHK-002 (P-1 server-side permission trace), CHK-003 (P-2 merged with author AF-01/AF-02 proposal: reachable writer/hook/dependency) and CHK-004 (P-3 all locale variants) after deduplication; BA-001-03 applied CHK-001 (42 citations, 0 failures).'
 

@@ -123,6 +123,13 @@ the governed project checkpoint.
 
 ## Naming
 
+PM publishes every completed attempt through a separate records PR under
+[Review And Correction PRs](../migration_methodology.md#review-and-correction-prs),
+including negative verdicts. Fixes belong to a later author PR, not this report's
+PR. Required CI and owner merge remain mandatory; publication is not acceptance.
+The reviewer never commits, pushes or merges on PM's behalf. Once archived, the
+report is not changed to append later CI/merge details or author dispositions.
+
 Use `stage-NN-pass-NNN.md`:
 
 - `stage-02-pass-001.md` - control reconnaissance;
@@ -284,6 +291,12 @@ returns work to an earlier owning stage, including non-adjacent returns.
    An author's correction record never supplies an independent clean verdict.
 
 ### Stage 1 Re-entry
+
+Before assigning corrections, PM applies the
+[publication boundary](../migration_methodology.md#review-and-correction-prs):
+publish and obtain owner merge of the triggering record separately, then use a
+correction branch/PR. Preserve already-started work under the in-flight rule.
+The next Stage 2 waits for the correction PR's required CI and owner merge.
 
 On first entry, the primary agent builds the reconnaissance and parity map from
 legacy source. On any return, it reads the exact triggering record cited by

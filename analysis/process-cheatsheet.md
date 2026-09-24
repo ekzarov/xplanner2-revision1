@@ -31,6 +31,8 @@ A quick reading aid, not a new gate or project verdict. The process-maintenance 
 
 - **On return:** read the exact triggering review/decision, verify findings, correct affected scope and repeat required downstream controls. Keep old reports and approvals as history. A green automated check alone does not authorize the next step.
 
+- **PR boundaries:** publish each completed control attempt separately from its later corrections. Required CI and owner merge precede the correction PR and the next planning control; a merged negative report is not acceptance. Preserve in-flight work. Stage 17 code peer review remains before merge. [Review And Correction PRs](migration_methodology.md#review-and-correction-prs).
+
 - **Learned checks:** one [`error-prevention-checklist.md`](error-prevention-checklist.md), not another findings backlog. Read applicable rows before work; self-check before handoff and after fixes. Generalize confirmed repeatable mistakes, deduplicate by meaning, and record short results in the existing work record or `control.prevention_self_check`. Independent reviewers propose; the coordinator maintains; the owner may prune. Stages 2/19 open learned checks only in Phase B. [Admission and timing](error-prevention.md).
 
 ## Contents

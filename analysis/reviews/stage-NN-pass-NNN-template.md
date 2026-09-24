@@ -34,6 +34,12 @@
 > **Template output:** `analysis/reviews/stage-NN-pass-NNN.md`. Preserve this filename stem;
 > replace only the uppercase placeholders. See the artifact naming guide.
 
+> **Publication:** PM archives this unchanged report and evidence in a separate
+> records PR, even for a negative verdict. Author corrections use a later PR.
+> Required CI and owner merge apply; merge is not acceptance. Keep later PR/CI
+> facts outside the sealed report. Follow
+> [Review And Correction PRs](../migration_methodology.md#review-and-correction-prs).
+
 </details>
 <!-- ARTIFACT_AUTHORING_NOTES_END -->
 
