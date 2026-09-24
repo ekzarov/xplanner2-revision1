@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: in_progress
+  stage_status: awaiting_review
   previous_stage: stage-02
-  next_action: 'Stage 1 re-entry from analysis/reviews/stage-02-pass-001.md: the Stage 1 author verifies F-001..F-008 against the legacy source, corrects the reconnaissance and parity map, and records per-finding dispositions in analysis/stages/stage-01/stage-02-pass-001-dispositions.md; PM then reruns Stage 1 gates and launches a new fresh blind Stage 2 pass 002.'
+  next_action: 'Stage 1 re-entry corrections BA-001-03 verified by PM (dispositions in analysis/stages/stage-01/stage-02-pass-001-dispositions.md: F-001..F-008 accepted, F-001 narrowed; AF-01/AF-02 added). Owner merges the corrections PR; then PM records stage-01 -> stage-02 and launches a new fresh blind Stage 2 pass 002 (new subagent, sparse Phase A worktree withholding Stage 1 records, pass-001 report and dispositions until Phase B).'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 re-entry after stage-02 pass 001; reviewer proposals P-1 (server-side permission trace), P-2 (side-effect writer on the call path per channel), P-3 (all locale variants) are pending admission until the Stage 1 author confirms the underlying findings; CHK-001 independently passed.'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 001: author confirmed the errors behind reviewer proposals; PM admitted CHK-002 (P-1 server-side permission trace), CHK-003 (P-2 merged with author AF-01/AF-02 proposal: reachable writer/hook/dependency) and CHK-004 (P-3 all locale variants) after deduplication; BA-001-03 applied CHK-001 (42 citations, 0 failures).'
 
 constitution:
   status: ratified
@@ -178,9 +178,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 2 pass 001 returned findings (F-001 high, F-002/F-007 medium, 5 low; 421 checks, 0 blocked); process returned to Stage 1 for correction; Stage 1 draft has 179 rows.'
+  summary: 'Stage 1 corrected after Stage 2 pass 001 findings: 193 scenario rows in 18 epics (Yes 112, Inferred 60, Partial 20, No 1), all static-only and open; gaps GAP-001..GAP-014; awaiting new independent Stage 2 pass 002.'
   completed_percent: 0
-  updated_at: '2026-09-24T08:39:41Z'
+  updated_at: '2026-09-24T09:03:17Z'
   agent_reviews:
     total: 1
     valid: 1
