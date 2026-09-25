@@ -38,6 +38,14 @@ withhold learned checks and self-check notes until Phase A has been saved.
 Record the concise self-check and learning update as instructed; neither is
 approval. Run `audit:prevention` for table integrity, not semantic verification.
 
+Before drafting, freezing or publishing evidence, follow
+[credential-safe evidence](analysis/agent_orchestration.md#credential-safe-evidence).
+Cite credential source locations without copying values, including factory
+defaults. Authors/reviewers check before freezing; PM checks before publication.
+Public-data classification is not an exception for working secrets, and sealed
+evidence is not silently rewritten. This generic rule is allowed in blind
+Phase A; project-specific decisions and learned checks remain withheld.
+
 ## Process Maintenance Authority
 
 The English [process contract](analysis/process-contract.md) defines the shared
@@ -683,6 +691,12 @@ test, a passing smoke test does not imply acceptance, and rollback is never
 invoked speculatively.
 
 ## Remote CI Closure
+
+PM uses [the PR communication contract](analysis/migration_methodology.md#pr-descriptions-comments-and-commits)
+and explicitly loads [the PR template](.github/pull_request_template.md), even
+when a CLI does not. Refresh and read back the body after pushes and before
+owner handoff; comments record significant events, commits explain intent and
+evidence. Neither a well-formed summary nor old-head CI authorizes merge.
 
 Use [Review And Correction PRs](analysis/migration_methodology.md#review-and-correction-prs)
 for publication boundaries: a completed control record and its later fixes use

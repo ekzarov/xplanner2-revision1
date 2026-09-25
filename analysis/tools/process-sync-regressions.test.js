@@ -99,6 +99,58 @@ test('control-record PRs stay separate from corrections without permitting unrev
   assert(html('#review-pr-boundary').text().includes('before merge'));
 });
 
+test('PR communication template uses the six methodology sections without claiming approval', () => {
+  const MarkdownIt = require('markdown-it');
+  const md = new MarkdownIt({ html: true });
+  const template = read('.github/pull_request_template.md');
+  const $ = cheerio.load(md.render(template));
+  const procedure = read('analysis/migration_methodology.md')
+    .split('### PR Descriptions, Comments And Commits')[1].split('## Stage Control')[0];
+  const contract = cheerio.load(md.render(procedure));
+  const sections = contract('table tbody tr').map((_, row) => contract(row).find('td').first().text()).get();
+  assert.deepEqual(sections, ['Purpose', 'Changes', 'Verification', 'Open Items', 'Owner Action / Next', 'Evidence']);
+  assert.deepEqual($('h2').map((_, node) => $(node).text()).get(), sections);
+  assert.deepEqual($('table tbody tr').map((_, row) => $(row).find('td').first().text()).get(),
+    ['Local checks', 'Required remote CI', 'Independent review']);
+  assert.equal($('details').length, 1);
+  for (const phrase of ['PR head:', 'Reviewed source:', 'Integrated revision:',
+    'not yet merged', 'no premature merge request', 'what is NOT approved']) {
+    assert(template.includes(phrase), phrase);
+  }
+  assert(!/xplanner|S02-P004|CHK-009/.test(template));
+});
+
+test('PR communication is routed through PM, portable instructions, views and initialization', () => {
+  const anchor = '#pr-descriptions-comments-and-commits';
+  for (const file of ['MIGRATION.md', 'analysis/agent_orchestration.md',
+    'analysis/agent-roles.md', '.agents/skills/migration-pm/SKILL.md',
+    'analysis/process-contract.md', 'analysis/process-cheatsheet.md', 'ARTIFACTS.md']) {
+    assert(read(file).includes(anchor), file);
+  }
+  assert(read('init-migration.ps1').includes("'.github/pull_request_template.md'"));
+  assert(read('analysis/process-canvas/sync-practical-guidance.js').includes(anchor));
+  const html = cheerio.load(read('analysis/migration_methodology.html'));
+  assert.equal(html('#pr-communication').length, 1);
+  assert(html('#pr-communication a').attr('href').endsWith(anchor));
+});
+
+test('PR lifecycle keeps current-head checks, historical evidence and owner authority distinct', () => {
+  const procedure = read('analysis/migration_methodology.md')
+    .split('### PR Descriptions, Comments And Commits')[1].split('## Stage Control')[0]
+    .replace(/\s+/g, ' ');
+  for (const rule of ['CLI/API clients that do not load it automatically',
+    'stage number AND stage name', 'before listing technical IDs',
+    'Refresh the body after each push', 'PM reads the actual PR body back',
+    'previous-head CI is historical, not current success',
+    'Independent review may be pending/not required for this PR only under',
+    'Do not bulk-rewrite old PRs on adoption',
+    'Do not post polling updates', 'repository-relative paths',
+    'try to put a commit\'s own hash in its message',
+    'Never rewrite existing commit history', 'If squash is selected',
+    'PRs/comments are not permitted blind Phase A inputs',
+    'No extra JSON manifest or status file']) assert(procedure.includes(rule), rule);
+});
+
 test('corrective returns carry a bounded assignment and preserve unaffected work', () => {
   const MarkdownIt = require('markdown-it');
   const procedure = read('analysis/reviews/README.md')
@@ -175,6 +227,76 @@ test('return explanations stay visible in process views without changing control
   const stage = JSON.parse(read('analysis/process-canvas/data.json')).stages.find(s => s.id === 'stage-01');
   assert(stage.reentry.en.steps.some(s => s.includes('not a restart')));
   assert(stage.reentry.en.steps.some(s => s.includes('full in-scope blind Phase A')));
+});
+
+test('credential safety reaches authors, reviewers, publication and new project templates', () => {
+  const anchor = '#credential-safe-evidence';
+  const files = ['MIGRATION.md', 'analysis/migration_methodology.md',
+    'analysis/process-contract.md', 'analysis/error-prevention.md',
+    'analysis/reviews/README.md', 'analysis/reviews/stage-NN-pass-NNN-template.md',
+    'analysis/stages/templates/stage-19-pass-NNN-template.md', 'config/REMOTE_SERVER.md'];
+  for (const file of files) assert(read(file).includes(anchor), file);
+  const procedure = read('analysis/agent_orchestration.md')
+    .split('## Credential-Safe Evidence')[1].split('## Review Modes')[0]
+    .replace(/\s+/g, ' ');
+  for (const rule of ['including public factory defaults',
+    'Before handing off or freezing evidence (including Phase A)',
+    'PM repeats the publication check', 'do not print matches',
+    'zero matches alone is not proof', 'existing work/report record',
+    'Do not broaden repository, network or blind-phase access',
+    'PM includes this generic rule in review assignments']) {
+    assert(procedure.includes(rule), rule);
+  }
+  const initializer = read('init-migration.ps1');
+  for (const file of [...files, 'analysis/agent_orchestration.md']) {
+    assert(initializer.includes(`'${file}'`), 'initializer must carry ' + file);
+  }
+  const html = cheerio.load(read('analysis/migration_methodology.html'));
+  assert.equal(html('#credential-safe-evidence').length, 1);
+  assert(html('#credential-safe-evidence').text().includes('before freezing evidence'));
+  assert(html('#credential-safe-evidence a').attr('href').endsWith(anchor));
+});
+
+test('credential classification preserves authority, uncertainty and historical evidence', () => {
+  const procedure = read('analysis/agent_orchestration.md')
+    .split('## Credential-Safe Evidence')[1].split('## Review Modes')[0]
+    .replace(/\s+/g, ' ');
+  for (const rule of ['prior publication does not make them safe',
+    'Unknown sensitivity is not clearance', 'governing constitution permits it',
+    'Do not require proof that no installation anywhere',
+    'unknown environment use stays explicit',
+    'An empty environment contract is not evidence that no deployment exists',
+    'do not silently edit snapshots', 'new identity/hash',
+    'Hash preservation never justifies exposing an actual secret',
+    'Project-specific classifications, learned checks and previous incidents remain phase-restricted']) {
+    assert(procedure.includes(rule), rule);
+  }
+  assert(!/CHK-\d{3}|xplanner2-revision1|S02-P004/.test(procedure));
+  assert(!/CHK-\d{3}/.test(read('analysis/error-prevention-checklist.template.md')));
+  assert(read('config/REMOTE_SERVER.md').includes('publicly reachable deployment'));
+});
+
+test('credential guidance links survive review template instantiation', () => {
+  const md = new (require('markdown-it'))({ html: true });
+  for (const [template, output] of [
+    ['analysis/reviews/stage-NN-pass-NNN-template.md', 'analysis/reviews/stage-02-pass-001.md'],
+    ['analysis/stages/templates/stage-19-pass-NNN-template.md', 'analysis/reviews/stage-19-pass-001.md']
+  ]) {
+    const $ = cheerio.load(md.render(read(template)));
+    const links = $('a[href$="#credential-safe-evidence"]');
+    assert.equal(links.length, 1, template);
+    const href = links.attr('href');
+    if (href.startsWith('https://')) {
+      const url = new URL(href);
+      assert.equal(url.origin, 'https://github.com');
+      assert.equal(url.pathname, '/olsys-ltd/legacy-modernization-starter/blob/main/analysis/agent_orchestration.md');
+    } else {
+      const target = path.resolve(root, path.dirname(output), href.split('#')[0]);
+      assert.equal(target, path.join(root, 'analysis/agent_orchestration.md'), output);
+      assert(fs.existsSync(target), output);
+    }
+    assert(read('analysis/agent_orchestration.md').includes('## Credential-Safe Evidence'));
+  }
 });
 
 test('correction guidance links resolve from both review templates and their output locations', () => {

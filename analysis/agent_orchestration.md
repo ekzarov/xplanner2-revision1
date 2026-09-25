@@ -63,6 +63,58 @@ The coordinator returns exact F-NNN/B-NNN and CHK-NNN links to the original
 agent, who preserves them in correction dispositions and records repeat checks.
 Do not infer an unread checklist from a missing self-check record.
 
+## Credential-Safe Evidence
+
+This rule applies to every agent and stage, including drafts, inventories,
+reports, packets, PR text, screenshots and captured tool output. Describe
+authentication behavior and cite the source revision plus file/line or symbol;
+do not reproduce passwords, tokens, private keys or login pairs in newly
+authored records, including public factory defaults. Use role/account labels
+and approved secret references for access. Mask values without hiding the
+behavior, source provenance or uncertainty needed for review.
+
+Before handing off or freezing evidence (including Phase A), its author or
+reviewer checks the new material for copied credential values. PM repeats the
+publication check before sending packets to another service or publishing
+records. Use contextual inspection and scoped exact-value searches of permitted
+material; do not print matches or put values into command arguments, committed
+scan scripts, fixtures or logs. Record checked scope, outcome and limitations
+in the existing work/report record, not another mandatory artifact. Common-word
+matches need contextual classification; zero matches alone is not proof that
+all secrets were detected. Do not broaden repository, network or blind-phase
+access to investigate a match.
+
+Keep these three cases distinct:
+
+- **Working or potentially sensitive credentials:** prior publication does not
+  make them safe. Stop the affected transmission/publication, notify the owner
+  without the value and request scoped containment or remediation. Unknown
+  sensitivity is not clearance. Rotation or shutdown requires authorization.
+- **Documented public factory/demo data:** the owner may record a source-backed
+  classification of the exact data in an existing decision/work record, only
+  where the governing constitution permits it. This is not a blanket secret
+  exception, proof of safe deployment or authorization to publish other values.
+  Do not require proof that no installation anywhere uses a public default.
+  Distinguish its public provenance from whether approved project environments
+  use it; unknown environment use stays explicit. An empty environment contract
+  is not evidence that no deployment exists. New records still use references.
+- **Already frozen evidence:** do not silently edit snapshots, reports or their
+  hashes. An explicit permitted public-data classification may retain the exact
+  historical snapshot; cite the decision outside it. If sensitive data requires
+  removal, block publication and ask for a bounded remediation decision. Any
+  approved sanitized derivative has a new identity/hash and cannot masquerade
+  as the original. Restrict originals as authorized; do not rewrite Git history
+  or introduce quarantine/manifests/reconstruction tools by default. Hash
+  preservation never justifies exposing an actual secret.
+
+PM includes this generic rule in review assignments before observation begins.
+Project-specific classifications, learned checks and previous incidents remain
+phase-restricted; a rule link does not expose them to blind Phase A. Missing
+authority to transmit source material blocks that transmission, not its safety
+requirements. Confirmed repeatable omissions follow the existing
+[checklist admission and deduplication rules](error-prevention.md#admission-and-generalization);
+do not seed new projects with another project's CHK IDs or decisions.
+
 ## Review Modes
 
 ### Slice peer review
@@ -191,7 +243,8 @@ Include only the following material permitted in the current phase:
    read-only test permissions;
 8. expected output location outside the reviewed worktree.
 
-Classify packet contents before sending them to an external service. Secrets,
+Classify packet contents before sending them to an external service, following
+[credential-safe evidence](#credential-safe-evidence). Secrets, sensitive
 credentials, personal data, regulated data, and repository content not
 approved for that service must not leave the authorized environment. If a
 complete safe packet cannot be formed, the result is `blocked`.
@@ -219,6 +272,11 @@ the attempt `invalid` before substantive review.
 Any reviewer-created repository change makes the attempt `invalid`.
 
 ## Remote CI Closure
+
+Use [the PR communication contract](migration_methodology.md#pr-descriptions-comments-and-commits)
+for the shared summary, significant-event comments and recoverable commit
+messages. PM reads back the actual PR before handoff, refreshing current-head
+CI separately from reviewed-source evidence. A template alone is not enforcement.
 
 Follow [Review And Correction PRs](migration_methodology.md#review-and-correction-prs):
 PM publishes a completed control attempt separately from author corrections,

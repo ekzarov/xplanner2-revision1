@@ -66,6 +66,14 @@ automatic check normally needs no duplicate manual item; a failure to invoke it
 is a different process error. Existing domain checklists remain authoritative
 for their detailed procedures; link them rather than cloning them.
 
+Credential handling always follows
+[credential-safe evidence](agent_orchestration.md#credential-safe-evidence),
+even before a project has learned a matching check. Confirmed omissions use the
+same admission/deduplication rules, with a source/decision link rather than the
+credential value in Basis. Do not import another project's CHK ID, incident or
+public-data classification into the empty starter checklist. A new prevention
+check does not authorize rewriting earlier frozen evidence.
+
 ## Required Timing And Responsibilities
 
 The following duties apply to Bootstrap and every Stage 1-19, including re-entry:

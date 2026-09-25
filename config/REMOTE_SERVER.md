@@ -30,6 +30,12 @@ deploy, permission to change data and acceptance are separate. Legacy deployment
 permission does not authorize new-application releases; demo permission does not
 authorize production. Reconfirm changed scope or expired access before acting.
 
+Before exposing an application, establish approved access and isolation; a public
+factory password cannot protect a publicly reachable deployment. Keep baseline
+bytes unchanged and use an authorized external runtime configuration or deployment
+procedure. Public-data classification is not deployment clearance; follow
+[credential-safe evidence](../analysis/agent_orchestration.md#credential-safe-evidence).
+
 At **Stage 3**, PM deploys the immutable legacy baseline through the approved
 procedure, or verifies an already-running baseline without redeploying it. PM
 hands BA the exact revision, URLs, permitted accounts/actions and sanitized run

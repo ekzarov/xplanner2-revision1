@@ -37,6 +37,8 @@ A quick reading aid, not a new gate or project verdict. The process-maintenance 
 
 - **PR boundaries:** publish each completed control attempt separately from its later corrections. Required CI and owner merge precede the correction PR and the next planning control; a merged negative report is not acceptance. Preserve in-flight work. Stage 17 code peer review remains before merge. [Review And Correction PRs](migration_methodology.md#review-and-correction-prs).
 
+- **Readable PRs:** PM keeps one current description: purpose, changes, verification, open items, owner action/next and evidence. Update after pushes and read back before handoff; separate current-head CI from local and independent checks. Comments record meaningful events, commits preserve why/what and evidence paths. [Communication contract](migration_methodology.md#pr-descriptions-comments-and-commits).
+
 - **Learned checks:** one [`error-prevention-checklist.md`](error-prevention-checklist.md), not another findings backlog. Read applicable rows before work; self-check before handoff and after fixes. Generalize confirmed repeatable mistakes, deduplicate by meaning, and record short results in the existing work record or `control.prevention_self_check`. Independent reviewers propose; the coordinator maintains; the owner may prune. Stages 2/19 open learned checks only in Phase B. [Admission and timing](error-prevention.md).
 
 ## Contents

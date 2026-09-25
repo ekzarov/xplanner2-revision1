@@ -40,6 +40,11 @@
 > facts outside the sealed report. Follow
 > [Review And Correction PRs](../migration_methodology.md#review-and-correction-prs).
 
+> **Credential safety:** Before saving/hashing Phase A or handing off this
+> report, check new evidence under [credential-safe evidence](../agent_orchestration.md#credential-safe-evidence).
+> Cite source locations, not credential values. Record check scope and limitations
+> in Method and Coverage; do not silently rewrite previously frozen snapshots.
+
 </details>
 <!-- ARTIFACT_AUTHORING_NOTES_END -->
 

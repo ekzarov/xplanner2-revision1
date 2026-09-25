@@ -472,6 +472,8 @@
 
   <h2 class="section">At a glance</h2>
 
+  <div class="note" id="pr-communication"><b>Every PR tells the same readable story.</b> Purpose &rarr; Changes &rarr; Verification &rarr; Open Items &rarr; Owner Action / Next &rarr; Evidence. PM refreshes and reads back the description before handoff. Local checks, current-head CI and independent review are separate; merge is not a new approval. Comments record significant events, while commits explain intent and link evidence. <a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/migration_methodology.md#pr-descriptions-comments-and-commits">Description, comment and commit rules</a>.</div>
+
   <div class="note" id="review-pr-boundary"><b>Review records and corrections use separate PRs.</b> Planning draft PR &rarr; required CI and owner merge &rarr; control-record PR, even with findings &rarr; required CI and owner merge &rarr; separate correction PR &rarr; required CI and owner merge &rarr; fresh control. Publishing a negative report does not close its findings or authorize advancement. Stage 17 code peer review stays <b>before merge</b>; delivery and acceptance retain their own gates. <a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/migration_methodology.md#review-and-correction-prs">Publication and in-flight work rules</a>.</div>
 
   <div class="glance">
@@ -840,6 +842,12 @@
     <p><b>PM &rarr; specialist:</b> task, inputs, stage procedure and skill. <b>Specialist &rarr; PM, before work:</b> ACK (instructions read, task understood). <b>Specialist &rarr; PM, after work:</b> RESULT with artifacts, checks and gaps. ACK is not completion or approval. Reviewers receive phase-appropriate review inputs and return a report with evidence.</p>
     <p><code>MIGRATION.md</code> routes the session; <code>analysis/migration_methodology.md</code> defines how to perform each stage; the role contract assigns the specialist and communication rules. Skills support, not replace, the stage procedure. PM reconciles the handoff; required reviews and owner approvals remain separate. If the runtime cannot delegate, PM prepares a packet for an owner-launched separate session rather than switching personas.</p>
     <p><a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/agent-roles.md">Portable role and skill instructions</a> &middot; <a href="https://legacy-transformation-demo.olsys.dev/agent-system/">Agent-system example</a></p>
+  </div>
+
+  <div class="principle" id="credential-safe-evidence"><b>Describe authentication without copying credentials.</b>
+    <p>New records cite source locations instead of values, including factory defaults. Authors and reviewers check before freezing evidence; PM checks before publication. Record the checked scope and limitations in the existing report.</p>
+    <p>Public-data classification is not clearance to expose working secrets or deploy with factory passwords. Do not silently change frozen snapshots or hashes; sensitive-data remediation needs a scoped decision. Generic safety instructions are available in Phase A, while project decisions and learned checks remain withheld.</p>
+    <p><a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/agent_orchestration.md#credential-safe-evidence">Credential-safe evidence procedure</a></p>
   </div>
 
   <div class="principle" id="error-prevention"><b>Preventing repeated mistakes</b>
