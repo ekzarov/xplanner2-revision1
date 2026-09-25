@@ -216,6 +216,86 @@ future transitions or create an extra PR merely to record its own merge SHA.
 Use the [remote CI closure rule](../MIGRATION.md#remote-ci-closure) and
 [return procedure](reviews/README.md#return-and-correction-protocol).
 
+### PR Descriptions, Comments And Commits
+
+**A PR explains the result and the owner's next decision; linked records retain
+the detailed evidence.** This applies to every stage, Bootstrap and process
+maintenance. PM owns the publication summary, not the reviewer's conclusion.
+Use the repository [PR template](../.github/pull_request_template.md) explicitly,
+including with CLI/API clients that do not load it automatically. Keep published
+PR text and commit messages in English. The template is a writing aid, not a
+new gate, approval record or substitute for the current-stage checkpoint.
+
+**Title and first screen:** name the stage number AND stage name, or Bootstrap /
+Process maintenance, followed by the concrete outcome. Say what changed and
+whether independent verification remains pending before listing technical IDs.
+Use the same six sections for every PR:
+
+| Section | Required content |
+|---|---|
+| Purpose | Stage/slice or maintenance scope, kind of PR, why it exists and its actual outcome in one or two sentences. |
+| Changes | A short list of meaningful changes and their practical effect; normally three to five bullets, fewer for small changes. |
+| Verification | Separate local checks, required remote CI and independent review. Give actual outcomes, checked revisions and links; explain pending, unavailable or not-required checks. |
+| Open Items | Remaining findings, unverified scope, exclusions and blockers. None only when established. |
+| Owner Action / Next | The exact decision needed now, what merge means and does not mean, then the next responsible role/action and prerequisites. No action yet is valid while blocked. |
+| Evidence | Link the triggering/previous PR, review and correction/follow-up PR when they exist. Give two to four key record links; put detailed trace in a collapsed block or linked report. |
+
+Use descriptive clickable links in the PR body. Evidence links point to the
+actual repository and immutable commit/path (plus anchor/line where useful),
+not a moving default branch. Related PR/run links retain their native URLs.
+Do not fabricate future PR links. Preserve useful task/pass, F-NNN/B-NNN and
+CHK-NNN IDs with a short meaning; explain counts and their units. Distinguish
+"author accepted the finding", "correction prepared", "independent recheck
+passed" and "owner approved". Bare "accepted" is not a closure claim. A green
+local audit or merged records PR is not a clean independent verdict.
+
+**Keep one current PR summary.** Refresh the body after each push, material
+scope/result change and before asking for a decision. Before handoff, PM reads
+the actual PR body back and reconciles it with the latest diff, records and
+GitHub checks. Record the current full PR head separately from the reviewed
+source revision; a records-only PR can legitimately publish a review of an
+earlier source. Local checks identify their actual revision or working snapshot.
+After a new push, previous-head CI is historical, not current success: mark
+current-head verification pending until its required runs finish. List required
+workflow results and run links, with failed/skipped/unavailable checks explicit.
+Independent review may be pending/not required for this PR only under the
+existing stage/publication rules; do not invent a new pre-merge control.
+
+Retain earlier failures in linked evidence or run history. Once merged, the
+summary describes that PR's historical outcome and actual integrated revision,
+not today's project state. If a stale merged summary needs correction, add a
+dated clarification grounded in the original commits; do not silently rewrite
+old claims or fabricate approval. Do not bulk-rewrite old PRs on adoption.
+Keep later publication facts outside sealed reports and retain the existing
+rule against an extra PR merely to record its own merge SHA.
+
+**Comments are an event log, not duplicate reports.** Comment for a new blocker,
+material scope/result change, a specific owner question, or readiness for the
+owner after required checks pass. State what changed, its effect, the requested
+action and a link to the relevant section/evidence in a few lines. Do not post
+polling updates, copy full tables after every push or maintain a second
+"current status" comment alongside the body. Reviewer discussion keeps finding
+IDs; PM summarizes it without changing the reviewer's verdict. Human decisions
+still need the stage's durable repository record with actual attribution.
+
+**Commits remain understandable offline.** Use an intent-bearing title with the
+stage name/scope and concrete change. In a short body record why the change was
+needed, what changed, relevant boundaries or pending verification, and links
+through repository-relative paths plus finding/pass IDs and source revisions
+where applicable. Do not copy the PR essay, predict future CI/merge results or
+try to put a commit's own hash in its message. Never rewrite existing commit
+history just to adopt this format. If squash is selected, PM prepares the same
+self-contained summary for the owner without losing the evidence references;
+the merge decision remains the owner's.
+
+All publication text follows [credential-safe evidence](agent_orchestration.md#credential-safe-evidence).
+PRs/comments are not permitted blind Phase A inputs merely because they are
+easy to browse. The existing phase isolation, separate control/correction PRs,
+owner-only merge and exact-head CI rules are unchanged. Structural template
+tests cannot prove that a real PR is current, readable or factually correct;
+PM must perform the read-back above. No extra JSON manifest or status file is
+required for this communication contract.
+
 ## Stage Control
 
 - [`analysis/migration_status.yaml`](./migration_status.yaml) is the only current-stage checkpoint.
@@ -676,10 +756,19 @@ mutation, or incomplete batch coverage makes the review `blocked`. A formal
 Stage 2, 7, 10, 14, 16, or 19 conclusion still belongs to the eligible external
 reviewer;
 model agreement never replaces automated evidence or owner approval.
-No packet may send credentials, personal data, regulated data, or repository
+No packet may send sensitive credentials, personal data, regulated data, or repository
 content not approved for the selected service. If complete safe evidence cannot
 be sent, the review is blocked until the owner selects an authorized reviewer
 or environment.
+
+Every stage follows [credential-safe evidence](agent_orchestration.md#credential-safe-evidence):
+new records cite source locations instead of copying credential values, including
+factory defaults. Authors and reviewers check before handoff or freezing Phase A;
+PM checks before transmission/publication. Record scoped results and limitations
+in existing records. Public-data classification, live access risk and remediation
+of sealed evidence are separate decisions; neither prior exposure nor a pinned
+hash permits disclosure of a secret. Generic guidance does not release learned
+checks or project decisions into blind Phase A.
 
 Review worktrees and scratch directories are disposable execution state.
 Durable reports and the minimum auditable prompt/response/checkpoint packet are

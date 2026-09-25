@@ -21,6 +21,12 @@ Read [MIGRATION.md](../../../MIGRATION.md) and the
 6. If the runtime cannot delegate safely, return a bounded packet for a separate
    owner-launched session. Report blocked delegation, not a simulated specialist.
 
+For every PR, follow [the communication contract](../../../analysis/migration_methodology.md#pr-descriptions-comments-and-commits)
+and explicitly load [the template](../../../.github/pull_request_template.md).
+Refresh and read back the actual body before owner handoff; separate current-head
+CI from local checks and reviewed-source evidence. Comments record significant
+events; commits preserve intent and record paths. Never infer merge authority.
+
 On any corrective return, use [Correction Scope And Handoff](../../../analysis/reviews/README.md#correction-scope-and-handoff).
 Assign and verify findings, affected dependencies/mechanisms, retained work and
 actual check results. Do not restart authoring or narrow the separate required

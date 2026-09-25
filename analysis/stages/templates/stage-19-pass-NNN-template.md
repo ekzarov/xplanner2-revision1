@@ -44,6 +44,12 @@ Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve th
 > **Template output:** `analysis/reviews/stage-19-pass-NNN.md`. Preserve this filename stem;
 > replace only the uppercase placeholders. See the artifact naming guide.
 
+> **Credential safety:** Before saving/hashing Phase A observations or handing
+> off this report, check new evidence under [credential-safe evidence](https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/agent_orchestration.md#credential-safe-evidence)
+> in the project's orchestration protocol.
+> Cite source locations, not credential values. Record check scope and limitations
+> in Evidence; do not silently rewrite previously frozen snapshots.
+
 </details>
 <!-- ARTIFACT_AUTHORING_NOTES_END -->
 

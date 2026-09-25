@@ -201,6 +201,10 @@ allowed; retaining the required fields and durable references is mandatory.
   after owner merge. Preserve in-flight work and single-writer ownership when
   separating branches. A records PR merge is not a clean verdict; Stage 17 peer
   review remains before merge. Commit/push permission is not merge authority.
+- PM owns [PR communication](migration_methodology.md#pr-descriptions-comments-and-commits):
+  explicitly load the template, refresh and read back the PR summary before
+  handoff, distinguish local/CI/independent results and keep comments event-based.
+  Specialists provide attributable evidence; PM cannot invent their conclusions.
 - PM is the single coordinating writer of migration status and shared graph/
   checklist updates. Specialists supply proposals and exact evidence. Existing
   stage permissions still decide when each shared record may change. Lead

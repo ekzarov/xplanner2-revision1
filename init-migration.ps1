@@ -223,6 +223,7 @@ $staticFiles = @(
     'README.md',
     'init-migration.ps1',
     '.github/workflows/starter-audit.yml',
+    '.github/pull_request_template.md',
     '.specify/README.md',
     '.specify/templates/plan-template.md',
     '.specify/templates/spec-template.md',

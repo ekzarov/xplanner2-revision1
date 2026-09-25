@@ -1,5 +1,12 @@
 # Migration Review Records
 
+**Credential-safe evidence.** Before saving or hashing an inventory, report or
+other evidence, follow [the common credential rule](../agent_orchestration.md#credential-safe-evidence).
+Cite source locations instead of credential values, including factory defaults.
+PM includes this instruction in the packet and checks publication separately.
+Never silently redact an already pinned snapshot or replace its digest. The
+rule is generic; incident-specific findings and decisions remain phase-restricted.
+
 **Shared UI comparisons.** Follow [the shared UI procedure](../prototyping/ui-design-system-guide.md): Stage 7 compares exported screens/components with catalogue states and token values; Stage 16 checks SDD bindings and planned evidence; Stage 17 peer review checks actual reuse and rendered states. Stage 19 receives neutral expectations first and the full source records only in Phase B. Record expected/actual mismatches and unverified scope in the existing numbered report.
 
 **Reading technical statuses.** `clean` (the declared scope meets clean-pass rules), `findings` (discrepancies require disposition), `blocked` (required checks could not finish), and `invalid` (the attempt is unusable) keep their canonical spelling. Historic `ready-with-minor-fixes` (corrections still named) is not an extra clean-pass value. Immutable reports retain their bytes. [Status meanings](../artifact-status-meanings.md).
@@ -233,16 +240,14 @@ the process and a control stage is entered again, a pass from the earlier
 entry is stale: the new pass timestamp must fall after the latest entry into
 that stage and before its next transition.
 
-**Project rule, xplanner2-revision1 (owner decision
-`legacy-default-credential-classification:xplanner2-revision1`, constitution
-amendment A3):** reviewers never copy a password, key, token or login pair into
-reports, inventories, ledgers, access logs, scripts or other evidence. Cite the
-source location (file and line or symbol) and describe the insecure behavior
-instead. Before returning a checkpoint or result, the reviewer searches its new
-evidence for credential values found in the sources and reports any hit to PM.
-PM repeats this rule in every review packet and applies the matching project
-check before publication. Already frozen snapshots are not rewritten for this
-rule; any exception needs a recorded owner decision.
+**Project addition, xplanner2-revision1 (constitution amendment A3):** in
+addition to credential-safe evidence, the reviewer searches its new evidence for
+credential values found in the sources before each checkpoint and result and
+reports only the hit count to PM; PM applies project check CHK-009 before
+publication. Owner decision
+`legacy-default-credential-classification:xplanner2-revision1` covers only the
+factory default login pair already present in the frozen snapshots of Stage 2
+passes 001-004 and is not a general exception.
 
 ## Error Prevention Learning
 

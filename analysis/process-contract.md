@@ -87,6 +87,14 @@ Use [the common deployment procedure](../config/REMOTE_SERVER.md#configure-befor
 and record actual operator evidence in the existing stage report, not a new
 approval inferred from credentials.
 
+All stages and review packets follow
+[credential-safe evidence](agent_orchestration.md#credential-safe-evidence).
+New records reference rather than reproduce credential values. Authors/reviewers
+check before freezing and PM before publication. Source-backed public-data
+classification does not waive secret policy or authorize silent changes to
+immutable evidence. The detailed procedure lives in the orchestration protocol;
+project decisions and learned checks are not starter defaults.
+
 ## Document Ownership
 
 **The constitution sets the limits; the methodology explains how to work within them.**
@@ -155,6 +163,12 @@ control. Required CI and owner merge apply to each PR. Stage 17 code peer review
 remains before merge; Stage 18 records-only restrictions and Stage 19 owner
 acceptance remain unchanged. In-flight writes are preserved and coordinated;
 sealed reports are not edited to append later publication facts.
+
+[PR communication](migration_methodology.md#pr-descriptions-comments-and-commits)
+owns the common description, comment and commit format. PM explicitly loads the
+template and reads back the current summary before owner handoff. Local checks,
+current-head CI, independent conclusions and human decisions stay distinct.
+This is a presentation/handoff rule, not another project checkpoint or approval.
 
 ## Error Prevention
 
