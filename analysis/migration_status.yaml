@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: awaiting_review
+  stage_status: in_progress
   previous_stage: stage-02
-  next_action: 'Stage 1 re-entry corrections BA-001-06 verified by PM (analysis/stages/stage-01/stage-02-pass-004-dispositions.md: F-001..F-006 accepted, F-003/F-005 extended; CHK-009 scan 0 hits in new material). Owner merges the correction PR; then PM records stage-01 -> stage-02 and launches a new fresh blind Stage 2 pass 005. Stage 3 access and isolation need a separate owner agreement.'
+  next_action: 'Publish Stage 2 pass 005 as a separate records PR (owner merge). Then Stage 1 re-entry for F-001..F-005 on a new correction branch with analysis/stages/stage-01/stage-02-pass-005-dispositions.md, correction PR, and a fresh blind Stage 2 pass 006. Stage 3 access and isolation need a separate owner agreement.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 re-entry after stage-02 pass 004: author confirmed the errors behind all four reviewer proposals; PM admitted CHK-010 (framework-added link parameters) and CHK-011 (mechanical list of unauthenticated surfaces) and refined CHK-003 with setting consumers and rendering-path side effects (P-3, P-4) after deduplication; BA-001-06 applied CHK-001 (0 failures) and CHK-009 (0 credential hits).'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 005; reviewer found CHK-003 failing (F-001, F-004, F-005); proposals P-1 (refine CHK-003: every injected property has a wiring bean) and P-2 (trace request-derived values to HQL/SQL, unescaped output, error pages and cookies) pending admission until the Stage 1 author confirms the underlying findings.'
 
 constitution:
   status: ratified
@@ -133,6 +133,23 @@ transition_history:
     gate_evidence:
       - 'analysis/reviews/stage-02-pass-004.md'
     owner_approval: null
+  - from: stage-01
+    to: stage-02
+    reason: 'Stage 1 corrections for Stage 2 pass 004 findings merged (PR #12, CI run 36044690868 green); integrated main 7c2f5619fd25fed0a09ba108eb886b5e2b1a012c; Stage 1 gates audit:project and audit:workbook pass; open for Stage 2 pass 005.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-25T09:22:10Z'
+    gate_evidence:
+      - 'analysis/stages/stage-01/stage-02-pass-004-dispositions.md'
+      - 'analysis/legacy_reconnaissance.md'
+    owner_approval: null
+  - from: stage-02
+    to: stage-01
+    reason: 'Finding-driven return: Stage 2 pass 005 (analysis/reviews/stage-02-pass-005.md) result findings F-001..F-005 against the four-times-corrected Stage 1 records.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-25T10:15:21Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-02-pass-005.md'
+    owner_approval: null
 
 review_passes:
   - stage: stage-02
@@ -182,6 +199,18 @@ review_passes:
     independence_record: 'analysis/reviews/evidence/S02-P004/independence-record.md'
     reviewed_at: '2026-09-24T14:41:14Z'
     scope: 'Full Stage 2 pass 004 at 18dc6b73c8305971a8d6f2879b8fab6206ba5f04: analysis/legacy_reconnaissance.md (a35a09acfb6345681b292424649f2988e3c24575614681842fa5b1252bc1260b), analysis/legacy_user_flows.xlsx (24630a194e79ba9051b37355148aba52b6dda7fbeee6b43c9290ebb58528670a, 208 rows) and the pass 001-003 dispositions against legacy/xplanner-plus.war; packet S02-P004; Phase A 63ab82d15c0e290e2c9dbf7abc37cc81b39560477afe426972c8b2f01bde3932; report SHA-256 671b9bc9cb727bc806efbf6ef8cd508ac4ebf128b25f131f87bf763db3dd9240; 405 checks (381 matched, 21 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-006 (1 medium, 5 low); all 22 earlier findings resolved.'
+    waiver_ids: []
+  - stage: stage-02
+    pass: 5
+    result: findings
+    report: 'analysis/reviews/stage-02-pass-005.md'
+    reviewer: 'BA independent reviewer (subagent ae6fd13a44df6456a of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer-p005'
+    session_id: 'ae6fd13a44df6456a'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P005/independence-record.md'
+    reviewed_at: '2026-09-25T10:13:38Z'
+    scope: 'Full Stage 2 pass 005 at 7c2f5619fd25fed0a09ba108eb886b5e2b1a012c: analysis/legacy_reconnaissance.md (09183d1142dee6cbc2eafc8ce57858164dc3892379092dccfd3c7d115696cfe4), analysis/legacy_user_flows.xlsx (fa0ea118857f541fe7e556d12bd84a379ea32930cf666bdfc288d9ad897e4d76, 210 rows) and the pass 001-004 dispositions against legacy/xplanner-plus.war; packet S02-P005; Phase A pin 3efaed49a3b9cbe0843fb4d254dfe017bafdbe5372357ef036d29a8012a30a3a; report SHA-256 682b996f88d1964018fcd3020a192494a21507a683e45e6abe457e979a10f37f; 468 checks (438 matched, 29 mismatch, 0 not-checked, 1 not-applicable); findings F-001..F-005 (2 medium, 3 low); all 28 earlier findings resolved.'
     waiver_ids: []
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
@@ -273,12 +302,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 corrected after Stage 2 pass 004 findings: 210 scenario rows in 18 epics (Yes 113, Inferred 77, Partial 19, No 1), all static-only and open; awaiting new independent Stage 2 pass 005.'
+  summary: 'Stage 2 pass 005 returned findings (F-001 and F-002 medium, F-003..F-005 low; 468 checks, 0 blocked; all 28 earlier findings resolved); process returned to Stage 1; Stage 1 records have 210 rows.'
   completed_percent: 0
-  updated_at: '2026-09-24T18:55:17Z'
+  updated_at: '2026-09-25T10:15:21Z'
   agent_reviews:
-    total: 4
-    valid: 4
+    total: 5
+    valid: 5
     blocked: 0
     invalid: 0
     active: 0

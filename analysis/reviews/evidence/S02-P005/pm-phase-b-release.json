@@ -1,0 +1,38 @@
+{
+  "packet_id": "S02-P005",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "phase_a_checkpoint_verified_at": "2026-09-25T09:52:22Z",
+  "phase_a_snapshot": {
+    "file": "analysis/reviews/evidence/S02-P005/phase-a-inventory.json",
+    "sha256": "fcac1fd21281ca4f898889b65c6f5980d810141c4c861b81b02ce88395f49f9b",
+    "saved_at_utc": "2026-09-25T09:51:12Z",
+    "items": 113,
+    "snapshot_pin_file": "analysis/reviews/evidence/S02-P005/phase-a-snapshot.txt",
+    "snapshot_pin_sha256": "3efaed49a3b9cbe0843fb4d254dfe017bafdbe5372357ef036d29a8012a30a3a",
+    "pin_verification": "all 10 listed files OK"
+  },
+  "access_log_sha256_at_checkpoint": "b108eda21172ebb11d11d4369f01d2c646c4f119f80538bbfcac4c413f25f9ca",
+  "independence_record_sha256_at_checkpoint": "4fce59996684407a8633ceca8b8d7e0a2a77c2ff8caeb5a0234b2836f42a4d65",
+  "phase_a_worktree": {
+    "path": ".migration-tmp/stage-02-p005/phase-a",
+    "head": "7c2f5619fd25fed0a09ba108eb886b5e2b1a012c",
+    "git_status_short_lines": 0
+  },
+  "pm_checks": [
+    "all evidence hashes match the reviewer CHECKPOINT and the snapshot pin",
+    "worktree HEAD unchanged and clean",
+    "main tree changes limited to PM status edit and the S02-P005 evidence directory",
+    "PM exact-form credential scan: no login pair in S02-P005 evidence (CHK-009)"
+  ],
+  "phase_b_released_at": "2026-09-25T09:52:22Z",
+  "phase_b_pinned_inputs": {
+    "revision": "7c2f5619fd25fed0a09ba108eb886b5e2b1a012c",
+    "analysis/legacy_reconnaissance.md": "09183d1142dee6cbc2eafc8ce57858164dc3892379092dccfd3c7d115696cfe4",
+    "analysis/legacy_user_flows.xlsx": "fa0ea118857f541fe7e556d12bd84a379ea32930cf666bdfc288d9ad897e4d76",
+    "analysis/error-prevention-checklist.md": "7a5683a8e0411f7d748ffc873fae2ec590ce0138a77a313fb92df4837553694d",
+    "analysis/stages/stage-01/stage-02-pass-004-dispositions.md": "2ba8dc1ff39e133b4b82b5dfcd95c1dbaabce810e5c13d6978b455b1b8473d84",
+    "analysis/reviews/stage-02-pass-004.md": "671b9bc9cb727bc806efbf6ef8cd508ac4ebf128b25f131f87bf763db3dd9240",
+    "earlier passes and dispositions": "as merged at the revision above",
+    "analysis/migration_status.yaml (working tree, branch stage-02/pass-005)": "703e678ef3797bc5d0f9afecd98b5c808b69a4ec9e537ae853d0671c3b87704b"
+  }
+}

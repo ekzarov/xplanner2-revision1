@@ -1,0 +1,63 @@
+R8
+  ACTUAL login.label: default,--,de,it,ja,ru | login.remember: default,--,de,it,ja,ru | login.label.user_id: default,--,da,de,es,it,ja,pt_br,ru | login.label.password: default,--,da,de,es,it,ja,pt_br,ru | login.instructions: default,--,de
+  NOTE Locale variants, public page (CHK-004, BA-001-06): quoted texts are from the default bundle; login.label and login.remember are defined in the default, "--", de, it, ja and ru bundles; login.label.user_id and login.label.password in all bundles except fr; bundles without a key fall back to the default text (framework behavior, GAP-011). No credential-like text in any variant (.migration-tmp/stage-01/out/unauth-06.txt; the only such text is login.instructions, row 9).
+R9
+  ACTUAL login.instructions: default,--,de
+  NOTE Locale variants (CHK-004, BA-001-06): login.instructions is defined only in the default bundle (:784, with the credential sentence), ResourceBundle--.properties:780 and ResourceBundle_de.properties:753 (both without it); da, es, fr, it, ja, pt_br and ru have no key and are expected to fall back to the default text (framework behavior, GAP-011). Whether earlier installations still accepted this pair is not established. Corrected in BA-001-06 (Source: stage-02-pass-004 F-001). Provenance (fixed baseline, see reconnaissance GAP-005): P-03: the cited value is read from xplanner.properties, one of 
+R12
+  ACTUAL login.failed: default,--,da,de,es,it,ja,pt_br,ru | login.instructions: default,--,de
+  NOTE Locale variants, public page (CHK-004, BA-001-06): quoted texts are from the default bundle; login.failed is defined in all bundles except fr; bundles without a key fall back to the default text (framework behavior, GAP-011). No credential-like text in any variant (.migration-tmp/stage-01/out/unauth-06.txt; the only such text is login.instructions, row 9).
+R13
+  ACTUAL authentication.module.message.userNotFound: default,--,de,ja | login.instructions: default,--,de
+  NOTE Locale variants, public page (CHK-004, BA-001-06): quoted texts are from the default bundle; authentication.module.message.userNotFound and passwordNotSet are defined only in the default, "--", de and ja bundles; bundles without a key fall back to the default text (framework behavior, GAP-011). No credential-like text in any variant (.migration-tmp/stage-01/out/unauth-06.txt; the only such text is login.instructions, row 9).
+R14
+  ACTUAL authentication.module.message.userNotFound: default,--,de,ja
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; authentication.module.message.userNotFound is defined only in the default, "--", de and ja bundles. Bundles without the key fall back to the default text (framework behavior, GAP-011).
+R56
+  ACTUAL error.unknownError: default,-- | error.moreInfo: default,-- | login.instructions: default,--,de
+  NOTE Locale variants, public page (CHK-004, BA-001-06): quoted texts are from the default bundle; error.unknownError and error.moreInfo are defined only in the default and "--" bundles; bundles without a key fall back to the default text (framework behavior, GAP-011). No credential-like text in any variant (.migration-tmp/stage-01/out/unauth-06.txt; the only such text is login.instructions, row 9). Provenance (fixed baseline, see reconnaissance GAP-005): P-03: the cited value is read from xplanner.properties, one of 3 WAR entries rewritten after packaging (ZIP version-needed 2.0 versus 1.0 for the 
+R89
+  ACTUAL iteration.editor.nonpositive_interval: default,--,da,de,es,fr,it,ja,pt_br,ru | format.date: default,--,da,de,es,fr,it,ja,pt_br,ru | format.datetime: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; iteration.editor.nonpositive_interval: the key is defined in all 10 bundles (default, "--", da, de, es, fr, it, ja, pt_br, ru). The accepted date and date-time patterns follow format.date and format.datetime of the active bundle and differ per locale (rows 69-71).
+R98
+  ACTUAL iteration.status.editor.message_4: default,--
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; iteration.status.editor.message_4 is defined only in the default and "--" bundles. Bundles without the key fall back to the default text (framework behavior, GAP-011).
+R135
+  ACTUAL task.type.overhead: default,--,de,it,ja,ru
+  NOTE Per bundle (CHK-004, .migration-tmp/stage-01/out/task-type-labels.json): the default and "--" bundles use Feature, Defect, Debt, FTest, ATest, Overhead; da, de, es, fr, it, ja and ru differ from the default for at least one type; pt_br matches except that it has no overhead key; da, es, fr and pt_br define no task.type.overhead (fallback to the default). Corrected in BA-001-04 (Source: stage-02-pass-002 F-009).
+R152
+  ACTUAL edittime.error.unparsable_time: default,--,da,de,es,fr,it,ja,pt_br,ru | edittime.error.unparsable_number: default,--,da,de,it,ja,pt_br,ru | format.date: default,--,da,de,es,fr,it,ja,pt_br,ru | format.datetime: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; edittime.error.unparsable_time: the key is defined in all 10 bundles (default, "--", da, de, es, fr, it, ja, pt_br, ru). edittime.error.unparsable_number is missing in es and fr. Bundles without the key fall back to the default text (framework behavior, GAP-011). The accepted date and date-time patterns follow format.date and format.datetime of the active bundle and differ per locale (rows 69-71).
+R153
+  ACTUAL edittime.error.missing_time: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; edittime.error.missing_time: the key is defined in all 10 bundles (default, "--", da, de, es, fr, it, ja, pt_br, ru).
+R154
+  ACTUAL edittime.error.missing_person: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; edittime.error.missing_person: the key is defined in all 10 bundles (default, "--", da, de, es, fr, it, ja, pt_br, ru).
+R155
+  ACTUAL edittime.error.same_people: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; edittime.error.same_people: the key is defined in all 10 bundles (default, "--", da, de, es, fr, it, ja, pt_br, ru).
+R156
+  ACTUAL edittime.error.negative_interval: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; edittime.error.negative_interval: the key is defined in all 10 bundles (default, "--", da, de, es, fr, it, ja, pt_br, ru).
+R157
+  ACTUAL edittime.error.overlapping_interval: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; edittime.error.overlapping_interval: the key is defined in all 10 bundles (default, "--", da, de, es, fr, it, ja, pt_br, ru).
+R158
+  ACTUAL edittime.error.both_interval_and_duration: default,--,da,de,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; edittime.error.both_interval_and_duration is missing in es. Bundles without the key fall back to the default text (framework behavior, GAP-011).
+R159
+  ACTUAL edittime.error.missing_report_date: default,--,de,it,ja,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; edittime.error.missing_report_date is defined only in the default, "--", de, it, ja and ru bundles. Bundles without the key fall back to the default text (framework behavior, GAP-011).
+R160
+  ACTUAL edittime.error.long_description: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): quoted texts are from the default bundle; edittime.error.long_description: the key is defined in all 10 bundles (default, "--", da, de, es, fr, it, ja, pt_br, ru).
+R163
+  ACTUAL format.date: default,--,da,de,es,fr,it,ja,pt_br,ru | format.datetime: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): The accepted date and date-time patterns follow format.date and format.datetime of the active bundle and differ per locale (rows 69-71).
+R166
+  ACTUAL format.date: default,--,da,de,es,fr,it,ja,pt_br,ru | format.datetime: default,--,da,de,es,fr,it,ja,pt_br,ru
+  NOTE Locale variants (CHK-004, BA-001-04): The accepted date and date-time patterns follow format.date and format.datetime of the active bundle and differ per locale (rows 69-71).
+R171
+  ACTUAL 
+  NOTE Label per bundle (CHK-004): "References:" in the default, "--" and ja bundles, "Referenzen:" in de; the other bundles have no key and fall back to the default. Corrected in BA-001-04 (Source: stage-02-pass-002 F-004).
