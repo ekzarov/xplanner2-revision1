@@ -143,7 +143,7 @@ a constitutional amendment. Moving wording here never waives required work.
 | Principle | Concrete implementation in this process |
 |---|---|
 | I: authority before action | [MIGRATION reading order](../MIGRATION.md#mandatory-reading-order) and [Bootstrap execution](migration_methodology.md#bootstrap-execution). Stage 1 needs ratification, initial status, required installed/self-tested gates and separate owner authorization. Existing Bootstrap Decision Record fields remain compatible; ratification is not start authorization. |
-| I / XII: blind independent observation | [Blind packet protocol](agent_orchestration.md#blind-review-packets) and [review procedures](reviews/README.md). Stages 2 and 19 save Phase A before Phase B. The coordinator reads full status first; neutral routing and expectation-only extracts withhold prior outcomes until then. Other agents read full status. |
+| I / XII: blind independent observation | [Blind packet protocol](agent_orchestration.md#blind-review-packets) and [review procedures](reviews/README.md). Stage 2 full-blind and Stage 19 save Phase A before Phase B. Stage 2 correction-validation is separately governed, independent but not blind. The coordinator reads full status first; blind packets withhold prior outcomes until Phase B. |
 | I / VI: approved design before implementation | [Stage 15](migration_methodology.md#stage-15) prepares spec.md, plan.md and tasks.md; [Stage 16](migration_methodology.md#stage-16) independently checks design and every explicit owner-reviewed assumption. Hidden/pending/blank/new assumptions block approval and implementation; pre-policy completed slices retain their historical boundary. |
 | III / IV / VI: evidence, parity and traceability | [Parity-map instructions](legacy_user_flows_template_instructions.md) own the workbook format; [traceability guide](../specs/traceability-guide.md) binds rows, requirements, architecture, tasks, code, tests, deployment and acceptance. |
 | V: approved experience and architecture | [Prototyping](prototyping/README.md), [Stage 9](migration_methodology.md#stage-09) and [register instructions](architecture/architecture-nfr-decision-register-instructions.md). Exact register/owner-review, architecture hub, sections, NFR manifest, ADRs and editable Draw.io remain required. Independent checking, owner approval, scoped waivers and live collaboration are unchanged. |
@@ -179,7 +179,7 @@ Keep exactly Check / When applicable / Basis / How to check; no status or
 per-run evidence columns. The active agent reads applicable checks before work,
 self-checks before handoff and repeats affected checks after corrections.
 Every control pass evaluates lessons; no qualifying new check is a valid outcome.
-Reviewers propose; the coordinator updates; the owner may curate. Stage 2/19
+Reviewers propose; the coordinator updates; the owner may curate. Stage 2 full-blind and Stage 19
 reviewers receive learned checks and self-check notes only in Phase B.
 The shared checklist is shown in every stage's instructions, not as twenty
 extra graph edges. Bootstrap creates it empty. Historical evidence, approvals
@@ -226,9 +226,16 @@ New/reopened SDD uses the graph policy; old exact approvals remain history.
   PM assigns and verifies impact-scoped correction, not a new full authoring
   pass. Preserve valid unaffected work; investigate findings, dependencies and
   related occurrences. Widen only with recorded evidence and applicable authority.
-  This does not narrow the next required control: Stage 2 still performs full
-  blind discovery and reconciliation; other review/delivery gates retain their
-  declared scope. A return does not reset unrelated completed work.
+  Stage 2 selects full-blind or eligible correction-validation under its own
+  rule; other review/delivery gates retain their declared scope. A return does
+  not reset unrelated completed work.
+- **Stage 2 modes:** [full-blind and correction-validation](reviews/README.md#stage-2-correction-validation)
+  both require a fresh independent BA and new numbered report. Only the latter
+  reads prior evidence immediately; it validates the complete actual correction
+  and affected mechanisms, exact retained check IDs and whole-scope coverage.
+  Initial/new scope, changed legacy, unreliable/incomplete evidence or unbounded
+  impact requires full-blind control. No unresolved finding, low-only exception,
+  missing required check or CHK whitelist supplies clean closure. Stage 19 is unchanged.
 - **Stages 11-12:** follow the [architecture review-cycle contract](architecture/review-cycles.md).
   Stage 11 writes a numbered immutable owner verdict; Stage 12 writes a separate
   numbered immutable closure report against the unchanged approved architecture.
@@ -242,7 +249,7 @@ New/reopened SDD uses the graph policy; old exact approvals remain history.
   Code/cosmetic corrections return to Stage 17; SDD/inventory design corrections to 15;
   architecture to 9; missing or changed legacy behavior to 1. Repeat affected controls
   and deploy a newly reviewed candidate. Never change expectations to fit an observation.
-- **Blind review:** Stages 2 and 19 have separate Phase A and Phase B packets. Stage 2
+- **Blind review:** Stage 2 full-blind and Stage 19 have separate Phase A and Phase B packets. Stage 2 full-blind
   independently discovers immutable legacy behavior before opening filled reconnaissance,
   parity-map records or prior conclusions. Stage 19 exercises the deployed system against
   approved expectations, but withholds prior delivery results and cosmetic findings.
@@ -297,7 +304,7 @@ These are minimum conditions, not automatic owner approval. Commands come from t
 |---|---|---|---|
 | stage-00 | Bootstrap | audit:status; audit:project; audit:environment; audit:methodology; audit:views; audit:responsibilities; audit:artifact-links; audit:prevention | Install tooling, run toolkit regression tests and initializer self-test. The agent fills bootstrap-gate-report.md with exact results; migration_status.yaml cites it. Owner authorization is separate. |
 | stage-01 | Stage 1 | audit:project; audit:workbook | Source-derived reconnaissance and parity rows with evidence; unavailable scope stays explicit. |
-| stage-02 | Stage 2 | audit:workbook | Eligible fresh reviewer; Phase A inventory saved before filled Stage 1 inputs are opened; Phase B reconciles both directions against the immutable legacy source. Clean immutable report includes snapshot/access evidence, comparisons, gaps and reconciled coverage; no blocked scope or contaminated blind pass. |
+| stage-02 | Stage 2 | audit:workbook | Fresh independent BA; full-blind A/B for initial/new scope or unreliable coverage; eligible correction-validation checks changes and affected mechanisms with exact retained evidence. New clean report reconciles complete coverage with no open findings or required unchecked scope; prior reports remain immutable. |
 | stage-03 | Stage 3 | none | Exact walkthrough scope, live/simulated/unverified lanes and valid outcome; any fallback requires the exact permitted owner waiver. |
 | stage-04 | Stage 4 | audit:workbook | Every challenged row has an explicit owner disposition in stage-04-requirements-revision.md; applied changes and pending questions are separate. |
 | stage-05 | Stage 5 | none | Explicit owner choice of form, channels, style, palette and accessibility in ui-ux-decision.md, or an exact permitted waiver; proposals are not approval. Draft ui-design-system.md and ui-design-tokens.json; the owner selects the foundation and pins its canonical hash in ui-ux-decision.md. This does not approve future component variants. |
@@ -376,5 +383,5 @@ These roles do not retrospectively change actual author metadata.
 | journey-evidence | The browser journey runner emits raw evidence; the Stage 18 agent writes its summary and pins the raw result hash. | The agent performs another journey for changed delivery; previous exact-revision evidence remains history. | Stage 18 deployed user journey |
 | stage-19-review | A fresh independent agent assigned to Stage 19 authors a report for the exact reviewed scope. | The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work. | Stage 19 independent control and reviewer eligibility |
 | owner-walkthrough | PM writes observations and the explicit decision from the human owner hands-on walkthrough at Stage 19. | The owner performs or declines the walkthrough; PM records the exact outcome or a separate explicit decline. QA supplies independent evidence, not owner decisions. | Stage 19 optional owner walkthrough |
-| error-prevention | The initializer creates an empty checklist; the coordinator records confirmed generalized checks. | The coordinator merges duplicates and maintains the table; the owner may prune obsolete checks. Reviewers propose without editing it. | Bootstrap and Stages 1-19; analysis/error-prevention.md; learned checks are Phase B only at Stages 2 and 19. |
+| error-prevention | The initializer creates an empty checklist; the coordinator records confirmed generalized checks. | The coordinator merges duplicates and maintains the table; the owner may prune obsolete checks. Reviewers propose without editing it. | Bootstrap and Stages 1-19; analysis/error-prevention.md; learned checks are Phase B only at Stage 2 full-blind and Stage 19, immediate in correction-validation. |
 | feature-dependencies | The Stage 9 agent proposes source-backed bounded slices; the coordinator creates the graph. | The coordinator records Stage 9/15 changes and exact independent review bindings. Reviewers challenge scope; the human owner decides priorities and scope changes. | Stages 9-19; analysis/feature-dependencies-guide.md. Stage 19 full graph is Phase B only. |

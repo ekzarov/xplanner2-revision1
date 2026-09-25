@@ -91,7 +91,7 @@ test('delivery contains live reconciliation and acceptance is the next independe
   const ru = JSON.parse(read('analysis/process-canvas/translations.ru.json'));
   assert.ok(ru.gates['target-audit'].desc.includes('18 и 19'));
   assert.ok(ru.artifacts['polish-backlog'].usage.includes('обновляется на шагах 15 и 17'));
-  assert.ok(data.artifacts.find(item => item.id === 'stage-19-review').recordContract.ru.note.includes('2 и 19'));
+  assert.ok(data.artifacts.find(item => item.id === 'stage-19-review').recordContract.ru.note.includes('На шаге 19 сначала сохраняется независимый проход вслепую'));
   assert.ok(data.artifacts.find(item => item.id === 'polish-backlog').responsibility.ru.instructions.includes('15/17'));
   assert.ok(!data.artifacts.find(item => item.id === 'polish-backlog').responsibility.ru.instructions.includes('15/17/18'));
 });

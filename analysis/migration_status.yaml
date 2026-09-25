@@ -301,6 +301,14 @@ owner_decisions:
     rationale: 'Reviewer of Stage 2 pass 004 flagged the pair in its frozen Phase A inventory. PM established that the project environment contract is empty and that legacy/README.md names the pair as the default login of the earlier local docker-compose run; whether it is used in earlier running installations is not established (not inspectable within the allowed boundaries), and no claim is made that it is unused anywhere.'
     record: 'analysis/reviews/evidence/S02-P004/pm-report-transcription.json'
     residual_risk: 'The pair remains in legacy/README.md, the WAR and the frozen Phase A inventories of passes 001-004 in a public repository; if any earlier installation still uses it, that installation stays exposed until its owner changes the password.'
+  - id: 'stage-02-correction-validation-adoption:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-25T14:35:02Z'
+    scope: 'Adopt Starter c7d0188 Stage 2 correction-validation mode (analysis/reviews/README.md#stage-2-correction-validation) without reinitializing, resetting stage or status, changing the constitution or rewriting sealed reports. After the pass-006 corrections merge, the next Stage 2 entry is proposed as correction-validation with pass 006 as the candidate baseline; a fresh independent BA reviewer must verify and record its eligibility and may require a full-blind pass. The stage-02-reviewer-launch decision (option a: PM-launched fresh subagent in the current agreed session) applies to both modes. Stage 3 entry, access and isolation rules are unchanged.'
+    rationale: 'Six full-blind passes returned 8, 10, 4, 6, 5 and 4 findings; the owner chose the new Starter rule to validate bounded corrections against an eligible complete baseline instead of repeating blind discovery.'
+    record: 'analysis/maintenance/starter-sync-2026-09-25-c7d0188.md'
+    residual_risk: 'Correction-validation is not blind; its reviewer reads prior reports and dispositions immediately. Retained coverage relies on the reviewer''s applicability rationale, and the status audit checks only mode, references and chain.'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'

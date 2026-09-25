@@ -4,7 +4,57 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
+const vm = require('node:vm');
 const root = path.resolve(__dirname, '..', '..');
+
+test('Stage 2 view sources qualify both input modes and preserve Stage 19 blindness', () => {
+  const dataPath = path.join(root, 'analysis/process-canvas/data.json');
+  const before = fs.readFileSync(dataPath, 'utf8');
+  const data = require('../process-canvas/build-data');
+  assert.equal(fs.readFileSync(dataPath, 'utf8'), before, 'reading the builder must not regenerate output');
+  const stage2 = data.stages.find(stage => stage.id === 'stage-02');
+  const stage19 = data.stages.find(stage => stage.id === 'stage-19');
+  assert.equal(stage19.reviewAccess, undefined, 'Stage 19 must not acquire correction-validation');
+  assert.ok(stage19.delayedInputs.includes('status'));
+  assert.match(stage19.prevention.en, /Save independent observations first/);
+  const source = fs.readFileSync(path.join(root, 'analysis/process-canvas/app.js'), 'utf8');
+  const ui = vm.runInNewContext('(' + source.match(/const englishUi = (\{[\s\S]*?\n\});/)[1] + ')');
+  const russian = JSON.parse(fs.readFileSync(path.join(root, 'analysis/process-canvas/translations.ru.json'), 'utf8'));
+  assert.match(ui.fullBlindAccess, /I only after a complete neutral Phase A/);
+  assert.match(ui.correctionAccess, /I from the start, not blind/);
+  assert.match(ui.correctionAccess, /findings allowed/);
+  assert.match(ui.correctionAccess, /No new Phase A/);
+  assert.match(ui.correctionAccess, /PM alone updates shared status/);
+  assert.ok(stage2.reviewAccess.instructionPath.endsWith('#stage-2-correction-validation'));
+  const profiles = JSON.parse(fs.readFileSync(path.join(root, 'analysis/record-contracts.json'), 'utf8'));
+  for (const lang of ['en', 'ru']) {
+    const labels = lang === 'en' ? ui : russian.ui;
+    assert.match(labels.fullBlindInputs, /full-blind/);
+    assert.match(labels.correctionInputs, /correction-validation/);
+    assert.match(stage2.prevention[lang], /correction-validation/);
+    const profile = profiles.reconnaissance[lang];
+    for (const term of ['full-blind', 'correction-validation', 'CHK', 'Low', 'blocked/invalid']) {
+      assert.ok(JSON.stringify(profile).includes(term), lang + ': ' + term);
+    }
+  }
+  const functions = source.slice(source.indexOf('function reviewAccessDetails('), source.indexOf('function buttonList('));
+  for (const locale of ['en', 'ru']) {
+    const context = { locale, data, tr: key => (locale === 'en' ? ui : russian.ui)[key], escapeHtml: text => text,
+      fact: (title, body) => title + '\n' + body,
+      buttonList: ids => ids.join(', ') };
+    vm.createContext(context);
+    vm.runInContext(functions, context);
+    const rendered = context.artifactFlowFacts(stage2).join('\n');
+    assert.match(rendered, /full-blind/);
+    assert.match(rendered, /correction-validation/);
+    assert.match(rendered, /error-prevention/);
+    assert.match(rendered, /#stage-2-correction-validation/);
+    assert.doesNotMatch(rendered, /delayedInputs/, 'must not show the unqualified delayed-only heading');
+    const acceptance = context.artifactFlowFacts(stage19).join('\n');
+    assert.ok(acceptance.includes(context.tr('delayedInputs')));
+    assert.doesNotMatch(acceptance, /correction-validation/);
+  }
+});
 
 function readVariant(paths) {
   const file = paths.map(file => path.join(root, file)).find(file => fs.existsSync(file));
@@ -121,6 +171,13 @@ test('Stage 2 template preserves blind evidence before two-way reconciliation', 
     'not only internal reasoning or temporary scratch work', 'invalidate a contaminated pass']) {
     assert.ok(source.includes(requirement), requirement);
   }
+});
+
+test('Stage 2 checklist version field distinguishes immediate closure access from blind Phase B', () => {
+  const source = readVariant(['analysis/reviews/stage-NN-pass-NNN-template.md', 'analysis/reviews/review_template.md']);
+  const field = source.split('\n').find(line => line.startsWith('- Checklist revision or SHA-256:'));
+  assert.match(field, /Stage 2 full-blind and Stage 19 first open it in Phase B/);
+  assert.match(field, /Stage 2 correction-validation opens it immediately/);
 });
 
 test('Stage 2 instructions and presentation require durable independent discovery', () => {

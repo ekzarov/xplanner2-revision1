@@ -86,7 +86,7 @@ test('control-record PRs stay separate from corrections without permitting unrev
     .replace(/\s+/g, ' ');
   for (const rule of ['one records PR', 'corrections are a separate PR',
     'owner merges the control-record PR', 'Do not reset, discard, overwrite',
-    'Phase A still withholds prior findings', 'Saving Phase A does not require its own PR',
+    'Stage 2 full-blind and Stage 19 Phase A withhold prior findings', 'Saving Phase A does not require its own PR',
     'negative verdict is not a failed CI run', 'keep the PR blocked',
     '**before owner merge**', 'Stage 18', 'Stage 19', 'sealed review']) {
     assert(procedure.includes(rule), rule);
@@ -191,17 +191,21 @@ test('all author roles and entry instructions route corrective returns to the sh
   }
 });
 
-test('bounded authoring does not replace fresh full blind Stage 2 or mandatory controls', () => {
+test('Stage 2 correction validation preserves full baseline and mandatory controls', () => {
   const reviews = read('analysis/reviews/README.md').replace(/\s+/g, ' ');
   for (const rule of ['Correction scope and review scope are different',
     'does not grant a delta review where the stage requires a full pass',
-    'fresh full in-scope blind Phase A and two-way Phase B',
     'Do not pass findings or correction plans to a blind reviewer before Phase B',
-    'a fresh eligible agent performs a new full in-scope blind Phase A']) {
+    'Select the control mode before assigning inputs',
+    'A reviewer from an earlier pass is not resumed for a new pass',
+    'The learned checklist is not a scope ceiling',
+    'every prior and new finding (including low)',
+    'Stage 19 and other stages gain no new exception',
+    'A new full-blind pass is required']) {
     assert(reviews.includes(rule), rule);
   }
   const methodology = read('analysis/migration_methodology.md').replace(/\s+/g, ' ');
-  assert(methodology.includes('another complete Stage 2 pass'));
+  assert(methodology.includes('correction-validation'));
   assert(methodology.includes('Depth does not mean restarting a stage on return'));
   assert(!methodology.includes('in practice 2\u20133 iterations'));
 });
@@ -210,7 +214,8 @@ test('return explanations stay visible in process views without changing control
   const anchor = '#correction-scope-and-handoff';
   const html = cheerio.load(read('analysis/migration_methodology.html'));
   assert.equal(html('#correction-scope').length, 1);
-  assert(html('#correction-scope a').attr('href').endsWith(anchor));
+  assert(html('#correction-scope a').toArray().some(a => html(a).attr('href').endsWith(anchor)));
+  assert(html('#correction-scope a').toArray().some(a => html(a).attr('href').endsWith('#stage-2-correction-validation')));
   assert(html('#correction-scope').text().includes('Correction scope is not control scope'));
   assert(read('analysis/process-cheatsheet.md').includes(anchor));
   const app = read('analysis/process-canvas/app.js');
@@ -226,7 +231,30 @@ test('return explanations stay visible in process views without changing control
   assert(app.includes('correctionHelp(contextStage)'));
   const stage = JSON.parse(read('analysis/process-canvas/data.json')).stages.find(s => s.id === 'stage-01');
   assert(stage.reentry.en.steps.some(s => s.includes('not a restart')));
-  assert(stage.reentry.en.steps.some(s => s.includes('full in-scope blind Phase A')));
+  assert(stage.reentry.en.steps.some(s => s.includes('full-blind') && s.includes('correction-validation')));
+});
+
+test('correction validation records retained coverage separately and never invents blind evidence', () => {
+  const procedure = read('analysis/reviews/README.md').split('#### Stage 2 Correction Validation')[1]
+    .split('### Stage 7')[0].replace(/\s+/g, ' ');
+  for (const rule of ['every intervening control report', 'independently regenerates the complete changes',
+    'unchanged bytes or total matched counts alone are not proof',
+    'Every required baseline obligation maps to a new check or valid retained evidence',
+    'Missing baseline evidence blocks validation', 'cannot restart as blind',
+    'baseline_pass', 'previous_pass', 'coverage_record']) {
+    assert(procedure.includes(rule), rule);
+  }
+  const template = read('analysis/reviews/stage-NN-pass-NNN-template.md');
+  for (const rule of ['## Stage 2 Correction Validation', 'Control mode:',
+    'Root full baseline:', 'Latest preceding control:', 'Source identity:',
+    'rechecked / retained', 'rechecked + retained + uncovered',
+    'do not count retained evidence as newly matched', 'do not\ninvent or recreate a blind snapshot']) {
+    assert(template.includes(rule), rule);
+  }
+  for (const file of ['MIGRATION.md', 'analysis/agent-roles.md', 'analysis/agent_orchestration.md',
+    'analysis/error-prevention.md', '.agents/skills/migration-ba/SKILL.md']) {
+    assert(read(file).includes('#stage-2-correction-validation'), file);
+  }
 });
 
 test('credential safety reaches authors, reviewers, publication and new project templates', () => {
