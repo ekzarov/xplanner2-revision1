@@ -1176,6 +1176,29 @@
           "type": "integer",
           "minimum": 1
         },
+        "control_mode": {
+          "enum": [
+            "full-blind",
+            "correction-validation"
+          ],
+          "description": "Stage 2 control mode, requiring exactly one matching Control mode declaration in the report when explicit. Historical entries without this field retain the prior full-only policy; using one as a baseline requires explicit reviewer verification in the new report."
+        },
+        "baseline_pass": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "For clean/findings, the required earlier root full-blind Stage 2 pass for the same scope with clean/findings result and no unchecked scope. For blocked/invalid eligibility attempts, omit when unknown or record the attempted earlier baseline without claiming eligibility."
+        },
+        "previous_pass": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "For clean/findings, the required latest preceding Stage 2 attempt: the root or an eligible correction-validation pass using that root. For blocked/invalid attempts, omit when unknown or record an attempted earlier predecessor. Failed attempts cannot be inherited or skipped by later successful correction validation; a new full baseline is required."
+        },
+        "coverage_record": {
+          "$ref": "#/$defs/nonEmptyString",
+          "type": "string",
+          "pattern": "\\S",
+          "description": "Required repository-local non-empty, non-template report or evidence path, including failure evidence for blocked/invalid eligibility attempts. May be the current report. Failure details, source equality, exact changes and retained-item coverage remain reviewer obligations, not schema guarantees."
+        },
         "result": {
           "enum": [
             "clean",
@@ -1269,7 +1292,45 @@
           },
           "description": "Dimensions the reviewer could not check; non-empty forces result: blocked."
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["control_mode"]
+          },
+          "then": {
+            "properties": {
+              "stage": { "const": "stage-02" }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": ["control_mode"],
+            "properties": {
+              "control_mode": { "const": "correction-validation" }
+            }
+          },
+          "then": {
+            "required": ["coverage_record"],
+            "if": {
+              "properties": {
+                "result": { "enum": ["clean", "findings"] }
+              }
+            },
+            "then": {
+              "required": ["baseline_pass", "previous_pass"]
+            }
+          },
+          "else": {
+            "properties": {
+              "baseline_pass": false,
+              "previous_pass": false,
+              "coverage_record": false
+            }
+          }
+        }
+      ]
     },
     "ownerDecision": {
       "type": "object",

@@ -27,13 +27,13 @@ Open an artifact below for its purpose, author, governing instructions and examp
 
 
 
-A timestamped independent review of the initial reconnaissance. It records the reviewer's eligibility, blind inventory, later comparison with Stage 1, discovered omissions or conflicts, blocked scope and the exact clean or findings verdict. **Phase A: independent discovery. Phase B: reconciliation:** Phase A: inspect the immutable legacy source without reading the filled map, reconnaissance or prior conclusions; Save an A-NNN inventory with source evidence, a durable snapshot reference and access sequence before Phase B; no duplicate Excel or reconnaissance is required; Phase B: open the pinned Stage 1 records and check both directions: discovered behavior to recorded coverage, and recorded claims back to source; Resolve disagreements from the legacy source. Preserve Phase A; record reviewer corrections separately instead of rewriting the first inventory; Report matched, mismatch, not-checked and not-applicable checks with evidence, linked findings/blockers and reconciled totals. The fresh independent reviewer writes one final immutable report. Temporary notes alone are insufficient. Early exposure invalidates the blind pass; findings return to Stage 1. Live verification belongs to Stage 3.
+One immutable report per fresh BA attempt: full-blind inventory/reconciliation or eligible bounded correction-validation. Records mode, eligibility, root/predecessor and candidate pins, whole-scope coverage, findings and clean/findings/blocked/invalid verdict. No new canonical artifact or invented Phase A. **Stage 2: full-blind or eligible correction-validation:** full-blind is the default for initial/new scope: save a fresh complete neutral Phase A inventory, snapshot and access sequence before two-way Phase B; preserve the snapshot and resolve disagreements from source; correction-validation is not blind and creates no new Phase A. A complete valid full-blind baseline may have findings. Pin the root full report, snapshot and source hashes, predecessor, latest candidate and every intervening report/change; read reports, checklist and dispositions immediately; Verify the entire actual diff, all open findings, related mechanisms/dependencies and affected old matched claims. Expand bounded impact checks when needed without invalidating the whole baseline; CHK is not a scope ceiling; Record mode, root/predecessor and a whole-scope coverage table in the existing report. Retain exact prior C IDs only with applicability rationale, not as new matches; union retained coverage and new checks without double counting. Clean requires no unchecked scope or open findings, including Low; Changed source, new channels or scope, contamination, unreliable/missing/incomplete baseline or systemic/unbounded impact: stop closure as blocked/invalid as appropriate and require a full new blind session before prior information. Both modes require a fresh independent read-only BA, never the author or a reused reviewer. No new canonical artifact. Follow analysis/reviews/README.md#stage-2-correction-validation. Findings return to Stage 1; Stage 3 live verification and Stage 19 blind acceptance remain unchanged.
 
 - **Created by:** A fresh independent agent assigned to Stage 2 authors a report for the exact reviewed scope.
 - **Maintained / decided by:** The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.
 - **Instructions:** Stage 2 independent control and reviewer eligibility
 
-**When used:** The fresh independent agent assigned to Stage 2 first saves the Phase A inventory in the report or a durable linked attachment, with its snapshot identity and input-access sequence. Only then does Phase B open the filled map and reconnaissance and compare both directions against the source. The completed report is immutable; no duplicate canonical Stage 1 files are created.
+**When used:** A fresh independent read-only BA agent creates the same immutable Stage 2 report in either mode. Default full-blind saves complete neutral Phase A before two-way Phase B. Eligible bounded correction-validation reads prior evidence immediately and creates no new Phase A. The existing report adds mode, root/predecessor pins and a whole-scope coverage table: retained exact C IDs with applicability rationale plus new checks, without double counting. No new canonical artifact. Follow analysis/reviews/README.md#stage-2-correction-validation.
 
 **Example:** Illustrative: A-007 independently identifies a read-only restriction. Phase B links it to a map row that omits the restriction; C-012 records the mismatch and F-001 returns the correction to Stage 1. A mistaken reviewer interpretation is corrected separately in Phase B.
 
@@ -43,7 +43,7 @@ A timestamped independent review of the initial reconnaissance. It records the r
 
 
 
-An independent verdict on the prototype set. It checks that normalization is truthful, required roles and states are represented, navigation is coherent, map coverage is sufficient and the design has not invented unsupported behavior. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it.
+An independent verdict on the prototype set. It checks that normalization is truthful, required roles and states are represented, navigation is coherent, map coverage is sufficient and the design has not invented unsupported behavior. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract.
 
 - **Created by:** A fresh independent agent assigned to Stage 7 authors a report for the exact reviewed scope.
 - **Maintained / decided by:** The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.
@@ -59,7 +59,7 @@ An independent verdict on the prototype set. It checks that normalization is tru
 
 
 
-An immutable independent verdict on the architecture package. It challenges NFR coverage, evidence, system boundaries, contracts and decision reasoning, and verifies that all reviewed files and hashes describe the same version. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it.
+An immutable independent verdict on the architecture package. It challenges NFR coverage, evidence, system boundaries, contracts and decision reasoning, and verifies that all reviewed files and hashes describe the same version. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract.
 
 - **Created by:** A fresh independent agent assigned to Stage 10 authors a report for the exact reviewed scope.
 - **Maintained / decided by:** The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.
@@ -75,7 +75,7 @@ An immutable independent verdict on the architecture package. It challenges NFR 
 
 
 
-An independent comparison of the OKF v0.2 bundle with the approved architecture. It verifies concept coverage and source hashes, and reports omissions, duplicates, stale links or rules that were introduced without authority. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it.
+An independent comparison of the OKF v0.2 bundle with the approved architecture. It verifies concept coverage and source hashes, and reports omissions, duplicates, stale links or rules that were introduced without authority. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract.
 
 - **Created by:** A fresh independent agent assigned to Stage 14 authors a report for the exact reviewed scope.
 - **Maintained / decided by:** The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.
@@ -91,7 +91,7 @@ An independent comparison of the OKF v0.2 bundle with the approved architecture.
 
 
 
-An independent verdict on the complete SDD package before implementation. It checks scope, consistency, testability, traceability, disclosed assumptions and alignment with approved requirements, prototype and architecture. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it.
+An independent verdict on the complete SDD package before implementation. It checks scope, consistency, testability, traceability, disclosed assumptions and alignment with approved requirements, prototype and architecture. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract.
 
 - **Created by:** A fresh independent agent assigned to Stage 16 authors a report for the exact reviewed scope.
 - **Maintained / decided by:** The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.
@@ -107,7 +107,7 @@ An independent verdict on the complete SDD package before implementation. It che
 
 
 
-The independent acceptance report for the deployed slice or final system. A reviewer from outside the implementation team verifies useful role-based journeys, required evidence and remaining findings before the owner signs acceptance. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it.
+The independent acceptance report for the deployed slice or final system. A reviewer from outside the implementation team verifies useful role-based journeys, required evidence and remaining findings before the owner signs acceptance. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract.
 
 - **Created by:** A fresh independent agent assigned to Stage 19 authors a report for the exact reviewed scope.
 - **Maintained / decided by:** The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.
@@ -184,7 +184,8 @@ A delta review checks its entire declared delta and direct dependencies.
 It links the prior immutable baseline and identifies unchanged prior results
 relied on, without counting them as freshly matched. Missing baseline evidence
 or an expansion trigger requires expanded/full review under the active-stage
-rules. Stage 2 first completes its blind inventory; Stage 19 first completes
+rules. Stage 2 `full-blind` first completes its blind inventory; its separately
+governed `correction-validation` mode is not blind. Stage 19 first completes
 its blind live inspection before reconciling previous findings and backlog.
 
 Templates govern new reports. Historical immutable reports retain their bytes
@@ -196,7 +197,9 @@ dispositions may be included; future corrections belong in new linked records.
 
 Each report has exactly one result:
 
-- `clean` - the complete declared scope was checked and no new finding exists;
+- `clean` - the complete required scope is covered by applicable evidence and
+  no unresolved finding or required unchecked item remains; a permitted
+  correction-validation pass distinguishes new checks from retained evidence;
 - `findings` - one or more actionable findings were recorded;
 - `blocked` - the complete check could not be performed.
 - `invalid` - reviewer eligibility, isolation, revision, scope, or protocol
@@ -265,7 +268,7 @@ check qualifies. Generalize the missing verification, not the one-off repair.
 The reviewer does not edit the project table. The coordinator verifies the
 finding, searches semantic duplicates and records added/refined/reused IDs or
 rejection reasons in the work/correction record. A repeated mistake reuses its
-CHK ID and triggers analysis of why its check failed. Stage 2/19 Phase A remains
+CHK ID and triggers analysis of why its check failed. Stage 2 full-blind / Stage 19 Phase A remains
 blind to the checklist and these notes; reconcile them only in Phase B.
 
 ## Return and Correction Protocol
@@ -359,9 +362,10 @@ own rules. Mandatory repository-wide gates still run even when authoring is narr
 
 **Correction scope and review scope are different.** This rule does not grant a
 delta review where the stage requires a full pass. Stage 1 corrections are
-impact-scoped; the next Stage 2 still uses a fresh full in-scope blind Phase A
-and two-way Phase B. All other stages retain their specified review, deployment,
-acceptance and owner gates, including impact-scoped review where already allowed.
+impact-scoped; the next Stage 2 selects `full-blind` or eligible
+[correction-validation](#stage-2-correction-validation). Both require a fresh
+independent reviewer and a new report. All other stages retain their specified
+review, deployment, acceptance and owner gates.
 Do not pass findings or correction plans to a blind reviewer before Phase B.
 
 ### Stage 1 Re-entry
@@ -406,10 +410,12 @@ current records for the findings and their actual impact, not another complete
 Stage 1 discovery. This requirement applies regardless of which stage returned
 the work or whether the original author session is still available.
 
-On the next Stage 2 entry, a fresh eligible agent performs a new full in-scope
-blind Phase A, then Phase B reconciles the revised Stage 1 records and correction
-evidence. The orchestrator withholds previous findings and dispositions from
-Phase A. Fixing every listed finding alone does not prove discovery is complete.
+On the next Stage 2 entry, PM proposes the control mode and the fresh reviewer
+validates its eligibility. A `full-blind` pass starts a new full in-scope blind
+Phase A, then two-way Phase B; PM withholds previous findings and dispositions from
+Phase A. Eligible `correction-validation` checks the actual changes and inherited
+coverage under the procedure below, with prior records available from the start.
+Fixing every listed finding alone does not prove discovery is complete.
 
 **Real example:** XPlanner's
 [Stage 2 pass 001 dispositions](https://github.com/olsys-ltd/xplanner2/blob/cf2a024afc292fc33e2ab1504fd002d977e0f8fd/analysis/stages/stage-01/stage-02-pass-001-dispositions.md)
@@ -421,7 +427,16 @@ evidence, not a new independent verification claim.
 
 ### Stage 2: Control reconnaissance
 
-**First discover independently, save that result, then compare.** The filled
+**Select the control mode before assigning inputs.** Initial reconnaissance and
+the expansion conditions below require `full-blind`. Bounded corrections after
+an eligible complete baseline use `correction-validation`; it is independent,
+but not blind. PM proposes the mode in the assignment; the reviewer challenges
+the boundary and evidence before accepting it. Both modes use the same numbered
+report family, the same clean/findings/blocked/invalid results and a fresh
+read-only BA who did not author the work. A reviewer from an earlier pass is not
+resumed for a new pass. Stage 19 and other stages gain no new exception.
+
+**Full-blind: first discover independently, save that result, then compare.** The filled
 parity map and reconnaissance are inputs to the whole stage, but are available
 to the reviewer only in Phase B. The orchestrator must not include their
 contents, summaries, row counts, prior findings or author conclusions in the
@@ -479,6 +494,75 @@ correction to Stage 1; blocked or invalid scope cannot yield a clean pass.
 Stage 2 provides source-based control, not live verification (Stage 3).
 Historical immutable reports retain their bytes; this structure applies to
 new passes.
+
+#### Stage 2 Correction Validation
+
+**Validate corrections without restarting discovery.** This mode is available
+only when an eligible complete full-blind baseline exists for the same legacy
+source and governed scope. Its verdict may be `findings`: valid matched evidence
+can be retained while every unresolved finding is independently closed. A
+`blocked`, `invalid`, incomplete or inaccessible baseline cannot be used. A
+runtime limitation honestly recorded for Stage 3 is not a missing static check;
+unperformed required Stage 2 work is not such a limitation.
+
+Before work, PM supplies the exact full baseline report, its blind checkpoint,
+source-set revision/content hashes, comparison ledger and reviewed Stage 1
+versions; every intervening control report and correction disposition; the latest
+integrated candidate; and the applicable checklist and instructions. These
+materials are available immediately. Do not create or claim a fresh Phase A.
+The reviewer independently regenerates the complete changes from the baseline
+through the candidate, not just the files or hunks suggested by the author.
+
+Use the existing report's **Stage 2 Correction Validation** section, not a new
+canonical artifact. Record:
+
+| Record | Required evidence |
+|---|---|
+| Mode and chain | `correction-validation`, root full report/pass and hash, latest preceding pass/report and hash, every intervening record, exact baseline and candidate revisions. No skipped or superseded control attempt. |
+| Eligibility | Same immutable legacy source set and scope; valid independent full coverage, retrievable evidence and blind checkpoint; exact changed records and source/dependency impact. Old `findings` is never relabelled `clean`. |
+| Open items | Every unresolved F/B/CHK or source-backed return remark in the chain, author disposition and independent closure or remaining finding. A rejected/narrowed finding needs source evidence, not author agreement alone. |
+| Rechecked coverage | All actual added/changed/deleted claims, their dependencies and same-mechanism occurrences, affected previously matched claims, applicable checklist changes and regression checks. Explain deletion, renumbering and coverage moves; they cannot erase an obligation. |
+| Retained coverage | Exact prior report/check IDs, source and claim identity, and why each remains applicable despite the complete change set. Exhaustive grouped mappings are allowed; unchanged bytes or total matched counts alone are not proof. |
+| Coverage reconciliation | Every required baseline obligation maps to a new check or valid retained evidence, without duplicates or gaps. New obligations are included and bounded; current check counts exclude retained checks. Reconciled coverage totals are separate from newly executed totals. |
+| Expansion and outcome | Triggers considered, actual widened scope, remaining unknowns and one canonical verdict; exact next action. |
+
+Inspect the whole declared correction scope, not only reported lines or a sample.
+The learned checklist is not a scope ceiling. Newly discovered relevant defects
+are findings even if no CHK exists; no severity threshold or pass-count limit
+makes them acceptable. Expand related checks when the impact remains bounded.
+Do not silently move known static discrepancies to Stage 3 to obtain `clean`.
+
+**A new full-blind pass is required** when the legacy source set or governed
+functional scope changes (including newly discovered channels/subsystems), when
+the baseline's independence/completeness/provenance is unreliable, or when
+systemic omissions or dependencies make retained coverage unsafe or the impact
+unbounded. Missing baseline evidence blocks validation; a violated independence
+protocol is invalid. Record the trigger and preserve findings. A reviewer already
+exposed to prior records cannot restart as blind: PM launches another fresh
+eligible session. No budget, repeated-pass count or green gate waives this rule.
+
+Closure is `clean` only when the current independent pass validates the entire
+coverage union, all required newly checked items match, every prior and new
+finding (including low) is independently resolved, and no required unchecked or
+blocked scope remains. Record `findings`, `blocked` or `invalid` otherwise.
+Mandatory gates, CI, owner-only merge and the next stage's authority still apply.
+This is not a fresh full review of retained items or evidence of live behavior.
+
+**Status and adoption:** new Stage 2 entries explicitly record `control_mode`.
+For `correction-validation`, also record `baseline_pass`, `previous_pass` and
+`coverage_record` (the existing report or its durable linked coverage evidence).
+For a blocked/invalid eligibility attempt, unknown baseline/predecessor fields
+may be omitted; record the exact failure in `coverage_record`, never invent a
+reference. Such an attempt cannot be retained or skipped as an eligible chain.
+The status audit checks the mode, references and chain, not semantic adequacy,
+source equality or the truth of retained coverage; PM and reviewer check those.
+Existing projects adopt the synchronized rule explicitly without reinitializing,
+resetting stage/status, changing the constitution or rewriting sealed reports.
+A historical full-blind report without mode metadata can be a root only after
+the new reviewer verifies and records its eligibility. Old records remain intact.
+If a project's ratified rules demand stricter control, stop for the required
+owner amendment instead of silently weakening them. Ordinary independent review
+and fresh-report invariants are unchanged.
 
 **Illustrative example:** A-007 records a source-backed read-only permission
 restriction. In Phase B, the corresponding parity row describes editing but
@@ -599,6 +683,6 @@ New and reopened cycles follow [Architecture Review Cycles](../architecture/revi
 
 ## Feature Dependency Contract
 
-At Stages 10 and 16, independently check feature-dependencies.json against actual source/contract evidence. Include a Dependency Review table in the immutable pass: Node / Scope SHA-256 / Compared sources / Result / Findings or unchecked scope. Challenge missing dependencies and direction. A clean bounded result permits the coordinator to link this exact report; file existence is not approval. Stages 2 and 19 retain their blind packet rules.
+At Stages 10 and 16, independently check feature-dependencies.json against actual source/contract evidence. Include a Dependency Review table in the immutable pass: Node / Scope SHA-256 / Compared sources / Result / Findings or unchecked scope. Challenge missing dependencies and direction. A clean bounded result permits the coordinator to link this exact report; file existence is not approval. Stage 2 full-blind and Stage 19 retain their blind packet rules; Stage 2 correction-validation follows its separate access boundary.
 
 See [the normative dependency procedure](../feature-dependencies-guide.md).

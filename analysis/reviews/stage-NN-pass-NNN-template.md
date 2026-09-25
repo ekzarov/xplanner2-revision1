@@ -68,6 +68,7 @@
 - [Stage 2 Phase A - Blind Inventory](#read-stage-2-phase-a-blind-inventory)
   - [Phase A Saved Checkpoint](#read-phase-a-saved-checkpoint)
 - [Stage 2 Phase B - Two-Way Reconciliation](#read-stage-2-phase-b-two-way-reconciliation)
+- [Stage 2 Correction Validation](#read-stage-2-correction-validation)
 - [Comparison Scope](#read-comparison-scope)
 - [Comparison Results](#read-comparison-results)
 - [Coverage Summary](#read-coverage-summary)
@@ -107,6 +108,7 @@
 - Artifact set version: <required for Stage 10 and Stage 14>
 - Artifact manifest SHA-256: <required for Stage 10 and Stage 14>
 - Verification mode: delta | expanded | full | not applicable
+- Control mode: full-blind | correction-validation | not applicable (Stage 2 only)
 - Verification baseline: <pinned revision/artifact set>
 - Expansion trigger: <none or exact trigger>
 
@@ -118,11 +120,16 @@
 - [ ] My current context does not include the authoring session.
 - [ ] I am working read-only from the declared immutable revision.
 - [ ] I independently enumerated the complete scope.
-- [ ] For Stage 2, I inventoried source behavior before reading prior
-      conclusions, the filled parity map or reconnaissance, and saved Phase A
-      before first Phase B access.
+- [ ] I followed the access boundary of my declared control mode: for Stage 2
+      full-blind, I saved the complete source inventory before opening prior
+      conclusions or filled records; for correction-validation, I used the
+      permitted prior evidence without claiming a new blind Phase A. Other
+      stages follow their own access rules.
 
-If any applicable item cannot be checked, stop and set the result to
+The last checkbox affirms only the branch matching the declared mode, not both
+branches. Record failed baseline eligibility in the correction-validation section;
+this declaration does not attest that the baseline is eligible. All declaration
+items apply, so do not leave an unchecked N/A checkbox. If an item cannot be checked, stop and set the result to
 `invalid`.
 
 The matching `migration_status.yaml` review entry records `reviewer_id`,
@@ -139,8 +146,10 @@ prototype version, architecture document-set version, deployed environment,
 channel, role, inventory, and owner decision used. List explicit exclusions
 and justify why they are outside this pass.
 
-For Stage 2, distinguish allowed Phase A inputs from withheld Phase B inputs.
+For Stage 2 full-blind, distinguish allowed Phase A inputs from withheld Phase B inputs.
 Listing a path here is not permission to open its contents before the handoff.
+For correction-validation, list the complete baseline/evidence chain and current
+candidate provided at launch; earlier reports/checklist are allowed immediately.
 
 <a id="read-method-and-coverage"></a>
 
@@ -160,8 +169,9 @@ and after review.
 
 ## Stage 2 Phase A - Blind Inventory
 
-Required for Stage 2 only. For other control stages, mark this section and the
-Phase B handoff below not applicable. The reviewer follows the
+Required for Stage 2 full-blind only. For correction-validation and other control
+stages, mark this section and the Phase B handoff below not applicable; do not
+invent or recreate a blind snapshot. The reviewer follows the
 [Stage 2 procedure](README.md#stage-2-control-reconnaissance).
 
 The reviewer completes and saves this section before opening the filled
@@ -205,6 +215,8 @@ record actual access order and invalidate a contaminated pass.
 
 ## Stage 2 Phase B - Two-Way Reconciliation
 
+Full-blind mode only. Correction-validation uses the separate section below.
+
 - First Phase B access at: <timestamp after the Phase A checkpoint>
 - Filled parity-map revision/hash: <exact input>
 - Filled reconnaissance revision/hash: <exact input>
@@ -225,6 +237,55 @@ from the Coverage Summary. A wording match or keyword search is not enough.
 Only Stage 1 authors correct the reviewed artifacts; the reviewer reports
 findings and the required return.
 
+<a id="read-stage-2-correction-validation"></a>
+
+## Stage 2 Correction Validation
+
+Required only for Stage 2 `correction-validation`; mark not applicable otherwise.
+Follow [the mode, eligibility and expansion rules](README.md#stage-2-correction-validation).
+Use the same immutable report, not another canonical artifact. Prior `findings`
+reports remain findings; the fresh reviewer independently owns this new verdict.
+
+- Root full baseline: <pass/report, report and blind-checkpoint hashes, complete comparison ledger>
+- Latest preceding control: <pass/report and hash; all intervening reports/dispositions>
+- Source identity: <baseline and current legacy set revisions/content hashes; equality evidence>
+- Baseline and candidate: <exact reviewed Stage 1 revisions and record hashes>
+- Eligibility decision: <independence, complete coverage, accessible evidence, same governed scope>
+- Complete change set: <independently regenerated additions/changes/deletions and actual dependencies>
+- Open-finding reconciliation: <all unresolved F/B/CHK/return IDs in the chain, dispositions and independent results>
+- Expansion decision: <bounded expansion and rationale, or trigger for another fresh full-blind pass>
+
+| Required coverage item | Prior report / check IDs | Source and current claim identity | Handling in this pass | New check IDs or retention evidence |
+|---|---|---|---|---|
+| <exact obligation; exhaustive groups may link a breakdown> | <root/chain IDs, or new> | <version and semantic impact> | rechecked / retained | <C-NNN for new checks, or proof it is unaffected by the complete change set> |
+
+Account for every required baseline obligation exactly once and add any bounded
+new obligation. Every changed claim, unresolved finding, related mechanism and
+affected earlier claim is rechecked. Deleting a row does not erase its obligation.
+Retain only valid matched evidence; unchanged bytes or totals alone are not proof.
+Source/scope changes, unreliable or incomplete baseline, or systemic/unbounded
+impact require full-blind control by another fresh eligible session.
+
+| Reconciled required coverage items | Newly rechecked items | Valid retained items | Uncovered items |
+|---|---|---|---|
+| <total> | <count> | <count> | <count> |
+
+This total equals rechecked + retained + uncovered, with no double counting.
+Current Comparison Results and Coverage Summary count only newly executed checks;
+they do not count retained evidence as newly matched. `clean` requires full
+coverage, zero uncovered items, no required not-checked items and independent
+closure of every prior/new finding, including low. Mandatory gates and owner
+authority remain separate. Do not claim live verification or a fresh full pass.
+
+PM records `control_mode: correction-validation`, `baseline_pass`,
+`previous_pass` and `coverage_record` in the review ledger. The latter points to
+this report or its existing durable coverage evidence. The status audit checks
+structure/references, not source equality or semantic coverage. Full-blind mode
+records `control_mode: full-blind` without correction-only fields.
+If eligibility is blocked/invalid and a baseline/predecessor is unknown, omit
+that pointer in status and explain the failure in the coverage record. Never
+invent references; this attempt cannot support or be skipped in a closure chain.
+
 <a id="read-comparison-scope"></a>
 
 ## Comparison Scope
@@ -232,7 +293,7 @@ findings and the required return.
 The independent reviewer defines the check items before assigning results.
 Each item identifies a requirement, behavior, screen/role/state, NFR/ADR,
 knowledge concept, dependency or acceptance action and its exact source.
-Stage 2 preserves its blind inventory before comparison; Stage 19 preserves
+Stage 2 full-blind preserves its blind inventory before comparison; Stage 19 preserves
 the blind live pass before reconciling prior findings and backlog evidence.
 
 - Review mode and exact checked boundary: `<full | expanded | delta; scope>`
@@ -287,7 +348,9 @@ one finding may affect multiple checks.
 
 Include the evidence table required by the stage:
 
-- Stage 2: independently discovered behavior to parity-map verdict;
+- Stage 2 full-blind: independently discovered behavior to parity-map verdict;
+- Stage 2 correction-validation: actual corrections and independent closure,
+  retained check applicability, and reconciled whole-scope coverage;
 - Stage 7: screen to rows, roles, states, files, hashes, and verdict;
 - Stage 10: NFR to ADR and acceptance criterion, plus semantic and visual
   checks of the committed Draw.io pages, document-set version and pinned hashes;
@@ -409,7 +472,7 @@ Justified not-applicable items are not counted as passed checks.
 ## Error Prevention
 
 Follow [the shared procedure](../error-prevention.md). Record actual checking, not a copied
-claim from an earlier attempt. At blind Stages 2 and 19 this section is Phase B
+claim from an earlier attempt. At Stage 2 full-blind and Stage 19 this section is Phase B
 only: learned checks and prior self-check/learning notes are withheld until the
 independent Phase A snapshot is saved.
 
@@ -417,7 +480,7 @@ independent Phase A snapshot is saved.
 
 ### Checklist Review
 
-- Checklist revision or SHA-256: <exact version; at 2/19 first opened in Phase B>
+- Checklist revision or SHA-256: <exact version; Stage 2 full-blind and Stage 19 first open it in Phase B; Stage 2 correction-validation opens it immediately>
 - Author self-check record/version: <linked report or status note; or not recorded>
 
 | Check / applicability | Author self-check / source | Independent result / evidence | Finding / required recheck |

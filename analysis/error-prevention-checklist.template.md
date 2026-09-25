@@ -10,7 +10,7 @@
 
 Created empty by the initializer. The coordinator adds confirmed, generalized
 checks and merges duplicates; the owner may prune obsolete rows. Agents apply
-relevant rows before work and before handoff. Reviewers at Stages 2 and 19 read
+relevant rows before work and before handoff. Reviewers at Stage 2 full-blind and Stage 19 read
 the learned checks only in Phase B. Follow [the instruction](error-prevention.md).
 
 <!-- Template output: analysis/error-prevention-checklist.md -->

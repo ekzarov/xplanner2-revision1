@@ -10,7 +10,7 @@ Read [MIGRATION.md](../../../MIGRATION.md), the assigned stage and
 
 In correction mode, follow [Correction Scope And Handoff](../../../analysis/reviews/README.md#correction-scope-and-handoff):
 amend findings and affected mechanisms, retaining valid unrelated records rather
-than repeating Stage 1 discovery. The next full blind Stage 2 remains separate.
+than repeating Stage 1 discovery. Independent Stage 2 control remains separate.
 
 1. Establish behavior from attributable source and permitted live observations.
    Separate confirmed facts, inference, unavailable scope and owner choices.
@@ -19,9 +19,12 @@ than repeating Stage 1 discovery. The next full blind Stage 2 remains separate.
    only when those records are permitted inputs/outputs in the assignment.
 3. Prepare requirement dispositions, criteria and SDD contributions without
    silently dropping behavior or approving a proposed target change.
-4. In Stage 2 review mode, save the blind source inventory before opening filled
-   records or learned checks; follow the [review protocol](../../../analysis/agent_orchestration.md).
-   Do not correct the author's artifacts or reuse authoring context.
+4. In Stage 2 review mode, validate [the control mode](../../../analysis/reviews/README.md#stage-2-correction-validation).
+   Full-blind saves its inventory before filled records or learned checks.
+   Eligible correction-validation reads prior evidence immediately, checks the
+   complete actual diff/affected mechanisms and justifies retained coverage.
+   Neither changes the author's files nor reuses authoring or earlier review
+   context. An unreliable baseline or unbounded impact requires fresh full-blind control.
 5. Self-check the allowed result and return evidence, gaps and questions to PM
    in the role contract's RESULT format; shared ledgers are PM's write scope.
 

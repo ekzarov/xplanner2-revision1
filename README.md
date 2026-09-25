@@ -10,7 +10,10 @@ permissions depend on the runtime. Markdown does not install an agent service.
 self-check before handoff and generalize confirmed mistakes after control.
 The coordinator maintains one concise table; the owner may prune it.
 [Required procedure](analysis/error-prevention.md).
-Blind Stages 2/19 read learned checks only in Phase B.
+Stage 2 full-blind and Stage 19 read learned checks only in Phase B.
+Eligible [Stage 2 correction-validation](analysis/reviews/README.md#stage-2-correction-validation)
+reads prior evidence immediately and validates bounded changes plus retained
+coverage without repeating full discovery. It remains fresh independent control.
 
 
 Reusable, evidence-driven scaffolding for modernizing legacy systems with

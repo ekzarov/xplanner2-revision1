@@ -29,8 +29,8 @@ svg{background:#f7f9fa}text{font-family:Arial,Helvetica,sans-serif;fill:#192b36;
 <text x="30" y="695" class="body"><tspan x="30" dy="0">3 BA; 12 Architect; 18 Developer. Not independent.</tspan></text>
 <text x="680" y="631" class="title"><tspan x="680" dy="0">Fresh instances of the same specializations</tspan></text>
 <text x="680" y="667" class="body"><tspan x="680" dy="0">2 BA; 7 QA; 10/14/16 Architect; 17 Developer; 19 QA.</tspan></text>
-<text x="680" y="695" class="body"><tspan x="680" dy="0">Blind 2/19: save Phase A, then release Phase B.</tspan></text>
-<text x="680" y="723" class="note"><tspan x="680" dy="0">Final acceptance: independent agents of other vendors.</tspan></text>
+<text x="680" y="695" class="body"><tspan x="680" dy="0">2: full-blind or eligible correction-validation.</tspan></text>
+<text x="680" y="720" class="note"><tspan x="680" dy="0">19: blind A then B; final: other-vendor agents.</tspan></text>
 <text x="30" y="759" class="return"><tspan x="30" dy="0">Return: scoped author corrections, not a restart. Required fresh review remains separate.</tspan></text>
 <g data-context="tools" transform="translate(30 792)"><rect width="455" height="140" rx="6" class="node tools"/><text x="16" y="31" class="title"><tspan x="16" dy="0">Automated gates / tools</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">Programs, not agents</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Run the configured audits, tests and permitted</tspan><tspan x="16" dy="23">checks</tspan></text></g>
 <g data-context="records" transform="translate(510 792)"><rect width="740" height="140" rx="6" class="node records"/><text x="16" y="31" class="title"><tspan x="16" dy="0">Versioned project records</tspan></text><text x="16" y="58" class="count"><tspan x="16" dy="0">Durable shared context</tspan></text><text x="16" y="91" class="body"><tspan x="16" dy="0">Instructions, status, approved inputs, artifacts, code and review evidence</tspan></text></g>
@@ -145,13 +145,22 @@ The coordinator transports review questions and evidence-based challenges under
 the <a href="../agent_orchestration.md#discussion-and-completion">bounded discussion rules</a>.
 This is a reusable interaction loop, not a new stage sequence or a mandatory
 review after every ordinary task.</p>
-<p><strong>Blind access at Stages 2 and 19:</strong> send Phase A material only, save the
+<p><strong>Blind access at Stage 2 full-blind and Stage 19:</strong> send Phase A material only, save the
 reviewer's independent observations, then release Phase B material and reconcile.
 The full repository, prior findings and learned checklist are not unrestricted
 reviewer context. Other independent stages do not acquire an invented blind phase.
 Withhold full status, prior conclusions, author handoffs and filled examples too.
 Automatic startup imports or memory exposing them invalidate the blind attempt;
 Markdown alone cannot enforce isolation. Verify actual runtime permissions.</p>
+<p>On a bounded Stage 1 correction, PM proposes
+<a href="../reviews/README.md#stage-2-correction-validation">Stage 2 correction-validation</a>
+after an eligible complete full baseline. A new independent BA reads the old
+report and corrections immediately, checks the entire actual change and related
+mechanisms, and proves retained check applicability. This is not blind or another
+full discovery. A new numbered report reconciles complete coverage; all findings
+must be resolved. Unreliable baseline or unbounded impact requires full-blind
+control in another fresh session. The happy-path example above still illustrates
+the initial full-blind pass, not a fixed team or mandatory full repeat.</p>
 <p><a id="read-where-stages-fit"></a></p>
 <h2 id="where-stages-fit">Where Stages Fit</h2>
 <ul>

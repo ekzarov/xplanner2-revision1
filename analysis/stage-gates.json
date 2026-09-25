@@ -39,8 +39,8 @@
         "audit:workbook"
       ],
       "requirements": {
-        "en": "Eligible fresh reviewer; Phase A inventory saved before filled Stage 1 inputs are opened; Phase B reconciles both directions against the immutable legacy source. Clean immutable report includes snapshot/access evidence, comparisons, gaps and reconciled coverage; no blocked scope or contaminated blind pass.",
-        "ru": "Новый независимый ревьюер сохраняет инвентаризацию фазы A до открытия заполненных материалов шага 1; фаза B сверяет их в обе стороны по неизменяемому легаси. Чистый неизменяемый отчёт содержит снимок, порядок доступа, сравнения, пробелы и итоги покрытия; нет блокировок или нарушенной слепой проверки."
+        "en": "Fresh independent BA; full-blind A/B for initial/new scope or unreliable coverage; eligible correction-validation checks changes and affected mechanisms with exact retained evidence. New clean report reconciles complete coverage with no open findings or required unchecked scope; prior reports remain immutable.",
+        "ru": "Новый независимый BA; full-blind с фазами A/B для первичного/нового объёма или ненадёжного покрытия; допустимый correction-validation проверяет изменения и затронутые механизмы с точными сохранёнными доказательствами. Новый чистый отчёт согласует полное покрытие без открытых замечаний или обязательного непроверенного объёма; прежние отчёты неизменны."
       }
     },
     {

@@ -17,7 +17,9 @@ changes from specialist evidence; the lead writes stage-owned artifacts. Human
 decisions and fresh independent reviews remain mandatory. If separate sessions
 cannot be launched, prepare the packet for an owner-launched session and wait;
 do not silently perform specialist work under a different name in PM's context.
-At Stages 2/19, read only the permitted Phase A inputs until observations are saved.
+For Stage 2 `full-blind` and Stage 19, read only permitted Phase A inputs until
+observations are saved. Stage 2 `correction-validation` is not blind and reads
+its prior evidence immediately under the mode-specific procedure.
 
 For UI work at Stages 5-9 and 13-19, also read
 [analysis/prototyping/ui-design-system-guide.md](analysis/prototyping/ui-design-system-guide.md): foundation before drawing,
@@ -33,7 +35,7 @@ before handoff and repeat affected checks after corrections. After each control
 pass or confirmed error, generalize qualifying lessons and check for duplicates
 before the coordinator updates the single four-column table. The owner may prune
 it; a fixed finding does not automatically retire a useful check. Independent
-reviewers propose changes but never edit the project table. At Stages 2 and 19,
+reviewers propose changes but never edit the project table. At Stage 2 full-blind and Stage 19,
 withhold learned checks and self-check notes until Phase A has been saved.
 Record the concise self-check and learning update as instructed; neither is
 approval. Run `audit:prevention` for table integrity, not semantic verification.
@@ -98,7 +100,7 @@ per-finding dispositions with evidence. Earlier unresolved findings remain in
 scope. Do not restart blindly, assume a review is infallible, or treat a primary
 agent's fix as independent acceptance. Stage 1 has a
 [separate re-entry procedure](analysis/reviews/README.md#stage-1-re-entry);
-the next Stage 2 still starts with a fresh blind inventory.
+the next Stage 2 uses the independently validated control mode below.
 
 Every corrective return uses [Correction Scope And Handoff](analysis/reviews/README.md#correction-scope-and-handoff).
 PM assigns findings and their affected dependencies/mechanisms, preserves valid
@@ -106,10 +108,20 @@ unaffected work and verifies the actual correction boundary at handoff. Returnin
 to a stage is not permission to restart it from scratch. Wider authoring requires
 recorded impact evidence; required control scope and owner gates stay unchanged.
 
-For Stage 2, follow the [blind inventory and two-way reconciliation procedure](analysis/reviews/README.md#stage-2-control-reconnaissance).
-The reviewer saves Phase A before accessing filled Stage 1 records, then records
-Phase B separately. Stage-wide input links do not authorize early access.
-The immutable legacy source resolves disagreements; neither inventory is an oracle.
+For Stage 2, follow the [control-mode procedure](analysis/reviews/README.md#stage-2-control-reconnaissance).
+Initial/new scope uses `full-blind`: save Phase A before opening filled records,
+then reconcile both directions in Phase B. Bounded corrections use
+[correction-validation](analysis/reviews/README.md#stage-2-correction-validation)
+only after the fresh independent reviewer verifies an eligible complete full
+baseline. That mode reads earlier reports/checklist immediately, checks the
+whole actual change and affected mechanisms, and justifies retained check IDs.
+Record `control_mode` and the required baseline/predecessor/coverage references
+in the existing report and status. No new artifact or new Phase A is required.
+Missing/unreliable evidence, changed source/scope or systemic/unbounded impact
+requires full-blind control in another fresh session. A closing `clean` still
+needs complete reconciled coverage, no unresolved findings (including low) and
+no required unchecked scope. Stage 19 is unchanged; source evidence resolves
+disagreements, not either agent's authority.
 
 Every new stage, decision or execution record follows the
 [artifact result boundaries](analysis/artifact-result-boundaries.md): established
@@ -404,7 +416,7 @@ only the owner-authorized scope; the owner decides the exact new Starter revisio
 
 ## Mandatory Reading Order
 
-**Blind-review reading order (Stages 2 and 19):** The coordinating agent reads
+**Blind-review reading order (Stage 2 full-blind and Stage 19):** The coordinating agent reads
 the complete status and governs routing. Before Phase A, the delegated reviewer
 reads only a neutral routing extract instead of the full status: active stage,
 immutable revision, authorized scope, permitted operations and instruction paths.
@@ -508,13 +520,18 @@ Neither file replaces the other, and neither is an SDD or implementation plan.
 
 ## Stage 2 Independent Control
 
-Stage 2 checks the Stage 1 baseline in two deliberately separated phases. A
+Stage 2 `full-blind` checks the Stage 1 baseline in two deliberately separated phases. A
 fresh eligible agent with no authoring context works read-only from the exact
 immutable legacy revision. First it inventories executable legacy behavior
 without reading the filled parity map, `legacy_reconnaissance.md`, or the first
 agent's conclusions. Only after that blind inventory is complete does it open
 those records and compare them for omissions, unsupported claims, incorrect
 statuses, and broken evidence references.
+
+After bounded corrections, eligible `correction-validation` instead reads the
+prior evidence immediately and creates no new Phase A. Follow the
+[baseline and complete-coverage requirements](analysis/reviews/README.md#stage-2-correction-validation);
+do not repeat unaffected discovery or treat retained checks as newly executed.
 
 The reviewer does not correct the map. It writes the next immutable
 `analysis/reviews/stage-02-pass-NNN.md` report with one result: `clean`,
@@ -724,7 +741,7 @@ project-specific commands from [`config/project.yaml`](./config/project.yaml).
 |---|---|
 | Bootstrap | `audit:status`; `audit:project`; `audit:environment`; `audit:methodology`; `audit:views`; `audit:responsibilities`; `audit:artifact-links`; `audit:prevention`; Install tooling, run toolkit regression tests and initializer self-test. The agent fills bootstrap-gate-report.md with exact results; migration_status.yaml cites it. Owner authorization is separate. |
 | Stage 1 | `audit:project`; `audit:workbook`; Source-derived reconnaissance and parity rows with evidence; unavailable scope stays explicit. |
-| Stage 2 | `audit:workbook`; Eligible fresh reviewer; Phase A inventory saved before filled Stage 1 inputs are opened; Phase B reconciles both directions against the immutable legacy source. Clean immutable report includes snapshot/access evidence, comparisons, gaps and reconciled coverage; no blocked scope or contaminated blind pass. |
+| Stage 2 | `audit:workbook`; Fresh independent BA; full-blind A/B for initial/new scope or unreliable coverage; eligible correction-validation checks changes and affected mechanisms with exact retained evidence. New clean report reconciles complete coverage with no open findings or required unchecked scope; prior reports remain immutable. |
 | Stage 3 | Exact walkthrough scope, live/simulated/unverified lanes and valid outcome; any fallback requires the exact permitted owner waiver. |
 | Stage 4 | `audit:workbook`; Every challenged row has an explicit owner disposition in stage-04-requirements-revision.md; applied changes and pending questions are separate. |
 | Stage 5 | Explicit owner choice of form, channels, style, palette and accessibility in ui-ux-decision.md, or an exact permitted waiver; proposals are not approval. Draft ui-design-system.md and ui-design-tokens.json; the owner selects the foundation and pins its canonical hash in ui-ux-decision.md. This does not approve future component variants. |

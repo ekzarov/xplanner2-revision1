@@ -7,6 +7,7 @@ const { constitutionVersion } = require('./constitution-version');
 const {
   AuditResult,
   PLACEHOLDER,
+  documentField,
   isNonEmptyString,
   parseArgs,
   parseYamlFile,
@@ -129,11 +130,55 @@ function loadStatusSchema(file = DEFAULT_SCHEMA_FILE) {
   return readJsonFile(path.resolve(file));
 }
 
+function validateStage2Chains(reviewPasses) {
+  const errors = [];
+  const passes = reviewPasses.filter((entry) => entry.stage === 'stage-02')
+    .sort((left, right) => left.pass - right.pass);
+  const byNumber = new Map(passes.map((entry) => [entry.pass, entry]));
+  const complete = (entry) => entry && ['clean', 'findings'].includes(entry.result) &&
+    !entry.authored_artifacts.length && !entry.unchecked_scopes?.length;
+  for (const [index, entry] of passes.entries()) {
+    const label = `/review_passes stage-02 pass ${entry.pass}`;
+    const requiresEligibleChain = ['clean', 'findings'].includes(entry.result);
+    if (requiresEligibleChain && entry.unchecked_scopes?.length) {
+      errors.push(`${label} with unchecked_scopes cannot be clean or findings`);
+    }
+    if (entry.control_mode !== 'correction-validation') continue;
+    const baseline = byNumber.get(entry.baseline_pass);
+    const previous = byNumber.get(entry.previous_pass);
+    for (const [field, referenced] of [['baseline_pass', baseline], ['previous_pass', previous]]) {
+      if ((requiresEligibleChain && !referenced) || entry[field] >= entry.pass ||
+          (referenced && Date.parse(referenced.reviewed_at) >= Date.parse(entry.reviewed_at))) {
+        errors.push(`${label} ${field} must reference an earlier Stage 2 pass by number and review time`);
+      }
+    }
+    // Failed eligibility attempts record evidence, not an eligible chain. Later
+    // clean/findings attempts still cannot inherit or skip these ledger entries.
+    if (!requiresEligibleChain) continue;
+    // Mode-less historic passes used the full-only policy. Semantic eligibility
+    // and retained coverage must still be verified in the new reviewer report.
+    if (!complete(baseline) || baseline.scope !== entry.scope ||
+        ![undefined, 'full-blind'].includes(baseline.control_mode)) {
+      errors.push(`${label} baseline_pass must be a valid clean/findings root full-blind pass in the same scope with no unchecked_scopes`);
+    }
+    if (!previous || passes[index - 1] !== previous) {
+      errors.push(`${label} previous_pass must reference the latest preceding Stage 2 attempt without skipping any attempt`);
+    }
+    if (!complete(previous) || previous.scope !== entry.scope ||
+        (previous !== baseline && (previous.control_mode !== 'correction-validation' ||
+          previous.baseline_pass !== entry.baseline_pass))) {
+      errors.push(`${label} previous_pass must be a valid clean/findings pass in the same scope with no unchecked_scopes, either the root or correction-validation with the same baseline_pass`);
+    }
+  }
+  return errors;
+}
+
 function validateStatus(status, schema = loadStatusSchema()) {
   const errors = validateSchema(schema, status);
   if (errors.length) return errors;
 
   const reviewPasses = Array.isArray(status.review_passes) ? status.review_passes : [];
+  errors.push(...validateStage2Chains(reviewPasses));
   const ownerDecisions = Array.isArray(status.owner_decisions) ? status.owner_decisions : [];
   const formalProgress = formalStageProgress(status.control.current_stage);
   if (formalProgress && status.progress.completed_percent !== formalProgress.percent) {
@@ -493,6 +538,7 @@ function durableEvidencePaths(status) {
   for (const pass of status.review_passes || []) {
     add(pass.report);
     add(pass.independence_record);
+    add(pass.coverage_record);
   }
   for (const decision of status.owner_decisions || []) add(decision.record);
   for (const blocker of status.blockers || []) {
@@ -604,6 +650,7 @@ function validateRecordedEvidence(status, root) {
 
 function validateRecordedEvidenceInner(status, root) {
   const errors = [];
+  const records = new Map();
   if (!status || typeof status !== 'object') return ['/status must be an object'];
   try { require('./architecture-review-records').validateReviewTransitions(root, status); }
   catch (error) { errors.push(error.message); }
@@ -621,9 +668,31 @@ function validateRecordedEvidenceInner(status, root) {
       const content = fs.readFileSync(file, 'utf8');
       if (templateOnlyEvidence(content)) {
         errors.push(`/recorded evidence is empty or template-only: ${relative}`);
+      } else {
+        records.set(relative, content);
       }
     } catch (error) {
       errors.push(error.message);
+    }
+  }
+
+  for (const pass of status.review_passes || []) {
+    if (pass.stage !== 'stage-02') continue;
+    const report = records.get(pass.report);
+    if (!report) continue;
+    const declarations = report
+      .replace(/<!--[\s\S]*?-->/g, '')
+      .replace(/```[\s\S]*?```|~~~[\s\S]*?~~~/g, '')
+      .replace(/^(?: {4}|\t).*$/gm, '')
+      .split(/\r?\n/)
+      .filter((line) => /^[ \t]*[-*]?[ \t]*Control mode:/i.test(line));
+    // Only mode-less historical entries may omit the report declaration.
+    if (!declarations.length && pass.control_mode === undefined) continue;
+    const mode = documentField(declarations[0] || '', 'Control mode');
+    if (declarations.length !== 1 || !['full-blind', 'correction-validation'].includes(mode)) {
+      errors.push(`/review_passes stage-02 pass ${pass.pass} report must have one valid Control mode declaration when control_mode is explicit or a marker is present`);
+    } else if (mode !== (pass.control_mode || 'full-blind')) {
+      errors.push(`/review_passes stage-02 pass ${pass.pass} report Control mode must match structured control_mode (required for correction-validation)`);
     }
   }
 

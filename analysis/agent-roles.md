@@ -228,7 +228,7 @@ Developer peer; 19 a fresh QA. Their eligibility, isolation and reports follow
 [agent_orchestration.md](agent_orchestration.md), not a lighter role-specific check.
 Final consolidated acceptance still requires the specified other-vendor agents.
 
-At Stages 2 and 19, PM supplies only permitted neutral/expectation context in
+At Stage 2 full-blind and Stage 19, PM supplies only permitted neutral/expectation context in
 Phase A. Role skills and generic instructions contain no project findings.
 Their links are not a read allowlist: no full status, prior conclusions, learned
 checklist, filled examples or author handoffs before saved Phase A observations.
@@ -236,6 +236,14 @@ PM releases Phase B only after the durable checkpoint; the reviewer then opens
 the full records and reconciles them. Automatic memory or startup imports that
 expose withheld content invalidate the blind attempt. Verify actual isolation
 and permissions when launching; Markdown instructions cannot enforce a sandbox.
+
+For Stage 2, PM proposes `full-blind` or
+[correction-validation](reviews/README.md#stage-2-correction-validation) in the
+existing assignment; the fresh BA validates eligibility, actual changes and
+retained coverage. Correction-validation reads prior reports/checklist at once,
+is not blind and never reuses an author or earlier reviewer session. A required
+full-blind restart needs another fresh session without those conclusions.
+The role stays BA / independent-review; control mode does not create a seventh role.
 
 ## Runtime Portability
 

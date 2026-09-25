@@ -44,7 +44,7 @@ test('generated page has accessible diagram, complete roles and valid local anch
   assert.ok($('svg title').text());
   assert.ok($('svg desc').text());
   $('a[href^="#"]').each((_,a)=>assert.equal($($(a).attr('href')).length,1));
-  assert.match($('article').text(),/Blind access at Stages 2 and 19/);
+  assert.match($('article').text(),/Blind access at Stage 2 full-blind and Stage 19/);
   assert.match($('article').text(),/outside the reviewed worktree/);
   assert.match($('article').text(),/agents of other vendors/);
   assert.ok($('a[href="../../MIGRATION.md"]').length);
@@ -220,6 +220,26 @@ test('changed responsible-check assignments cannot silently drift',()=>{
   const data=model(root);
   const changed={...data,assignments:data.assignments.map(s=>s.id==='stage-12'?{...s,lead:'qa'}:s)};
   assert.throws(()=>exampleModel(changed),/assignment differs/);
+});
+
+test('agent views distinguish initial blind control from the optional correction loop', () => {
+  const files = generatedFiles(root);
+  for (const file of ['roles.html', 'index.html', 'en.html']) {
+    const $ = cheerio.load(files.get(file));
+    assert.match($.text(), /full-blind/);
+    assert.match($.text(), /correction-validation/);
+    assert.doesNotMatch($.text(), /Stage 2 remains full and blind|Blind 2\/19:/);
+  }
+  const $ = cheerio.load(files.get('index.html'));
+  const text = $.text();
+  for (const term of ['Initial BA review 2 uses full-blind', 'complete valid full-blind baseline',
+    'fresh independent read-only BA', 'never an author or previous reviewer',
+    'No new Phase A', 'including Low', 'without double counting',
+    'Stage 19 and other controls are unchanged', '#stage-2-correction-validation']) {
+    assert.ok(text.includes(term), term);
+  }
+  assert.equal($('svg [data-event]').length, 33, 'correction explanation must not bloat the happy-path sequence');
+  assert.equal($('[data-spawn]').length, 12, 'optional corrections are not fictional happy-path sessions');
 });
 
 test('PM deployment must precede the corresponding live verification',()=>{

@@ -109,9 +109,15 @@ test('stage projections contain shared duties without new per-stage checklist ar
       const content = fs.readFileSync(path.join(root, 'analysis/migration_methodology.' + extension), 'utf8');
       assert.ok(content.includes('ERROR_PREVENTION_' + stage.number + '_START'), stage.id);
     }
-    if (['stage-02', 'stage-19'].includes(stage.id)) {
+    if (stage.id === 'stage-19') {
       assert.match(stage.prevention.en, /Phase A: do not open/);
       assert.match(stage.prevention.en, /Phase B:/);
+    }
+    if (stage.id === 'stage-02') {
+      assert.match(stage.prevention.en, /full-blind: withhold learned checks/);
+      assert.match(stage.prevention.en, /until complete Phase A is saved; reconcile in Phase B/);
+      assert.match(stage.prevention.en, /correction-validation: read them immediately, with no new Phase A/);
+      assert.match(stage.prevention.en, /not a scope ceiling/);
     }
   }
 });

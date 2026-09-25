@@ -142,7 +142,7 @@ approved architecture, and ready for an eligible Stage 14 reviewer.>
 ## Error Prevention
 
 Follow [the shared procedure](../../error-prevention.md). Record actual checking, not a copied
-claim from an earlier attempt. At blind Stages 2 and 19 this section is Phase B
+claim from an earlier attempt. At Stage 2 full-blind and Stage 19 this section is Phase B
 only: learned checks and prior self-check/learning notes are withheld until the
 independent Phase A snapshot is saved.
 

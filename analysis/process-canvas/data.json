@@ -196,7 +196,7 @@
             "Correct affected map rows and reconnaissance sections, dependent claims and all occurrences of the same failure mechanism across affected roles and channels, not just reported lines. Preserve valid artifacts, decisions and evidence at their existing identities; explain why their inputs and dependencies remain valid. This is not a restart of Stage 1.",
             "Widen authoring only with recorded evidence of an unreliable baseline, changed inputs, systemic omissions or impact that cannot be bounded. Investigate uncertainty first; record why retained evidence is insufficient. PM revises the boundary within existing authority; changed approved scope or reserved decisions require the owner.",
             "Record finding IDs, dispositions, changed rows/files, related-occurrence coverage, retained work, actual checks/results, unknowns and the separate next control. PM validates the bounded diff and handoff before accepting RESULT or requesting control, and updates shared status. Publish the correction PR; mandatory gates, including repository-wide gates, CI and owner merge remain required. Original reviews stay immutable; retained checks are not new runs.",
-            "After the correction PR is merged, a fresh eligible Stage 2 agent performs a new full in-scope blind Phase A on the integrated revision, saves it, then performs two-way Phase B reconciliation. Previous findings, correction plans and outcomes remain withheld until Phase B. Impact-scoped author corrections do not narrow control scope or replace independent acceptance."
+            "After the correction PR is merged, PM proposes the Stage 2 mode before reviewer access. The reviewer confirms the assignment and access boundary, then verifies baseline eligibility from permitted records. Default/new scope uses full-blind: complete neutral Phase A, saved before two-way Phase B. Only a complete valid full-blind baseline permits bounded correction-validation by a fresh independent read-only BA, never an author or reused reviewer. That mode reads prior evidence immediately, creates no new Phase A and proves whole-scope coverage. Follow reviews/README.md#stage-2-correction-validation; Stage 19 and other controls are unchanged."
           ]
         },
         "ru": {
@@ -207,7 +207,7 @@
             "Исправляет затронутые строки карты и разделы разведки, зависимые утверждения и все проявления того же механизма ошибки в затронутых ролях и каналах, а не только указанные строки. Сохраняет действующие артефакты, решения и доказательства с прежними идентификаторами и версиями; объясняет, почему их входы и зависимости остаются действительными. Это не перезапуск шага 1.",
             "Расширяет авторскую работу только при записанных доказательствах ненадёжной исходной базы, изменённых входов, системных пропусков или влияния, границы которого невозможно установить. Сначала исследует неопределённость; записывает, почему сохранённых доказательств недостаточно. PM меняет границы в рамках имеющихся полномочий; изменение утверждённого объёма или решений, закреплённых за владельцем, требует решения владельца.",
             "Записывает ID замечаний, решения по ним, изменённые строки/файлы, охват связанных проявлений, сохранённую работу, фактические проверки и результаты, неизвестное и отдельный следующий контроль. PM проверяет ограниченный diff и передачу результата до принятия RESULT или запроса контроля и обновляет общий статус. Публикуется PR исправлений; обязательные гейты, включая проверки всего репозитория, CI и merge владельца сохраняются. Прежние ревью неизменны; сохранённые проверки не выдаются за новые прогоны.",
-            "После merge PR исправлений новый допустимый независимый агент шага 2 проводит новую полную слепую фазу A в границах проверки по интегрированной ревизии, сохраняет её, затем выполняет двустороннюю сверку в фазе B. Прежние замечания, планы и результаты исправлений недоступны до фазы B. Исправление затронутых участков не сужает объём контроля и не заменяет независимую приёмку."
+            "После merge PR исправлений PM предлагает режим шага 2 до доступа ревьюера к материалам. Ревьюер подтверждает назначение и границы доступа, затем проверяет допустимость базы по разрешённым записям. По умолчанию и для нового объёма применяется full-blind: полная нейтральная фаза A, сохранённая до двусторонней фазы B. Только полная валидная база full-blind допускает ограниченный correction-validation новым независимым BA в режиме чтения, не автором и не прежним ревьюером. Он сразу читает прежние доказательства, не создаёт новую фазу A и доказывает покрытие всего объёма. Правила: reviews/README.md#stage-2-correction-validation; шаг 19 и другие проверки не меняются."
           ]
         }
       },
@@ -264,18 +264,22 @@
       "title": "Control reconnaissance",
       "kind": "independent",
       "actor": "Business Analyst (fresh independent reviewer)",
-      "summary": "Independently discover legacy behavior, save that first inventory, then reconcile it with Stage 1. The legacy source resolves disagreements; neither inventory is an automatic oracle.",
+      "summary": "Default/new scope: full-blind discovery and two-way reconciliation. After a complete valid full-blind baseline, bounded correction-validation may prove closure. Both modes require a fresh independent read-only BA; legacy source resolves disagreements.",
       "actions": [
-        "Declare independence and the allowed Phase A inputs",
-        "Phase A: inspect source without the filled map, reconnaissance or prior conclusions",
-        "Save the independent inventory and its checkpoint before opening Phase B inputs",
-        "Phase B: check discovered behavior against records and every recorded claim back to source",
-        "Preserve Phase A; record matches, gaps, reviewer corrections and blocked scope in the final report",
+        "Confirm assignment, independence and mode-specific access boundary before reviewer access; verify correction-validation baseline eligibility from permitted records. No author or previous reviewer reuse",
+        "full-blind: inspect the entire scope from immutable source and neutral inputs; save complete Phase A before opening records for two-way Phase B",
+        "correction-validation: read prior reports, checklist and dispositions immediately; pin the root full report, Phase A snapshot, source hashes, predecessor and latest candidate, with all intervening reports and changes; never invent a new Phase A",
+        "Check the entire actual diff, all open findings, related mechanisms and dependencies, and affected old matched claims; expand bounded impact checks when evidence requires it",
+        "Retain exact prior C IDs only with applicability rationale; reconcile retained coverage and new checks without double counting. Clean requires the whole coverage union and no unchecked scope or open findings, including Low; CHK is not a scope ceiling",
+        "Changed source, new channels or scope, contamination, unreliable/missing/incomplete baseline or systemic/unbounded impact require a full new blind session before prior information; stop closure as blocked or invalid as appropriate",
         "PM publishes the unchanged result in a separate records PR, even with findings; required CI and owner merge precede a separate correction PR. Merge is not a clean verdict"
       ],
-      "input": "Exact immutable legacy revision; Stage 1 records are withheld until Phase B",
-      "exit": "A current immutable clean review, no blocked scope, and a green workbook audit",
-      "returns": "Findings return to Stage 1; every re-entry requires a new fresh session.",
+      "input": "full-blind: neutral source/scope first, filled records in Phase B. Eligible correction-validation: current records and the full pinned evidence chain immediately",
+      "exit": "Current immutable clean report, whole-scope coverage union, no unchecked or blocked scope and no open findings including Low; workbook audit passes",
+      "returns": "Findings return to Stage 1. Each attempt uses a fresh eligible session; ineligible correction-validation stops as blocked/invalid and requires full-blind in a new session before prior information.",
+      "reviewAccess": {
+        "instructionPath": "analysis/reviews/README.md#stage-2-correction-validation"
+      },
       "checkRole": "independent",
       "ownerGate": false,
       "inputs": [
@@ -305,8 +309,8 @@
       "independent": true,
       "headline": "Did we miss or misinterpret any legacy behavior?",
       "prevention": {
-        "en": "Phase A: do not open the learned checklist, its extracts or prior self-check/learning notes. Save independent observations first. Phase B: read the pinned checklist, check applicable rows and reconcile with those observations. In Checklist Review, link each F-NNN/B-NNN issue to CHK-NNN with the author claim, observed discrepancy and required recheck. The coordinator validates and deduplicates lesson proposals.",
-        "ru": "Фаза А: не открывать накопленный чеклист, выдержки из него и прежние записи самопроверки или новых уроков. Сначала сохранить независимые наблюдения. Фаза Б: прочитать зафиксированную версию чеклиста, проверить применимые пункты и сопоставить с наблюдениями. В Checklist Review связать каждую проблему F-NNN/B-NNN с CHK-NNN: заявление автора, наблюдаемое расхождение и повторная проверка. Координатор проверяет новые предложения и исключает дубликаты."
+        "en": "full-blind: withhold learned checks, prior reports and self-check notes until complete Phase A is saved; reconcile in Phase B. Eligible correction-validation: read them immediately, with no new Phase A. In either mode independently check applicable CHK rows and author claims, linking C/F/B IDs without double counting; learned checks are not a scope ceiling. The reviewer proposes lessons; PM validates and deduplicates.",
+        "ru": "full-blind: чеклист, прежние отчёты и самопроверки недоступны до сохранения полной фазы A; сверка в фазе B. Допустимый correction-validation: читать сразу, без новой фазы A. В обоих режимах независимо проверить применимые CHK и заявления автора, связать C/F/B без двойного счёта; чеклист не ограничивает объём. Ревьюер предлагает уроки, PM проверяет и исключает дубликаты."
       },
       "artifacts": [
         "status",
@@ -321,8 +325,8 @@
           "audit:workbook"
         ],
         "requirements": {
-          "en": "Eligible fresh reviewer; Phase A inventory saved before filled Stage 1 inputs are opened; Phase B reconciles both directions against the immutable legacy source. Clean immutable report includes snapshot/access evidence, comparisons, gaps and reconciled coverage; no blocked scope or contaminated blind pass.",
-          "ru": "Новый независимый ревьюер сохраняет инвентаризацию фазы A до открытия заполненных материалов шага 1; фаза B сверяет их в обе стороны по неизменяемому легаси. Чистый неизменяемый отчёт содержит снимок, порядок доступа, сравнения, пробелы и итоги покрытия; нет блокировок или нарушенной слепой проверки."
+          "en": "Fresh independent BA; full-blind A/B for initial/new scope or unreliable coverage; eligible correction-validation checks changes and affected mechanisms with exact retained evidence. New clean report reconciles complete coverage with no open findings or required unchecked scope; prior reports remain immutable.",
+          "ru": "Новый независимый BA; full-blind с фазами A/B для первичного/нового объёма или ненадёжного покрытия; допустимый correction-validation проверяет изменения и затронутые механизмы с точными сохранёнными доказательствами. Новый чистый отчёт согласует полное покрытие без открытых замечаний или обязательного непроверенного объёма; прежние отчёты неизменны."
         }
       }
     },
@@ -1996,17 +2000,17 @@
         "en": {
           "creator": "The initializer creates an empty checklist; the coordinator records confirmed generalized checks.",
           "maintainer": "The coordinator merges duplicates and maintains the table; the owner may prune obsolete checks. Reviewers propose without editing it.",
-          "instructions": "Bootstrap and Stages 1-19; analysis/error-prevention.md; learned checks are Phase B only at Stages 2 and 19."
+          "instructions": "Bootstrap and Stages 1-19; analysis/error-prevention.md; learned checks are Phase B only at Stage 2 full-blind and Stage 19, immediate in correction-validation."
         },
         "ru": {
           "creator": "Инициализатор создаёт пустой чеклист; координирующий агент записывает подтверждённые обобщённые проверки.",
           "maintainer": "Координирующий агент объединяет дубликаты и ведёт таблицу; владелец может убрать неактуальные пункты. Ревьюеры предлагают изменения, но не редактируют её.",
-          "instructions": "Подготовка и шаги 1–19; analysis/error-prevention.md; на шагах 2 и 19 накопленные проверки доступны только в фазе Б."
+          "instructions": "Подготовка и шаги 1–19; analysis/error-prevention.md; на шаге 2 full-blind и шаге 19 накопленные проверки доступны только в фазе B; допустимый correction-validation шага 2 читает их сразу."
         }
       },
       "creationStageId": "stage-00",
       "outputPath": "analysis/error-prevention-checklist.md",
-      "usage": "Shared at every stage: read applicable checks before work, self-check before handoff and after fixes, and evaluate confirmed lessons after each control pass. Stages 2 and 19 read learned checks only in Phase B. Review findings explicitly link F-NNN/B-NNN to CHK-NNN, the observed discrepancy and required recheck; the author retains these IDs in the correction record. The coordinator maintains the table; the owner may prune it.",
+      "usage": "Shared at every stage: read applicable checks before work, self-check before handoff and after fixes, and evaluate confirmed lessons after each control pass. Stage 2 full-blind and Stage 19 read learned checks only in Phase B; eligible Stage 2 correction-validation reads them immediately. CHK is not a scope ceiling. Findings link F-NNN/B-NNN to CHK-NNN, the discrepancy and recheck; authors retain these IDs. The coordinator maintains the table; the owner may prune it.",
       "example": "A confirmed missing navigation path becomes a reusable check of navigation coverage across applicable screens, roles and journeys, not a task to repair one menu. Search for an equivalent row before adding it.",
       "sourceExists": true,
       "xplannerExample": {
@@ -2243,7 +2247,7 @@
       },
       "creationStageId": "stage-00",
       "outputPath": "analysis/migration_status.yaml",
-      "usage": "Standing input and updated output of every Stage 1-19. PM maintains the same file from specialist evidence after a durable transition, return, gate result, blocker or owner decision, never for polling or each internal action. Blind reviewers receive neutral routing in Phase A and full status in Phase B.",
+      "usage": "Standing input and updated output of every Stage 1-19. PM maintains the same file from specialist evidence after a durable transition, return, gate result, blocker or owner decision, never for polling or each internal action. Stage 2 full-blind and Stage 19 reviewers receive neutral routing in Phase A and full status in Phase B. Eligible Stage 2 correction-validation reads full status immediately; reviewers never edit it.",
       "example": "QA returns the immutable Stage 7 report. PM validates its scope and records the report path and permitted transition to Stage 8; QA does not edit status. The next assigned UX session reads the checkpoint before work.",
       "sourceExists": true,
       "xplannerExample": {
@@ -2439,7 +2443,7 @@
       "id": "stage-02-review",
       "label": "stage-02-pass-NNN.md",
       "role": "Independent control record",
-      "desc": "A timestamped independent review of the initial reconnaissance. It records the reviewer's eligibility, blind inventory, later comparison with Stage 1, discovered omissions or conflicts, blocked scope and the exact clean or findings verdict.",
+      "desc": "One immutable report per fresh BA attempt: full-blind inventory/reconciliation or eligible bounded correction-validation. Records mode, eligibility, root/predecessor and candidate pins, whole-scope coverage, findings and clean/findings/blocked/invalid verdict. No new canonical artifact or invented Phase A.",
       "sourcePath": "analysis/reviews/stage-NN-pass-NNN-template.md",
       "lifecycle": "migration",
       "projectOutput": "For every Stage 2 attempt, the fresh independent reconnaissance reviewer creates a new immutable report, assigns NNN the next three-digit review number and leaves every earlier pass or findings report unchanged.",
@@ -2458,7 +2462,7 @@
       },
       "creationStageId": "stage-02",
       "outputPath": "analysis/reviews/stage-02-pass-NNN.md",
-      "usage": "The fresh independent agent assigned to Stage 2 first saves the Phase A inventory in the report or a durable linked attachment, with its snapshot identity and input-access sequence. Only then does Phase B open the filled map and reconnaissance and compare both directions against the source. The completed report is immutable; no duplicate canonical Stage 1 files are created.",
+      "usage": "A fresh independent read-only BA agent creates the same immutable Stage 2 report in either mode. Default full-blind saves complete neutral Phase A before two-way Phase B. Eligible bounded correction-validation reads prior evidence immediately and creates no new Phase A. The existing report adds mode, root/predecessor pins and a whole-scope coverage table: retained exact C IDs with applicability rationale plus new checks, without double counting. No new canonical artifact. Follow analysis/reviews/README.md#stage-2-correction-validation.",
       "example": "Illustrative: A-007 independently identifies a read-only restriction. Phase B links it to a map row that omits the restriction; C-012 records the mismatch and F-001 returns the correction to Stage 1. A mistaken reviewer interpretation is corrected separately in Phase B.",
       "sourceExists": true,
       "xplannerExample": {
@@ -2469,26 +2473,26 @@
           "stage-02-review"
         ],
         "en": {
-          "title": "Phase A: independent discovery. Phase B: reconciliation",
+          "title": "Stage 2: full-blind or eligible correction-validation",
           "fields": [
-            "Phase A: inspect the immutable legacy source without reading the filled map, reconnaissance or prior conclusions",
-            "Save an A-NNN inventory with source evidence, a durable snapshot reference and access sequence before Phase B; no duplicate Excel or reconnaissance is required",
-            "Phase B: open the pinned Stage 1 records and check both directions: discovered behavior to recorded coverage, and recorded claims back to source",
-            "Resolve disagreements from the legacy source. Preserve Phase A; record reviewer corrections separately instead of rewriting the first inventory",
-            "Report matched, mismatch, not-checked and not-applicable checks with evidence, linked findings/blockers and reconciled totals"
+            "full-blind is the default for initial/new scope: save a fresh complete neutral Phase A inventory, snapshot and access sequence before two-way Phase B; preserve the snapshot and resolve disagreements from source",
+            "correction-validation is not blind and creates no new Phase A. A complete valid full-blind baseline may have findings. Pin the root full report, snapshot and source hashes, predecessor, latest candidate and every intervening report/change; read reports, checklist and dispositions immediately",
+            "Verify the entire actual diff, all open findings, related mechanisms/dependencies and affected old matched claims. Expand bounded impact checks when needed without invalidating the whole baseline; CHK is not a scope ceiling",
+            "Record mode, root/predecessor and a whole-scope coverage table in the existing report. Retain exact prior C IDs only with applicability rationale, not as new matches; union retained coverage and new checks without double counting. Clean requires no unchecked scope or open findings, including Low",
+            "Changed source, new channels or scope, contamination, unreliable/missing/incomplete baseline or systemic/unbounded impact: stop closure as blocked/invalid as appropriate and require a full new blind session before prior information"
           ],
-          "note": "The fresh independent reviewer writes one final immutable report. Temporary notes alone are insufficient. Early exposure invalidates the blind pass; findings return to Stage 1. Live verification belongs to Stage 3."
+          "note": "Both modes require a fresh independent read-only BA, never the author or a reused reviewer. No new canonical artifact. Follow analysis/reviews/README.md#stage-2-correction-validation. Findings return to Stage 1; Stage 3 live verification and Stage 19 blind acceptance remain unchanged."
         },
         "ru": {
-          "title": "Фаза A: своё исследование. Фаза B: сверка",
+          "title": "Шаг 2: full-blind или допустимый correction-validation",
           "fields": [
-            "Фаза A: изучить неизменяемую ревизию легаси, не читая заполненную карту, reconnaissance и прежние выводы",
-            "До фазы B сохранить инвентаризацию A-NNN с доказательствами, ссылкой на сохранённый снимок и порядком чтения входов. Вторая Excel-карта и второй reconnaissance не нужны",
-            "Фаза B: открыть точные версии материалов шага 1 и сверить в обе стороны: найденное поведение с записями, а записанные утверждения с исходниками",
-            "Разрешать расхождения по легаси. Сохранить фазу A неизменной; исправления собственной трактовки записать отдельно в фазе B",
-            "Показать, что совпало, где расхождение, что не проверено и что неприменимо: с доказательствами, замечаниями, блокерами и согласованными итогами"
+            "full-blind применяется по умолчанию для первичного/нового объёма: сохранить новую полную нейтральную инвентаризацию фазы A, снимок и порядок доступа до двусторонней фазы B; снимок неизменен, расхождения разрешаются по исходникам",
+            "correction-validation не является слепым и не создаёт новую фазу A. Полная валидная база full-blind может содержать замечания. Закрепить корневой полный отчёт, снимок и хеши исходников, предшественника, последнего кандидата и все промежуточные отчёты/изменения; отчёты, чеклист и решения по замечаниям читаются сразу",
+            "Проверить весь фактический diff, все открытые замечания, связанные механизмы/зависимости и затронутые прежние совпавшие утверждения. При необходимости расширить ограниченные проверки влияния без обнуления всей базы; CHK не ограничивает объём",
+            "В существующем отчёте записать режим, корень/предшественника и таблицу покрытия всего объёма. Сохранить точные прежние C ID только с обоснованием применимости, не как новые совпадения; объединить сохранённое покрытие с новыми проверками без двойного счёта. Clean требует отсутствия непроверенного объёма и открытых замечаний, включая Low",
+            "Изменение исходников, новые каналы или объём, раскрытие запрещённых данных, ненадёжная/отсутствующая/неполная база либо системное/неограниченное влияние: остановить закрытие с blocked/invalid по обстоятельствам; нужен полный слепой проход в новой сессии до доступа к прежним выводам"
           ],
-          "note": "Новый независимый ревьюер выпускает один неизменяемый итоговый отчёт. Временных заметок недостаточно. Преждевременное чтение делает слепую проверку невалидной; замечания возвращают на шаг 1. Проверка живой системы относится к шагу 3."
+          "note": "Оба режима требуют нового независимого BA только для чтения: не автора и не прежнего ревьюера. Нового канонического артефакта нет. Правила: analysis/reviews/README.md#stage-2-correction-validation. Замечания возвращают на шаг 1; живая проверка шага 3 и слепая приёмка шага 19 не меняются."
         },
         "stages": [
           2
@@ -2838,7 +2842,7 @@
             "Linked findings, blocked scope and reconciled totals",
             "Verdict and next action; prior results are not newly verified"
           ],
-          "note": "Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it."
+          "note": "Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract."
         },
         "ru": {
           "title": "Что записано в ревью",
@@ -2849,7 +2853,7 @@
             "Связанные замечания, блокеры и согласованные итоги",
             "Вердикт и следующий шаг; старые результаты не выданы за новую проверку"
           ],
-          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шагах 2 и 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка."
+          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шаге 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка. У шага 2 отдельный контракт отчёта с учётом режима."
         },
         "stages": [
           7,
@@ -3259,7 +3263,7 @@
             "Linked findings, blocked scope and reconciled totals",
             "Verdict and next action; prior results are not newly verified"
           ],
-          "note": "Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it."
+          "note": "Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract."
         },
         "ru": {
           "title": "Что записано в ревью",
@@ -3270,7 +3274,7 @@
             "Связанные замечания, блокеры и согласованные итоги",
             "Вердикт и следующий шаг; старые результаты не выданы за новую проверку"
           ],
-          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шагах 2 и 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка."
+          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шаге 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка. У шага 2 отдельный контракт отчёта с учётом режима."
         },
         "stages": [
           7,
@@ -3586,7 +3590,7 @@
             "Linked findings, blocked scope and reconciled totals",
             "Verdict and next action; prior results are not newly verified"
           ],
-          "note": "Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it."
+          "note": "Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract."
         },
         "ru": {
           "title": "Что записано в ревью",
@@ -3597,7 +3601,7 @@
             "Связанные замечания, блокеры и согласованные итоги",
             "Вердикт и следующий шаг; старые результаты не выданы за новую проверку"
           ],
-          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шагах 2 и 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка."
+          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шаге 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка. У шага 2 отдельный контракт отчёта с учётом режима."
         },
         "stages": [
           7,
@@ -3880,7 +3884,7 @@
             "Linked findings, blocked scope and reconciled totals",
             "Verdict and next action; prior results are not newly verified"
           ],
-          "note": "Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it."
+          "note": "Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract."
         },
         "ru": {
           "title": "Что записано в ревью",
@@ -3891,7 +3895,7 @@
             "Связанные замечания, блокеры и согласованные итоги",
             "Вердикт и следующий шаг; старые результаты не выданы за новую проверку"
           ],
-          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шагах 2 и 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка."
+          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шаге 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка. У шага 2 отдельный контракт отчёта с учётом режима."
         },
         "stages": [
           7,
@@ -4158,7 +4162,7 @@
             "Linked findings, blocked scope and reconciled totals",
             "Verdict and next action; prior results are not newly verified"
           ],
-          "note": "Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it."
+          "note": "Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract."
         },
         "ru": {
           "title": "Что записано в ревью",
@@ -4169,7 +4173,7 @@
             "Связанные замечания, блокеры и согласованные итоги",
             "Вердикт и следующий шаг; старые результаты не выданы за новую проверку"
           ],
-          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шагах 2 и 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка."
+          "note": "Обязательный непроверенный объём не допускает чистого вердикта. На шаге 19 сначала сохраняется независимый проход вслепую, затем выполняется сверка. У шага 2 отдельный контракт отчёта с учётом режима."
         },
         "stages": [
           7,
