@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: in_progress
+  stage_status: awaiting_review
   previous_stage: stage-02
-  next_action: 'Publish Stage 2 pass 005 as a separate records PR (owner merge). Then Stage 1 re-entry for F-001..F-005 on a new correction branch with analysis/stages/stage-01/stage-02-pass-005-dispositions.md, correction PR, and a fresh blind Stage 2 pass 006. Stage 3 access and isolation need a separate owner agreement.'
+  next_action: 'Stage 1 re-entry corrections BA-001-07 verified by PM against the assignment boundary (analysis/stages/stage-01/stage-02-pass-005-dispositions.md: F-001..F-005 accepted, F-003/F-005 narrowed, 31 rows changed within scope, no expansion, assignment section unchanged). Owner merges the correction PR; then PM records stage-01 -> stage-02 and launches a fresh full blind Stage 2 pass 006. Stage 3 not authorized.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 re-entry after stage-02 pass 005; reviewer found CHK-003 failing (F-001, F-004, F-005); proposals P-1 (refine CHK-003: every injected property has a wiring bean) and P-2 (trace request-derived values to HQL/SQL, unescaped output, error pages and cookies) pending admission until the Stage 1 author confirms the underlying findings.'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 005: author confirmed both reviewer proposals; PM reused CHK-003 for P-1 (injected property without wiring bean is the existing non-null dependency check, a repeated miss) and admitted CHK-012 for P-2 (request-derived values traced to every sink); BA-001-07 applied CHK-001 (0 failures), CHK-003 via the wiring inventory and CHK-009 (0 credential hits).'
 
 constitution:
   status: ratified
@@ -302,9 +302,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 2 pass 005 returned findings (F-001 and F-002 medium, F-003..F-005 low; 468 checks, 0 blocked; all 28 earlier findings resolved); process returned to Stage 1; Stage 1 records have 210 rows.'
+  summary: 'Stage 1 corrected after Stage 2 pass 005 findings: 210 scenario rows in 18 epics (Yes 111, Inferred 77, Partial 21, No 1), all static-only and open; awaiting new independent Stage 2 pass 006.'
   completed_percent: 0
-  updated_at: '2026-09-25T10:15:21Z'
+  updated_at: '2026-09-25T12:48:21Z'
   agent_reviews:
     total: 5
     valid: 5
