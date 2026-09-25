@@ -1,0 +1,1847 @@
+{
+ "count": 77,
+ "pages": [
+  {
+   "file": "WEB-INF/jsp/common/baseHeader.jsp",
+   "lines": 63,
+   "taglibs": [
+    "html",
+    "xplanner",
+    "logic",
+    "bean",
+    "c"
+   ],
+   "includes": [],
+   "forms": [
+    "22:<html:rewrite action="
+   ],
+   "doLinks": [
+    "/do/logout",
+    "/search/content"
+   ],
+   "dbTags": [],
+   "scriptletLines": 1,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/common/dragdrop.html",
+   "lines": 250,
+   "taglibs": [],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/common/footer.jsp",
+   "lines": 42,
+   "taglibs": [
+    "html",
+    "bean",
+    "logic",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 5,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/common/formattingHelpJS.jsp",
+   "lines": 13,
+   "taglibs": [],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/common/formattingHelpLink.jsp",
+   "lines": 5,
+   "taglibs": [],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/common/generalError.jsp",
+   "lines": 33,
+   "taglibs": [
+    "bean",
+    "html",
+    "xplanner"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 7,
+   "scriptletCalls": [
+    "26:getParameter(\"oid\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/common/header.jsp",
+   "lines": 5,
+   "taglibs": [
+    "logic",
+    "bean",
+    "xplanner",
+    "db"
+   ],
+   "includes": [
+    "5:<jsp:include page=\"/WEB-INF/jsp/common/baseHeader.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/common/unexpectedError.jsp",
+   "lines": 139,
+   "taglibs": [
+    "bean",
+    "xplanner"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 34,
+   "scriptletCalls": [
+    "22:getBean(\"systemInfo\")",
+    "23:getBean(\"properties\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+   "lines": 51,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [
+    "27:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/continue/unfinished/stories"
+   ],
+   "dbTags": [],
+   "scriptletLines": 8,
+   "scriptletCalls": [
+    "32:getParameter(\"fkey\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editFeature.jsp",
+   "lines": 78,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner"
+   ],
+   "includes": [
+    "45:<%@ include file=\"/WEB-INF/jsp/common/formattingHelpLink.jsp\""
+   ],
+   "forms": [
+    "26:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/feature"
+   ],
+   "dbTags": [],
+   "scriptletLines": 8,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editIteration.jsp",
+   "lines": 109,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "c"
+   ],
+   "includes": [
+    "79:<%@ include file=\"/WEB-INF/jsp/common/formattingHelpLink.jsp\""
+   ],
+   "forms": [
+    "27:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/iteration"
+   ],
+   "dbTags": [],
+   "scriptletLines": 10,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "lines": 81,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner"
+   ],
+   "includes": [],
+   "forms": [
+    "31:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/start/iteration"
+   ],
+   "dbTags": [],
+   "scriptletLines": 11,
+   "scriptletCalls": [
+    "34:getParameter(\"fkey\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editNote.jsp",
+   "lines": 109,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [
+    "65:<%@ include file=\"/WEB-INF/jsp/common/formattingHelpLink.jsp\""
+   ],
+   "forms": [
+    "27:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/note"
+   ],
+   "dbTags": [],
+   "scriptletLines": 15,
+   "scriptletCalls": [
+    "39:getParameter(\"attachedToId\")",
+    "82:getParameter(\"formFileName\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editPerson.jsp",
+   "lines": 176,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [
+    "35:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/person"
+   ],
+   "dbTags": [],
+   "scriptletLines": 17,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editProject.jsp",
+   "lines": 167,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "tiles",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [
+    "66:<%@ include file=\"/WEB-INF/jsp/common/formattingHelpLink.jsp\""
+   ],
+   "forms": [
+    "42:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/project"
+   ],
+   "dbTags": [],
+   "scriptletLines": 13,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editRoles.jsp",
+   "lines": 97,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [
+    "50:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/roles"
+   ],
+   "dbTags": [
+    "30:<db:useBean id=\"project\" type=\"net.sf.xplanner.domain.Project\" oid='<%= new Integer(request.getParameter(\\\"oid\\\")) %>",
+    "63:<db:useBeans id=\"persons\" type=\"net.sf.xplanner.domain.Person\" where=\"hidden = false\" order=\"name\" />"
+   ],
+   "scriptletLines": 10,
+   "scriptletCalls": [
+    "4:ThreadSession,",
+    "30:getParameter(\\\"oid\\\"))"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editStory.jsp",
+   "lines": 174,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db",
+    "tiles"
+   ],
+   "includes": [
+    "141:<%@ include file=\"/WEB-INF/jsp/common/formattingHelpLink.jsp\""
+   ],
+   "forms": [
+    "33:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/userstory"
+   ],
+   "dbTags": [],
+   "scriptletLines": 31,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editTask.jsp",
+   "lines": 146,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db",
+    "tiles"
+   ],
+   "includes": [
+    "114:<%@ include file=\"/WEB-INF/jsp/common/formattingHelpLink.jsp\""
+   ],
+   "forms": [
+    "27:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/task"
+   ],
+   "dbTags": [],
+   "scriptletLines": 24,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editTaskEstimate.jsp",
+   "lines": 81,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner"
+   ],
+   "includes": [],
+   "forms": [
+    "41:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/time"
+   ],
+   "dbTags": [],
+   "scriptletLines": 9,
+   "scriptletCalls": [
+    "27:getParameter(\"fkey\"))"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/editTimeEntries.jsp",
+   "lines": 210,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [
+    "56:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/editTimeEntries.js",
+    "/do/edit/time"
+   ],
+   "dbTags": [],
+   "scriptletLines": 50,
+   "scriptletCalls": [
+    "15:getParameter(\"oid\"))"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/importPeople.jsp",
+   "lines": 81,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/import/people"
+   ],
+   "dbTags": [],
+   "scriptletLines": 6,
+   "scriptletCalls": [
+    "39:getParameter(\"formFileName\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/moveContinueStory.jsp",
+   "lines": 61,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [
+    "20:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/move/continue/userstory"
+   ],
+   "dbTags": [],
+   "scriptletLines": 10,
+   "scriptletCalls": [
+    "25:getParameter(\"fkey\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/moveContinueTask.jsp",
+   "lines": 55,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [
+    "21:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/move/continue/task"
+   ],
+   "dbTags": [],
+   "scriptletLines": 7,
+   "scriptletCalls": [
+    "25:getParameter(\"fkey\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/edit/moveStories.jsp",
+   "lines": 41,
+   "taglibs": [
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "c"
+   ],
+   "includes": [],
+   "forms": [
+    "15:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/move/userstories"
+   ],
+   "dbTags": [],
+   "scriptletLines": 4,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/import/stories.jsp",
+   "lines": 106,
+   "taglibs": [
+    "html",
+    "bean",
+    "logic",
+    "tiles",
+    "xplanner"
+   ],
+   "includes": [],
+   "forms": [
+    "29:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/import/stories"
+   ],
+   "dbTags": [],
+   "scriptletLines": 8,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/layout/defaultEditLayout.jsp",
+   "lines": 67,
+   "taglibs": [
+    "bean",
+    "html",
+    "tiles",
+    "db",
+    "xplanner",
+    "c",
+    "tags"
+   ],
+   "includes": [
+    "59:<%@ include file=\"/WEB-INF/jsp/common/formattingHelpJS.jsp\"",
+    "63:<jsp:include page=\"/WEB-INF/jsp/common/footer.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 6,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/layout/defaultLayout.jsp",
+   "lines": 51,
+   "taglibs": [
+    "html",
+    "tiles",
+    "db",
+    "tags"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/layout/iterationTileParams.jsp",
+   "lines": 43,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [
+    "13:<jsp:include page=\"iteration/links.jsp\"",
+    "14:<jsp:include page=\"iteration/globalLinks.jsp\"",
+    "21:<jsp:include page=\"iteration/progress.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 3,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/layout/viewFooter.jsp",
+   "lines": 10,
+   "taglibs": [
+    "bean",
+    "xplanner"
+   ],
+   "includes": [
+    "6:<jsp:include page=\"/WEB-INF/jsp/view/notes.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 1,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/layout/viewHeader.jsp",
+   "lines": 10,
+   "taglibs": [
+    "bean",
+    "logic",
+    "xplanner"
+   ],
+   "includes": [
+    "6:<jsp:include page=\"/WEB-INF/jsp/common/header.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/layout/viewLayout.jsp",
+   "lines": 129,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "tiles",
+    "xplanner",
+    "db",
+    "c",
+    "tags"
+   ],
+   "includes": [
+    "114:<jsp:include page=\"/WEB-INF/jsp/view/notes.jsp\"",
+    "124:<jsp:include page=\"/WEB-INF/jsp/common/footer.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 17,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/layout/viewLayoutNew.jsp",
+   "lines": 119,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "tiles",
+    "xplanner",
+    "db",
+    "c",
+    "tags"
+   ],
+   "includes": [
+    "94:<jsp:include page=\"/WEB-INF/jsp/common/footer.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 3,
+   "scriptletCalls": [],
+   "unescapedEL": [
+    "15:${param.mode eq 'print'}"
+   ],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/security/login.jsp",
+   "lines": 69,
+   "taglibs": [
+    "html",
+    "bean",
+    "logic",
+    "xplanner"
+   ],
+   "includes": [],
+   "forms": [
+    "16:/login"
+   ],
+   "doLinks": [
+    "/login"
+   ],
+   "dbTags": [],
+   "scriptletLines": 7,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/aggregateTimesheet.jsp",
+   "lines": 241,
+   "taglibs": [
+    "c",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [],
+   "forms": [
+    "40:view/aggregateTimesheet"
+   ],
+   "doLinks": [
+    "/do/view/project",
+    "/do/view/iteration",
+    "/do/view/userstory",
+    "/do/view/people"
+   ],
+   "dbTags": [],
+   "scriptletLines": 9,
+   "scriptletCalls": [
+    "100:setAttribute(\"aggregateTimesheetForm\", session"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/dashboard.jsp",
+   "lines": 253,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 1,
+   "scriptletCalls": [],
+   "unescapedEL": [
+    "132:${param.fkey}"
+   ],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/directory.jsp",
+   "lines": 83,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "xplanner",
+    "tags"
+   ],
+   "includes": [],
+   "forms": [
+    "68:/view/directory",
+    "75:/view/directory"
+   ],
+   "doLinks": [
+    "/do/view/directory",
+    "/view/directory"
+   ],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/exportLinks.jsp",
+   "lines": 40,
+   "taglibs": [
+    "bean",
+    "html",
+    "xplanner"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 4,
+   "scriptletCalls": [
+    "20:setAttribute(\"object\", context.getTargetObject())"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/feature.jsp",
+   "lines": 60,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/edit/feature",
+    "/do/view/history"
+   ],
+   "dbTags": [
+    "14:<db:useBean id=\"feature\" type=\"com.technoetic.xplanner.domain.Feature\" scope=\"request\"/>"
+   ],
+   "scriptletLines": 2,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/history.jsp",
+   "lines": 128,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "db",
+    "xplanner",
+    "tiles",
+    "spring",
+    "dt"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/view/person"
+   ],
+   "dbTags": [],
+   "scriptletLines": 26,
+   "scriptletCalls": [
+    "28:getBean(HistorySupport.class)",
+    "29:setAttribute(HistoryPage.EVENT_TABLE_ID,",
+    "30:getParameter(\"oid\"))))",
+    "31:setAttribute(HistoryPage.EVENT_TABLE_ID,",
+    "32:getParameter(\"oid\"))))",
+    "45:setAttribute(\"History\", History)",
+    "70:setAttribute(HistoryPage.CONTAINER_EVENT_TABLE_ID,",
+    "71:getParameter(\"oid\"))))",
+    "72:setAttribute(HistoryPage.CONTAINER_EVENT_TABLE_ID,",
+    "73:getParameter(\"oid\"))))",
+    "82:setAttribute(\"History\", History)",
+    "89:setAttribute(\"historicalObject\", historicalObject )"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/integrations.jsp",
+   "lines": 208,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [],
+   "forms": [
+    "35:edit/integrations"
+   ],
+   "doLinks": [
+    "/do/view/person"
+   ],
+   "dbTags": [],
+   "scriptletLines": 33,
+   "scriptletCalls": [
+    "41:setAttribute(\"currentIntegration\", currentIntegration)",
+    "140:setAttribute(\"defaultIntegration\", defaultIntegration)"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/iteration.jsp",
+   "lines": 177,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db",
+    "dt",
+    "c"
+   ],
+   "includes": [
+    "25:<%@include file=\"../layout/iterationTileParams.jsp\""
+   ],
+   "forms": [
+    "33:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/edit/reorderstories",
+    "/do/move/userstories",
+    "/do/view/userstory",
+    "/do/view/person"
+   ],
+   "dbTags": [
+    "20:<db:useBean id=\"iteration\" type=\"net.sf.xplanner.domain.Iteration\" scope=\"request\" />"
+   ],
+   "scriptletLines": 52,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/iterationAccuracy.jsp",
+   "lines": 190,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [
+    "19:<%@include file=\"../layout/iterationTileParams.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [
+    "/do/view/userstory"
+   ],
+   "dbTags": [
+    "16:<db:useBean id=\"iteration\" type=\"net.sf.xplanner.domain.Iteration\" scope=\"request\" />"
+   ],
+   "scriptletLines": 61,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/iterationFeatures.jsp",
+   "lines": 74,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db"
+   ],
+   "includes": [
+    "14:<%@include file=\"../layout/iterationTileParams.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [
+    "/do/view/userstory",
+    "/do/view/feature",
+    "/do/edit/feature",
+    "/do/delete/feature"
+   ],
+   "dbTags": [
+    "12:<db:useBean id=\"iteration\" type=\"net.sf.xplanner.domain.Iteration\" scope=\"request\" />"
+   ],
+   "scriptletLines": 6,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/iterationMetrics.jsp",
+   "lines": 178,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [
+    "16:<%@include file=\"../layout/iterationTileParams.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [
+    "/do/view/person"
+   ],
+   "dbTags": [
+    "13:<db:useBean id=\"iteration\" type=\"net.sf.xplanner.domain.Iteration\" scope=\"request\" />"
+   ],
+   "scriptletLines": 57,
+   "scriptletCalls": [
+    "39:setAttribute(\"developerMetrics\", developerMetrics)",
+    "103:setAttribute(\"developerMetrics\", developerMetrics)"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/iterationStatistics.jsp",
+   "lines": 301,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db",
+    "cewolf",
+    "c"
+   ],
+   "includes": [
+    "22:<%@include file=\"../layout/iterationTileParams.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [
+    "17:<db:useBean id=\"iteration\" type=\"net.sf.xplanner.domain.Iteration\" scope=\"request\" />"
+   ],
+   "scriptletLines": 39,
+   "scriptletCalls": [
+    "5:ThreadSession,"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/iterationTasks.jsp",
+   "lines": 177,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [
+    "20:<%@include file=\"../layout/iterationTileParams.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [
+    "/do/view/userstory",
+    "/do/view/task",
+    "/do/view/person"
+   ],
+   "dbTags": [
+    "18:<db:useBean id=\"iteration\" type=\"net.sf.xplanner.domain.Iteration\" scope=\"request\" />"
+   ],
+   "scriptletLines": 39,
+   "scriptletCalls": [
+    "43:setAttribute(\"iterationTasks\", iterationTasks)",
+    "58:setAttribute(\"task\", task)",
+    "62:setAttribute(\"story\", story)"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/iteration/globalLinks.jsp",
+   "lines": 46,
+   "taglibs": [
+    "bean",
+    "tiles",
+    "html",
+    "xplanner",
+    "logic",
+    "c"
+   ],
+   "includes": [
+    "21:<jsp:include page=\"../exportLinks.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [
+    "/do/view/dashboard",
+    "/do/view/iteration/tasks",
+    "/do/view/iteration/metrics",
+    "/do/view/iteration/statistics",
+    "/do/view/iteration/accuracy",
+    "/do/view/history"
+   ],
+   "dbTags": [],
+   "scriptletLines": 3,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/iteration/links.jsp",
+   "lines": 40,
+   "taglibs": [
+    "bean",
+    "tiles",
+    "html",
+    "xplanner",
+    "logic"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/view/iteration",
+    "/do/view/iteration/tasks"
+   ],
+   "dbTags": [],
+   "scriptletLines": 2,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/iteration/progress.jsp",
+   "lines": 16,
+   "taglibs": [
+    "bean",
+    "tiles",
+    "xplanner",
+    "logic"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 2,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/meStatus.jsp",
+   "lines": 114,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db"
+   ],
+   "includes": [
+    "22:<jsp:include page=\"personTaskTableFragment.jsp\"",
+    "29:<jsp:include page=\"personTaskTableFragment.jsp\"",
+    "36:<jsp:include page=\"personTaskTableFragment.jsp\"",
+    "43:<jsp:include page=\"personStoryTableFragment.jsp\"",
+    "50:<jsp:include page=\"personStoryTableFragment.jsp\"",
+    "57:<jsp:include page=\"personTaskTableFragment.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [
+    "12:<db:useBeans id=\"projects\" type=\"net.sf.xplanner.domain.Project\" where=\"hidden = false\"/>"
+   ],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/notes.jsp",
+   "lines": 105,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/edit/note",
+    "/do/delete/note",
+    "/do/view/person",
+    "/do/download/attachment"
+   ],
+   "dbTags": [],
+   "scriptletLines": 11,
+   "scriptletCalls": [
+    "4:ThreadSession,"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/people.jsp",
+   "lines": 121,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/view/person",
+    "/do/edit/person",
+    "/do/import/people"
+   ],
+   "dbTags": [
+    "25:<db:useBeans id=\"people\" type=\"net.sf.xplanner.domain.Person\" order=\"is_hidden,name asc\"/>",
+    "31:<db:useBeans id=\"projects\" type=\"net.sf.xplanner.domain.Project\" where=\"hidden = false\"/>"
+   ],
+   "scriptletLines": 16,
+   "scriptletCalls": [
+    "50:setAttribute(\"peopleToShow\", peopleToShow)",
+    "58:setAttribute(\"person\", person)"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/person.jsp",
+   "lines": 90,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db"
+   ],
+   "includes": [
+    "28:<jsp:include page=\"personTaskTableFragment.jsp\"",
+    "35:<jsp:include page=\"personTaskTableFragment.jsp\"",
+    "42:<jsp:include page=\"personTaskTableFragment.jsp\"",
+    "49:<jsp:include page=\"personStoryTableFragment.jsp\"",
+    "56:<jsp:include page=\"personStoryTableFragment.jsp\"",
+    "63:<jsp:include page=\"personTaskTableFragment.jsp\"",
+    "86:<jsp:include page=\"exportLinks.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [
+    "/do/view/people",
+    "/do/view/timesheet"
+   ],
+   "dbTags": [
+    "11:<db:useBean id=\"person\" type=\"net.sf.xplanner.domain.Person\" />",
+    "12:<db:useBeans id=\"projects\" type=\"net.sf.xplanner.domain.Project\" where=\"hidden = false\"/>"
+   ],
+   "scriptletLines": 4,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/personStoryTableFragment.jsp",
+   "lines": 60,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db",
+    "c"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/view/iteration",
+    "/do/view/userstory"
+   ],
+   "dbTags": [],
+   "scriptletLines": 10,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/personTaskTableFragment.jsp",
+   "lines": 76,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/view/iteration",
+    "/do/view/userstory",
+    "/do/view/task",
+    "/do/edit/time",
+    "/do/edit/task"
+   ],
+   "dbTags": [
+    "40:<db:useBean id=\"task\" oid='<%= new Integer(currentTask.getId()) %>",
+    "42:<db:useBean id=\"story\" oid='<%= new Integer(task.getUserStory().getId()) %>",
+    "44:<db:useBean id=\"iteration\" oid='<%= new Integer(story.getIteration().getId()) %>"
+   ],
+   "scriptletLines": 15,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/project.jsp",
+   "lines": 113,
+   "taglibs": [
+    "bean",
+    "logic",
+    "html",
+    "tiles",
+    "c",
+    "xplanner",
+    "db",
+    "dt",
+    "fn",
+    "xfn"
+   ],
+   "includes": [
+    "98:<jsp:include page=\"exportLinks.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [
+    "/do/view/iteration",
+    "/do/edit/iteration",
+    "/do/view/people",
+    "/do/view/history"
+   ],
+   "dbTags": [
+    "18:<db:useBean id=\"project\" type=\"net.sf.xplanner.domain.Project\" scope=\"request\"/>"
+   ],
+   "scriptletLines": 20,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/projectFeatures.jsp",
+   "lines": 104,
+   "taglibs": [
+    "logic",
+    "html",
+    "tiles",
+    "bean",
+    "xplanner",
+    "db"
+   ],
+   "includes": [
+    "93:<jsp:include page=\"exportLinks.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [
+    "/do/view/iteration",
+    "/do/view/userstory",
+    "/do/view/feature",
+    "/do/edit/feature",
+    "/do/delete/feature",
+    "/do/edit/project",
+    "/do/edit/iteration",
+    "/do/view/project/features",
+    "/do/view/people",
+    "/do/view/history"
+   ],
+   "dbTags": [
+    "15:<db:useBean id=\"project\" type=\"net.sf.xplanner.domain.Project\" scope=\"request\" />"
+   ],
+   "scriptletLines": 4,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/projects.jsp",
+   "lines": 174,
+   "taglibs": [
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/edit/project",
+    "/do/view/people",
+    "/do/view/aggregateTimesheet"
+   ],
+   "dbTags": [],
+   "scriptletLines": 20,
+   "scriptletCalls": [
+    "85:setAttribute(\"project\", objecttable)",
+    "127:setAttribute(\"iteration\", iteration)"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/searchResults.jsp",
+   "lines": 50,
+   "taglibs": [
+    "xplanner",
+    "logic",
+    "html",
+    "bean",
+    "dt",
+    "tags"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 10,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/settings.jsp",
+   "lines": 63,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "tiles",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/edit/setting",
+    "/do/view/people",
+    "/do/view/aggregateTimesheet"
+   ],
+   "dbTags": [
+    "26:<db:useBeans id=\"settings\" type=\"net.sf.xplanner.domain.Setting\" />"
+   ],
+   "scriptletLines": 4,
+   "scriptletCalls": [
+    "42:setAttribute(\"setting\", objecttable)"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/task.jsp",
+   "lines": 304,
+   "taglibs": [
+    "logic",
+    "bean",
+    "html",
+    "tiles",
+    "xplanner",
+    "db"
+   ],
+   "includes": [
+    "295:<jsp:include page=\"exportLinks.jsp\""
+   ],
+   "forms": [
+    "76:<html:rewrite page=",
+    "87:<html:rewrite page="
+   ],
+   "doLinks": [
+    "/do/view/person",
+    "/do/edit/task",
+    "/do/view/history"
+   ],
+   "dbTags": [
+    "18:<db:useBean id=\"task\" type=\"net.sf.xplanner.domain.Task\" scope=\"request\"/>"
+   ],
+   "scriptletLines": 29,
+   "scriptletCalls": [
+    "102:getParameter(\"oid\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/timesheet.jsp",
+   "lines": 195,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "xplanner",
+    "db",
+    "cewolf",
+    "tags"
+   ],
+   "includes": [],
+   "forms": [
+    "26:view/timesheet"
+   ],
+   "doLinks": [
+    "/do/view/project",
+    "/do/view/iteration",
+    "/do/view/userstory",
+    "/do/view/people"
+   ],
+   "dbTags": [],
+   "scriptletLines": 5,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/twikiformat.jsp",
+   "lines": 335,
+   "taglibs": [
+    "html"
+   ],
+   "includes": [
+    "330:<%@ include file=\"/WEB-INF/jsp/common/footer.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/view/userstory.jsp",
+   "lines": 251,
+   "taglibs": [
+    "logic",
+    "html",
+    "bean",
+    "tiles",
+    "xplanner",
+    "db",
+    "dt"
+   ],
+   "includes": [
+    "235:<jsp:include page=\"exportLinks.jsp\""
+   ],
+   "forms": [],
+   "doLinks": [
+    "/do/view/person",
+    "/do/view/task",
+    "/do/edit/task",
+    "/do/view/history"
+   ],
+   "dbTags": [
+    "15:<db:useBean id=\"story\" type=\"net.sf.xplanner.domain.UserStory\" scope=\"request\" />"
+   ],
+   "scriptletLines": 50,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/wap/auth.jsp",
+   "lines": 14,
+   "taglibs": [
+    "db",
+    "logic",
+    "bean"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 3,
+   "scriptletCalls": [
+    "11:getParameter(\"userId\")",
+    "11:getParameter(\"password\")"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/wap/iteration.jsp",
+   "lines": 37,
+   "taglibs": [
+    "db",
+    "logic",
+    "bean"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 4,
+   "scriptletCalls": [
+    "9:getParameter(\"oid\"))"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/wap/login.jsp",
+   "lines": 25,
+   "taglibs": [
+    "db",
+    "logic",
+    "bean"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [
+    "7:<db:useBeans id=\"projects\" type=\"net.sf.xplanner.domain.Project\" where=\"hidden = false\" />"
+   ],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/wap/person.jsp",
+   "lines": 32,
+   "taglibs": [
+    "xplanner",
+    "db",
+    "logic",
+    "bean"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 2,
+   "scriptletCalls": [
+    "11:getParameter(\"oid\"))"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/wap/project.jsp",
+   "lines": 32,
+   "taglibs": [
+    "db",
+    "logic",
+    "bean"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 3,
+   "scriptletCalls": [
+    "6:getParameter(\"oid\"))"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/wap/projects.jsp",
+   "lines": 17,
+   "taglibs": [
+    "db",
+    "logic",
+    "bean"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [
+    "7:<db:useBeans id=\"projects\" type=\"net.sf.xplanner.domain.Project\" where=\"hidden = false\" />"
+   ],
+   "scriptletLines": 1,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/wap/story.jsp",
+   "lines": 42,
+   "taglibs": [
+    "db",
+    "logic",
+    "bean"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 7,
+   "scriptletCalls": [
+    "8:getParameter(\\\"oid\\\"))"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/jsp/wap/task.jsp",
+   "lines": 47,
+   "taglibs": [
+    "xplanner",
+    "db",
+    "logic",
+    "bean"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [
+    "38:<db:useBean id=\"acceptor\" type=\"net.sf.xplanner.domain.Person\" oid='<%= new Integer(task.getAcceptorId()) %>"
+   ],
+   "scriptletLines": 11,
+   "scriptletCalls": [
+    "11:getParameter(\"oid\"))"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "WEB-INF/tags/breadcrumb.tag",
+   "lines": 25,
+   "taglibs": [
+    "bean",
+    "html",
+    "c",
+    "xplanner",
+    "tiles"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "calendar/cal.html",
+   "lines": 336,
+   "taglibs": [],
+   "includes": [],
+   "forms": [
+    "223:#"
+   ],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "calendar/calendar-i18n.jsp",
+   "lines": 43,
+   "taglibs": [
+    "bean"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "index.jsp",
+   "lines": 32,
+   "taglibs": [
+    "logic",
+    "bean",
+    "db"
+   ],
+   "includes": [],
+   "forms": [],
+   "doLinks": [
+    "/do/view/projects"
+   ],
+   "dbTags": [
+    "7:<db:useBeans id=\"projects\" type=\"net.sf.xplanner.domain.Project\" where=\"hidden = false\" />"
+   ],
+   "scriptletLines": 2,
+   "scriptletCalls": [
+    "22:setAttribute(\"iteration\", iteration)"
+   ],
+   "unescapedEL": [],
+   "filterFalse": 0
+  },
+  {
+   "file": "js/chart.html",
+   "lines": 33,
+   "taglibs": [],
+   "includes": [],
+   "forms": [],
+   "doLinks": [],
+   "dbTags": [],
+   "scriptletLines": 0,
+   "scriptletCalls": [],
+   "unescapedEL": [],
+   "filterFalse": 0
+  }
+ ]
+}

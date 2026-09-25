@@ -1,0 +1,25 @@
+{
+ "lineCites": 410,
+ "lineFail": [
+  "R9 WEB-INF/classes/db-changelog.xml:784 (file has 499 lines)",
+  "R65 WEB-INF/web.xml:362-367 (file has 325 lines)"
+ ],
+ "fileFail": [
+  "recon:185 META-INF/maven/.../pom.xml"
+ ],
+ "contentUnmatched": [
+  "R9 WEB-INF/classes/xplanner.properties:311 ids=empty",
+  "R65 WEB-INF/web.xml:71-81 ids=liquibase,sessionFactory"
+ ],
+ "classCites": 235,
+ "classFail": [],
+ "methodFail": [],
+ "jspTotal": 73,
+ "jspUncitedByName": [
+  "WEB-INF/jsp/common/formattingHelpJS.jsp",
+  "WEB-INF/jsp/common/header.jsp",
+  "WEB-INF/jsp/layout/viewFooter.jsp",
+  "WEB-INF/jsp/layout/viewHeader.jsp",
+  "WEB-INF/jsp/wap/auth.jsp"
+ ]
+}

@@ -1,0 +1,2221 @@
+{
+ "counts": {
+  "actions": 87,
+  "actionBeans": 80,
+  "globalForwards": 46,
+  "formBeans": 24
+ },
+ "rows": [
+  {
+   "route": "/do/changeLocale",
+   "cfg": "WEB-INF/struts-config.xml:158",
+   "bean": "WEB-INF/action-servlet.xml:6",
+   "class": "com.technoetic.xplanner.actions.ChangeLocaleAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/systemInfo",
+   "cfg": "WEB-INF/struts-config.xml:160",
+   "bean": "WEB-INF/action-servlet.xml:8",
+   "class": "com.technoetic.xplanner.actions.SystemInfoAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "success=/WEB-INF/jsp/common/unexpectedError.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/login",
+   "cfg": "WEB-INF/struts-config.xml:164",
+   "bean": "WEB-INF/action-servlet.xml:10",
+   "class": "com.technoetic.xplanner.actions.AuthenticationAction",
+   "classPresent": true,
+   "form": "login/authenticate",
+   "formDefined": true,
+   "input": null,
+   "parameter": "security/login",
+   "parameterForward": "/do/login[route]",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "notAuthenticated=/WEB-INF/jsp/security/login.jsp[yes]",
+    "authenticated=/do/view/projects (redirect)[route]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/notAuthorized",
+   "cfg": "WEB-INF/struts-config.xml:169",
+   "bean": "WEB-INF/action-servlet.xml:12",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "security/notAuthorized",
+   "parameterForward": "/WEB-INF/jsp/security/notAuthorized.jsp[MISSING]",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "authorizationRequired": "false"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/logout",
+   "cfg": "WEB-INF/struts-config.xml:171",
+   "bean": "WEB-INF/action-servlet.xml:16",
+   "class": "com.technoetic.xplanner.actions.LogoutAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/twikiformat",
+   "cfg": "WEB-INF/struts-config.xml:177",
+   "bean": "WEB-INF/action-servlet.xml:25",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "view/twikiformat",
+   "parameterForward": "/WEB-INF/jsp/view/twikiformat.jsp[yes]",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "authorizationRequired": "false"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/projects",
+   "cfg": "WEB-INF/struts-config.xml:179",
+   "bean": "WEB-INF/action-servlet.xml:29",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "view/projects",
+   "parameterForward": "/WEB-INF/jsp/view/projects.jsp[yes]",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "authorizationRequired": "false"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/project",
+   "cfg": "WEB-INF/struts-config.xml:181",
+   "bean": "WEB-INF/action-servlet.xml:33",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Project",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Project"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/project.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/project/features",
+   "cfg": "WEB-INF/struts-config.xml:185",
+   "bean": "WEB-INF/action-servlet.xml:39",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Project",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Project"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/projectFeatures.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/project/xml",
+   "cfg": "WEB-INF/struts-config.xml:189",
+   "bean": "WEB-INF/action-servlet.xml:45",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Project",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Project",
+    "exporter": "xmlExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/project/mpx",
+   "cfg": "WEB-INF/struts-config.xml:191",
+   "bean": "WEB-INF/action-servlet.xml:54",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Project",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Project",
+    "exporter": "mpxExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/project/mspdi",
+   "cfg": "WEB-INF/struts-config.xml:193",
+   "bean": "WEB-INF/action-servlet.xml:63",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Project",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Project",
+    "exporter": "mspdiExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/project",
+   "cfg": "WEB-INF/struts-config.xml:195",
+   "bean": "WEB-INF/action-servlet.xml:72",
+   "class": "com.technoetic.xplanner.actions.EditProjectAction",
+   "classPresent": true,
+   "form": "edit/project",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editProject.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Project",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Project"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/delete/project",
+   "cfg": "WEB-INF/struts-config.xml:197",
+   "bean": "WEB-INF/action-servlet.xml:78",
+   "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "classPresent": true,
+   "form": "edit/project",
+   "formDefined": true,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Project",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Project"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/iterationTabs",
+   "cfg": "WEB-INF/struts-config.xml:199",
+   "bean": "WEB-INF/action-servlet.xml:84",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/iterationTabs.jsp[MISSING]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/iteration",
+   "cfg": "WEB-INF/struts-config.xml:203",
+   "bean": "WEB-INF/action-servlet.xml:90",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/iteration.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/feature",
+   "cfg": "WEB-INF/struts-config.xml:207",
+   "bean": "WEB-INF/action-servlet.xml:96",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Feature",
+   "typePropPresent": false,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Feature"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/feature.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/iteration/tasks",
+   "cfg": "WEB-INF/struts-config.xml:211",
+   "bean": "WEB-INF/action-servlet.xml:102",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/iterationTasks.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/iteration/features",
+   "cfg": "WEB-INF/struts-config.xml:215",
+   "bean": "WEB-INF/action-servlet.xml:108",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/iterationFeatures.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/iteration/metrics",
+   "cfg": "WEB-INF/struts-config.xml:219",
+   "bean": "WEB-INF/action-servlet.xml:114",
+   "class": "com.technoetic.xplanner.actions.ViewIterationMetricsAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/iterationMetrics.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/iteration/statistics",
+   "cfg": "WEB-INF/struts-config.xml:223",
+   "bean": "WEB-INF/action-servlet.xml:120",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/iterationStatistics.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/iteration/accuracy",
+   "cfg": "WEB-INF/struts-config.xml:227",
+   "bean": "WEB-INF/action-servlet.xml:126",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/iterationAccuracy.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/iteration/xml",
+   "cfg": "WEB-INF/struts-config.xml:231",
+   "bean": "WEB-INF/action-servlet.xml:132",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration",
+    "exporter": "xmlExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/iteration/mpx",
+   "cfg": "WEB-INF/struts-config.xml:233",
+   "bean": "WEB-INF/action-servlet.xml:141",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration",
+    "exporter": "mpxExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/iteration/mspdi",
+   "cfg": "WEB-INF/struts-config.xml:235",
+   "bean": "WEB-INF/action-servlet.xml:150",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration",
+    "exporter": "mspdiExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/iteration/pdf",
+   "cfg": "WEB-INF/struts-config.xml:237",
+   "bean": "WEB-INF/action-servlet.xml:159",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration",
+    "exporter": "pdfExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/iteration/jrpdf",
+   "cfg": "WEB-INF/struts-config.xml:239",
+   "bean": "WEB-INF/action-servlet.xml:168",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration",
+    "exporter": "reportExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/iteration",
+   "cfg": "WEB-INF/struts-config.xml:241",
+   "bean": "WEB-INF/action-servlet.xml:177",
+   "class": "com.technoetic.xplanner.actions.EditIterationAction",
+   "classPresent": true,
+   "form": "edit/iteration",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editIteration.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/start/iteration",
+   "cfg": "WEB-INF/struts-config.xml:245",
+   "bean": "WEB-INF/action-servlet.xml:183",
+   "class": "com.technoetic.xplanner.actions.StartIterationAction",
+   "classPresent": true,
+   "form": "start/iteration",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editIterationStatus.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [
+    "edit/time=/do/edit/time[route]"
+   ],
+   "exceptions": [],
+   "scope": "request"
+  },
+  {
+   "route": "/do/close/iteration",
+   "cfg": "WEB-INF/struts-config.xml:251",
+   "bean": "WEB-INF/action-servlet.xml:190",
+   "class": "com.technoetic.xplanner.actions.CloseIterationAction",
+   "classPresent": true,
+   "form": "close/iteration",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editIterationStatus.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [
+    "onclose=/do/continue/unfinished/stories (redirect)[route]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/delete/iteration",
+   "cfg": "WEB-INF/struts-config.xml:257",
+   "bean": "WEB-INF/action-servlet.xml:196",
+   "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "classPresent": true,
+   "form": "iterationEditorForm",
+   "formDefined": false,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/feature",
+   "cfg": "WEB-INF/struts-config.xml:259",
+   "bean": "WEB-INF/action-servlet.xml:202",
+   "class": "com.technoetic.xplanner.actions.EditObjectAction",
+   "classPresent": true,
+   "form": "edit/feature",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editFeature.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Feature",
+   "typePropPresent": false,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Feature"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/delete/feature",
+   "cfg": "WEB-INF/struts-config.xml:263",
+   "bean": "WEB-INF/action-servlet.xml:208",
+   "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "classPresent": true,
+   "form": "featureEditorForm",
+   "formDefined": false,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Feature",
+   "typePropPresent": false,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Feature"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/userstory",
+   "cfg": "WEB-INF/struts-config.xml:265",
+   "bean": "WEB-INF/action-servlet.xml:214",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.UserStory",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.UserStory"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/userstory.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/userstory",
+   "cfg": "WEB-INF/struts-config.xml:269",
+   "bean": "WEB-INF/action-servlet.xml:220",
+   "class": "com.technoetic.xplanner.actions.EditStoryAction",
+   "classPresent": true,
+   "form": "edit/userstory",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editStory.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.UserStory",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.UserStory"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/move/continue/userstory",
+   "cfg": "WEB-INF/struts-config.xml:273",
+   "bean": "WEB-INF/action-servlet.xml:226",
+   "class": "com.technoetic.xplanner.actions.MoveContinueStoryAction",
+   "classPresent": true,
+   "form": "move/continue/userstory",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/moveContinueStory.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.UserStory",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.UserStory"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/continue/unfinished/stories",
+   "cfg": "WEB-INF/struts-config.xml:277",
+   "bean": "WEB-INF/action-servlet.xml:232",
+   "class": "com.technoetic.xplanner.actions.ContinueUnfinishedStoriesAction",
+   "classPresent": true,
+   "form": "continue/unfinished/stories",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/continueUnfinishedStories.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/userstory/pdf",
+   "cfg": "WEB-INF/struts-config.xml:281",
+   "bean": "WEB-INF/action-servlet.xml:238",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.UserStory",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.UserStory",
+    "exporter": "pdfExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/userstory/jrpdf",
+   "cfg": "WEB-INF/struts-config.xml:283",
+   "bean": "WEB-INF/action-servlet.xml:247",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.UserStory",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.UserStory",
+    "exporter": "reportExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/delete/userstory",
+   "cfg": "WEB-INF/struts-config.xml:285",
+   "bean": "WEB-INF/action-servlet.xml:256",
+   "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "classPresent": true,
+   "form": "userStoryEditorForm",
+   "formDefined": false,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.UserStory",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.UserStory"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/task",
+   "cfg": "WEB-INF/struts-config.xml:287",
+   "bean": "WEB-INF/action-servlet.xml:262",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Task",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Task"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/task.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/task",
+   "cfg": "WEB-INF/struts-config.xml:291",
+   "bean": "WEB-INF/action-servlet.xml:268",
+   "class": "com.technoetic.xplanner.actions.EditTaskAction",
+   "classPresent": true,
+   "form": "edit/task",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editTask.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Task",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Task"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/move/continue/task",
+   "cfg": "WEB-INF/struts-config.xml:293",
+   "bean": "WEB-INF/action-servlet.xml:274",
+   "class": "com.technoetic.xplanner.actions.MoveContinueTaskAction",
+   "classPresent": true,
+   "form": "move/continue/task",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/moveContinueTask.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Task",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Task"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": "session"
+  },
+  {
+   "route": "/do/export/task/pdf",
+   "cfg": "WEB-INF/struts-config.xml:297",
+   "bean": "WEB-INF/action-servlet.xml:280",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Task",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Task",
+    "exporter": "pdfExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/task/jrpdf",
+   "cfg": "WEB-INF/struts-config.xml:299",
+   "bean": "WEB-INF/action-servlet.xml:289",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Task",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Task",
+    "exporter": "reportExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/task/estimate",
+   "cfg": "WEB-INF/struts-config.xml:301",
+   "bean": "WEB-INF/action-servlet.xml:298",
+   "class": "org.apache.struts.action.Action",
+   "classPresent": true,
+   "form": "edit/task/estimate",
+   "formDefined": false,
+   "input": "/WEB-INF/jsp/edit/editTaskEstimate.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/delete/task",
+   "cfg": "WEB-INF/struts-config.xml:304",
+   "bean": "WEB-INF/action-servlet.xml:300",
+   "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "classPresent": true,
+   "form": "edit/task",
+   "formDefined": true,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Task",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Task"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/note",
+   "cfg": "WEB-INF/struts-config.xml:306",
+   "bean": "WEB-INF/action-servlet.xml:306",
+   "class": "com.technoetic.xplanner.actions.EditNoteAction",
+   "classPresent": true,
+   "form": "edit/note",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editNote.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Note",
+   "typePropPresent": true,
+   "beanProps": {
+    "fileSystem": "virtualFileSystem",
+    "type": "net.sf.xplanner.domain.Note"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/delete/note",
+   "cfg": "WEB-INF/struts-config.xml:309",
+   "bean": "WEB-INF/action-servlet.xml:315",
+   "class": "com.technoetic.xplanner.actions.DeleteNoteAction",
+   "classPresent": true,
+   "form": "edit/note",
+   "formDefined": true,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Note",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Note"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/download/attachment",
+   "cfg": "WEB-INF/struts-config.xml:311",
+   "bean": "WEB-INF/action-servlet.xml:321",
+   "class": "com.technoetic.xplanner.actions.DownloadAttachmentAction",
+   "classPresent": true,
+   "form": "/download/attachment",
+   "formDefined": false,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Note",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Note"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/people",
+   "cfg": "WEB-INF/struts-config.xml:313",
+   "bean": "WEB-INF/action-servlet.xml:327",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "view/people",
+   "parameterForward": "/WEB-INF/jsp/view/people.jsp[yes]",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "authorizationRequired": "false"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/export/person/jrpdf",
+   "cfg": "WEB-INF/struts-config.xml:315",
+   "bean": "WEB-INF/action-servlet.xml:333",
+   "class": "com.technoetic.xplanner.actions.ExportAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Person",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Person",
+    "exporter": "reportExporter"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/person",
+   "cfg": "WEB-INF/struts-config.xml:317",
+   "bean": "WEB-INF/action-servlet.xml:342",
+   "class": "com.technoetic.xplanner.actions.ViewPersonAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Person",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Person",
+    "authorizationRequired": "false"
+   },
+   "forwards": [
+    "display=/WEB-INF/jsp/view/person.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/person",
+   "cfg": "WEB-INF/struts-config.xml:321",
+   "bean": "WEB-INF/action-servlet.xml:352",
+   "class": "com.technoetic.xplanner.actions.EditPersonAction",
+   "classPresent": true,
+   "form": "edit/person",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editPerson.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Person",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Person"
+   },
+   "forwards": [],
+   "exceptions": [
+    "com.technoetic.xplanner.domain.repository.DuplicateUserIdException->/WEB-INF/jsp/edit/editPerson.jsp[yes]"
+   ],
+   "scope": null
+  },
+  {
+   "route": "/do/import/people",
+   "cfg": "WEB-INF/struts-config.xml:329",
+   "bean": "WEB-INF/action-servlet.xml:359",
+   "class": "com.technoetic.xplanner.actions.ImportPeopleAction",
+   "classPresent": true,
+   "form": "import/people",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/importPeople.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/import/stories",
+   "cfg": "WEB-INF/struts-config.xml:332",
+   "bean": "WEB-INF/action-servlet.xml:361",
+   "class": "com.technoetic.xplanner.actions.ImportStoriesAction",
+   "classPresent": true,
+   "form": "import",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/import/stories.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Iteration",
+   "typePropPresent": true,
+   "beanProps": {
+    "importer": "com.technoetic.xplanner.importer.SpreadsheetStoryImporter",
+    "type": "net.sf.xplanner.domain.Iteration"
+   },
+   "forwards": [],
+   "exceptions": [
+    "com.technoetic.xplanner.importer.WrongImportFileSpreadsheetImporterException->/WEB-INF/jsp/import/stories.jsp[yes]",
+    "com.technoetic.xplanner.importer.MissingFieldSpreadsheetImporterException->/WEB-INF/jsp/import/stories.jsp[yes]",
+    "com.technoetic.xplanner.importer.MissingColumnHeaderSpreadsheetImporterException->/WEB-INF/jsp/import/stories.jsp[yes]",
+    "com.technoetic.xplanner.importer.MissingWorksheetException->/WEB-INF/jsp/import/stories.jsp[yes]"
+   ],
+   "scope": null
+  },
+  {
+   "route": "/do/delete/person",
+   "cfg": "WEB-INF/struts-config.xml:348",
+   "bean": "WEB-INF/action-servlet.xml:370",
+   "class": "com.technoetic.xplanner.actions.DeleteObjectAction",
+   "classPresent": true,
+   "form": "edit/person",
+   "formDefined": true,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Person",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Person"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/time",
+   "cfg": "WEB-INF/struts-config.xml:350",
+   "bean": "WEB-INF/action-servlet.xml:376",
+   "class": "com.technoetic.xplanner.actions.UpdateTimeAction",
+   "classPresent": true,
+   "form": "edit/time",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editTimeEntries.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "taskDao": "taskDao"
+   },
+   "forwards": [
+    "redirect=/do/view/task (redirect)[route]",
+    "error=/WEB-INF/jsp/edit/editTimeEntries.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": "request"
+  },
+  {
+   "route": "/do/edit/reorderstories",
+   "cfg": "WEB-INF/struts-config.xml:357",
+   "bean": "WEB-INF/action-servlet.xml:380",
+   "class": "com.technoetic.xplanner.actions.ReorderStoriesAction",
+   "classPresent": true,
+   "form": "edit/reorderstories",
+   "formDefined": true,
+   "input": "/do/view/iteration[route]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "redirect=/do/view/iteration (redirect)[route]",
+    "error=/WEB-INF/jsp/view/iteration.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": "request"
+  },
+  {
+   "route": "/do/move/userstories",
+   "cfg": "WEB-INF/struts-config.xml:364",
+   "bean": "WEB-INF/action-servlet.xml:382",
+   "class": "com.technoetic.xplanner.actions.MoveStoriesAction",
+   "classPresent": true,
+   "form": "move/userstories",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/moveStories.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [],
+   "exceptions": [],
+   "scope": "request"
+  },
+  {
+   "route": "/do/edit/project/notification",
+   "cfg": "WEB-INF/struts-config.xml:368",
+   "bean": "WEB-INF/action-servlet.xml:384",
+   "class": "com.technoetic.xplanner.actions.UpdateTimeNotificationReceivers",
+   "classPresent": true,
+   "form": "edit/project",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editProject.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "project/notification=/do/edit/project/notification[route]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/timesheet",
+   "cfg": "WEB-INF/struts-config.xml:374",
+   "bean": "WEB-INF/action-servlet.xml:386",
+   "class": "com.technoetic.xplanner.actions.ViewTimesheetAction",
+   "classPresent": true,
+   "form": "timesheetForm",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/view/timesheet.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "error=/WEB-INF/jsp/view/timesheet.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/aggregateTimesheet",
+   "cfg": "WEB-INF/struts-config.xml:380",
+   "bean": "WEB-INF/action-servlet.xml:388",
+   "class": "com.technoetic.xplanner.actions.ViewAggregateTimesheetAction",
+   "classPresent": true,
+   "form": "aggregateTimesheetForm",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/view/aggregateTimesheet.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "error=/WEB-INF/jsp/view/aggregateTimesheet.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/dashboard",
+   "cfg": "WEB-INF/struts-config.xml:386",
+   "bean": "WEB-INF/action-servlet.xml:416",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "view/dashboard",
+   "parameterForward": "/WEB-INF/jsp/view/dashboard.jsp[yes]",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "authorizationRequired": "false"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/integrations",
+   "cfg": "WEB-INF/struts-config.xml:388",
+   "bean": "WEB-INF/action-servlet.xml:390",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "view/integrations",
+   "parameterForward": "/WEB-INF/jsp/view/integrations.jsp[yes]",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/integrations",
+   "cfg": "WEB-INF/struts-config.xml:390",
+   "bean": "WEB-INF/action-servlet.xml:392",
+   "class": "com.technoetic.xplanner.actions.IntegrationAction",
+   "classPresent": true,
+   "form": "placeHolderForm",
+   "formDefined": true,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "display=/do/view/integrations (redirect)[route]",
+    "error=/do/view/integrations[route]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/history",
+   "cfg": "WEB-INF/struts-config.xml:396",
+   "bean": "WEB-INF/action-servlet.xml:394",
+   "class": "com.technoetic.xplanner.actions.ViewObjectAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "display=/WEB-INF/jsp/view/history.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/directory",
+   "cfg": "WEB-INF/struts-config.xml:401",
+   "bean": "WEB-INF/action-servlet.xml:396",
+   "class": "com.technoetic.xplanner.actions.FileManagerAction",
+   "classPresent": true,
+   "form": "view/file",
+   "formDefined": true,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "display=/WEB-INF/jsp/view/directory.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/view/settings",
+   "cfg": "WEB-INF/struts-config.xml:405",
+   "bean": "WEB-INF/action-servlet.xml:412",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "view/settings",
+   "parameterForward": "/WEB-INF/jsp/view/settings.jsp[yes]",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "authorizationRequired": "false"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/admin/reload-tiles",
+   "cfg": "WEB-INF/struts-config.xml:407",
+   "bean": "WEB-INF/action-servlet.xml:398",
+   "class": "org.apache.struts.tiles.actions.ReloadDefinitionsAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/roles",
+   "cfg": "WEB-INF/struts-config.xml:409",
+   "bean": "WEB-INF/action-servlet.xml:400",
+   "class": "com.technoetic.xplanner.actions.EditRoleAction",
+   "classPresent": true,
+   "form": "edit/roles",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editRoles.jsp[yes]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Project",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Project"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": "session"
+  },
+  {
+   "route": "/do/search/id",
+   "cfg": "WEB-INF/struts-config.xml:413",
+   "bean": "WEB-INF/action-servlet.xml:406",
+   "class": "com.technoetic.xplanner.actions.IdSearchAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "idSearchHelper": "idSearchHelper"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/search/content",
+   "cfg": "WEB-INF/struts-config.xml:415",
+   "bean": "WEB-INF/action-servlet.xml:410",
+   "class": "com.technoetic.xplanner.actions.ContentSearchAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "success=/WEB-INF/jsp/view/searchResults.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/setting",
+   "cfg": "WEB-INF/struts-config.xml:419",
+   "bean": "WEB-INF/action-servlet.xml:420",
+   "class": "com.technoetic.xplanner.actions.EditObjectAction",
+   "classPresent": true,
+   "form": "edit/setting",
+   "formDefined": true,
+   "input": "/WEB-INF/jsp/edit/editSetting.jsp[MISSING]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": "net.sf.xplanner.domain.Setting",
+   "typePropPresent": true,
+   "beanProps": {
+    "type": "net.sf.xplanner.domain.Setting"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/mobile/login",
+   "cfg": "WEB-INF/mobile-struts-config.xml:20",
+   "bean": "none",
+   "class": "com.technoetic.xplanner.actions.AuthenticationAction",
+   "classPresent": true,
+   "form": "login/authenticate",
+   "formDefined": true,
+   "input": null,
+   "parameter": "mobile/login",
+   "parameterForward": "/WEB-INF/jsp/wap/login.jsp",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "mobile/login=/WEB-INF/jsp/wap/login.jsp[yes]",
+    "notAuthenticated=/WEB-INF/jsp/wap/login.jsp[yes]",
+    "authenticated=/do/mobile/view/projects (redirect)[route]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/mobile/view/projects",
+   "cfg": "WEB-INF/mobile-struts-config.xml:27",
+   "bean": "none",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "mobile/view/projects",
+   "parameterForward": "/WEB-INF/jsp/wap/projects.jsp",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "mobile/view/projects=/WEB-INF/jsp/wap/projects.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/mobile/view/project",
+   "cfg": "WEB-INF/mobile-struts-config.xml:31",
+   "bean": "none",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "mobile/view/project",
+   "parameterForward": "/WEB-INF/jsp/wap/project.jsp",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "mobile/view/project=/WEB-INF/jsp/wap/project.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/mobile/view/iteration",
+   "cfg": "WEB-INF/mobile-struts-config.xml:35",
+   "bean": "none",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "mobile/view/iteration",
+   "parameterForward": "/WEB-INF/jsp/wap/iteration.jsp",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "mobile/view/iteration=/WEB-INF/jsp/wap/iteration.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/mobile/view/story",
+   "cfg": "WEB-INF/mobile-struts-config.xml:39",
+   "bean": "none",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "mobile/view/story",
+   "parameterForward": "/WEB-INF/jsp/wap/story.jsp",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "mobile/view/story=/WEB-INF/jsp/wap/story.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/mobile/view/task",
+   "cfg": "WEB-INF/mobile-struts-config.xml:43",
+   "bean": "none",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "mobile/view/task",
+   "parameterForward": "/WEB-INF/jsp/wap/task.jsp",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "mobile/view/task=/WEB-INF/jsp/wap/task.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/mobile/view/person",
+   "cfg": "WEB-INF/mobile-struts-config.xml:47",
+   "bean": "none",
+   "class": "com.technoetic.xplanner.actions.DispatchForward",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": "mobile/view/person",
+   "parameterForward": "/WEB-INF/jsp/wap/person.jsp",
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [
+    "mobile/view/person=/WEB-INF/jsp/wap/person.jsp[yes]"
+   ],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/dataSample",
+   "cfg": "WEB-INF/test-struts-config.xml:13",
+   "bean": "WEB-INF/test-action-servlet.xml:4",
+   "class": "com.technoetic.xplanner.actions.CommandExecutorAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "task": "txDataSamplingCommand"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/missingTimeEntryNotification",
+   "cfg": "WEB-INF/test-struts-config.xml:15",
+   "bean": "WEB-INF/test-action-servlet.xml:9",
+   "class": "com.technoetic.xplanner.actions.CommandExecutorAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "task": "missingTimeEntryNotifier"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/putTheClockForward",
+   "cfg": "WEB-INF/test-struts-config.xml:17",
+   "bean": "WEB-INF/test-action-servlet.xml:14",
+   "class": "com.technoetic.xplanner.actions.PutTheClockForwardAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "timeGenerator": "timeGenerator"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/edit/properties",
+   "cfg": "WEB-INF/test-struts-config.xml:19",
+   "bean": "WEB-INF/test-action-servlet.xml:19",
+   "class": "com.technoetic.xplanner.actions.EditPropertiesAction",
+   "classPresent": true,
+   "form": "edit/properties",
+   "formDefined": false,
+   "input": null,
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {},
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/invalidateCache",
+   "cfg": "WEB-INF/test-struts-config.xml:21",
+   "bean": "WEB-INF/test-action-servlet.xml:22",
+   "class": "com.technoetic.xplanner.actions.admin.InvalidateCacheAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": "/WEB-INF/jsp/admin/invalidateCache.jsp[MISSING]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "authorizer": "authorizer",
+    "cacheMap": "resultByArgsByMethodName"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  },
+  {
+   "route": "/do/invalidateHibernateCache",
+   "cfg": "WEB-INF/test-struts-config.xml:23",
+   "bean": "WEB-INF/test-action-servlet.xml:32",
+   "class": "com.technoetic.xplanner.actions.admin.InvalidateHibernateCacheAction",
+   "classPresent": true,
+   "form": null,
+   "formDefined": null,
+   "input": "/WEB-INF/jsp/admin/invalidateCache.jsp[MISSING]",
+   "parameter": null,
+   "parameterForward": null,
+   "typeProp": null,
+   "typePropPresent": null,
+   "beanProps": {
+    "sessionFactory": "sessionFactory"
+   },
+   "forwards": [],
+   "exceptions": [],
+   "scope": null
+  }
+ ],
+ "orphanBeans": [],
+ "globalForwards": [
+  {
+   "name": "view/projects",
+   "path": "/WEB-INF/jsp/view/projects.jsp",
+   "at": "WEB-INF/struts-config.xml:95",
+   "exists": "yes"
+  },
+  {
+   "name": "view/project",
+   "path": "/WEB-INF/jsp/view/project.jsp",
+   "at": "WEB-INF/struts-config.xml:96",
+   "exists": "yes"
+  },
+  {
+   "name": "view/project/features",
+   "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+   "at": "WEB-INF/struts-config.xml:97",
+   "exists": "yes"
+  },
+  {
+   "name": "view/iterationTabs",
+   "path": "/WEB-INF/jsp/view/iteration.jsp",
+   "at": "WEB-INF/struts-config.xml:98",
+   "exists": "yes"
+  },
+  {
+   "name": "view/iteration",
+   "path": "/WEB-INF/jsp/view/iteration.jsp",
+   "at": "WEB-INF/struts-config.xml:99",
+   "exists": "yes"
+  },
+  {
+   "name": "view/iteration/tasks",
+   "path": "/WEB-INF/jsp/view/iterationTasks.jsp",
+   "at": "WEB-INF/struts-config.xml:100",
+   "exists": "yes"
+  },
+  {
+   "name": "view/iteration/features",
+   "path": "/WEB-INF/jsp/view/iterationFeatures.jsp",
+   "at": "WEB-INF/struts-config.xml:101",
+   "exists": "yes"
+  },
+  {
+   "name": "view/iteration/accuracy",
+   "path": "/WEB-INF/jsp/view/iterationAccuracy.jsp",
+   "at": "WEB-INF/struts-config.xml:102",
+   "exists": "yes"
+  },
+  {
+   "name": "view/iteration/metrics",
+   "path": "/WEB-INF/jsp/view/iterationMetrics.jsp",
+   "at": "WEB-INF/struts-config.xml:103",
+   "exists": "yes"
+  },
+  {
+   "name": "view/iteration/statistics",
+   "path": "/WEB-INF/jsp/view/iterationIterations.jsp",
+   "at": "WEB-INF/struts-config.xml:104",
+   "exists": "MISSING"
+  },
+  {
+   "name": "view/userstory",
+   "path": "/WEB-INF/jsp/view/userstory.jsp",
+   "at": "WEB-INF/struts-config.xml:105",
+   "exists": "yes"
+  },
+  {
+   "name": "view/task",
+   "path": "/WEB-INF/jsp/view/task.jsp",
+   "at": "WEB-INF/struts-config.xml:106",
+   "exists": "yes"
+  },
+  {
+   "name": "view/feature",
+   "path": "/WEB-INF/jsp/view/feature.jsp",
+   "at": "WEB-INF/struts-config.xml:107",
+   "exists": "yes"
+  },
+  {
+   "name": "view/people",
+   "path": "/WEB-INF/jsp/view/people.jsp",
+   "at": "WEB-INF/struts-config.xml:108",
+   "exists": "yes"
+  },
+  {
+   "name": "view/person",
+   "path": "/WEB-INF/jsp/view/person.jsp",
+   "at": "WEB-INF/struts-config.xml:109",
+   "exists": "yes"
+  },
+  {
+   "name": "view/taskhistory",
+   "path": "/WEB-INF/jsp/view/taskhistory.jsp",
+   "at": "WEB-INF/struts-config.xml:110",
+   "exists": "MISSING"
+  },
+  {
+   "name": "view/text",
+   "path": "/WEB-INF/jsp/view/viewtext.jsp",
+   "at": "WEB-INF/struts-config.xml:111",
+   "exists": "MISSING"
+  },
+  {
+   "name": "view/twikiformat",
+   "path": "/WEB-INF/jsp/view/twikiformat.jsp",
+   "at": "WEB-INF/struts-config.xml:112",
+   "exists": "yes"
+  },
+  {
+   "name": "view/integrations",
+   "path": "/WEB-INF/jsp/view/integrations.jsp",
+   "at": "WEB-INF/struts-config.xml:145",
+   "exists": "yes"
+  },
+  {
+   "name": "view/timesheet",
+   "path": "/WEB-INF/jsp/view/timesheet.jsp",
+   "at": "WEB-INF/struts-config.xml:114",
+   "exists": "yes"
+  },
+  {
+   "name": "view/aggregateTimesheet",
+   "path": "/WEB-INF/jsp/view/aggregateTimesheet.jsp",
+   "at": "WEB-INF/struts-config.xml:115",
+   "exists": "yes"
+  },
+  {
+   "name": "view/history",
+   "path": "/WEB-INF/jsp/view/history.jsp",
+   "at": "WEB-INF/struts-config.xml:116",
+   "exists": "yes"
+  },
+  {
+   "name": "edit/project",
+   "path": "/WEB-INF/jsp/edit/editProject.jsp",
+   "at": "WEB-INF/struts-config.xml:117",
+   "exists": "yes"
+  },
+  {
+   "name": "edit/iteration",
+   "path": "/WEB-INF/jsp/edit/editIteration.jsp",
+   "at": "WEB-INF/struts-config.xml:118",
+   "exists": "yes"
+  },
+  {
+   "name": "start/iteration",
+   "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "at": "WEB-INF/struts-config.xml:119",
+   "exists": "yes"
+  },
+  {
+   "name": "close/iteration",
+   "path": "/WEB-INF/jsp/edit/editIterationStatus.jsp",
+   "at": "WEB-INF/struts-config.xml:120",
+   "exists": "yes"
+  },
+  {
+   "name": "move/userstories",
+   "path": "/WEB-INF/jsp/edit/moveStories.jsp",
+   "at": "WEB-INF/struts-config.xml:121",
+   "exists": "yes"
+  },
+  {
+   "name": "edit/feature",
+   "path": "/WEB-INF/jsp/edit/editFeature.jsp",
+   "at": "WEB-INF/struts-config.xml:122",
+   "exists": "yes"
+  },
+  {
+   "name": "edit/userstory",
+   "path": "/WEB-INF/jsp/edit/editStory.jsp",
+   "at": "WEB-INF/struts-config.xml:123",
+   "exists": "yes"
+  },
+  {
+   "name": "move/continue/userstory",
+   "path": "/WEB-INF/jsp/edit/moveContinueStory.jsp",
+   "at": "WEB-INF/struts-config.xml:124",
+   "exists": "yes"
+  },
+  {
+   "name": "continue/unfinished/stories",
+   "path": "/WEB-INF/jsp/edit/continueUnfinishedStories.jsp",
+   "at": "WEB-INF/struts-config.xml:125",
+   "exists": "yes"
+  },
+  {
+   "name": "edit/task",
+   "path": "/WEB-INF/jsp/edit/editTask.jsp",
+   "at": "WEB-INF/struts-config.xml:127",
+   "exists": "yes"
+  },
+  {
+   "name": "move/continue/task",
+   "path": "/WEB-INF/jsp/edit/moveContinueTask.jsp",
+   "at": "WEB-INF/struts-config.xml:128",
+   "exists": "yes"
+  },
+  {
+   "name": "edit/task/estimate",
+   "path": "/WEB-INF/jsp/edit/editTaskEstimate.jsp",
+   "at": "WEB-INF/struts-config.xml:130",
+   "exists": "yes"
+  },
+  {
+   "name": "edit/person",
+   "path": "/WEB-INF/jsp/edit/editPerson.jsp",
+   "at": "WEB-INF/struts-config.xml:131",
+   "exists": "yes"
+  },
+  {
+   "name": "edit/time",
+   "path": "/WEB-INF/jsp/edit/editTimeEntries.jsp",
+   "at": "WEB-INF/struts-config.xml:132",
+   "exists": "yes"
+  },
+  {
+   "name": "error",
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "at": "WEB-INF/struts-config.xml:134",
+   "exists": "yes"
+  },
+  {
+   "name": "error/objectNotFound",
+   "path": "/WEB-INF/jsp/common/generalError.jsp",
+   "at": "WEB-INF/struts-config.xml:135",
+   "exists": "yes"
+  },
+  {
+   "name": "image/calendar",
+   "path": "/images/calendar.png",
+   "at": "WEB-INF/struts-config.xml:137",
+   "exists": "MISSING"
+  },
+  {
+   "name": "security/login",
+   "path": "/do/login",
+   "at": "WEB-INF/struts-config.xml:138",
+   "exists": "route"
+  },
+  {
+   "name": "security/notAuthorized",
+   "path": "/WEB-INF/jsp/security/notAuthorized.jsp",
+   "at": "WEB-INF/struts-config.xml:139",
+   "exists": "MISSING"
+  },
+  {
+   "name": "edit/roles",
+   "path": "/WEB-INF/jsp/edit/editRoles.jsp",
+   "at": "WEB-INF/struts-config.xml:140",
+   "exists": "yes"
+  },
+  {
+   "name": "search/id",
+   "path": "/do/search/id",
+   "at": "WEB-INF/struts-config.xml:141",
+   "exists": "route"
+  },
+  {
+   "name": "search/content",
+   "path": "/do/search/content",
+   "at": "WEB-INF/struts-config.xml:142",
+   "exists": "route"
+  },
+  {
+   "name": "view/dashboard",
+   "path": "/WEB-INF/jsp/view/dashboard.jsp",
+   "at": "WEB-INF/struts-config.xml:143",
+   "exists": "yes"
+  },
+  {
+   "name": "view/settings",
+   "path": "/WEB-INF/jsp/view/settings.jsp",
+   "at": "WEB-INF/struts-config.xml:144",
+   "exists": "yes"
+  }
+ ],
+ "formBeans": [
+  {
+   "name": "edit/project",
+   "type": "com.technoetic.xplanner.forms.ProjectEditorForm",
+   "at": "WEB-INF/struts-config.xml:12",
+   "present": true
+  },
+  {
+   "name": "edit/setting",
+   "type": "com.technoetic.xplanner.forms.ProjectEditorForm",
+   "at": "WEB-INF/struts-config.xml:14",
+   "present": true
+  },
+  {
+   "name": "edit/iteration",
+   "type": "com.technoetic.xplanner.forms.IterationEditorForm",
+   "at": "WEB-INF/struts-config.xml:16",
+   "present": true
+  },
+  {
+   "name": "start/iteration",
+   "type": "com.technoetic.xplanner.forms.IterationStatusEditorForm",
+   "at": "WEB-INF/struts-config.xml:18",
+   "present": true
+  },
+  {
+   "name": "close/iteration",
+   "type": "com.technoetic.xplanner.forms.IterationStatusEditorForm",
+   "at": "WEB-INF/struts-config.xml:20",
+   "present": true
+  },
+  {
+   "name": "edit/feature",
+   "type": "com.technoetic.xplanner.forms.FeatureEditorForm",
+   "at": "WEB-INF/struts-config.xml:23",
+   "present": true
+  },
+  {
+   "name": "edit/userstory",
+   "type": "com.technoetic.xplanner.forms.UserStoryEditorForm",
+   "at": "WEB-INF/struts-config.xml:25",
+   "present": true
+  },
+  {
+   "name": "move/continue/userstory",
+   "type": "com.technoetic.xplanner.forms.MoveContinueStoryForm",
+   "at": "WEB-INF/struts-config.xml:32",
+   "present": true
+  },
+  {
+   "name": "edit/note",
+   "type": "com.technoetic.xplanner.forms.NoteEditorForm",
+   "at": "WEB-INF/struts-config.xml:34",
+   "present": true
+  },
+  {
+   "name": "edit/task",
+   "type": "com.technoetic.xplanner.forms.TaskEditorForm",
+   "at": "WEB-INF/struts-config.xml:36",
+   "present": true
+  },
+  {
+   "name": "edit/reorderstories",
+   "type": "com.technoetic.xplanner.forms.ReorderStoriesForm",
+   "at": "WEB-INF/struts-config.xml:38",
+   "present": true
+  },
+  {
+   "name": "move/userstories",
+   "type": "com.technoetic.xplanner.forms.MoveStoriesForm",
+   "at": "WEB-INF/struts-config.xml:40",
+   "present": true
+  },
+  {
+   "name": "move/continue/task",
+   "type": "com.technoetic.xplanner.forms.MoveContinueTaskForm",
+   "at": "WEB-INF/struts-config.xml:42",
+   "present": true
+  },
+  {
+   "name": "continue/unfinished/stories",
+   "type": "com.technoetic.xplanner.forms.ContinueUnfinishedStoriesForm",
+   "at": "WEB-INF/struts-config.xml:44",
+   "present": true
+  },
+  {
+   "name": "edit/person",
+   "type": "com.technoetic.xplanner.forms.PersonEditorForm",
+   "at": "WEB-INF/struts-config.xml:46",
+   "present": true
+  },
+  {
+   "name": "import/people",
+   "type": "com.technoetic.xplanner.forms.ImportPeopleForm",
+   "at": "WEB-INF/struts-config.xml:48",
+   "present": true
+  },
+  {
+   "name": "import",
+   "type": "com.technoetic.xplanner.forms.ImportStoriesForm",
+   "at": "WEB-INF/struts-config.xml:50",
+   "present": true
+  },
+  {
+   "name": "edit/time",
+   "type": "com.technoetic.xplanner.forms.TimeEditorForm",
+   "at": "WEB-INF/struts-config.xml:52",
+   "present": true
+  },
+  {
+   "name": "timesheetForm",
+   "type": "com.technoetic.xplanner.forms.PersonTimesheetForm",
+   "at": "WEB-INF/struts-config.xml:58",
+   "present": true
+  },
+  {
+   "name": "aggregateTimesheetForm",
+   "type": "com.technoetic.xplanner.forms.AggregateTimesheetForm",
+   "at": "WEB-INF/struts-config.xml:60",
+   "present": true
+  },
+  {
+   "name": "placeHolderForm",
+   "type": "org.apache.struts.action.DynaActionForm",
+   "at": "WEB-INF/struts-config.xml:62",
+   "present": true
+  },
+  {
+   "name": "view/file",
+   "type": "com.technoetic.xplanner.forms.FileManagerForm",
+   "at": "WEB-INF/struts-config.xml:64",
+   "present": true
+  },
+  {
+   "name": "login/authenticate",
+   "type": "org.apache.struts.action.DynaActionForm",
+   "at": "WEB-INF/struts-config.xml:66",
+   "present": true
+  },
+  {
+   "name": "edit/roles",
+   "type": "com.technoetic.xplanner.forms.RoleEditorForm",
+   "at": "WEB-INF/struts-config.xml:73",
+   "present": true
+  }
+ ]
+}

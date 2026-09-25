@@ -1,0 +1,20 @@
+{
+  "packet_id": "S02-P005",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-005.md",
+  "reason": "The Claude Code client refuses subagent writes of the review report file; the reviewer wrote the complete report into its scratch directory.",
+  "producer": "Reviewer subagent ae6fd13a44df6456a authored the entire report content and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p005/reviewer-scratch/stage-02-pass-005.md",
+  "source_copy_sha256_declared_by_reviewer": "682b996f88d1964018fcd3020a192494a21507a683e45e6abe457e979a10f37f",
+  "pm_changes": [
+    "None. PM copied the scratch copy byte-for-byte after verifying its SHA-256 against RESULT BA-002-05."
+  ],
+  "final_report_sha256": "682b996f88d1964018fcd3020a192494a21507a683e45e6abe457e979a10f37f",
+  "final_checks": {
+    "artifact-reading.js": "exit 0, errors []",
+    "artifact-reference-links.js --check": "exit 0, 212 Markdown documents",
+    "CHK-009 PM exact-form credential scan": "no login pair in pass 005 report or evidence"
+  },
+  "reviewer_disclosures": "Client-injected commit subjects at launch (accepted by PM as non-substantive); one oversized tool output stored by the client outside the project, not opened by the reviewer.",
+  "recorded_at": "2026-09-25T10:15:21Z"
+}
