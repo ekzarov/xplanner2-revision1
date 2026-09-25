@@ -1,0 +1,36 @@
+{
+  "packet_id": "S02-P006",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "phase_a_checkpoint_verified_at": "2026-09-25T13:25:05Z",
+  "phase_a_snapshot": {
+    "file": "analysis/reviews/evidence/S02-P006/phase-a-inventory.json",
+    "sha256": "8f734d0d25c532c1663dcd85f0f3d9ccf9ce820a49db23ed3c765efc04e64cbe",
+    "items": 138,
+    "snapshot_pin_file": "analysis/reviews/evidence/S02-P006/phase-a-snapshot.md",
+    "snapshot_pin_sha256": "c8d4f7807a452121c850419e212107781fb704ead38669adf0ec1c7bf5b774d9"
+  },
+  "access_log_sha256_at_checkpoint": "01b7ee9c2b3d2974bdac2f8b39814c08ab75717c43032b2863a9d67122e0aeb3",
+  "independence_record_sha256_at_checkpoint": "d41d5de31f87fec9a249b7b079a4c5482bd889f24e55f81a1c6e716a71829975",
+  "phase_a_worktree": {
+    "path": ".migration-tmp/stage-02-p006/phase-a",
+    "head": "15cb6b26946f73596177eba8cead333383d9f728",
+    "git_status_short_lines": 0
+  },
+  "pm_checks": [
+    "evidence hashes match the reviewer CHECKPOINT and the snapshot pin",
+    "worktree HEAD unchanged and clean",
+    "main tree changes limited to PM status edit and the S02-P006 evidence directory",
+    "PM exact-form credential scan: no login pair in S02-P006 evidence (CHK-009)"
+  ],
+  "phase_b_released_at": "2026-09-25T13:25:05Z",
+  "phase_b_pinned_inputs": {
+    "revision": "15cb6b26946f73596177eba8cead333383d9f728",
+    "analysis/legacy_reconnaissance.md": "0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332",
+    "analysis/legacy_user_flows.xlsx": "a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99",
+    "analysis/error-prevention-checklist.md": "0115d8ca4422b2a3ae319734cf3dbc274f5e8ae57b05175384667a07e5b79183",
+    "analysis/stages/stage-01/stage-02-pass-005-dispositions.md": "7ac86f1573f1cb2b4c0c37f0b79f3d0722ca4c86433adbcd2064dba07e7535c5",
+    "analysis/reviews/stage-02-pass-005.md": "682b996f88d1964018fcd3020a192494a21507a683e45e6abe457e979a10f37f",
+    "earlier passes and dispositions": "as merged at the revision above",
+    "analysis/migration_status.yaml (working tree, branch stage-02/pass-006)": "952358b2af9e152a803bde557c933bb9097f0b468a5f3abe091f3a0fb41a1410"
+  }
+}

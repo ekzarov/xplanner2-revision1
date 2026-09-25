@@ -1,0 +1,19 @@
+{
+  "packet_id": "S02-P006",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-006.md",
+  "reason": "The Claude Code client refuses subagent writes of the review report file; the reviewer wrote the complete report into its scratch directory.",
+  "producer": "Reviewer subagent a700bf31602b78dd0 authored the entire report content and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p006/reviewer-scratch/stage-02-pass-006.md",
+  "pm_changes": [
+    "None by PM. The reviewer's first copy (60299e3e874addf5238609b6125c684758776066b2b1631ba305e76cdade7c1a) failed audit:artifact-links on one unlinked path (line 149); at PM request the reviewer made that single link edit in its scratch copy and PM copied the corrected file byte-for-byte."
+  ],
+  "final_report_sha256": "ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67",
+  "final_checks": {
+    "artifact-reading.js": "exit 0, errors []",
+    "artifact-reference-links.js --check": "exit 0",
+    "CHK-009 PM exact-form credential scan": "no login pair in pass 006 report or evidence"
+  },
+  "reviewer_disclosures": "Client-injected commit subjects at launch (accepted by PM as non-substantive); one oversized tool output stored by the client outside the project, not opened by the reviewer.",
+  "recorded_at": "2026-09-25T13:49:49Z"
+}
