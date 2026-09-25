@@ -441,10 +441,14 @@ if functional tests pass. The complete gate-by-gate reference is maintained in
 
 ## Working principle: depth over speed
 
-At every stage, agents work in **deep-research mode**: full sweeps instead of
-sampling, adversarial re-checks, independent second opinions. This is slower —
-and that is accepted. Never trade completeness for speed: a hole caught early
-is always cheaper than one found at acceptance.
+At every stage, agents investigate the complete required scope instead of
+claiming coverage from sampling. **Depth does not mean restarting a stage on
+return.** Authoring corrections follow
+[Correction Scope And Handoff](reviews/README.md#correction-scope-and-handoff):
+findings, affected dependencies and related occurrences are checked thoroughly;
+valid unaffected work is retained. Wider authoring needs recorded impact evidence.
+Required full independent passes, automated gates and owner decisions keep their
+own scope. Never substitute a narrow author self-check for a required control.
 
 ## Stop criterion for re-checks: the dry pass and the Stage 7 exception
 
@@ -452,7 +456,9 @@ Every executable return loop — Stages 2, 3, 4 → Stage 1; Stages 7, 8 →
 Stage 6; Stages 10, 11, 12 → Stage 9; Stage 14 → Stage 13; and Stages 16, 18,
 19 → Stage 15 —
 closes not after a fixed number of repetitions but on a **dry pass**: a full
-pass that yields not a single new finding (in practice 2–3 iterations). Stage 7
+pass that yields not a single new finding. No fixed number of iterations is
+promised. This is a control exit criterion, not an instruction to redo all
+authoring on each return. Stage 7
 has the only explicit exception: a closing pass may carry Low cosmetic findings
 only under the owner criterion below, with every finding dispositioned in the
 pass-linked polish backlog and no unchecked scope.
@@ -705,10 +711,11 @@ removed before the review is considered operationally complete.
 - [stages/stage-03/walkthrough-NNN.md](https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/stages/templates/walkthrough-NNN-template.md): Stage 3: walkthrough findings, observed behavior and runtime evidence that contradict or extend the map.
 - [stages/stage-04/stage-04-requirements-revision.md](https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/stages/templates/stage-04-requirements-revision-template.md): Stage 4: mapping errors found during requirements revision. An owner decision to change correctly recorded legacy behavior stays at Stage 4.
 
-1. After the owner merges the triggering record PR, PM assigns a separate correction branch. Preserve in-flight work. The primary agent reads the triggering record and unresolved findings, then checks source, configuration and runtime evidence.
-2. Correct the current map and reconnaissance; check related roles and mechanisms. Expand discovery if the baseline is unreliable, without automatically starting from zero.
-3. Record finding IDs, dispositions, evidence, changed rows/files and remaining work. Update status and publish the correction PR; required gates/CI and owner merge apply. The original review stays immutable.
-4. After the correction PR is merged, a fresh Stage 2 agent starts a new blind Phase A on the integrated revision. Previous findings and correction records become available only in Phase B; fixes do not replace independent acceptance.
+1. After the owner merges the triggering record PR, PM assigns a separate correction branch with the exact trigger, baseline and impact boundary. Preserve in-flight work. The primary agent verifies the findings and relevant unresolved items against source, configuration and runtime evidence.
+2. Correct affected map rows and reconnaissance sections, dependent claims and all occurrences of the same failure mechanism across affected roles and channels, not just reported lines. Preserve valid artifacts, decisions and evidence at their existing identities; explain why their inputs and dependencies remain valid. This is not a restart of Stage 1.
+3. Widen authoring only with recorded evidence of an unreliable baseline, changed inputs, systemic omissions or impact that cannot be bounded. Investigate uncertainty first; record why retained evidence is insufficient. PM revises the boundary within existing authority; changed approved scope or reserved decisions require the owner.
+4. Record finding IDs, dispositions, changed rows/files, related-occurrence coverage, retained work, actual checks/results, unknowns and the separate next control. PM validates the bounded diff and handoff before accepting RESULT or requesting control, and updates shared status. Publish the correction PR; mandatory gates, including repository-wide gates, CI and owner merge remain required. Original reviews stay immutable; retained checks are not new runs.
+5. After the correction PR is merged, a fresh eligible Stage 2 agent performs a new full in-scope blind Phase A on the integrated revision, saves it, then performs two-way Phase B reconciliation. Previous findings, correction plans and outcomes remain withheld until Phase B. Impact-scoped author corrections do not narrow control scope or replace independent acceptance.
 
 [Return instructions](reviews/README.md#stage-1-re-entry) · [Real XPlanner correction record](https://github.com/olsys-ltd/xplanner2/blob/62a21930d8d7c19017ac9ed9e4a474a614e30842/analysis/stages/stage-01/stage-02-pass-001-dispositions.md)
 <!-- STAGE_REENTRY_1_END -->

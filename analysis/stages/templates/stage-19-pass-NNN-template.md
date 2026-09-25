@@ -203,7 +203,13 @@ Use `None` only when the independent pass is clean.
 - Observed difference and evidence: <actual result and link>
 - Requirement impact: <affected obligation>
 - Required action: <correction or check>
+- Correction impact: <affected items, dependencies and same-mechanism occurrences;
+  evidence for any proposed broader investigation, not an automatic stage restart>
 - Return stage and reopened work: <17 | 15 | 9 | 1, classified by cause; link>
+
+The author follows [Correction Scope And Handoff](https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/reviews/README.md#correction-scope-and-handoff)
+on return; this does not narrow independent acceptance or permit editing its
+sealed evidence.
 
 <a id="read-blocked-scope"></a>
 

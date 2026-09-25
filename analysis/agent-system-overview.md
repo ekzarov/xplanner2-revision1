@@ -276,6 +276,10 @@ rules; its skill helps execute that procedure, not replace it.
    responsible authoring stage. The author records dispositions and reruns
    affected checks. Material corrections receive a fresh review; unresolved
    material disputes escalate to the owner, not an endless agent discussion.
+   Use [Correction Scope And Handoff](reviews/README.md#correction-scope-and-handoff):
+   resume valid work and correct findings plus affected mechanisms, not the whole
+   stage by default. PM checks the boundary and retained evidence before handoff;
+   the next control still follows its own required full/delta and blind rules.
 6. At a required human gate the coordinator stops and asks. A clean review
    and green scripts do not supply that decision. The authoring lead records
    assigned owner decisions. At Stage 19 PM records the owner walkthrough/decline

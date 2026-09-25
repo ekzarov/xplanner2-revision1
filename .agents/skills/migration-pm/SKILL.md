@@ -21,6 +21,11 @@ Read [MIGRATION.md](../../../MIGRATION.md) and the
 6. If the runtime cannot delegate safely, return a bounded packet for a separate
    owner-launched session. Report blocked delegation, not a simulated specialist.
 
+On any corrective return, use [Correction Scope And Handoff](../../../analysis/reviews/README.md#correction-scope-and-handoff).
+Assign and verify findings, affected dependencies/mechanisms, retained work and
+actual check results. Do not restart authoring or narrow the separate required
+control. Widen correction scope only with recorded evidence and authority.
+
 Before Stage 3 legacy deployment and each Stage 18 release, follow
 [the access and deployment handoff](../../../config/REMOTE_SERVER.md#configure-before-remote-work):
 obtain owner-approved access, role accounts and operation/data scope; validate

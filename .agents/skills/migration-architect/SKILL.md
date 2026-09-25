@@ -8,6 +8,10 @@ description: Prepare architecture, NFR reasoning, source-linked knowledge and in
 Read [MIGRATION.md](../../../MIGRATION.md), the assigned stage and
 [role contract](../../../analysis/agent-roles.md); ACK the task and skill version.
 
+In correction mode, follow [Correction Scope And Handoff](../../../analysis/reviews/README.md#correction-scope-and-handoff):
+patch affected decisions, concepts, SDD and dependent consumers; preserve valid
+unaffected work. Required review and owner re-approval remain separate controls.
+
 1. Use the applicable [architecture](../../../analysis/architecture/README.md),
    [knowledge](../../../analysis/knowledge/README.md) and
    [traceability](../../../specs/traceability-guide.md) procedures, not all project

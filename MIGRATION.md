@@ -92,6 +92,12 @@ agent's fix as independent acceptance. Stage 1 has a
 [separate re-entry procedure](analysis/reviews/README.md#stage-1-re-entry);
 the next Stage 2 still starts with a fresh blind inventory.
 
+Every corrective return uses [Correction Scope And Handoff](analysis/reviews/README.md#correction-scope-and-handoff).
+PM assigns findings and their affected dependencies/mechanisms, preserves valid
+unaffected work and verifies the actual correction boundary at handoff. Returning
+to a stage is not permission to restart it from scratch. Wider authoring requires
+recorded impact evidence; required control scope and owner gates stay unchanged.
+
 For Stage 2, follow the [blind inventory and two-way reconciliation procedure](analysis/reviews/README.md#stage-2-control-reconnaissance).
 The reviewer saves Phase A before accessing filled Stage 1 records, then records
 Phase B separately. Stage-wide input links do not authorize early access.

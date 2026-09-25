@@ -8,6 +8,10 @@ description: Implement and deliver an approved vertical slice, contribute techni
 Read [MIGRATION.md](../../../MIGRATION.md), the assigned stage and
 [role contract](../../../analysis/agent-roles.md); ACK the task and skill version.
 
+In correction mode, follow [Correction Scope And Handoff](../../../analysis/reviews/README.md#correction-scope-and-handoff):
+fix affected behavior and shared consumers, preserve valid unrelated code and
+tests, and still run mandatory gates before the separate review/delivery controls.
+
 1. At design time contribute implementation/test feasibility, not unapproved
    runtime code. At Stage 17 implement only the approved slice and dependencies.
 2. Use configured project commands and the approved architecture/UI baseline.

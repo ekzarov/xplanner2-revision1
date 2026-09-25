@@ -132,6 +132,11 @@ packets use the existing [review evidence location](agent_orchestration.md#durab
 | Ownership and operations | Explicit write allowlist, command/environment permissions and decision authority already granted. Reviewers are read-only; their output is outside the reviewed tree. |
 | Handoff | Required existing output records, checks, result location and the next owner/reviewer dependency. |
 
+For a corrective return, PM uses [Correction Scope And Handoff](reviews/README.md#correction-scope-and-handoff)
+in this same assignment: exact triggering IDs and baseline, affected scope and
+related mechanisms, retained work, checks and the separately required next
+control. A new session resumes these records; it does not restart the stage.
+
 Before work the receiver returns **ACK**: task ID, actual session identity,
 role/mode, stage/scope, input revision, loaded skill paths/revisions, accepted
 write boundary and any eligibility/tool limitation. PM checks these against the
@@ -203,6 +208,9 @@ allowed; retaining the required fields and durable references is mandatory.
 - Findings return to the responsible author with F/B and applicable CHK IDs.
   The author verifies and fixes affected scope; the next required fresh reviewer
   checks it. Apply the existing two-round challenge limit, not an endless debate.
+  PM checks the correction diff, retained baseline and related-occurrence results
+  before accepting the handoff. Scope expansion needs recorded impact evidence;
+  owner authority and the next stage's full/delta review rules remain unchanged.
 
 No specialist launches more workers by default. PM controls delegation, file
 ownership and session budget. Parallel work is optional and needs disjoint writes

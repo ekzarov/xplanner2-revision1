@@ -208,6 +208,13 @@ New/reopened SDD uses the graph policy; old exact approvals remain history.
 
 ## Stage Boundaries
 
+- **Every corrective return:** follow [Correction Scope And Handoff](reviews/README.md#correction-scope-and-handoff).
+  PM assigns and verifies impact-scoped correction, not a new full authoring
+  pass. Preserve valid unaffected work; investigate findings, dependencies and
+  related occurrences. Widen only with recorded evidence and applicable authority.
+  This does not narrow the next required control: Stage 2 still performs full
+  blind discovery and reconciliation; other review/delivery gates retain their
+  declared scope. A return does not reset unrelated completed work.
 - **Stages 11-12:** follow the [architecture review-cycle contract](architecture/review-cycles.md).
   Stage 11 writes a numbered immutable owner verdict; Stage 12 writes a separate
   numbered immutable closure report against the unchanged approved architecture.

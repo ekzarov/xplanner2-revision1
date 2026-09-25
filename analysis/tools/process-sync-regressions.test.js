@@ -99,6 +99,108 @@ test('control-record PRs stay separate from corrections without permitting unrev
   assert(html('#review-pr-boundary').text().includes('before merge'));
 });
 
+test('corrective returns carry a bounded assignment and preserve unaffected work', () => {
+  const MarkdownIt = require('markdown-it');
+  const procedure = read('analysis/reviews/README.md')
+    .split('### Correction Scope And Handoff')[1].split('### Stage 1 Re-entry')[0];
+  const $ = cheerio.load(new MarkdownIt().render(procedure));
+  assert.deepEqual($('table tbody tr').map((_, row) => $(row).find('td').first().text()).get(),
+    ['Trigger and baseline', 'Correction scope', 'Retained work', 'Checks and outcome', 'Next control']);
+  const text = $.text().replace(/\s+/g, ' ');
+  for (const rule of ['Every corrective return is impact-scoped authoring, not a restart',
+    'every legal return, including non-adjacent returns',
+    'before authoring starts', 'no new artifact is required',
+    'not limited to the exact reported lines', 'mandatory, not an optional acceleration',
+    'unchanged file alone does not prove no impact', 'not newly executed checks',
+    'before the expanded work', 'owner\'s decision',
+    'neither a return arrow nor a new agent is justification',
+    'Before accepting RESULT', 'Do not reset unrelated completed work or approvals',
+    'Mandatory repository-wide gates still run']) assert(text.includes(rule), rule);
+});
+
+test('all author roles and entry instructions route corrective returns to the shared rule', () => {
+  const anchor = '#correction-scope-and-handoff';
+  const files = ['MIGRATION.md', 'analysis/migration_methodology.md',
+    'analysis/process-contract.md', 'analysis/agent-roles.md',
+    'analysis/agent_orchestration.md', 'analysis/agent-system-overview.md',
+    'analysis/error-prevention.md', 'analysis/reviews/stage-NN-pass-NNN-template.md',
+    'analysis/stages/templates/stage-19-pass-NNN-template.md',
+    ...['pm', 'ba', 'ux', 'architect', 'developer'].map(role => `.agents/skills/migration-${role}/SKILL.md`)];
+  const initializer = read('init-migration.ps1');
+  for (const file of files) {
+    assert(read(file).includes(anchor), file);
+    assert(initializer.includes(`'${file}'`), 'initializer must carry ' + file);
+  }
+  const contract = read('analysis/process-contract.md').split('## Stage Boundaries')[1].split('## Stage Flow')[0];
+  assert(contract.includes('Every corrective return'));
+  for (const file of ['analysis/reviews/stage-NN-pass-NNN-template.md',
+    'analysis/stages/templates/stage-19-pass-NNN-template.md']) {
+    assert(read(file).includes('- Correction impact:'), file);
+  }
+});
+
+test('bounded authoring does not replace fresh full blind Stage 2 or mandatory controls', () => {
+  const reviews = read('analysis/reviews/README.md').replace(/\s+/g, ' ');
+  for (const rule of ['Correction scope and review scope are different',
+    'does not grant a delta review where the stage requires a full pass',
+    'fresh full in-scope blind Phase A and two-way Phase B',
+    'Do not pass findings or correction plans to a blind reviewer before Phase B',
+    'a fresh eligible agent performs a new full in-scope blind Phase A']) {
+    assert(reviews.includes(rule), rule);
+  }
+  const methodology = read('analysis/migration_methodology.md').replace(/\s+/g, ' ');
+  assert(methodology.includes('another complete Stage 2 pass'));
+  assert(methodology.includes('Depth does not mean restarting a stage on return'));
+  assert(!methodology.includes('in practice 2\u20133 iterations'));
+});
+
+test('return explanations stay visible in process views without changing control scope', () => {
+  const anchor = '#correction-scope-and-handoff';
+  const html = cheerio.load(read('analysis/migration_methodology.html'));
+  assert.equal(html('#correction-scope').length, 1);
+  assert(html('#correction-scope a').attr('href').endsWith(anchor));
+  assert(html('#correction-scope').text().includes('Correction scope is not control scope'));
+  assert(read('analysis/process-cheatsheet.md').includes(anchor));
+  const app = read('analysis/process-canvas/app.js');
+  const match = app.match(/const englishUi = (\{[\s\S]*?\n\});/);
+  const ui = require('node:vm').runInNewContext('(' + match[1] + ')', {}, { timeout: 1000 });
+  const ru = JSON.parse(read('analysis/process-canvas/translations.ru.json')).ui;
+  for (const key of ['returnMeaning', 'correctionScope', 'correctionScopeText',
+    'correctionExpansionText', 'correctionHandoffText', 'correctionControlText', 'openCorrectionScope']) {
+    assert(ui[key]?.trim(), key + ' EN');
+    assert(ru[key]?.trim(), key + ' RU');
+  }
+  assert(app.includes("returnMeaning.textContent = tr('returnMeaning')"));
+  assert(app.includes('correctionHelp(contextStage)'));
+  const stage = JSON.parse(read('analysis/process-canvas/data.json')).stages.find(s => s.id === 'stage-01');
+  assert(stage.reentry.en.steps.some(s => s.includes('not a restart')));
+  assert(stage.reentry.en.steps.some(s => s.includes('full in-scope blind Phase A')));
+});
+
+test('correction guidance links resolve from both review templates and their output locations', () => {
+  const md = new (require('markdown-it'))({ html: true });
+  const mapping = JSON.parse(read('analysis/artifact-naming.json'));
+  for (const template of ['analysis/reviews/stage-NN-pass-NNN-template.md',
+    'analysis/stages/templates/stage-19-pass-NNN-template.md']) {
+    const output = mapping.find(item => item.template === template).output;
+    const $ = cheerio.load(md.render(read(template)));
+    const links = $('a[href$="#correction-scope-and-handoff"]');
+    assert.equal(links.length, 1, template);
+    const href = links.attr('href');
+    for (const location of [template, output]) {
+      if (href.startsWith('https://')) {
+        const url = new URL(href);
+        assert.equal(url.origin, 'https://github.com');
+        assert.equal(url.pathname, '/olsys-ltd/legacy-modernization-starter/blob/main/analysis/reviews/README.md');
+      } else {
+        assert.equal(path.resolve(root, path.dirname(location), href.split('#')[0]),
+          path.join(root, 'analysis/reviews/README.md'), location);
+      }
+    }
+  }
+  assert(read('analysis/reviews/README.md').includes('### Correction Scope And Handoff'));
+});
+
 test('cheat sheet covers every stage and artifact without changing the shared flow', () => {
   const {readContract} = require('./process-contract');
   const MarkdownIt = require('markdown-it');
