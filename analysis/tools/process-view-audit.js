@@ -115,7 +115,11 @@ function validateCanvas(root, result) {
   if (!appSource.includes('item.projectOutput')) {
     result.fail('process canvas must render artifact-specific project-output guidance');
   }
-  if (!appSource.includes("fact(tr('returnPathsFromSelectedStage'), `<p>${escapeHtml(contextStage.returns)}</p>`)") ) {
+  const returnPathRenderers = [
+    "fact(tr('returnPathsFromSelectedStage'), `<p>${escapeHtml(contextStage.returns)}</p>`)",
+    "fact(tr('returnPathsFromSelectedStage'), `<p>${escapeHtml(contextStage.returns)}</p>` + correctionHelp(contextStage))",
+  ];
+  if (!returnPathRenderers.some(renderer => appSource.includes(renderer))) {
     result.fail('nested artifact cards must render the selected stage canonical return paths');
   }
   if (/\b(?:filenameConvention|fixedFilenameConvention|initializerFilenameConvention|placeholderFilenameConvention)\s*:/.test(appSource)) {

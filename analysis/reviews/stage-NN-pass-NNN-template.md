@@ -324,9 +324,14 @@ Use one subsection per finding.
 - Evidence: <exact file, row, requirement, surface, command, or observation>
 - Requirement impact: <affected obligation>
 - Required action: <correction or check>
+- Correction impact: <affected items, dependencies and same-mechanism occurrences;
+  evidence for any proposed broader investigation, not an automatic stage restart>
 - Return stage: <1 | 5 | 6 | 9 | 13 | 15 | 17 | blocked prerequisite; per active-stage rule>
 
 Write `None` only after the complete declared scope has been checked.
+The author uses [Correction Scope And Handoff](README.md#correction-scope-and-handoff)
+for the return. Correction impact does not narrow this review's required scope
+or authorize the reviewer to edit the reviewed artifacts.
 
 <a id="read-automated-and-manual-gates"></a>
 

@@ -301,6 +301,64 @@ returns work to an earlier owning stage, including non-adjacent returns.
    jump straight back to a later failed stage or reuse a stale approval.
    An author's correction record never supplies an independent clean verdict.
 
+### Correction Scope And Handoff
+
+**Every corrective return is impact-scoped authoring, not a restart of the
+destination stage.** This applies to every legal return, including non-adjacent
+returns and corrections within the current stage. Preserve existing valid work;
+do not recreate the map, prototypes, architecture, knowledge, SDD or code from
+scratch just because status names an earlier stage. Reading enough context to
+establish impact is not permission to rewrite or re-research unaffected areas.
+Regenerate derived outputs only as required by changed inputs; preserve stable
+IDs and unrelated content. This does not permit rewriting sealed evidence or
+refreshing historical approval hashes.
+
+PM puts the following boundary in the existing assignment and work/correction
+record before authoring starts. The author validates it against authoritative
+inputs and records the actual result in that same record; no new artifact is
+required.
+
+| Boundary | Assignment and result must show |
+|---|---|
+| Trigger and baseline | Exact return record, F/B/CHK or owner remark IDs, current artifact/source revisions, and unresolved earlier items relevant to this correction. |
+| Correction scope | Affected rows, screens, components, contracts, concepts or code; dependent consumers and occurrences of the same failure mechanism; explicit exclusions. |
+| Retained work | Unaffected artifacts, decisions and evidence retained at their existing identities, with a reason their inputs and dependencies remain valid. An unchanged file alone does not prove no impact. |
+| Checks and outcome | Changed items, related-occurrence inventory, checks actually run, results and remaining unknowns. Reference unchanged prior checks as retained evidence, not newly executed checks. |
+| Next control | The separately required review mode/scope, automated gates and owner decisions; author self-check is not independent closure. |
+
+The correction is **not limited to the exact reported lines**. Investigate the
+same mechanism across the affected roles, channels and dependencies and fix
+confirmed related defects within authority. Checking similar occurrences is
+mandatory, not an optional acceleration offered to the owner. For example, a
+missing injected dependency calls for a bounded wiring check of related handlers,
+not a new inventory of unrelated screens; a shared UI state defect includes its
+consumers, not a redesign of all wireframes.
+
+Expand the boundary only when evidence shows changed inputs, an unreliable
+baseline, a systemic omission or impact that cannot be bounded. Record the
+trigger, affected scope and why existing evidence is insufficient before the
+expanded work. PM records the revised assignment within existing authority;
+obtain the owner's decision when the expansion changes approved scope or
+reserved decisions. A full-stage authoring sweep is exceptional and requires
+that justification; neither a return arrow nor a new agent is justification.
+If the boundary is uncertain, first investigate that uncertainty; do not silently
+assume either a narrow safe patch or an unlimited restart.
+
+Before accepting RESULT or requesting the next control, PM checks the bounded
+diff, retained baseline, related-occurrence coverage, applicable checklist
+outcomes and unresolved work. A bare claim such as "checklist passed" without
+the checked boundary and actual results is insufficient. Do not reset unrelated
+completed work or approvals; preserve historical evidence but do not reuse
+affected evidence as current verification. Repeat required controls under their
+own rules. Mandatory repository-wide gates still run even when authoring is narrow.
+
+**Correction scope and review scope are different.** This rule does not grant a
+delta review where the stage requires a full pass. Stage 1 corrections are
+impact-scoped; the next Stage 2 still uses a fresh full in-scope blind Phase A
+and two-way Phase B. All other stages retain their specified review, deployment,
+acceptance and owner gates, including impact-scoped review where already allowed.
+Do not pass findings or correction plans to a blind reviewer before Phase B.
+
 ### Stage 1 Re-entry
 
 Before assigning corrections, PM applies the
@@ -338,6 +396,10 @@ The primary agent records dispositions with stable finding IDs, source links,
 changed reconnaissance sections/map rows and remaining unknowns. A correction
 record may live under [`analysis/stages/stage-01/`](../stages/stage-01/); it is not another independent
 review or another canonical map. Existing evidence that remains valid is retained.
+Apply [Correction Scope And Handoff](#correction-scope-and-handoff): amend the
+current records for the findings and their actual impact, not another complete
+Stage 1 discovery. This requirement applies regardless of which stage returned
+the work or whether the original author session is still available.
 
 On the next Stage 2 entry, a fresh eligible agent performs a new full in-scope
 blind Phase A, then Phase B reconciles the revised Stage 1 records and correction

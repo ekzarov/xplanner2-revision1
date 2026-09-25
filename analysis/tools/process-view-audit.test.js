@@ -4,7 +4,32 @@ const assert = require('node:assert/strict');
 const path = require('node:path');
 const test = require('node:test');
 const fs = require('node:fs');
-const { auditProcessViews } = require('./process-view-audit');
+const { auditProcessViews, validateCanvas } = require('./process-view-audit');
+const { AuditResult } = require('./lib');
+
+test('selected-stage return rendering stays required when correction help is appended', t => {
+  const root = path.resolve(__dirname, '../..');
+  const appFile = path.join(root, 'analysis/process-canvas/app.js');
+  const read = fs.readFileSync;
+  const original = read(appFile, 'utf8');
+  let candidate = original;
+  t.mock.method(fs, 'readFileSync', (file, ...args) =>
+    String(file) === appFile ? candidate : read(file, ...args));
+  const check = () => {
+    const result = new AuditResult('return rendering');
+    validateCanvas(root, result);
+    return result;
+  };
+  assert.equal(check().ok, true, 'baseline must pass before negative probes');
+  for (const [before, after] of [
+    ['escapeHtml(contextStage.returns)', 'escapeHtml(item.returns)'],
+    ['correctionHelp(contextStage)', 'correctionHelp(item)'],
+  ]) {
+    candidate = original.replace(before, after);
+    assert.notEqual(candidate, original, 'probe must change the renderer');
+    assert(check().errors.some(error => error.includes('selected stage canonical return paths')));
+  }
+});
 
 test('every checkpoint has a check marker consistent with its process responsibility', () => {
   const root = path.resolve(__dirname, '../..');

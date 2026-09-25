@@ -154,7 +154,11 @@ Explain checklist-related issues briefly in the first-screen summary and
 conclusion, with links to the F-NNN/B-NNN and CHK IDs; zero such issues does not
 mean the rest of the review passed. Stages 2 and 19 do this only in Phase B.
 
-On return, the original author reads these links, verifies each finding against
+On return, use [Correction Scope And Handoff](reviews/README.md#correction-scope-and-handoff).
+The author checks related occurrences of the failed mechanism within the impact
+boundary, records the coverage and preserves valid unrelated work. A checklist
+failure neither permits a symptom-only fix nor requires restarting the stage.
+The original author reads these links, verifies each finding against
 the governing inputs and retains both F-NNN and CHK-NNN in its disposition.
 Record accepted/narrowed/rejected/blocked with evidence, the actual repeated
 check and remaining scope in the correction record. A fix alone is not an

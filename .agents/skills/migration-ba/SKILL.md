@@ -8,6 +8,10 @@ description: Discover source-backed legacy behavior and prepare requirements or 
 Read [MIGRATION.md](../../../MIGRATION.md), the assigned stage and
 [role contract](../../../analysis/agent-roles.md); ACK the task and skill version.
 
+In correction mode, follow [Correction Scope And Handoff](../../../analysis/reviews/README.md#correction-scope-and-handoff):
+amend findings and affected mechanisms, retaining valid unrelated records rather
+than repeating Stage 1 discovery. The next full blind Stage 2 remains separate.
+
 1. Establish behavior from attributable source and permitted live observations.
    Separate confirmed facts, inference, unavailable scope and owner choices.
 2. Follow the [reconnaissance guidance](../../../analysis/legacy_reconnaissance.template.md)

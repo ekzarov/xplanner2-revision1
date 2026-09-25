@@ -50,6 +50,11 @@ and learning notes are withheld until Phase A observations are saved. Release
 and reconcile them in Phase B. Generic process instructions remain allowed;
 renaming learned findings as "instructions" does not permit early access.
 A passing checklist never narrows the complete required independent scope.
+On corrective returns, PM and the author follow
+[Correction Scope And Handoff](reviews/README.md#correction-scope-and-handoff):
+bound the correction and preserve valid unaffected work, without narrowing the
+separate review packet below its stage requirements. Stage 2 still requires a
+fresh full blind Phase A; correction findings are released only in Phase B.
 The review packet requires **Checklist Review** plus **Checklist link**,
 **Checklist discrepancy** and **Required recheck** in each related finding,
 following [the report format](error-prevention.md#reviewer-findings-and-correction-handoff).

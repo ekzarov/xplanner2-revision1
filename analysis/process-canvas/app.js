@@ -41,6 +41,13 @@ const englishUi = {
   processParticipants: 'Process participants', mapControls: 'Map controls', automatedDecisionGate: 'Automated / decision gate',
   startingPoint: 'Starting point', whatHappens: 'What happens', exit: 'Exit', returnPath: 'Return path',
   returnPathsFromSelectedStage: 'Return paths from selected stage',
+  returnMeaning: 'Return arrows: impact-scoped corrections, not a restart. Preserve valid work; control scope stays unchanged.',
+  correctionScope: 'Correction scope and next control',
+  correctionScopeText: 'On every corrective return, verify the exact trigger and baseline. Correct findings, affected dependencies and all occurrences of the same failure mechanism, not just reported lines. Preserve valid artifacts, decisions and evidence; explain why their inputs and dependencies remain valid.',
+  correctionExpansionText: 'Widen authoring only with recorded evidence of changed inputs, an unreliable baseline, systemic omissions or impact that cannot be bounded. Investigate uncertainty first. PM records the revised boundary within existing authority; changed approved scope or reserved decisions require the owner.',
+  correctionHandoffText: 'Record trigger/baseline, correction and related-occurrence coverage, retained work, actual checks/results, unknowns and the separate next control in the existing work record. PM validates the bounded diff and handoff before accepting RESULT or requesting control. Retained checks are not new runs; immutable evidence stays unchanged.',
+  correctionControlText: 'Author correction scope is not control scope. Mandatory gates, including repository-wide gates, and required full, fresh, blind independent reviews and owner decisions remain unchanged. The next Stage 2 still requires a full in-scope blind Phase A, saved before two-way Phase B; prior findings and correction plans/outcomes stay withheld until Phase B.',
+  openCorrectionScope: 'Open correction scope and handoff rules',
   whereEvidenceLives: 'Where evidence lives', exampleUse: 'Example use', realXPlannerTrail: 'Real XPlanner evidence trail',
   gates: 'Gates', roleInStage: 'Role in selected stage', lifecycle: 'Lifecycle', whenAndHowUsed: 'When and how used',
   starterReference: 'Starter reference', newProjectOutput: 'How it appears in a project', realXPlannerExample: 'Real XPlanner example',
@@ -844,6 +851,15 @@ function applyStaticTranslations() {
   document.getElementById('reviewLegend').title = tr('independentFrameHint');
   document.getElementById('checkLegend').title = tr('primaryFrameHint');
   document.getElementById('frameMeaning').textContent = tr('frameMeaning');
+  let returnMeaning = document.getElementById('returnMeaning');
+  if (!returnMeaning) {
+    returnMeaning = document.createElement('p');
+    returnMeaning.id = 'returnMeaning';
+    returnMeaning.className = 'frame-meaning';
+    document.getElementById('frameMeaning').insertAdjacentElement('afterend', returnMeaning);
+  }
+  returnMeaning.textContent = tr('returnMeaning');
+  document.getElementById('shapeReturn').parentElement.title = tr('returnMeaning');
   setText('actorHuman', 'humanReview');
   setText('footerHelp', 'footerHelp');
 
@@ -1167,7 +1183,7 @@ function renderDetails(type, id) {
       fact(tr('startingPoint'), `<p>${escapeHtml(item.input)}</p>`),
       fact(tr('whatHappens'), `<ol>${item.actions.map((action) => `<li>${escapeHtml(action)}</li>`).join('')}</ol>`),
       fact(tr('exit'), `<p>${escapeHtml(item.exit)}</p>`),
-      fact(tr('returnPath'), `<p>${escapeHtml(item.returns)}</p>`),
+      fact(tr('returnPath'), `<p>${escapeHtml(item.returns)}</p>` + correctionHelp(item)),
       reentryDetails(item),
       item.evidence ? fact(tr('whereEvidenceLives'), `<p>${escapeHtml(item.evidence)}</p>`) : '',
       item.example ? fact(tr('exampleUse'), `<p>${escapeHtml(item.example)}</p>`) : '',
@@ -1212,7 +1228,7 @@ function renderDetails(type, id) {
         ? fact(tr('roleInStage'), `<p><span class="flow-chip ${artifactFlowById.get(id)}">${escapeHtml(currentFlow.label)}</span> ${escapeHtml(tr('stage'))} ${escapeHtml(contextStage.number)} · ${escapeHtml(contextStage.title)}</p>`)
         : '',
       contextStage
-        ? fact(tr('returnPathsFromSelectedStage'), `<p>${escapeHtml(contextStage.returns)}</p>`)
+        ? fact(tr('returnPathsFromSelectedStage'), `<p>${escapeHtml(contextStage.returns)}</p>` + correctionHelp(contextStage))
         : '',
       fact(tr('lifecycle'), `<p>${escapeHtml(lifecycleNames[item.lifecycle] || item.lifecycle)}</p>`),
       responsibility ? fact(tr('artifactResponsibility'), [
@@ -1266,6 +1282,14 @@ function renderDetails(type, id) {
 
 function fact(title, content) {
   return `<section class="fact"><h3>${escapeHtml(title)}</h3>${content}</section>`;
+}
+
+function correctionHelp(stage) {
+  if (stage.number === 'B') return '';
+  return `<details class="reentry-details"><summary>${escapeHtml(tr('correctionScope'))}</summary>`
+    + ['correctionScopeText', 'correctionExpansionText', 'correctionHandoffText', 'correctionControlText']
+      .map(key => `<p>${escapeHtml(tr(key))}</p>`).join('')
+    + `<a class="source-link" href="${data.repository}/blob/main/analysis/reviews/README.md#correction-scope-and-handoff" target="_blank" rel="noopener">${escapeHtml(tr('openCorrectionScope'))}</a></details>`;
 }
 
 function gateCheckDetails(item) {

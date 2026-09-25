@@ -58,7 +58,7 @@ test('returns require source-checked dispositions and a fresh independent handof
       assert.ok(source.en && source.ru);
       assert.ok(data.artifacts.some(artifact => artifact.id === source.artifactId && artifact.sourcePath));
     }
-    for (const locale of ['en', 'ru']) assert.equal(stage.reentry[locale].steps.length, 4);
+    for (const locale of ['en', 'ru']) assert.equal(stage.reentry[locale].steps.length, 5);
     assert.ok(stage.reentry.instructionPath.endsWith('#stage-1-re-entry'));
     const app = fs.readFileSync(path.join(root, 'analysis/process-canvas/app.js'), 'utf8');
     assert.ok(app.includes('reentryDetails(item)'));

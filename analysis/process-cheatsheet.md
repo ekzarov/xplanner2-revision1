@@ -29,7 +29,11 @@ A quick reading aid, not a new gate or project verdict. The process-maintenance 
 
 - **Conditional** means required when its trigger applies, not freely optional. The agent records human decisions; it never supplies owner approval. Walkthrough and explicit decline are alternatives, not two mandatory outputs.
 
-- **On return:** read the exact triggering review/decision, verify findings, correct affected scope and repeat required downstream controls. Keep old reports and approvals as history. A green automated check alone does not authorize the next step.
+- **On return:** correct findings, affected dependencies and all occurrences of the same mechanism; preserve valid work, not restart the stage. Widen only with recorded evidence and authority. [Correction scope](reviews/README.md#correction-scope-and-handoff).
+
+- **Correction handoff:** record the boundary, retained work, actual checks/results and separate next control in the existing record. PM validates before accepting RESULT or requesting control. [Required handoff](reviews/README.md#correction-scope-and-handoff).
+
+- **Control scope stays separate:** mandatory gates, including repository-wide gates, and required full/fresh/blind reviews and owner decisions remain unchanged. Stage 2 still requires full blind Phase A, saved before two-way Phase B. [Control boundary](reviews/README.md#correction-scope-and-handoff).
 
 - **PR boundaries:** publish each completed control attempt separately from its later corrections. Required CI and owner merge precede the correction PR and the next planning control; a merged negative report is not acceptance. Preserve in-flight work. Stage 17 code peer review remains before merge. [Review And Correction PRs](migration_methodology.md#review-and-correction-prs).
 
@@ -86,7 +90,7 @@ correction authority; upgrading a project is not reinitialization. Follow
 - **Updates shared:** None.
 - **Error prevention:** Before work, read applicable checks by stage and affected scope. Before handoff and after corrections, check the actual result and record outcomes in the working report or control.prevention_self_check. Generalize confirmed errors; the coordinator admits and deduplicates updates. [Checklist procedure](error-prevention.md).
 
-Read the immutable legacy source named by project.yaml. Populate the Bootstrap blanks; on return, verify triggering findings and investigate affected scope, not just the checklist.
+Read the immutable legacy source named by project.yaml. On first entry, populate the Bootstrap blanks. On return, preserve valid map/reconnaissance evidence and correct findings, affected dependencies and all occurrences of the same mechanism within the recorded impact boundary; do not restart discovery. The next Stage 2 still requires a new full in-scope blind Phase A followed by two-way Phase B.
 
 ### [2 - Control reconnaissance](migration_methodology.md#stage-02)
 
