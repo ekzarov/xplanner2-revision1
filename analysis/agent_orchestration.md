@@ -45,7 +45,7 @@ self-checks applicable CHK items before requesting review. The independent
 reviewer challenges those claims against the actual scope and proposes
 confirmed generalized checks in the report; only the coordinator edits the
 project checklist after validating the proposal and checking for duplicates.
-At Stages 2 and 19, the learned checklist, extracted rows, self-check summaries
+At Stage 2 full-blind and Stage 19, the learned checklist, extracted rows, self-check summaries
 and learning notes are withheld until Phase A observations are saved. Release
 and reconcile them in Phase B. Generic process instructions remain allowed;
 renaming learned findings as "instructions" does not permit early access.
@@ -53,8 +53,10 @@ A passing checklist never narrows the complete required independent scope.
 On corrective returns, PM and the author follow
 [Correction Scope And Handoff](reviews/README.md#correction-scope-and-handoff):
 bound the correction and preserve valid unaffected work, without narrowing the
-separate review packet below its stage requirements. Stage 2 still requires a
-fresh full blind Phase A; correction findings are released only in Phase B.
+separate review packet below its stage requirements. Stage 2 full-blind requires
+a fresh full blind Phase A; correction findings are released only in Phase B.
+Eligible Stage 2 correction-validation instead receives prior evidence at launch
+under [its own procedure](reviews/README.md#stage-2-correction-validation).
 The review packet requires **Checklist Review** plus **Checklist link**,
 **Checklist discrepancy** and **Required recheck** in each related finding,
 following [the report format](error-prevention.md#reviewer-findings-and-correction-handoff).
@@ -184,12 +186,12 @@ unavailable.
 ## Deterministic Review Packet
 
 Before invocation, create a packet containing the items below, subject to the
-mandatory phased-access boundary for Stages 2 and 19. A full packet is never
+mandatory phased-access boundary for Stage 2 full-blind and Stage 19. A full packet is never
 permission to expose Phase B material early.
 
 ### Blind Review Packets
 
-For Stage 2, Phase A contains instructions, neutral scope boundaries and the
+For Stage 2 full-blind, Phase A contains instructions, neutral scope boundaries and the
 immutable legacy source only. Do not include the filled parity map,
 reconnaissance, summaries, counts, prior findings or automated conclusions.
 The orchestrator extracts neutral routing metadata from status without sharing
@@ -208,6 +210,18 @@ first snapshot; later corrections to the reviewer's interpretation are explicit.
 Premature exposure invalidates the blind pass. Other independent stages do not
 gain an invented blind phase. The active-stage instructions define their inputs.
 
+### Correction-Validation Packets
+
+Stage 2 correction-validation has no new Phase A or delayed Phase B. Its packet
+contains the exact complete full-blind baseline, checkpoint and source digests;
+all intervening review/correction records; current candidate and applicable
+checklist; and proposed rechecked/retained coverage. The fresh independent BA
+validates that chain and actual complete diff, not just a supplied patch.
+Follow [the eligibility, expansion and clean-closure rules](reviews/README.md#stage-2-correction-validation).
+Missing evidence blocks; contaminated or systemic/unbounded coverage requires
+another fresh full-blind session. Do not call correction-validation blind or
+claim its retained checks were newly executed.
+
 ### Expectation-Only Extracts
 
 Stage 19 Phase A uses expectation-only extracts, not unrestricted copies of the
@@ -215,7 +229,7 @@ parity workbook, target-surface inventory or approval records. The coordinating
 agent includes agreed behavior, roles, channels, acceptance criteria, surface
 contracts and applicable approved prototype assets. Exclude implementation
 status, destination notes, previous test/journey outcomes, finding lists,
-closure claims and reviewer conclusions. Stage 2 receives no behavior inventory
+closure claims and reviewer conclusions. Stage 2 full-blind receives no behavior inventory
 derived from the filled Stage 1 records, even as an extract.
 
 For each extract, retain the source path and immutable revision/hash, selected

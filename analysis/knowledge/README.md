@@ -74,7 +74,7 @@ The execution record for the Google Cloud-published, vendor-neutral OKF v0.2 syn
 
 
 
-An independent comparison of the OKF v0.2 bundle with the approved architecture. It verifies concept coverage and source hashes, and reports omissions, duplicates, stale links or rules that were introduced without authority. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it.
+An independent comparison of the OKF v0.2 bundle with the approved architecture. It verifies concept coverage and source hashes, and reports omissions, duplicates, stale links or rules that were introduced without authority. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract.
 
 - **Created by:** A fresh independent agent assigned to Stage 14 authors a report for the exact reviewed scope.
 - **Maintained / decided by:** The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.

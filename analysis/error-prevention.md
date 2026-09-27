@@ -88,7 +88,7 @@ The following duties apply to Bootstrap and every Stage 1-19, including re-entry
 | Owner-facing work at 4, 5, 8, 9, 11 and acceptance | The preparing agent applies checks and records actual owner decisions. The owner is not required to fill the table; a changed preference is not automatically a prior error. |
 | Coordinator, after each control pass or confirmed error | Validate proposed lessons and search for duplicates; add, refine, reuse or reject with a reason in the existing work/correction record. Preserve disagreements for the required review/owner decision. |
 
-**Blind access exception:** at Stages 2 and 19 the reviewer MUST NOT read the
+**Blind access exception:** at Stage 2 full-blind and Stage 19 the reviewer MUST NOT read the
 project checklist, extracts of its learned checks, prior self-checks or learning
 notes before saving Phase A observations. Paths and the general procedure are
 not the learned answers. The coordinator withholds those materials; Phase B
@@ -96,6 +96,11 @@ opens the pinned checklist, selects applicable checks and reconciles them with
 the independent observations. Do not backfill Phase A. Other independent stages
 do not acquire an invented blind phase. Follow the
 [packet protocol](agent_orchestration.md#blind-review-packets).
+
+Stage 2 [correction-validation](reviews/README.md#stage-2-correction-validation)
+reads the checklist and prior records immediately. It is independent but not
+blind; checklist applicability includes changes since the baseline. CHK rows
+never define the full coverage boundary or excuse an unlisted defect.
 
 ## Self-Check And Learning Note
 
@@ -160,7 +165,7 @@ not retroactively defective. Use existing finding/blocker and severity rules,
 not an automatic severity or verdict solely because a CHK ID is involved.
 Explain checklist-related issues briefly in the first-screen summary and
 conclusion, with links to the F-NNN/B-NNN and CHK IDs; zero such issues does not
-mean the rest of the review passed. Stages 2 and 19 do this only in Phase B.
+mean the rest of the review passed. Stage 2 full-blind and Stage 19 do this only in Phase B.
 
 On return, use [Correction Scope And Handoff](reviews/README.md#correction-scope-and-handoff).
 The author checks related occurrences of the failed mechanism within the impact

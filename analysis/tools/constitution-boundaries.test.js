@@ -26,7 +26,8 @@ test('constitutional obligations retain their procedural destinations', () => {
     ['methodology', 'owner and agent MUST collaborate', 'owner and agent may collaborate'],
     ['methodology', 'id="engineering-quality-profile"', 'id="quality"'],
     ['contract', '## Document Ownership', '## Documents'],
-    ['contract', 'Stages 2 and 19 save Phase A before Phase B', 'Read all records immediately'],
+    ['contract', 'Stage 2 full-blind and Stage 19 save Phase A before Phase B', 'Read all records immediately'],
+    ['contract', 'Stage 2 correction-validation is separately governed, independent but not blind', 'Correction validation is blind'],
   ]) {
     assert(input[key].includes(before), before);
     assert(boundaryErrors({...input, [key]: input[key].replace(before, after)}).length, before);

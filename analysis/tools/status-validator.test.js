@@ -260,6 +260,7 @@ function recordedEvidence(status) {
   for (const entry of status.review_passes) {
     paths.add(entry.report);
     paths.add(entry.independence_record);
+    paths.add(entry.coverage_record);
   }
   for (const entry of status.owner_decisions) paths.add(entry.record);
   for (const report of status.delivery.owner_walkthrough_reports || []) paths.add(report);
@@ -278,9 +279,11 @@ function materializeEvidence(root, status, overrides = {}) {
   for (const relative of recordedEvidence(status)) {
     const file = path.join(root, relative);
     fs.mkdirSync(path.dirname(file), { recursive: true });
+    const pass = status.review_passes.find((entry) => entry.report === relative && entry.control_mode);
     const content = relative.endsWith('/tasks.md') || relative.endsWith('\\tasks.md')
       ? '# Tasks\n\n- [x] T001 completed behavior\n'
-      : '# Recorded evidence\n\nThe governed activity completed with traceable results.\n';
+      : '# Recorded evidence\n\nThe governed activity completed with traceable results.\n' +
+        (pass ? `- Control mode: ${pass.control_mode}\n` : '');
     fs.writeFileSync(file, overrides[relative] || content);
   }
 }
@@ -290,6 +293,459 @@ test('validates the canonical external status schema and Stage 19 report naming'
     review_passes: [reviewPass('stage-19', 2)],
   });
   assert.deepEqual(validateStatus(status), []);
+});
+
+function stage2Pass(pass, overrides = {}) {
+  return reviewPass('stage-02', pass, {
+    control_mode: 'full-blind',
+    reviewed_at: `2026-07-28T10:02:${String(pass).padStart(2, '0')}Z`,
+    ...overrides,
+  });
+}
+
+function correctionPass(pass = 2, overrides = {}) {
+  return stage2Pass(pass, {
+    control_mode: 'correction-validation',
+    baseline_pass: 1,
+    previous_pass: pass - 1,
+    coverage_record: `analysis/reviews/stage-02-pass-${String(pass).padStart(3, '0')}.md`,
+    ...overrides,
+  });
+}
+
+function correctionStatus(passes = [stage2Pass(1, { result: 'findings' }), correctionPass()]) {
+  return activeStatus({ review_passes: passes });
+}
+
+test('Stage 2 required unchecked scope prevents closure in both modes and historical entries', () => {
+  for (const mode of ['full-blind', 'correction-validation', undefined]) {
+    for (const result of ['clean', 'findings', 'blocked', 'invalid']) {
+      const pass = mode === 'correction-validation' ? correctionPass(2) : stage2Pass(2, { control_mode: mode });
+      if (mode === undefined) delete pass.control_mode;
+      Object.assign(pass, { result, unchecked_scopes: ['required static routes not inspected'] });
+      const status = correctionStatus([stage2Pass(1), pass]);
+      const errors = validateStatus(status);
+      if (['clean', 'findings'].includes(result)) {
+        assert.match(errors.join('\n'), /with unchecked_scopes cannot be clean or findings/);
+      } else assert.deepEqual(errors, []);
+    }
+  }
+  const completed = completedStatus();
+  assert.deepEqual(validateStatus(completed), []);
+  Object.assign(completed.review_passes[0], { control_mode: 'full-blind', unchecked_scopes: ['missing static scope'] });
+  assert.match(validateStatus(completed).join('\n'), /with unchecked_scopes cannot be clean or findings/);
+});
+
+test('completed template independence declaration works for each mode without false Phase A attestation', (t) => {
+  const root = temporaryDirectory(t, 'stage2-template-independence-');
+  const candidates = ['stage-NN-pass-NNN-template.md', 'review_template.md']
+    .map(file => path.join(__dirname, '../reviews', file));
+  const template = fs.readFileSync(candidates.find(file => fs.existsSync(file)), 'utf8').replace(/\r\n/g, '\n');
+  const declaration = template.match(/## Independence Declaration\n([\s\S]*?)\n## Scope and Inputs/)[1];
+  assert.equal((declaration.match(/^- \[ \]/gm) || []).length, 5);
+  assert.match(declaration, /only the branch matching the declared mode, not both/);
+  assert.match(declaration, /does not attest that the baseline is eligible/);
+  for (const mode of ['full-blind', 'correction-validation']) {
+    for (const result of ['clean', 'blocked']) {
+      const pass = mode === 'full-blind' ? stage2Pass(2, { result }) : correctionPass(2, { result });
+      pass.independence_record = pass.report;
+      const status = correctionStatus([stage2Pass(1), pass]);
+      const report = '# Review\n\n- Control mode: ' + mode + '\n\n## Independence Declaration\n' +
+        declaration.replaceAll('- [ ]', '- [x]') + '\n## Scope and Inputs\n\nExact scope and evidence recorded.\n';
+      materializeEvidence(root, status, { [pass.report]: report });
+      const file = writeStatus(root, status);
+      assert.doesNotThrow(() => loadAndValidateStatus(file));
+      fs.writeFileSync(path.join(root, pass.report), report.replace('- [x]', '- [ ]'));
+      assert.throws(() => loadAndValidateStatus(file), /Independence Declaration has unchecked items/);
+    }
+  }
+});
+
+test('Stage 2 closure accepts full findings or clean roots without mutating historical entries', () => {
+  for (const result of ['clean', 'findings']) {
+    for (const historical of [false, true]) {
+      const baseline = stage2Pass(1, { result, unchecked_scopes: [] });
+      if (historical) delete baseline.control_mode;
+      const status = correctionStatus([baseline, correctionPass()]);
+      const before = structuredClone(status);
+      assert.deepEqual(validateStatus(status), []);
+      assert.deepEqual(status, before);
+      assert.equal(status.schema_version, '1.5.0');
+    }
+  }
+});
+
+test('Stage 2 repeated closure retains one root and uses each immediate predecessor', () => {
+  const passes = [
+    stage2Pass(1, { result: 'findings' }),
+    correctionPass(2, { result: 'findings' }),
+    correctionPass(3),
+    correctionPass(4),
+  ];
+  assert.deepEqual(validateStatus(correctionStatus(passes)), []);
+  assert.deepEqual(validateStatus(correctionStatus([...passes].reverse())), []);
+});
+
+test('Stage 2 latest predecessor is stage-wide, not an array neighbor or pass minus one', () => {
+  const passes = [
+    stage2Pass(4, { result: 'findings' }),
+    reviewPass('stage-07', 1),
+    correctionPass(8, { baseline_pass: 4, previous_pass: 4 }),
+  ];
+  assert.deepEqual(validateStatus(correctionStatus(passes)), []);
+});
+
+for (const stage of ['stage-07', 'stage-10', 'stage-14', 'stage-16', 'stage-19']) {
+  test(`Stage 2 control metadata is forbidden at ${stage}`, () => {
+    for (const metadata of [
+      { control_mode: 'full-blind' },
+      { control_mode: 'correction-validation', baseline_pass: 1, previous_pass: 1, coverage_record: 'evidence.md' },
+      { baseline_pass: 1 }, { previous_pass: 1 }, { coverage_record: 'evidence.md' },
+    ]) {
+      for (const result of ['clean', 'findings', 'blocked', 'invalid']) {
+        assert.notDeepEqual(validateStatus(validStatus({ review_passes: [reviewPass(stage, 2, { ...metadata, result })] })), []);
+      }
+    }
+  });
+}
+
+test('Stage 2 closure metadata is required, typed and forbidden for full or mode-less passes', () => {
+  for (const field of ['baseline_pass', 'previous_pass', 'coverage_record']) {
+    for (const result of ['clean', 'findings']) {
+      const missing = correctionPass(2, { result });
+      delete missing[field];
+      assert.match(validateStatus(correctionStatus([stage2Pass(1), missing])).join('\n'), new RegExp(field));
+    }
+    for (const mode of ['full-blind', undefined]) {
+      const full = stage2Pass(2, { control_mode: mode, [field]: correctionPass()[field] });
+      if (mode === undefined) delete full.control_mode;
+      assert.notDeepEqual(validateStatus(correctionStatus([stage2Pass(1), full])), []);
+    }
+    const badValues = field === 'coverage_record' ? [null, '', '   ', 1] : [null, 0, -1, 1.5, '1'];
+    for (const value of badValues) {
+      const invalid = correctionPass(2, { [field]: value });
+      assert.notDeepEqual(validateStatus(correctionStatus([stage2Pass(1), invalid])), [], `${field}: ${JSON.stringify(value)}`);
+    }
+  }
+  for (const mode of ['full', 'closure', '', null]) {
+    assert.match(validateStatus(correctionStatus([stage2Pass(1, { control_mode: mode })])).join('\n'), /control_mode/);
+  }
+});
+
+for (const [name, rootChange] of [
+  ['invalid', { result: 'invalid' }],
+  ['blocked', { result: 'blocked' }],
+  ['wrong scope', { scope: 'another-scope' }],
+  ['unchecked scope', { unchecked_scopes: ['uninspected static routes'] }],
+  ['authoring context', { authored_artifacts: ['analysis/legacy_reconnaissance.md'] }],
+]) {
+  test(`Stage 2 closure refuses a ${name} root`, () => {
+    const errors = validateStatus(correctionStatus([stage2Pass(1, rootChange), correctionPass()]));
+    assert.match(errors.join('\n'), /baseline_pass must be a valid/);
+  });
+}
+
+test('Stage 2 closure refuses missing, cross-stage and closure roots', () => {
+  for (const passes of [
+    [correctionPass()],
+    [reviewPass('stage-07', 1), correctionPass()],
+    [stage2Pass(1), correctionPass(), correctionPass(3, { baseline_pass: 2 })],
+  ]) {
+    assert.match(validateStatus(correctionStatus(passes)).join('\n'), /baseline_pass/);
+  }
+});
+
+test('Stage 2 closure refuses self, future, cyclic and non-earlier-time links', () => {
+  for (const field of ['baseline_pass', 'previous_pass']) {
+    for (const value of [2, 3, 99]) {
+      const passes = [stage2Pass(1), correctionPass(2, { [field]: value }), stage2Pass(3)];
+      assert.match(validateStatus(correctionStatus(passes)).join('\n'), new RegExp(`${field} must reference an earlier`));
+    }
+  }
+  const cycle = [stage2Pass(1), correctionPass(2, { previous_pass: 3 }), correctionPass(3)];
+  assert.match(validateStatus(correctionStatus(cycle)).join('\n'), /previous_pass must reference an earlier/);
+  for (const reviewed_at of ['2026-07-28T10:02:02Z', '2026-07-28T10:02:03Z']) {
+    const passes = [stage2Pass(1, { reviewed_at }), correctionPass()];
+    assert.match(validateStatus(correctionStatus(passes)).join('\n'), /earlier Stage 2 pass by number and review time/);
+  }
+});
+
+for (const [name, change] of [
+  ['invalid', { result: 'invalid' }],
+  ['blocked', { result: 'blocked' }],
+  ['wrong scope', { scope: 'another-scope' }],
+  ['unchecked scope', { unchecked_scopes: ['uninspected changed claims'] }],
+  ['authoring context', { authored_artifacts: ['analysis/legacy_user_flows.xlsx'] }],
+]) {
+  test(`Stage 2 repeated closure refuses a ${name} predecessor`, () => {
+    const passes = [stage2Pass(1), correctionPass(2, change), correctionPass(3)];
+    assert.match(validateStatus(correctionStatus(passes)).join('\n'), /previous_pass must be a valid/);
+  });
+}
+
+test('Stage 2 closure cannot skip intervening full, invalid, blocked or closure attempts', () => {
+  for (const middle of [
+    stage2Pass(2), stage2Pass(2, { result: 'invalid' }),
+    stage2Pass(2, { result: 'blocked' }), correctionPass(2, { result: 'findings' }),
+    stage2Pass(2, { scope: 'another-scope' }),
+  ]) {
+    const passes = [stage2Pass(1), middle, correctionPass(3, { previous_pass: 1 })];
+    assert.match(validateStatus(correctionStatus(passes)).join('\n'), /latest preceding Stage 2 attempt/);
+  }
+});
+
+test('Stage 2 a new full pass supersedes the old root throughout subsequent closures', () => {
+  const passes = [stage2Pass(1), stage2Pass(2), correctionPass(3)];
+  assert.match(validateStatus(correctionStatus(passes)).join('\n'), /same baseline_pass/);
+  passes[2].baseline_pass = 2;
+  assert.deepEqual(validateStatus(correctionStatus(passes)), []);
+  passes.push(correctionPass(4));
+  assert.match(validateStatus(correctionStatus(passes)).join('\n'), /same baseline_pass/);
+  passes[3].baseline_pass = 2;
+  assert.deepEqual(validateStatus(correctionStatus(passes)), []);
+});
+
+test('Stage 2 metadata preserves failed attempts and fresh-session eligibility', () => {
+  for (const result of ['findings', 'blocked', 'invalid']) {
+    const pass = correctionPass(2, { result });
+    if (result === 'invalid') pass.authored_artifacts = ['analysis/legacy_user_flows.xlsx'];
+    if (result === 'blocked') pass.unchecked_scopes = ['coverage unavailable'];
+    assert.deepEqual(validateStatus(correctionStatus([stage2Pass(1), pass])), []);
+  }
+  const passes = [stage2Pass(1), correctionPass(2, { session_id: 'session-stage-02-1' })];
+  assert.match(validateStatus(correctionStatus(passes)).join('\n'), /session_id.*must be unique/);
+  for (const result of ['clean', 'findings']) {
+    const authored = correctionPass(2, { result, authored_artifacts: ['analysis/legacy_user_flows.xlsx'] });
+    assert.match(validateStatus(correctionStatus([stage2Pass(1), authored])).join('\n'), /must be invalid/);
+    const unchecked = correctionPass(2, { result, unchecked_scopes: ['static checks missing'] });
+    assert.match(validateStatus(correctionStatus([stage2Pass(1), unchecked])).join('\n'), /unchecked_scopes cannot be clean or findings/);
+  }
+});
+
+for (const result of ['blocked', 'invalid']) {
+  test(`Stage 2 ${result} eligibility attempts preserve unknown or unsuitable roots without allowing exit`, (t) => {
+    const root = temporaryDirectory(t, `stage2-${result}-eligibility-`);
+    const failure = correctionPass(2, { result });
+    const unknown = structuredClone(failure);
+    delete unknown.baseline_pass;
+    delete unknown.previous_pass;
+    const unknownBaseline = structuredClone(failure);
+    delete unknownBaseline.baseline_pass;
+    const unknownPrevious = structuredClone(failure);
+    delete unknownPrevious.previous_pass;
+    for (const passes of [
+      [unknown],
+      [failure],
+      [stage2Pass(1), unknownBaseline],
+      [stage2Pass(1), unknownPrevious],
+      [stage2Pass(1, { result: 'invalid' }), failure],
+      [stage2Pass(1, { result: 'blocked' }), failure],
+      [stage2Pass(1, { result: 'blocked', unchecked_scopes: ['uninspected static routes'] }), failure],
+      [stage2Pass(1, { scope: 'different-scope' }), failure],
+      [stage2Pass(1), correctionPass(2), correctionPass(3, { result, baseline_pass: 2 })],
+    ]) {
+      const status = correctionStatus(passes);
+      const attempt = status.review_passes.at(-1);
+      const body = `# Eligibility failure\n\n- Control mode: correction-validation\n\n` +
+        `The ${result} attempt could not establish baseline eligibility; required coverage remains unverified.\n`;
+      materializeEvidence(root, status, { [attempt.report]: body });
+      assert.deepEqual(validateStatus(status), []);
+      assert.doesNotThrow(() => loadAndValidateStatus(writeStatus(root, status)));
+      status.transition_history.push(transition('stage-02', 'stage-03', 3));
+      status.control.current_stage = 'stage-03';
+      status.control.previous_stage = 'stage-02';
+      status.progress.completed_percent = formalStageProgress('stage-03').percent;
+      assert.match(validateStatus(status).join('\n'), /stage-02 pass for exit to stage-03 must be clean/);
+    }
+  });
+
+  test(`Stage 2 ${result} eligibility attempts still require safe failure evidence and backward pass numbers`, (t) => {
+    const root = temporaryDirectory(t, `stage2-${result}-evidence-`);
+    const pass = correctionPass(2, { result });
+    delete pass.baseline_pass;
+    delete pass.previous_pass;
+    const status = correctionStatus([pass]);
+    materializeEvidence(root, status);
+    const report = path.join(root, pass.report);
+    fs.writeFileSync(report, '# Eligibility failure\n\n- Control mode: correction-validation\n\n' +
+      'No baseline could be established; the attempt is not eligible to close the stage.\n');
+    const file = writeStatus(root, status);
+    assert.doesNotThrow(() => loadAndValidateStatus(file));
+    for (const field of ['baseline_pass', 'previous_pass']) {
+      for (const value of [2, 3]) {
+        pass[field] = value;
+        assert.match(validateStatus(status).join('\n'), new RegExp(`${field} must reference an earlier`));
+      }
+      delete pass[field];
+    }
+    delete pass.coverage_record;
+    assert.match(validateStatus(status).join('\n'), /coverage_record/);
+    for (const coverage of ['analysis/reviews/missing-failure.md', '../outside.md']) {
+      pass.coverage_record = coverage;
+      assert.throws(() => loadAndValidateStatus(writeStatus(root, status)), /does not exist|escapes/);
+    }
+    pass.coverage_record = 'analysis/reviews/failure.md';
+    for (const content of ['', '# Failure\n\nTODO: <record the failure>\n']) {
+      fs.writeFileSync(path.join(root, pass.coverage_record), content);
+      assert.throws(() => loadAndValidateStatus(writeStatus(root, status)), /empty or template-only/);
+    }
+  });
+
+  test(`Stage 2 a ${result} closure interrupts eligibility until a new full baseline`, () => {
+    for (const unknown of [false, true]) {
+      const failed = correctionPass(2, { result });
+      if (unknown) {
+        delete failed.baseline_pass;
+        delete failed.previous_pass;
+      }
+      const history = [stage2Pass(1), failed];
+      assert.deepEqual(validateStatus(correctionStatus(history)), []);
+      for (const nextResult of ['clean', 'findings']) {
+        const inherited = [...history, correctionPass(3, { result: nextResult })];
+        assert.match(validateStatus(correctionStatus(inherited)).join('\n'), /previous_pass must be a valid/);
+        const skipped = [...history, correctionPass(3, { result: nextResult, previous_pass: 1 })];
+        assert.match(validateStatus(correctionStatus(skipped)).join('\n'), /latest preceding Stage 2 attempt/);
+        const newRoot = [...history, stage2Pass(3, { result: 'findings' }),
+          correctionPass(4, { result: nextResult, baseline_pass: 3, previous_pass: 3 })];
+        assert.deepEqual(validateStatus(correctionStatus(newRoot)), []);
+      }
+    }
+  });
+}
+
+test('Stage 2 closure exit remains clean-only and requires a pass in the current stage entry', () => {
+  const status = correctionStatus();
+  status.transition_history.push(
+    transition('stage-02', 'stage-01', 3),
+    transition('stage-01', 'stage-02', 4),
+    transition('stage-02', 'stage-03', 5),
+  );
+  status.control.current_stage = 'stage-03';
+  status.control.previous_stage = 'stage-02';
+  status.progress.completed_percent = formalStageProgress('stage-03').percent;
+  status.review_passes[1].reviewed_at = '2026-07-28T10:04:30Z';
+  assert.deepEqual(validateStatus(status), []);
+  status.review_passes[1].reviewed_at = '2026-07-28T10:03:30Z';
+  assert.match(validateStatus(status).join('\n'), /stage-02 pass for exit to stage-03 must be clean/);
+  status.review_passes[1].reviewed_at = '2026-07-28T10:04:30Z';
+  status.review_passes[1].result = 'findings';
+  assert.match(validateStatus(status).join('\n'), /stage-02 pass for exit to stage-03 must be clean/);
+});
+
+test('Stage 2 coverage is loaded through durable evidence checks, including separate attachments', (t) => {
+  const root = temporaryDirectory(t, 'stage2-coverage-');
+  const status = correctionStatus();
+  status.review_passes[1].coverage_record = 'analysis/reviews/coverage.md';
+  materializeEvidence(root, status);
+  const file = writeStatus(root, status);
+  assert.doesNotThrow(() => loadAndValidateStatus(file));
+  for (const content of ['', '   ', '# Coverage\n\nTODO: <fill in coverage>\n']) {
+    fs.writeFileSync(path.join(root, status.review_passes[1].coverage_record), content);
+    assert.throws(() => loadAndValidateStatus(file), /evidence is empty or template-only.*coverage.md/);
+  }
+  for (const coverage_record of [
+    'analysis/reviews/missing.md', 'analysis/reviews', '.', '../outside.md',
+    path.join(root, 'analysis/reviews/stage-02-pass-002.md'),
+  ]) {
+    status.review_passes[1].coverage_record = coverage_record;
+    assert.throws(() => loadAndValidateStatus(writeStatus(root, status)), /does not exist|must be relative|escapes/);
+  }
+});
+
+test('Stage 2 coverage rejects symbolic-link directories before reading records', (t) => {
+  const root = temporaryDirectory(t, 'stage2-coverage-link-');
+  const status = correctionStatus();
+  materializeEvidence(root, status);
+  try {
+    fs.symlinkSync(path.join(root, 'analysis/reviews'), path.join(root, 'linked'),
+      process.platform === 'win32' ? 'junction' : 'dir');
+  } catch (error) {
+    if (['EPERM', 'EACCES', 'UNKNOWN'].includes(error.code)) return t.skip(`symbolic links unavailable: ${error.code}`);
+    throw error;
+  }
+  status.review_passes[1].coverage_record = 'linked/stage-02-pass-002.md';
+  assert.throws(() => loadAndValidateStatus(writeStatus(root, status)), /must not use a symbolic link/);
+});
+
+test('Stage 2 report modes reconcile with status while historical missing markers remain compatible', (t) => {
+  const root = temporaryDirectory(t, 'stage2-report-mode-');
+  const status = correctionStatus();
+  delete status.review_passes[0].control_mode;
+  materializeEvidence(root, status);
+  const file = writeStatus(root, status);
+  assert.doesNotThrow(() => loadAndValidateStatus(file));
+  const report = path.join(root, status.review_passes[1].report);
+  const body = '# Review\n\nThe reviewer reconciled the declared correction coverage.\n';
+  for (const marker of ['- Control mode: correction-validation', '- Control mode: `correction-validation`']) {
+    fs.writeFileSync(report, `${body}${marker}\n`);
+    assert.doesNotThrow(() => loadAndValidateStatus(file));
+  }
+  fs.writeFileSync(report, `${body}- Control mode: full-blind\n`);
+  assert.throws(() => loadAndValidateStatus(file), /Control mode must match structured control_mode/);
+  for (const marker of ['- Control mode: unknown', '- Control mode: not applicable', '- Control mode:',
+    '- Control mode: correction-validation\n- Control mode: full-blind']) {
+    fs.writeFileSync(report, `${body}${marker}\n`);
+    assert.throws(() => loadAndValidateStatus(file), /one valid Control mode declaration/);
+  }
+  fs.writeFileSync(report, `${body}- Control mode: correction-validation\n`);
+  for (const control_mode of [undefined, 'full-blind']) {
+    const full = stage2Pass(2, { control_mode });
+    if (control_mode === undefined) delete full.control_mode;
+    status.review_passes[1] = full;
+    assert.throws(() => loadAndValidateStatus(writeStatus(root, status)), /Control mode must match structured control_mode/);
+  }
+  fs.writeFileSync(report, `${body}- Control mode: full-blind\n`);
+  assert.doesNotThrow(() => loadAndValidateStatus(writeStatus(root, status)));
+  delete status.review_passes[1].control_mode;
+  assert.doesNotThrow(() => loadAndValidateStatus(writeStatus(root, status)));
+});
+
+test('Stage 2 explicit modes require exactly one actual matching report declaration for every result', (t) => {
+  const root = temporaryDirectory(t, 'stage2-required-report-mode-');
+  const body = '# Review\n\nThe reviewer recorded the actual outcome and remaining eligibility failures.\n';
+  for (const control_mode of ['full-blind', 'correction-validation']) {
+    for (const result of ['clean', 'findings', 'blocked', 'invalid']) {
+      const pass = control_mode === 'full-blind' ? stage2Pass(2, { result }) : correctionPass(2, { result });
+      const status = correctionStatus([stage2Pass(1), pass]);
+      materializeEvidence(root, status);
+      const file = writeStatus(root, status);
+      const report = path.join(root, pass.report);
+      const marker = `- Control mode: ${control_mode}\n`;
+      for (const content of [body, `${body}<!--\n${marker}-->\n`, `${body}\x60\x60\x60text\n${marker}\x60\x60\x60\n`,
+        `${body}    ${marker}`, `${body}> ${marker}`, `${body}${marker}${marker}`]) {
+        fs.writeFileSync(report, content);
+        assert.throws(() => loadAndValidateStatus(file), /one valid Control mode declaration/);
+      }
+      fs.writeFileSync(report, `${body}${marker}`);
+      assert.doesNotThrow(() => loadAndValidateStatus(file));
+    }
+  }
+  const historical = reviewPass('stage-02');
+  const status = correctionStatus([historical]);
+  materializeEvidence(root, status, { [historical.report]: body });
+  assert.doesNotThrow(() => loadAndValidateStatus(writeStatus(root, status)));
+});
+
+test('Stage 2 mode declarations quoted as examples are not report metadata', (t) => {
+  const root = temporaryDirectory(t, 'stage2-report-example-');
+  const status = correctionStatus();
+  materializeEvidence(root, status, {
+    [status.review_passes[1].report]: '# Review\n\nThe complete correction coverage was reconciled.\n' +
+      '<!--\n- Control mode: full-blind\n-->\n```text\n- Control mode: full-blind\n```\n' +
+      '~~~text\n- Control mode: full-blind\n~~~\n- Control mode: correction-validation\n',
+  });
+  assert.doesNotThrow(() => loadAndValidateStatus(writeStatus(root, status)));
+});
+
+test('other-stage reports may retain harmless not-applicable control-mode metadata', (t) => {
+  const root = temporaryDirectory(t, 'other-stage-report-mode-');
+  const status = validStatus({ review_passes: [reviewPass('stage-07')] });
+  for (const marker of ['not applicable', 'not applicable (Stage 2 only)', 'N/A']) {
+    materializeEvidence(root, status, {
+      [status.review_passes[0].report]: `# Review\n\nThe declared scope was fully checked.\n- Control mode: ${marker}\n`,
+    });
+    assert.doesNotThrow(() => loadAndValidateStatus(writeStatus(root, status)));
+  }
 });
 
 test('a deployed active slice must enter the permanent UI regression baseline', () => {

@@ -18,6 +18,9 @@ Read [MIGRATION.md](../../../MIGRATION.md) and the
    shared status, dependency-graph and learned-check updates within stage rules.
 5. Launch fresh eligible reviewers under the [review protocol](../../../analysis/agent_orchestration.md).
    Withhold learned material during blind Phase A; stop for required owner decisions.
+   For Stage 2, propose full-blind or eligible correction-validation and require
+   the fresh BA to verify the baseline chain, complete diff and retained coverage.
+   Correction-validation is not blind; no unresolved finding is waived.
 6. If the runtime cannot delegate safely, return a bounded packet for a separate
    owner-launched session. Report blocked delegation, not a simulated specialist.
 

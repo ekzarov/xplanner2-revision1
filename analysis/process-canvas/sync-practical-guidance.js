@@ -823,11 +823,15 @@ for (const format of ['md', 'html']) {
   }
   writeGenerated(relativePath, content);
 }
-const recordCells = Object.entries(recordProfiles).map(([id, profile], index) => {
+let recordY = 80;
+const recordCells = Object.entries(recordProfiles).map(([id, profile]) => {
   const label = '<b>' + escapeHtml(profile.en.title) + '</b><br><br>' + profile.en.fields.map(escapeHtml).join('<br>') + '<br><br>' + escapeHtml(profile.en.note);
-  return '<mxCell id="record-contract-' + id + '" parent="1" vertex="1" value="' + escapeHtml(label) + '" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontSize=16;fillColor=#f5f7fa;strokeColor=#cbd5df;"><mxGeometry x="40" y="' + (80 + index * 300) + '" width="1120" height="270" as="geometry"/></mxCell>';
+  const height = id === 'reconnaissance' ? 540 : 270;
+  const y = recordY;
+  recordY += height + 30;
+  return '<mxCell id="record-contract-' + id + '" parent="1" vertex="1" value="' + escapeHtml(label) + '" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontSize=16;fillColor=#f5f7fa;strokeColor=#cbd5df;"><mxGeometry x="40" y="' + y + '" width="1120" height="' + height + '" as="geometry"/></mxCell>';
 }).join('\n');
-const recordPageHeight = Math.max(2000, Object.keys(recordProfiles).length * 300 + 120);
+const recordPageHeight = Math.max(2000, recordY + 40);
 const recordDiagram = '<!-- RECORD_CONTRACTS_START -->\n<diagram id="record-contracts" name="Record results and boundaries"><mxGraphModel grid="1" page="1" pageWidth="1200" pageHeight="' + recordPageHeight + '"><root><mxCell id="0"/><mxCell id="1" parent="0"/>' + recordCells + '</root></mxGraphModel></diagram>\n<!-- RECORD_CONTRACTS_END -->';
 const recordDiagramSource = fs.readFileSync(diagramFile, 'utf8');
 const recordDiagramMarker = /<!-- RECORD_CONTRACTS_START -->[\s\S]*?<!-- RECORD_CONTRACTS_END -->/;
@@ -837,12 +841,17 @@ writeGenerated('analysis/migration_artifact_flow.drawio', recordDiagramMarker.te
 const flowRows = data.stages.map(stage => {
   const names = ids => ids.map(id => data.artifacts.find(a => a.id === id).label).join('; ') || 'None';
   const later = new Set(stage.delayedInputs || []);
+  if (stage.reviewAccess) return { stage,
+    input: 'full-blind: neutral source/scope first. correction-validation: ' + names(stage.inputs.filter(id => id !== 'status')) + '; full status, prior reports/checklist/dispositions immediately (reviewer read-only)',
+    updated: 'migration_status.yaml: PM only, never the reviewer',
+    output: names(stage.outputs.filter(id => !stage.inputs.includes(id))),
+    delayed: 'full-blind only: ' + names([...later]) + '; prior reports/checklist/dispositions after saved complete Phase A. correction-validation: no delayed inputs or new Phase A' };
   return { stage, input: names(stage.inputs.filter(id => !stage.outputs.includes(id) && !later.has(id))),
     updated: names(stage.inputs.filter(id => stage.outputs.includes(id) && !later.has(id))),
     output: names(stage.outputs.filter(id => !stage.inputs.includes(id))),
     delayed: [...later].map(id => names([id]) + (stage.outputs.includes(id) ? ' (U)' : ' (I)')).join('; ') || 'None' };
 });
-const flowIntro = 'Shared across stages: error-prevention-checklist.md is read before work and self-checked before handoff; the coordinator updates it only for confirmed generalized lessons. At Stages 2/19 learned checks and prior self-check notes are Phase B only. This standing duty is shown in every stage detail, not repeated as scene arrows. I = read; U = read and update; O = create. Conditional artifacts apply only when required by the stage. A manifest links the full approved source package; its links are not permission to skip those sources. Stages 2 and 19 open restricted records only in Phase B; status conclusions are also withheld. Stage 19 Phase A uses expectation-only extracts of the map, inventory and prototype; full originals follow saved observations. Frames indicate responsibility, not a successful verdict: solid = independent review (including Stage 17 peer review); dashed = responsible-agent verification.';
+const flowIntro = 'I = read; U = read and update; O = create. PM alone updates shared status. Conditional inputs require their stage trigger. Stage 2 full-blind and Stage 19 withhold full records, prior reports, learned checks and self-check notes until saved Phase A; eligible Stage 2 correction-validation reads them immediately, with no new Phase A. Stage 19 uses expectation-only extracts first. Apply learned checks before work and handoff at the permitted time; CHK is not a scope ceiling. The coordinator maintains the checklist. Manifests do not replace their linked sources. Frames mean responsibility, not success: solid = independent/peer review; dashed = responsible verification.';
 const cheatNames = ids => ids.filter(id => id !== 'status').map(id => {
   const artifact = data.artifacts.find(a => a.id === id);
   const conditional = ['owner-waiver', 'polish-backlog', 'owner-walkthrough', 'owner-walkthrough-decline'].includes(id);
@@ -853,8 +862,8 @@ const cheatNames = ids => ids.filter(id => id !== 'status').map(id => {
 }).join('; ') || 'None.';
 const cheatNotes = {
   'stage-00': 'The initializer creates empty files; the Bootstrap agent fills verified setup data. The owner ratifies the constitution and separately authorizes Stage 1.\n\n`environments.yaml` starts unconfigured, from the safe template: no copied keys\nor demo server. This can pass Bootstrap, but remote work requires owner-approved\nsettings and `audit:environment -- --require-configured`. Initialization leaves\nthe source starter read-only and never renews credential approval.\n\nThe status version must match the project constitution even before ratification.\nRecord failed checks and report links in `blockers[].evidence` immediately.\nSummary counts come from actual evidence rows. Existing files need scoped\ncorrection authority; upgrading a project is not reinitialization. Follow\n[Bootstrap maintenance](../MIGRATION.md#bootstrap-maintenance).',
-  'stage-01': 'Read the immutable legacy source named by project.yaml. On first entry, populate the Bootstrap blanks. On return, preserve valid map/reconnaissance evidence and correct findings, affected dependencies and all occurrences of the same mechanism within the recorded impact boundary; do not restart discovery. The next Stage 2 still requires a new full in-scope blind Phase A followed by two-way Phase B.',
-  'stage-02': 'Phase A: immutable legacy source and neutral scope only. Save the independent inventory before opening the filled records in Phase B.',
+  'stage-01': 'Read the immutable legacy source named by project.yaml. On first entry, populate the Bootstrap blanks. On return, preserve valid evidence and correct findings, affected dependencies and related mechanisms within the recorded impact boundary. PM proposes the next Stage 2 mode before reviewer access; the reviewer confirms the boundary and verifies baseline eligibility from permitted records: full-blind by default; correction-validation only after a complete valid full-blind baseline and bounded corrections. [Stage 2 modes](reviews/README.md#stage-2-correction-validation).',
+  'stage-02': 'Default/new scope: full-blind, with complete neutral Phase A saved before two-way Phase B. Eligible bounded correction-validation is not blind: a fresh independent read-only BA (not author or reused reviewer) reads prior reports/checklist/dispositions immediately, with no new Phase A. A complete valid full-blind baseline may contain findings. Pin root full report, snapshot/source hashes, predecessor, latest candidate and all intervening reports/changes. Verify the entire diff, all open findings, related mechanisms/dependencies and affected old matched claims; retain exact C IDs only with applicability rationale, without double counting. Clean requires the whole coverage union and no unchecked scope or open findings, including Low. Bounded impact checks may expand; CHK is not a ceiling. Changed source/channels/scope, contamination, unreliable/missing/incomplete baseline or systemic/unbounded impact stop closure as blocked/invalid and require a full new blind session before prior information. Use the existing report and coverage table, not a new canonical artifact. [Required mode rules](reviews/README.md#stage-2-correction-validation).',
   'stage-03': 'PM requests owner-approved environment access, role accounts and permitted data/actions, then deploys or verifies the exact legacy baseline. BA records the actual operator handoff and compares live behavior with the map. Missing access blocks; fallback requires the owner. Follow [the deployment handoff](../config/REMOTE_SERVER.md#configure-before-remote-work).',
   'stage-07': 'Only owner-authorized Low-cosmetic debt may remain in a closing findings pass. This exception is not clean; fixes must be verified before affected production release or acceptance.',
   'stage-12': 'Create a new immutable closure report; never update the owner verdict. Corrections belong to the classified return stage. The negative report is mandatory on re-entry at 9-11. With no remarks, record the unchanged set and zero required fixes.',
@@ -874,8 +883,11 @@ const cheatBody = data.phases.map(phase => {
       `### [${stage.number} - ${stage.title}](migration_methodology.md#${stage.id})`,
       `\n**${stage.headline || stage.summary}** *${stage.actor}.*\n`,
       `- **Role and skill:** ${stage.assignment.en} [Delegation contract](agent-roles.md).`,
-      `- **Reads:** ${cheatNames(reads)}`,
-      ...(delayed.some(id => id !== 'status') ? [`- **Phase B only:** ${cheatNames(delayed)}`] : []),
+      ...(stage.reviewAccess ? [
+        `- **full-blind: Phase B only:** ${cheatNames(delayed)} Full status, earlier reports, checklist and dispositions follow saved complete neutral Phase A.`,
+        `- **correction-validation: reads immediately:** ${cheatNames(stage.inputs)} Full status and the pinned prior evidence chain; no new Phase A.`,
+      ] : [`- **Reads:** ${cheatNames(reads)}`,
+        ...(delayed.some(id => id !== 'status') ? [`- **Phase B only:** ${cheatNames(delayed)}`] : [])]),
       `- **Writes result:** ${cheatNames(writes)}`,
       `- **Updates shared:** ${cheatNames(updates)}`,
       `- **Error prevention:** ${stage.prevention.en} [Checklist procedure](error-prevention.md).`,
@@ -897,15 +909,15 @@ const cheatSheet = [
   '## Shared Rules',
   '- **Portable team:** PM delegates each specialist task with the exact skill path. The receiver reads it, returns ACK, routes questions through PM and returns RESULT with evidence. BA, UX, Architect, Developer and QA are specializations, not permanent sessions. Fresh review is separate from authorship. [Required handoff protocol](agent-roles.md).',
   '- **Reads** = inputs, not permission to change them. **Writes result** = create or populate the stage-owned result; on return, revise mutable results but create a new numbered immutable review/delivery report. **Updates shared** = read and update an existing shared artifact, only within the stage\'s authority.',
-  '- **Shared status:** Bootstrap creates `migration_status.yaml`; at every Stage 1-19 the coordinating agent reads it and records durable outcomes, blockers and authorized transitions. It is omitted from the lists below. Blind reviewers at 2/19 receive neutral routing first, full status only in Phase B.',
+  '- **Shared status:** Bootstrap creates `migration_status.yaml`; PM reads it and records durable outcomes, blockers and authorized transitions. It is omitted from the lists below. Stage 2 full-blind and Stage 19 reviewers receive neutral routing first, full status only in Phase B. Eligible Stage 2 correction-validation reads it immediately; reviewers never edit status.',
   '- **Always:** follow MIGRATION.md and the constitution; use configured project commands and approved environment settings. Short artifact names below match 3D labels; the artifact catalog gives exact paths. Linked approved sources are part of the input, not optional background.',
   '- **Conditional** means required when its trigger applies, not freely optional. The agent records human decisions; it never supplies owner approval. Walkthrough and explicit decline are alternatives, not two mandatory outputs.',
   '- **On return:** correct findings, affected dependencies and all occurrences of the same mechanism; preserve valid work, not restart the stage. Widen only with recorded evidence and authority. [Correction scope](reviews/README.md#correction-scope-and-handoff).',
   '- **Correction handoff:** record the boundary, retained work, actual checks/results and separate next control in the existing record. PM validates before accepting RESULT or requesting control. [Required handoff](reviews/README.md#correction-scope-and-handoff).',
-  '- **Control scope stays separate:** mandatory gates, including repository-wide gates, and required full/fresh/blind reviews and owner decisions remain unchanged. Stage 2 still requires full blind Phase A, saved before two-way Phase B. [Control boundary](reviews/README.md#correction-scope-and-handoff).',
+  '- **Control scope stays separate:** Stage 2 defaults to full-blind; bounded correction-validation requires a complete valid full-blind baseline and a fresh eligible BA. It is not blind and must prove whole-scope coverage. Stage 19 remains blind; other controls, repository-wide gates and owner decisions are unchanged. [Stage 2 mode boundary](reviews/README.md#stage-2-correction-validation).',
   '- **PR boundaries:** publish each completed control attempt separately from its later corrections. Required CI and owner merge precede the correction PR and the next planning control; a merged negative report is not acceptance. Preserve in-flight work. Stage 17 code peer review remains before merge. [Review And Correction PRs](migration_methodology.md#review-and-correction-prs).',
   '- **Readable PRs:** PM keeps one current description: purpose, changes, verification, open items, owner action/next and evidence. Update after pushes and read back before handoff; separate current-head CI from local and independent checks. Comments record meaningful events, commits preserve why/what and evidence paths. [Communication contract](migration_methodology.md#pr-descriptions-comments-and-commits).',
-  '- **Learned checks:** one ' + cheatNames(['error-prevention']) + ', not another findings backlog. Read applicable rows before work; self-check before handoff and after fixes. Generalize confirmed repeatable mistakes, deduplicate by meaning, and record short results in the existing work record or `control.prevention_self_check`. Independent reviewers propose; the coordinator maintains; the owner may prune. Stages 2/19 open learned checks only in Phase B. [Admission and timing](error-prevention.md).',
+  '- **Learned checks:** one ' + cheatNames(['error-prevention']) + ', not another findings backlog or a scope ceiling. Read applicable rows before work; self-check before handoff and after fixes. Generalize confirmed repeatable mistakes, deduplicate by meaning, and record results in the existing record or `control.prevention_self_check`. Reviewers propose; the coordinator maintains; the owner may prune. Stage 2 full-blind and Stage 19 open learned checks in Phase B; eligible Stage 2 correction-validation reads them immediately. [Admission and timing](error-prevention.md).',
   '## Contents',
   data.phases.map(phase => `- [${phase.label}](#cheat-${phase.id})`).join('\n'),
   cheatBody,

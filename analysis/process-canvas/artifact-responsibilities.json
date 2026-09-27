@@ -615,12 +615,12 @@
     "en": {
       "creator": "The initializer creates an empty checklist; the coordinator records confirmed generalized checks.",
       "maintainer": "The coordinator merges duplicates and maintains the table; the owner may prune obsolete checks. Reviewers propose without editing it.",
-      "instructions": "Bootstrap and Stages 1-19; analysis/error-prevention.md; learned checks are Phase B only at Stages 2 and 19."
+      "instructions": "Bootstrap and Stages 1-19; analysis/error-prevention.md; learned checks are Phase B only at Stage 2 full-blind and Stage 19, immediate in correction-validation."
     },
     "ru": {
       "creator": "Инициализатор создаёт пустой чеклист; координирующий агент записывает подтверждённые обобщённые проверки.",
       "maintainer": "Координирующий агент объединяет дубликаты и ведёт таблицу; владелец может убрать неактуальные пункты. Ревьюеры предлагают изменения, но не редактируют её.",
-      "instructions": "Подготовка и шаги 1–19; analysis/error-prevention.md; на шагах 2 и 19 накопленные проверки доступны только в фазе Б."
+      "instructions": "Подготовка и шаги 1–19; analysis/error-prevention.md; на шаге 2 full-blind и шаге 19 накопленные проверки доступны только в фазе B; допустимый correction-validation шага 2 читает их сразу."
     }
   },
   "ui-design-system": {

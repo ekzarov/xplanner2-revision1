@@ -307,13 +307,23 @@ the [bounded discussion rules](agent_orchestration.md#discussion-and-completion)
 This is a reusable interaction loop, not a new stage sequence or a mandatory
 review after every ordinary task.
 
-**Blind access at Stages 2 and 19:** send Phase A material only, save the
+**Blind access at Stage 2 full-blind and Stage 19:** send Phase A material only, save the
 reviewer's independent observations, then release Phase B material and reconcile.
 The full repository, prior findings and learned checklist are not unrestricted
 reviewer context. Other independent stages do not acquire an invented blind phase.
 Withhold full status, prior conclusions, author handoffs and filled examples too.
 Automatic startup imports or memory exposing them invalidate the blind attempt;
 Markdown alone cannot enforce isolation. Verify actual runtime permissions.
+
+On a bounded Stage 1 correction, PM proposes
+[Stage 2 correction-validation](reviews/README.md#stage-2-correction-validation)
+after an eligible complete full baseline. A new independent BA reads the old
+report and corrections immediately, checks the entire actual change and related
+mechanisms, and proves retained check applicability. This is not blind or another
+full discovery. A new numbered report reconciles complete coverage; all findings
+must be resolved. Unreliable baseline or unbounded impact requires full-blind
+control in another fresh session. The happy-path example above still illustrates
+the initial full-blind pass, not a fixed team or mandatory full repeat.
 
 <a id="read-where-stages-fit"></a>
 

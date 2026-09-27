@@ -46,7 +46,7 @@ const englishUi = {
   correctionScopeText: 'On every corrective return, verify the exact trigger and baseline. Correct findings, affected dependencies and all occurrences of the same failure mechanism, not just reported lines. Preserve valid artifacts, decisions and evidence; explain why their inputs and dependencies remain valid.',
   correctionExpansionText: 'Widen authoring only with recorded evidence of changed inputs, an unreliable baseline, systemic omissions or impact that cannot be bounded. Investigate uncertainty first. PM records the revised boundary within existing authority; changed approved scope or reserved decisions require the owner.',
   correctionHandoffText: 'Record trigger/baseline, correction and related-occurrence coverage, retained work, actual checks/results, unknowns and the separate next control in the existing work record. PM validates the bounded diff and handoff before accepting RESULT or requesting control. Retained checks are not new runs; immutable evidence stays unchanged.',
-  correctionControlText: 'Author correction scope is not control scope. Mandatory gates, including repository-wide gates, and required full, fresh, blind independent reviews and owner decisions remain unchanged. The next Stage 2 still requires a full in-scope blind Phase A, saved before two-way Phase B; prior findings and correction plans/outcomes stay withheld until Phase B.',
+  correctionControlText: 'Author correction scope is not control scope. Stage 2 defaults to full-blind: complete neutral Phase A saved before two-way Phase B. Only a complete valid full-blind baseline permits bounded correction-validation by a fresh independent read-only BA, with immediate prior-evidence access and no new Phase A. Verify the whole coverage union, not just fixes or CHK rows. Stage 19 stays blind; other gates and owner decisions are unchanged.',
   openCorrectionScope: 'Open correction scope and handoff rules',
   whereEvidenceLives: 'Where evidence lives', exampleUse: 'Example use', realXPlannerTrail: 'Real XPlanner evidence trail',
   gates: 'Gates', roleInStage: 'Role in selected stage', lifecycle: 'Lifecycle', whenAndHowUsed: 'When and how used',
@@ -56,6 +56,11 @@ const englishUi = {
   openStageInstructions: 'Open governing instructions ↗',
   selectedStageInstructions: 'Open instructions for this use ↗',
   delayedInputs: 'Phase B: open after the blind inspection',
+  fullBlindInputs: 'full-blind only (default): Phase B inputs',
+  fullBlindAccess: 'I only after a complete neutral Phase A is saved: filled Stage 1 records, full status, earlier reports, checklist and dispositions. Fresh independent read-only BA; no author or old reviewer reuse.',
+  correctionInputs: 'correction-validation (eligible baseline): immediate inputs',
+  correctionAccess: 'I from the start, not blind: current Stage 1 records, full status, prior reports, checklist and dispositions. Pin the complete valid root full-blind report (findings allowed), its snapshot and source hashes, predecessor, latest candidate and every intervening report/change. No new Phase A. PM alone updates shared status.',
+  openStage2Modes: 'Stage 2: full-blind / correction-validation',
   frameMeaning: 'Frames show responsibility, not a passed result.',
   example: 'Example', usedAt: 'Used at', implementationReference: 'Implementation or evidence reference',
   inputArtifacts: 'Input artifacts', updatedArtifacts: 'Updated artifacts', outputArtifacts: 'Output artifacts', none: 'None',
@@ -1225,7 +1230,7 @@ function renderDetails(type, id) {
       contextStage && id === 'error-prevention'
         ? fact(tr('roleInStage'), `<p>${escapeHtml(tr('stage'))} ${escapeHtml(contextStage.number)} · ${escapeHtml(contextStage.title)}</p><p>${escapeHtml(contextStage.prevention[locale])}</p>`)
         : contextStage && currentFlow
-        ? fact(tr('roleInStage'), `<p><span class="flow-chip ${artifactFlowById.get(id)}">${escapeHtml(currentFlow.label)}</span> ${escapeHtml(tr('stage'))} ${escapeHtml(contextStage.number)} · ${escapeHtml(contextStage.title)}</p>`)
+        ? fact(tr('roleInStage'), `<p><span class="flow-chip ${artifactFlowById.get(id)}">${escapeHtml(currentFlow.label)}</span> ${escapeHtml(tr('stage'))} ${escapeHtml(contextStage.number)} · ${escapeHtml(contextStage.title)}</p>` + reviewAccessDetails(contextStage))
         : '',
       contextStage
         ? fact(tr('returnPathsFromSelectedStage'), `<p>${escapeHtml(contextStage.returns)}</p>` + correctionHelp(contextStage))
@@ -1289,6 +1294,7 @@ function correctionHelp(stage) {
   return `<details class="reentry-details"><summary>${escapeHtml(tr('correctionScope'))}</summary>`
     + ['correctionScopeText', 'correctionExpansionText', 'correctionHandoffText', 'correctionControlText']
       .map(key => `<p>${escapeHtml(tr(key))}</p>`).join('')
+    + `<a class="source-link" href="${data.repository}/blob/main/analysis/reviews/README.md#stage-2-correction-validation" target="_blank" rel="noopener">${escapeHtml(tr('openStage2Modes'))}</a>`
     + `<a class="source-link" href="${data.repository}/blob/main/analysis/reviews/README.md#correction-scope-and-handoff" target="_blank" rel="noopener">${escapeHtml(tr('openCorrectionScope'))}</a></details>`;
 }
 
@@ -1350,6 +1356,13 @@ function stageExampleReference(stage) {
   return fact(tr('realXPlannerTrail'), links);
 }
 
+function reviewAccessDetails(stage) {
+  if (!stage.reviewAccess) return '';
+  return `<p><strong>${escapeHtml(tr('fullBlindInputs'))}</strong>: ${escapeHtml(tr('fullBlindAccess'))}</p>`
+    + `<p><strong>${escapeHtml(tr('correctionInputs'))}</strong>: ${escapeHtml(tr('correctionAccess'))}</p>`
+    + `<a class="source-link" href="${data.repository}/blob/main/${stage.reviewAccess.instructionPath}" target="_blank" rel="noopener">${escapeHtml(tr('openStageInstructions'))}</a>`;
+}
+
 function artifactFlowFacts(stage) {
   const inputs = new Set(stage.inputs);
   const outputs = new Set(stage.outputs);
@@ -1357,6 +1370,14 @@ function artifactFlowFacts(stage) {
   const updated = stage.inputs.filter((id) => outputs.has(id) && !delayed.includes(id));
   const inputOnly = stage.inputs.filter((id) => !outputs.has(id) && !delayed.includes(id));
   const outputOnly = stage.outputs.filter((id) => !inputs.has(id));
+  if (stage.reviewAccess) {
+    return [
+      fact(tr('fullBlindInputs'), `<p>${escapeHtml(tr('fullBlindAccess'))}</p>` + buttonList(delayed, 'artifact')),
+      fact(tr('correctionInputs'), `<p>${escapeHtml(tr('correctionAccess'))}</p>` + buttonList([...stage.inputs, 'error-prevention'], 'artifact')
+        + `<a class="source-link" href="${data.repository}/blob/main/${stage.reviewAccess.instructionPath}" target="_blank" rel="noopener">${escapeHtml(tr('openStageInstructions'))}</a>`),
+      fact(tr('outputArtifacts'), buttonList(outputOnly, 'artifact', stage)),
+    ];
+  }
   return [
     inputOnly.length ? fact(tr('inputArtifacts'), buttonList(inputOnly, 'artifact', stage)) : '',
     delayed.length ? fact(tr('delayedInputs'), buttonList(delayed, 'artifact', stage)) : '',

@@ -162,7 +162,7 @@ The evidence written after wireframes are drawn. Version 4 pins the common UI ki
 
 
 
-An independent verdict on the prototype set. It checks that normalization is truthful, required roles and states are represented, navigation is coherent, map coverage is sufficient and the design has not invented unsupported behavior. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it.
+An independent verdict on the prototype set. It checks that normalization is truthful, required roles and states are represented, navigation is coherent, map coverage is sufficient and the design has not invented unsupported behavior. **What the review records:** Exact scope and authoritative expected result; Actual observation and evidence for each check; Matched / mismatch / not-checked / not-applicable; Linked findings, blocked scope and reconciled totals; Verdict and next action; prior results are not newly verified. Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract.
 
 - **Created by:** A fresh independent agent assigned to Stage 7 authors a report for the exact reviewed scope.
 - **Maintained / decided by:** The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.

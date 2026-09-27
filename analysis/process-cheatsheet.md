@@ -23,7 +23,7 @@ A quick reading aid, not a new gate or project verdict. The process-maintenance 
 
 - **Reads** = inputs, not permission to change them. **Writes result** = create or populate the stage-owned result; on return, revise mutable results but create a new numbered immutable review/delivery report. **Updates shared** = read and update an existing shared artifact, only within the stage's authority.
 
-- **Shared status:** Bootstrap creates `migration_status.yaml`; at every Stage 1-19 the coordinating agent reads it and records durable outcomes, blockers and authorized transitions. It is omitted from the lists below. Blind reviewers at 2/19 receive neutral routing first, full status only in Phase B.
+- **Shared status:** Bootstrap creates `migration_status.yaml`; PM reads it and records durable outcomes, blockers and authorized transitions. It is omitted from the lists below. Stage 2 full-blind and Stage 19 reviewers receive neutral routing first, full status only in Phase B. Eligible Stage 2 correction-validation reads it immediately; reviewers never edit status.
 
 - **Always:** follow MIGRATION.md and the constitution; use configured project commands and approved environment settings. Short artifact names below match 3D labels; the artifact catalog gives exact paths. Linked approved sources are part of the input, not optional background.
 
@@ -33,13 +33,13 @@ A quick reading aid, not a new gate or project verdict. The process-maintenance 
 
 - **Correction handoff:** record the boundary, retained work, actual checks/results and separate next control in the existing record. PM validates before accepting RESULT or requesting control. [Required handoff](reviews/README.md#correction-scope-and-handoff).
 
-- **Control scope stays separate:** mandatory gates, including repository-wide gates, and required full/fresh/blind reviews and owner decisions remain unchanged. Stage 2 still requires full blind Phase A, saved before two-way Phase B. [Control boundary](reviews/README.md#correction-scope-and-handoff).
+- **Control scope stays separate:** Stage 2 defaults to full-blind; bounded correction-validation requires a complete valid full-blind baseline and a fresh eligible BA. It is not blind and must prove whole-scope coverage. Stage 19 remains blind; other controls, repository-wide gates and owner decisions are unchanged. [Stage 2 mode boundary](reviews/README.md#stage-2-correction-validation).
 
 - **PR boundaries:** publish each completed control attempt separately from its later corrections. Required CI and owner merge precede the correction PR and the next planning control; a merged negative report is not acceptance. Preserve in-flight work. Stage 17 code peer review remains before merge. [Review And Correction PRs](migration_methodology.md#review-and-correction-prs).
 
 - **Readable PRs:** PM keeps one current description: purpose, changes, verification, open items, owner action/next and evidence. Update after pushes and read back before handoff; separate current-head CI from local and independent checks. Comments record meaningful events, commits preserve why/what and evidence paths. [Communication contract](migration_methodology.md#pr-descriptions-comments-and-commits).
 
-- **Learned checks:** one [`error-prevention-checklist.md`](error-prevention-checklist.md), not another findings backlog. Read applicable rows before work; self-check before handoff and after fixes. Generalize confirmed repeatable mistakes, deduplicate by meaning, and record short results in the existing work record or `control.prevention_self_check`. Independent reviewers propose; the coordinator maintains; the owner may prune. Stages 2/19 open learned checks only in Phase B. [Admission and timing](error-prevention.md).
+- **Learned checks:** one [`error-prevention-checklist.md`](error-prevention-checklist.md), not another findings backlog or a scope ceiling. Read applicable rows before work; self-check before handoff and after fixes. Generalize confirmed repeatable mistakes, deduplicate by meaning, and record results in the existing record or `control.prevention_self_check`. Reviewers propose; the coordinator maintains; the owner may prune. Stage 2 full-blind and Stage 19 open learned checks in Phase B; eligible Stage 2 correction-validation reads them immediately. [Admission and timing](error-prevention.md).
 
 ## Contents
 
@@ -92,20 +92,20 @@ correction authority; upgrading a project is not reinitialization. Follow
 - **Updates shared:** None.
 - **Error prevention:** Before work, read applicable checks by stage and affected scope. Before handoff and after corrections, check the actual result and record outcomes in the working report or control.prevention_self_check. Generalize confirmed errors; the coordinator admits and deduplicates updates. [Checklist procedure](error-prevention.md).
 
-Read the immutable legacy source named by project.yaml. On first entry, populate the Bootstrap blanks. On return, preserve valid map/reconnaissance evidence and correct findings, affected dependencies and all occurrences of the same mechanism within the recorded impact boundary; do not restart discovery. The next Stage 2 still requires a new full in-scope blind Phase A followed by two-way Phase B.
+Read the immutable legacy source named by project.yaml. On first entry, populate the Bootstrap blanks. On return, preserve valid evidence and correct findings, affected dependencies and related mechanisms within the recorded impact boundary. PM proposes the next Stage 2 mode before reviewer access; the reviewer confirms the boundary and verifies baseline eligibility from permitted records: full-blind by default; correction-validation only after a complete valid full-blind baseline and bounded corrections. [Stage 2 modes](reviews/README.md#stage-2-correction-validation).
 
 ### [2 - Control reconnaissance](migration_methodology.md#stage-02)
 
 **Did we miss or misinterpret any legacy behavior?** *Business Analyst (fresh independent reviewer).*
 
 - **Role and skill:** Business Analyst (fresh independent reviewer). PM coordinates; the assigned session reads .agents/skills/migration-ba/SKILL.md and returns ACK before work. Questions and RESULT return to PM with exact artifacts, checks and remaining gaps. Human decisions remain with the owner. [Delegation contract](agent-roles.md).
-- **Reads:** None.
-- **Phase B only:** [`legacy_reconnaissance.md`](legacy_reconnaissance.md); [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx)
+- **full-blind: Phase B only:** [`legacy_reconnaissance.md`](legacy_reconnaissance.md); [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx) Full status, earlier reports, checklist and dispositions follow saved complete neutral Phase A.
+- **correction-validation: reads immediately:** [`legacy_reconnaissance.md`](legacy_reconnaissance.md); [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx) Full status and the pinned prior evidence chain; no new Phase A.
 - **Writes result:** `stage-02-pass-NNN.md`
 - **Updates shared:** None.
-- **Error prevention:** Phase A: do not open the learned checklist, its extracts or prior self-check/learning notes. Save independent observations first. Phase B: read the pinned checklist, check applicable rows and reconcile with those observations. In Checklist Review, link each F-NNN/B-NNN issue to CHK-NNN with the author claim, observed discrepancy and required recheck. The coordinator validates and deduplicates lesson proposals. [Checklist procedure](error-prevention.md).
+- **Error prevention:** full-blind: withhold learned checks, prior reports and self-check notes until complete Phase A is saved; reconcile in Phase B. Eligible correction-validation: read them immediately, with no new Phase A. In either mode independently check applicable CHK rows and author claims, linking C/F/B IDs without double counting; learned checks are not a scope ceiling. The reviewer proposes lessons; PM validates and deduplicates. [Checklist procedure](error-prevention.md).
 
-Phase A: immutable legacy source and neutral scope only. Save the independent inventory before opening the filled records in Phase B.
+Default/new scope: full-blind, with complete neutral Phase A saved before two-way Phase B. Eligible bounded correction-validation is not blind: a fresh independent read-only BA (not author or reused reviewer) reads prior reports/checklist/dispositions immediately, with no new Phase A. A complete valid full-blind baseline may contain findings. Pin root full report, snapshot/source hashes, predecessor, latest candidate and all intervening reports/changes. Verify the entire diff, all open findings, related mechanisms/dependencies and affected old matched claims; retain exact C IDs only with applicability rationale, without double counting. Clean requires the whole coverage union and no unchecked scope or open findings, including Low. Bounded impact checks may expand; CHK is not a ceiling. Changed source/channels/scope, contamination, unreliable/missing/incomplete baseline or systemic/unbounded impact stop closure as blocked/invalid and require a full new blind session before prior information. Use the existing report and coverage table, not a new canonical artifact. [Required mode rules](reviews/README.md#stage-2-correction-validation).
 
 ### [3 - Live legacy walkthrough](migration_methodology.md#stage-03)
 

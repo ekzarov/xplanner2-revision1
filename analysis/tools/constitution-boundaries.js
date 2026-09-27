@@ -25,7 +25,8 @@ function boundaryErrors(text) {
   requireText(constitution, 'process-contract.md#constitution-implementation-map', 'Constitution must separate principles from their process bindings');
   if (!core || /\bStages?\s+\d|\bPhase\s+[AB]\b|\b(?:OKF|SDD|GitHub|Draw\.io)\b|\b(?:spec|plan|tasks)\.md\b/.test(coreProse)) errors.push('Core principles must not depend on stage numbers, named packet phases, artifact filenames or vendors');
   requireText(text.contract, '## Constitution Implementation Map', 'Process must own the concrete implementation map');
-  requireText(text.contract, 'Stages 2 and 19 save Phase A before Phase B', 'Process binding must preserve numbered blind-review rules');
+  requireText(text.contract, 'Stage 2 full-blind and Stage 19 save Phase A before Phase B', 'Process binding must preserve numbered blind-review rules');
+  requireText(text.contract, 'Stage 2 correction-validation is separately governed, independent but not blind', 'Correction validation must not claim blind discovery');
   if (/Every agent MUST read, in order|`(?:Overview|Technology Stack|Team Capability)`|[\u0400-\u04ff]/u.test(text.constitution)) errors.push('Constitution must not duplicate reading lists or workbook schema');
   const principles = [...text.constitution.matchAll(/^### ([IVX]+)\./gm)].map(m => m[1]);
   if (principles.join(',') !== 'I,II,III,IV,V,VI,VII,VIII,IX,X,XI,XII,XIII,XIV') errors.push('Constitution must preserve all fourteen principle identities');

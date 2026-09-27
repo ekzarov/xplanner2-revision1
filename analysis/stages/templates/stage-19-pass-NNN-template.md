@@ -23,7 +23,7 @@
 - Linked findings, blocked scope and reconciled totals
 - Verdict and next action; prior results are not newly verified
 
-Required unchecked scope prevents a clean pass. Stage 2 and Stage 19 preserve their blind first pass; reconciliation follows it.
+Required unchecked scope prevents a clean pass. Stage 19 preserves its blind first pass; reconciliation follows it. Stage 2 has its own mode-qualified record contract.
 
 **Conditional cosmetic backlog check:**
 
@@ -262,7 +262,7 @@ consolidated backlog, SDD tasks, and parity map agree.
 ## Error Prevention
 
 Follow [the shared procedure](../../error-prevention.md). Record actual checking, not a copied
-claim from an earlier attempt. At blind Stages 2 and 19 this section is Phase B
+claim from an earlier attempt. At Stage 2 full-blind and Stage 19 this section is Phase B
 only: learned checks and prior self-check/learning notes are withheld until the
 independent Phase A snapshot is saved.
 

@@ -82,8 +82,8 @@ ${text(30,667,'Authors continue bounded work. Responsible checks:','body',60)}
 ${text(30,695,'3 BA; 12 Architect; 18 Developer. Not independent.','body',60)}
 ${text(680,631,'Fresh instances of the same specializations','title',60)}
 ${text(680,667,'2 BA; 7 QA; 10/14/16 Architect; 17 Developer; 19 QA.','body',65)}
-${text(680,695,'Blind 2/19: save Phase A, then release Phase B.','body',65)}
-${text(680,723,'Final acceptance: independent agents of other vendors.','note',65)}
+${text(680,695,'2: full-blind or eligible correction-validation.','body',65)}
+${text(680,720,'19: blind A then B; final: other-vendor agents.','note',65)}
 ${text(30,759,'Return: scoped author corrections, not a restart. Required fresh review remains separate.','return',120)}
 ${node('tools',30,792,455,140,48)}
 ${node('records',510,792,740,140,79)}
