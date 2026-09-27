@@ -1,0 +1,1047 @@
+{
+ "packet": "S02-P007",
+ "pass": 7,
+ "control_mode": "correction-validation",
+ "reviewed_revision": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+ "base_revision": "15cb6b26946f73596177eba8cead333383d9f728",
+ "baseline_pass": 6,
+ "counts": {
+  "total": 65,
+  "matched": 48,
+  "mismatch": 16,
+  "not-applicable": 1
+ },
+ "findings": {
+  "F-001": "low",
+  "F-002": "low",
+  "F-003": "low"
+ },
+ "exclusions": {
+  "E-001": "author tool-execution facts (packet: author scratch is not evidence)"
+ },
+ "blockers": {},
+ "items": [
+  {
+   "id": "C-001",
+   "item": "pass-006 F-001 closure: merge=true request binding mechanism and reach",
+   "expected": "EditObjectAction#populateObject binds the request onto the object when merge=true; every entry point, bypassed step and restriction recorded (pass-006 F-001 required action)",
+   "observed": "Bytecode: single RequestUtils.populate site (EditObjectAction#populateObject); 6 callers of populateObject; 12 EditObjectAction subclasses; 10 mapped entry points (/edit/project, /edit/roles, /edit/iteration, /edit/feature, /edit/userstory, /move/continue/userstory, /edit/task, /edit/note, /edit/person, /edit/setting); ImportStoriesAction override without parent call; ContinueUnfinishedStories/MoveContinueTask do not reach it; 4 pages post merge. Rows 124, 129, 137, 140, 141, the editor rows, GAP-007 and the Q3 fact record this.",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/listing-EditObjectAction.txt",
+    "reviewer-scratch/sinks.json",
+    "WAR:WEB-INF/action-servlet.xml"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-129",
+    "C-097",
+    "C-084"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-002",
+   "item": "pass-006 F-002 closure: returnto redirects",
+   "expected": "13 unvalidated returnto redirect methods recorded with reach; internal navigation distinguished",
+   "observed": "19 new ActionForward(String,true) sites classified: 13 methods in 12 classes read getParameter(\"returnto\") and redirect unchanged (null/empty -> mapping forward; UpdateTime no fallback); CloseIterationAction appends raw returnto to a fixed target; AuthenticationAction saved URL, IdSearchAction, IntegrationAction#addProjectId internal; RequestProcessor#processForwardConfig prefixes the context path only for \"/\" values (struts-1.2.9.jar). Recorded in rows, GAP-007 and the Q3 fact.",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/nav-redirect-ctx.txt",
+    "reviewer-scratch/lib/struts (RequestProcessor, TilesRequestProcessor listings)"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-127"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-003",
+   "item": "pass-006 F-002 view-name part: Spring MVC generic handlers",
+   "expected": "The {objectType} view name is recorded with every reachable navigation effect",
+   "observed": "CommonObjectHandler#list/#edit return the path value; the bundled Spring 3.0.5 InternalResourceViewResolver extends UrlBasedViewResolver, whose createView turns \"redirect:<x>\" into RedirectView (context path only for \"/\" values, then sendRedirect) and \"forward:<x>\" into InternalResourceView. The records state only /WEB-INF/jsp/<value>.jsp and \"no existing page\".",
+   "result": "mismatch",
+   "evidence": [
+    "WAR:WEB-INF/classes/spring-web.xml:26-30",
+    "reviewer-scratch/lib/webmvc (UrlBasedViewResolver#createView, RedirectView#renderMergedOutputModel)"
+   ],
+   "link": "F-001",
+   "covers_pass006": [
+    "C-110",
+    "C-134",
+    "C-013"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-004",
+   "item": "pass-006 F-003 closure: export people content",
+   "expected": "XML, MPX and MSPDI exports state the every-person content with hidden fields",
+   "observed": "Verified in bytecode (XmlExporter#export/#configureBindings, MpxExporter#export, MspdiExporter#export, MpxExporter$ResourceRegistry#<init>); no .jrxml template in the WAR (0 entries)",
+   "result": "matched",
+   "evidence": [
+    "WAR:WEB-INF/classes/com/technoetic/xplanner/export/*"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-059"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-005",
+   "item": "pass-006 F-004 closure: configuration-key figures",
+   "expected": "114 entries, 106 distinct keys, consumers of the bracketed keys, 42 without consumer",
+   "observed": "Own java.util.Properties parser: xplanner.properties 317 physical lines, 105 entries (3 bracketed, error.filingInfo 16 continuation lines), custom 9, overlap 8 -> 114/106; negative control: the naive line pattern reproduces 111/103. Consumers: 54 keys lack an exact-name string; 12 of them are consumed by key-building prefixes (twiki.scheme. in TwikiTag; login[{0}].option. in LoginModuleLoader; export. via WritableTableTag -> displaytag TableProperties), leaving the recorded 42.",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/props.js",
+    "reviewer-scratch/config-consumers.js",
+    "reviewer-scratch/config-consumers.json"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-034"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-006",
+   "item": "related-occurrence check (d): request-to-object binding completeness",
+   "expected": "Every framework or reflection copy of request data onto domain or persistent objects found",
+   "observed": "Complete: RequestUtils.populate 1 site; commons-beanutils/Spring copy sites 10 (object-to-form, ids, SOAP data classes, config options, clone); Spring MVC only @PathVariable; REST UpdateService only scalar @FormParam/@PathParam; SOAP data classes have no password property and add/update/remove call hasPermission; Struts form population: nested domain getters MoveContinueTaskForm.getUserStory (new transient UserStory, never read), NoteEditorForm/ImportForm.getAttachedFile (setFile never called) -> no persistent target (safe, not recorded; no behavior effect).",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/sinks.json",
+    "reviewer-scratch/class-index.json"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-010",
+    "C-011"
+   ],
+   "obligation": "new obligation (author check (d))"
+  },
+  {
+   "id": "C-007",
+   "item": "related-occurrence check (e): request-selected navigation completeness",
+   "expected": "Every redirect, forward and view name built from request values classified",
+   "observed": "Struts: 19 redirect and 10 non-redirect ActionForward sites, 1 setPath, 2 sendRedirect, 44 findForward sites (43 constant, DispatchForward from mapping parameter), no DispatchAction subclasses; JSP: all jsp:include/logic:redirect constant. Missed: Spring view-name redirect:/forward: prefixes (C-003) and Tiles-definition processing of returnto values (TilesRequestProcessor#processTilesDefinition renders one of the 4 tiles-definitions.xml layouts instead of redirecting when returnto names it); client-side navigation from returnto in editIterationStatus.jsp:70 (C-036).",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer-scratch/nav-redirect-ctx.txt",
+    "WAR:WEB-INF/tiles-definitions.xml"
+   ],
+   "link": "F-001, F-002",
+   "covers_pass006": [],
+   "obligation": "new obligation (author check (e))"
+  },
+  {
+   "id": "C-008",
+   "item": "related-occurrence check (f): export and download content completeness",
+   "expected": "Every export/download channel and its entity sets classified",
+   "observed": "Response writers: DownloadAttachmentAction, ExportAction, FileManagerAction, iCalServlet, displaytag TableTag (export enabled on no table); exporter beans spring-beans.xml:236-240; CsvExporter unwired; PdfReportExporter templates absent; REST views and SOAP getPeople as recorded. Complete.",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/sinks.json"
+   ],
+   "link": "none",
+   "covers_pass006": [],
+   "obligation": "new obligation (author check (f))"
+  },
+  {
+   "id": "C-009",
+   "item": "related-occurrence check (g): figures derived from .properties files",
+   "expected": "Every properties-derived count regenerated with a format-aware parser and a positive control",
+   "observed": "Matched: 114/106/317, 42, 10 bundles, 68 cited ranges (67 on entries; 167-190 commented), per-bundle presence 0 differences (81 named keys by my extraction vs 78 stated; conclusion unchanged). Mismatch: public-page keys 41 (39 static + 2 scriptlet) omit the static titleKey login.title (login.jsp:14) and the layout footer keys app.label.version and footer.message (footer.jsp:25,38, inserted by tiles:default); regenerated 42 static + 2 scriptlet = 44 (positive control login.instructions found).",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer-scratch/public-keys.js",
+    "reviewer-scratch/public-keys.json"
+   ],
+   "link": "F-003",
+   "covers_pass006": [],
+   "obligation": "new obligation (author check (g))"
+  },
+  {
+   "id": "C-010",
+   "item": "changed workbook row 35",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "H note: /do/edit/roles is EditRoleAction (subclass of EditObjectAction without doExecute/populateObject override, type Project, WAR:WEB-INF/action-servlet.xml:400-404), so merge=true binds onto the project",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 35",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-165"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-011",
+   "item": "changed workbook row 43",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "H notes: binding through EditObjectAction#populateObject (merge equals \"true\" -> RequestUtils.populate, else #copyProperties and #populateManyToOneRelationships); Person setters include setPassword and setHidden; no page posts merge=true to /do/edit/person (4 merge pages checked); redirect to returnto unchanged, findForward(\"view/projects\") when null",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 43",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-172",
+    "C-081",
+    "C-053"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-012",
+   "item": "changed workbook row 46",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "H notes point to row 43; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 46",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-175"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-013",
+   "item": "changed workbook row 58",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "ChangeLocaleAction#execute: returnto read at line 27, StringUtils.isEmpty -> view/projects, else new ActionForward(returnto, true)",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 58",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-186",
+    "C-036",
+    "C-093"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-014",
+   "item": "changed workbook row 59",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "EditObjectAction bean /edit/setting type Setting (action-servlet.xml:420-424); binding note correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 59",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-187",
+    "C-091"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-015",
+   "item": "changed workbook row 60",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "F/H: handlers println and return {objectType}; resolver prefix/suffix and :31-35 commented out verified; but the bundled InternalResourceViewResolver (UrlBasedViewResolver#createView) turns a value starting with redirect: or forward: into RedirectView/InternalResourceView, which the row does not state",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_user_flows.xlsx row 60",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "F-001",
+   "covers_pass006": [
+    "C-188"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-016",
+   "item": "changed workbook row 62",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "CommandExecutorAction, PutTheClockForwardAction, EditPropertiesAction redirect to returnto; null -> mapping forward",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 62",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-190",
+    "C-096",
+    "C-131"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-017",
+   "item": "changed workbook row 78",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "EditProjectAction#saveForm calls populateObject and createObject; doExecute delegates to EditObjectAction#doExecute; notes correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 78",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-205",
+    "C-056"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-018",
+   "item": "changed workbook row 81",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "note points to rows 78 and 35; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 81",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-208"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-019",
+   "item": "changed workbook row 88",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "EditIterationAction has no override; notes correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 88",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-214",
+    "C-061"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-020",
+   "item": "changed workbook row 90",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "note points to row 88; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 90",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-216"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-021",
+   "item": "changed workbook row 101",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "CloseIterationAction#doExecute: onclose forward (redirect=true, /do/continue/unfinished/stories) + \"?iterationId=\" + oid + \"&\" + raw returnto + \"?oid=\" + oid + \"&fkey=\" + oid; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 101",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-227",
+    "C-063"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-022",
+   "item": "changed workbook row 121",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "EditStoryAction no override; UserStoryEditorForm#validate skips name/estimate/priority when isMerge; notes correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 121",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-246",
+    "C-070",
+    "C-136"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-023",
+   "item": "changed workbook row 124",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "D/F/H: validator branches verified (same_iteration only when merge); binding note correct; earlier pass-003 F-003 content preserved",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 124",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-249",
+    "C-524"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-024",
+   "item": "changed workbook row 125",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "note points to row 121; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 125",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-250"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-025",
+   "item": "changed workbook row 129",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "moveContinueStory.jsp:20-28 posts oid, iterationId, merge=true, fkey, action, returnto; MoveContinueStoryAction#saveForm -> populateObject; doExecute redirects to returnto; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 129",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-254",
+    "C-071"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-026",
+   "item": "changed workbook row 134",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "EditTaskAction#doExecute -> EditObjectAction#doExecute; EditTaskAction#populateObject invokespecial parent; TaskEditorForm#validate skips name/estimate when isMerge; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 134",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-258",
+    "C-073"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-027",
+   "item": "changed workbook row 137",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "TaskEditorForm#validate verified; binding note correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 137",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-261"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-028",
+   "item": "changed workbook row 139",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "note points to row 134; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 139",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-263"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-029",
+   "item": "changed workbook row 140",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "task.jsp:87-94 posts oid, action=Update, merge=true, returnto, completed=true; Task#setCompleted exists; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 140",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-264"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-030",
+   "item": "changed workbook row 141",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "task.jsp:76-83 posts completed=false with merge=true; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 141",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-265"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-031",
+   "item": "changed workbook row 149",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "UpdateTimeAction#doUpdateTimeAction and #doUpdateEstimateAction build new ActionForward(getParameter(\"returnto\"), true) without fallback; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 149",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-272",
+    "C-077"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-032",
+   "item": "changed workbook row 169",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "EditNoteAction#populateObject invokespecial parent; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 169",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-291",
+    "C-078",
+    "C-120",
+    "C-124"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-033",
+   "item": "changed workbook row 173",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "note points to row 169; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 173",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-295"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-034",
+   "item": "changed workbook row 209",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "XmlExporter#export unconditional Person query -> XPlannerData#setPeople; #configureBindings hides Person lastUpdateTime and password (Role personId, id, proxy; Project currentIteration); MpxExporter/MspdiExporter load all persons into ResourceRegistry (getName; getId as key); correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 209",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-327"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-035",
+   "item": "changed workbook row 210",
+   "expected": "changed cells supported by the WAR; unchanged content still consistent; status unchanged",
+   "observed": "iteration export beans action-servlet.xml:132-166 use the same exporters; PdfExporter writes customer/acceptor names only; correct",
+   "result": "matched",
+   "evidence": [
+    "legacy_user_flows.xlsx row 210",
+    "reviewer-scratch/wb-changed-delta.txt"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-328"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-036",
+   "item": "workbook row 98 (unchanged) under refined CHK-012",
+   "expected": "every request-derived output and navigation sink of the start/close confirmation page recorded",
+   "observed": "Row 98 lists fkey (34) and returnto (35); returnto is also written unescaped into the Cancel button script document.location='<context>+returnto' (WAR:WEB-INF/jsp/edit/editIterationStatus.jsp:70), a JavaScript-string and client navigation sink not recorded",
+   "result": "mismatch",
+   "evidence": [
+    "WAR:WEB-INF/jsp/edit/editIterationStatus.jsp:32,70",
+    "reviewer-scratch/reflect-scan.json"
+   ],
+   "link": "F-002",
+   "covers_pass006": [
+    "C-224",
+    "C-062"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-037",
+   "item": "reconnaissance reading block",
+   "expected": "figures and summaries match the current records",
+   "observed": "26 rows changed, 210/111/77/21/1, 13 methods, 10 entry points, 114/106/42 verified; the summary \"the generic Spring MVC handlers use a path value as the view name and find no page\" repeats the incomplete row-60 claim",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:37-47"
+   ],
+   "link": "F-001",
+   "covers_pass006": [
+    "C-494"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-038",
+   "item": "Scope And Provenance edits",
+   "expected": "snapshot date, analyst list and skill blob correct",
+   "observed": "commit 6ff451d is dated 2026-09-27; SKILL.md blob d09ba8ced6616dc34fb30a9f2ecde6ab9c3a5398 at CAND; legacy hashes unchanged",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:101-104"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-493"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-039",
+   "item": "Source Inventory Configuration row",
+   "expected": "figures and consumer statement correct",
+   "observed": "as C-005; line citation xplanner.properties:162-164 resolves to the 3 bracketed keys",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:172"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-375"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-040",
+   "item": "Source Inventory Spring MVC pages row",
+   "expected": "view-name behavior complete",
+   "observed": "states only the JSP resolution; prefixes omitted (C-003)",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:175"
+   ],
+   "link": "F-001",
+   "covers_pass006": [
+    "C-378"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-041",
+   "item": "Source Inventory Export and reports row (unchanged, source dependency of F-003)",
+   "expected": "consistent with the corrected export content",
+   "observed": "unchanged text still correct (exporters, missing templates, CSV unwired, displaytag not enabled)",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:178"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-381"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-042",
+   "item": "Runnable Surfaces settings row",
+   "expected": "generic handlers outcome complete",
+   "observed": "\"select no existing page\" omits the redirect:/forward: view-name outcomes (C-003)",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:196"
+   ],
+   "link": "F-001",
+   "covers_pass006": [
+    "C-390"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-043",
+   "item": "Runnable Surfaces unauthenticated list, public-page texts",
+   "expected": "public-page key figure reproducible and complete",
+   "observed": "41 stated; regenerated 44 (C-009)",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:227"
+   ],
+   "link": "F-003",
+   "covers_pass006": [
+    "C-496",
+    "C-015",
+    "C-135"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-044",
+   "item": "Data And Integrations export row",
+   "expected": "export content and channel list correct",
+   "observed": "as C-004 and C-008",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:264"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-421"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-045",
+   "item": "GAP-007",
+   "expected": "binding and redirect facts added; earlier facts preserved",
+   "observed": "appended sentence correct; earlier credential and unauthenticated-exposure statements byte-identical (pass-004 F-001/F-005 still resolved)",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:334"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-429",
+    "C-526",
+    "C-530"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-046",
+   "item": "Q3 fact: merge=true binding (new row)",
+   "expected": "binding fact correct",
+   "observed": "as C-001 and C-006; cited lines resolve",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:435"
+   ],
+   "link": "none",
+   "covers_pass006": [],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-047",
+   "item": "Q3 fact: redirects and view names (new row)",
+   "expected": "navigation fact complete",
+   "observed": "redirect part correct (C-002); view-name part omits the redirect:/forward: prefixes and the Tiles-definition case (C-003, C-007)",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:436"
+   ],
+   "link": "F-001",
+   "covers_pass006": [],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-048",
+   "item": "Q3 facts completeness under refined CHK-012",
+   "expected": "every request-derived sink kind listed",
+   "observed": "binding and returnto redirects now listed; Spring view-name redirect and the editIterationStatus.jsp:70 script sink missing",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md Owner Decisions And Open Questions"
+   ],
+   "link": "F-001, F-002",
+   "covers_pass006": [
+    "C-492",
+    "C-126",
+    "C-534",
+    "C-538"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-049",
+   "item": "Build, Run, And Test Evidence: legacy hash, config-consumers-06 correction, build-workbook and audit rows",
+   "expected": "legacy facts and figures correct",
+   "observed": "legacy hashes equal; historical 111/103 labelled corrected; 18 epics/210/234; audit:workbook OK; audit:artifact-links 222 documents reproduced at CAND",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:275,292,307,310-313"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-503"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-050",
+   "item": "Build, Run, And Test Evidence: author tool execution facts",
+   "expected": "not a legacy claim",
+   "observed": "exit codes and scratch outputs of the author tools are process records outside the permitted evidence (packet: author scratch not evidence); every legacy fact they support is checked in its own item",
+   "result": "not-applicable",
+   "evidence": [
+    "packet.json forbidden_always"
+   ],
+   "link": "E-001",
+   "covers_pass006": [],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-051",
+   "item": "Build, Run, And Test Evidence: unauth-06 and props-parse-08 public-page figures",
+   "expected": "figure reproducible",
+   "observed": "39 static / 41 public-page keys not reproducible (C-009)",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:291,301"
+   ],
+   "link": "F-003",
+   "covers_pass006": [],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-052",
+   "item": "Build, Run, And Test Evidence: binding-trace-08 and props-parse-08 legacy figures",
+   "expected": "legacy figures reproducible",
+   "observed": "10 entry points and the ImportStories false positive (C-001), 114/106/317/controls/42/68/67 (C-005, C-009) reproduced; 190/125 are tool-internal statistics not stated as legacy facts",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:300-302"
+   ],
+   "link": "none",
+   "covers_pass006": [],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-053",
+   "item": "Return Correction Evidence (5 rows and paragraph)",
+   "expected": "dispositions and pending status correctly stated",
+   "observed": "rows state accepted/extended and \"pending: Stage 2 correction-validation\"; paragraph links the record",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:553-559"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-500"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-054",
+   "item": "Stage 1 Exit Checklist line",
+   "expected": "row count correct",
+   "observed": "210 rows after BA-001-08",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:572"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-501"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-055",
+   "item": "Error Prevention section (BA-001-08 learning and self-check)",
+   "expected": "self-check claims supported",
+   "observed": "claims 41 public-page keys (C-009) and complete view-name tracing under CHK-012 (C-003)",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:585-595"
+   ],
+   "link": "F-001, F-003",
+   "covers_pass006": [
+    "C-502"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-056",
+   "item": "superseded figures across the records (pass-002 F-010, refined CHK-007)",
+   "expected": "no stale figure unless labelled historical",
+   "observed": "103/111 only in the labelled historical config-consumers-06 row; no remaining \"views unknown\" or \"not determinable\" text",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/figures.json"
+   ],
+   "link": "none",
+   "covers_pass006": [
+    "C-521"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-057",
+   "item": "refined CHK-012 page output and client navigation regression over all 74 JSP/tag files",
+   "expected": "every raw request value written into output is recorded or justified",
+   "observed": "73 hit lines in 31 files; all cited in rows or justified (numeric parse, include parameters, unreachable wap/auth.jsp recorded) except editIterationStatus.jsp:70",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer-scratch/reflect-scan.js",
+    "reviewer-scratch/reflect-scan.json"
+   ],
+   "link": "F-002",
+   "covers_pass006": [],
+   "obligation": "new obligation (refined CHK-012, whole scope)"
+  },
+  {
+   "id": "C-058",
+   "item": "refined CHK-007: XML-derived figures (comment-aware, positive controls)",
+   "expected": "figures reproducible",
+   "observed": "87 = 74 + 7 + 6 action mappings (control: commented /logout mapping 2 raw -> 1), 24 form beans, 47 global forwards, 8 filters, 80 action beans (control: commented /logout bean 75 -> 74), Liquibase 8/21/4/2/10/26/3/1, 73 JSPs (view 31, edit 16)",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/figures.js",
+    "reviewer-scratch/figures.json"
+   ],
+   "link": "none",
+   "covers_pass006": [],
+   "obligation": "new obligation (refined CHK-007, whole scope)"
+  },
+  {
+   "id": "C-059",
+   "item": "refined CHK-007: workbook figures",
+   "expected": "figures reproducible",
+   "observed": "210 rows, 18 epics, last row 234, 111/77/21/1 at BASE and CAND; only xl/sharedStrings.xml changed; 29 cells in 26 rows; no status change",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/wb-diff.js",
+    "change-set.json"
+   ],
+   "link": "none",
+   "covers_pass006": [],
+   "obligation": "new obligation (refined CHK-007, whole scope)"
+  },
+  {
+   "id": "C-060",
+   "item": "refined CHK-007/CHK-004: other properties-derived figures",
+   "expected": "figures reproducible with the parser",
+   "observed": "10 bundles; format.date yyyy-MM-dd in 6, dd-MM-yyyy in 4; es date-time HH:MM; task.type.overhead in default, --, de, it, ja, ru",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/props.js"
+   ],
+   "link": "none",
+   "covers_pass006": [],
+   "obligation": "new obligation (refined CHK-007, whole scope)"
+  },
+  {
+   "id": "C-061",
+   "item": "CHK-001 citations",
+   "expected": "every cited file:line resolves",
+   "observed": "change set: 15 of 15 WAR citations resolve and their content matches; whole scope: 436 of 436 resolve (4 basename ambiguities resolved by path)",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/cite-check.js",
+    "reviewer-scratch/cite-check.json",
+    "reviewer-scratch/cite-check-changed.json"
+   ],
+   "link": "none",
+   "covers_pass006": [],
+   "obligation": "new obligation (CHK-001 over the change set)"
+  },
+  {
+   "id": "C-062",
+   "item": "CHK-009 in the candidate records and correction record",
+   "expected": "no credential value reproduced",
+   "observed": "0 credential values: no distinctive value, no assignment form, no login pair form; 5 masked pair-pattern matches are role names in permission text",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/cred-pair.js",
+    "reviewer-scratch/cred-mask.js"
+   ],
+   "link": "none",
+   "covers_pass006": [],
+   "obligation": "new obligation (CHK-009 over the change set)"
+  },
+  {
+   "id": "C-063",
+   "item": "workbook row 8 (unchanged) per-bundle public-page note (CHK-004, found by C-009)",
+   "expected": "every text key of the login page compared in all 10 bundles",
+   "observed": "the note covers the five form keys; the page title key login.title (login.jsp:14, absent in fr) and the layout footer keys app.label.version (all 10) and footer.message (default, \"--\", de only) are not stated",
+   "result": "mismatch",
+   "evidence": [
+    "WAR:WEB-INF/jsp/security/login.jsp:14",
+    "WAR:WEB-INF/jsp/common/footer.jsp:25,38",
+    "reviewer-scratch/public-keys.json"
+   ],
+   "link": "F-003",
+   "covers_pass006": [
+    "C-139"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-064",
+   "item": "workbook row 56 (unchanged) per-bundle error-page note (CHK-004, found by C-009)",
+   "expected": "every text key of the error page compared in all 10 bundles",
+   "observed": "the note covers error.unknownError and error.moreInfo; the title keys error.title (absent in de, es) and system.info.title (default and \"--\" only), selected at unexpectedError.jsp:19, and the footer keys are not stated",
+   "result": "mismatch",
+   "evidence": [
+    "WAR:WEB-INF/jsp/common/unexpectedError.jsp:19,27,47",
+    "reviewer-scratch/public-keys.json"
+   ],
+   "link": "F-003",
+   "covers_pass006": [
+    "C-184"
+   ],
+   "obligation": "rechecked baseline"
+  },
+  {
+   "id": "C-065",
+   "item": "other governed-scope files and process changes",
+   "expected": "no other Stage 1 record or source changed; process changes classified",
+   "observed": "legacy/ blobs identical (git ls-tree); Stage 1 folder: only the new disposition record; 62 PR #18 process files plus its maintenance record; checklist CHK-007/CHK-012 refinements (PR #19)",
+   "result": "matched",
+   "evidence": [
+    "change-set.json"
+   ],
+   "link": "none",
+   "covers_pass006": [],
+   "obligation": "new obligation (change-set completeness)"
+  }
+ ]
+}

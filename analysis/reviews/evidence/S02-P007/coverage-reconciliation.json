@@ -1,0 +1,2741 @@
+{
+ "packet": "S02-P007",
+ "baseline_pass": 6,
+ "baseline_items": 539,
+ "new_obligations": 11,
+ "reconciled_total": 550,
+ "newly_rechecked": 93,
+ "rechecked_baseline_items": 82,
+ "new_obligation_checks": [
+  "C-006",
+  "C-007",
+  "C-008",
+  "C-009",
+  "C-057",
+  "C-058",
+  "C-059",
+  "C-060",
+  "C-061",
+  "C-062",
+  "C-065"
+ ],
+ "retained": 457,
+ "uncovered": 0,
+ "retention_groups": {
+  "R-INV": "inventory-to-records item whose mapped rows are not among the 26 changed rows and whose mapped reconnaissance section text is byte-identical at CAND (hunks listed in change-set.json); legacy source identical; mechanism not one of binding, returnto navigation, view names, export content or properties figures (those items are rechecked)",
+  "R-ROW": "workbook row not changed (cell bytes identical; sheet XML identical; only sharedStrings entries of the 26 changed rows differ); legacy source identical; rows of the Q3 redirect list that do not describe navigation keep their effect statements, the navigation fact is carried and checked in the Q3 fact",
+  "R-REC": "reconnaissance claim row at a BASE line outside every change hunk (byte-identical text) and not a source dependency of the corrected mechanisms",
+  "R-EARLY": "earlier finding resolution whose rows and sections are byte-identical at CAND and whose mechanism is not touched by the corrections",
+  "R-EXCL": "pass-006 justified not-applicable item (E-001 infrastructure without user-visible behavior); unchanged source and records",
+  "R-INV-P": "inventory-to-records item that relies on a section with a change hunk (Configuration row, GAP-007, Q3 facts table, Build evidence, Data And Integrations): the sentences it relies on are byte-identical at CAND because the hunks only replace the key-figure sentences of the Configuration row, append one sentence to GAP-007, insert two Q3 rows, insert or extend Build rows, replace the export row (whose item C-059 is rechecked) and replace only the public-page bullet of the unauthenticated list; legacy source identical",
+  "R-EARLY-P": "earlier finding resolution that cites GAP-007 or the Q3 facts: its statements are byte-identical at CAND (GAP-007 appended only, Q3 rows inserted only); rows it cites unchanged"
+ },
+ "retained_by_group": {
+  "R-INV": 87,
+  "R-INV-P": 16,
+  "R-EXCL": 2,
+  "R-ROW": 181,
+  "R-REC": 141,
+  "R-EARLY": 29,
+  "R-EARLY-P": 1
+ },
+ "rechecked": [
+  {
+   "pass006": "C-010",
+   "pass006_result": "matched",
+   "rechecked_by": "C-006"
+  },
+  {
+   "pass006": "C-011",
+   "pass006_result": "matched",
+   "rechecked_by": "C-006"
+  },
+  {
+   "pass006": "C-013",
+   "pass006_result": "matched",
+   "rechecked_by": "C-003"
+  },
+  {
+   "pass006": "C-015",
+   "pass006_result": "matched",
+   "rechecked_by": "C-043"
+  },
+  {
+   "pass006": "C-034",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-005"
+  },
+  {
+   "pass006": "C-036",
+   "pass006_result": "matched",
+   "rechecked_by": "C-013"
+  },
+  {
+   "pass006": "C-053",
+   "pass006_result": "matched",
+   "rechecked_by": "C-011"
+  },
+  {
+   "pass006": "C-056",
+   "pass006_result": "matched",
+   "rechecked_by": "C-017"
+  },
+  {
+   "pass006": "C-059",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-004"
+  },
+  {
+   "pass006": "C-061",
+   "pass006_result": "matched",
+   "rechecked_by": "C-019"
+  },
+  {
+   "pass006": "C-062",
+   "pass006_result": "matched",
+   "rechecked_by": "C-036"
+  },
+  {
+   "pass006": "C-063",
+   "pass006_result": "matched",
+   "rechecked_by": "C-021"
+  },
+  {
+   "pass006": "C-070",
+   "pass006_result": "matched",
+   "rechecked_by": "C-022"
+  },
+  {
+   "pass006": "C-071",
+   "pass006_result": "matched",
+   "rechecked_by": "C-025"
+  },
+  {
+   "pass006": "C-073",
+   "pass006_result": "matched",
+   "rechecked_by": "C-026"
+  },
+  {
+   "pass006": "C-077",
+   "pass006_result": "matched",
+   "rechecked_by": "C-031"
+  },
+  {
+   "pass006": "C-078",
+   "pass006_result": "matched",
+   "rechecked_by": "C-032"
+  },
+  {
+   "pass006": "C-081",
+   "pass006_result": "matched",
+   "rechecked_by": "C-011"
+  },
+  {
+   "pass006": "C-084",
+   "pass006_result": "matched",
+   "rechecked_by": "C-001"
+  },
+  {
+   "pass006": "C-091",
+   "pass006_result": "matched",
+   "rechecked_by": "C-014"
+  },
+  {
+   "pass006": "C-093",
+   "pass006_result": "matched",
+   "rechecked_by": "C-013"
+  },
+  {
+   "pass006": "C-096",
+   "pass006_result": "matched",
+   "rechecked_by": "C-016"
+  },
+  {
+   "pass006": "C-097",
+   "pass006_result": "matched",
+   "rechecked_by": "C-001"
+  },
+  {
+   "pass006": "C-110",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-003"
+  },
+  {
+   "pass006": "C-120",
+   "pass006_result": "matched",
+   "rechecked_by": "C-032"
+  },
+  {
+   "pass006": "C-124",
+   "pass006_result": "matched",
+   "rechecked_by": "C-032"
+  },
+  {
+   "pass006": "C-126",
+   "pass006_result": "matched",
+   "rechecked_by": "C-048"
+  },
+  {
+   "pass006": "C-127",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-002"
+  },
+  {
+   "pass006": "C-129",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-001"
+  },
+  {
+   "pass006": "C-131",
+   "pass006_result": "matched",
+   "rechecked_by": "C-016"
+  },
+  {
+   "pass006": "C-134",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-003"
+  },
+  {
+   "pass006": "C-135",
+   "pass006_result": "matched",
+   "rechecked_by": "C-043"
+  },
+  {
+   "pass006": "C-136",
+   "pass006_result": "matched",
+   "rechecked_by": "C-022"
+  },
+  {
+   "pass006": "C-139",
+   "pass006_result": "matched",
+   "rechecked_by": "C-063"
+  },
+  {
+   "pass006": "C-165",
+   "pass006_result": "matched",
+   "rechecked_by": "C-010"
+  },
+  {
+   "pass006": "C-172",
+   "pass006_result": "matched",
+   "rechecked_by": "C-011"
+  },
+  {
+   "pass006": "C-175",
+   "pass006_result": "matched",
+   "rechecked_by": "C-012"
+  },
+  {
+   "pass006": "C-184",
+   "pass006_result": "matched",
+   "rechecked_by": "C-064"
+  },
+  {
+   "pass006": "C-186",
+   "pass006_result": "matched",
+   "rechecked_by": "C-013"
+  },
+  {
+   "pass006": "C-187",
+   "pass006_result": "matched",
+   "rechecked_by": "C-014"
+  },
+  {
+   "pass006": "C-188",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-015"
+  },
+  {
+   "pass006": "C-190",
+   "pass006_result": "matched",
+   "rechecked_by": "C-016"
+  },
+  {
+   "pass006": "C-205",
+   "pass006_result": "matched",
+   "rechecked_by": "C-017"
+  },
+  {
+   "pass006": "C-208",
+   "pass006_result": "matched",
+   "rechecked_by": "C-018"
+  },
+  {
+   "pass006": "C-214",
+   "pass006_result": "matched",
+   "rechecked_by": "C-019"
+  },
+  {
+   "pass006": "C-216",
+   "pass006_result": "matched",
+   "rechecked_by": "C-020"
+  },
+  {
+   "pass006": "C-224",
+   "pass006_result": "matched",
+   "rechecked_by": "C-036"
+  },
+  {
+   "pass006": "C-227",
+   "pass006_result": "matched",
+   "rechecked_by": "C-021"
+  },
+  {
+   "pass006": "C-246",
+   "pass006_result": "matched",
+   "rechecked_by": "C-022"
+  },
+  {
+   "pass006": "C-249",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-023"
+  },
+  {
+   "pass006": "C-250",
+   "pass006_result": "matched",
+   "rechecked_by": "C-024"
+  },
+  {
+   "pass006": "C-254",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-025"
+  },
+  {
+   "pass006": "C-258",
+   "pass006_result": "matched",
+   "rechecked_by": "C-026"
+  },
+  {
+   "pass006": "C-261",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-027"
+  },
+  {
+   "pass006": "C-263",
+   "pass006_result": "matched",
+   "rechecked_by": "C-028"
+  },
+  {
+   "pass006": "C-264",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-029"
+  },
+  {
+   "pass006": "C-265",
+   "pass006_result": "matched",
+   "rechecked_by": "C-030"
+  },
+  {
+   "pass006": "C-272",
+   "pass006_result": "matched",
+   "rechecked_by": "C-031"
+  },
+  {
+   "pass006": "C-291",
+   "pass006_result": "matched",
+   "rechecked_by": "C-032"
+  },
+  {
+   "pass006": "C-295",
+   "pass006_result": "matched",
+   "rechecked_by": "C-033"
+  },
+  {
+   "pass006": "C-327",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-034"
+  },
+  {
+   "pass006": "C-328",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-035"
+  },
+  {
+   "pass006": "C-375",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-039"
+  },
+  {
+   "pass006": "C-378",
+   "pass006_result": "matched",
+   "rechecked_by": "C-040"
+  },
+  {
+   "pass006": "C-381",
+   "pass006_result": "matched",
+   "rechecked_by": "C-041"
+  },
+  {
+   "pass006": "C-390",
+   "pass006_result": "matched",
+   "rechecked_by": "C-042"
+  },
+  {
+   "pass006": "C-421",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-044"
+  },
+  {
+   "pass006": "C-429",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-045"
+  },
+  {
+   "pass006": "C-492",
+   "pass006_result": "mismatch",
+   "rechecked_by": "C-048"
+  },
+  {
+   "pass006": "C-493",
+   "pass006_result": "matched",
+   "rechecked_by": "C-038"
+  },
+  {
+   "pass006": "C-494",
+   "pass006_result": "matched",
+   "rechecked_by": "C-037"
+  },
+  {
+   "pass006": "C-496",
+   "pass006_result": "matched",
+   "rechecked_by": "C-043"
+  },
+  {
+   "pass006": "C-500",
+   "pass006_result": "matched",
+   "rechecked_by": "C-053"
+  },
+  {
+   "pass006": "C-501",
+   "pass006_result": "matched",
+   "rechecked_by": "C-054"
+  },
+  {
+   "pass006": "C-502",
+   "pass006_result": "matched",
+   "rechecked_by": "C-055"
+  },
+  {
+   "pass006": "C-503",
+   "pass006_result": "not-applicable",
+   "rechecked_by": "C-049"
+  },
+  {
+   "pass006": "C-521",
+   "pass006_result": "matched",
+   "rechecked_by": "C-056"
+  },
+  {
+   "pass006": "C-524",
+   "pass006_result": "matched",
+   "rechecked_by": "C-023"
+  },
+  {
+   "pass006": "C-526",
+   "pass006_result": "matched",
+   "rechecked_by": "C-045"
+  },
+  {
+   "pass006": "C-530",
+   "pass006_result": "matched",
+   "rechecked_by": "C-045"
+  },
+  {
+   "pass006": "C-534",
+   "pass006_result": "matched",
+   "rechecked_by": "C-048"
+  },
+  {
+   "pass006": "C-538",
+   "pass006_result": "matched",
+   "rechecked_by": "C-048"
+  }
+ ],
+ "retained_items": [
+  {
+   "pass006": "C-001",
+   "group": "R-INV",
+   "stage1": "Scope And Provenance (legacy files, hashes)"
+  },
+  {
+   "pass006": "C-002",
+   "group": "R-INV",
+   "stage1": "Source Inventory composition table (964 files, 1090 entries)"
+  },
+  {
+   "pass006": "C-003",
+   "group": "R-INV",
+   "stage1": "Scope And Provenance (version, build date, revision, Build-Jdk, class version 50.0)"
+  },
+  {
+   "pass006": "C-004",
+   "group": "R-INV",
+   "stage1": "Source Inventory compiled classes row"
+  },
+  {
+   "pass006": "C-005",
+   "group": "R-INV",
+   "stage1": "Source Inventory third-party libraries row"
+  },
+  {
+   "pass006": "C-006",
+   "group": "R-INV",
+   "stage1": "Source Inventory dormant-code row; Parity-Map Boundary exclusions"
+  },
+  {
+   "pass006": "C-007",
+   "group": "R-INV",
+   "stage1": "Scope And Provenance known patch; GAP-005 P-01, P-02, P-07; Source Inventory local run hel"
+  },
+  {
+   "pass006": "C-008",
+   "group": "R-INV",
+   "stage1": "Source Inventory container metadata row; GAP-008"
+  },
+  {
+   "pass006": "C-009",
+   "group": "R-INV",
+   "stage1": "Source Inventory web descriptor and Struts rows; rows 17, 72"
+  },
+  {
+   "pass006": "C-012",
+   "group": "R-INV",
+   "stage1": "rows 228-230; Runnable Surfaces calendar row"
+  },
+  {
+   "pass006": "C-014",
+   "group": "R-INV-P",
+   "stage1": "rows 109-112, 162, 165; Runnable Surfaces chart row; GAP-007"
+  },
+  {
+   "pass006": "C-016",
+   "group": "R-INV",
+   "stage1": "rows 18, 20; web descriptor row"
+  },
+  {
+   "pass006": "C-017",
+   "group": "R-INV-P",
+   "stage1": "rows 55-56; Q3 facts (error page)"
+  },
+  {
+   "pass006": "C-018",
+   "group": "R-INV",
+   "stage1": "web descriptor row; rows 17, 72, 233"
+  },
+  {
+   "pass006": "C-019",
+   "group": "R-INV",
+   "stage1": "row 73; Runnable Surfaces activity-log row; GAP-013"
+  },
+  {
+   "pass006": "C-020",
+   "group": "R-EXCL",
+   "stage1": "no row or section (infrastructure without user-visible behavior)"
+  },
+  {
+   "pass006": "C-021",
+   "group": "R-INV",
+   "stage1": "rows 64-66; Spring row (loaders)"
+  },
+  {
+   "pass006": "C-022",
+   "group": "R-INV",
+   "stage1": "rows 64-65; Schema and seed data row"
+  },
+  {
+   "pass006": "C-023",
+   "group": "R-INV",
+   "stage1": "Legacy migration toolkit row"
+  },
+  {
+   "pass006": "C-024",
+   "group": "R-INV-P",
+   "stage1": "row 68; Configuration row; persistence row"
+  },
+  {
+   "pass006": "C-025",
+   "group": "R-INV-P",
+   "stage1": "rows 47, 68; Data And Integrations database row; P-02"
+  },
+  {
+   "pass006": "C-026",
+   "group": "R-INV-P",
+   "stage1": "rows 50 (transaction template), 172, 176; Build evidence persist-trace note"
+  },
+  {
+   "pass006": "C-027",
+   "group": "R-INV-P",
+   "stage1": "row 67; Configuration row"
+  },
+  {
+   "pass006": "C-028",
+   "group": "R-INV",
+   "stage1": "rows 55, 66-67; P-01"
+  },
+  {
+   "pass006": "C-029",
+   "group": "R-INV",
+   "stage1": "rows 188, 202; GAP-008; P-04"
+  },
+  {
+   "pass006": "C-030",
+   "group": "R-INV-P",
+   "stage1": "row 203; Data And Integrations SMTP row"
+  },
+  {
+   "pass006": "C-031",
+   "group": "R-INV",
+   "stage1": "rows 11, 21"
+  },
+  {
+   "pass006": "C-032",
+   "group": "R-INV-P",
+   "stage1": "rows 189-190; Data And Integrations wiki row"
+  },
+  {
+   "pass006": "C-033",
+   "group": "R-INV",
+   "stage1": "rows 94, 109-111, 115, 122, 178, 198, 205, 208; P-03"
+  },
+  {
+   "pass006": "C-035",
+   "group": "R-INV-P",
+   "stage1": "Q3 facts (database credentials, adminPassword, login-page text); rows 9, 64, 67"
+  },
+  {
+   "pass006": "C-037",
+   "group": "R-INV-P",
+   "stage1": "row 73; Configuration row (log4j); unauthenticated list (FILE appender unreferenced)"
+  },
+  {
+   "pass006": "C-038",
+   "group": "R-INV",
+   "stage1": "rows 33, 61"
+  },
+  {
+   "pass006": "C-039",
+   "group": "R-INV",
+   "stage1": "rows 8-14"
+  },
+  {
+   "pass006": "C-040",
+   "group": "R-INV",
+   "stage1": "rows 11, 13"
+  },
+  {
+   "pass006": "C-041",
+   "group": "R-INV-P",
+   "stage1": "rows 15-16; Q3 facts"
+  },
+  {
+   "pass006": "C-042",
+   "group": "R-INV",
+   "stage1": "rows 17, 32, 233; Security configuration row"
+  },
+  {
+   "pass006": "C-043",
+   "group": "R-INV",
+   "stage1": "row 233"
+  },
+  {
+   "pass006": "C-044",
+   "group": "R-INV",
+   "stage1": "row 215; rows 228-230"
+  },
+  {
+   "pass006": "C-045",
+   "group": "R-INV",
+   "stage1": "row 19"
+  },
+  {
+   "pass006": "C-046",
+   "group": "R-INV",
+   "stage1": "row 47; P-02"
+  },
+  {
+   "pass006": "C-047",
+   "group": "R-INV",
+   "stage1": "row 21"
+  },
+  {
+   "pass006": "C-048",
+   "group": "R-INV-P",
+   "stage1": "rows 9, 64; Q3 facts; dormant-code row (NullSecurityFilter)"
+  },
+  {
+   "pass006": "C-049",
+   "group": "R-INV",
+   "stage1": "rows 23-25"
+  },
+  {
+   "pass006": "C-050",
+   "group": "R-INV",
+   "stage1": "rows 26-31; Runnable Surfaces enforcement table"
+  },
+  {
+   "pass006": "C-051",
+   "group": "R-INV",
+   "stage1": "rows 28, 234"
+  },
+  {
+   "pass006": "C-052",
+   "group": "R-INV",
+   "stage1": "rows 28, 57; GAP-003"
+  },
+  {
+   "pass006": "C-054",
+   "group": "R-INV",
+   "stage1": "rows 18, 75-77"
+  },
+  {
+   "pass006": "C-055",
+   "group": "R-INV",
+   "stage1": "rows 83-84, 194"
+  },
+  {
+   "pass006": "C-057",
+   "group": "R-INV",
+   "stage1": "rows 85-86"
+  },
+  {
+   "pass006": "C-058",
+   "group": "R-INV",
+   "stage1": "row 82"
+  },
+  {
+   "pass006": "C-060",
+   "group": "R-INV",
+   "stage1": "rows 92-94, 105-113"
+  },
+  {
+   "pass006": "C-064",
+   "group": "R-INV",
+   "stage1": "rows 102-104"
+  },
+  {
+   "pass006": "C-065",
+   "group": "R-INV",
+   "stage1": "row 91"
+  },
+  {
+   "pass006": "C-066",
+   "group": "R-INV",
+   "stage1": "rows 115-119"
+  },
+  {
+   "pass006": "C-067",
+   "group": "R-INV",
+   "stage1": "rows 95-96"
+  },
+  {
+   "pass006": "C-068",
+   "group": "R-INV",
+   "stage1": "row 97"
+  },
+  {
+   "pass006": "C-069",
+   "group": "R-INV",
+   "stage1": "row 194; GAP-003, GAP-004; Q2 facts"
+  },
+  {
+   "pass006": "C-072",
+   "group": "R-INV",
+   "stage1": "row 126"
+  },
+  {
+   "pass006": "C-074",
+   "group": "R-INV",
+   "stage1": "rows 144-147"
+  },
+  {
+   "pass006": "C-075",
+   "group": "R-INV",
+   "stage1": "row 161"
+  },
+  {
+   "pass006": "C-076",
+   "group": "R-INV",
+   "stage1": "row 142"
+  },
+  {
+   "pass006": "C-079",
+   "group": "R-INV",
+   "stage1": "row 176"
+  },
+  {
+   "pass006": "C-080",
+   "group": "R-INV",
+   "stage1": "rows 37-42"
+  },
+  {
+   "pass006": "C-082",
+   "group": "R-INV",
+   "stage1": "row 49"
+  },
+  {
+   "pass006": "C-083",
+   "group": "R-INV",
+   "stage1": "rows 50-53; GAP-012; Q4 facts"
+  },
+  {
+   "pass006": "C-085",
+   "group": "R-INV",
+   "stage1": "rows 162-164"
+  },
+  {
+   "pass006": "C-086",
+   "group": "R-INV-P",
+   "stage1": "rows 165-167; Q3 facts"
+  },
+  {
+   "pass006": "C-087",
+   "group": "R-INV",
+   "stage1": "rows 196-198; GAP-004"
+  },
+  {
+   "pass006": "C-088",
+   "group": "R-INV",
+   "stage1": "row 186"
+  },
+  {
+   "pass006": "C-089",
+   "group": "R-INV",
+   "stage1": "rows 182-184"
+  },
+  {
+   "pass006": "C-090",
+   "group": "R-INV",
+   "stage1": "rows 178-181"
+  },
+  {
+   "pass006": "C-092",
+   "group": "R-INV",
+   "stage1": "rows 190, 189"
+  },
+  {
+   "pass006": "C-094",
+   "group": "R-INV",
+   "stage1": "row 55"
+  },
+  {
+   "pass006": "C-095",
+   "group": "R-INV",
+   "stage1": "row 63"
+  },
+  {
+   "pass006": "C-098",
+   "group": "R-INV",
+   "stage1": "rows 29, 49, 82, 91, 126, 142"
+  },
+  {
+   "pass006": "C-099",
+   "group": "R-INV",
+   "stage1": "row 206; row 187"
+  },
+  {
+   "pass006": "C-100",
+   "group": "R-INV",
+   "stage1": "rows 186-187"
+  },
+  {
+   "pass006": "C-101",
+   "group": "R-INV",
+   "stage1": "row 185"
+  },
+  {
+   "pass006": "C-102",
+   "group": "R-INV",
+   "stage1": "Tiles row; rows 191-193"
+  },
+  {
+   "pass006": "C-103",
+   "group": "R-INV",
+   "stage1": "Referenced but absent resources row; GAP-003"
+  },
+  {
+   "pass006": "C-104",
+   "group": "R-INV",
+   "stage1": "rows 232-234; Mobile channel row"
+  },
+  {
+   "pass006": "C-105",
+   "group": "R-INV",
+   "stage1": "row 224"
+  },
+  {
+   "pass006": "C-106",
+   "group": "R-INV",
+   "stage1": "row 223"
+  },
+  {
+   "pass006": "C-107",
+   "group": "R-INV",
+   "stage1": "row 223"
+  },
+  {
+   "pass006": "C-108",
+   "group": "R-INV",
+   "stage1": "row 226"
+  },
+  {
+   "pass006": "C-109",
+   "group": "R-INV",
+   "stage1": "row 188"
+  },
+  {
+   "pass006": "C-111",
+   "group": "R-INV",
+   "stage1": "rows 218, 220-221"
+  },
+  {
+   "pass006": "C-112",
+   "group": "R-INV",
+   "stage1": "row 216"
+  },
+  {
+   "pass006": "C-113",
+   "group": "R-INV",
+   "stage1": "rows 228-230"
+  },
+  {
+   "pass006": "C-114",
+   "group": "R-INV",
+   "stage1": "rows 109-112"
+  },
+  {
+   "pass006": "C-115",
+   "group": "R-INV",
+   "stage1": "rows 200-203; row 65"
+  },
+  {
+   "pass006": "C-116",
+   "group": "R-INV",
+   "stage1": "rows 112, 204-205"
+  },
+  {
+   "pass006": "C-117",
+   "group": "R-EXCL",
+   "stage1": "no row or section (infrastructure without user-visible behavior)"
+  },
+  {
+   "pass006": "C-118",
+   "group": "R-INV-P",
+   "stage1": "Data And Integrations database row; Schema row"
+  },
+  {
+   "pass006": "C-119",
+   "group": "R-INV",
+   "stage1": "rows 49, 82, 91, 126, 142, 176"
+  },
+  {
+   "pass006": "C-121",
+   "group": "R-INV",
+   "stage1": "rows 138, 198, 200-203"
+  },
+  {
+   "pass006": "C-122",
+   "group": "R-INV-P",
+   "stage1": "rows 189, 202; Data And Integrations outbound rows"
+  },
+  {
+   "pass006": "C-123",
+   "group": "R-INV",
+   "stage1": "Static assets row"
+  },
+  {
+   "pass006": "C-125",
+   "group": "R-INV",
+   "stage1": "row 189"
+  },
+  {
+   "pass006": "C-128",
+   "group": "R-INV",
+   "stage1": "Spring row (request fallback type of /view/history)"
+  },
+  {
+   "pass006": "C-130",
+   "group": "R-INV-P",
+   "stage1": "row 165; Q3 facts"
+  },
+  {
+   "pass006": "C-132",
+   "group": "R-INV",
+   "stage1": "rows 175-176"
+  },
+  {
+   "pass006": "C-133",
+   "group": "R-INV",
+   "stage1": "row 73"
+  },
+  {
+   "pass006": "C-137",
+   "group": "R-INV",
+   "stage1": "rows 50-51, 176, 232, 234; Spring row (injected properties)"
+  },
+  {
+   "pass006": "C-138",
+   "group": "R-INV",
+   "stage1": "rows 223, 188, 17, 28"
+  },
+  {
+   "pass006": "C-140",
+   "group": "R-ROW",
+   "stage1": "workbook row 9 (UF-001)"
+  },
+  {
+   "pass006": "C-141",
+   "group": "R-ROW",
+   "stage1": "workbook row 10 (UF-001)"
+  },
+  {
+   "pass006": "C-142",
+   "group": "R-ROW",
+   "stage1": "workbook row 11 (UF-001)"
+  },
+  {
+   "pass006": "C-143",
+   "group": "R-ROW",
+   "stage1": "workbook row 12 (UF-001)"
+  },
+  {
+   "pass006": "C-144",
+   "group": "R-ROW",
+   "stage1": "workbook row 13 (UF-001)"
+  },
+  {
+   "pass006": "C-145",
+   "group": "R-ROW",
+   "stage1": "workbook row 14 (UF-001)"
+  },
+  {
+   "pass006": "C-146",
+   "group": "R-ROW",
+   "stage1": "workbook row 15 (UF-001)"
+  },
+  {
+   "pass006": "C-147",
+   "group": "R-ROW",
+   "stage1": "workbook row 16 (UF-001)"
+  },
+  {
+   "pass006": "C-148",
+   "group": "R-ROW",
+   "stage1": "workbook row 17 (UF-001)"
+  },
+  {
+   "pass006": "C-149",
+   "group": "R-ROW",
+   "stage1": "workbook row 18 (UF-001)"
+  },
+  {
+   "pass006": "C-150",
+   "group": "R-ROW",
+   "stage1": "workbook row 19 (UF-001)"
+  },
+  {
+   "pass006": "C-151",
+   "group": "R-ROW",
+   "stage1": "workbook row 20 (UF-001)"
+  },
+  {
+   "pass006": "C-152",
+   "group": "R-ROW",
+   "stage1": "workbook row 21 (UF-001)"
+  },
+  {
+   "pass006": "C-153",
+   "group": "R-ROW",
+   "stage1": "workbook row 23 (UF-002)"
+  },
+  {
+   "pass006": "C-154",
+   "group": "R-ROW",
+   "stage1": "workbook row 24 (UF-002)"
+  },
+  {
+   "pass006": "C-155",
+   "group": "R-ROW",
+   "stage1": "workbook row 25 (UF-002)"
+  },
+  {
+   "pass006": "C-156",
+   "group": "R-ROW",
+   "stage1": "workbook row 26 (UF-002)"
+  },
+  {
+   "pass006": "C-157",
+   "group": "R-ROW",
+   "stage1": "workbook row 27 (UF-002)"
+  },
+  {
+   "pass006": "C-158",
+   "group": "R-ROW",
+   "stage1": "workbook row 28 (UF-002)"
+  },
+  {
+   "pass006": "C-159",
+   "group": "R-ROW",
+   "stage1": "workbook row 29 (UF-002)"
+  },
+  {
+   "pass006": "C-160",
+   "group": "R-ROW",
+   "stage1": "workbook row 30 (UF-002)"
+  },
+  {
+   "pass006": "C-161",
+   "group": "R-ROW",
+   "stage1": "workbook row 31 (UF-002)"
+  },
+  {
+   "pass006": "C-162",
+   "group": "R-ROW",
+   "stage1": "workbook row 32 (UF-002)"
+  },
+  {
+   "pass006": "C-163",
+   "group": "R-ROW",
+   "stage1": "workbook row 33 (UF-002)"
+  },
+  {
+   "pass006": "C-164",
+   "group": "R-ROW",
+   "stage1": "workbook row 34 (UF-002)"
+  },
+  {
+   "pass006": "C-166",
+   "group": "R-ROW",
+   "stage1": "workbook row 37 (UF-003)"
+  },
+  {
+   "pass006": "C-167",
+   "group": "R-ROW",
+   "stage1": "workbook row 38 (UF-003)"
+  },
+  {
+   "pass006": "C-168",
+   "group": "R-ROW",
+   "stage1": "workbook row 39 (UF-003)"
+  },
+  {
+   "pass006": "C-169",
+   "group": "R-ROW",
+   "stage1": "workbook row 40 (UF-003)"
+  },
+  {
+   "pass006": "C-170",
+   "group": "R-ROW",
+   "stage1": "workbook row 41 (UF-003)"
+  },
+  {
+   "pass006": "C-171",
+   "group": "R-ROW",
+   "stage1": "workbook row 42 (UF-003)"
+  },
+  {
+   "pass006": "C-173",
+   "group": "R-ROW",
+   "stage1": "workbook row 44 (UF-003)"
+  },
+  {
+   "pass006": "C-174",
+   "group": "R-ROW",
+   "stage1": "workbook row 45 (UF-003)"
+  },
+  {
+   "pass006": "C-176",
+   "group": "R-ROW",
+   "stage1": "workbook row 47 (UF-003)"
+  },
+  {
+   "pass006": "C-177",
+   "group": "R-ROW",
+   "stage1": "workbook row 48 (UF-003)"
+  },
+  {
+   "pass006": "C-178",
+   "group": "R-ROW",
+   "stage1": "workbook row 49 (UF-003)"
+  },
+  {
+   "pass006": "C-179",
+   "group": "R-ROW",
+   "stage1": "workbook row 50 (UF-003)"
+  },
+  {
+   "pass006": "C-180",
+   "group": "R-ROW",
+   "stage1": "workbook row 51 (UF-003)"
+  },
+  {
+   "pass006": "C-181",
+   "group": "R-ROW",
+   "stage1": "workbook row 52 (UF-003)"
+  },
+  {
+   "pass006": "C-182",
+   "group": "R-ROW",
+   "stage1": "workbook row 53 (UF-003)"
+  },
+  {
+   "pass006": "C-183",
+   "group": "R-ROW",
+   "stage1": "workbook row 55 (UF-004)"
+  },
+  {
+   "pass006": "C-185",
+   "group": "R-ROW",
+   "stage1": "workbook row 57 (UF-004)"
+  },
+  {
+   "pass006": "C-189",
+   "group": "R-ROW",
+   "stage1": "workbook row 61 (UF-004)"
+  },
+  {
+   "pass006": "C-191",
+   "group": "R-ROW",
+   "stage1": "workbook row 63 (UF-004)"
+  },
+  {
+   "pass006": "C-192",
+   "group": "R-ROW",
+   "stage1": "workbook row 64 (UF-004)"
+  },
+  {
+   "pass006": "C-193",
+   "group": "R-ROW",
+   "stage1": "workbook row 65 (UF-004)"
+  },
+  {
+   "pass006": "C-194",
+   "group": "R-ROW",
+   "stage1": "workbook row 66 (UF-004)"
+  },
+  {
+   "pass006": "C-195",
+   "group": "R-ROW",
+   "stage1": "workbook row 67 (UF-004)"
+  },
+  {
+   "pass006": "C-196",
+   "group": "R-ROW",
+   "stage1": "workbook row 68 (UF-004)"
+  },
+  {
+   "pass006": "C-197",
+   "group": "R-ROW",
+   "stage1": "workbook row 69 (UF-004)"
+  },
+  {
+   "pass006": "C-198",
+   "group": "R-ROW",
+   "stage1": "workbook row 70 (UF-004)"
+  },
+  {
+   "pass006": "C-199",
+   "group": "R-ROW",
+   "stage1": "workbook row 71 (UF-004)"
+  },
+  {
+   "pass006": "C-200",
+   "group": "R-ROW",
+   "stage1": "workbook row 72 (UF-004)"
+  },
+  {
+   "pass006": "C-201",
+   "group": "R-ROW",
+   "stage1": "workbook row 73 (UF-004)"
+  },
+  {
+   "pass006": "C-202",
+   "group": "R-ROW",
+   "stage1": "workbook row 75 (UF-005)"
+  },
+  {
+   "pass006": "C-203",
+   "group": "R-ROW",
+   "stage1": "workbook row 76 (UF-005)"
+  },
+  {
+   "pass006": "C-204",
+   "group": "R-ROW",
+   "stage1": "workbook row 77 (UF-005)"
+  },
+  {
+   "pass006": "C-206",
+   "group": "R-ROW",
+   "stage1": "workbook row 79 (UF-005)"
+  },
+  {
+   "pass006": "C-207",
+   "group": "R-ROW",
+   "stage1": "workbook row 80 (UF-005)"
+  },
+  {
+   "pass006": "C-209",
+   "group": "R-ROW",
+   "stage1": "workbook row 82 (UF-005)"
+  },
+  {
+   "pass006": "C-210",
+   "group": "R-ROW",
+   "stage1": "workbook row 83 (UF-005)"
+  },
+  {
+   "pass006": "C-211",
+   "group": "R-ROW",
+   "stage1": "workbook row 84 (UF-005)"
+  },
+  {
+   "pass006": "C-212",
+   "group": "R-ROW",
+   "stage1": "workbook row 85 (UF-005)"
+  },
+  {
+   "pass006": "C-213",
+   "group": "R-ROW",
+   "stage1": "workbook row 86 (UF-005)"
+  },
+  {
+   "pass006": "C-215",
+   "group": "R-ROW",
+   "stage1": "workbook row 89 (UF-006)"
+  },
+  {
+   "pass006": "C-217",
+   "group": "R-ROW",
+   "stage1": "workbook row 91 (UF-006)"
+  },
+  {
+   "pass006": "C-218",
+   "group": "R-ROW",
+   "stage1": "workbook row 92 (UF-006)"
+  },
+  {
+   "pass006": "C-219",
+   "group": "R-ROW",
+   "stage1": "workbook row 93 (UF-006)"
+  },
+  {
+   "pass006": "C-220",
+   "group": "R-ROW",
+   "stage1": "workbook row 94 (UF-006)"
+  },
+  {
+   "pass006": "C-221",
+   "group": "R-ROW",
+   "stage1": "workbook row 95 (UF-006)"
+  },
+  {
+   "pass006": "C-222",
+   "group": "R-ROW",
+   "stage1": "workbook row 96 (UF-006)"
+  },
+  {
+   "pass006": "C-223",
+   "group": "R-ROW",
+   "stage1": "workbook row 97 (UF-006)"
+  },
+  {
+   "pass006": "C-225",
+   "group": "R-ROW",
+   "stage1": "workbook row 99 (UF-006)"
+  },
+  {
+   "pass006": "C-226",
+   "group": "R-ROW",
+   "stage1": "workbook row 100 (UF-006)"
+  },
+  {
+   "pass006": "C-228",
+   "group": "R-ROW",
+   "stage1": "workbook row 102 (UF-006)"
+  },
+  {
+   "pass006": "C-229",
+   "group": "R-ROW",
+   "stage1": "workbook row 103 (UF-006)"
+  },
+  {
+   "pass006": "C-230",
+   "group": "R-ROW",
+   "stage1": "workbook row 104 (UF-006)"
+  },
+  {
+   "pass006": "C-231",
+   "group": "R-ROW",
+   "stage1": "workbook row 105 (UF-006)"
+  },
+  {
+   "pass006": "C-232",
+   "group": "R-ROW",
+   "stage1": "workbook row 106 (UF-006)"
+  },
+  {
+   "pass006": "C-233",
+   "group": "R-ROW",
+   "stage1": "workbook row 107 (UF-006)"
+  },
+  {
+   "pass006": "C-234",
+   "group": "R-ROW",
+   "stage1": "workbook row 108 (UF-006)"
+  },
+  {
+   "pass006": "C-235",
+   "group": "R-ROW",
+   "stage1": "workbook row 109 (UF-006)"
+  },
+  {
+   "pass006": "C-236",
+   "group": "R-ROW",
+   "stage1": "workbook row 110 (UF-006)"
+  },
+  {
+   "pass006": "C-237",
+   "group": "R-ROW",
+   "stage1": "workbook row 111 (UF-006)"
+  },
+  {
+   "pass006": "C-238",
+   "group": "R-ROW",
+   "stage1": "workbook row 112 (UF-006)"
+  },
+  {
+   "pass006": "C-239",
+   "group": "R-ROW",
+   "stage1": "workbook row 113 (UF-006)"
+  },
+  {
+   "pass006": "C-240",
+   "group": "R-ROW",
+   "stage1": "workbook row 114 (UF-006)"
+  },
+  {
+   "pass006": "C-241",
+   "group": "R-ROW",
+   "stage1": "workbook row 115 (UF-006)"
+  },
+  {
+   "pass006": "C-242",
+   "group": "R-ROW",
+   "stage1": "workbook row 116 (UF-006)"
+  },
+  {
+   "pass006": "C-243",
+   "group": "R-ROW",
+   "stage1": "workbook row 117 (UF-006)"
+  },
+  {
+   "pass006": "C-244",
+   "group": "R-ROW",
+   "stage1": "workbook row 118 (UF-006)"
+  },
+  {
+   "pass006": "C-245",
+   "group": "R-ROW",
+   "stage1": "workbook row 119 (UF-006)"
+  },
+  {
+   "pass006": "C-247",
+   "group": "R-ROW",
+   "stage1": "workbook row 122 (UF-007)"
+  },
+  {
+   "pass006": "C-248",
+   "group": "R-ROW",
+   "stage1": "workbook row 123 (UF-007)"
+  },
+  {
+   "pass006": "C-251",
+   "group": "R-ROW",
+   "stage1": "workbook row 126 (UF-007)"
+  },
+  {
+   "pass006": "C-252",
+   "group": "R-ROW",
+   "stage1": "workbook row 127 (UF-007)"
+  },
+  {
+   "pass006": "C-253",
+   "group": "R-ROW",
+   "stage1": "workbook row 128 (UF-007)"
+  },
+  {
+   "pass006": "C-255",
+   "group": "R-ROW",
+   "stage1": "workbook row 130 (UF-007)"
+  },
+  {
+   "pass006": "C-256",
+   "group": "R-ROW",
+   "stage1": "workbook row 131 (UF-007)"
+  },
+  {
+   "pass006": "C-257",
+   "group": "R-ROW",
+   "stage1": "workbook row 132 (UF-007)"
+  },
+  {
+   "pass006": "C-259",
+   "group": "R-ROW",
+   "stage1": "workbook row 135 (UF-008)"
+  },
+  {
+   "pass006": "C-260",
+   "group": "R-ROW",
+   "stage1": "workbook row 136 (UF-008)"
+  },
+  {
+   "pass006": "C-262",
+   "group": "R-ROW",
+   "stage1": "workbook row 138 (UF-008)"
+  },
+  {
+   "pass006": "C-266",
+   "group": "R-ROW",
+   "stage1": "workbook row 142 (UF-008)"
+  },
+  {
+   "pass006": "C-267",
+   "group": "R-ROW",
+   "stage1": "workbook row 143 (UF-008)"
+  },
+  {
+   "pass006": "C-268",
+   "group": "R-ROW",
+   "stage1": "workbook row 144 (UF-008)"
+  },
+  {
+   "pass006": "C-269",
+   "group": "R-ROW",
+   "stage1": "workbook row 145 (UF-008)"
+  },
+  {
+   "pass006": "C-270",
+   "group": "R-ROW",
+   "stage1": "workbook row 146 (UF-008)"
+  },
+  {
+   "pass006": "C-271",
+   "group": "R-ROW",
+   "stage1": "workbook row 147 (UF-008)"
+  },
+  {
+   "pass006": "C-273",
+   "group": "R-ROW",
+   "stage1": "workbook row 150 (UF-009)"
+  },
+  {
+   "pass006": "C-274",
+   "group": "R-ROW",
+   "stage1": "workbook row 151 (UF-009)"
+  },
+  {
+   "pass006": "C-275",
+   "group": "R-ROW",
+   "stage1": "workbook row 152 (UF-009)"
+  },
+  {
+   "pass006": "C-276",
+   "group": "R-ROW",
+   "stage1": "workbook row 153 (UF-009)"
+  },
+  {
+   "pass006": "C-277",
+   "group": "R-ROW",
+   "stage1": "workbook row 154 (UF-009)"
+  },
+  {
+   "pass006": "C-278",
+   "group": "R-ROW",
+   "stage1": "workbook row 155 (UF-009)"
+  },
+  {
+   "pass006": "C-279",
+   "group": "R-ROW",
+   "stage1": "workbook row 156 (UF-009)"
+  },
+  {
+   "pass006": "C-280",
+   "group": "R-ROW",
+   "stage1": "workbook row 157 (UF-009)"
+  },
+  {
+   "pass006": "C-281",
+   "group": "R-ROW",
+   "stage1": "workbook row 158 (UF-009)"
+  },
+  {
+   "pass006": "C-282",
+   "group": "R-ROW",
+   "stage1": "workbook row 159 (UF-009)"
+  },
+  {
+   "pass006": "C-283",
+   "group": "R-ROW",
+   "stage1": "workbook row 160 (UF-009)"
+  },
+  {
+   "pass006": "C-284",
+   "group": "R-ROW",
+   "stage1": "workbook row 161 (UF-009)"
+  },
+  {
+   "pass006": "C-285",
+   "group": "R-ROW",
+   "stage1": "workbook row 162 (UF-009)"
+  },
+  {
+   "pass006": "C-286",
+   "group": "R-ROW",
+   "stage1": "workbook row 163 (UF-009)"
+  },
+  {
+   "pass006": "C-287",
+   "group": "R-ROW",
+   "stage1": "workbook row 164 (UF-009)"
+  },
+  {
+   "pass006": "C-288",
+   "group": "R-ROW",
+   "stage1": "workbook row 165 (UF-009)"
+  },
+  {
+   "pass006": "C-289",
+   "group": "R-ROW",
+   "stage1": "workbook row 166 (UF-009)"
+  },
+  {
+   "pass006": "C-290",
+   "group": "R-ROW",
+   "stage1": "workbook row 167 (UF-009)"
+  },
+  {
+   "pass006": "C-292",
+   "group": "R-ROW",
+   "stage1": "workbook row 170 (UF-010)"
+  },
+  {
+   "pass006": "C-293",
+   "group": "R-ROW",
+   "stage1": "workbook row 171 (UF-010)"
+  },
+  {
+   "pass006": "C-294",
+   "group": "R-ROW",
+   "stage1": "workbook row 172 (UF-010)"
+  },
+  {
+   "pass006": "C-296",
+   "group": "R-ROW",
+   "stage1": "workbook row 174 (UF-010)"
+  },
+  {
+   "pass006": "C-297",
+   "group": "R-ROW",
+   "stage1": "workbook row 175 (UF-010)"
+  },
+  {
+   "pass006": "C-298",
+   "group": "R-ROW",
+   "stage1": "workbook row 176 (UF-010)"
+  },
+  {
+   "pass006": "C-299",
+   "group": "R-ROW",
+   "stage1": "workbook row 178 (UF-011)"
+  },
+  {
+   "pass006": "C-300",
+   "group": "R-ROW",
+   "stage1": "workbook row 179 (UF-011)"
+  },
+  {
+   "pass006": "C-301",
+   "group": "R-ROW",
+   "stage1": "workbook row 180 (UF-011)"
+  },
+  {
+   "pass006": "C-302",
+   "group": "R-ROW",
+   "stage1": "workbook row 181 (UF-011)"
+  },
+  {
+   "pass006": "C-303",
+   "group": "R-ROW",
+   "stage1": "workbook row 182 (UF-011)"
+  },
+  {
+   "pass006": "C-304",
+   "group": "R-ROW",
+   "stage1": "workbook row 183 (UF-011)"
+  },
+  {
+   "pass006": "C-305",
+   "group": "R-ROW",
+   "stage1": "workbook row 184 (UF-011)"
+  },
+  {
+   "pass006": "C-306",
+   "group": "R-ROW",
+   "stage1": "workbook row 185 (UF-011)"
+  },
+  {
+   "pass006": "C-307",
+   "group": "R-ROW",
+   "stage1": "workbook row 186 (UF-011)"
+  },
+  {
+   "pass006": "C-308",
+   "group": "R-ROW",
+   "stage1": "workbook row 187 (UF-011)"
+  },
+  {
+   "pass006": "C-309",
+   "group": "R-ROW",
+   "stage1": "workbook row 188 (UF-011)"
+  },
+  {
+   "pass006": "C-310",
+   "group": "R-ROW",
+   "stage1": "workbook row 189 (UF-011)"
+  },
+  {
+   "pass006": "C-311",
+   "group": "R-ROW",
+   "stage1": "workbook row 190 (UF-011)"
+  },
+  {
+   "pass006": "C-312",
+   "group": "R-ROW",
+   "stage1": "workbook row 191 (UF-011)"
+  },
+  {
+   "pass006": "C-313",
+   "group": "R-ROW",
+   "stage1": "workbook row 192 (UF-011)"
+  },
+  {
+   "pass006": "C-314",
+   "group": "R-ROW",
+   "stage1": "workbook row 193 (UF-011)"
+  },
+  {
+   "pass006": "C-315",
+   "group": "R-ROW",
+   "stage1": "workbook row 194 (UF-011)"
+  },
+  {
+   "pass006": "C-316",
+   "group": "R-ROW",
+   "stage1": "workbook row 196 (UF-012)"
+  },
+  {
+   "pass006": "C-317",
+   "group": "R-ROW",
+   "stage1": "workbook row 197 (UF-012)"
+  },
+  {
+   "pass006": "C-318",
+   "group": "R-ROW",
+   "stage1": "workbook row 198 (UF-012)"
+  },
+  {
+   "pass006": "C-319",
+   "group": "R-ROW",
+   "stage1": "workbook row 200 (UF-013)"
+  },
+  {
+   "pass006": "C-320",
+   "group": "R-ROW",
+   "stage1": "workbook row 201 (UF-013)"
+  },
+  {
+   "pass006": "C-321",
+   "group": "R-ROW",
+   "stage1": "workbook row 202 (UF-013)"
+  },
+  {
+   "pass006": "C-322",
+   "group": "R-ROW",
+   "stage1": "workbook row 203 (UF-013)"
+  },
+  {
+   "pass006": "C-323",
+   "group": "R-ROW",
+   "stage1": "workbook row 204 (UF-013)"
+  },
+  {
+   "pass006": "C-324",
+   "group": "R-ROW",
+   "stage1": "workbook row 205 (UF-013)"
+  },
+  {
+   "pass006": "C-325",
+   "group": "R-ROW",
+   "stage1": "workbook row 206 (UF-013)"
+  },
+  {
+   "pass006": "C-326",
+   "group": "R-ROW",
+   "stage1": "workbook row 208 (UF-014)"
+  },
+  {
+   "pass006": "C-329",
+   "group": "R-ROW",
+   "stage1": "workbook row 211 (UF-014)"
+  },
+  {
+   "pass006": "C-330",
+   "group": "R-ROW",
+   "stage1": "workbook row 212 (UF-014)"
+  },
+  {
+   "pass006": "C-331",
+   "group": "R-ROW",
+   "stage1": "workbook row 213 (UF-014)"
+  },
+  {
+   "pass006": "C-332",
+   "group": "R-ROW",
+   "stage1": "workbook row 215 (UF-015)"
+  },
+  {
+   "pass006": "C-333",
+   "group": "R-ROW",
+   "stage1": "workbook row 216 (UF-015)"
+  },
+  {
+   "pass006": "C-334",
+   "group": "R-ROW",
+   "stage1": "workbook row 217 (UF-015)"
+  },
+  {
+   "pass006": "C-335",
+   "group": "R-ROW",
+   "stage1": "workbook row 218 (UF-015)"
+  },
+  {
+   "pass006": "C-336",
+   "group": "R-ROW",
+   "stage1": "workbook row 219 (UF-015)"
+  },
+  {
+   "pass006": "C-337",
+   "group": "R-ROW",
+   "stage1": "workbook row 220 (UF-015)"
+  },
+  {
+   "pass006": "C-338",
+   "group": "R-ROW",
+   "stage1": "workbook row 221 (UF-015)"
+  },
+  {
+   "pass006": "C-339",
+   "group": "R-ROW",
+   "stage1": "workbook row 223 (UF-016)"
+  },
+  {
+   "pass006": "C-340",
+   "group": "R-ROW",
+   "stage1": "workbook row 224 (UF-016)"
+  },
+  {
+   "pass006": "C-341",
+   "group": "R-ROW",
+   "stage1": "workbook row 225 (UF-016)"
+  },
+  {
+   "pass006": "C-342",
+   "group": "R-ROW",
+   "stage1": "workbook row 226 (UF-016)"
+  },
+  {
+   "pass006": "C-343",
+   "group": "R-ROW",
+   "stage1": "workbook row 228 (UF-017)"
+  },
+  {
+   "pass006": "C-344",
+   "group": "R-ROW",
+   "stage1": "workbook row 229 (UF-017)"
+  },
+  {
+   "pass006": "C-345",
+   "group": "R-ROW",
+   "stage1": "workbook row 230 (UF-017)"
+  },
+  {
+   "pass006": "C-346",
+   "group": "R-ROW",
+   "stage1": "workbook row 232 (UF-018)"
+  },
+  {
+   "pass006": "C-347",
+   "group": "R-ROW",
+   "stage1": "workbook row 233 (UF-018)"
+  },
+  {
+   "pass006": "C-348",
+   "group": "R-ROW",
+   "stage1": "workbook row 234 (UF-018)"
+  },
+  {
+   "pass006": "C-349",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 138 (class)"
+  },
+  {
+   "pass006": "C-350",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 139 (JAR)"
+  },
+  {
+   "pass006": "C-351",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 140 (PNG)"
+  },
+  {
+   "pass006": "C-352",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 141 (XML)"
+  },
+  {
+   "pass006": "C-353",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 142 (JSP)"
+  },
+  {
+   "pass006": "C-354",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 143 (properties)"
+  },
+  {
+   "pass006": "C-355",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 144 (JS)"
+  },
+  {
+   "pass006": "C-356",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 145 (GIF)"
+  },
+  {
+   "pass006": "C-357",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 146 (CSS)"
+  },
+  {
+   "pass006": "C-358",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 147 (TLD)"
+  },
+  {
+   "pass006": "C-359",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 148 (HTML)"
+  },
+  {
+   "pass006": "C-360",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 149 (Velocity templates (vm))"
+  },
+  {
+   "pass006": "C-361",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 150 (XLS)"
+  },
+  {
+   "pass006": "C-362",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 151 (SWF)"
+  },
+  {
+   "pass006": "C-363",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 152 (tag, wsdd, dtd, ico, txt, mf, log)"
+  },
+  {
+   "pass006": "C-364",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 156 (Web application descriptor)"
+  },
+  {
+   "pass006": "C-365",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 157 (Struts 1.2.9 controller)"
+  },
+  {
+   "pass006": "C-366",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 158 (Screens (JSP))"
+  },
+  {
+   "pass006": "C-367",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 159 (Referenced but absent resources)"
+  },
+  {
+   "pass006": "C-368",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 160 (Tiles)"
+  },
+  {
+   "pass006": "C-369",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 161 (Spring 3.0.5 context)"
+  },
+  {
+   "pass006": "C-370",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 162 (Compiled application classes)"
+  },
+  {
+   "pass006": "C-371",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 163 (Persistence model)"
+  },
+  {
+   "pass006": "C-372",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 168 (Schema and seed data)"
+  },
+  {
+   "pass006": "C-373",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 169 (Dormant and unreferenced code (BA-001-03, F-005)"
+  },
+  {
+   "pass006": "C-374",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 170 (Legacy migration toolkit)"
+  },
+  {
+   "pass006": "C-376",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 172 (Security configuration)"
+  },
+  {
+   "pass006": "C-377",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 173 (Web services)"
+  },
+  {
+   "pass006": "C-379",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 175 (Mobile channel)"
+  },
+  {
+   "pass006": "C-380",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 176 (Jobs and e-mail)"
+  },
+  {
+   "pass006": "C-382",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 178 (Charts)"
+  },
+  {
+   "pass006": "C-383",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 179 (Internationalisation)"
+  },
+  {
+   "pass006": "C-384",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 180 (Static assets)"
+  },
+  {
+   "pass006": "C-385",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 181 (Third-party libraries)"
+  },
+  {
+   "pass006": "C-386",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 182 (Container and build metadata)"
+  },
+  {
+   "pass006": "C-387",
+   "group": "R-REC",
+   "stage1": "reconnaissance Source Inventory line 183 (Local run helpers (not in the WAR))"
+  },
+  {
+   "pass006": "C-388",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 193 (Web UI: viewer, editor, admin and sysadmin user"
+  },
+  {
+   "pass006": "C-389",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 194 (Personal status page (signed-in user))"
+  },
+  {
+   "pass006": "C-391",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 196 (Mobile WAP users)"
+  },
+  {
+   "pass006": "C-392",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 197 (SOAP API clients)"
+  },
+  {
+   "pass006": "C-393",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 198 (REST API clients and the task board)"
+  },
+  {
+   "pass006": "C-394",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 199 (Calendar clients)"
+  },
+  {
+   "pass006": "C-395",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 200 (Chart images)"
+  },
+  {
+   "pass006": "C-396",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 201 (Daily missing-time-entry job (operator/batch))"
+  },
+  {
+   "pass006": "C-397",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 202 (Data sampling (batch))"
+  },
+  {
+   "pass006": "C-398",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 203 (Schema bootstrap (operator))"
+  },
+  {
+   "pass006": "C-399",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 204 (Admin and test utilities (operator))"
+  },
+  {
+   "pass006": "C-400",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 205 (Activity log (operator))"
+  },
+  {
+   "pass006": "C-401",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 211 (Web generic view (`ViewObjectAction` family), c"
+  },
+  {
+   "pass006": "C-402",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 212 (Other web actions (export, import, move/continu"
+  },
+  {
+   "pass006": "C-403",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 213 (Person editor role changes)"
+  },
+  {
+   "pass006": "C-404",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 214 (DispatchForward views with authorization requir"
+  },
+  {
+   "pass006": "C-405",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 215 (Content search, aggregate timesheet)"
+  },
+  {
+   "pass006": "C-406",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 216 (SOAP)"
+  },
+  {
+   "pass006": "C-407",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 217 (REST)"
+  },
+  {
+   "pass006": "C-408",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 218 (iCal)"
+  },
+  {
+   "pass006": "C-409",
+   "group": "R-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 219 (Descriptor URL role constraints)"
+  },
+  {
+   "pass006": "C-410",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 252 (Relational database, MySQL in this baseline"
+  },
+  {
+   "pass006": "C-411",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 253 (Embedded or in-process HSQLDB (optional mod"
+  },
+  {
+   "pass006": "C-412",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 254 (Liquibase schema changelog)"
+  },
+  {
+   "pass006": "C-413",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 255 (SMTP mail server)"
+  },
+  {
+   "pass006": "C-414",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 256 (Outbound HTTP to the application's own URL "
+  },
+  {
+   "pass006": "C-415",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 257 (File storage for attachments)"
+  },
+  {
+   "pass006": "C-416",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 258 (LDAP/JNDI, NTLM (jcifs) and JAAS identity p"
+  },
+  {
+   "pass006": "C-417",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 259 (External wiki)"
+  },
+  {
+   "pass006": "C-418",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 260 (Twitter and Facebook)"
+  },
+  {
+   "pass006": "C-419",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 261 (SourceForge links)"
+  },
+  {
+   "pass006": "C-420",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 262 (SOAP, REST and iCal clients)"
+  },
+  {
+   "pass006": "C-422",
+   "group": "R-REC",
+   "stage1": "reconnaissance Data And Integrations line 264 (Excel spreadsheets and comma-separated text"
+  },
+  {
+   "pass006": "C-423",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 324 (GAP-001)"
+  },
+  {
+   "pass006": "C-424",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 325 (GAP-002)"
+  },
+  {
+   "pass006": "C-425",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 326 (GAP-003)"
+  },
+  {
+   "pass006": "C-426",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 327 (GAP-004)"
+  },
+  {
+   "pass006": "C-427",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 328 (GAP-005)"
+  },
+  {
+   "pass006": "C-428",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 329 (GAP-006)"
+  },
+  {
+   "pass006": "C-430",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 331 (GAP-008)"
+  },
+  {
+   "pass006": "C-431",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 332 (GAP-009)"
+  },
+  {
+   "pass006": "C-432",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 333 (GAP-010)"
+  },
+  {
+   "pass006": "C-433",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 334 (GAP-011)"
+  },
+  {
+   "pass006": "C-434",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 338 (GAP-012)"
+  },
+  {
+   "pass006": "C-435",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 339 (GAP-014)"
+  },
+  {
+   "pass006": "C-436",
+   "group": "R-REC",
+   "stage1": "reconnaissance Known Gaps line 340 (GAP-013)"
+  },
+  {
+   "pass006": "C-437",
+   "group": "R-REC",
+   "stage1": "reconnaissance GAP-005 impact line 359 (P-01)"
+  },
+  {
+   "pass006": "C-438",
+   "group": "R-REC",
+   "stage1": "reconnaissance GAP-005 impact line 360 (P-02)"
+  },
+  {
+   "pass006": "C-439",
+   "group": "R-REC",
+   "stage1": "reconnaissance GAP-005 impact line 361 (P-03)"
+  },
+  {
+   "pass006": "C-440",
+   "group": "R-REC",
+   "stage1": "reconnaissance GAP-005 impact line 362 (P-04)"
+  },
+  {
+   "pass006": "C-441",
+   "group": "R-REC",
+   "stage1": "reconnaissance GAP-005 impact line 363 (P-05)"
+  },
+  {
+   "pass006": "C-442",
+   "group": "R-REC",
+   "stage1": "reconnaissance GAP-005 impact line 364 (P-06)"
+  },
+  {
+   "pass006": "C-443",
+   "group": "R-REC",
+   "stage1": "reconnaissance GAP-005 impact line 365 (P-07)"
+  },
+  {
+   "pass006": "C-444",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 379 (Q1: supply an unpatched upstream WA"
+  },
+  {
+   "pass006": "C-445",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 380 (Q2: parity scope for broken or dorm"
+  },
+  {
+   "pass006": "C-446",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 381 (Q3: disposition of insecure legacy "
+  },
+  {
+   "pass006": "C-447",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 382 (Q4: people-import file format (GAP-"
+  },
+  {
+   "pass006": "C-448",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 388 (Story features (view, edit, delete;"
+  },
+  {
+   "pass006": "C-449",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 389 (Continuous integration queue)"
+  },
+  {
+   "pass006": "C-450",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 390 (Settings pages)"
+  },
+  {
+   "pass006": "C-451",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 391 (JasperReports (jrpdf) exports)"
+  },
+  {
+   "pass006": "C-452",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 392 (Tabbed iteration view)"
+  },
+  {
+   "pass006": "C-453",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 393 (Not-authorized page)"
+  },
+  {
+   "pass006": "C-454",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 394 (Mobile WAP pages)"
+  },
+  {
+   "pass006": "C-455",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 395 (JAX-WS endpoint)"
+  },
+  {
+   "pass006": "C-456",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 396 (File manager)"
+  },
+  {
+   "pass006": "C-457",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 397 (People import)"
+  },
+  {
+   "pass006": "C-458",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 398 (Project role editor)"
+  },
+  {
+   "pass006": "C-459",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 399 (Iteration metrics)"
+  },
+  {
+   "pass006": "C-460",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 400 (Task re-estimate page)"
+  },
+  {
+   "pass006": "C-461",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 401 (Print layout)"
+  },
+  {
+   "pass006": "C-462",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 402 (iCal feed)"
+  },
+  {
+   "pass006": "C-463",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 403 (SOAP `getCurrentIteration` and `del"
+  },
+  {
+   "pass006": "C-464",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 404 (jrpdf report data sources)"
+  },
+  {
+   "pass006": "C-465",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 405 (Duplicate Spring context)"
+  },
+  {
+   "pass006": "C-466",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 406 (Delete person, change locale, forma"
+  },
+  {
+   "pass006": "C-467",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 407 (Admin and test utilities in the pro"
+  },
+  {
+   "pass006": "C-468",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 415 (Remember-me stores user ID and pass"
+  },
+  {
+   "pass006": "C-469",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 416 (Passwords are stored as salted MD5 "
+  },
+  {
+   "pass006": "C-470",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 417 (No security filter on `/rest/*`, in"
+  },
+  {
+   "pass006": "C-471",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 418 (The SOAP servlet is also mapped at "
+  },
+  {
+   "pass006": "C-472",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 419 (The Axis global configuration conta"
+  },
+  {
+   "pass006": "C-473",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 420 (`/do/invalidateHibernateCache` bypa"
+  },
+  {
+   "pass006": "C-474",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 421 (Test and admin actions are loaded i"
+  },
+  {
+   "pass006": "C-475",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 422 (The task time-log query is built by"
+  },
+  {
+   "pass006": "C-476",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 423 (The note list on project, iteration"
+  },
+  {
+   "pass006": "C-477",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 424 (The aggregate timesheet appends the"
+  },
+  {
+   "pass006": "C-478",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 425 (Raw request parameters are written "
+  },
+  {
+   "pass006": "C-479",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 426 (The container error page (every `Th"
+  },
+  {
+   "pass006": "C-480",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 427 (The system information page shows t"
+  },
+  {
+   "pass006": "C-481",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 428 (Database credentials are present in"
+  },
+  {
+   "pass006": "C-482",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 429 (An unreferenced debug page echoes r"
+  },
+  {
+   "pass006": "C-483",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 430 (No server-side permission check on "
+  },
+  {
+   "pass006": "C-484",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 431 (System-administrator status is gove"
+  },
+  {
+   "pass006": "C-485",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 432 (Descriptor URL role constraints are"
+  },
+  {
+   "pass006": "C-486",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 433 (Personal timesheet and ID jump appl"
+  },
+  {
+   "pass006": "C-487",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 434 (SOAP attribute operations have no p"
+  },
+  {
+   "pass006": "C-488",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 435 (The unauthenticated login page show"
+  },
+  {
+   "pass006": "C-489",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 436 (The live activity log (user ID, cli"
+  },
+  {
+   "pass006": "C-490",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 437 (`index.jsp` has no security filter;"
+  },
+  {
+   "pass006": "C-491",
+   "group": "R-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 438 (The commented `NullSecurityFilter` "
+  },
+  {
+   "pass006": "C-495",
+   "group": "R-REC",
+   "stage1": "reconnaissance Server-side enforcement sweep text and AF-01/AF-02"
+  },
+  {
+   "pass006": "C-497",
+   "group": "R-REC",
+   "stage1": "reconnaissance Row-level CHK-002 sweep lists"
+  },
+  {
+   "pass006": "C-498",
+   "group": "R-REC",
+   "stage1": "reconnaissance Q4 facts (people import format)"
+  },
+  {
+   "pass006": "C-499",
+   "group": "R-REC",
+   "stage1": "reconnaissance Parity-Map Boundary: epic ordering, statuses, coverage cross-check (87 acti"
+  },
+  {
+   "pass006": "C-504",
+   "group": "R-EARLY",
+   "stage1": "pass 001 F-001 - server-side enforcement missing (rows 29-30; enforcement table)"
+  },
+  {
+   "pass006": "C-505",
+   "group": "R-EARLY",
+   "stage1": "pass 001 F-002 - history overstated (rows 186-187)"
+  },
+  {
+   "pass006": "C-506",
+   "group": "R-EARLY",
+   "stage1": "pass 001 F-003 - date formats per locale (rows 69-71)"
+  },
+  {
+   "pass006": "C-507",
+   "group": "R-EARLY",
+   "stage1": "pass 001 F-004 - mobile role constraints (rows 32, 233)"
+  },
+  {
+   "pass006": "C-508",
+   "group": "R-EARLY",
+   "stage1": "pass 001 F-005 - dormant code (dormant-code row)"
+  },
+  {
+   "pass006": "C-509",
+   "group": "R-EARLY",
+   "stage1": "pass 001 F-006 - e-mail stylesheet fetch (row 202)"
+  },
+  {
+   "pass006": "C-510",
+   "group": "R-EARLY",
+   "stage1": "pass 001 F-007 - search/aggregate filtering (rows 167, 180)"
+  },
+  {
+   "pass006": "C-511",
+   "group": "R-EARLY",
+   "stage1": "pass 001 F-008 - attachment storage (row 172)"
+  },
+  {
+   "pass006": "C-512",
+   "group": "R-EARLY",
+   "stage1": "pass 002 F-001 - time-entry and iteration validation (rows 89, 152-160)"
+  },
+  {
+   "pass006": "C-513",
+   "group": "R-EARLY",
+   "stage1": "pass 002 F-002 - delete cascades (rows 49, 82, 91, 126, 142, 174)"
+  },
+  {
+   "pass006": "C-514",
+   "group": "R-EARLY",
+   "stage1": "pass 002 F-003 - Facebook widget (row 193)"
+  },
+  {
+   "pass006": "C-515",
+   "group": "R-EARLY",
+   "stage1": "pass 002 F-004 - attachment count (row 171)"
+  },
+  {
+   "pass006": "C-516",
+   "group": "R-EARLY",
+   "stage1": "pass 002 F-005 - login/start branches (rows 14, 98)"
+  },
+  {
+   "pass006": "C-517",
+   "group": "R-EARLY",
+   "stage1": "pass 002 F-006 - hidden-project decorator (row 76)"
+  },
+  {
+   "pass006": "C-518",
+   "group": "R-EARLY",
+   "stage1": "pass 002 F-007 - sysadmin grant rule (rows 31, 34)"
+  },
+  {
+   "pass006": "C-519",
+   "group": "R-EARLY",
+   "stage1": "pass 002 F-008 - story import errors/cookies (rows 117, 119)"
+  },
+  {
+   "pass006": "C-520",
+   "group": "R-EARLY",
+   "stage1": "pass 002 F-009 - task type labels (row 135)"
+  },
+  {
+   "pass006": "C-522",
+   "group": "R-EARLY",
+   "stage1": "pass 003 F-001 - unmapped query paths (rows 211, 213, 220, 221, 228)"
+  },
+  {
+   "pass006": "C-523",
+   "group": "R-EARLY",
+   "stage1": "pass 003 F-002 - second Spring context (row 65)"
+  },
+  {
+   "pass006": "C-525",
+   "group": "R-EARLY",
+   "stage1": "pass 003 F-004 - progress chart (row 110)"
+  },
+  {
+   "pass006": "C-527",
+   "group": "R-EARLY",
+   "stage1": "pass 004 F-002 - task-board parameter (row 114)"
+  },
+  {
+   "pass006": "C-528",
+   "group": "R-EARLY",
+   "stage1": "pass 004 F-003 - Hibernate settings (row 68)"
+  },
+  {
+   "pass006": "C-529",
+   "group": "R-EARLY",
+   "stage1": "pass 004 F-004 - print layout (row 192)"
+  },
+  {
+   "pass006": "C-531",
+   "group": "R-EARLY",
+   "stage1": "pass 004 F-006 - outbound wiki request (row 189)"
+  },
+  {
+   "pass006": "C-532",
+   "group": "R-EARLY",
+   "stage1": "pass 005 F-001 - people import personDao (rows 50-51)"
+  },
+  {
+   "pass006": "C-533",
+   "group": "R-EARLY-P",
+   "stage1": "pass 005 F-002 - aggregate timesheet HQL (row 165; Q3)"
+  },
+  {
+   "pass006": "C-535",
+   "group": "R-EARLY",
+   "stage1": "pass 005 F-004 - WAP dependencies (rows 232, 234)"
+  },
+  {
+   "pass006": "C-536",
+   "group": "R-EARLY",
+   "stage1": "pass 005 F-005 - directory rows on first use (rows 172, 176)"
+  },
+  {
+   "pass006": "C-537",
+   "group": "R-EARLY",
+   "stage1": "pass 005 mechanism (a) - wiring and injected properties (rows 50-51, 176, 232, 234; Spring"
+  },
+  {
+   "pass006": "C-539",
+   "group": "R-EARLY",
+   "stage1": "pass 005 mechanism (c) - read-path side effects (rows 172, 176)"
+  }
+ ]
+}

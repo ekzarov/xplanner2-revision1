@@ -1,0 +1,19 @@
+{
+  "packet_id": "S02-P007",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-007.md",
+  "reason": "The Claude Code client refuses subagent writes of the review report file; the reviewer wrote the complete report into its scratch directory.",
+  "producer": "Reviewer subagent a6795def1ddcf5e91 authored the entire report content and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p007/reviewer-scratch/stage-02-pass-007.md",
+  "pm_changes": "None. Byte-exact copy.",
+  "final_report_sha256": "e2fd2da2a399b01e1c576b61e9c7697ef2aa63b0be2f6320208956d87bf2a53b",
+  "final_checks": {
+    "artifact-reading.js": "exit 0, errors []",
+    "audit:artifact-links": "exit 0",
+    "CHK-009 PM exact-form credential scan": "no login pair in the pass 007 report or evidence; only the known frozen snapshots of passes 001-004 and legacy/README.md",
+    "PM source spot checks": "editIterationStatus.jsp:70 unescaped returnto in onclick; login.jsp:14 titleKey login.title; footer.jsp:25,38 bundle keys; spring 3.0.5 jars bundled"
+  },
+  "status_scope_note": "status-validator.js requires a correction-validation entry to carry the same scope string as its baseline entry; the pass 007 entry therefore repeats the pass 006 scope text verbatim as the governed-scope identity. The pass 007 specifics are in the report and coverage-reconciliation.json.",
+  "reviewer_disclosures": "Client-injected context (CLAUDE.md bridge, git status snapshot with commit subjects, tool catalogues) accepted by PM as non-substantive for a non-blind pass; two oversized tool outputs persisted by the client outside the project were not opened; one read of Stage 1 author scratch output for figure identity only, not evidence; legacy/docker-compose.yml read in full, no value reproduced.",
+  "recorded_at": "2026-09-27T20:14:56Z"
+}
