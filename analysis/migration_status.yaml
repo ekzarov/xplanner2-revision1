@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: awaiting_review
+  stage_status: awaiting_owner
   previous_stage: stage-02
-  next_action: 'Stage 1 re-entry corrections BA-001-08 verified by PM against the assignment boundary (analysis/stages/stage-01/stage-02-pass-006-dispositions.md: F-001..F-004 accepted, F-001/F-002 extended within checks (d)-(e), 26 rows changed, no rows added, no status change, no expansion, assignment section unchanged). Owner merges the correction PR; then a new independent BA session (not the author) runs Stage 2 correction-validation (pass 007) with pass 006 proposed as the candidate baseline and verifies its eligibility itself; a full-blind pass needs its concrete trigger shown to the owner first. Stage 3 not authorized.'
+  next_action: 'Publish Stage 2 pass 007 as a separate control-records PR (owner merge). Then STOP: the owner decides whether Stage 1 corrects pass-007 F-001..F-003 and whether the next control is another correction-validation (root pass 006, previous pass 007) by a new independent BA. No automatic next round. Stage 3 not authorized.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 re-entry after stage-02 pass 006: author confirmed the findings behind both reviewer proposals; PM admitted them as refinements (no new IDs): P-1 refines CHK-012 (object binding and request-selected navigation sinks), P-2 refines CHK-007 (format-aware counting with positive control). Checklist CHK-001..CHK-012.'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 007 pending owner decision; reviewer found CHK-012 (F-001 view-resolution prefixes and Tiles names, F-002 script-context returnto) and CHK-007 with CHK-004 (F-003 page-key count) failing; proposals P-1 (refine CHK-012: framework view resolution and script-context navigation) and P-2 (refine CHK-007/CHK-004: attribute-form keys and layout/include chain with per-bundle comparison) pending author confirmation.'
 
 constitution:
   status: ratified
@@ -167,6 +167,23 @@ transition_history:
     gate_evidence:
       - 'analysis/reviews/stage-02-pass-006.md'
     owner_approval: null
+  - from: stage-01
+    to: stage-02
+    reason: 'Stage 1 corrections for Stage 2 pass 006 findings merged (PR #19, CI run 36342334491 green; main CI run 36343929106 green); integrated main 4c1ada255ef8b662b7d51f45eaaed17b8547e3e6; Stage 1 gates audit:project and audit:workbook pass; open for Stage 2 pass 007 in correction-validation mode (owner decision stage-02-correction-validation-adoption), pass 006 proposed as candidate baseline.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-27T19:28:09Z'
+    gate_evidence:
+      - 'analysis/stages/stage-01/stage-02-pass-006-dispositions.md'
+      - 'analysis/legacy_reconnaissance.md'
+    owner_approval: null
+  - from: stage-02
+    to: stage-01
+    reason: 'Finding-driven return: Stage 2 correction-validation pass 007 (analysis/reviews/stage-02-pass-007.md, report SHA-256 e2fd2da2a399b01e1c576b61e9c7697ef2aa63b0be2f6320208956d87bf2a53b) result findings F-001..F-003 (all low) against the six-times-corrected Stage 1 records; pass 006 verified as eligible root baseline; pass-006 F-001, F-003, F-004 closed, F-002 view-name remainder carried into pass-007 F-001.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-27T20:14:56Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-02-pass-007.md'
+    owner_approval: null
 
 review_passes:
   - stage: stage-02
@@ -241,6 +258,22 @@ review_passes:
     reviewed_at: '2026-09-25T13:46:34Z'
     scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
     waiver_ids: []
+  - stage: stage-02
+    pass: 7
+    result: findings
+    report: 'analysis/reviews/stage-02-pass-007.md'
+    reviewer: 'BA independent reviewer (subagent a6795def1ddcf5e91 of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer-p007'
+    session_id: 'a6795def1ddcf5e91'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P007/independence-record.md'
+    reviewed_at: '2026-09-27T20:14:56Z'
+    scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
+    waiver_ids: []
+    control_mode: correction-validation
+    baseline_pass: 6
+    previous_pass: 6
+    coverage_record: 'analysis/reviews/evidence/S02-P007/coverage-reconciliation.json'
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -339,12 +372,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 corrected after Stage 2 pass 006 findings: 210 scenario rows in 18 epics (Yes 111, Inferred 77, Partial 21, No 1), all static-only and open; awaiting Stage 2 correction-validation pass 007.'
+  summary: 'Stage 2 correction-validation pass 007 returned findings (F-001..F-003, all low; 65 new checks, 457 retained, 0 uncovered; pass 006 eligible as root); process returned to Stage 1; awaiting owner decision. Stage 1 records have 210 rows.'
   completed_percent: 0
-  updated_at: '2026-09-27T18:52:23Z'
+  updated_at: '2026-09-27T20:14:56Z'
   agent_reviews:
-    total: 6
-    valid: 6
+    total: 7
+    valid: 7
     blocked: 0
     invalid: 0
     active: 0

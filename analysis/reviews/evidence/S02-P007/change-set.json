@@ -1,0 +1,1233 @@
+{
+ "packet": "S02-P007",
+ "generated_by": "reviewer-scratch/gen-changeset.js (read-only)",
+ "base": "15cb6b26946f73596177eba8cead333383d9f728",
+ "candidate": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+ "commits": [
+  "4c1ada2 Merge pull request #19 from ekzarov/stage-01/pass-006-corrections",
+  "6ff451d Stage 1 re-entry: correct F-001..F-004 from Stage 2 pass 006",
+  "832b5f4 Merge pull request #18 from ekzarov/process/starter-sync-c7d0188",
+  "1377f1e Process maintenance: adopt Starter c7d0188 Stage 2 correction validation",
+  "e995be1 Merge pull request #17 from ekzarov/stage-02/pass-006",
+  "7ec98c5 Stage 2 pass 006: findings, return to Stage 1 (awaiting owner)"
+ ],
+ "files_changed": 78,
+ "files": [
+  {
+   "status": "M",
+   "path": ".agents/skills/migration-ba/SKILL.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": ".agents/skills/migration-pm/SKILL.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "ARTIFACTS.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "MIGRATION.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "README.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/agent-roles.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/agent-system-overview.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/agent-system/build-view.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/agent-system/diagram.svg",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/agent-system/en.html",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/agent-system/example-view.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/agent-system/index.html",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/agent-system/roles.html",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/agent_orchestration.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/architecture/README.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/architecture/templates/architecture-closure-NNN-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/architecture/templates/architecture-owner-verdict-NNN-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/artifact-relationship-graph.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/artifact-responsibilities.json",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/artifact-responsibilities.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/error-prevention-checklist.md",
+   "classification": "checklist refinement CHK-007/CHK-012 (PR #19; newly applicable checks)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/error-prevention-checklist.template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/error-prevention.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/knowledge/README.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/legacy_reconnaissance.md",
+   "classification": "governed Stage 1 record (rechecked)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/legacy_reconnaissance.template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/legacy_user_flows.xlsx",
+   "classification": "governed Stage 1 record (rechecked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/maintenance/starter-sync-2026-09-25-c7d0188.md",
+   "classification": "process-maintenance record (PR #18)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_artifact_flow.drawio",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_methodology.html",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_methodology.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_status.schema.json",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_status.yaml",
+   "classification": "shared status (PM; read-only chain check)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/app.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/artifact-responsibilities.json",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/build-data.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/data.json",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/sync-practical-guidance.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/translation-review.json",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/translations.ru.json",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-cheatsheet.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-contract.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/prototyping/README.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/prototyping/templates/ui-ux-approval-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/prototyping/templates/ui-ux-decision-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/record-contracts.json",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/reviews/README.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P006/access-log.md",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P006/comparison-results.json",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P006/independence-record.md",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P006/packet.json",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P006/phase-a-inventory.json",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P006/phase-a-snapshot.md",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P006/pm-phase-b-release.json",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P006/pm-report-transcription.json",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P006/routing-extract.json",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/stage-02-pass-006.md",
+   "classification": "sealed pass-006 report and evidence (baseline, eligibility checked)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/reviews/stage-NN-pass-NNN-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stage-gates.json",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/README.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/stages/stage-01/stage-02-pass-006-dispositions.md",
+   "classification": "intervening correction record (read; claims verified through checks (d)-(g))"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/templates/bootstrap-gate-report-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/templates/delivery-NNN-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/templates/knowledge-record-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/templates/owner-walkthrough-NNN-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/templates/sdd-record-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/templates/stage-04-requirements-revision-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/templates/stage-19-pass-NNN-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/templates/walkthrough-NNN-template.md",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/agent-system.test.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/constitution-boundaries.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/constitution-boundaries.test.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/error-prevention-audit.test.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/process-sync-regressions.test.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/process-view-audit.test.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/review-comparison-template.test.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/status-validator.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/status-validator.test.js",
+   "classification": "process file (PR #18 Starter c7d0188 sync; no Stage 1 record obligation)"
+  }
+ ],
+ "legacy_tree_identical": true,
+ "legacy_tree": [
+  "100644 blob 2ce397b10a8ab6ade87db4c180660dc0af7824f0\tlegacy/README.md",
+  "100644 blob 17915d5adc9d717b0d253d600fbec74fedff6d9b\tlegacy/demo-seed.sql",
+  "100644 blob 2bd14d97f61e8679e9932cc25d60180fcf69aef6\tlegacy/docker-compose.yml",
+  "100644 blob 7c7f540ee21dc1a8ebf12d4e6b9bcb815d6a17bf\tlegacy/xplanner-plus.war"
+ ],
+ "reconnaissance": {
+  "base_sha256": "0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332",
+  "cand_sha256": "c672ad6faf8a0567eb2fb36259c137c4f238cfe86ddbb57041c972720f3043a1",
+  "hunks_count": 22,
+  "lines_removed": 28,
+  "lines_added": 48,
+  "hunks": [
+   {
+    "old": [
+     37,
+     1
+    ],
+    "new": [
+     37,
+     1
+    ],
+    "context": "",
+    "removed": [
+     "> **Stage 1 re-entry draft (BA-001-07, impact-scoped correction after Stage 2 pass 005 `findings`): corrected static analysis of the fixed baseline package, not"
+    ],
+    "added": [
+     "> **Stage 1 re-entry draft (BA-001-08, impact-scoped correction after Stage 2 pass 006 `findings`): corrected static analysis of the fixed baseline package, not"
+    ],
+    "section": "(reading block)",
+    "firstCell": ""
+   },
+   {
+    "old": [
+     39,
+     4
+    ],
+    "new": [
+     39,
+     5
+    ],
+    "context": "",
+    "removed": [
+     "> The whole WAR was enumerated (964 files). Stage 2 pass 005 returned 5 findings. BA-001-07 corrected them within the boundary PM assigned, together with the oc",
+     "> - **Wiring:** the people import (rows 50-51), the file manager (row 176) and the WAP actions (rows 232, 234) run with dependencies that are never injected.",
+     "> - **Request values:** they reach HQL in the aggregate timesheet (row 165) and the note list (row 169). Raw request parameters are written unescaped into the t",
+     "> - **Read-path writes:** the first attachment creates directory rows (row 172); the file-manager listing fails before its write is reached."
+    ],
+    "added": [
+     "> The whole WAR was enumerated (964 files). Stage 2 pass 006 returned 4 findings. BA-001-08 corrected them within the boundary PM assigned, together with the oc",
+     "> - **Request binding:** a `merge=true` request to a generic editor binds every request parameter onto the loaded object and skips the form copy, the many-to-on",
+     "> - **Redirects:** 13 methods in 12 action classes redirect to the unvalidated `returnto` value, which can name another host; the generic Spring MVC handlers us",
+     "> - **Exports:** the XML, MPX and MSPDI exports contain every person of the system (rows 209-210).",
+     "> - **Figures:** the configuration files hold 114 entries and 106 distinct keys; 42 have no consumer by name."
+    ],
+    "section": "(reading block)",
+    "firstCell": ""
+   },
+   {
+    "old": [
+     44,
+     1
+    ],
+    "new": [
+     45,
+     1
+    ],
+    "context": "",
+    "removed": [
+     "> The parity map holds 210 scenario rows in 18 epics: 111 `Yes`, 77 `Inferred`, 21 `Partial` and 1 `No`. BA-001-07 added no rows and changed 31. The correction "
+    ],
+    "added": [
+     "> The parity map holds 210 scenario rows in 18 epics: 111 `Yes`, 77 `Inferred`, 21 `Partial` and 1 `No`. BA-001-08 added no rows, changed 26 and changed no stat"
+    ],
+    "section": "(reading block)",
+    "firstCell": ""
+   },
+   {
+    "old": [
+     46,
+     1
+    ],
+    "new": [
+     47,
+     1
+    ],
+    "context": "",
+    "removed": [
+     "> **Next:** PM verifies RESULT BA-001-07, integrates status and launches a new fresh blind Stage 2 pass. The corrections are not yet independently verified. Dec"
+    ],
+    "added": [
+     "> **Next:** PM checks RESULT BA-001-08 against the assignment; after the correction PR and owner merge, a new independent BA runs Stage 2 `correction-validation"
+    ],
+    "section": "(reading block)",
+    "firstCell": ""
+   },
+   {
+    "old": [
+     100,
+     2
+    ],
+    "new": [
+     101,
+     2
+    ],
+    "context": "",
+    "removed": [
+     "- Snapshot date: WAR entry timestamps run from 2011-11-20 to 2011-12-04. The analysis was performed on 2026-09-23. The bounded correction BA-001-02 and the re-e",
+     "- Analyst: Business Analyst (role `ba`, mode `author`), tasks **BA-001-01** (first pass), **BA-001-02** (bounded correction applying the owner's Q1 decision), *"
+    ],
+    "added": [
+     "- Snapshot date: WAR entry timestamps run from 2011-11-20 to 2011-12-04. The analysis was performed on 2026-09-23. The bounded correction BA-001-02 and the re-e",
+     "- Analyst: Business Analyst (role `ba`, mode `author`), tasks **BA-001-01** (first pass), **BA-001-02** (bounded correction applying the owner's Q1 decision), *"
+    ],
+    "section": "Scope And Provenance",
+    "firstCell": ""
+   },
+   {
+    "old": [
+     103,
+     1
+    ],
+    "new": [
+     104,
+     1
+    ],
+    "context": "",
+    "removed": [
+     "  - Loaded skill: `.agents/skills/migration-ba/SKILL.md`, git blob `b97db7a6881a199d9c981e375c2518b248877f78`."
+    ],
+    "added": [
+     "  - Loaded skill: `.agents/skills/migration-ba/SKILL.md`, git blob `d09ba8ced6616dc34fb30a9f2ecde6ab9c3a5398` in BA-001-08 (recorded before BA-001-08: `b97db7a6"
+    ],
+    "section": "Scope And Provenance",
+    "firstCell": ""
+   },
+   {
+    "old": [
+     171,
+     1
+    ],
+    "new": [
+     172,
+     1
+    ],
+    "context": "Every figure below was generated mechanically from the extracted WAR by the scra",
+    "removed": [
+     "| Configuration | `WAR:WEB-INF/classes/xplanner.properties` (317 lines) overridden by `xplanner-custom.properties` (load order per `XPlannerProperties$PropertyI"
+    ],
+    "added": [
+     "| Configuration | `WAR:WEB-INF/classes/xplanner.properties` (317 lines) overridden by `xplanner-custom.properties` (load order per `XPlannerProperties$PropertyI"
+    ],
+    "section": "Source Inventory",
+    "firstCell": "Configuration"
+   },
+   {
+    "old": [
+     174,
+     1
+    ],
+    "new": [
+     175,
+     1
+    ],
+    "context": "Every figure below was generated mechanically from the extracted WAR by the scra",
+    "removed": [
+     "| Spring MVC pages | `net.sf.xplanner.web.MePage`, `CommonObjectHandler`; `spring-web.xml` | `/setting/me/status/{id}` (personal status page), `/setting/{type}/"
+    ],
+    "added": [
+     "| Spring MVC pages | `net.sf.xplanner.web.MePage`, `CommonObjectHandler`; `spring-web.xml` | `/setting/me/status/{id}` (personal status page), `/setting/{type}/"
+    ],
+    "section": "Source Inventory",
+    "firstCell": "Spring MVC pages"
+   },
+   {
+    "old": [
+     195,
+     1
+    ],
+    "new": [
+     196,
+     1
+    ],
+    "context": "No surface was started or observed in Stage 1. The **observation status** of eve",
+    "removed": [
+     "| Settings pages (admin) | `/do/view/settings`, `/do/edit/setting`, `/setting/{type}/...` | same | blocked (partial) | `editSetting.jsp` absent; the generic vie"
+    ],
+    "added": [
+     "| Settings pages (admin) | `/do/view/settings`, `/do/edit/setting`, `/setting/{type}/...` | same | blocked (partial) | `editSetting.jsp` absent; the generic han"
+    ],
+    "section": "Runnable Surfaces",
+    "firstCell": "Settings pages (admin)"
+   },
+   {
+    "old": [
+     226,
+     1
+    ],
+    "new": [
+     227,
+     1
+    ],
+    "context": "No surface was started or observed in Stage 1. The **observation status** of eve",
+    "removed": [
+     "- **Public-page texts:** 41 bundle keys. Only `login.instructions` in the default bundle carries a credential (row 9). Its value is not reproduced (CHK-009)."
+    ],
+    "added": [
+     "- **Public-page texts:** 41 bundle keys: the 39 static keys listed in `out/unauth-06.txt` and the 2 keys `error.title` and `system.info.title`, which the error "
+    ],
+    "section": "Runnable Surfaces",
+    "firstCell": ""
+   },
+   {
+    "old": [
+     263,
+     1
+    ],
+    "new": [
+     264,
+     1
+    ],
+    "context": "The row lists and their outcomes are in [`analysis/stages/stage-01/stage-02-pass",
+    "removed": [
+     "| Microsoft Project, PDF and XML consumers | Export files | `com.technoetic.xplanner.export.*` | not checked | JasperReports templates are missing (GAP-003). |"
+    ],
+    "added": [
+     "| Microsoft Project, PDF and XML consumers | Export files. **Content (BA-001-08, pass-006 F-003):** the XML, MPX and MSPDI exports of a project or iteration als"
+    ],
+    "section": "Data And Integrations",
+    "firstCell": "Microsoft Project, PDF and XML consumers"
+   },
+   {
+    "old": [
+     274,
+     1
+    ],
+    "new": [
+     275,
+     1
+    ],
+    "context": "Every command below was executed from the project root in Git Bash on Windows 11",
+    "removed": [
+     "| `sha256sum legacy/*` (before the work and again at the end) | revision `1e12347`, legacy tree `3bd350fa`; re-run in BA-001-04 on branch `stage-01/pass-002-cor"
+    ],
+    "added": [
+     "| `sha256sum legacy/*` (before the work and again at the end) | revision `1e12347`, legacy tree `3bd350fa`; re-run in BA-001-04 on branch `stage-01/pass-002-cor"
+    ],
+    "section": "Build, Run, And Test Evidence",
+    "firstCell": "`sha256sum legacy/*` (before the work and again at the end)"
+   },
+   {
+    "old": [
+     290,
+     2
+    ],
+    "new": [
+     291,
+     2
+    ],
+    "context": "Every command below was executed from the project root in Git Bash on Windows 11",
+    "removed": [
+     "| `node .migration-tmp/stage-01/tools/unauth-06.js` (BA-001-06) | read-only; comment-blanked `web.xml` and `log4j-war.xml`; web-root file list; public-page bund",
+     "| `node .migration-tmp/stage-01/tools/config-consumers-06.js` (BA-001-06) | read-only; keys of both effective property files against class strings, string const"
+    ],
+    "added": [
+     "| `node .migration-tmp/stage-01/tools/unauth-06.js` (BA-001-06) | read-only; comment-blanked `web.xml` and `log4j-war.xml`; web-root file list; public-page bund",
+     "| `node .migration-tmp/stage-01/tools/config-consumers-06.js` (BA-001-06) | read-only; keys of both effective property files against class strings, string const"
+    ],
+    "section": "Build, Run, And Test Evidence",
+    "firstCell": "`node .migration-tmp/stage-01/tools/unauth-06.js` (BA-001-06"
+   },
+   {
+    "old": [
+     298,
+     0
+    ],
+    "new": [
+     300,
+     3
+    ],
+    "context": "Every command below was executed from the project root in Git Bash on Windows 11",
+    "removed": [],
+    "added": [
+     "| `node .migration-tmp/stage-01/tools/binding-trace-08.js` and `persist-trace-08.js` (BA-001-08, check (d)) | read-only static call graph from all 190 entry poi",
+     "| `node .migration-tmp/stage-01/tools/props-parse-08.js`, `config-consumers-08.js` and `props-figures-08.js` (BA-001-08, check (g)) | read-only `java.util.Prope",
+     "| `node .migration-tmp/stage-01/tools/edit-ba-001-08-rows.js`, `edit-ba-001-08-recon.js` and `diff-rows-08.js` (BA-001-08, each run once) | row data and this re"
+    ],
+    "section": "Build, Run, And Test Evidence",
+    "firstCell": "`node .migration-tmp/stage-01/tools/binding-trace-08.js` and"
+   },
+   {
+    "old": [
+     303,
+     1
+    ],
+    "new": [
+     307,
+     1
+    ],
+    "context": "Every command below was executed from the project root in Git Bash on Windows 11",
+    "removed": [
+     "| `node .migration-tmp/stage-01/tools/build-workbook.js` | exceljs from the project-local analysis tool dependencies; governed `setFill`, `reconcileWorksheetOut"
+    ],
+    "added": [
+     "| `node .migration-tmp/stage-01/tools/build-workbook.js` | exceljs from the project-local analysis tool dependencies; governed `setFill`, `reconcileWorksheetOut"
+    ],
+    "section": "Build, Run, And Test Evidence",
+    "firstCell": "`node .migration-tmp/stage-01/tools/build-workbook.js`"
+   },
+   {
+    "old": [
+     306,
+     4
+    ],
+    "new": [
+     310,
+     4
+    ],
+    "context": "Every command below was executed from the project root in Git Bash on Windows 11",
+    "removed": [
+     "| `npm --prefix analysis/tools run audit:project` | same | passed (exit 0; re-run in BA-001-04 to BA-001-07: `PROJECT CONFIG AUDIT OK` at stage-01) | audit outp",
+     "| `npm --prefix analysis/tools run audit:artifact-links` | same | passed (exit 0; re-run in BA-001-04 to BA-001-07: 216 Markdown documents checked) | audit outp",
+     "| `node analysis/tools/artifact-reading.js --file analysis/legacy_reconnaissance.md` (and on the correction records [`analysis/stages/stage-01/stage-02-pass-002",
+     "| `npm --prefix analysis/tools run audit:workbook:excel` | Excel Desktop (Office16) through COM, read-only open, run once | passed (exit 0): `EXCEL DESKTOP OPEN"
+    ],
+    "added": [
+     "| `npm --prefix analysis/tools run audit:project` | same | passed (exit 0; re-run in BA-001-04 to BA-001-08: `PROJECT CONFIG AUDIT OK` at stage-01) | audit outp",
+     "| `npm --prefix analysis/tools run audit:artifact-links` | same | passed (exit 0; re-run in BA-001-04 to BA-001-07: 216 Markdown documents checked; in BA-001-08",
+     "| `node analysis/tools/artifact-reading.js --file analysis/legacy_reconnaissance.md` (and on the correction records [`analysis/stages/stage-01/stage-02-pass-002",
+     "| `npm --prefix analysis/tools run audit:workbook:excel` | Excel Desktop (Office16) through COM, read-only open, run once | passed (exit 0): `EXCEL DESKTOP OPEN"
+    ],
+    "section": "Build, Run, And Test Evidence",
+    "firstCell": "`npm --prefix analysis/tools run audit:project`"
+   },
+   {
+    "old": [
+     330,
+     1
+    ],
+    "new": [
+     334,
+     1
+    ],
+    "context": "Every command below was executed from the project root in Git Bash on Windows 11",
+    "removed": [
+     "| GAP-007 | Security-relevant legacy behavior observed statically: remember-me stores user ID and password as Base64 cookies; `/rest/*` (including task status u"
+    ],
+    "added": [
+     "| GAP-007 | Security-relevant legacy behavior observed statically: remember-me stores user ID and password as Base64 cookies; `/rest/*` (including task status u"
+    ],
+    "section": "Known Gaps And Blockers",
+    "firstCell": "GAP-007"
+   },
+   {
+    "old": [
+     430,
+     0
+    ],
+    "new": [
+     435,
+     2
+    ],
+    "context": "The presence of this behavior is **not** owner permission to carry it into the n",
+    "removed": [],
+    "added": [
+     "| A request that carries `merge=true` to a generic editor is bound onto the loaded or new domain object with `RequestUtils.populate` instead of the form copy: e",
+     "| 13 methods in 12 action classes redirect to the `returnto` request value unchanged (`new ActionForward(returnto, true)`) without validation; at most a missing"
+    ],
+    "section": "Owner Decisions And Open Questions",
+    "firstCell": "A request that carries `merge=true` to a generic editor is b"
+   },
+   {
+    "old": [
+     546,
+     0
+    ],
+    "new": [
+     553,
+     5
+    ],
+    "context": "On first entry, record \"not applicable: first entry\" instead of inventing a revi",
+    "removed": [],
+    "added": [
+     "| [`analysis/reviews/stage-02-pass-006.md`](./reviews/stage-02-pass-006.md) F-001 (medium) | accepted, extended (`/do/edit/roles`, row 141) | rows 35, 43, 46, 5",
+     "| [`analysis/reviews/stage-02-pass-006.md`](./reviews/stage-02-pass-006.md) F-002 (low) | accepted, extended (13 methods in 12 classes; `CloseIterationAction` q",
+     "| [`analysis/reviews/stage-02-pass-006.md`](./reviews/stage-02-pass-006.md) F-003 (low) | accepted | rows 209, 210; Data And Integrations export row | `XmlExpor",
+     "| [`analysis/reviews/stage-02-pass-006.md`](./reviews/stage-02-pass-006.md) F-004 (low) | accepted; the \"42 without a consumer\" result is confirmed | Source Inv",
+     "| [`analysis/reviews/stage-02-pass-006.md`](./reviews/stage-02-pass-006.md) checks (d)-(g) | related occurrences corrected; no further row affected | the rows a"
+    ],
+    "section": "Return Correction Evidence (Conditional)",
+    "firstCell": "[`analysis/reviews/stage-02-pass-006.md`](./reviews/stage-02"
+   },
+   {
+    "old": [
+     548,
+     1
+    ],
+    "new": [
+     559,
+     1
+    ],
+    "context": "On first entry, record \"not applicable: first entry\" instead of inventing a revi",
+    "removed": [
+     "The pass-005 correction is recorded in [`analysis/stages/stage-01/stage-02-pass-005-dispositions.md`](./stages/stage-01/stage-02-pass-005-dispositions.md). That"
+    ],
+    "added": [
+     "The pass-006 correction is recorded in [`analysis/stages/stage-01/stage-02-pass-006-dispositions.md`](./stages/stage-01/stage-02-pass-006-dispositions.md). That"
+    ],
+    "section": "Return Correction Evidence (Conditional)",
+    "firstCell": ""
+   },
+   {
+    "old": [
+     561,
+     1
+    ],
+    "new": [
+     572,
+     1
+    ],
+    "context": "BA-001-02 is a bounded correction within the first entry. It applies an owner de",
+    "removed": [
+     "- [x] The parity workbook is populated and linked to concrete evidence (210 rows after BA-001-07)."
+    ],
+    "added": [
+     "- [x] The parity workbook is populated and linked to concrete evidence (210 rows after BA-001-08)."
+    ],
+    "section": "Stage 1 Exit Checklist",
+    "firstCell": ""
+   },
+   {
+    "old": [
+     574,
+     2
+    ],
+    "new": [
+     585,
+     11
+    ],
+    "context": "independent Phase A snapshot is saved.",
+    "removed": [
+     "- **Learning update, BA-001-07:** source verification confirms the errors behind the pass-005 reviewer proposals P-1 (every injected property needs a wiring bea",
+     "- **Self-check, BA-001-07 (current):** impact-scoped Stage 1 correction after [`analysis/reviews/stage-02-pass-005.md`](./reviews/stage-02-pass-005.md), within "
+    ],
+    "added": [
+     "- **Learning update, BA-001-08:** source verification confirms the errors behind the pass-006 reviewer proposals P-1 (CHK-012 also covers request-to-object bind",
+     "- **Self-check, BA-001-08 (current):** impact-scoped Stage 1 correction after [`analysis/reviews/stage-02-pass-006.md`](./reviews/stage-02-pass-006.md), within ",
+     "  - Checklist [`analysis/error-prevention-checklist.md`](./error-prevention-checklist.md) SHA-256 `0115d8ca4422b2a3ae319734cf3dbc274f5e8ae57b05175384667a07e5b79",
+     "  - **CHK-001:** `.migration-tmp/stage-01/tools/chk001-ba-001-08.js` covered every new or changed citation and row reference.",
+     "  - **CHK-003:** the configuration consumers were rerun with the parser; the binding sinks, redirect targets and export contents were inventoried.",
+     "  - **CHK-007:** figures were regenerated: 210 rows, 111 `Yes`, 77 `Inferred`, 21 `Partial`, 1 `No`; 114 entries and 106 distinct configuration keys; 41 public-",
+     "  - **CHK-009:** the credential scan result is in RESULT BA-001-08.",
+     "  - **CHK-012:** request values were traced into object binding, redirects and view names (checks (d) and (e)).",
+     "  - **Other checks:** the remaining checks are unaffected, or retained as described in the correction record.",
+     "- **Learning update, BA-001-07 (historical):** source verification confirms the errors behind the pass-005 reviewer proposals P-1 (every injected property needs",
+     "- **Self-check, BA-001-07 (historical):** impact-scoped Stage 1 correction after [`analysis/reviews/stage-02-pass-005.md`](./reviews/stage-02-pass-005.md), with"
+    ],
+    "section": "Error Prevention",
+    "firstCell": ""
+   }
+  ]
+ },
+ "workbook": {
+  "base_sha256": "a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99",
+  "cand_sha256": "2949146c30a9b5fb461f262ce047c7cf8c4c1008a974a68d08d7054b25342305",
+  "package_parts_changed": [
+   "./xl/sharedStrings.xml"
+  ],
+  "sheets": [
+   "User Flows"
+  ],
+  "changed_cells": 29,
+  "changed_rows": [
+   35,
+   43,
+   46,
+   58,
+   59,
+   60,
+   62,
+   78,
+   81,
+   88,
+   90,
+   101,
+   121,
+   124,
+   125,
+   129,
+   134,
+   137,
+   139,
+   140,
+   141,
+   149,
+   169,
+   173,
+   209,
+   210
+  ],
+  "rows_added_or_removed": 0,
+  "status_column_changes": 0,
+  "cells": [
+   {
+    "sheet": "User Flows",
+    "cell": "H35",
+    "row": 35,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 1407,
+    "after_length": 1750,
+    "removed_text": "",
+    "added_length": 343
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H43",
+    "row": 43,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 957,
+    "after_length": 2531,
+    "removed_text": "",
+    "added_length": 1574
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H46",
+    "row": 46,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 516,
+    "after_length": 766,
+    "removed_text": "",
+    "added_length": 250
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H58",
+    "row": 58,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 301,
+    "after_length": 839,
+    "removed_text": "",
+    "added_length": 538
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H59",
+    "row": 59,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 638,
+    "after_length": 1428,
+    "removed_text": "",
+    "added_length": 790
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "F60",
+    "row": 60,
+    "column": "Expected user-visible result",
+    "field": "v",
+    "before_length": 20,
+    "after_length": 231,
+    "removed_text": "Unknown view output",
+    "added_length": 230
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H60",
+    "row": 60,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 220,
+    "after_length": 774,
+    "removed_text": "s not determinable statically",
+    "added_length": 583
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H62",
+    "row": 62,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 324,
+    "after_length": 938,
+    "removed_text": "",
+    "added_length": 614
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H78",
+    "row": 78,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 977,
+    "after_length": 2408,
+    "removed_text": "",
+    "added_length": 1431
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H81",
+    "row": 81,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 492,
+    "after_length": 701,
+    "removed_text": "",
+    "added_length": 209
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H88",
+    "row": 88,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 1050,
+    "after_length": 2383,
+    "removed_text": "",
+    "added_length": 1333
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H90",
+    "row": 90,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 506,
+    "after_length": 650,
+    "removed_text": "",
+    "added_length": 144
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H101",
+    "row": 101,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 548,
+    "after_length": 1077,
+    "removed_text": "",
+    "added_length": 529
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H121",
+    "row": 121,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 1055,
+    "after_length": 2485,
+    "removed_text": "",
+    "added_length": 1430
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "D124",
+    "row": 124,
+    "column": "Functional requirement / step",
+    "field": "v",
+    "before_length": 255,
+    "after_length": 320,
+    "removed_text": " and is rejected only when the target iteration equals the current one",
+    "added_length": 135
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "F124",
+    "row": 124,
+    "column": "Expected user-visible result",
+    "field": "v",
+    "before_length": 152,
+    "after_length": 236,
+    "removed_text": "",
+    "added_length": 84
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H124",
+    "row": 124,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 554,
+    "after_length": 1040,
+    "removed_text": "",
+    "added_length": 486
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H125",
+    "row": 125,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 462,
+    "after_length": 607,
+    "removed_text": "",
+    "added_length": 145
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H129",
+    "row": 129,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 964,
+    "after_length": 1540,
+    "removed_text": "",
+    "added_length": 576
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H134",
+    "row": 134,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 1101,
+    "after_length": 2666,
+    "removed_text": "",
+    "added_length": 1565
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H137",
+    "row": 137,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 364,
+    "after_length": 774,
+    "removed_text": "",
+    "added_length": 410
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H139",
+    "row": 139,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 571,
+    "after_length": 711,
+    "removed_text": "",
+    "added_length": 140
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H140",
+    "row": 140,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 571,
+    "after_length": 1067,
+    "removed_text": "",
+    "added_length": 496
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H141",
+    "row": 141,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 525,
+    "after_length": 756,
+    "removed_text": "",
+    "added_length": 231
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H149",
+    "row": 149,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 1010,
+    "after_length": 1617,
+    "removed_text": "",
+    "added_length": 607
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H169",
+    "row": 169,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 1724,
+    "after_length": 2595,
+    "removed_text": "",
+    "added_length": 871
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H173",
+    "row": 173,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 417,
+    "after_length": 557,
+    "removed_text": "",
+    "added_length": 140
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H209",
+    "row": 209,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 224,
+    "after_length": 1092,
+    "removed_text": "",
+    "added_length": 868
+   },
+   {
+    "sheet": "User Flows",
+    "cell": "H210",
+    "row": 210,
+    "column": "Source code evidence",
+    "field": "v",
+    "before_length": 194,
+    "after_length": 549,
+    "removed_text": "",
+    "added_length": 355
+   }
+  ]
+ },
+ "note": "Added text of each changed cell is in reviewer scratch wb-changed-delta.txt; only removed fragments are stored here. Values of credential-bearing sources are not included."
+}

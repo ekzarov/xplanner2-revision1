@@ -1,0 +1,181 @@
+{
+  "packet_id": "S02-P007",
+  "review_mode": "formal independent pass, Stage 2 control reconnaissance, control_mode correction-validation (independent, NOT blind; no Phase A, no delayed Phase B)",
+  "governing_procedure": "analysis/reviews/README.md#stage-2-correction-validation; analysis/agent_orchestration.md#correction-validation-packets",
+  "expected_result_schema": "exactly one of clean | findings | blocked | invalid, per analysis/reviews/README.md#results",
+  "repository": "https://github.com/ekzarov/xplanner2-revision1",
+  "report_path": "analysis/reviews/stage-02-pass-007.md",
+  "review_pass": 7,
+  "stage_entry_recorded_at": "2026-09-27T19:28:09Z",
+  "owner_decisions": [
+    "stage-02-correction-validation-adoption:xplanner2-revision1 (mode adopted; pass 006 PROPOSED as candidate baseline; eligibility is the reviewer's own decision)",
+    "stage-02-reviewer-launch:xplanner2-revision1 (option a applies to both modes, owner confirmation 2026-09-27)",
+    "legacy-default-credential-classification:xplanner2-revision1 (limited; not a general A3 exception)",
+    "legacy-baseline-provenance and legacy-open-questions-q2-q4 (Q2-Q4 deferred)"
+  ],
+  "proposed_root_baseline": {
+    "pass": 6,
+    "note": "Historical full-blind pass without control_mode metadata; per the schema it can be a root only after the new reviewer verifies and records its eligibility.",
+    "report": {
+      "path": "analysis/reviews/stage-02-pass-006.md",
+      "sha256": "ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67"
+    },
+    "blind_checkpoint": [
+      {
+        "path": "analysis/reviews/evidence/S02-P006/phase-a-snapshot.md",
+        "sha256": "c8d4f7807a452121c850419e212107781fb704ead38669adf0ec1c7bf5b774d9"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/phase-a-inventory.json",
+        "sha256": "8f734d0d25c532c1663dcd85f0f3d9ccf9ce820a49db23ed3c765efc04e64cbe"
+      }
+    ],
+    "comparison_ledger": {
+      "path": "analysis/reviews/evidence/S02-P006/comparison-results.json",
+      "sha256": "a205b9b5d697bb44a4322aad3a35f79e70bb825480f7dac69276d7a1e994702c"
+    },
+    "other_evidence": [
+      {
+        "path": "analysis/reviews/evidence/S02-P006/access-log.md",
+        "sha256": "f269996dcde7a429e7e5ce8c6004ea2c668f171e5a11a41732884da68154fa6e"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/independence-record.md",
+        "sha256": "2a2a90a78ace4579b9c93e3e8d5c00cd8a36abeba9744073f4bb9aa5bfc1bac6"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/packet.json",
+        "sha256": "dfcd1ea1977c168c8f4ae5e8ccc3a626ee901dbaf704ab2f5fddb00ac308ff1a"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/routing-extract.json",
+        "sha256": "ac40a3256797458307cd9a5d0692497ed78a777cd9cd91f86db4010469cbe2bc"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/pm-phase-b-release.json",
+        "sha256": "fea7c361220f0caddd9d8567e925c2e798172b64887ed856ccab1d8ea2e97ac8"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/pm-report-transcription.json",
+        "sha256": "b1a1dbfc569eb2fe17fac0c09c28325b554da38f7977a61520987496c5d78566"
+      }
+    ],
+    "reviewed_revision": "15cb6b26946f73596177eba8cead333383d9f728",
+    "reviewed_stage1_records": [
+      {
+        "path": "analysis/legacy_reconnaissance.md",
+        "sha256": "0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332"
+      },
+      {
+        "path": "analysis/legacy_user_flows.xlsx",
+        "sha256": "a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99"
+      }
+    ],
+    "checklist_at_baseline": {
+      "path": "analysis/error-prevention-checklist.md",
+      "sha256": "0115d8ca4422b2a3ae319734cf3dbc274f5e8ae57b05175384667a07e5b79183"
+    }
+  },
+  "latest_preceding_control": "pass 6 (same as the proposed root; no correction-validation pass exists yet)",
+  "intervening_records": [
+    {
+      "path": "analysis/stages/stage-01/stage-02-pass-006-dispositions.md",
+      "sha256": "5f11d1f69a3886479662065cfb149e2a13acd3acbb95335463c849cff411504e",
+      "what": "BA-001-08 correction record with the PM assignment (merged in PR #19)"
+    },
+    {
+      "path": "analysis/maintenance/starter-sync-2026-09-25-c7d0188.md",
+      "sha256": "3e125dc7709130180c2c6753a08bfcf31996ac48fb6d03dc864457f40f08c83d",
+      "what": "process maintenance PR #18: instructions/templates/tools only; no Stage 1 record changed"
+    },
+    {
+      "path": "analysis/reviews/stage-02-pass-001.md .. stage-02-pass-005.md, analysis/reviews/evidence/S02-P001..S02-P005/**, analysis/stages/stage-01/stage-02-pass-001..005-dispositions.md",
+      "what": "earlier chain; the pass 006 reviewer recorded all 33 earlier findings resolved; available for open-item reconciliation"
+    }
+  ],
+  "candidate": {
+    "revision": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+    "records": [
+      {
+        "path": "analysis/legacy_reconnaissance.md",
+        "sha256": "c672ad6faf8a0567eb2fb36259c137c4f238cfe86ddbb57041c972720f3043a1"
+      },
+      {
+        "path": "analysis/legacy_user_flows.xlsx",
+        "sha256": "2949146c30a9b5fb461f262ce047c7cf8c4c1008a974a68d08d7054b25342305"
+      }
+    ],
+    "checklist": {
+      "path": "analysis/error-prevention-checklist.md",
+      "sha256": "6e01c409fc6b6a595f1ff618a7a0e474dcde9b084e368171f1e37489fe74ff32"
+    },
+    "author_claimed_change_set": "see the correction record; the reviewer must regenerate the complete change set independently from BASE to CAND, not rely on the author list"
+  },
+  "legacy_source_set": [
+    {
+      "path": "legacy/README.md",
+      "sha256_base": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "sha256_candidate": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460"
+    },
+    {
+      "path": "legacy/demo-seed.sql",
+      "sha256_base": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "sha256_candidate": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1"
+    },
+    {
+      "path": "legacy/docker-compose.yml",
+      "sha256_base": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "sha256_candidate": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff"
+    },
+    {
+      "path": "legacy/xplanner-plus.war",
+      "sha256_base": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "sha256_candidate": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc"
+    }
+  ],
+  "pinned_worktrees": {
+    "baseline": ".migration-tmp/stage-02-p007/baseline (detached checkout of BASE; read-only)",
+    "candidate": ".migration-tmp/stage-02-p007/candidate (detached checkout of CAND; read-only)"
+  },
+  "pm_proposed_coverage": {
+    "recheck": [
+      "every added, changed or deleted claim in analysis/legacy_reconnaissance.md and every changed workbook cell between BASE and CAND, with its dependencies",
+      "closure of pass-006 F-001..F-004 against the legacy source (accepted/narrowed/extended by the author: verify, do not accept author agreement)",
+      "the author related-occurrence checks (d) request-to-object binding, (e) request-selected navigation, (f) export content, (g) properties-derived figures: independent verification of completeness, not a re-read of the author inventory",
+      "the refined CHK-012 (binding and navigation sinks) and CHK-007 (format-aware counts with positive control) as newly applicable checks over the whole governed scope wherever such sinks or figures occur, not only in changed rows",
+      "every pass-006 C-ID whose claim, row or source dependency is touched by the complete change set (affected previously matched claims)",
+      "every open F/B/CHK item in the chain (expected: only pass-006 F-001..F-004 and the pass-006 checklist failures)"
+    ],
+    "retain": "pass-006 matched C-IDs whose claim identity and source dependencies are unaffected by the complete change set, each with an applicability rationale (exhaustive grouped mappings allowed; unchanged bytes or totals alone are not proof)",
+    "challenge": "The reviewer validates or challenges this proposal and the eligibility of pass 006; if a full-blind trigger exists (changed source set or governed scope, unreliable baseline independence/completeness/provenance, systemic or unbounded impact), stop with the exact trigger and scope, and do NOT start a blind inventory."
+  },
+  "instruction_paths": [
+    "MIGRATION.md",
+    ".specify/memory/constitution.md",
+    "analysis/agent-roles.md",
+    ".agents/skills/migration-ba/SKILL.md",
+    "analysis/migration_methodology.md#stage-02 and #review-and-correction-prs",
+    "analysis/reviews/README.md (Stage 2: Control reconnaissance; Stage 2 Correction Validation; Comparison Record Contract; Results; Independence; credential-safe evidence and the project credential addition)",
+    "analysis/reviews/stage-NN-pass-NNN-template.md",
+    "analysis/agent_orchestration.md (Correction-Validation Packets; Read-Only Execution; Batches and Checkpoints; Durable Evidence; Credential-Safe Evidence)",
+    "analysis/error-prevention.md",
+    "analysis/error-prevention-checklist.md",
+    "analysis/legacy_user_flows_template_instructions.md"
+  ],
+  "permitted_operations": "Read-only inspection of the project folder, both pinned worktrees and legacy/; extraction of the WAR into the reviewer scratch; own read-only Node scripts in the reviewer scratch; git rev-parse, git status, git diff and git show between BASE and CAND only. No legacy runtime, remote access, network, installs, commits, branch changes or repository changes outside the write allowlist.",
+  "forbidden_always": [
+    "any folder outside C:/Work/Legacy/xplanner2-revision1 and the read-only C:/Work/Legacy/legacy-modernization-starter",
+    "examples or links from an earlier migration of this legacy system (constitution amendment A2), e.g. github.com/olsys-ltd/xplanner2",
+    "web, browser, MCP tools, other agents",
+    "the Stage 1 author scratch .migration-tmp/stage-01/** and earlier reviewer scratch directories as evidence (the author tools may be read only to understand a claim; every conclusion needs own source verification)",
+    "reproducing credential values (A3, CHK-009): cite source locations only; self-scan new evidence and report only the hit count"
+  ],
+  "reviewer_write_allowlist": [
+    "analysis/reviews/evidence/S02-P007/** except packet.json and pm-*.json",
+    ".migration-tmp/stage-02-p007/reviewer-scratch/**",
+    ".migration-tmp/temp/**, .migration-tmp/npm-cache/** (temp redirection only)"
+  ],
+  "report_delivery": "The Claude Code client refuses subagent writes of the review report file. The reviewer writes the complete report to .migration-tmp/stage-02-p007/reviewer-scratch/stage-02-pass-007.md and gives its SHA-256 in RESULT; PM verifies and copies it byte-exact to analysis/reviews/stage-02-pass-007.md.",
+  "status_entries": "PM records the review_passes entry (control_mode correction-validation, baseline_pass, previous_pass, coverage_record) from RESULT; the reviewer never edits shared status.",
+  "runtimes": "Node v22.20.0, Windows tar.exe, git. No JDK/javap on this machine."
+}
