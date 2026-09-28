@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: awaiting_owner
+  stage_status: awaiting_review
   previous_stage: stage-02
-  next_action: 'Publish Stage 2 pass 007 as a separate control-records PR (owner merge). Then STOP: the owner decides whether Stage 1 corrects pass-007 F-001..F-003 and whether the next control is another correction-validation (root pass 006, previous pass 007) by a new independent BA. No automatic next round. Stage 3 not authorized.'
+  next_action: 'Stage 1 re-entry corrections BA-001-09 verified by PM against the assignment boundary (analysis/stages/stage-01/stage-02-pass-007-dispositions.md: F-001..F-003 accepted, F-002 extended to row 101, F-003 extended to 45 keys, 5 rows changed, no rows added, no status change, no expansion, assignment section unchanged). Owner merges the correction PR; then a new independent BA session (not the author, no earlier reviewer) runs Stage 2 correction-validation pass 008 with baseline pass 006 and previous pass 007; a full-blind trigger is shown to the owner first; PM stops after the pass 008 result. Stage 3 not authorized.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 re-entry after stage-02 pass 007 pending owner decision; reviewer found CHK-012 (F-001 view-resolution prefixes and Tiles names, F-002 script-context returnto) and CHK-007 with CHK-004 (F-003 page-key count) failing; proposals P-1 (refine CHK-012: framework view resolution and script-context navigation) and P-2 (refine CHK-007/CHK-004: attribute-form keys and layout/include chain with per-bundle comparison) pending author confirmation.'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 007: author confirmed the findings behind both reviewer proposals; PM admitted them as refinements (no new IDs): P-1 refines CHK-012 (script contexts, framework view resolution), P-2 refines CHK-007 (page texts over key-taking attributes and layout/include chain, with positive control; per-variant comparison stays CHK-004). Checklist CHK-001..CHK-012.'
 
 constitution:
   status: ratified
@@ -372,9 +372,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 2 correction-validation pass 007 returned findings (F-001..F-003, all low; 65 new checks, 457 retained, 0 uncovered; pass 006 eligible as root); process returned to Stage 1; awaiting owner decision. Stage 1 records have 210 rows.'
+  summary: 'Stage 1 corrected after Stage 2 pass 007 findings: 210 scenario rows in 18 epics (Yes 111, Inferred 77, Partial 21, No 1), all static-only and open; awaiting Stage 2 correction-validation pass 008.'
   completed_percent: 0
-  updated_at: '2026-09-27T20:14:56Z'
+  updated_at: '2026-09-28T08:34:04Z'
   agent_reviews:
     total: 7
     valid: 7
