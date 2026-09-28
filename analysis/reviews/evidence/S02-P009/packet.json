@@ -1,0 +1,292 @@
+{
+  "packet_id": "S02-P009",
+  "review_mode": "formal independent pass, Stage 2 control reconnaissance, control_mode correction-validation (independent, NOT blind; no Phase A, no delayed Phase B) with a Stage 2 attempt-recovery assessment",
+  "governing_procedure": "analysis/reviews/README.md#stage-2-correction-validation and #stage-2-attempt-recovery; analysis/agent_orchestration.md#correction-validation-packets and #packet-transport-safety",
+  "expected_result_schema": "exactly one of clean | findings | blocked | invalid, per analysis/reviews/README.md#results",
+  "repository": "https://github.com/ekzarov/xplanner2-revision1",
+  "report_path": "analysis/reviews/stage-02-pass-009.md",
+  "review_pass": 9,
+  "stage_entry_recorded_at": "2026-09-28T13:12:39Z",
+  "owner_decisions": [
+    "stage-02-attempt-recovery-adoption:xplanner2-revision1 (recovery not asserted in advance; only this fresh reviewer may establish it)",
+    "owner instruction 2026-09-28: one pass 009; proposed root 006, last valid control 007, last chronological attempt 008; nothing verified in 008 is inherited; a full-blind trigger is shown to the owner first; after the result PM publishes records and stops; no pass 010, no Stage 3",
+    "stage-01-stored-value-output-inventory:xplanner2-revision1 (deferred full inventory of ~900 unescaped stored-value outputs; NOT a reduction of mandatory Stage 2 coverage)",
+    "stage-02-correction-validation-adoption, stage-02-reviewer-launch (option a, both modes), legacy-default-credential-classification (limited), legacy-baseline-provenance, legacy-open-questions-q2-q4 (deferred)"
+  ],
+  "proposed_chain": {
+    "root": {
+      "pass": 6,
+      "result": "findings",
+      "control_mode": "historical full-blind (no metadata)",
+      "report": {
+        "path": "analysis/reviews/stage-02-pass-006.md",
+        "sha256": "ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67"
+      },
+      "blind_checkpoint": [
+        {
+          "path": "analysis/reviews/evidence/S02-P006/phase-a-snapshot.md",
+          "sha256": "c8d4f7807a452121c850419e212107781fb704ead38669adf0ec1c7bf5b774d9"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P006/phase-a-inventory.json",
+          "sha256": "8f734d0d25c532c1663dcd85f0f3d9ccf9ce820a49db23ed3c765efc04e64cbe"
+        }
+      ],
+      "comparison_ledger": {
+        "path": "analysis/reviews/evidence/S02-P006/comparison-results.json",
+        "sha256": "a205b9b5d697bb44a4322aad3a35f79e70bb825480f7dac69276d7a1e994702c"
+      },
+      "other_evidence": [
+        {
+          "path": "analysis/reviews/evidence/S02-P006/access-log.md",
+          "sha256": "f269996dcde7a429e7e5ce8c6004ea2c668f171e5a11a41732884da68154fa6e"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P006/independence-record.md",
+          "sha256": "2a2a90a78ace4579b9c93e3e8d5c00cd8a36abeba9744073f4bb9aa5bfc1bac6"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P006/packet.json",
+          "sha256": "dfcd1ea1977c168c8f4ae5e8ccc3a626ee901dbaf704ab2f5fddb00ac308ff1a"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P006/routing-extract.json",
+          "sha256": "ac40a3256797458307cd9a5d0692497ed78a777cd9cd91f86db4010469cbe2bc"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P006/pm-phase-b-release.json",
+          "sha256": "fea7c361220f0caddd9d8567e925c2e798172b64887ed856ccab1d8ea2e97ac8"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P006/pm-report-transcription.json",
+          "sha256": "b1a1dbfc569eb2fe17fac0c09c28325b554da38f7977a61520987496c5d78566"
+        }
+      ],
+      "reviewed_revision": "15cb6b26946f73596177eba8cead333383d9f728"
+    },
+    "coverage_base": {
+      "pass": 7,
+      "result": "findings",
+      "control_mode": "correction-validation",
+      "report": {
+        "path": "analysis/reviews/stage-02-pass-007.md",
+        "sha256": "e2fd2da2a399b01e1c576b61e9c7697ef2aa63b0be2f6320208956d87bf2a53b"
+      },
+      "comparison_ledger": {
+        "path": "analysis/reviews/evidence/S02-P007/comparison-results.json",
+        "sha256": "7dda3cf4828fe9c4cf1dc920765e7b075ebb2a855d1800858ce28975c85e2c41"
+      },
+      "coverage_record": {
+        "path": "analysis/reviews/evidence/S02-P007/coverage-reconciliation.json",
+        "sha256": "dbbc987c036713f430bfae8ee0e2f748fb1a441fa720ee45daf5922a576a2f7d"
+      },
+      "other_evidence": [
+        {
+          "path": "analysis/reviews/evidence/S02-P007/access-log.md",
+          "sha256": "2109c5cafae1c11f9705b520d41e21be27badb678ac2c2d4bcc976ae70b3960c"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P007/change-set.json",
+          "sha256": "d728553321a17b4ce9f2b9abc57a15eb2e5dac30f7b74cf9485bf3d875f4e36e"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P007/independence-record.md",
+          "sha256": "9ccd572b1aa73a8e5af7a0395702a5d4d7fcaa332e7fdc8031bffa29fee42075"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P007/packet.json",
+          "sha256": "0e70fd7ef2c4050bd2c60cf0c2a53bba5c703a50b9c8644809a8c108e5eb403a"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P007/pm-report-transcription.json",
+          "sha256": "a13bc47666d329396b30b9a11d839ee9f20b291115ee496c29fc54fd3afe2d2a"
+        }
+      ],
+      "reviewed_revision": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+      "reviewed_stage1_records": [
+        {
+          "path": "analysis/legacy_reconnaissance.md",
+          "sha256": "c672ad6faf8a0567eb2fb36259c137c4f238cfe86ddbb57041c972720f3043a1"
+        },
+        {
+          "path": "analysis/legacy_user_flows.xlsx",
+          "sha256": "2949146c30a9b5fb461f262ce047c7cf8c4c1008a974a68d08d7054b25342305"
+        }
+      ]
+    },
+    "failed_attempt": {
+      "pass": 8,
+      "result": "invalid",
+      "control_mode": "correction-validation",
+      "failure": "reviewer-declared access-boundary breach: it opened the client-persisted output of its own git diff outside the allowed folders (see pm-report-transcription.json and access-log.md)",
+      "report": {
+        "path": "analysis/reviews/stage-02-pass-008.md",
+        "sha256": "0bfc7d9b6404aad91eab3797b9a641a6dce73bcb6891fd7ebd02a3c2bf4d8e3b"
+      },
+      "evidence": [
+        {
+          "path": "analysis/reviews/evidence/S02-P008/access-log.md",
+          "sha256": "69c9163173656805d493a0e616fc59540730bc2fe43b956f98e51f8e77fd9e50"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P008/change-set.json",
+          "sha256": "a25f0cd87f98179df10a6cc557f9f428b79f34ecbfade980affc4a40bd8f408b"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P008/comparison-results.json",
+          "sha256": "76a49f672e90002c382cfaf4c912956101fd9ffb0b16d7f9dbcd26ca9a35b4fd"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P008/coverage-reconciliation.json",
+          "sha256": "8440b633745e558d3c0a5731a0c53e5fda58d494262c2122df0e3cc832bb2a1a"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P008/independence-record.md",
+          "sha256": "e5e1cbc91dfe59b8a2ec6c554eb758b962754c84cf79326e0bbf0c89b96ce394"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P008/packet.json",
+          "sha256": "3401f782b3dcfbcf8067830088ce359055e6d93c499556c2515a4c89ee7093e3"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P008/pm-report-transcription.json",
+          "sha256": "eba4a112d5f648fd5880f2a4dcfe09222a80443890845e94bbd638944598aed0"
+        }
+      ],
+      "reviewed_revision": "605f94df9a52004945f4ad991d0018c57d1bb49b",
+      "use": "leads only: its matching checks, retained table, closure claims and coverage are NOT inherited; its sealed chain_consequence statement predates Starter b3fc045"
+    }
+  },
+  "intervening_records": [
+    {
+      "path": "analysis/stages/stage-01/stage-02-pass-006-dispositions.md",
+      "sha256": "5f11d1f69a3886479662065cfb149e2a13acd3acbb95335463c849cff411504e",
+      "what": "BA-001-08 (PR #19), covered by pass 007"
+    },
+    {
+      "path": "analysis/stages/stage-01/stage-02-pass-007-dispositions.md",
+      "sha256": "d63285215e9e713bbd179bb7781e35a949eb16b81ffd589f4544320fe2af1638",
+      "what": "BA-001-09 (PR #21), reviewed only by the invalid pass 008"
+    },
+    {
+      "path": "analysis/stages/stage-01/stage-02-pass-008-dispositions.md",
+      "sha256": "906d1c0cd14c47f776f39c8886d99005c52aa99b83171ccd09eca3977098dda5",
+      "what": "BA-001-10 owner-approved remediation after invalid pass 008 (PR #24), including the stored-value output impact assessment"
+    },
+    {
+      "path": "analysis/maintenance/starter-sync-2026-09-25-c7d0188.md",
+      "sha256": "3e125dc7709130180c2c6753a08bfcf31996ac48fb6d03dc864457f40f08c83d",
+      "what": "process maintenance PR #18"
+    },
+    {
+      "path": "analysis/maintenance/starter-sync-2026-09-28-b3fc045.md",
+      "sha256": "0fef085c9297827a0c710b5ebf6ee284ff67ef7cee5895c4dc442767c49834a7",
+      "what": "process maintenance PR #23 (attempt recovery, packet transport safety)"
+    },
+    {
+      "path": "analysis/reviews/stage-02-pass-001.md .. 005.md, evidence S02-P001..S02-P005, analysis/stages/stage-01/stage-02-pass-001..005-dispositions.md",
+      "what": "earlier chain"
+    }
+  ],
+  "candidate": {
+    "revision": "026fd972915bb58c449b0c6187620589a70b62d8",
+    "records": [
+      {
+        "path": "analysis/legacy_reconnaissance.md",
+        "sha256": "c6a269ab048a61b1e12ecb771830c32bf8696d28093cce5251e413ab8ee1584b"
+      },
+      {
+        "path": "analysis/legacy_user_flows.xlsx",
+        "sha256": "fafa8fcdc0e2967a0243cf08a4095462b898ecd039ccaeaff9034b9a5d6e3bf5"
+      }
+    ],
+    "checklist": {
+      "path": "analysis/error-prevention-checklist.md",
+      "sha256": "8a15e08c98b63b86c881d172ba34ca55e7edeab00cc4d229a90be2664842a90b"
+    },
+    "author_claimed_change_set": "see the pass-007 and pass-008 disposition records; regenerate the complete change set COV..CAND independently"
+  },
+  "legacy_source_set": [
+    {
+      "path": "legacy/README.md",
+      "root": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "coverage_base": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "failed_attempt": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "candidate": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460"
+    },
+    {
+      "path": "legacy/demo-seed.sql",
+      "root": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "coverage_base": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "failed_attempt": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "candidate": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1"
+    },
+    {
+      "path": "legacy/docker-compose.yml",
+      "root": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "coverage_base": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "failed_attempt": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "candidate": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff"
+    },
+    {
+      "path": "legacy/xplanner-plus.war",
+      "root": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "coverage_base": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "failed_attempt": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "candidate": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc"
+    }
+  ],
+  "pinned_worktrees": {
+    "root": ".migration-tmp/stage-02-p009/root (ROOT; read-only)",
+    "coverage_base": ".migration-tmp/stage-02-p009/coverage-base (COV, reviewed by pass 007; read-only)",
+    "failed_attempt": ".migration-tmp/stage-02-p009/failed-attempt (FAILED, reviewed by invalid pass 008; read-only)",
+    "candidate": ".migration-tmp/stage-02-p009/candidate (CAND; read-only)"
+  },
+  "pm_proposed_coverage": {
+    "recovery_assessment": "identify the pass-008 failure cause and affected session, files and checks; evidence of containment and remediation; why root 006 and coverage base 007 keep independence, completeness, provenance and exact source identity. Uncertain containment blocks recovery. Do not seek access to the user profile to obtain proof.",
+    "recheck": [
+      "the complete change set COV..CAND (both correction rounds, around the failed attempt), with dependencies",
+      "every item that pass 008 left verified only by itself: all of its checks count as unverified",
+      "closure of pass-007 F-001..F-003 and of the pass-008 leads F-001..F-003 against the source",
+      "the author checks (h)-(j) and (k)-(m), and the CHK-003/CHK-007/CHK-011/CHK-012 refinements across the governed scope where they apply",
+      "every pass-006/pass-007 item whose claim, row or source dependency COV..CAND touches",
+      "every open F/B/CHK item in the chain",
+      "stored-value output: whether the recorded Q3/GAP-007 facts suffice for the mandatory scope of this control; if not, name the concrete obligation, the gap and the required check, without starting an inventory"
+    ],
+    "retain": "only exact check IDs from eligible valid reports (pass 006, pass 007) with current applicability reasoning against COV..CAND; never from pass 008",
+    "challenge": "If recovery cannot be established, record blocked/invalid with the actual trigger and no recovery attestation. If a full-blind trigger exists, stop with the exact trigger and scope and do NOT start a blind inventory."
+  },
+  "status_fields_if_recovery_confirmed": "PM records only after a confirmed recovery and a new clean/findings result: baseline_pass 6, previous_pass 8, recovery.coverage_base_pass 7, recovery.excluded_passes [8], recovery.basis_unchanged verified, recovery.assessment_record (this report). Nothing is pre-filled.",
+  "instruction_paths": [
+    "MIGRATION.md",
+    ".specify/memory/constitution.md",
+    "analysis/agent-roles.md",
+    ".agents/skills/migration-ba/SKILL.md",
+    "analysis/migration_methodology.md#stage-02 and #review-and-correction-prs",
+    "analysis/reviews/README.md (Stage 2; Stage 2 Correction Validation; Stage 2 Attempt Recovery; Comparison Record Contract; Results; Independence; credential-safe evidence and the project credential addition)",
+    "analysis/reviews/stage-NN-pass-NNN-template.md (Stage 2 Correction Validation and Attempt Recovery sections)",
+    "analysis/agent_orchestration.md (Correction-Validation Packets; Packet Transport Safety; Read-Only Execution; Durable Evidence; Credential-Safe Evidence)",
+    "analysis/error-prevention.md",
+    "analysis/error-prevention-checklist.md",
+    "analysis/legacy_user_flows_template_instructions.md"
+  ],
+  "transport_safety": {
+    "authorized_scratch": ".migration-tmp/stage-02-p009/reviewer-scratch/** for large command output, extracted WAR, scripts and notes; .migration-tmp/temp and .migration-tmp/npm-cache for temp/cache redirection",
+    "rule": "Scope and pre-filter commands or redirect output into the scratch, then read bounded excerpts. Never open client-persisted output files outside the allowed folders, even your own output; regenerate inside the scratch instead. Disclose any access violation immediately in the report and RESULT."
+  },
+  "permitted_operations": "Read-only inspection of the project folder, the four pinned worktrees and legacy/; WAR extraction into the reviewer scratch; own read-only Node scripts there; git rev-parse, status, diff and show between ROOT, COV, FAILED and CAND only. No legacy runtime, remote access, network, installs, commits, branch changes or repository changes outside the write allowlist.",
+  "forbidden_always": [
+    "any folder outside C:/Work/Legacy/xplanner2-revision1 and the read-only C:/Work/Legacy/legacy-modernization-starter, including client-persisted tool output under the user profile",
+    "examples or links from an earlier migration of this legacy system (constitution amendment A2), e.g. github.com/olsys-ltd/xplanner2",
+    "web, browser, MCP tools, other agents",
+    "the Stage 1 author scratch and earlier reviewer scratch as evidence (tools may be read only to understand a claim)",
+    "reproducing credential values (A3, CHK-009): cite source locations only; self-scan new evidence and report only the hit count"
+  ],
+  "reviewer_write_allowlist": [
+    "analysis/reviews/evidence/S02-P009/** except packet.json and pm-*.json",
+    ".migration-tmp/stage-02-p009/reviewer-scratch/**",
+    ".migration-tmp/temp/**, .migration-tmp/npm-cache/**"
+  ],
+  "report_delivery": "The client refuses subagent writes of the review report file. The reviewer writes the complete report to .migration-tmp/stage-02-p009/reviewer-scratch/stage-02-pass-009.md and gives its SHA-256 in RESULT; PM copies it byte-exact to analysis/reviews/stage-02-pass-009.md.",
+  "runtimes": "Node v22.20.0, Windows tar.exe, git. No JDK/javap on this machine."
+}

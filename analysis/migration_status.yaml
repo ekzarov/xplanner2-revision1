@@ -32,11 +32,11 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: awaiting_review
+  stage_status: awaiting_owner
   previous_stage: stage-02
-  next_action: 'Stage 1 remediation BA-001-10 verified by PM against the assignment boundary (analysis/stages/stage-01/stage-02-pass-008-dispositions.md: the pass-008 leads F-001..F-003 confirmed from source, F-001 extended to single-argument forwards and request-keyed caches, F-003 narrowed for the 77 outputs; 3 rows changed, no rows added, no status change, no expansion; EL output recorded as a bounded fact with an owner-decision recommendation; assignment section unchanged). Owner merges the correction PR; then one fresh independent BA (not an author, prior reviewer or the pass-008 reviewer) runs correction-validation pass 009 with its own recovery assessment (root 006, coverage base 007, excluded 008). A full-blind trigger is shown to the owner first; PM stops after the pass 009 result. Stage 3 not authorized.'
+  next_action: 'Publish Stage 2 pass 009 (findings F-001..F-003, all low; recovery from coverage base 007 with 008 excluded) as a separate control-records PR. Before merge the owner decides whether the reviewer-disclosed read-only git commands outside the packet list are acceptable; if not, PM re-records pass 009 as invalid instead. Then STOP: no pass 010, no further corrections and no Stage 3 without a new owner decision.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 remediation after invalid stage-02 pass 008: author confirmed from source the errors behind proposals P-1..P-3; PM admitted them as refinements (no new IDs): P-1 refines CHK-003 (writers of shared registries and start-up order), P-2 refines CHK-011 (tag handlers in public layout chains), P-3 refines CHK-007 (stated counting rule). Checklist CHK-001..CHK-012.'
+  prevention_self_check: 'stage-01 re-entry after stage-02 pass 009 pending owner decision; reviewer found CHK-003 with CHK-012 (F-001 message-resource and locale registries), CHK-004 with CHK-003 (F-002 formatDate default pattern and locale cache) and CHK-007 (F-003 counting rule not reproducible as written) failing; proposals to refine CHK-003, CHK-004 and CHK-007 pending author confirmation.'
 
 constitution:
   status: ratified
@@ -206,6 +206,23 @@ transition_history:
       approved_at: '2026-09-28T11:17:50Z'
       record: 'analysis/stages/stage-01/stage-02-pass-008-dispositions.md'
       scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
+  - from: stage-01
+    to: stage-02
+    reason: 'Stage 1 remediation of the invalid pass-008 observations merged (PR #24, CI run 36417487541 green; main CI run 36426731492 green); integrated main 026fd972915bb58c449b0c6187620589a70b62d8; Stage 1 gates audit:project and audit:workbook pass; open for one Stage 2 correction-validation pass 009 with its own recovery assessment (owner instruction 2026-09-28): proposed root pass 006, last valid control pass 007, last chronological attempt pass 008.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-28T13:12:39Z'
+    gate_evidence:
+      - 'analysis/stages/stage-01/stage-02-pass-008-dispositions.md'
+      - 'analysis/legacy_reconnaissance.md'
+    owner_approval: null
+  - from: stage-02
+    to: stage-01
+    reason: 'Finding-driven return: Stage 2 correction-validation pass 009 (analysis/reviews/stage-02-pass-009.md, report SHA-256 8847eda3f48bf1e273a18e848ddcc5e6a43eff1d134ed31eea15dabf1459cb08) result findings F-001..F-003 (all low); recovery established from coverage base pass 007 with pass 008 excluded; all pass-007 findings and the pass-008 leads closed except the incomplete cache/registry fact and the script-context counting rule.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-28T14:01:01Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-02-pass-009.md'
+    owner_approval: null
 
 review_passes:
   - stage: stage-02
@@ -312,6 +329,27 @@ review_passes:
     baseline_pass: 6
     previous_pass: 7
     coverage_record: 'analysis/reviews/evidence/S02-P008/pm-report-transcription.json'
+  - stage: stage-02
+    pass: 9
+    result: findings
+    report: 'analysis/reviews/stage-02-pass-009.md'
+    reviewer: 'BA independent reviewer (subagent a81963deb7fe2b1fd of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer-p009'
+    session_id: 'a81963deb7fe2b1fd'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P009/independence-record.md'
+    reviewed_at: '2026-09-28T14:01:01Z'
+    scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
+    waiver_ids: []
+    control_mode: correction-validation
+    baseline_pass: 6
+    previous_pass: 8
+    coverage_record: 'analysis/reviews/evidence/S02-P009/coverage-reconciliation.json'
+    recovery:
+      coverage_base_pass: 7
+      excluded_passes: [8]
+      basis_unchanged: verified
+      assessment_record: 'analysis/reviews/stage-02-pass-009.md'
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -388,6 +426,14 @@ owner_decisions:
     rationale: 'Correction-validation pass 008 was invalid only because its reviewer opened its own client-persisted command output outside the allowed folders; under c7d0188 an invalid attempt could not be skipped, forcing a full-blind pass. The owner adopted the Starter rule that lets a new reviewer assess recovery from the last valid coverage base instead.'
     record: 'analysis/maintenance/starter-sync-2026-09-28-b3fc045.md'
     residual_risk: 'Recovery depends on the new reviewer establishing that the pass 008 breach was confined to that session; the status audit checks only structure and chain, not containment or semantic coverage.'
+  - id: 'stage-01-stored-value-output-inventory:xplanner2-revision1'
+    decision: deferred
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-28T13:12:39Z'
+    scope: 'No full Stage 1 inventory now of the roughly 900 unescaped stored-value output expressions (<%= %> and template EL in 65 of 74 JSP/tag files, author estimate BA-001-10). The confirmed instance (public-page breadcrumb names), the known risk and the unverified volume stay recorded in the Q3 facts and GAP-007 of analysis/legacy_reconnaissance.md. This is not an acknowledgement that the application is safe and does not permit reducing mandatory Stage 2 coverage: each Stage 2 control still states whether the existing records suffice for its mandatory scope and names any concrete obligation, gap and required check.'
+    rationale: 'Owner decision on the BA-001-10 recommendation after pass 008: the output classification fits later security work better than a Stage 1 reconnaissance expansion; truthful bounded recording is kept.'
+    record: 'analysis/stages/stage-01/stage-02-pass-008-dispositions.md'
+    residual_risk: 'Unclassified stored-value output may hide further unescaped rendering of user-controlled data; it remains an open Q3/GAP-007 risk for Stage 3 and Stage 9.'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -418,12 +464,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 remediated after invalid Stage 2 pass 008 (its observations confirmed from source): 210 scenario rows in 18 epics (Yes 111, Inferred 77, Partial 21, No 1), all static-only and open; awaiting Stage 2 correction-validation pass 009 with recovery assessment.'
+  summary: 'Stage 2 correction-validation pass 009 returned findings (F-001..F-003, all low; 46 new checks, 500 retained, 0 uncovered; recovery established, pass 008 excluded); recorded stored-value output facts suffice for this control; process returned to Stage 1; awaiting owner decision. Stage 1 records have 210 rows.'
   completed_percent: 0
-  updated_at: '2026-09-28T11:43:40Z'
+  updated_at: '2026-09-28T14:01:01Z'
   agent_reviews:
-    total: 8
-    valid: 7
+    total: 9
+    valid: 8
     blocked: 0
     invalid: 1
     active: 0

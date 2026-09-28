@@ -1,0 +1,856 @@
+{
+ "packet": "S02-P009",
+ "generated_by": "reviewer (independently regenerated with git diff and exceljs dumps; not the author claim)",
+ "revisions": {
+  "coverage_base": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+  "failed_attempt": "605f94df9a52004945f4ad991d0018c57d1bb49b",
+  "candidate": "026fd972915bb58c449b0c6187620589a70b62d8",
+  "root": "15cb6b26946f73596177eba8cead333383d9f728"
+ },
+ "files_cov_to_cand": {
+  "total": 56,
+  "by_class": {
+   "process file (Starter b3fc045, PR #23)": 33,
+   "learned checklist": 1,
+   "governed Stage 1 record": 2,
+   "process-maintenance record": 1,
+   "PM status ledger": 1,
+   "sealed control record (added)": 16,
+   "Stage 1 correction record": 2
+  },
+  "files": [
+   {
+    "status": "M",
+    "path": ".agents/skills/migration-ba/SKILL.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": ".agents/skills/migration-pm/SKILL.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "ARTIFACTS.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "MIGRATION.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/agent-roles.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/agent-system-overview.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/agent-system/en.html",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/agent-system/example-view.js",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/agent-system/index.html",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/agent-system/roles.html",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/agent_orchestration.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/error-prevention-checklist.md",
+    "class": "learned checklist"
+   },
+   {
+    "status": "M",
+    "path": "analysis/error-prevention.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/legacy_reconnaissance.md",
+    "class": "governed Stage 1 record"
+   },
+   {
+    "status": "M",
+    "path": "analysis/legacy_user_flows.xlsx",
+    "class": "governed Stage 1 record"
+   },
+   {
+    "status": "A",
+    "path": "analysis/maintenance/starter-sync-2026-09-28-b3fc045.md",
+    "class": "process-maintenance record"
+   },
+   {
+    "status": "M",
+    "path": "analysis/migration_artifact_flow.drawio",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/migration_methodology.html",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/migration_methodology.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/migration_status.schema.json",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/migration_status.yaml",
+    "class": "PM status ledger"
+   },
+   {
+    "status": "M",
+    "path": "analysis/process-canvas/app.js",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/process-canvas/build-data.js",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/process-canvas/data.json",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/process-canvas/sync-practical-guidance.js",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/process-canvas/translation-review.json",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/process-canvas/translations.ru.json",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/process-cheatsheet.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/process-contract.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/record-contracts.json",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/reviews/README.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P007/access-log.md",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P007/change-set.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P007/comparison-results.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P007/coverage-reconciliation.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P007/independence-record.md",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P007/packet.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P007/pm-report-transcription.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P008/access-log.md",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P008/change-set.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P008/comparison-results.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P008/coverage-reconciliation.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P008/independence-record.md",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P008/packet.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/evidence/S02-P008/pm-report-transcription.json",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/stage-02-pass-007.md",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/reviews/stage-02-pass-008.md",
+    "class": "sealed control record (added)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/reviews/stage-NN-pass-NNN-template.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/stages/stage-01/stage-02-pass-007-dispositions.md",
+    "class": "Stage 1 correction record"
+   },
+   {
+    "status": "A",
+    "path": "analysis/stages/stage-01/stage-02-pass-008-dispositions.md",
+    "class": "Stage 1 correction record"
+   },
+   {
+    "status": "M",
+    "path": "analysis/tools/README.md",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/tools/review-comparison-template.test.js",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "A",
+    "path": "analysis/tools/stage2-recovery-docs.test.js",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/tools/status-validator.js",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "analysis/tools/status-validator.test.js",
+    "class": "process file (Starter b3fc045, PR #23)"
+   },
+   {
+    "status": "M",
+    "path": "init-migration.ps1",
+    "class": "process file (Starter b3fc045, PR #23)"
+   }
+  ]
+ },
+ "files_cov_to_failed": 13,
+ "files_failed_to_cand": 47,
+ "reconnaissance": {
+  "sha256": {
+   "coverage_base": "c672ad6faf8a0567eb2fb36259c137c4f238cfe86ddbb57041c972720f3043a1",
+   "failed_attempt": "649870c13b4d4cc5a4c98b93c7608b8a16a57cc185586d1efcc165d50402d130",
+   "candidate": "c6a269ab048a61b1e12ecb771830c32bf8696d28093cce5251e413ab8ee1584b"
+  },
+  "round_BA_001_09_cov_to_failed": [
+   {
+    "old": "37",
+    "new": "37",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "39-43",
+    "new": "39-42",
+    "removedLines": 5,
+    "addedLines": 4,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "45",
+    "new": "44",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "47",
+    "new": "46",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "101-102",
+    "new": "100-101",
+    "removedLines": 2,
+    "addedLines": 2,
+    "section": "Scope And Provenance"
+   },
+   {
+    "old": "104",
+    "new": "103",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Scope And Provenance"
+   },
+   {
+    "old": "175",
+    "new": "174",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Source Inventory / WAR composition (964 files, 1090 archive entries including 1"
+   },
+   {
+    "old": "196",
+    "new": "195",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Runnable Surfaces"
+   },
+   {
+    "old": "227",
+    "new": "226",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Runnable Surfaces / Unauthenticated surfaces, listed mechanically (BA-001-06, pa"
+   },
+   {
+    "old": "275",
+    "new": "274",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "291",
+    "new": "290",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "301",
+    "new": "300",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "insert after 302",
+    "new": "302-304",
+    "removedLines": 0,
+    "addedLines": 3,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "307",
+    "new": "309",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "310-313",
+    "new": "312-315",
+    "removedLines": 4,
+    "addedLines": 4,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "334",
+    "new": "336",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Known Gaps And Blockers"
+   },
+   {
+    "old": "429",
+    "new": "431",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Owner Decisions And Open Questions / Q3 facts: insecure legacy behavior observed statically."
+   },
+   {
+    "old": "436",
+    "new": "438",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Owner Decisions And Open Questions / Q3 facts: insecure legacy behavior observed statically."
+   },
+   {
+    "old": "insert after 557",
+    "new": "560-563",
+    "removedLines": 0,
+    "addedLines": 4,
+    "section": "Return Correction Evidence (Conditional)"
+   },
+   {
+    "old": "559",
+    "new": "565",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Return Correction Evidence (Conditional)"
+   },
+   {
+    "old": "572",
+    "new": "578",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Stage 1 Exit Checklist"
+   },
+   {
+    "old": "585-586",
+    "new": "591-601",
+    "removedLines": 2,
+    "addedLines": 11,
+    "section": "Error Prevention"
+   },
+   {
+    "old": "590",
+    "new": "605",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Error Prevention"
+   }
+  ],
+  "round_BA_001_10_failed_to_cand": [
+   {
+    "old": "37",
+    "new": "37",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "39-42",
+    "new": "39-43",
+    "removedLines": 4,
+    "addedLines": 5,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "44",
+    "new": "45",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "46",
+    "new": "47",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "100-101",
+    "new": "101-102",
+    "removedLines": 2,
+    "addedLines": 2,
+    "section": "Scope And Provenance"
+   },
+   {
+    "old": "103",
+    "new": "104",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Scope And Provenance"
+   },
+   {
+    "old": "226",
+    "new": "227-228",
+    "removedLines": 1,
+    "addedLines": 2,
+    "section": "Runnable Surfaces / Unauthenticated surfaces, listed mechanically (BA-001-06, pa"
+   },
+   {
+    "old": "274",
+    "new": "276",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "302-303",
+    "new": "304-305",
+    "removedLines": 2,
+    "addedLines": 2,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "insert after 304",
+    "new": "307-309",
+    "removedLines": 0,
+    "addedLines": 3,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "309",
+    "new": "314",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "312-315",
+    "new": "317-320",
+    "removedLines": 4,
+    "addedLines": 4,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "336",
+    "new": "341",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Known Gaps And Blockers"
+   },
+   {
+    "old": "438",
+    "new": "443-446",
+    "removedLines": 1,
+    "addedLines": 4,
+    "section": "Owner Decisions And Open Questions / Q3 facts: insecure legacy behavior observed statically."
+   },
+   {
+    "old": "563",
+    "new": "571-575",
+    "removedLines": 1,
+    "addedLines": 5,
+    "section": "Return Correction Evidence (Conditional)"
+   },
+   {
+    "old": "565",
+    "new": "577",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Return Correction Evidence (Conditional)"
+   },
+   {
+    "old": "578",
+    "new": "590",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Stage 1 Exit Checklist"
+   },
+   {
+    "old": "591-592",
+    "new": "603-613",
+    "removedLines": 2,
+    "addedLines": 11,
+    "section": "Error Prevention"
+   },
+   {
+    "old": "598",
+    "new": "619",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Error Prevention"
+   }
+  ],
+  "net_cov_to_cand": [
+   {
+    "old": "37",
+    "new": "37",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "39-43",
+    "new": "39-43",
+    "removedLines": 5,
+    "addedLines": 5,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "45",
+    "new": "45",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "47",
+    "new": "47",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "(before first heading) / What did we discover in the legacy source, what is proven, a"
+   },
+   {
+    "old": "101-102",
+    "new": "101-102",
+    "removedLines": 2,
+    "addedLines": 2,
+    "section": "Scope And Provenance"
+   },
+   {
+    "old": "104",
+    "new": "104",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Scope And Provenance"
+   },
+   {
+    "old": "175",
+    "new": "175",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Source Inventory / WAR composition (964 files, 1090 archive entries including 1"
+   },
+   {
+    "old": "196",
+    "new": "196",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Runnable Surfaces"
+   },
+   {
+    "old": "227",
+    "new": "227-228",
+    "removedLines": 1,
+    "addedLines": 2,
+    "section": "Runnable Surfaces / Unauthenticated surfaces, listed mechanically (BA-001-06, pa"
+   },
+   {
+    "old": "275",
+    "new": "276",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "291",
+    "new": "292",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "301",
+    "new": "302",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "insert after 302",
+    "new": "304-309",
+    "removedLines": 0,
+    "addedLines": 6,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "307",
+    "new": "314",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "310-313",
+    "new": "317-320",
+    "removedLines": 4,
+    "addedLines": 4,
+    "section": "Build, Run, And Test Evidence"
+   },
+   {
+    "old": "334",
+    "new": "341",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Known Gaps And Blockers"
+   },
+   {
+    "old": "429",
+    "new": "436",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Owner Decisions And Open Questions / Q3 facts: insecure legacy behavior observed statically."
+   },
+   {
+    "old": "436",
+    "new": "443-446",
+    "removedLines": 1,
+    "addedLines": 4,
+    "section": "Owner Decisions And Open Questions / Q3 facts: insecure legacy behavior observed statically."
+   },
+   {
+    "old": "insert after 557",
+    "new": "568-575",
+    "removedLines": 0,
+    "addedLines": 8,
+    "section": "Return Correction Evidence (Conditional)"
+   },
+   {
+    "old": "559",
+    "new": "577",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Return Correction Evidence (Conditional)"
+   },
+   {
+    "old": "572",
+    "new": "590",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Stage 1 Exit Checklist"
+   },
+   {
+    "old": "585-586",
+    "new": "603-622",
+    "removedLines": 2,
+    "addedLines": 20,
+    "section": "Error Prevention"
+   },
+   {
+    "old": "590",
+    "new": "626",
+    "removedLines": 1,
+    "addedLines": 1,
+    "section": "Error Prevention"
+   }
+  ],
+  "method": "git diff -U0 per pair; hunk counts: COV..FAILED 23, FAILED..CAND 19, COV..CAND 23 (net); deleted text: reading-block bullets of the previous round (rolling summary), BA-001-08/09 self-check labels (now historical) and superseded figures (4 Tiles names, 46/30/45 findForward, 41 keys) which remain only as labelled history"
+ },
+ "workbook": {
+  "sha256": {
+   "coverage_base": "2949146c30a9b5fb461f262ce047c7cf8c4c1008a974a68d08d7054b25342305",
+   "failed_attempt": "df7437bed8e4c05074a3210ac74bda4ab30ebf9949860591a4a6a674261b5fdc",
+   "candidate": "fafa8fcdc0e2967a0243cf08a4095462b898ecd039ccaeaff9034b9a5d6e3bf5"
+  },
+  "package_parts_differing_cov_to_cand": [
+   "xl/sharedStrings.xml"
+  ],
+  "round_BA_001_09_cov_to_failed": [
+   "H8",
+   "H56",
+   "F60",
+   "H60",
+   "H98",
+   "H101"
+  ],
+  "round_BA_001_10_failed_to_cand": [
+   "H8",
+   "H56",
+   "H185"
+  ],
+  "net_cov_to_cand": {
+   "cells": [
+    "H8",
+    "H56",
+    "F60",
+    "H60",
+    "H98",
+    "H101",
+    "H185"
+   ],
+   "rows": [
+    8,
+    56,
+    60,
+    98,
+    101,
+    185
+   ]
+  },
+  "attributes_changed": "value only (no note, fill, font, hyperlink or outline change; sheet XML byte-identical, so status column G unchanged)",
+  "rows_total": 210,
+  "status_counts": {
+   "Yes": 111,
+   "Inferred": 77,
+   "Partial": 21,
+   "No": 1
+  },
+  "provenance_note_cells": 31,
+  "method": "exceljs 0.9.0 (@excel.js/exceljs from analysis/tools) cell dump of value, note, fill, font, hyperlink and outline for all three revisions; package parts hashed after bsdtar extraction"
+ },
+ "checklist": {
+  "sha256": {
+   "coverage_base": "6e01c409fc6b6a595f1ff618a7a0e474dcde9b084e368171f1e37489fe74ff32",
+   "failed_attempt": "599fbd661a9193a83d4d50cc62afad5d42de388d1bf16ef190a5a44386afcff2",
+   "candidate": "8a15e08c98b63b86c881d172ba34ca55e7edeab00cc4d229a90be2664842a90b"
+  },
+  "rows_changed_cov_to_failed": [
+   "CHK-007",
+   "CHK-012"
+  ],
+  "rows_changed_failed_to_cand": [
+   "CHK-003",
+   "CHK-007",
+   "CHK-011"
+  ],
+  "rows_changed_net": [
+   "CHK-003",
+   "CHK-007",
+   "CHK-011",
+   "CHK-012"
+  ],
+  "ids": "CHK-001..CHK-012, no new ID"
+ },
+ "correction_records_added": [
+  "analysis/stages/stage-01/stage-02-pass-007-dispositions.md (BA-001-09)",
+  "analysis/stages/stage-01/stage-02-pass-008-dispositions.md (BA-001-10)"
+ ],
+ "process_changes": "PR #23 (Starter b3fc045, record analysis/maintenance/starter-sync-2026-09-28-b3fc045.md): Stage 2 attempt recovery and packet transport safety in reviews README, template, agent_orchestration, agent-roles, skills, methodology, status schema/validator and tests, process views. Classification: process only; no obligation on Stage 1 record content; Stage 1 records at FAILED equal the BA-001-10 baseline hashes (649870c1..., df7437be...), so PR #23 did not touch them.",
+ "legacy_source": "identical at ROOT, COV, FAILED and CAND (git blobs README 2ce397b1, demo-seed 17915d5a, docker-compose 2bd14d97, WAR 7c7f540e; WAR SHA-256 46ff9dc0...4edc)"
+}

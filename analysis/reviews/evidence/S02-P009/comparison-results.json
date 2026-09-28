@@ -1,0 +1,813 @@
+{
+ "packet": "S02-P009",
+ "pass": 9,
+ "control_mode": "correction-validation",
+ "reviewed_revision": "026fd972915bb58c449b0c6187620589a70b62d8",
+ "base_revision": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+ "root_pass": 6,
+ "coverage_base_pass": 7,
+ "excluded_passes": [
+  8
+ ],
+ "counts": {
+  "total": 46,
+  "matched": 36,
+  "mismatch": 9,
+  "not-checked": 0,
+  "not-applicable": 1
+ },
+ "findings": [
+  {
+   "id": "F-001",
+   "severity": "low",
+   "checks": [
+    "C-017",
+    "C-018",
+    "C-025",
+    "C-026"
+   ]
+  },
+  {
+   "id": "F-002",
+   "severity": "low",
+   "checks": [
+    "C-018",
+    "C-019"
+   ]
+  },
+  {
+   "id": "F-003",
+   "severity": "low",
+   "checks": [
+    "C-020",
+    "C-021",
+    "C-028",
+    "C-030"
+   ]
+  }
+ ],
+ "exclusions": [
+  {
+   "id": "E-001",
+   "checks": [
+    "C-046"
+   ],
+   "basis": "packet S02-P009 forbids the Stage 1 author scratch as evidence; author tool-execution facts are process records"
+  }
+ ],
+ "blockers": [],
+ "items": [
+  {
+   "id": "C-001",
+   "item": "Recovery: pass-008 failure cause, affected session, files and checks; containment and remediation",
+   "expected": "failure confined to the failed session; no sealed evidence or Stage 1 record changed by it; nothing inherited",
+   "observed": "cause: subagent a51cdd4e08e3744c6 opened the client-persisted output of its own git diff (reconnaissance COV..FAILED) under the user profile. Containment evidence: my regeneration of the same command in scratch is byte-identical to the hash the failed reviewer recorded for its own regeneration (32,261 bytes, 8bc1e01f...4cba9), so the file content class is repository diff output already permitted in the mode; root and coverage-base evidence is add-only in git (no modification after sealing); pass 008 wrote only its own evidence folder; its leads were re-verified from the WAR by BA-001-10 and again here; pass-008 IDs are not used as evidence",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/containment-worddiff-cov-fail.txt",
+    "S02-P008/pm-report-transcription.json",
+    "S02-P008/independence-record.md",
+    "git diff --name-status COV..CAND (evidence folders)"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-002",
+   "item": "Root pass 006 keeps independence, completeness, provenance and exact source identity",
+   "expected": "eligible complete full-blind root, unchanged since sealing",
+   "observed": "fresh subagent a700bf31602b78dd0 (not the author a5bb18013a4f4d2f8); Phase A (138 items) saved 13:23:33Z before Phase B 13:25:49Z; snapshot 8f734d0d / pin c8d4f780 match pm-phase-b-release.json; 539 contiguous checks, 0 not-checked; launch exposure accepted by PM before Phase A; its only client spill file was not opened (access log); evidence added once (ROOT..COV) and never modified (COV..CAND); packet hashes match",
+   "result": "matched",
+   "evidence": [
+    "S02-P006/pm-phase-b-release.json",
+    "S02-P006/access-log.md",
+    "S02-P006/independence-record.md",
+    "reviewer-scratch/verify-packet.out"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-003",
+   "item": "Coverage base pass 007 keeps validity as the last valid control",
+   "expected": "valid correction-validation under root 006 with complete coverage and retrievable evidence",
+   "observed": "fresh subagent a6795def1ddcf5e91; root 006; 550 = 93 + 457 + 0; 65 contiguous checks; spill files not opened; one read of an author scratch output (unauth-06.txt) inside the project, disclosed, not used as evidence; conclusions on the affected figure were mismatches that are rechecked here; evidence added once (COV..FAILED) and unchanged since; report hash e2fd2da2 matches the PM transcription",
+   "result": "matched",
+   "evidence": [
+    "S02-P007/independence-record.md",
+    "S02-P007/access-log.md",
+    "S02-P007/coverage-reconciliation.json",
+    "S02-P007/pm-report-transcription.json"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-004",
+   "item": "Source identity and governed scope across ROOT, COV, FAILED and CAND",
+   "expected": "identical legacy source set and the same two Stage 1 records and channels",
+   "observed": "git blobs of the 4 legacy files identical at all four revisions; WAR SHA-256 46ff9dc0...4edc in every checkout; demo-seed.sql committed bytes 41b2f6a3 (working copy differs only by CRLF, LF-normalized hash equal); same two records, 210 rows, 18 epics, no new channel or subsystem",
+   "result": "matched",
+   "evidence": [
+    "git rev-parse <rev>:legacy/*",
+    "reviewer-scratch/verify-packet.out"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-005",
+   "item": "Chain and authority for recovery",
+   "expected": "excluded attempt has the same root and scope; the Stage 1 return after it carries explicit owner approval; no newer valid pass or failed full-blind attempt is skipped",
+   "observed": "ledger pass 8: invalid, control_mode correction-validation, baseline_pass 6, previous_pass 7, same scope string; transition stage-02 -> stage-01 of 2026-09-28T11:19:42Z has owner_approval (ekzarov 11:17:50Z, record stage-02-pass-008-dispositions.md, gate_evidence includes the failed report); owner decision stage-02-attempt-recovery-adoption recorded; passes 1-7 all findings, no other failed attempt; Stage 2 re-entry recorded at 13:12:39Z (working tree) before this pass",
+   "result": "matched",
+   "evidence": [
+    "analysis/migration_status.yaml (CAND and main working tree, read only)"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-006",
+   "item": "Complete change set COV..CAND regenerated",
+   "expected": "every changed file, hunk and cell known and classified",
+   "observed": "56 files: 2 governed records, 2 correction records, checklist, status ledger, maintenance record, 16 sealed control files added (pass 007 and 008), 33 process files (PR #23); reconnaissance 23 net hunks (23 in BA-001-09, 19 in BA-001-10); workbook 7 cells in 6 rows (8, 56, 60, 98, 101, 185), only xl/sharedStrings.xml differs; checklist rows CHK-003, CHK-007, CHK-011, CHK-012",
+   "result": "matched",
+   "evidence": [
+    "change-set.json"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-065"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-007",
+   "item": "Pass-007 F-001 Spring part: view-name prefixes; Source Inventory Spring MVC row; Runnable Surfaces settings row",
+   "expected": "redirect: and forward: outcomes recorded with reach (Inferred)",
+   "observed": "UrlBasedViewResolver#createView tests \"redirect:\" then \"forward:\" before prefix/suffix (RedirectView(rest, contextRelative, http10), InternalResourceView(rest)); RedirectView#renderMergedOutputModel adds the context path only to \"/\" targets; CommonObjectHandler#list/#edit return the path value; /setting/* mapped to SpringServlet and WebSecurityFilter (web.xml:164-167, 313-316); recon lines 175, 196 state it",
+   "result": "matched",
+   "evidence": [
+    "WAR:WEB-INF/lib/spring-webmvc-3.0.5.RELEASE.jar (bytecode)",
+    "WAR:WEB-INF/classes/spring-web.xml:26-30",
+    "WAR:WEB-INF/web.xml:164-167,313-316"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-003",
+    "C-040",
+    "C-042"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-008",
+   "item": "Q3 navigation fact (recon 443): 13 returnto redirects, Tiles name set, loader chain, start-up order, ViewObjectAction, Spring prefixes (pass-007 F-001 Tiles part; pass-008 F-001 lead)",
+   "expected": "complete resolved name set and loader chain recorded, start-up order Inferred",
+   "observed": "14 methods read returnto and build ActionForward(String,boolean): the 13 listed plus CloseIterationAction (recorded separately); TilesConfigurer (spring-web.xml:17-24, factory I18nFactorySet) -> TilesUtilImpl#makeDefinitionsFactoryAccessible stores org.apache.struts.tiles.DEFINITIONS_FACTORY unconditionally; TilesPlugin#initTilesUtil sets TilesUtilStrutsImpl (Spring left implAlreadySet false), #initDefinitionsFactory finds the attribute and creates none; TilesRequestProcessor#initDefinitionsMapping reads it; ActionServlet#process creates the processor on first request; load-on-startup Spring 1, Struts 2 (web.xml:248,271); 5 names (tiles-definitions.xml:5,11,23,29; tiles-pages.xml:6); ViewObjectAction#getForwardPath appends URL-encoded returnto to the display forward",
+   "result": "matched",
+   "evidence": [
+    "WAR:WEB-INF/lib/struts-1.2.9.jar, spring-struts-3.0.5.RELEASE.jar (bytecode)",
+    "WAR:WEB-INF/tiles-pages.xml:6",
+    "WAR:WEB-INF/web.xml:248,271",
+    "reviewer-scratch/returnto.js"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-002",
+    "C-047"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-009",
+   "item": "Author check (h) completeness (BA-001-09, extended in BA-001-10)",
+   "expected": "every request-chosen navigation resolved through the bundled framework",
+   "observed": "findForward 44 calls in 31 methods, 43 constant, 1 mapping parameter; 11 ActionForward(String) in 10 methods (9 getInput, 1 id path, 1 ViewObjectAction); 20 ActionForward(String,boolean) in 19 methods; 1 setPath; 1 findForwardConfig; 4 getInputForward; JSP navigation tags with a dynamic target: only index.jsp:29 (id); the 5 tags:breadcrumb callers set no back; editRoles.jsp:40 uses back=\"true\" but no page prints backNavigation",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/q.js calls",
+    "reviewer-scratch/ff.txt"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-007"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-010",
+   "item": "Author check (i) substantive completeness",
+   "expected": "every request value written into a script context found",
+   "observed": "independent scan of 74 JSP/tag files: the only request values in script contexts are editIterationStatus.jsp:70 (returnto, onclick) and dashboard.jsp:132 (param.fkey); ${appPath} host-derived; SWFObject v2.1 (js/swfobject.js) reads location.search and location.hash but no file references it",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/scriptctx.js",
+    "reviewer-scratch/scriptctx-detail.txt"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-011",
+   "item": "Q3 reflected-output fact (recon 436) with script contexts and row 101",
+   "expected": "script-context sinks and row list complete",
+   "observed": "editIterationStatus.jsp:32 binds returnto, :70 writes it unescaped into onclick after the context path; page is the input/forward of /do/start/iteration and /do/close/iteration (struts-config.xml:119-120,245,251); row list includes 98 and 101",
+   "result": "matched",
+   "evidence": [
+    "WAR:WEB-INF/jsp/edit/editIterationStatus.jsp:32,70",
+    "WAR:WEB-INF/struts-config.xml:119-120,245,251"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [
+    "C-478"
+   ],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-012",
+   "item": "Author check (j) / pass-007 F-003: public-page keys, scope and per-bundle presence",
+   "expected": "45 keys over every key-taking attribute and the layout chain, per bundle",
+   "observed": "39 distinct static key attributes + login.title (titleKey) + error.title, system.info.title (scriptlet) + app.label.version, footer.message (footer) + navigation.top (NavigationBarTag#render) = 45; 4 signed-in-only header keys; 1 in an HTML comment; failed-login keys: login.failed + 9 authentication.module.message.* = 10; per bundle (10 bundles, properties parser): login.title and login.failed absent only in fr; app.label.version, navigation.top in all 10; footer.message only default, --, de; error.title absent in de, es; system.info.title only default, --; storageError only default",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/pubkeys.js",
+    "reviewer-scratch/bundle-presence.js"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-009"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-013",
+   "item": "Runnable Surfaces unauthenticated list: public-page texts bullet and new lookup bullet (recon 227-228)",
+   "expected": "bullets match the source",
+   "observed": "figures and scope as C-012; lookup bullet as C-015; other custom tags: ContentTag (print switch), ContentTitleTag and BoxedListTag (bundle texts, failing request values HTML-encoded), AuthenticatedUserTag and LinkTag signed-in only, UseBeansTag query of wap/login.jsp not printed",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/tagreads.js"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-043"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-014",
+   "item": "Build, Run, And Test Evidence rows changed in both rounds (except the script-sinks counting rule, C-021)",
+   "expected": "each changed row consistent with the source and the records",
+   "observed": "legacy-hash row (same tree), unauth-06 and props rows (45 with scope), forwards-09 row (5 names; 44/31/43 with the dedupe explanation), navsites-10 row (figures reproduce), public-tags-10/recount-10/el-estimate-10 row (8 tag classes; 790 expressions, 65 of 74 files, 85 bean:write, 0 filter=\"false\"; template-text EL 113 by my parser against the stated 114, within the stated estimate), edit rows, final build 210/18, audits (231 documents), excel hash fafa8fcd...3bf5 = CAND workbook",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/el-count2.js",
+    "reviewer-scratch/q.js"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-049",
+    "C-051",
+    "C-052"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-015",
+   "item": "Pass-008 F-002 lead: public-page breadcrumb lookup; Q3 breadcrumb fact (recon 444); GAP-007 clause",
+   "expected": "request-driven lookup and unescaped stored names on public pages recorded (Inferred)",
+   "observed": "defaultLayout.jsp:44 -> breadcrumb.tag:10 xplanner:navigation (TLD: net.sf.xplanner.tags.NavigationBarTag); #doEndTag reads oid, else fkey (NumberUtils.toInt); #setObject(int) with blank type -> getBean idSearchHelper -> IdSearchHelper#search: Session#get over Project, Iteration, UserStory, Task, Person, Note, no permission call; bean in spring-dao.xml:61 imported by the root context; OpenSessionInViewFilter on /* incl. ERROR dispatch; #render/#createLinkToContent set raw names; Link has no escaping; breadcrumb.tag:15,18 print ${navLink.text}; /do/login bypassed (security.xml:3)",
+   "result": "matched",
+   "evidence": [
+    "WAR:WEB-INF/tags/breadcrumb.tag:10,15,18",
+    "WAR:WEB-INF/jsp/layout/defaultLayout.jsp:44",
+    "WAR:WEB-INF/security.xml:3",
+    "WAR:WEB-INF/classes/spring-dao.xml:61",
+    "WAR:WEB-INF/web.xml:141-145"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-016",
+   "item": "Author check (l) completeness",
+   "expected": "every tag handler of the public pages and their layout chain traced",
+   "observed": "8 custom tag classes on the 5 public pages and the chain (NavigationBarTag, ContentTag, ContentTitleTag, BoxTag, BoxedListTag, AuthenticatedUserTag, LinkTag, UseBeansTag); request reads per class as recorded; unexpectedError.jsp:28 navigation tag is inside a JSP comment",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/tagreads.js"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-017",
+   "item": "Author check (k) completeness and the Q3 cache fact (recon 445)",
+   "expected": "every writer of a shared registry fed by request values, with the correct class",
+   "observed": "Tiles per-locale factories (FactorySet#getFactory, key from the session locale) and the Spring view cache are confirmed (view key = name + \"_\" + locale). The message-resource cache is attributed to PropertyMessageResources#getMessage/#loadLocale, which is not on the path: XPlannerActionServlet#initModuleMessageResources/#service install strutsMessageSource (XPlannerMessageResources, spring-beans.xml:46-48) over ReloadableResourceBundleMessageSource (spring-beans.xml:39-45); the per-locale writers are MessageResources#getMessage(Locale,String,Object[]) (formats) and ReloadableResourceBundleMessageSource#getMergedProperties/#calculateAllFilenames (cacheMillis -1). Omitted: displaytag TableProperties#getInstance stores one entry per request locale (request.getLocale()) in the static prototypes map, and FormatDateTag writes a request-locale formatter into a static map",
+   "result": "mismatch",
+   "evidence": [
+    "WAR:WEB-INF/classes/spring-beans.xml:39-48",
+    "WAR:WEB-INF/classes/org/displaytag/properties/TableTag.properties:28-29",
+    "reviewer-scratch/registries.js"
+   ],
+   "link": "F-001",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-018",
+   "item": "Refined CHK-003 across the governed scope: loaders of wiring files and writers of shared registries",
+   "expected": "every shared registry and its writers recorded where a record relies on them",
+   "observed": "application static collections written at runtime: UseBeansTag.queryTranslations (config), FormatDateTag.dateFormatters (per pattern, first request locale), GenericWikiAdapter.existingTopics (stored wiki topics, recorded render side effect), displaytag TableProperties.prototypes (per request locale); servlet-context attributes: iterationTypes, appUrl, org.apache.struts.action.MESSAGE; framework: Tiles factory (C-008), message resources (C-017). Two request-locale registries are unrecorded",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer-scratch/registries.js"
+   ],
+   "link": "F-001, F-002",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-019",
+   "item": "Date display: rows 69, 70 (bundle patterns) and row 186 / history view",
+   "expected": "every date display follows the recorded rule or its exception is recorded",
+   "observed": "rows 69-70 state that dates are displayed per the bundle pattern; history.jsp:61,106 use xplanner:formatDate without format or formatKey, so FormatDateTag#doStartTag uses its built-in \"EEE MMM dd k:mm:ss z\" in every bundle, with a SimpleDateFormat cached per pattern in a static HashMap and created with request.getLocale() of the first request that renders it (Accept-Language, not the session locale), shared unsynchronized across requests; not recorded in rows 69, 70 or 186",
+   "result": "mismatch",
+   "evidence": [
+    "WAR:WEB-INF/jsp/view/history.jsp:61,106",
+    "WAR:WEB-INF/xplanner.tld:622-624",
+    "class com.technoetic.xplanner.tags.FormatDateTag#doStartTag"
+   ],
+   "link": "F-002",
+   "covers_pass007": [],
+   "covers_pass006": [
+    "C-197",
+    "C-198",
+    "C-307",
+    "C-506",
+    "C-088"
+   ],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-020",
+   "item": "Author check (m): recount of the BA-001-09 figures, including the findForward lead",
+   "expected": "each figure reproducible from its stated rule",
+   "observed": "reproduced: 5 Tiles names; 44/31/43 findForward and 1 mapping parameter; 74 files; 45/39/4/1 keys; 10 failed-login keys; 10 bundles; 9 own scripts; 2/1 request and host values. Not reproduced from the stated rule: 103 contexts and 77 outputs (C-021)",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer-scratch/scriptctx.js",
+    "reviewer-scratch/q.js"
+   ],
+   "link": "F-003",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-021",
+   "item": "script-sinks-09 tool-row counting rule (recon 305; pass-008 F-003 lead, second part)",
+   "expected": "103 contexts and 77 outputs (32/27/18) reproducible from the stated rule",
+   "observed": "rule as written (HTML comments not blanked, outputs in a javascript: URL counted): 109 contexts, 85 outputs (34 opening, 27 handlers, 23 bodies, 1 javascript: URL). With HTML comments blanked: 103 contexts, 78 outputs (32/27/18 plus iteration.jsp:39 inside a javascript: URL). The stated 103/77 needs an unstated rule (HTML comments blanked, javascript: URL cut at the first quote); the author tool blanks HTML comments (script-sinks-10.js:14, read only to understand the rule). Request-value result 2 unchanged",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer-scratch/scriptctx.js (BLANKHTML variants)",
+    "WAR:WEB-INF/jsp/view/iteration.jsp:39"
+   ],
+   "link": "F-003",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-022",
+   "item": "Q3 stored-value fact (recon 446) and GAP-007 stored-value clause",
+   "expected": "facts reproduce and the uninventoried scope is explicit",
+   "observed": "web.xml version 2.4 (web-app_2_4), no isELIgnored/el-ignored; 790 <%= %> expressions; 65 of 74 files with <%= %> or template-text EL; 85 bean:write, none filter=\"false\"; template-text EL 113 (my parser) against 114 (stated estimate, same rule class); breadcrumb instance verified (C-015); notes.jsp:58 uses StringEscapeUtils.escapeJavaScript; the fact says the records do not inventory stored-value output",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/el-count.js",
+    "reviewer-scratch/el-count2.js",
+    "WAR:WEB-INF/jsp/view/notes.jsp:58"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-023",
+   "item": "Stored-value output: do the recorded Q3/GAP-007 facts suffice for this control's mandatory scope",
+   "expected": "no mandatory check depends on an unrecorded stored-value behavior",
+   "observed": "no record claims that stored values are escaped (escaping statements concern request values and the BoxedListTag listing); every expression output of the 5 public pages and their layout chain enumerated: the only database-stored values printed without sign-in are the breadcrumb names (recorded); the rest are bundle/configuration values, request data recorded in rows 55-56, or signed-in header values; signed-in stored-value output stays an explicit uninventoried Q3/GAP-007 scope under the owner deferral and is not counted as matched coverage",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/el-count.js",
+    "public-chain expression listing (access log)"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-024",
+   "item": "GAP-007 row (recon 341)",
+   "expected": "COV text preserved and inserted clauses supported",
+   "observed": "both hunks are pure insertions inside the behavior cell; inserted clauses (Spring redirect, button script, breadcrumb lookup, stored-value output, caches without bound) are supported (C-007, C-011, C-015, C-022, C-017)",
+   "result": "matched",
+   "evidence": [
+    "recon-cov-fail.seg.txt",
+    "recon-fail-cand.seg.txt"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-045"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-025",
+   "item": "Q3 facts completeness under the refined CHK-012 (every request-derived sink kind)",
+   "expected": "every request-derived value reaching a shared registry or page output recorded",
+   "observed": "binding, redirects/view names, reflected output incl. script contexts, breadcrumb query, caches keyed by language/Accept-Language/{objectType} are recorded; the Accept-Language locale written into the displaytag prototypes and FormatDateTag registries is not",
+   "result": "mismatch",
+   "evidence": [
+    "as C-017, C-018"
+   ],
+   "link": "F-001",
+   "covers_pass007": [
+    "C-048"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-026",
+   "item": "Reading block (recon 37-47)",
+   "expected": "summary matches the records and the source",
+   "observed": "statements match except \"three shared framework caches\" (line 40), which omits the displaytag registry and inherits the C-017 misattribution",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:40"
+   ],
+   "link": "F-001",
+   "covers_pass007": [
+    "C-037"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-027",
+   "item": "Scope And Provenance edits (recon 101-104)",
+   "expected": "dates, analysts and skill blob correct",
+   "observed": "BA-001-09 and BA-001-10 on 2026-09-28; skill blob fe88c4f8ed6385eba5e15dad3781dd2eff791de7 equals the CAND blob",
+   "result": "matched",
+   "evidence": [
+    "git rev-parse CAND:.agents/skills/migration-ba/SKILL.md"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-038"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-028",
+   "item": "Return Correction Evidence rows and paragraph (recon 568-577)",
+   "expected": "dispositions stated truthfully",
+   "observed": "rows for pass-007 F-001..F-003, (h)-(j) (annotated incomplete) and the pass-008 leads match the change set; the F-003 lead row says the 77 outputs \"reproduce under the now stated rule\", which C-021 contradicts",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:568-577"
+   ],
+   "link": "F-003",
+   "covers_pass007": [
+    "C-053"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-029",
+   "item": "Stage 1 Exit Checklist (recon 590)",
+   "expected": "210 rows after BA-001-10",
+   "observed": "matches the workbook",
+   "result": "matched",
+   "evidence": [
+    "wb-candidate.json"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-054"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-030",
+   "item": "Error Prevention section, BA-001-09/10 (recon 603-620)",
+   "expected": "self-check claims supported",
+   "observed": "CHK-001, CHK-003 (Tiles), CHK-011/012 (tag handlers) claims supported; \"every BA-001-09 figure was recounted with its rule\" is not supported for the script-context figure (C-021)",
+   "result": "mismatch",
+   "evidence": [
+    "legacy_reconnaissance.md:603-620"
+   ],
+   "link": "F-003",
+   "covers_pass007": [
+    "C-055"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-031",
+   "item": "Workbook row 8 (H changed in both rounds)",
+   "expected": "page-text keys per bundle, breadcrumb lookup and page-text scope supported",
+   "observed": "supported (C-012, C-015)",
+   "result": "matched",
+   "evidence": [
+    "cells-cov-cand.txt"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-063"
+   ],
+   "covers_pass006": [
+    "C-039"
+   ],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-032",
+   "item": "Workbook row 56 (H changed in both rounds)",
+   "expected": "error-page keys per bundle and breadcrumb lookup supported",
+   "observed": "supported; error dispatch covered by OpenSessionInViewFilter ERROR mapping (web.xml:141-145)",
+   "result": "matched",
+   "evidence": [
+    "cells-cov-cand.txt"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-064"
+   ],
+   "covers_pass006": [
+    "C-017"
+   ],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-033",
+   "item": "Workbook row 60 (F and H changed)",
+   "expected": "plain, redirect: and forward: outcomes supported",
+   "observed": "supported (C-007)",
+   "result": "matched",
+   "evidence": [
+    "cells-cov-cand.txt"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-015"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-034",
+   "item": "Workbook row 98 (H changed)",
+   "expected": "script-context sink supported",
+   "observed": "supported (C-011)",
+   "result": "matched",
+   "evidence": [
+    "cells-cov-cand.txt"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-036"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-035",
+   "item": "Workbook row 101 (H changed)",
+   "expected": "pointer to the same page sink supported",
+   "observed": "supported (struts-config.xml:120,251)",
+   "result": "matched",
+   "evidence": [
+    "cells-cov-cand.txt"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-021"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-036",
+   "item": "Workbook row 185 (H changed) and inventory A-101",
+   "expected": "request-driven lookup, no permission check, unescaped names supported",
+   "observed": "supported (C-015); rows 29-30 are the missing server-side checks referenced",
+   "result": "matched",
+   "evidence": [
+    "cells-cov-cand.txt"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [
+    "C-306",
+    "C-101"
+   ],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-037",
+   "item": "Workbook rows 12 and 13 (unchanged; failed-login scope added to row 8 points to them)",
+   "expected": "per-bundle statements of their keys correct",
+   "observed": "login.failed absent only in fr; userNotFound and passwordNotSet only in default, --, de, ja; matches",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/bundle-presence.js"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [
+    "C-143",
+    "C-144"
+   ],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-038",
+   "item": "Source Inventory Tiles row and layout inventory A-102",
+   "expected": "definition set and loaders consistent with the corrected Q3 fact",
+   "observed": "Tiles row (recon 161) states 5 definitions including viewLayout; consistent with C-008",
+   "result": "matched",
+   "evidence": [
+    "legacy_reconnaissance.md:161"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [
+    "C-102"
+   ],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-039",
+   "item": "Refined CHK-011 across the governed scope",
+   "expected": "every unauthenticated mapping, public web-root file, public text and public tag-handler lookup/output recorded or justified",
+   "observed": "mappings, filters and web root unchanged (source identical; pass-006/007 evidence retained); public tag handlers traced (C-016); public-chain outputs enumerated (C-023); no unrecorded public exposure found",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/tagreads.js"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-040",
+   "item": "Refined CHK-012 page-output and navigation regression over the 74 JSP/tag files",
+   "expected": "every raw request value in output or navigation recorded or justified",
+   "observed": "no new request sink beyond the recorded ones (C-009, C-010, C-011, C-015); header-derived registry sinks are counted in C-018/C-025",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/scriptctx-detail.txt",
+    "reviewer-scratch/q.js"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-057"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-041",
+   "item": "Refined CHK-007 across the records: superseded figures, workbook and summary figures",
+   "expected": "no stale figure unless labelled historical; figures reproducible",
+   "observed": "no \"4 Tiles\", \"46 findForward\", \"30 methods\", \"8 own client scripts\" left; the two \"41\" mentions are labelled historical; 210 rows, 111/77/21/1, 18 epics, 31 provenance notes, 14 gaps reproduce",
+   "result": "matched",
+   "evidence": [
+    "wb-candidate.json",
+    "grep of CAND records (access log)"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-056",
+    "C-059"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-042",
+   "item": "CHK-001 line citations",
+   "expected": "every cited file:line exists and is non-blank at single lines and range ends",
+   "observed": "change set 67/67; whole records 506/507 (the one exception is the historical self-correction note at recon 659 describing a superseded citation)",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/citecheck.json"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-061"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-043",
+   "item": "CHK-009 credential values in the change set and new records",
+   "expected": "zero values",
+   "observed": "0 login-pair forms (positive control 2 in legacy/README.md); value-token hits in the delta are ordinary-word collisions (role/permission, product and database-user words), classified with values masked; 0 credential values",
+   "result": "matched",
+   "evidence": [
+    "reviewer-scratch/credscan.js"
+   ],
+   "link": "none",
+   "covers_pass007": [
+    "C-062"
+   ],
+   "covers_pass006": [],
+   "obligation": "rechecked prior obligation"
+  },
+  {
+   "id": "C-044",
+   "item": "Checklist refinements CHK-003, CHK-007, CHK-011 (PR #24) and CHK-007, CHK-012 (PR #21)",
+   "expected": "each refinement source-backed; no pass-008 closure claimed",
+   "observed": "refinements rest on source-confirmed errors (Tiles loader, breadcrumb lookup, findForward dedupe, script contexts, page-text keys); basis cells say \"invalid attempt; lead confirmed from source\"; IDs CHK-001..CHK-012 unchanged",
+   "result": "matched",
+   "evidence": [
+    "analysis/error-prevention-checklist.md"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-045",
+   "item": "Correction records BA-001-09/10 consistent with the regenerated change set",
+   "expected": "changed rows and sections listed equal the actual diff",
+   "observed": "BA-001-09: rows 8, 56, 60, 98, 101; BA-001-10: rows 8, 56, 185; sections match the hunks; assignment sections are PM-written; claims about (k) and (m) inherit F-001 and F-003",
+   "result": "matched",
+   "evidence": [
+    "change-set.json"
+   ],
+   "link": "none",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  },
+  {
+   "id": "C-046",
+   "item": "Author tool-execution facts in the new tool rows",
+   "expected": "not a legacy claim",
+   "observed": "exit codes and author-scratch outputs are process facts; the legacy facts they support are checked in C-014, C-020, C-021",
+   "result": "not-applicable",
+   "evidence": [
+    "packet.json forbidden_always"
+   ],
+   "link": "E-001",
+   "covers_pass007": [],
+   "covers_pass006": [],
+   "obligation": "new obligation"
+  }
+ ]
+}

@@ -1,0 +1,3799 @@
+{
+ "packet": "S02-P009",
+ "pass": 9,
+ "control_mode": "correction-validation",
+ "root_pass": 6,
+ "coverage_base_pass": 7,
+ "excluded_passes": [
+  8
+ ],
+ "reviewed_revision": "026fd972915bb58c449b0c6187620589a70b62d8",
+ "base_revision": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+ "prior_obligations": 550,
+ "prior_obligations_note": "550 = 539 pass-006 items + 11 pass-007 new obligations (C-006..C-009, C-057..C-062, C-065), as pass 007 reconciled them",
+ "new_obligations": 18,
+ "new_obligation_checks": [
+  "C-001",
+  "C-002",
+  "C-003",
+  "C-004",
+  "C-005",
+  "C-010",
+  "C-015",
+  "C-016",
+  "C-017",
+  "C-018",
+  "C-020",
+  "C-021",
+  "C-022",
+  "C-023",
+  "C-039",
+  "C-044",
+  "C-045",
+  "C-046"
+ ],
+ "reconciled_total": 568,
+ "newly_rechecked": 68,
+ "rechecked_prior_obligations": 50,
+ "retained": 500,
+ "uncovered": 0,
+ "retained_by_group": {
+  "K-INV": 83,
+  "K-P7": 56,
+  "K-INV-P": 15,
+  "K-EXCL": 2,
+  "K-ROW": 175,
+  "K-REC": 140,
+  "K-EARLY": 29
+ },
+ "retained_pass007_check_ids": [
+  "C-001",
+  "C-004",
+  "C-005",
+  "C-006",
+  "C-008",
+  "C-010",
+  "C-011",
+  "C-012",
+  "C-013",
+  "C-014",
+  "C-016",
+  "C-017",
+  "C-018",
+  "C-019",
+  "C-020",
+  "C-022",
+  "C-023",
+  "C-024",
+  "C-025",
+  "C-026",
+  "C-027",
+  "C-028",
+  "C-029",
+  "C-030",
+  "C-031",
+  "C-032",
+  "C-033",
+  "C-034",
+  "C-035",
+  "C-039",
+  "C-041",
+  "C-044",
+  "C-058",
+  "C-060"
+ ],
+ "retention_groups": {
+  "K-P7": "retained exact pass-007 check ID (matched at COV) whose target and dependencies are byte-identical and unaffected at CAND",
+  "K-ROW": "retained exact pass-006 row check; row bytes identical at CAND; not a changed or related row",
+  "K-REC": "retained exact pass-006 reconnaissance claim check at a line outside every COV..CAND hunk",
+  "K-INV": "retained exact pass-006 inventory-to-records check; mapped rows/sections unchanged; mechanism unaffected",
+  "K-INV-P": "retained exact pass-006 inventory check in a section with a hunk; relied-on sentences byte-identical",
+  "K-EARLY": "retained exact pass-006 earlier-finding resolution; rows unchanged",
+  "K-EXCL": "retained pass-006 E-001 exclusion"
+ },
+ "pass008_use": "none: no pass-008 check, retained table, closure claim or coverage is used; its observations are leads rechecked in C-008, C-013, C-015, C-020, C-021",
+ "rechecked": [
+  {
+   "obligation": "P7:C-065",
+   "rechecked_by": "C-006"
+  },
+  {
+   "obligation": "P6:C-013",
+   "rechecked_by": "C-007"
+  },
+  {
+   "obligation": "P6:C-110",
+   "rechecked_by": "C-007"
+  },
+  {
+   "obligation": "P6:C-134",
+   "rechecked_by": "C-007"
+  },
+  {
+   "obligation": "P6:C-378",
+   "rechecked_by": "C-007"
+  },
+  {
+   "obligation": "P6:C-390",
+   "rechecked_by": "C-007"
+  },
+  {
+   "obligation": "P6:C-127",
+   "rechecked_by": "C-008"
+  },
+  {
+   "obligation": "P7:C-007",
+   "rechecked_by": "C-009"
+  },
+  {
+   "obligation": "P6:C-478",
+   "rechecked_by": "C-011"
+  },
+  {
+   "obligation": "P7:C-009",
+   "rechecked_by": "C-012"
+  },
+  {
+   "obligation": "P6:C-015",
+   "rechecked_by": "C-013"
+  },
+  {
+   "obligation": "P6:C-135",
+   "rechecked_by": "C-013"
+  },
+  {
+   "obligation": "P6:C-496",
+   "rechecked_by": "C-013"
+  },
+  {
+   "obligation": "P6:C-503",
+   "rechecked_by": "C-014"
+  },
+  {
+   "obligation": "P6:C-197",
+   "rechecked_by": "C-019"
+  },
+  {
+   "obligation": "P6:C-198",
+   "rechecked_by": "C-019"
+  },
+  {
+   "obligation": "P6:C-307",
+   "rechecked_by": "C-019"
+  },
+  {
+   "obligation": "P6:C-506",
+   "rechecked_by": "C-019"
+  },
+  {
+   "obligation": "P6:C-088",
+   "rechecked_by": "C-019"
+  },
+  {
+   "obligation": "P6:C-429",
+   "rechecked_by": "C-024"
+  },
+  {
+   "obligation": "P6:C-526",
+   "rechecked_by": "C-024"
+  },
+  {
+   "obligation": "P6:C-530",
+   "rechecked_by": "C-024"
+  },
+  {
+   "obligation": "P6:C-126",
+   "rechecked_by": "C-025"
+  },
+  {
+   "obligation": "P6:C-492",
+   "rechecked_by": "C-025"
+  },
+  {
+   "obligation": "P6:C-534",
+   "rechecked_by": "C-025"
+  },
+  {
+   "obligation": "P6:C-538",
+   "rechecked_by": "C-025"
+  },
+  {
+   "obligation": "P6:C-494",
+   "rechecked_by": "C-026"
+  },
+  {
+   "obligation": "P6:C-493",
+   "rechecked_by": "C-027"
+  },
+  {
+   "obligation": "P6:C-500",
+   "rechecked_by": "C-028"
+  },
+  {
+   "obligation": "P6:C-501",
+   "rechecked_by": "C-029"
+  },
+  {
+   "obligation": "P6:C-502",
+   "rechecked_by": "C-030"
+  },
+  {
+   "obligation": "P6:C-139",
+   "rechecked_by": "C-031"
+  },
+  {
+   "obligation": "P6:C-039",
+   "rechecked_by": "C-031"
+  },
+  {
+   "obligation": "P6:C-184",
+   "rechecked_by": "C-032"
+  },
+  {
+   "obligation": "P6:C-017",
+   "rechecked_by": "C-032"
+  },
+  {
+   "obligation": "P6:C-188",
+   "rechecked_by": "C-033"
+  },
+  {
+   "obligation": "P6:C-062",
+   "rechecked_by": "C-034"
+  },
+  {
+   "obligation": "P6:C-224",
+   "rechecked_by": "C-034"
+  },
+  {
+   "obligation": "P6:C-063",
+   "rechecked_by": "C-035"
+  },
+  {
+   "obligation": "P6:C-227",
+   "rechecked_by": "C-035"
+  },
+  {
+   "obligation": "P6:C-306",
+   "rechecked_by": "C-036"
+  },
+  {
+   "obligation": "P6:C-101",
+   "rechecked_by": "C-036"
+  },
+  {
+   "obligation": "P6:C-143",
+   "rechecked_by": "C-037"
+  },
+  {
+   "obligation": "P6:C-144",
+   "rechecked_by": "C-037"
+  },
+  {
+   "obligation": "P6:C-102",
+   "rechecked_by": "C-038"
+  },
+  {
+   "obligation": "P7:C-057",
+   "rechecked_by": "C-040"
+  },
+  {
+   "obligation": "P6:C-521",
+   "rechecked_by": "C-041"
+  },
+  {
+   "obligation": "P7:C-059",
+   "rechecked_by": "C-041"
+  },
+  {
+   "obligation": "P7:C-061",
+   "rechecked_by": "C-042"
+  },
+  {
+   "obligation": "P7:C-062",
+   "rechecked_by": "C-043"
+  }
+ ],
+ "retained_items": [
+  {
+   "obligation": "P6:C-001",
+   "evidence": "pass-006 C-001",
+   "group": "K-INV",
+   "stage1": "Scope And Provenance (legacy files, hashes)",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-002",
+   "evidence": "pass-006 C-002",
+   "group": "K-INV",
+   "stage1": "Source Inventory composition table (964 files, 1090 entries)",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-003",
+   "evidence": "pass-006 C-003",
+   "group": "K-INV",
+   "stage1": "Scope And Provenance (version, build date, revision, Build-Jdk, class version 50.0)",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-004",
+   "evidence": "pass-006 C-004",
+   "group": "K-INV",
+   "stage1": "Source Inventory compiled classes row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-005",
+   "evidence": "pass-006 C-005",
+   "group": "K-INV",
+   "stage1": "Source Inventory third-party libraries row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-006",
+   "evidence": "pass-006 C-006",
+   "group": "K-INV",
+   "stage1": "Source Inventory dormant-code row; Parity-Map Boundary exclusions",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-007",
+   "evidence": "pass-006 C-007",
+   "group": "K-INV",
+   "stage1": "Scope And Provenance known patch; GAP-005 P-01, P-02, P-07; Source Inventory local run helpers row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-008",
+   "evidence": "pass-006 C-008",
+   "group": "K-INV",
+   "stage1": "Source Inventory container metadata row; GAP-008",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-009",
+   "evidence": "pass-006 C-009",
+   "group": "K-INV",
+   "stage1": "Source Inventory web descriptor and Struts rows; rows 17, 72",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-010",
+   "evidence": "pass-007 C-006",
+   "group": "K-P7",
+   "stage1": "rows 223-226; Runnable Surfaces REST row",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-011",
+   "evidence": "pass-007 C-006",
+   "group": "K-P7",
+   "stage1": "rows 215-221; Web services row; Q3 facts (adminPassword location)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-012",
+   "evidence": "pass-006 C-012",
+   "group": "K-INV",
+   "stage1": "rows 228-230; Runnable Surfaces calendar row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-014",
+   "evidence": "pass-006 C-014",
+   "group": "K-INV-P",
+   "stage1": "rows 109-112, 162, 165; Runnable Surfaces chart row; GAP-007",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-016",
+   "evidence": "pass-006 C-016",
+   "group": "K-INV",
+   "stage1": "rows 18, 20; web descriptor row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-018",
+   "evidence": "pass-006 C-018",
+   "group": "K-INV",
+   "stage1": "web descriptor row; rows 17, 72, 233",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-019",
+   "evidence": "pass-006 C-019",
+   "group": "K-INV",
+   "stage1": "row 73; Runnable Surfaces activity-log row; GAP-013",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-020",
+   "evidence": "pass-006 C-020",
+   "group": "K-EXCL",
+   "stage1": "no row or section (infrastructure without user-visible behavior)",
+   "reason": "pass-006 E-001 infrastructure item, unchanged"
+  },
+  {
+   "obligation": "P6:C-021",
+   "evidence": "pass-006 C-021",
+   "group": "K-INV",
+   "stage1": "rows 64-66; Spring row (loaders)",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-022",
+   "evidence": "pass-006 C-022",
+   "group": "K-INV",
+   "stage1": "rows 64-65; Schema and seed data row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-023",
+   "evidence": "pass-006 C-023",
+   "group": "K-INV",
+   "stage1": "Legacy migration toolkit row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-024",
+   "evidence": "pass-006 C-024",
+   "group": "K-INV-P",
+   "stage1": "row 68; Configuration row; persistence row",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-025",
+   "evidence": "pass-006 C-025",
+   "group": "K-INV-P",
+   "stage1": "rows 47, 68; Data And Integrations database row; P-02",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-026",
+   "evidence": "pass-006 C-026",
+   "group": "K-INV-P",
+   "stage1": "rows 50 (transaction template), 172, 176; Build evidence persist-trace note",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-027",
+   "evidence": "pass-006 C-027",
+   "group": "K-INV-P",
+   "stage1": "row 67; Configuration row",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-028",
+   "evidence": "pass-006 C-028",
+   "group": "K-INV",
+   "stage1": "rows 55, 66-67; P-01",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-029",
+   "evidence": "pass-006 C-029",
+   "group": "K-INV",
+   "stage1": "rows 188, 202; GAP-008; P-04",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-030",
+   "evidence": "pass-006 C-030",
+   "group": "K-INV-P",
+   "stage1": "row 203; Data And Integrations SMTP row",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-031",
+   "evidence": "pass-006 C-031",
+   "group": "K-INV",
+   "stage1": "rows 11, 21",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-032",
+   "evidence": "pass-006 C-032",
+   "group": "K-INV-P",
+   "stage1": "rows 189-190; Data And Integrations wiki row",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-033",
+   "evidence": "pass-006 C-033",
+   "group": "K-INV",
+   "stage1": "rows 94, 109-111, 115, 122, 178, 198, 205, 208; P-03",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-034",
+   "evidence": "pass-007 C-005",
+   "group": "K-P7",
+   "stage1": "Source Inventory Configuration row; Build evidence config-consumers row",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-035",
+   "evidence": "pass-006 C-035",
+   "group": "K-INV-P",
+   "stage1": "Q3 facts (database credentials, adminPassword, login-page text); rows 9, 64, 67",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-036",
+   "evidence": "pass-007 C-013",
+   "group": "K-P7",
+   "stage1": "rows 58, 69-71, 135; Internationalisation row",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-037",
+   "evidence": "pass-006 C-037",
+   "group": "K-INV-P",
+   "stage1": "row 73; Configuration row (log4j); unauthenticated list (FILE appender unreferenced)",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-038",
+   "evidence": "pass-006 C-038",
+   "group": "K-INV",
+   "stage1": "rows 33, 61",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-040",
+   "evidence": "pass-006 C-040",
+   "group": "K-INV",
+   "stage1": "rows 11, 13",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-041",
+   "evidence": "pass-006 C-041",
+   "group": "K-INV-P",
+   "stage1": "rows 15-16; Q3 facts",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-042",
+   "evidence": "pass-006 C-042",
+   "group": "K-INV",
+   "stage1": "rows 17, 32, 233; Security configuration row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-043",
+   "evidence": "pass-006 C-043",
+   "group": "K-INV",
+   "stage1": "row 233",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-044",
+   "evidence": "pass-006 C-044",
+   "group": "K-INV",
+   "stage1": "row 215; rows 228-230",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-045",
+   "evidence": "pass-006 C-045",
+   "group": "K-INV",
+   "stage1": "row 19",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-046",
+   "evidence": "pass-006 C-046",
+   "group": "K-INV",
+   "stage1": "row 47; P-02",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-047",
+   "evidence": "pass-006 C-047",
+   "group": "K-INV",
+   "stage1": "row 21",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-048",
+   "evidence": "pass-006 C-048",
+   "group": "K-INV-P",
+   "stage1": "rows 9, 64; Q3 facts; dormant-code row (NullSecurityFilter)",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-049",
+   "evidence": "pass-006 C-049",
+   "group": "K-INV",
+   "stage1": "rows 23-25",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-050",
+   "evidence": "pass-006 C-050",
+   "group": "K-INV",
+   "stage1": "rows 26-31; Runnable Surfaces enforcement table",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-051",
+   "evidence": "pass-006 C-051",
+   "group": "K-INV",
+   "stage1": "rows 28, 234",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-052",
+   "evidence": "pass-006 C-052",
+   "group": "K-INV",
+   "stage1": "rows 28, 57; GAP-003",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-053",
+   "evidence": "pass-007 C-011",
+   "group": "K-P7",
+   "stage1": "rows 26, 33, 38, 41-43, 48 and the CHK-002 row sweep",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-054",
+   "evidence": "pass-006 C-054",
+   "group": "K-INV",
+   "stage1": "rows 18, 75-77",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-055",
+   "evidence": "pass-006 C-055",
+   "group": "K-INV",
+   "stage1": "rows 83-84, 194",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-056",
+   "evidence": "pass-007 C-017",
+   "group": "K-P7",
+   "stage1": "rows 78-81",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-057",
+   "evidence": "pass-006 C-057",
+   "group": "K-INV",
+   "stage1": "rows 85-86",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-058",
+   "evidence": "pass-006 C-058",
+   "group": "K-INV",
+   "stage1": "row 82",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-059",
+   "evidence": "pass-007 C-004",
+   "group": "K-P7",
+   "stage1": "rows 208-213",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-060",
+   "evidence": "pass-006 C-060",
+   "group": "K-INV",
+   "stage1": "rows 92-94, 105-113",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-061",
+   "evidence": "pass-007 C-019",
+   "group": "K-P7",
+   "stage1": "rows 88-90",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-064",
+   "evidence": "pass-006 C-064",
+   "group": "K-INV",
+   "stage1": "rows 102-104",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-065",
+   "evidence": "pass-006 C-065",
+   "group": "K-INV",
+   "stage1": "row 91",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-066",
+   "evidence": "pass-006 C-066",
+   "group": "K-INV",
+   "stage1": "rows 115-119",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-067",
+   "evidence": "pass-006 C-067",
+   "group": "K-INV",
+   "stage1": "rows 95-96",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-068",
+   "evidence": "pass-006 C-068",
+   "group": "K-INV",
+   "stage1": "row 97",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-069",
+   "evidence": "pass-006 C-069",
+   "group": "K-INV",
+   "stage1": "row 194; GAP-003, GAP-004; Q2 facts",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-070",
+   "evidence": "pass-007 C-022",
+   "group": "K-P7",
+   "stage1": "rows 121-128",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-071",
+   "evidence": "pass-007 C-025",
+   "group": "K-P7",
+   "stage1": "rows 129-132",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-072",
+   "evidence": "pass-006 C-072",
+   "group": "K-INV",
+   "stage1": "row 126",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-073",
+   "evidence": "pass-007 C-026",
+   "group": "K-P7",
+   "stage1": "rows 134-143",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-074",
+   "evidence": "pass-006 C-074",
+   "group": "K-INV",
+   "stage1": "rows 144-147",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-075",
+   "evidence": "pass-006 C-075",
+   "group": "K-INV",
+   "stage1": "row 161",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-076",
+   "evidence": "pass-006 C-076",
+   "group": "K-INV",
+   "stage1": "row 142",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-077",
+   "evidence": "pass-007 C-031",
+   "group": "K-P7",
+   "stage1": "rows 149-160",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-078",
+   "evidence": "pass-007 C-032",
+   "group": "K-P7",
+   "stage1": "rows 169-175; Data And Integrations file storage row",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-079",
+   "evidence": "pass-006 C-079",
+   "group": "K-INV",
+   "stage1": "row 176",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-080",
+   "evidence": "pass-006 C-080",
+   "group": "K-INV",
+   "stage1": "rows 37-42",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-081",
+   "evidence": "pass-007 C-011",
+   "group": "K-P7",
+   "stage1": "rows 31, 33-34, 43-48",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-082",
+   "evidence": "pass-006 C-082",
+   "group": "K-INV",
+   "stage1": "row 49",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-083",
+   "evidence": "pass-006 C-083",
+   "group": "K-INV",
+   "stage1": "rows 50-53; GAP-012; Q4 facts",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-084",
+   "evidence": "pass-007 C-001",
+   "group": "K-P7",
+   "stage1": "row 35",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-085",
+   "evidence": "pass-006 C-085",
+   "group": "K-INV",
+   "stage1": "rows 162-164",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-086",
+   "evidence": "pass-006 C-086",
+   "group": "K-INV-P",
+   "stage1": "rows 165-167; Q3 facts",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-087",
+   "evidence": "pass-006 C-087",
+   "group": "K-INV",
+   "stage1": "rows 196-198; GAP-004",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-089",
+   "evidence": "pass-006 C-089",
+   "group": "K-INV",
+   "stage1": "rows 182-184",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-090",
+   "evidence": "pass-006 C-090",
+   "group": "K-INV",
+   "stage1": "rows 178-181",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-091",
+   "evidence": "pass-007 C-014",
+   "group": "K-P7",
+   "stage1": "rows 59, 114",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-092",
+   "evidence": "pass-006 C-092",
+   "group": "K-INV",
+   "stage1": "rows 190, 189",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-093",
+   "evidence": "pass-007 C-013",
+   "group": "K-P7",
+   "stage1": "row 58",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-094",
+   "evidence": "pass-006 C-094",
+   "group": "K-INV",
+   "stage1": "row 55",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-095",
+   "evidence": "pass-006 C-095",
+   "group": "K-INV",
+   "stage1": "row 63",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-096",
+   "evidence": "pass-007 C-016",
+   "group": "K-P7",
+   "stage1": "rows 61-63; Q3 facts",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-097",
+   "evidence": "pass-007 C-001",
+   "group": "K-P7",
+   "stage1": "rows 29, 43, 46, 78, 81, 88, 90, 121, 125, 134, 139, 169, 173",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-098",
+   "evidence": "pass-006 C-098",
+   "group": "K-INV",
+   "stage1": "rows 29, 49, 82, 91, 126, 142",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-099",
+   "evidence": "pass-006 C-099",
+   "group": "K-INV",
+   "stage1": "row 206; row 187",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-100",
+   "evidence": "pass-006 C-100",
+   "group": "K-INV",
+   "stage1": "rows 186-187",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-103",
+   "evidence": "pass-006 C-103",
+   "group": "K-INV",
+   "stage1": "Referenced but absent resources row; GAP-003",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-104",
+   "evidence": "pass-006 C-104",
+   "group": "K-INV",
+   "stage1": "rows 232-234; Mobile channel row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-105",
+   "evidence": "pass-006 C-105",
+   "group": "K-INV",
+   "stage1": "row 224",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-106",
+   "evidence": "pass-006 C-106",
+   "group": "K-INV",
+   "stage1": "row 223",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-107",
+   "evidence": "pass-006 C-107",
+   "group": "K-INV",
+   "stage1": "row 223",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-108",
+   "evidence": "pass-006 C-108",
+   "group": "K-INV",
+   "stage1": "row 226",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-109",
+   "evidence": "pass-006 C-109",
+   "group": "K-INV",
+   "stage1": "row 188",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-111",
+   "evidence": "pass-006 C-111",
+   "group": "K-INV",
+   "stage1": "rows 218, 220-221",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-112",
+   "evidence": "pass-006 C-112",
+   "group": "K-INV",
+   "stage1": "row 216",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-113",
+   "evidence": "pass-006 C-113",
+   "group": "K-INV",
+   "stage1": "rows 228-230",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-114",
+   "evidence": "pass-006 C-114",
+   "group": "K-INV",
+   "stage1": "rows 109-112",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-115",
+   "evidence": "pass-006 C-115",
+   "group": "K-INV",
+   "stage1": "rows 200-203; row 65",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-116",
+   "evidence": "pass-006 C-116",
+   "group": "K-INV",
+   "stage1": "rows 112, 204-205",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-117",
+   "evidence": "pass-006 C-117",
+   "group": "K-EXCL",
+   "stage1": "no row or section (infrastructure without user-visible behavior)",
+   "reason": "pass-006 E-001 infrastructure item, unchanged"
+  },
+  {
+   "obligation": "P6:C-118",
+   "evidence": "pass-006 C-118",
+   "group": "K-INV-P",
+   "stage1": "Data And Integrations database row; Schema row",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-119",
+   "evidence": "pass-006 C-119",
+   "group": "K-INV",
+   "stage1": "rows 49, 82, 91, 126, 142, 176",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-120",
+   "evidence": "pass-007 C-032",
+   "group": "K-P7",
+   "stage1": "persistence row (query sweep); rows 11, 143, 165, 169, 220-221, 228",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-121",
+   "evidence": "pass-006 C-121",
+   "group": "K-INV",
+   "stage1": "rows 138, 198, 200-203",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-122",
+   "evidence": "pass-006 C-122",
+   "group": "K-INV-P",
+   "stage1": "rows 189, 202; Data And Integrations outbound rows",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-123",
+   "evidence": "pass-006 C-123",
+   "group": "K-INV",
+   "stage1": "Static assets row",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-124",
+   "evidence": "pass-007 C-032",
+   "group": "K-P7",
+   "stage1": "rows 18, 143, 169; persistence row",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-125",
+   "evidence": "pass-006 C-125",
+   "group": "K-INV",
+   "stage1": "row 189",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-128",
+   "evidence": "pass-006 C-128",
+   "group": "K-INV",
+   "stage1": "Spring row (request fallback type of /view/history)",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-129",
+   "evidence": "pass-007 C-001",
+   "group": "K-P7",
+   "stage1": "rows 124, 129, 137, 140 (merge only as validation switch); GAP-007 and Q3 facts silent",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-130",
+   "evidence": "pass-006 C-130",
+   "group": "K-INV-P",
+   "stage1": "row 165; Q3 facts",
+   "reason": "inventory item in a section with a hunk (GAP-007, Q3 table, unauthenticated list, Build rows, Configuration or Data rows); the sentences it relies on are byte-identical (GAP-007 hunks are pure insertions; the Q3 rows it uses are not the changed rows 436 and 443-446)"
+  },
+  {
+   "obligation": "P6:C-131",
+   "evidence": "pass-007 C-016",
+   "group": "K-P7",
+   "stage1": "row 62",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-132",
+   "evidence": "pass-006 C-132",
+   "group": "K-INV",
+   "stage1": "rows 175-176",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-133",
+   "evidence": "pass-006 C-133",
+   "group": "K-INV",
+   "stage1": "row 73",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-136",
+   "evidence": "pass-007 C-022",
+   "group": "K-P7",
+   "stage1": "Runnable Surfaces actors; rows 23-25, 134, 149, 121, 85, 196",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-137",
+   "evidence": "pass-006 C-137",
+   "group": "K-INV",
+   "stage1": "rows 50-51, 176, 232, 234; Spring row (injected properties)",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-138",
+   "evidence": "pass-006 C-138",
+   "group": "K-INV",
+   "stage1": "rows 223, 188, 17, 28",
+   "reason": "inventory item whose mapped rows and sections are unchanged and not rechecked here, and whose mechanism is none of the changed ones"
+  },
+  {
+   "obligation": "P6:C-140",
+   "evidence": "pass-006 C-140",
+   "group": "K-ROW",
+   "stage1": "workbook row 9 (UF-001)",
+   "reason": "workbook row 9 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-141",
+   "evidence": "pass-006 C-141",
+   "group": "K-ROW",
+   "stage1": "workbook row 10 (UF-001)",
+   "reason": "workbook row 10 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-142",
+   "evidence": "pass-006 C-142",
+   "group": "K-ROW",
+   "stage1": "workbook row 11 (UF-001)",
+   "reason": "workbook row 11 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-145",
+   "evidence": "pass-006 C-145",
+   "group": "K-ROW",
+   "stage1": "workbook row 14 (UF-001)",
+   "reason": "workbook row 14 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-146",
+   "evidence": "pass-006 C-146",
+   "group": "K-ROW",
+   "stage1": "workbook row 15 (UF-001)",
+   "reason": "workbook row 15 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-147",
+   "evidence": "pass-006 C-147",
+   "group": "K-ROW",
+   "stage1": "workbook row 16 (UF-001)",
+   "reason": "workbook row 16 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-148",
+   "evidence": "pass-006 C-148",
+   "group": "K-ROW",
+   "stage1": "workbook row 17 (UF-001)",
+   "reason": "workbook row 17 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-149",
+   "evidence": "pass-006 C-149",
+   "group": "K-ROW",
+   "stage1": "workbook row 18 (UF-001)",
+   "reason": "workbook row 18 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-150",
+   "evidence": "pass-006 C-150",
+   "group": "K-ROW",
+   "stage1": "workbook row 19 (UF-001)",
+   "reason": "workbook row 19 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-151",
+   "evidence": "pass-006 C-151",
+   "group": "K-ROW",
+   "stage1": "workbook row 20 (UF-001)",
+   "reason": "workbook row 20 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-152",
+   "evidence": "pass-006 C-152",
+   "group": "K-ROW",
+   "stage1": "workbook row 21 (UF-001)",
+   "reason": "workbook row 21 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-153",
+   "evidence": "pass-006 C-153",
+   "group": "K-ROW",
+   "stage1": "workbook row 23 (UF-002)",
+   "reason": "workbook row 23 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-154",
+   "evidence": "pass-006 C-154",
+   "group": "K-ROW",
+   "stage1": "workbook row 24 (UF-002)",
+   "reason": "workbook row 24 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-155",
+   "evidence": "pass-006 C-155",
+   "group": "K-ROW",
+   "stage1": "workbook row 25 (UF-002)",
+   "reason": "workbook row 25 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-156",
+   "evidence": "pass-006 C-156",
+   "group": "K-ROW",
+   "stage1": "workbook row 26 (UF-002)",
+   "reason": "workbook row 26 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-157",
+   "evidence": "pass-006 C-157",
+   "group": "K-ROW",
+   "stage1": "workbook row 27 (UF-002)",
+   "reason": "workbook row 27 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-158",
+   "evidence": "pass-006 C-158",
+   "group": "K-ROW",
+   "stage1": "workbook row 28 (UF-002)",
+   "reason": "workbook row 28 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-159",
+   "evidence": "pass-006 C-159",
+   "group": "K-ROW",
+   "stage1": "workbook row 29 (UF-002)",
+   "reason": "workbook row 29 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-160",
+   "evidence": "pass-006 C-160",
+   "group": "K-ROW",
+   "stage1": "workbook row 30 (UF-002)",
+   "reason": "workbook row 30 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-161",
+   "evidence": "pass-006 C-161",
+   "group": "K-ROW",
+   "stage1": "workbook row 31 (UF-002)",
+   "reason": "workbook row 31 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-162",
+   "evidence": "pass-006 C-162",
+   "group": "K-ROW",
+   "stage1": "workbook row 32 (UF-002)",
+   "reason": "workbook row 32 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-163",
+   "evidence": "pass-006 C-163",
+   "group": "K-ROW",
+   "stage1": "workbook row 33 (UF-002)",
+   "reason": "workbook row 33 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-164",
+   "evidence": "pass-006 C-164",
+   "group": "K-ROW",
+   "stage1": "workbook row 34 (UF-002)",
+   "reason": "workbook row 34 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-165",
+   "evidence": "pass-007 C-010",
+   "group": "K-P7",
+   "stage1": "workbook row 35 (UF-002)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-166",
+   "evidence": "pass-006 C-166",
+   "group": "K-ROW",
+   "stage1": "workbook row 37 (UF-003)",
+   "reason": "workbook row 37 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-167",
+   "evidence": "pass-006 C-167",
+   "group": "K-ROW",
+   "stage1": "workbook row 38 (UF-003)",
+   "reason": "workbook row 38 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-168",
+   "evidence": "pass-006 C-168",
+   "group": "K-ROW",
+   "stage1": "workbook row 39 (UF-003)",
+   "reason": "workbook row 39 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-169",
+   "evidence": "pass-006 C-169",
+   "group": "K-ROW",
+   "stage1": "workbook row 40 (UF-003)",
+   "reason": "workbook row 40 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-170",
+   "evidence": "pass-006 C-170",
+   "group": "K-ROW",
+   "stage1": "workbook row 41 (UF-003)",
+   "reason": "workbook row 41 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-171",
+   "evidence": "pass-006 C-171",
+   "group": "K-ROW",
+   "stage1": "workbook row 42 (UF-003)",
+   "reason": "workbook row 42 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-172",
+   "evidence": "pass-007 C-011",
+   "group": "K-P7",
+   "stage1": "workbook row 43 (UF-003)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-173",
+   "evidence": "pass-006 C-173",
+   "group": "K-ROW",
+   "stage1": "workbook row 44 (UF-003)",
+   "reason": "workbook row 44 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-174",
+   "evidence": "pass-006 C-174",
+   "group": "K-ROW",
+   "stage1": "workbook row 45 (UF-003)",
+   "reason": "workbook row 45 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-175",
+   "evidence": "pass-007 C-012",
+   "group": "K-P7",
+   "stage1": "workbook row 46 (UF-003)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-176",
+   "evidence": "pass-006 C-176",
+   "group": "K-ROW",
+   "stage1": "workbook row 47 (UF-003)",
+   "reason": "workbook row 47 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-177",
+   "evidence": "pass-006 C-177",
+   "group": "K-ROW",
+   "stage1": "workbook row 48 (UF-003)",
+   "reason": "workbook row 48 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-178",
+   "evidence": "pass-006 C-178",
+   "group": "K-ROW",
+   "stage1": "workbook row 49 (UF-003)",
+   "reason": "workbook row 49 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-179",
+   "evidence": "pass-006 C-179",
+   "group": "K-ROW",
+   "stage1": "workbook row 50 (UF-003)",
+   "reason": "workbook row 50 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-180",
+   "evidence": "pass-006 C-180",
+   "group": "K-ROW",
+   "stage1": "workbook row 51 (UF-003)",
+   "reason": "workbook row 51 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-181",
+   "evidence": "pass-006 C-181",
+   "group": "K-ROW",
+   "stage1": "workbook row 52 (UF-003)",
+   "reason": "workbook row 52 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-182",
+   "evidence": "pass-006 C-182",
+   "group": "K-ROW",
+   "stage1": "workbook row 53 (UF-003)",
+   "reason": "workbook row 53 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-183",
+   "evidence": "pass-006 C-183",
+   "group": "K-ROW",
+   "stage1": "workbook row 55 (UF-004)",
+   "reason": "workbook row 55 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-185",
+   "evidence": "pass-006 C-185",
+   "group": "K-ROW",
+   "stage1": "workbook row 57 (UF-004)",
+   "reason": "workbook row 57 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-186",
+   "evidence": "pass-007 C-013",
+   "group": "K-P7",
+   "stage1": "workbook row 58 (UF-004)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-187",
+   "evidence": "pass-007 C-014",
+   "group": "K-P7",
+   "stage1": "workbook row 59 (UF-004)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-189",
+   "evidence": "pass-006 C-189",
+   "group": "K-ROW",
+   "stage1": "workbook row 61 (UF-004)",
+   "reason": "workbook row 61 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-190",
+   "evidence": "pass-007 C-016",
+   "group": "K-P7",
+   "stage1": "workbook row 62 (UF-004)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-191",
+   "evidence": "pass-006 C-191",
+   "group": "K-ROW",
+   "stage1": "workbook row 63 (UF-004)",
+   "reason": "workbook row 63 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-192",
+   "evidence": "pass-006 C-192",
+   "group": "K-ROW",
+   "stage1": "workbook row 64 (UF-004)",
+   "reason": "workbook row 64 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-193",
+   "evidence": "pass-006 C-193",
+   "group": "K-ROW",
+   "stage1": "workbook row 65 (UF-004)",
+   "reason": "workbook row 65 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-194",
+   "evidence": "pass-006 C-194",
+   "group": "K-ROW",
+   "stage1": "workbook row 66 (UF-004)",
+   "reason": "workbook row 66 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-195",
+   "evidence": "pass-006 C-195",
+   "group": "K-ROW",
+   "stage1": "workbook row 67 (UF-004)",
+   "reason": "workbook row 67 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-196",
+   "evidence": "pass-006 C-196",
+   "group": "K-ROW",
+   "stage1": "workbook row 68 (UF-004)",
+   "reason": "workbook row 68 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-199",
+   "evidence": "pass-006 C-199",
+   "group": "K-ROW",
+   "stage1": "workbook row 71 (UF-004)",
+   "reason": "workbook row 71 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-200",
+   "evidence": "pass-006 C-200",
+   "group": "K-ROW",
+   "stage1": "workbook row 72 (UF-004)",
+   "reason": "workbook row 72 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-201",
+   "evidence": "pass-006 C-201",
+   "group": "K-ROW",
+   "stage1": "workbook row 73 (UF-004)",
+   "reason": "workbook row 73 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-202",
+   "evidence": "pass-006 C-202",
+   "group": "K-ROW",
+   "stage1": "workbook row 75 (UF-005)",
+   "reason": "workbook row 75 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-203",
+   "evidence": "pass-006 C-203",
+   "group": "K-ROW",
+   "stage1": "workbook row 76 (UF-005)",
+   "reason": "workbook row 76 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-204",
+   "evidence": "pass-006 C-204",
+   "group": "K-ROW",
+   "stage1": "workbook row 77 (UF-005)",
+   "reason": "workbook row 77 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-205",
+   "evidence": "pass-007 C-017",
+   "group": "K-P7",
+   "stage1": "workbook row 78 (UF-005)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-206",
+   "evidence": "pass-006 C-206",
+   "group": "K-ROW",
+   "stage1": "workbook row 79 (UF-005)",
+   "reason": "workbook row 79 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-207",
+   "evidence": "pass-006 C-207",
+   "group": "K-ROW",
+   "stage1": "workbook row 80 (UF-005)",
+   "reason": "workbook row 80 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-208",
+   "evidence": "pass-007 C-018",
+   "group": "K-P7",
+   "stage1": "workbook row 81 (UF-005)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-209",
+   "evidence": "pass-006 C-209",
+   "group": "K-ROW",
+   "stage1": "workbook row 82 (UF-005)",
+   "reason": "workbook row 82 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-210",
+   "evidence": "pass-006 C-210",
+   "group": "K-ROW",
+   "stage1": "workbook row 83 (UF-005)",
+   "reason": "workbook row 83 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-211",
+   "evidence": "pass-006 C-211",
+   "group": "K-ROW",
+   "stage1": "workbook row 84 (UF-005)",
+   "reason": "workbook row 84 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-212",
+   "evidence": "pass-006 C-212",
+   "group": "K-ROW",
+   "stage1": "workbook row 85 (UF-005)",
+   "reason": "workbook row 85 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-213",
+   "evidence": "pass-006 C-213",
+   "group": "K-ROW",
+   "stage1": "workbook row 86 (UF-005)",
+   "reason": "workbook row 86 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-214",
+   "evidence": "pass-007 C-019",
+   "group": "K-P7",
+   "stage1": "workbook row 88 (UF-006)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-215",
+   "evidence": "pass-006 C-215",
+   "group": "K-ROW",
+   "stage1": "workbook row 89 (UF-006)",
+   "reason": "workbook row 89 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-216",
+   "evidence": "pass-007 C-020",
+   "group": "K-P7",
+   "stage1": "workbook row 90 (UF-006)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-217",
+   "evidence": "pass-006 C-217",
+   "group": "K-ROW",
+   "stage1": "workbook row 91 (UF-006)",
+   "reason": "workbook row 91 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-218",
+   "evidence": "pass-006 C-218",
+   "group": "K-ROW",
+   "stage1": "workbook row 92 (UF-006)",
+   "reason": "workbook row 92 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-219",
+   "evidence": "pass-006 C-219",
+   "group": "K-ROW",
+   "stage1": "workbook row 93 (UF-006)",
+   "reason": "workbook row 93 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-220",
+   "evidence": "pass-006 C-220",
+   "group": "K-ROW",
+   "stage1": "workbook row 94 (UF-006)",
+   "reason": "workbook row 94 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-221",
+   "evidence": "pass-006 C-221",
+   "group": "K-ROW",
+   "stage1": "workbook row 95 (UF-006)",
+   "reason": "workbook row 95 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-222",
+   "evidence": "pass-006 C-222",
+   "group": "K-ROW",
+   "stage1": "workbook row 96 (UF-006)",
+   "reason": "workbook row 96 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-223",
+   "evidence": "pass-006 C-223",
+   "group": "K-ROW",
+   "stage1": "workbook row 97 (UF-006)",
+   "reason": "workbook row 97 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-225",
+   "evidence": "pass-006 C-225",
+   "group": "K-ROW",
+   "stage1": "workbook row 99 (UF-006)",
+   "reason": "workbook row 99 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-226",
+   "evidence": "pass-006 C-226",
+   "group": "K-ROW",
+   "stage1": "workbook row 100 (UF-006)",
+   "reason": "workbook row 100 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-228",
+   "evidence": "pass-006 C-228",
+   "group": "K-ROW",
+   "stage1": "workbook row 102 (UF-006)",
+   "reason": "workbook row 102 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-229",
+   "evidence": "pass-006 C-229",
+   "group": "K-ROW",
+   "stage1": "workbook row 103 (UF-006)",
+   "reason": "workbook row 103 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-230",
+   "evidence": "pass-006 C-230",
+   "group": "K-ROW",
+   "stage1": "workbook row 104 (UF-006)",
+   "reason": "workbook row 104 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-231",
+   "evidence": "pass-006 C-231",
+   "group": "K-ROW",
+   "stage1": "workbook row 105 (UF-006)",
+   "reason": "workbook row 105 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-232",
+   "evidence": "pass-006 C-232",
+   "group": "K-ROW",
+   "stage1": "workbook row 106 (UF-006)",
+   "reason": "workbook row 106 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-233",
+   "evidence": "pass-006 C-233",
+   "group": "K-ROW",
+   "stage1": "workbook row 107 (UF-006)",
+   "reason": "workbook row 107 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-234",
+   "evidence": "pass-006 C-234",
+   "group": "K-ROW",
+   "stage1": "workbook row 108 (UF-006)",
+   "reason": "workbook row 108 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-235",
+   "evidence": "pass-006 C-235",
+   "group": "K-ROW",
+   "stage1": "workbook row 109 (UF-006)",
+   "reason": "workbook row 109 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-236",
+   "evidence": "pass-006 C-236",
+   "group": "K-ROW",
+   "stage1": "workbook row 110 (UF-006)",
+   "reason": "workbook row 110 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-237",
+   "evidence": "pass-006 C-237",
+   "group": "K-ROW",
+   "stage1": "workbook row 111 (UF-006)",
+   "reason": "workbook row 111 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-238",
+   "evidence": "pass-006 C-238",
+   "group": "K-ROW",
+   "stage1": "workbook row 112 (UF-006)",
+   "reason": "workbook row 112 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-239",
+   "evidence": "pass-006 C-239",
+   "group": "K-ROW",
+   "stage1": "workbook row 113 (UF-006)",
+   "reason": "workbook row 113 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-240",
+   "evidence": "pass-006 C-240",
+   "group": "K-ROW",
+   "stage1": "workbook row 114 (UF-006)",
+   "reason": "workbook row 114 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-241",
+   "evidence": "pass-006 C-241",
+   "group": "K-ROW",
+   "stage1": "workbook row 115 (UF-006)",
+   "reason": "workbook row 115 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-242",
+   "evidence": "pass-006 C-242",
+   "group": "K-ROW",
+   "stage1": "workbook row 116 (UF-006)",
+   "reason": "workbook row 116 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-243",
+   "evidence": "pass-006 C-243",
+   "group": "K-ROW",
+   "stage1": "workbook row 117 (UF-006)",
+   "reason": "workbook row 117 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-244",
+   "evidence": "pass-006 C-244",
+   "group": "K-ROW",
+   "stage1": "workbook row 118 (UF-006)",
+   "reason": "workbook row 118 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-245",
+   "evidence": "pass-006 C-245",
+   "group": "K-ROW",
+   "stage1": "workbook row 119 (UF-006)",
+   "reason": "workbook row 119 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-246",
+   "evidence": "pass-007 C-022",
+   "group": "K-P7",
+   "stage1": "workbook row 121 (UF-007)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-247",
+   "evidence": "pass-006 C-247",
+   "group": "K-ROW",
+   "stage1": "workbook row 122 (UF-007)",
+   "reason": "workbook row 122 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-248",
+   "evidence": "pass-006 C-248",
+   "group": "K-ROW",
+   "stage1": "workbook row 123 (UF-007)",
+   "reason": "workbook row 123 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-249",
+   "evidence": "pass-007 C-023",
+   "group": "K-P7",
+   "stage1": "workbook row 124 (UF-007)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-250",
+   "evidence": "pass-007 C-024",
+   "group": "K-P7",
+   "stage1": "workbook row 125 (UF-007)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-251",
+   "evidence": "pass-006 C-251",
+   "group": "K-ROW",
+   "stage1": "workbook row 126 (UF-007)",
+   "reason": "workbook row 126 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-252",
+   "evidence": "pass-006 C-252",
+   "group": "K-ROW",
+   "stage1": "workbook row 127 (UF-007)",
+   "reason": "workbook row 127 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-253",
+   "evidence": "pass-006 C-253",
+   "group": "K-ROW",
+   "stage1": "workbook row 128 (UF-007)",
+   "reason": "workbook row 128 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-254",
+   "evidence": "pass-007 C-025",
+   "group": "K-P7",
+   "stage1": "workbook row 129 (UF-007)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-255",
+   "evidence": "pass-006 C-255",
+   "group": "K-ROW",
+   "stage1": "workbook row 130 (UF-007)",
+   "reason": "workbook row 130 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-256",
+   "evidence": "pass-006 C-256",
+   "group": "K-ROW",
+   "stage1": "workbook row 131 (UF-007)",
+   "reason": "workbook row 131 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-257",
+   "evidence": "pass-006 C-257",
+   "group": "K-ROW",
+   "stage1": "workbook row 132 (UF-007)",
+   "reason": "workbook row 132 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-258",
+   "evidence": "pass-007 C-026",
+   "group": "K-P7",
+   "stage1": "workbook row 134 (UF-008)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-259",
+   "evidence": "pass-006 C-259",
+   "group": "K-ROW",
+   "stage1": "workbook row 135 (UF-008)",
+   "reason": "workbook row 135 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-260",
+   "evidence": "pass-006 C-260",
+   "group": "K-ROW",
+   "stage1": "workbook row 136 (UF-008)",
+   "reason": "workbook row 136 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-261",
+   "evidence": "pass-007 C-027",
+   "group": "K-P7",
+   "stage1": "workbook row 137 (UF-008)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-262",
+   "evidence": "pass-006 C-262",
+   "group": "K-ROW",
+   "stage1": "workbook row 138 (UF-008)",
+   "reason": "workbook row 138 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-263",
+   "evidence": "pass-007 C-028",
+   "group": "K-P7",
+   "stage1": "workbook row 139 (UF-008)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-264",
+   "evidence": "pass-007 C-029",
+   "group": "K-P7",
+   "stage1": "workbook row 140 (UF-008)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-265",
+   "evidence": "pass-007 C-030",
+   "group": "K-P7",
+   "stage1": "workbook row 141 (UF-008)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-266",
+   "evidence": "pass-006 C-266",
+   "group": "K-ROW",
+   "stage1": "workbook row 142 (UF-008)",
+   "reason": "workbook row 142 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-267",
+   "evidence": "pass-006 C-267",
+   "group": "K-ROW",
+   "stage1": "workbook row 143 (UF-008)",
+   "reason": "workbook row 143 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-268",
+   "evidence": "pass-006 C-268",
+   "group": "K-ROW",
+   "stage1": "workbook row 144 (UF-008)",
+   "reason": "workbook row 144 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-269",
+   "evidence": "pass-006 C-269",
+   "group": "K-ROW",
+   "stage1": "workbook row 145 (UF-008)",
+   "reason": "workbook row 145 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-270",
+   "evidence": "pass-006 C-270",
+   "group": "K-ROW",
+   "stage1": "workbook row 146 (UF-008)",
+   "reason": "workbook row 146 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-271",
+   "evidence": "pass-006 C-271",
+   "group": "K-ROW",
+   "stage1": "workbook row 147 (UF-008)",
+   "reason": "workbook row 147 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-272",
+   "evidence": "pass-007 C-031",
+   "group": "K-P7",
+   "stage1": "workbook row 149 (UF-009)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-273",
+   "evidence": "pass-006 C-273",
+   "group": "K-ROW",
+   "stage1": "workbook row 150 (UF-009)",
+   "reason": "workbook row 150 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-274",
+   "evidence": "pass-006 C-274",
+   "group": "K-ROW",
+   "stage1": "workbook row 151 (UF-009)",
+   "reason": "workbook row 151 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-275",
+   "evidence": "pass-006 C-275",
+   "group": "K-ROW",
+   "stage1": "workbook row 152 (UF-009)",
+   "reason": "workbook row 152 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-276",
+   "evidence": "pass-006 C-276",
+   "group": "K-ROW",
+   "stage1": "workbook row 153 (UF-009)",
+   "reason": "workbook row 153 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-277",
+   "evidence": "pass-006 C-277",
+   "group": "K-ROW",
+   "stage1": "workbook row 154 (UF-009)",
+   "reason": "workbook row 154 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-278",
+   "evidence": "pass-006 C-278",
+   "group": "K-ROW",
+   "stage1": "workbook row 155 (UF-009)",
+   "reason": "workbook row 155 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-279",
+   "evidence": "pass-006 C-279",
+   "group": "K-ROW",
+   "stage1": "workbook row 156 (UF-009)",
+   "reason": "workbook row 156 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-280",
+   "evidence": "pass-006 C-280",
+   "group": "K-ROW",
+   "stage1": "workbook row 157 (UF-009)",
+   "reason": "workbook row 157 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-281",
+   "evidence": "pass-006 C-281",
+   "group": "K-ROW",
+   "stage1": "workbook row 158 (UF-009)",
+   "reason": "workbook row 158 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-282",
+   "evidence": "pass-006 C-282",
+   "group": "K-ROW",
+   "stage1": "workbook row 159 (UF-009)",
+   "reason": "workbook row 159 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-283",
+   "evidence": "pass-006 C-283",
+   "group": "K-ROW",
+   "stage1": "workbook row 160 (UF-009)",
+   "reason": "workbook row 160 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-284",
+   "evidence": "pass-006 C-284",
+   "group": "K-ROW",
+   "stage1": "workbook row 161 (UF-009)",
+   "reason": "workbook row 161 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-285",
+   "evidence": "pass-006 C-285",
+   "group": "K-ROW",
+   "stage1": "workbook row 162 (UF-009)",
+   "reason": "workbook row 162 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-286",
+   "evidence": "pass-006 C-286",
+   "group": "K-ROW",
+   "stage1": "workbook row 163 (UF-009)",
+   "reason": "workbook row 163 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-287",
+   "evidence": "pass-006 C-287",
+   "group": "K-ROW",
+   "stage1": "workbook row 164 (UF-009)",
+   "reason": "workbook row 164 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-288",
+   "evidence": "pass-006 C-288",
+   "group": "K-ROW",
+   "stage1": "workbook row 165 (UF-009)",
+   "reason": "workbook row 165 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-289",
+   "evidence": "pass-006 C-289",
+   "group": "K-ROW",
+   "stage1": "workbook row 166 (UF-009)",
+   "reason": "workbook row 166 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-290",
+   "evidence": "pass-006 C-290",
+   "group": "K-ROW",
+   "stage1": "workbook row 167 (UF-009)",
+   "reason": "workbook row 167 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-291",
+   "evidence": "pass-007 C-032",
+   "group": "K-P7",
+   "stage1": "workbook row 169 (UF-010)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-292",
+   "evidence": "pass-006 C-292",
+   "group": "K-ROW",
+   "stage1": "workbook row 170 (UF-010)",
+   "reason": "workbook row 170 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-293",
+   "evidence": "pass-006 C-293",
+   "group": "K-ROW",
+   "stage1": "workbook row 171 (UF-010)",
+   "reason": "workbook row 171 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-294",
+   "evidence": "pass-006 C-294",
+   "group": "K-ROW",
+   "stage1": "workbook row 172 (UF-010)",
+   "reason": "workbook row 172 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-295",
+   "evidence": "pass-007 C-033",
+   "group": "K-P7",
+   "stage1": "workbook row 173 (UF-010)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-296",
+   "evidence": "pass-006 C-296",
+   "group": "K-ROW",
+   "stage1": "workbook row 174 (UF-010)",
+   "reason": "workbook row 174 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-297",
+   "evidence": "pass-006 C-297",
+   "group": "K-ROW",
+   "stage1": "workbook row 175 (UF-010)",
+   "reason": "workbook row 175 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-298",
+   "evidence": "pass-006 C-298",
+   "group": "K-ROW",
+   "stage1": "workbook row 176 (UF-010)",
+   "reason": "workbook row 176 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-299",
+   "evidence": "pass-006 C-299",
+   "group": "K-ROW",
+   "stage1": "workbook row 178 (UF-011)",
+   "reason": "workbook row 178 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-300",
+   "evidence": "pass-006 C-300",
+   "group": "K-ROW",
+   "stage1": "workbook row 179 (UF-011)",
+   "reason": "workbook row 179 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-301",
+   "evidence": "pass-006 C-301",
+   "group": "K-ROW",
+   "stage1": "workbook row 180 (UF-011)",
+   "reason": "workbook row 180 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-302",
+   "evidence": "pass-006 C-302",
+   "group": "K-ROW",
+   "stage1": "workbook row 181 (UF-011)",
+   "reason": "workbook row 181 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-303",
+   "evidence": "pass-006 C-303",
+   "group": "K-ROW",
+   "stage1": "workbook row 182 (UF-011)",
+   "reason": "workbook row 182 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-304",
+   "evidence": "pass-006 C-304",
+   "group": "K-ROW",
+   "stage1": "workbook row 183 (UF-011)",
+   "reason": "workbook row 183 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-305",
+   "evidence": "pass-006 C-305",
+   "group": "K-ROW",
+   "stage1": "workbook row 184 (UF-011)",
+   "reason": "workbook row 184 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-308",
+   "evidence": "pass-006 C-308",
+   "group": "K-ROW",
+   "stage1": "workbook row 187 (UF-011)",
+   "reason": "workbook row 187 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-309",
+   "evidence": "pass-006 C-309",
+   "group": "K-ROW",
+   "stage1": "workbook row 188 (UF-011)",
+   "reason": "workbook row 188 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-310",
+   "evidence": "pass-006 C-310",
+   "group": "K-ROW",
+   "stage1": "workbook row 189 (UF-011)",
+   "reason": "workbook row 189 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-311",
+   "evidence": "pass-006 C-311",
+   "group": "K-ROW",
+   "stage1": "workbook row 190 (UF-011)",
+   "reason": "workbook row 190 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-312",
+   "evidence": "pass-006 C-312",
+   "group": "K-ROW",
+   "stage1": "workbook row 191 (UF-011)",
+   "reason": "workbook row 191 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-313",
+   "evidence": "pass-006 C-313",
+   "group": "K-ROW",
+   "stage1": "workbook row 192 (UF-011)",
+   "reason": "workbook row 192 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-314",
+   "evidence": "pass-006 C-314",
+   "group": "K-ROW",
+   "stage1": "workbook row 193 (UF-011)",
+   "reason": "workbook row 193 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-315",
+   "evidence": "pass-006 C-315",
+   "group": "K-ROW",
+   "stage1": "workbook row 194 (UF-011)",
+   "reason": "workbook row 194 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-316",
+   "evidence": "pass-006 C-316",
+   "group": "K-ROW",
+   "stage1": "workbook row 196 (UF-012)",
+   "reason": "workbook row 196 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-317",
+   "evidence": "pass-006 C-317",
+   "group": "K-ROW",
+   "stage1": "workbook row 197 (UF-012)",
+   "reason": "workbook row 197 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-318",
+   "evidence": "pass-006 C-318",
+   "group": "K-ROW",
+   "stage1": "workbook row 198 (UF-012)",
+   "reason": "workbook row 198 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-319",
+   "evidence": "pass-006 C-319",
+   "group": "K-ROW",
+   "stage1": "workbook row 200 (UF-013)",
+   "reason": "workbook row 200 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-320",
+   "evidence": "pass-006 C-320",
+   "group": "K-ROW",
+   "stage1": "workbook row 201 (UF-013)",
+   "reason": "workbook row 201 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-321",
+   "evidence": "pass-006 C-321",
+   "group": "K-ROW",
+   "stage1": "workbook row 202 (UF-013)",
+   "reason": "workbook row 202 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-322",
+   "evidence": "pass-006 C-322",
+   "group": "K-ROW",
+   "stage1": "workbook row 203 (UF-013)",
+   "reason": "workbook row 203 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-323",
+   "evidence": "pass-006 C-323",
+   "group": "K-ROW",
+   "stage1": "workbook row 204 (UF-013)",
+   "reason": "workbook row 204 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-324",
+   "evidence": "pass-006 C-324",
+   "group": "K-ROW",
+   "stage1": "workbook row 205 (UF-013)",
+   "reason": "workbook row 205 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-325",
+   "evidence": "pass-006 C-325",
+   "group": "K-ROW",
+   "stage1": "workbook row 206 (UF-013)",
+   "reason": "workbook row 206 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-326",
+   "evidence": "pass-006 C-326",
+   "group": "K-ROW",
+   "stage1": "workbook row 208 (UF-014)",
+   "reason": "workbook row 208 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-327",
+   "evidence": "pass-007 C-034",
+   "group": "K-P7",
+   "stage1": "workbook row 209 (UF-014)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-328",
+   "evidence": "pass-007 C-035",
+   "group": "K-P7",
+   "stage1": "workbook row 210 (UF-014)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-329",
+   "evidence": "pass-006 C-329",
+   "group": "K-ROW",
+   "stage1": "workbook row 211 (UF-014)",
+   "reason": "workbook row 211 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-330",
+   "evidence": "pass-006 C-330",
+   "group": "K-ROW",
+   "stage1": "workbook row 212 (UF-014)",
+   "reason": "workbook row 212 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-331",
+   "evidence": "pass-006 C-331",
+   "group": "K-ROW",
+   "stage1": "workbook row 213 (UF-014)",
+   "reason": "workbook row 213 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-332",
+   "evidence": "pass-006 C-332",
+   "group": "K-ROW",
+   "stage1": "workbook row 215 (UF-015)",
+   "reason": "workbook row 215 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-333",
+   "evidence": "pass-006 C-333",
+   "group": "K-ROW",
+   "stage1": "workbook row 216 (UF-015)",
+   "reason": "workbook row 216 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-334",
+   "evidence": "pass-006 C-334",
+   "group": "K-ROW",
+   "stage1": "workbook row 217 (UF-015)",
+   "reason": "workbook row 217 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-335",
+   "evidence": "pass-006 C-335",
+   "group": "K-ROW",
+   "stage1": "workbook row 218 (UF-015)",
+   "reason": "workbook row 218 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-336",
+   "evidence": "pass-006 C-336",
+   "group": "K-ROW",
+   "stage1": "workbook row 219 (UF-015)",
+   "reason": "workbook row 219 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-337",
+   "evidence": "pass-006 C-337",
+   "group": "K-ROW",
+   "stage1": "workbook row 220 (UF-015)",
+   "reason": "workbook row 220 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-338",
+   "evidence": "pass-006 C-338",
+   "group": "K-ROW",
+   "stage1": "workbook row 221 (UF-015)",
+   "reason": "workbook row 221 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-339",
+   "evidence": "pass-006 C-339",
+   "group": "K-ROW",
+   "stage1": "workbook row 223 (UF-016)",
+   "reason": "workbook row 223 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-340",
+   "evidence": "pass-006 C-340",
+   "group": "K-ROW",
+   "stage1": "workbook row 224 (UF-016)",
+   "reason": "workbook row 224 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-341",
+   "evidence": "pass-006 C-341",
+   "group": "K-ROW",
+   "stage1": "workbook row 225 (UF-016)",
+   "reason": "workbook row 225 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-342",
+   "evidence": "pass-006 C-342",
+   "group": "K-ROW",
+   "stage1": "workbook row 226 (UF-016)",
+   "reason": "workbook row 226 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-343",
+   "evidence": "pass-006 C-343",
+   "group": "K-ROW",
+   "stage1": "workbook row 228 (UF-017)",
+   "reason": "workbook row 228 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-344",
+   "evidence": "pass-006 C-344",
+   "group": "K-ROW",
+   "stage1": "workbook row 229 (UF-017)",
+   "reason": "workbook row 229 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-345",
+   "evidence": "pass-006 C-345",
+   "group": "K-ROW",
+   "stage1": "workbook row 230 (UF-017)",
+   "reason": "workbook row 230 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-346",
+   "evidence": "pass-006 C-346",
+   "group": "K-ROW",
+   "stage1": "workbook row 232 (UF-018)",
+   "reason": "workbook row 232 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-347",
+   "evidence": "pass-006 C-347",
+   "group": "K-ROW",
+   "stage1": "workbook row 233 (UF-018)",
+   "reason": "workbook row 233 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-348",
+   "evidence": "pass-006 C-348",
+   "group": "K-ROW",
+   "stage1": "workbook row 234 (UF-018)",
+   "reason": "workbook row 234 cells byte-identical at CAND (sheet XML identical; its shared strings unchanged); source identical; redirect-note rows among them state no Tiles count and point to the Q3 fact rechecked in C-008"
+  },
+  {
+   "obligation": "P6:C-349",
+   "evidence": "pass-006 C-349",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 138 (class)",
+   "reason": "reconnaissance line ROOT 138 = COV 139 = CAND 139, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-350",
+   "evidence": "pass-006 C-350",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 139 (JAR)",
+   "reason": "reconnaissance line ROOT 139 = COV 140 = CAND 140, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-351",
+   "evidence": "pass-006 C-351",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 140 (PNG)",
+   "reason": "reconnaissance line ROOT 140 = COV 141 = CAND 141, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-352",
+   "evidence": "pass-006 C-352",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 141 (XML)",
+   "reason": "reconnaissance line ROOT 141 = COV 142 = CAND 142, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-353",
+   "evidence": "pass-006 C-353",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 142 (JSP)",
+   "reason": "reconnaissance line ROOT 142 = COV 143 = CAND 143, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-354",
+   "evidence": "pass-006 C-354",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 143 (properties)",
+   "reason": "reconnaissance line ROOT 143 = COV 144 = CAND 144, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-355",
+   "evidence": "pass-006 C-355",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 144 (JS)",
+   "reason": "reconnaissance line ROOT 144 = COV 145 = CAND 145, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-356",
+   "evidence": "pass-006 C-356",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 145 (GIF)",
+   "reason": "reconnaissance line ROOT 145 = COV 146 = CAND 146, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-357",
+   "evidence": "pass-006 C-357",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 146 (CSS)",
+   "reason": "reconnaissance line ROOT 146 = COV 147 = CAND 147, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-358",
+   "evidence": "pass-006 C-358",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 147 (TLD)",
+   "reason": "reconnaissance line ROOT 147 = COV 148 = CAND 148, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-359",
+   "evidence": "pass-006 C-359",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 148 (HTML)",
+   "reason": "reconnaissance line ROOT 148 = COV 149 = CAND 149, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-360",
+   "evidence": "pass-006 C-360",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 149 (Velocity templates (vm))",
+   "reason": "reconnaissance line ROOT 149 = COV 150 = CAND 150, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-361",
+   "evidence": "pass-006 C-361",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 150 (XLS)",
+   "reason": "reconnaissance line ROOT 150 = COV 151 = CAND 151, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-362",
+   "evidence": "pass-006 C-362",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 151 (SWF)",
+   "reason": "reconnaissance line ROOT 151 = COV 152 = CAND 152, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-363",
+   "evidence": "pass-006 C-363",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 152 (tag, wsdd, dtd, ico, txt, mf, log)",
+   "reason": "reconnaissance line ROOT 152 = COV 153 = CAND 153, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-364",
+   "evidence": "pass-006 C-364",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 156 (Web application descriptor)",
+   "reason": "reconnaissance line ROOT 156 = COV 157 = CAND 157, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-365",
+   "evidence": "pass-006 C-365",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 157 (Struts 1.2.9 controller)",
+   "reason": "reconnaissance line ROOT 157 = COV 158 = CAND 158, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-366",
+   "evidence": "pass-006 C-366",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 158 (Screens (JSP))",
+   "reason": "reconnaissance line ROOT 158 = COV 159 = CAND 159, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-367",
+   "evidence": "pass-006 C-367",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 159 (Referenced but absent resources)",
+   "reason": "reconnaissance line ROOT 159 = COV 160 = CAND 160, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-368",
+   "evidence": "pass-006 C-368",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 160 (Tiles)",
+   "reason": "reconnaissance line ROOT 160 = COV 161 = CAND 161, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-369",
+   "evidence": "pass-006 C-369",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 161 (Spring 3.0.5 context)",
+   "reason": "reconnaissance line ROOT 161 = COV 162 = CAND 162, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-370",
+   "evidence": "pass-006 C-370",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 162 (Compiled application classes)",
+   "reason": "reconnaissance line ROOT 162 = COV 163 = CAND 163, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-371",
+   "evidence": "pass-006 C-371",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 163 (Persistence model)",
+   "reason": "reconnaissance line ROOT 163 = COV 164 = CAND 164, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-372",
+   "evidence": "pass-006 C-372",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 168 (Schema and seed data)",
+   "reason": "reconnaissance line ROOT 168 = COV 169 = CAND 169, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-373",
+   "evidence": "pass-006 C-373",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 169 (Dormant and unreferenced code (BA-001-03, F-005))",
+   "reason": "reconnaissance line ROOT 169 = COV 170 = CAND 170, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-374",
+   "evidence": "pass-006 C-374",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 170 (Legacy migration toolkit)",
+   "reason": "reconnaissance line ROOT 170 = COV 171 = CAND 171, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-375",
+   "evidence": "pass-007 C-039",
+   "group": "K-P7",
+   "stage1": "reconnaissance Source Inventory line 171 (Configuration)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-376",
+   "evidence": "pass-006 C-376",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 172 (Security configuration)",
+   "reason": "reconnaissance line ROOT 172 = COV 173 = CAND 173, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-377",
+   "evidence": "pass-006 C-377",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 173 (Web services)",
+   "reason": "reconnaissance line ROOT 173 = COV 174 = CAND 174, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-379",
+   "evidence": "pass-006 C-379",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 175 (Mobile channel)",
+   "reason": "reconnaissance line ROOT 175 = COV 176 = CAND 176, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-380",
+   "evidence": "pass-006 C-380",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 176 (Jobs and e-mail)",
+   "reason": "reconnaissance line ROOT 176 = COV 177 = CAND 177, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-381",
+   "evidence": "pass-007 C-041",
+   "group": "K-P7",
+   "stage1": "reconnaissance Source Inventory line 177 (Export and reports)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-382",
+   "evidence": "pass-006 C-382",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 178 (Charts)",
+   "reason": "reconnaissance line ROOT 178 = COV 179 = CAND 179, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-383",
+   "evidence": "pass-006 C-383",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 179 (Internationalisation)",
+   "reason": "reconnaissance line ROOT 179 = COV 180 = CAND 180, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-384",
+   "evidence": "pass-006 C-384",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 180 (Static assets)",
+   "reason": "reconnaissance line ROOT 180 = COV 181 = CAND 181, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-385",
+   "evidence": "pass-006 C-385",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 181 (Third-party libraries)",
+   "reason": "reconnaissance line ROOT 181 = COV 182 = CAND 182, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-386",
+   "evidence": "pass-006 C-386",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 182 (Container and build metadata)",
+   "reason": "reconnaissance line ROOT 182 = COV 183 = CAND 183, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-387",
+   "evidence": "pass-006 C-387",
+   "group": "K-REC",
+   "stage1": "reconnaissance Source Inventory line 183 (Local run helpers (not in the WAR))",
+   "reason": "reconnaissance line ROOT 183 = COV 184 = CAND 184, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-388",
+   "evidence": "pass-006 C-388",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 193 (Web UI: viewer, editor, admin and sysadmin users)",
+   "reason": "reconnaissance line ROOT 193 = COV 194 = CAND 194, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-389",
+   "evidence": "pass-006 C-389",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 194 (Personal status page (signed-in user))",
+   "reason": "reconnaissance line ROOT 194 = COV 195 = CAND 195, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-391",
+   "evidence": "pass-006 C-391",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 196 (Mobile WAP users)",
+   "reason": "reconnaissance line ROOT 196 = COV 197 = CAND 197, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-392",
+   "evidence": "pass-006 C-392",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 197 (SOAP API clients)",
+   "reason": "reconnaissance line ROOT 197 = COV 198 = CAND 198, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-393",
+   "evidence": "pass-006 C-393",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 198 (REST API clients and the task board)",
+   "reason": "reconnaissance line ROOT 198 = COV 199 = CAND 199, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-394",
+   "evidence": "pass-006 C-394",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 199 (Calendar clients)",
+   "reason": "reconnaissance line ROOT 199 = COV 200 = CAND 200, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-395",
+   "evidence": "pass-006 C-395",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 200 (Chart images)",
+   "reason": "reconnaissance line ROOT 200 = COV 201 = CAND 201, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-396",
+   "evidence": "pass-006 C-396",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 201 (Daily missing-time-entry job (operator/batch))",
+   "reason": "reconnaissance line ROOT 201 = COV 202 = CAND 202, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-397",
+   "evidence": "pass-006 C-397",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 202 (Data sampling (batch))",
+   "reason": "reconnaissance line ROOT 202 = COV 203 = CAND 203, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-398",
+   "evidence": "pass-006 C-398",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 203 (Schema bootstrap (operator))",
+   "reason": "reconnaissance line ROOT 203 = COV 204 = CAND 204, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-399",
+   "evidence": "pass-006 C-399",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 204 (Admin and test utilities (operator))",
+   "reason": "reconnaissance line ROOT 204 = COV 205 = CAND 205, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-400",
+   "evidence": "pass-006 C-400",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 205 (Activity log (operator))",
+   "reason": "reconnaissance line ROOT 205 = COV 206 = CAND 206, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-401",
+   "evidence": "pass-006 C-401",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 211 (Web generic view (`ViewObjectAction` family), create/edit (`EditObject)",
+   "reason": "reconnaissance line ROOT 211 = COV 212 = CAND 212, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-402",
+   "evidence": "pass-006 C-402",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 212 (Other web actions (export, import, move/continue, reorder, time, notes)",
+   "reason": "reconnaissance line ROOT 212 = COV 213 = CAND 213, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-403",
+   "evidence": "pass-006 C-403",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 213 (Person editor role changes)",
+   "reason": "reconnaissance line ROOT 213 = COV 214 = CAND 214, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-404",
+   "evidence": "pass-006 C-404",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 214 (DispatchForward views with authorization required (default true): `/do)",
+   "reason": "reconnaissance line ROOT 214 = COV 215 = CAND 215, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-405",
+   "evidence": "pass-006 C-405",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 215 (Content search, aggregate timesheet)",
+   "reason": "reconnaissance line ROOT 215 = COV 216 = CAND 216, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-406",
+   "evidence": "pass-006 C-406",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 216 (SOAP)",
+   "reason": "reconnaissance line ROOT 216 = COV 217 = CAND 217, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-407",
+   "evidence": "pass-006 C-407",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 217 (REST)",
+   "reason": "reconnaissance line ROOT 217 = COV 218 = CAND 218, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-408",
+   "evidence": "pass-006 C-408",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 218 (iCal)",
+   "reason": "reconnaissance line ROOT 218 = COV 219 = CAND 219, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-409",
+   "evidence": "pass-006 C-409",
+   "group": "K-REC",
+   "stage1": "reconnaissance Runnable Surfaces line 219 (Descriptor URL role constraints)",
+   "reason": "reconnaissance line ROOT 219 = COV 220 = CAND 220, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-410",
+   "evidence": "pass-006 C-410",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 252 (Relational database, MySQL in this baseline's effective configuration)",
+   "reason": "reconnaissance line ROOT 252 = COV 253 = CAND 254, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-411",
+   "evidence": "pass-006 C-411",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 253 (Embedded or in-process HSQLDB (optional mode))",
+   "reason": "reconnaissance line ROOT 253 = COV 254 = CAND 255, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-412",
+   "evidence": "pass-006 C-412",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 254 (Liquibase schema changelog)",
+   "reason": "reconnaissance line ROOT 254 = COV 255 = CAND 256, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-413",
+   "evidence": "pass-006 C-413",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 255 (SMTP mail server)",
+   "reason": "reconnaissance line ROOT 255 = COV 256 = CAND 257, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-414",
+   "evidence": "pass-006 C-414",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 256 (Outbound HTTP to the application's own URL (BA-001-03, F-006))",
+   "reason": "reconnaissance line ROOT 256 = COV 257 = CAND 258, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-415",
+   "evidence": "pass-006 C-415",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 257 (File storage for attachments)",
+   "reason": "reconnaissance line ROOT 257 = COV 258 = CAND 259, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-416",
+   "evidence": "pass-006 C-416",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 258 (LDAP/JNDI, NTLM (jcifs) and JAAS identity providers)",
+   "reason": "reconnaissance line ROOT 258 = COV 259 = CAND 260, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-417",
+   "evidence": "pass-006 C-417",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 259 (External wiki)",
+   "reason": "reconnaissance line ROOT 259 = COV 260 = CAND 261, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-418",
+   "evidence": "pass-006 C-418",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 260 (Twitter and Facebook)",
+   "reason": "reconnaissance line ROOT 260 = COV 261 = CAND 262, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-419",
+   "evidence": "pass-006 C-419",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 261 (SourceForge links)",
+   "reason": "reconnaissance line ROOT 261 = COV 262 = CAND 263, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-420",
+   "evidence": "pass-006 C-420",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 262 (SOAP, REST and iCal clients)",
+   "reason": "reconnaissance line ROOT 262 = COV 263 = CAND 264, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-421",
+   "evidence": "pass-007 C-044",
+   "group": "K-P7",
+   "stage1": "reconnaissance Data And Integrations line 263 (Microsoft Project, PDF and XML consumers)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-422",
+   "evidence": "pass-006 C-422",
+   "group": "K-REC",
+   "stage1": "reconnaissance Data And Integrations line 264 (Excel spreadsheets and comma-separated text)",
+   "reason": "reconnaissance line ROOT 264 = COV 265 = CAND 266, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-423",
+   "evidence": "pass-006 C-423",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 324 (GAP-001)",
+   "reason": "reconnaissance line ROOT 324 = COV 328 = CAND 335, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-424",
+   "evidence": "pass-006 C-424",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 325 (GAP-002)",
+   "reason": "reconnaissance line ROOT 325 = COV 329 = CAND 336, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-425",
+   "evidence": "pass-006 C-425",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 326 (GAP-003)",
+   "reason": "reconnaissance line ROOT 326 = COV 330 = CAND 337, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-426",
+   "evidence": "pass-006 C-426",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 327 (GAP-004)",
+   "reason": "reconnaissance line ROOT 327 = COV 331 = CAND 338, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-427",
+   "evidence": "pass-006 C-427",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 328 (GAP-005)",
+   "reason": "reconnaissance line ROOT 328 = COV 332 = CAND 339, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-428",
+   "evidence": "pass-006 C-428",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 329 (GAP-006)",
+   "reason": "reconnaissance line ROOT 329 = COV 333 = CAND 340, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-430",
+   "evidence": "pass-006 C-430",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 331 (GAP-008)",
+   "reason": "reconnaissance line ROOT 331 = COV 335 = CAND 342, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-431",
+   "evidence": "pass-006 C-431",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 332 (GAP-009)",
+   "reason": "reconnaissance line ROOT 332 = COV 336 = CAND 343, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-432",
+   "evidence": "pass-006 C-432",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 333 (GAP-010)",
+   "reason": "reconnaissance line ROOT 333 = COV 337 = CAND 344, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-433",
+   "evidence": "pass-006 C-433",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 334 (GAP-011)",
+   "reason": "reconnaissance line ROOT 334 = COV 338 = CAND 345, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-434",
+   "evidence": "pass-006 C-434",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 338 (GAP-012)",
+   "reason": "reconnaissance line ROOT 338 = COV 342 = CAND 349, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-435",
+   "evidence": "pass-006 C-435",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 339 (GAP-014)",
+   "reason": "reconnaissance line ROOT 339 = COV 343 = CAND 350, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-436",
+   "evidence": "pass-006 C-436",
+   "group": "K-REC",
+   "stage1": "reconnaissance Known Gaps line 340 (GAP-013)",
+   "reason": "reconnaissance line ROOT 340 = COV 344 = CAND 351, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-437",
+   "evidence": "pass-006 C-437",
+   "group": "K-REC",
+   "stage1": "reconnaissance GAP-005 impact line 359 (P-01)",
+   "reason": "reconnaissance line ROOT 359 = COV 363 = CAND 370, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-438",
+   "evidence": "pass-006 C-438",
+   "group": "K-REC",
+   "stage1": "reconnaissance GAP-005 impact line 360 (P-02)",
+   "reason": "reconnaissance line ROOT 360 = COV 364 = CAND 371, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-439",
+   "evidence": "pass-006 C-439",
+   "group": "K-REC",
+   "stage1": "reconnaissance GAP-005 impact line 361 (P-03)",
+   "reason": "reconnaissance line ROOT 361 = COV 365 = CAND 372, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-440",
+   "evidence": "pass-006 C-440",
+   "group": "K-REC",
+   "stage1": "reconnaissance GAP-005 impact line 362 (P-04)",
+   "reason": "reconnaissance line ROOT 362 = COV 366 = CAND 373, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-441",
+   "evidence": "pass-006 C-441",
+   "group": "K-REC",
+   "stage1": "reconnaissance GAP-005 impact line 363 (P-05)",
+   "reason": "reconnaissance line ROOT 363 = COV 367 = CAND 374, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-442",
+   "evidence": "pass-006 C-442",
+   "group": "K-REC",
+   "stage1": "reconnaissance GAP-005 impact line 364 (P-06)",
+   "reason": "reconnaissance line ROOT 364 = COV 368 = CAND 375, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-443",
+   "evidence": "pass-006 C-443",
+   "group": "K-REC",
+   "stage1": "reconnaissance GAP-005 impact line 365 (P-07)",
+   "reason": "reconnaissance line ROOT 365 = COV 369 = CAND 376, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-444",
+   "evidence": "pass-006 C-444",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 379 (Q1: supply an unpatched upstream WAR? (GAP-005))",
+   "reason": "reconnaissance line ROOT 379 = COV 383 = CAND 390, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-445",
+   "evidence": "pass-006 C-445",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 380 (Q2: parity scope for broken or dormant surfaces)",
+   "reason": "reconnaissance line ROOT 380 = COV 384 = CAND 391, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-446",
+   "evidence": "pass-006 C-446",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 381 (Q3: disposition of insecure legacy behavior (GAP-007))",
+   "reason": "reconnaissance line ROOT 381 = COV 385 = CAND 392, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-447",
+   "evidence": "pass-006 C-447",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 382 (Q4: people-import file format (GAP-012))",
+   "reason": "reconnaissance line ROOT 382 = COV 386 = CAND 393, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-448",
+   "evidence": "pass-006 C-448",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 388 (Story features (view, edit, delete; project and iteration lists))",
+   "reason": "reconnaissance line ROOT 388 = COV 392 = CAND 399, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-449",
+   "evidence": "pass-006 C-449",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 389 (Continuous integration queue)",
+   "reason": "reconnaissance line ROOT 389 = COV 393 = CAND 400, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-450",
+   "evidence": "pass-006 C-450",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 390 (Settings pages)",
+   "reason": "reconnaissance line ROOT 390 = COV 394 = CAND 401, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-451",
+   "evidence": "pass-006 C-451",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 391 (JasperReports (jrpdf) exports)",
+   "reason": "reconnaissance line ROOT 391 = COV 395 = CAND 402, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-452",
+   "evidence": "pass-006 C-452",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 392 (Tabbed iteration view)",
+   "reason": "reconnaissance line ROOT 392 = COV 396 = CAND 403, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-453",
+   "evidence": "pass-006 C-453",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 393 (Not-authorized page)",
+   "reason": "reconnaissance line ROOT 393 = COV 397 = CAND 404, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-454",
+   "evidence": "pass-006 C-454",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 394 (Mobile WAP pages)",
+   "reason": "reconnaissance line ROOT 394 = COV 398 = CAND 405, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-455",
+   "evidence": "pass-006 C-455",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 395 (JAX-WS endpoint)",
+   "reason": "reconnaissance line ROOT 395 = COV 399 = CAND 406, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-456",
+   "evidence": "pass-006 C-456",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 396 (File manager)",
+   "reason": "reconnaissance line ROOT 396 = COV 400 = CAND 407, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-457",
+   "evidence": "pass-006 C-457",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 397 (People import)",
+   "reason": "reconnaissance line ROOT 397 = COV 401 = CAND 408, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-458",
+   "evidence": "pass-006 C-458",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 398 (Project role editor)",
+   "reason": "reconnaissance line ROOT 398 = COV 402 = CAND 409, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-459",
+   "evidence": "pass-006 C-459",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 399 (Iteration metrics)",
+   "reason": "reconnaissance line ROOT 399 = COV 403 = CAND 410, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-460",
+   "evidence": "pass-006 C-460",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 400 (Task re-estimate page)",
+   "reason": "reconnaissance line ROOT 400 = COV 404 = CAND 411, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-461",
+   "evidence": "pass-006 C-461",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 401 (Print layout)",
+   "reason": "reconnaissance line ROOT 401 = COV 405 = CAND 412, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-462",
+   "evidence": "pass-006 C-462",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 402 (iCal feed)",
+   "reason": "reconnaissance line ROOT 402 = COV 406 = CAND 413, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-463",
+   "evidence": "pass-006 C-463",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 403 (SOAP `getCurrentIteration` and `deleteAttribute`)",
+   "reason": "reconnaissance line ROOT 403 = COV 407 = CAND 414, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-464",
+   "evidence": "pass-006 C-464",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 404 (jrpdf report data sources)",
+   "reason": "reconnaissance line ROOT 404 = COV 408 = CAND 415, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-465",
+   "evidence": "pass-006 C-465",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 405 (Duplicate Spring context)",
+   "reason": "reconnaissance line ROOT 405 = COV 409 = CAND 416, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-466",
+   "evidence": "pass-006 C-466",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 406 (Delete person, change locale, formatting help)",
+   "reason": "reconnaissance line ROOT 406 = COV 410 = CAND 417, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-467",
+   "evidence": "pass-006 C-467",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 407 (Admin and test utilities in the production configuration)",
+   "reason": "reconnaissance line ROOT 407 = COV 411 = CAND 418, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-468",
+   "evidence": "pass-006 C-468",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 415 (Remember-me stores user ID and password in Base64 cookies; the box is )",
+   "reason": "reconnaissance line ROOT 415 = COV 419 = CAND 426, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-469",
+   "evidence": "pass-006 C-469",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 416 (Passwords are stored as salted MD5 digests)",
+   "reason": "reconnaissance line ROOT 416 = COV 420 = CAND 427, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-470",
+   "evidence": "pass-006 C-470",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 417 (No security filter on `/rest/*`, including task status update)",
+   "reason": "reconnaissance line ROOT 417 = COV 421 = CAND 428, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-471",
+   "evidence": "pass-006 C-471",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 418 (The SOAP servlet is also mapped at `/servlet/AxisServlet`, outside the)",
+   "reason": "reconnaissance line ROOT 418 = COV 422 = CAND 429, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-472",
+   "evidence": "pass-006 C-472",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 419 (The Axis global configuration contains a default `adminPassword` param)",
+   "reason": "reconnaissance line ROOT 419 = COV 423 = CAND 430, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-473",
+   "evidence": "pass-006 C-473",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 420 (`/do/invalidateHibernateCache` bypasses login)",
+   "reason": "reconnaissance line ROOT 420 = COV 424 = CAND 431, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-474",
+   "evidence": "pass-006 C-474",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 421 (Test and admin actions are loaded in production (clock shift, property)",
+   "reason": "reconnaissance line ROOT 421 = COV 425 = CAND 432, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-475",
+   "evidence": "pass-006 C-475",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 422 (The task time-log query is built by concatenating the `oid` request pa)",
+   "reason": "reconnaissance line ROOT 422 = COV 426 = CAND 433, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-476",
+   "evidence": "pass-006 C-476",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 423 (The note list on project, iteration, story and task pages concatenates)",
+   "reason": "reconnaissance line ROOT 423 = COV 427 = CAND 434, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-477",
+   "evidence": "pass-006 C-477",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 424 (The aggregate timesheet appends the posted person ids unchanged into i)",
+   "reason": "reconnaissance line ROOT 424 = COV 428 = CAND 435, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-479",
+   "evidence": "pass-006 C-479",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 426 (The container error page (every `Throwable`) and the system-informatio)",
+   "reason": "reconnaissance line ROOT 426 = COV 430 = CAND 437, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-480",
+   "evidence": "pass-006 C-480",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 427 (The system information page shows the database URL and user (password )",
+   "reason": "reconnaissance line ROOT 427 = COV 431 = CAND 438, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-481",
+   "evidence": "pass-006 C-481",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 428 (Database credentials are present in the shipped properties (values not)",
+   "reason": "reconnaissance line ROOT 428 = COV 432 = CAND 439, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-482",
+   "evidence": "pass-006 C-482",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 429 (An unreferenced debug page echoes request credentials (unreachable, no)",
+   "reason": "reconnaissance line ROOT 429 = COV 433 = CAND 440, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-483",
+   "evidence": "pass-006 C-483",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 430 (No server-side permission check on generic web view, create/edit and d)",
+   "reason": "reconnaissance line ROOT 430 = COV 434 = CAND 441, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-484",
+   "evidence": "pass-006 C-484",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 431 (System-administrator status is governed on the server by `admin.edit.r)",
+   "reason": "reconnaissance line ROOT 431 = COV 437 = CAND 447, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-485",
+   "evidence": "pass-006 C-485",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 432 (Descriptor URL role constraints are never evaluated (F-001, F-004))",
+   "reason": "reconnaissance line ROOT 432 = COV 438 = CAND 448, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-486",
+   "evidence": "pass-006 C-486",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 433 (Personal timesheet and ID jump apply no read check)",
+   "reason": "reconnaissance line ROOT 433 = COV 439 = CAND 449, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-487",
+   "evidence": "pass-006 C-487",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 434 (SOAP attribute operations have no permission check)",
+   "reason": "reconnaissance line ROOT 434 = COV 440 = CAND 450, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-488",
+   "evidence": "pass-006 C-488",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 435 (The unauthenticated login page shows the factory default administrator)",
+   "reason": "reconnaissance line ROOT 435 = COV 441 = CAND 451, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-489",
+   "evidence": "pass-006 C-489",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 436 (The live activity log (user ID, client IP, request URI and query strin)",
+   "reason": "reconnaissance line ROOT 436 = COV 442 = CAND 452, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-490",
+   "evidence": "pass-006 C-490",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 437 (`index.jsp` has no security filter; without login it queries the visib)",
+   "reason": "reconnaissance line ROOT 437 = COV 443 = CAND 453, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-491",
+   "evidence": "pass-006 C-491",
+   "group": "K-REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 438 (The commented `NullSecurityFilter` would log every request in as a def)",
+   "reason": "reconnaissance line ROOT 438 = COV 444 = CAND 454, byte-identical; source identical"
+  },
+  {
+   "obligation": "P6:C-495",
+   "evidence": "pass-006 C-495",
+   "group": "K-REC",
+   "stage1": "reconnaissance Server-side enforcement sweep text and AF-01/AF-02",
+   "reason": "section without any COV..CAND hunk (enforcement sweep, CHK-002 lists, Q4 facts, Parity-Map Boundary), byte-identical"
+  },
+  {
+   "obligation": "P6:C-497",
+   "evidence": "pass-006 C-497",
+   "group": "K-REC",
+   "stage1": "reconnaissance Row-level CHK-002 sweep lists",
+   "reason": "section without any COV..CAND hunk (enforcement sweep, CHK-002 lists, Q4 facts, Parity-Map Boundary), byte-identical"
+  },
+  {
+   "obligation": "P6:C-498",
+   "evidence": "pass-006 C-498",
+   "group": "K-REC",
+   "stage1": "reconnaissance Q4 facts (people import format)",
+   "reason": "section without any COV..CAND hunk (enforcement sweep, CHK-002 lists, Q4 facts, Parity-Map Boundary), byte-identical"
+  },
+  {
+   "obligation": "P6:C-499",
+   "evidence": "pass-006 C-499",
+   "group": "K-REC",
+   "stage1": "reconnaissance Parity-Map Boundary: epic ordering, statuses, coverage cross-check (87 actions, 68 of 73 JSPs), exclusions, derivation statem",
+   "reason": "section without any COV..CAND hunk (enforcement sweep, CHK-002 lists, Q4 facts, Parity-Map Boundary), byte-identical"
+  },
+  {
+   "obligation": "P6:C-504",
+   "evidence": "pass-006 C-504",
+   "group": "K-EARLY",
+   "stage1": "pass 001 F-001 - server-side enforcement missing (rows 29-30; enforcement table)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-505",
+   "evidence": "pass-006 C-505",
+   "group": "K-EARLY",
+   "stage1": "pass 001 F-002 - history overstated (rows 186-187)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-507",
+   "evidence": "pass-006 C-507",
+   "group": "K-EARLY",
+   "stage1": "pass 001 F-004 - mobile role constraints (rows 32, 233)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-508",
+   "evidence": "pass-006 C-508",
+   "group": "K-EARLY",
+   "stage1": "pass 001 F-005 - dormant code (dormant-code row)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-509",
+   "evidence": "pass-006 C-509",
+   "group": "K-EARLY",
+   "stage1": "pass 001 F-006 - e-mail stylesheet fetch (row 202)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-510",
+   "evidence": "pass-006 C-510",
+   "group": "K-EARLY",
+   "stage1": "pass 001 F-007 - search/aggregate filtering (rows 167, 180)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-511",
+   "evidence": "pass-006 C-511",
+   "group": "K-EARLY",
+   "stage1": "pass 001 F-008 - attachment storage (row 172)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-512",
+   "evidence": "pass-006 C-512",
+   "group": "K-EARLY",
+   "stage1": "pass 002 F-001 - time-entry and iteration validation (rows 89, 152-160)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-513",
+   "evidence": "pass-006 C-513",
+   "group": "K-EARLY",
+   "stage1": "pass 002 F-002 - delete cascades (rows 49, 82, 91, 126, 142, 174)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-514",
+   "evidence": "pass-006 C-514",
+   "group": "K-EARLY",
+   "stage1": "pass 002 F-003 - Facebook widget (row 193)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-515",
+   "evidence": "pass-006 C-515",
+   "group": "K-EARLY",
+   "stage1": "pass 002 F-004 - attachment count (row 171)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-516",
+   "evidence": "pass-006 C-516",
+   "group": "K-EARLY",
+   "stage1": "pass 002 F-005 - login/start branches (rows 14, 98)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-517",
+   "evidence": "pass-006 C-517",
+   "group": "K-EARLY",
+   "stage1": "pass 002 F-006 - hidden-project decorator (row 76)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-518",
+   "evidence": "pass-006 C-518",
+   "group": "K-EARLY",
+   "stage1": "pass 002 F-007 - sysadmin grant rule (rows 31, 34)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-519",
+   "evidence": "pass-006 C-519",
+   "group": "K-EARLY",
+   "stage1": "pass 002 F-008 - story import errors/cookies (rows 117, 119)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-520",
+   "evidence": "pass-006 C-520",
+   "group": "K-EARLY",
+   "stage1": "pass 002 F-009 - task type labels (row 135)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-522",
+   "evidence": "pass-006 C-522",
+   "group": "K-EARLY",
+   "stage1": "pass 003 F-001 - unmapped query paths (rows 211, 213, 220, 221, 228)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-523",
+   "evidence": "pass-006 C-523",
+   "group": "K-EARLY",
+   "stage1": "pass 003 F-002 - second Spring context (row 65)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-524",
+   "evidence": "pass-007 C-023",
+   "group": "K-P7",
+   "stage1": "pass 003 F-003 - validation keys (rows 52, 124, 132, 147)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P6:C-525",
+   "evidence": "pass-006 C-525",
+   "group": "K-EARLY",
+   "stage1": "pass 003 F-004 - progress chart (row 110)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-527",
+   "evidence": "pass-006 C-527",
+   "group": "K-EARLY",
+   "stage1": "pass 004 F-002 - task-board parameter (row 114)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-528",
+   "evidence": "pass-006 C-528",
+   "group": "K-EARLY",
+   "stage1": "pass 004 F-003 - Hibernate settings (row 68)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-529",
+   "evidence": "pass-006 C-529",
+   "group": "K-EARLY",
+   "stage1": "pass 004 F-004 - print layout (row 192)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-531",
+   "evidence": "pass-006 C-531",
+   "group": "K-EARLY",
+   "stage1": "pass 004 F-006 - outbound wiki request (row 189)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-532",
+   "evidence": "pass-006 C-532",
+   "group": "K-EARLY",
+   "stage1": "pass 005 F-001 - people import personDao (rows 50-51)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-533",
+   "evidence": "pass-006 C-533",
+   "group": "K-EARLY",
+   "stage1": "pass 005 F-002 - aggregate timesheet HQL (row 165; Q3)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-535",
+   "evidence": "pass-006 C-535",
+   "group": "K-EARLY",
+   "stage1": "pass 005 F-004 - WAP dependencies (rows 232, 234)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-536",
+   "evidence": "pass-006 C-536",
+   "group": "K-EARLY",
+   "stage1": "pass 005 F-005 - directory rows on first use (rows 172, 176)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-537",
+   "evidence": "pass-006 C-537",
+   "group": "K-EARLY",
+   "stage1": "pass 005 mechanism (a) - wiring and injected properties (rows 50-51, 176, 232, 234; Spring row)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P6:C-539",
+   "evidence": "pass-006 C-539",
+   "group": "K-EARLY",
+   "stage1": "pass 005 mechanism (c) - read-path side effects (rows 172, 176)",
+   "reason": "earlier-finding resolution whose rows are unchanged and not rechecked here (row 114 and 192 mechanisms re-confirmed by C-010 and C-016)"
+  },
+  {
+   "obligation": "P7:C-006",
+   "evidence": "pass-007 C-006",
+   "group": "K-P7",
+   "stage1": "related-occurrence check (d): request-to-object binding completeness",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P7:C-008",
+   "evidence": "pass-007 C-008",
+   "group": "K-P7",
+   "stage1": "related-occurrence check (f): export and download content completeness",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P7:C-058",
+   "evidence": "pass-007 C-058",
+   "group": "K-P7",
+   "stage1": "refined CHK-007: XML-derived figures (comment-aware, positive controls)",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  },
+  {
+   "obligation": "P7:C-060",
+   "evidence": "pass-007 C-060",
+   "group": "K-P7",
+   "stage1": "refined CHK-007/CHK-004: other properties-derived figures",
+   "reason": "pass-007 check result matched at COV; its row or line and every source dependency are byte-identical at CAND (outside all 23 hunks and the 7 changed cells), and no COV..CAND mechanism (Tiles name set, breadcrumb lookup, caches, figures, stored-value fact) is an input of it"
+  }
+ ]
+}
