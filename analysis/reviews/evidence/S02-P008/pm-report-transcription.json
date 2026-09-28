@@ -1,0 +1,20 @@
+{
+  "packet_id": "S02-P008",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-008.md",
+  "reason": "The Claude Code client refuses subagent writes of the review report file; the reviewer wrote the complete report into its scratch directory.",
+  "producer": "Reviewer subagent a51cdd4e08e3744c6 authored the entire report content and owns its conclusion, including the invalid result.",
+  "source_copy": ".migration-tmp/stage-02-p008/reviewer-scratch/stage-02-pass-008.md",
+  "pm_changes": "None. Byte-exact copy. PM does not rewrite the reviewer verdict (constitution Principle XII).",
+  "final_report_sha256": "0bfc7d9b6404aad91eab3797b9a641a6dce73bcb6891fd7ebd02a3c2bf4d8e3b",
+  "invalidity": "Reviewer-declared protocol breach: the client persisted the oversized output of the reviewer's own git diff (reconnaissance PREV..CAND) to its tool-results folder under the user profile, outside the allowed folders, and the reviewer opened that file with Read. The file held only that command output; the reviewer regenerated it in scratch (recon-worddiff-prev-cand.txt, SHA-256 8bc1e01f60c83c91026780b80c7cc6d530fe8d278132f4792e73fc0c09e4cba9). The packet rule states that any read outside the allowed folders invalidates the pass.",
+  "observations_of_invalid_attempt": "F-001..F-003 (all low) are recorded in the report as observations; they are not a valid findings verdict. PM confirmed F-001 in the source: WEB-INF/classes/spring-web.xml:17-24 loads tiles-definitions.xml and tiles-pages.xml, and tiles-pages.xml:6 defines viewLayout.",
+  "chain_consequence": "Per the status schema (previous_pass description) and status-validator.js validateStage2Chains, a later clean/findings correction-validation pass must use the latest preceding attempt (pass 8) as previous_pass, and that pass must be clean/findings. An invalid pass 8 therefore cannot be skipped or inherited: the next eligible Stage 2 control needs a new full-blind root.",
+  "final_checks": {
+    "artifact-reading.js": "exit 0, errors []",
+    "audit:artifact-links": "exit 0",
+    "CHK-009 PM exact-form credential scan": "no login pair in the pass 008 report or evidence; only the known frozen snapshots of passes 001-004 and legacy/README.md",
+    "chain simulation": "on a temporary status copy, a pass 9 correction-validation entry fails status-validator.js with previous_pass 7 (skips attempt 8) and with previous_pass 8 (not clean/findings)"
+  },
+  "recorded_at": "2026-09-28T09:38:06Z"
+}

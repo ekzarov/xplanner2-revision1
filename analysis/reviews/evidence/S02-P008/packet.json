@@ -1,0 +1,241 @@
+{
+  "packet_id": "S02-P008",
+  "review_mode": "formal independent pass, Stage 2 control reconnaissance, control_mode correction-validation (independent, NOT blind; no Phase A, no delayed Phase B)",
+  "governing_procedure": "analysis/reviews/README.md#stage-2-correction-validation; analysis/agent_orchestration.md#correction-validation-packets",
+  "expected_result_schema": "exactly one of clean | findings | blocked | invalid, per analysis/reviews/README.md#results",
+  "repository": "https://github.com/ekzarov/xplanner2-revision1",
+  "report_path": "analysis/reviews/stage-02-pass-008.md",
+  "review_pass": 8,
+  "stage_entry_recorded_at": "2026-09-28T08:49:53Z",
+  "owner_decisions": [
+    "stage-02-correction-validation-adoption:xplanner2-revision1 (mode adopted)",
+    "owner instruction 2026-09-28: pass 008 in correction-validation mode, root baseline pass 006, previous control pass 007; a full-blind trigger is shown to the owner first; Stage 3 not authorized",
+    "stage-02-reviewer-launch:xplanner2-revision1 (option a applies to both modes; each pass needs a new independent session that is not the author)",
+    "legacy-default-credential-classification:xplanner2-revision1 (limited; not a general A3 exception)",
+    "legacy-baseline-provenance and legacy-open-questions-q2-q4 (Q2-Q4 deferred)"
+  ],
+  "root_baseline": {
+    "pass": 6,
+    "note": "Historical full-blind pass without control_mode metadata. Pass 007 verified and recorded its eligibility as root; this reviewer re-validates the chain and does not accept it automatically.",
+    "report": {
+      "path": "analysis/reviews/stage-02-pass-006.md",
+      "sha256": "ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67"
+    },
+    "blind_checkpoint": [
+      {
+        "path": "analysis/reviews/evidence/S02-P006/phase-a-snapshot.md",
+        "sha256": "c8d4f7807a452121c850419e212107781fb704ead38669adf0ec1c7bf5b774d9"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/phase-a-inventory.json",
+        "sha256": "8f734d0d25c532c1663dcd85f0f3d9ccf9ce820a49db23ed3c765efc04e64cbe"
+      }
+    ],
+    "comparison_ledger": {
+      "path": "analysis/reviews/evidence/S02-P006/comparison-results.json",
+      "sha256": "a205b9b5d697bb44a4322aad3a35f79e70bb825480f7dac69276d7a1e994702c"
+    },
+    "other_evidence": [
+      {
+        "path": "analysis/reviews/evidence/S02-P006/access-log.md",
+        "sha256": "f269996dcde7a429e7e5ce8c6004ea2c668f171e5a11a41732884da68154fa6e"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/independence-record.md",
+        "sha256": "2a2a90a78ace4579b9c93e3e8d5c00cd8a36abeba9744073f4bb9aa5bfc1bac6"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/packet.json",
+        "sha256": "dfcd1ea1977c168c8f4ae5e8ccc3a626ee901dbaf704ab2f5fddb00ac308ff1a"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/routing-extract.json",
+        "sha256": "ac40a3256797458307cd9a5d0692497ed78a777cd9cd91f86db4010469cbe2bc"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/pm-phase-b-release.json",
+        "sha256": "fea7c361220f0caddd9d8567e925c2e798172b64887ed856ccab1d8ea2e97ac8"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P006/pm-report-transcription.json",
+        "sha256": "b1a1dbfc569eb2fe17fac0c09c28325b554da38f7977a61520987496c5d78566"
+      }
+    ],
+    "reviewed_revision": "15cb6b26946f73596177eba8cead333383d9f728",
+    "reviewed_stage1_records": [
+      {
+        "path": "analysis/legacy_reconnaissance.md",
+        "sha256": "0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332"
+      },
+      {
+        "path": "analysis/legacy_user_flows.xlsx",
+        "sha256": "a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99"
+      }
+    ]
+  },
+  "previous_control": {
+    "pass": 7,
+    "control_mode": "correction-validation",
+    "result": "findings (F-001..F-003, all low)",
+    "report": {
+      "path": "analysis/reviews/stage-02-pass-007.md",
+      "sha256": "e2fd2da2a399b01e1c576b61e9c7697ef2aa63b0be2f6320208956d87bf2a53b"
+    },
+    "comparison_ledger": {
+      "path": "analysis/reviews/evidence/S02-P007/comparison-results.json",
+      "sha256": "7dda3cf4828fe9c4cf1dc920765e7b075ebb2a855d1800858ce28975c85e2c41"
+    },
+    "coverage_record": {
+      "path": "analysis/reviews/evidence/S02-P007/coverage-reconciliation.json",
+      "sha256": "dbbc987c036713f430bfae8ee0e2f748fb1a441fa720ee45daf5922a576a2f7d"
+    },
+    "other_evidence": [
+      {
+        "path": "analysis/reviews/evidence/S02-P007/access-log.md",
+        "sha256": "2109c5cafae1c11f9705b520d41e21be27badb678ac2c2d4bcc976ae70b3960c"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P007/change-set.json",
+        "sha256": "d728553321a17b4ce9f2b9abc57a15eb2e5dac30f7b74cf9485bf3d875f4e36e"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P007/independence-record.md",
+        "sha256": "9ccd572b1aa73a8e5af7a0395702a5d4d7fcaa332e7fdc8031bffa29fee42075"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P007/packet.json",
+        "sha256": "0e70fd7ef2c4050bd2c60cf0c2a53bba5c703a50b9c8644809a8c108e5eb403a"
+      },
+      {
+        "path": "analysis/reviews/evidence/S02-P007/pm-report-transcription.json",
+        "sha256": "a13bc47666d329396b30b9a11d839ee9f20b291115ee496c29fc54fd3afe2d2a"
+      }
+    ],
+    "reviewed_revision": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+    "reviewed_stage1_records": [
+      {
+        "path": "analysis/legacy_reconnaissance.md",
+        "sha256": "c672ad6faf8a0567eb2fb36259c137c4f238cfe86ddbb57041c972720f3043a1"
+      },
+      {
+        "path": "analysis/legacy_user_flows.xlsx",
+        "sha256": "2949146c30a9b5fb461f262ce047c7cf8c4c1008a974a68d08d7054b25342305"
+      }
+    ],
+    "checklist_at_review": {
+      "path": "analysis/error-prevention-checklist.md",
+      "sha256": "6e01c409fc6b6a595f1ff618a7a0e474dcde9b084e368171f1e37489fe74ff32"
+    }
+  },
+  "intervening_records": [
+    {
+      "path": "analysis/stages/stage-01/stage-02-pass-006-dispositions.md",
+      "sha256": "5f11d1f69a3886479662065cfb149e2a13acd3acbb95335463c849cff411504e",
+      "what": "BA-001-08 corrections after pass 006 (PR #19); verified by pass 007"
+    },
+    {
+      "path": "analysis/stages/stage-01/stage-02-pass-007-dispositions.md",
+      "sha256": "d63285215e9e713bbd179bb7781e35a949eb16b81ffd589f4544320fe2af1638",
+      "what": "BA-001-09 corrections after pass 007 with the PM assignment (PR #21)"
+    },
+    {
+      "path": "analysis/maintenance/starter-sync-2026-09-25-c7d0188.md",
+      "sha256": "3e125dc7709130180c2c6753a08bfcf31996ac48fb6d03dc864457f40f08c83d",
+      "what": "process maintenance PR #18: instructions/templates/tools only; no Stage 1 record changed"
+    },
+    {
+      "path": "analysis/reviews/stage-02-pass-001.md .. stage-02-pass-005.md, analysis/reviews/evidence/S02-P001..S02-P005/**, analysis/stages/stage-01/stage-02-pass-001..005-dispositions.md",
+      "what": "earlier chain; pass 006 recorded all 33 earlier findings resolved and pass 007 found nothing open"
+    }
+  ],
+  "candidate": {
+    "revision": "605f94df9a52004945f4ad991d0018c57d1bb49b",
+    "records": [
+      {
+        "path": "analysis/legacy_reconnaissance.md",
+        "sha256": "649870c13b4d4cc5a4c98b93c7608b8a16a57cc185586d1efcc165d50402d130"
+      },
+      {
+        "path": "analysis/legacy_user_flows.xlsx",
+        "sha256": "df7437bed8e4c05074a3210ac74bda4ab30ebf9949860591a4a6a674261b5fdc"
+      }
+    ],
+    "checklist": {
+      "path": "analysis/error-prevention-checklist.md",
+      "sha256": "599fbd661a9193a83d4d50cc62afad5d42de388d1bf16ef190a5a44386afcff2"
+    },
+    "author_claimed_change_set": "see analysis/stages/stage-01/stage-02-pass-007-dispositions.md; the reviewer must regenerate the complete change set independently, not rely on the author list"
+  },
+  "legacy_source_set": [
+    {
+      "path": "legacy/README.md",
+      "sha256_base": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "sha256_previous": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "sha256_candidate": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460"
+    },
+    {
+      "path": "legacy/demo-seed.sql",
+      "sha256_base": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "sha256_previous": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "sha256_candidate": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1"
+    },
+    {
+      "path": "legacy/docker-compose.yml",
+      "sha256_base": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "sha256_previous": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "sha256_candidate": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff"
+    },
+    {
+      "path": "legacy/xplanner-plus.war",
+      "sha256_base": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "sha256_previous": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "sha256_candidate": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc"
+    }
+  ],
+  "pinned_worktrees": {
+    "baseline": ".migration-tmp/stage-02-p008/baseline (detached checkout of BASE, root pass 006; read-only)",
+    "previous": ".migration-tmp/stage-02-p008/previous (detached checkout of PREV, reviewed by pass 007; read-only)",
+    "candidate": ".migration-tmp/stage-02-p008/candidate (detached checkout of CAND; read-only)"
+  },
+  "pm_proposed_coverage": {
+    "recheck": [
+      "every added, changed or deleted claim in analysis/legacy_reconnaissance.md and every changed workbook cell between PREV and CAND, with its dependencies; also confirm that BASE..PREV is exactly the change set pass 007 recorded (change-set.json), so the chain has no gap",
+      "closure of pass-007 F-001..F-003 (including the pass-006 F-002 view-name remainder) against the legacy source; author extensions (row 101, navigation.top, 45 keys) are claims to verify, not evidence",
+      "the author checks (h) framework resolution of request-chosen navigation, (i) script-context output of request values, (j) page-text keys over attribute forms and the layout/include chain: independent verification of completeness",
+      "the CHK-007 and CHK-012 refinements admitted after pass 007, as newly applicable checks over the whole governed scope wherever such sinks or figures occur",
+      "every pass-006 or pass-007 check whose claim, row or source dependency is touched by PREV..CAND (affected previously matched claims)",
+      "every open F/B/CHK item in the chain (expected: only pass-007 F-001..F-003 and its checklist failures)"
+    ],
+    "retain": "pass-006 matched items retained by pass 007 and pass-007 matched new checks whose claim identity and source dependencies are unaffected by PREV..CAND, each with an applicability rationale (exhaustive grouped mappings allowed; unchanged bytes or totals alone are not proof). Retention inherited from pass 007 must be re-justified against the new change set, not copied.",
+    "challenge": "The reviewer validates or challenges this proposal and the eligibility of the chain; if a full-blind trigger exists (changed source set or governed scope, unreliable baseline or predecessor, systemic or unbounded impact), stop with the exact trigger and scope and do NOT start a blind inventory."
+  },
+  "instruction_paths": [
+    "MIGRATION.md",
+    ".specify/memory/constitution.md",
+    "analysis/agent-roles.md",
+    ".agents/skills/migration-ba/SKILL.md",
+    "analysis/migration_methodology.md#stage-02 and #review-and-correction-prs",
+    "analysis/reviews/README.md (Stage 2: Control reconnaissance; Stage 2 Correction Validation; Comparison Record Contract; Results; Independence; credential-safe evidence and the project credential addition)",
+    "analysis/reviews/stage-NN-pass-NNN-template.md",
+    "analysis/agent_orchestration.md (Correction-Validation Packets; Read-Only Execution; Batches and Checkpoints; Durable Evidence; Credential-Safe Evidence)",
+    "analysis/error-prevention.md",
+    "analysis/error-prevention-checklist.md",
+    "analysis/legacy_user_flows_template_instructions.md"
+  ],
+  "permitted_operations": "Read-only inspection of the project folder, the three pinned worktrees and legacy/; extraction of the WAR into the reviewer scratch; own read-only Node scripts in the reviewer scratch; git rev-parse, git status, git diff and git show between BASE, PREV and CAND only. No legacy runtime, remote access, network, installs, commits, branch changes or repository changes outside the write allowlist.",
+  "forbidden_always": [
+    "any folder outside C:/Work/Legacy/xplanner2-revision1 and the read-only C:/Work/Legacy/legacy-modernization-starter",
+    "examples or links from an earlier migration of this legacy system (constitution amendment A2), e.g. github.com/olsys-ltd/xplanner2",
+    "web, browser, MCP tools, other agents",
+    "the Stage 1 author scratch .migration-tmp/stage-01/** and earlier reviewer scratch directories as evidence (tools may be read only to understand a claim; every conclusion needs own source verification)",
+    "reproducing credential values (A3, CHK-009): cite source locations only; self-scan new evidence and report only the hit count"
+  ],
+  "reviewer_write_allowlist": [
+    "analysis/reviews/evidence/S02-P008/** except packet.json and pm-*.json",
+    ".migration-tmp/stage-02-p008/reviewer-scratch/**",
+    ".migration-tmp/temp/**, .migration-tmp/npm-cache/** (temp redirection only)"
+  ],
+  "report_delivery": "The Claude Code client refuses subagent writes of the review report file. The reviewer writes the complete report to .migration-tmp/stage-02-p008/reviewer-scratch/stage-02-pass-008.md and gives its SHA-256 in RESULT; PM verifies and copies it byte-exact to analysis/reviews/stage-02-pass-008.md.",
+  "status_entries": "PM records the review_passes entry (control_mode correction-validation, baseline_pass 6, previous_pass 7, coverage_record) from RESULT; the reviewer never edits shared status.",
+  "runtimes": "Node v22.20.0, Windows tar.exe, git. No JDK/javap on this machine."
+}
