@@ -31,12 +31,12 @@ project:
 
 control:
   state: active
-  current_stage: stage-01
-  stage_status: awaiting_review
-  previous_stage: stage-02
-  next_action: 'Stage 1 re-entry corrections BA-001-09 verified by PM against the assignment boundary (analysis/stages/stage-01/stage-02-pass-007-dispositions.md: F-001..F-003 accepted, F-002 extended to row 101, F-003 extended to 45 keys, 5 rows changed, no rows added, no status change, no expansion, assignment section unchanged). Owner merges the correction PR; then a new independent BA session (not the author, no earlier reviewer) runs Stage 2 correction-validation pass 008 with baseline pass 006 and previous pass 007; a full-blind trigger is shown to the owner first; PM stops after the pass 008 result. Stage 3 not authorized.'
+  current_stage: stage-02
+  stage_status: awaiting_owner
+  previous_stage: stage-01
+  next_action: 'Publish Stage 2 pass 008 (result invalid: reviewer-declared access-boundary breach; substantive observations F-001..F-003, all low) as a separate control-records PR (owner merge). Then STOP for the owner decision: an invalid attempt cannot be skipped or inherited by correction-validation (schema previous_pass rule), so the next eligible Stage 2 control is a new full-blind pass by a fresh BA session; the owner decides whether Stage 1 first corrects the source-backed observations F-001..F-003. No automatic next round. Stage 3 not authorized.'
   automatic_advancement: false
-  prevention_self_check: 'stage-01 re-entry after stage-02 pass 007: author confirmed the findings behind both reviewer proposals; PM admitted them as refinements (no new IDs): P-1 refines CHK-012 (script contexts, framework view resolution), P-2 refines CHK-007 (page texts over key-taking attributes and layout/include chain, with positive control; per-variant comparison stays CHK-004). Checklist CHK-001..CHK-012.'
+  prevention_self_check: 'stage-02 pass 008 entry (correction-validation, not blind): the reviewer receives analysis/error-prevention-checklist.md (CHK-001..CHK-012, CHK-007 and CHK-012 refined after passes 006 and 007), the prior reports and dispositions immediately.'
 
 constitution:
   status: ratified
@@ -184,6 +184,15 @@ transition_history:
     gate_evidence:
       - 'analysis/reviews/stage-02-pass-007.md'
     owner_approval: null
+  - from: stage-01
+    to: stage-02
+    reason: 'Stage 1 corrections for Stage 2 pass 007 findings merged (PR #21, CI run 36398231834 green; main CI run 36399419890 green); integrated main 605f94df9a52004945f4ad991d0018c57d1bb49b; Stage 1 gates audit:project and audit:workbook pass; open for Stage 2 correction-validation pass 008 (owner decision 2026-09-28): root baseline pass 006, previous control pass 007.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-28T08:49:53Z'
+    gate_evidence:
+      - 'analysis/stages/stage-01/stage-02-pass-007-dispositions.md'
+      - 'analysis/legacy_reconnaissance.md'
+    owner_approval: null
 
 review_passes:
   - stage: stage-02
@@ -274,6 +283,22 @@ review_passes:
     baseline_pass: 6
     previous_pass: 6
     coverage_record: 'analysis/reviews/evidence/S02-P007/coverage-reconciliation.json'
+  - stage: stage-02
+    pass: 8
+    result: invalid
+    report: 'analysis/reviews/stage-02-pass-008.md'
+    reviewer: 'BA independent reviewer (subagent a51cdd4e08e3744c6 of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer-p008'
+    session_id: 'a51cdd4e08e3744c6'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P008/independence-record.md'
+    reviewed_at: '2026-09-28T09:38:06Z'
+    scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
+    waiver_ids: []
+    control_mode: correction-validation
+    baseline_pass: 6
+    previous_pass: 7
+    coverage_record: 'analysis/reviews/evidence/S02-P008/pm-report-transcription.json'
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -372,14 +397,14 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 corrected after Stage 2 pass 007 findings: 210 scenario rows in 18 epics (Yes 111, Inferred 77, Partial 21, No 1), all static-only and open; awaiting Stage 2 correction-validation pass 008.'
-  completed_percent: 0
-  updated_at: '2026-09-28T08:34:04Z'
+  summary: 'Stage 2 correction-validation pass 008 invalid (reviewer read its own client-persisted command output outside the allowed folders); substantive observations F-001..F-003 (all low) recorded; Stage 2 open, awaiting owner decision. Stage 1 records have 210 rows.'
+  completed_percent: 5
+  updated_at: '2026-09-28T09:38:06Z'
   agent_reviews:
-    total: 7
+    total: 8
     valid: 7
     blocked: 0
-    invalid: 0
+    invalid: 1
     active: 0
 
 # Exact current architecture review records; initialize on adoption, never infer from filename order.

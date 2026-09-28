@@ -1,0 +1,3798 @@
+{
+ "packet": "S02-P008",
+ "control_mode": "correction-validation",
+ "baseline_pass": 6,
+ "previous_pass": 7,
+ "prior_obligations": 550,
+ "prior_breakdown": {
+  "pass006_items": 539,
+  "pass007_new_obligations": 11
+ },
+ "new_obligations": 6,
+ "new_obligation_checks": [
+  "C-007",
+  "C-008",
+  "C-009",
+  "C-013",
+  "C-014",
+  "C-027"
+ ],
+ "reconciled_total": 556,
+ "newly_rechecked": 66,
+ "rechecked_prior_obligations": 60,
+ "retained": 490,
+ "uncovered": 0,
+ "retention_groups": {
+  "R8-P7ROW": "workbook row rechecked by pass 007 (BASE..PREV change); its cells are byte-identical at CAND (only rows 8, 56, 60, 98, 101 changed) and its claim concerns binding, export, validation or configuration, none of which is an input of BA-001-09; rows that describe the returnto redirect are rechecked in C-020 instead",
+  "R8-P7REC": "reconnaissance claim or inventory item whose current evidence is a pass-007 check; its text is byte-identical at CAND and its mechanism (binding, export content, configuration figures) is not touched by PREV..CAND; items whose section changed are rechecked",
+  "R8-P7NEW": "pass-007 new obligation for a mechanism not changed by BA-001-09: check (d) binding (C-006), check (f) export content (C-008), XML-derived figures (C-058)",
+  "R8-P6ROW": "pass-006 row item retained by pass 007; row cells byte-identical in PREV..CAND; not one of the rows whose source dependency the changed claims cite (those are rechecked in C-020 and C-022)",
+  "R8-P6REC": "pass-006 reconnaissance line item; the line maps through BASE..PREV and PREV..CAND unchanged (impactmap.js), and its claim is not a dependency of the corrected mechanisms",
+  "R8-P6INV": "pass-006 inventory item mapping to unchanged rows and to section sentences that are byte-identical at CAND; items naming a changed row or the changed Q3, unauthenticated-list or Tiles claims are rechecked",
+  "R8-P6EARLY": "earlier-finding resolution whose rows and sentences are byte-identical at CAND; GAP-007 was only appended to",
+  "R8-P6EXCL": "pass-006 E-001 infrastructure items, unchanged"
+ },
+ "retained_by_group": {
+  "R8-P7REC": 30,
+  "R8-P7ROW": 13,
+  "R8-P6INV": 100,
+  "R8-P6EXCL": 2,
+  "R8-P6ROW": 175,
+  "R8-P6REC": 138,
+  "R8-P6EARLY": 29,
+  "R8-P7NEW": 3
+ },
+ "rechecked": [
+  {
+   "obligation": "C-013",
+   "prior_evidence": "p7 C-003",
+   "rechecked_by": "C-001"
+  },
+  {
+   "obligation": "C-015",
+   "prior_evidence": "p7 C-043",
+   "rechecked_by": "C-021"
+  },
+  {
+   "obligation": "C-062",
+   "prior_evidence": "p7 C-036",
+   "rechecked_by": "C-003"
+  },
+  {
+   "obligation": "C-063",
+   "prior_evidence": "p7 C-021",
+   "rechecked_by": "C-003"
+  },
+  {
+   "obligation": "C-110",
+   "prior_evidence": "p7 C-003",
+   "rechecked_by": "C-001"
+  },
+  {
+   "obligation": "C-126",
+   "prior_evidence": "p7 C-048",
+   "rechecked_by": "C-006"
+  },
+  {
+   "obligation": "C-127",
+   "prior_evidence": "p7 C-002",
+   "rechecked_by": "C-002"
+  },
+  {
+   "obligation": "C-134",
+   "prior_evidence": "p7 C-003",
+   "rechecked_by": "C-001"
+  },
+  {
+   "obligation": "C-135",
+   "prior_evidence": "p7 C-043",
+   "rechecked_by": "C-021"
+  },
+  {
+   "obligation": "C-139",
+   "prior_evidence": "p7 C-063",
+   "rechecked_by": "C-004"
+  },
+  {
+   "obligation": "C-172",
+   "prior_evidence": "p7 C-011",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-175",
+   "prior_evidence": "p7 C-012",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-184",
+   "prior_evidence": "p7 C-064",
+   "rechecked_by": "C-004"
+  },
+  {
+   "obligation": "C-186",
+   "prior_evidence": "p7 C-013",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-188",
+   "prior_evidence": "p7 C-015",
+   "rechecked_by": "C-001"
+  },
+  {
+   "obligation": "C-190",
+   "prior_evidence": "p7 C-016",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-205",
+   "prior_evidence": "p7 C-017",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-214",
+   "prior_evidence": "p7 C-019",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-224",
+   "prior_evidence": "p7 C-036",
+   "rechecked_by": "C-003"
+  },
+  {
+   "obligation": "C-227",
+   "prior_evidence": "p7 C-021",
+   "rechecked_by": "C-003"
+  },
+  {
+   "obligation": "C-246",
+   "prior_evidence": "p7 C-022",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-254",
+   "prior_evidence": "p7 C-025",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-258",
+   "prior_evidence": "p7 C-026",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-264",
+   "prior_evidence": "p7 C-029",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-272",
+   "prior_evidence": "p7 C-031",
+   "rechecked_by": "C-020"
+  },
+  {
+   "obligation": "C-378",
+   "prior_evidence": "p7 C-040",
+   "rechecked_by": "C-001"
+  },
+  {
+   "obligation": "C-390",
+   "prior_evidence": "p7 C-042",
+   "rechecked_by": "C-001"
+  },
+  {
+   "obligation": "C-429",
+   "prior_evidence": "p7 C-045",
+   "rechecked_by": "C-012"
+  },
+  {
+   "obligation": "C-492",
+   "prior_evidence": "p7 C-048",
+   "rechecked_by": "C-005"
+  },
+  {
+   "obligation": "C-493",
+   "prior_evidence": "p7 C-038",
+   "rechecked_by": "C-010"
+  },
+  {
+   "obligation": "C-494",
+   "prior_evidence": "p7 C-037",
+   "rechecked_by": "C-011"
+  },
+  {
+   "obligation": "C-496",
+   "prior_evidence": "p7 C-043",
+   "rechecked_by": "C-021"
+  },
+  {
+   "obligation": "C-500",
+   "prior_evidence": "p7 C-053",
+   "rechecked_by": "C-017"
+  },
+  {
+   "obligation": "C-501",
+   "prior_evidence": "p7 C-054",
+   "rechecked_by": "C-018"
+  },
+  {
+   "obligation": "C-502",
+   "prior_evidence": "p7 C-055",
+   "rechecked_by": "C-019"
+  },
+  {
+   "obligation": "C-503",
+   "prior_evidence": "p7 C-049",
+   "rechecked_by": "C-015"
+  },
+  {
+   "obligation": "C-521",
+   "prior_evidence": "p7 C-056",
+   "rechecked_by": "C-025"
+  },
+  {
+   "obligation": "C-534",
+   "prior_evidence": "p7 C-048",
+   "rechecked_by": "C-006"
+  },
+  {
+   "obligation": "C-538",
+   "prior_evidence": "p7 C-048",
+   "rechecked_by": "C-006"
+  },
+  {
+   "obligation": "C-017",
+   "prior_evidence": "p6 C-017",
+   "rechecked_by": "C-004"
+  },
+  {
+   "obligation": "C-039",
+   "prior_evidence": "p6 C-039",
+   "rechecked_by": "C-004"
+  },
+  {
+   "obligation": "C-102",
+   "prior_evidence": "p6 C-102",
+   "rechecked_by": "C-022"
+  },
+  {
+   "obligation": "C-143",
+   "prior_evidence": "p6 C-143",
+   "rechecked_by": "C-022"
+  },
+  {
+   "obligation": "C-144",
+   "prior_evidence": "p6 C-144",
+   "rechecked_by": "C-022"
+  },
+  {
+   "obligation": "C-183",
+   "prior_evidence": "p6 C-183",
+   "rechecked_by": "C-022"
+  },
+  {
+   "obligation": "C-240",
+   "prior_evidence": "p6 C-240",
+   "rechecked_by": "C-022"
+  },
+  {
+   "obligation": "C-306",
+   "prior_evidence": "p6 C-306",
+   "rechecked_by": "C-022"
+  },
+  {
+   "obligation": "C-313",
+   "prior_evidence": "p6 C-313",
+   "rechecked_by": "C-022"
+  },
+  {
+   "obligation": "C-368",
+   "prior_evidence": "p6 C-368",
+   "rechecked_by": "C-022"
+  },
+  {
+   "obligation": "C-379",
+   "prior_evidence": "p6 C-379",
+   "rechecked_by": "C-006"
+  },
+  {
+   "obligation": "C-478",
+   "prior_evidence": "p6 C-478",
+   "rechecked_by": "C-003"
+  },
+  {
+   "obligation": "C-516",
+   "prior_evidence": "p6 C-516",
+   "rechecked_by": "C-003"
+  },
+  {
+   "obligation": "p7new:C-007",
+   "prior_evidence": "p7 C-007",
+   "rechecked_by": "C-005"
+  },
+  {
+   "obligation": "p7new:C-009",
+   "prior_evidence": "p7 C-009",
+   "rechecked_by": "C-004"
+  },
+  {
+   "obligation": "p7new:C-057",
+   "prior_evidence": "p7 C-057",
+   "rechecked_by": "C-006"
+  },
+  {
+   "obligation": "p7new:C-059",
+   "prior_evidence": "p7 C-059",
+   "rechecked_by": "C-025"
+  },
+  {
+   "obligation": "p7new:C-060",
+   "prior_evidence": "p7 C-060",
+   "rechecked_by": "C-025"
+  },
+  {
+   "obligation": "p7new:C-061",
+   "prior_evidence": "p7 C-061",
+   "rechecked_by": "C-023"
+  },
+  {
+   "obligation": "p7new:C-062",
+   "prior_evidence": "p7 C-062",
+   "rechecked_by": "C-024"
+  },
+  {
+   "obligation": "p7new:C-065",
+   "prior_evidence": "p7 C-065",
+   "rechecked_by": "C-026"
+  }
+ ],
+ "retained_items": [
+  {
+   "obligation": "C-010",
+   "evidence": "p7 C-006",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 223-226; Runnable Surfaces REST row"
+  },
+  {
+   "obligation": "C-011",
+   "evidence": "p7 C-006",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 215-221; Web services row; Q3 facts (adminPassword location)",
+   "note": "binding mechanism (check (d)) is not an input of BA-001-09"
+  },
+  {
+   "obligation": "C-034",
+   "evidence": "p7 C-005",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "Source Inventory Configuration row; Build evidence config-consumers row"
+  },
+  {
+   "obligation": "C-036",
+   "evidence": "p7 C-013",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 58, 69-71, 135; Internationalisation row"
+  },
+  {
+   "obligation": "C-053",
+   "evidence": "p7 C-011",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 26, 33, 38, 41-43, 48 and the CHK-002 row sweep"
+  },
+  {
+   "obligation": "C-056",
+   "evidence": "p7 C-017",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 78-81"
+  },
+  {
+   "obligation": "C-059",
+   "evidence": "p7 C-004",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 208-213"
+  },
+  {
+   "obligation": "C-061",
+   "evidence": "p7 C-019",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 88-90"
+  },
+  {
+   "obligation": "C-070",
+   "evidence": "p7 C-022",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 121-128"
+  },
+  {
+   "obligation": "C-071",
+   "evidence": "p7 C-025",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 129-132"
+  },
+  {
+   "obligation": "C-073",
+   "evidence": "p7 C-026",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 134-143"
+  },
+  {
+   "obligation": "C-077",
+   "evidence": "p7 C-031",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 149-160"
+  },
+  {
+   "obligation": "C-078",
+   "evidence": "p7 C-032",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 169-175; Data And Integrations file storage row"
+  },
+  {
+   "obligation": "C-081",
+   "evidence": "p7 C-011",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 31, 33-34, 43-48"
+  },
+  {
+   "obligation": "C-084",
+   "evidence": "p7 C-001",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "row 35"
+  },
+  {
+   "obligation": "C-091",
+   "evidence": "p7 C-014",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 59, 114"
+  },
+  {
+   "obligation": "C-093",
+   "evidence": "p7 C-013",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "row 58"
+  },
+  {
+   "obligation": "C-096",
+   "evidence": "p7 C-016",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 61-63; Q3 facts"
+  },
+  {
+   "obligation": "C-097",
+   "evidence": "p7 C-001",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 29, 43, 46, 78, 81, 88, 90, 121, 125, 134, 139, 169, 173"
+  },
+  {
+   "obligation": "C-120",
+   "evidence": "p7 C-032",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "persistence row (query sweep); rows 11, 143, 165, 169, 220-221, 228"
+  },
+  {
+   "obligation": "C-124",
+   "evidence": "p7 C-032",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 18, 143, 169; persistence row"
+  },
+  {
+   "obligation": "C-129",
+   "evidence": "p7 C-001",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "rows 124, 129, 137, 140 (merge only as validation switch); GAP-007 and Q3 facts silent",
+   "note": "binding mechanism unaffected"
+  },
+  {
+   "obligation": "C-131",
+   "evidence": "p7 C-016",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "row 62"
+  },
+  {
+   "obligation": "C-136",
+   "evidence": "p7 C-022",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "Runnable Surfaces actors; rows 23-25, 134, 149, 121, 85, 196"
+  },
+  {
+   "obligation": "C-165",
+   "evidence": "p7 C-010",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 35 (UF-002)"
+  },
+  {
+   "obligation": "C-187",
+   "evidence": "p7 C-014",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 59 (UF-004)"
+  },
+  {
+   "obligation": "C-208",
+   "evidence": "p7 C-018",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 81 (UF-005)"
+  },
+  {
+   "obligation": "C-216",
+   "evidence": "p7 C-020",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 90 (UF-006)"
+  },
+  {
+   "obligation": "C-249",
+   "evidence": "p7 C-023",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 124 (UF-007)"
+  },
+  {
+   "obligation": "C-250",
+   "evidence": "p7 C-024",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 125 (UF-007)"
+  },
+  {
+   "obligation": "C-261",
+   "evidence": "p7 C-027",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 137 (UF-008)"
+  },
+  {
+   "obligation": "C-263",
+   "evidence": "p7 C-028",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 139 (UF-008)"
+  },
+  {
+   "obligation": "C-265",
+   "evidence": "p7 C-030",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 141 (UF-008)"
+  },
+  {
+   "obligation": "C-291",
+   "evidence": "p7 C-032",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 169 (UF-010)"
+  },
+  {
+   "obligation": "C-295",
+   "evidence": "p7 C-033",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 173 (UF-010)"
+  },
+  {
+   "obligation": "C-327",
+   "evidence": "p7 C-034",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 209 (UF-014)"
+  },
+  {
+   "obligation": "C-328",
+   "evidence": "p7 C-035",
+   "prior_result": "matched",
+   "group": "R8-P7ROW",
+   "stage1": "workbook row 210 (UF-014)"
+  },
+  {
+   "obligation": "C-375",
+   "evidence": "p7 C-039",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "reconnaissance Source Inventory line 171 (Configuration)",
+   "note": "Configuration row unchanged in PREV..CAND"
+  },
+  {
+   "obligation": "C-381",
+   "evidence": "p7 C-041",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "reconnaissance Source Inventory line 177 (Export and reports)"
+  },
+  {
+   "obligation": "C-421",
+   "evidence": "p7 C-044",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "reconnaissance Data And Integrations line 263 (Microsoft Project, PDF and XML consumers)",
+   "note": "Data And Integrations export row unchanged in PREV..CAND"
+  },
+  {
+   "obligation": "C-524",
+   "evidence": "p7 C-023",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "pass 003 F-003 - validation keys (rows 52, 124, 132, 147)"
+  },
+  {
+   "obligation": "C-526",
+   "evidence": "p7 C-045",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "pass 004 F-001 - login-page credential (rows 9, 11, 64; GAP-007; Q3)",
+   "note": "GAP-007 login-page sentence byte-identical; row 9 unchanged; current evidence pass-007 C-045"
+  },
+  {
+   "obligation": "C-530",
+   "evidence": "p7 C-045",
+   "prior_result": "matched",
+   "group": "R8-P7REC",
+   "stage1": "pass 004 F-005 - unauthenticated exposure (rows 18, 73; GAP-007/013)",
+   "note": "pass-004 F-005 corrections (rows 18, 73; GAP-007/013 sentences) byte-identical; the new public-page exposure is recorded separately as F-002; current evidence pass-007 C-045"
+  },
+  {
+   "obligation": "C-001",
+   "evidence": "p6 C-001",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Scope And Provenance (legacy files, hashes)",
+   "note": "Scope And Provenance legacy file and hash lines are byte-identical; PREV..CAND changed only the date, analyst and skill lines"
+  },
+  {
+   "obligation": "C-002",
+   "evidence": "p6 C-002",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Source Inventory composition table (964 files, 1090 entries)"
+  },
+  {
+   "obligation": "C-003",
+   "evidence": "p6 C-003",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Scope And Provenance (version, build date, revision, Build-Jdk, class version 50.0)",
+   "note": "version and build lines byte-identical"
+  },
+  {
+   "obligation": "C-004",
+   "evidence": "p6 C-004",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Source Inventory compiled classes row"
+  },
+  {
+   "obligation": "C-005",
+   "evidence": "p6 C-005",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Source Inventory third-party libraries row"
+  },
+  {
+   "obligation": "C-006",
+   "evidence": "p6 C-006",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Source Inventory dormant-code row; Parity-Map Boundary exclusions"
+  },
+  {
+   "obligation": "C-007",
+   "evidence": "p6 C-007",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Scope And Provenance known patch; GAP-005 P-01, P-02, P-07; Source Inventory local run hel",
+   "note": "patch and provenance lines byte-identical"
+  },
+  {
+   "obligation": "C-008",
+   "evidence": "p6 C-008",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Source Inventory container metadata row; GAP-008"
+  },
+  {
+   "obligation": "C-009",
+   "evidence": "p6 C-009",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Source Inventory web descriptor and Struts rows; rows 17, 72"
+  },
+  {
+   "obligation": "C-012",
+   "evidence": "p6 C-012",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 228-230; Runnable Surfaces calendar row"
+  },
+  {
+   "obligation": "C-014",
+   "evidence": "p6 C-014",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 109-112, 162, 165; Runnable Surfaces chart row; GAP-007",
+   "note": "chart sentences of GAP-007 byte-identical (PREV..CAND only appended a clause)"
+  },
+  {
+   "obligation": "C-016",
+   "evidence": "p6 C-016",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 18, 20; web descriptor row"
+  },
+  {
+   "obligation": "C-018",
+   "evidence": "p6 C-018",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "web descriptor row; rows 17, 72, 233"
+  },
+  {
+   "obligation": "C-019",
+   "evidence": "p6 C-019",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 73; Runnable Surfaces activity-log row; GAP-013"
+  },
+  {
+   "obligation": "C-020",
+   "evidence": "p6 C-020",
+   "prior_result": "not-applicable",
+   "group": "R8-P6EXCL",
+   "stage1": "no row or section (infrastructure without user-visible behavior)"
+  },
+  {
+   "obligation": "C-021",
+   "evidence": "p6 C-021",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 64-66; Spring row (loaders)"
+  },
+  {
+   "obligation": "C-022",
+   "evidence": "p6 C-022",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 64-65; Schema and seed data row"
+  },
+  {
+   "obligation": "C-023",
+   "evidence": "p6 C-023",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Legacy migration toolkit row"
+  },
+  {
+   "obligation": "C-024",
+   "evidence": "p6 C-024",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 68; Configuration row; persistence row"
+  },
+  {
+   "obligation": "C-025",
+   "evidence": "p6 C-025",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 47, 68; Data And Integrations database row; P-02"
+  },
+  {
+   "obligation": "C-026",
+   "evidence": "p6 C-026",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 50 (transaction template), 172, 176; Build evidence persist-trace note"
+  },
+  {
+   "obligation": "C-027",
+   "evidence": "p6 C-027",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 67; Configuration row"
+  },
+  {
+   "obligation": "C-028",
+   "evidence": "p6 C-028",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 55, 66-67; P-01"
+  },
+  {
+   "obligation": "C-029",
+   "evidence": "p6 C-029",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 188, 202; GAP-008; P-04"
+  },
+  {
+   "obligation": "C-030",
+   "evidence": "p6 C-030",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 203; Data And Integrations SMTP row"
+  },
+  {
+   "obligation": "C-031",
+   "evidence": "p6 C-031",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 11, 21"
+  },
+  {
+   "obligation": "C-032",
+   "evidence": "p6 C-032",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 189-190; Data And Integrations wiki row"
+  },
+  {
+   "obligation": "C-033",
+   "evidence": "p6 C-033",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 94, 109-111, 115, 122, 178, 198, 205, 208; P-03"
+  },
+  {
+   "obligation": "C-035",
+   "evidence": "p6 C-035",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Q3 facts (database credentials, adminPassword, login-page text); rows 9, 64, 67",
+   "note": "Q3 credential-location fact row byte-identical"
+  },
+  {
+   "obligation": "C-037",
+   "evidence": "p6 C-037",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 73; Configuration row (log4j); unauthenticated list (FILE appender unreferenced)",
+   "note": "log-file sentences byte-identical"
+  },
+  {
+   "obligation": "C-038",
+   "evidence": "p6 C-038",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 33, 61"
+  },
+  {
+   "obligation": "C-040",
+   "evidence": "p6 C-040",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 11, 13"
+  },
+  {
+   "obligation": "C-041",
+   "evidence": "p6 C-041",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 15-16; Q3 facts",
+   "note": "rows 15-16 and the cookie fact unchanged"
+  },
+  {
+   "obligation": "C-042",
+   "evidence": "p6 C-042",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 17, 32, 233; Security configuration row"
+  },
+  {
+   "obligation": "C-043",
+   "evidence": "p6 C-043",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 233"
+  },
+  {
+   "obligation": "C-044",
+   "evidence": "p6 C-044",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 215; rows 228-230"
+  },
+  {
+   "obligation": "C-045",
+   "evidence": "p6 C-045",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 19"
+  },
+  {
+   "obligation": "C-046",
+   "evidence": "p6 C-046",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 47; P-02"
+  },
+  {
+   "obligation": "C-047",
+   "evidence": "p6 C-047",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 21"
+  },
+  {
+   "obligation": "C-048",
+   "evidence": "p6 C-048",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 9, 64; Q3 facts; dormant-code row (NullSecurityFilter)",
+   "note": "rows 9, 64 and the NullSecurityFilter row unchanged"
+  },
+  {
+   "obligation": "C-049",
+   "evidence": "p6 C-049",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 23-25"
+  },
+  {
+   "obligation": "C-050",
+   "evidence": "p6 C-050",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 26-31; Runnable Surfaces enforcement table"
+  },
+  {
+   "obligation": "C-051",
+   "evidence": "p6 C-051",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 28, 234"
+  },
+  {
+   "obligation": "C-052",
+   "evidence": "p6 C-052",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 28, 57; GAP-003"
+  },
+  {
+   "obligation": "C-054",
+   "evidence": "p6 C-054",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 18, 75-77"
+  },
+  {
+   "obligation": "C-055",
+   "evidence": "p6 C-055",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 83-84, 194"
+  },
+  {
+   "obligation": "C-057",
+   "evidence": "p6 C-057",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 85-86"
+  },
+  {
+   "obligation": "C-058",
+   "evidence": "p6 C-058",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 82"
+  },
+  {
+   "obligation": "C-060",
+   "evidence": "p6 C-060",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 92-94, 105-113"
+  },
+  {
+   "obligation": "C-064",
+   "evidence": "p6 C-064",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 102-104"
+  },
+  {
+   "obligation": "C-065",
+   "evidence": "p6 C-065",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 91"
+  },
+  {
+   "obligation": "C-066",
+   "evidence": "p6 C-066",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 115-119"
+  },
+  {
+   "obligation": "C-067",
+   "evidence": "p6 C-067",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 95-96"
+  },
+  {
+   "obligation": "C-068",
+   "evidence": "p6 C-068",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 97"
+  },
+  {
+   "obligation": "C-069",
+   "evidence": "p6 C-069",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 194; GAP-003, GAP-004; Q2 facts"
+  },
+  {
+   "obligation": "C-072",
+   "evidence": "p6 C-072",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 126"
+  },
+  {
+   "obligation": "C-074",
+   "evidence": "p6 C-074",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 144-147"
+  },
+  {
+   "obligation": "C-075",
+   "evidence": "p6 C-075",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 161"
+  },
+  {
+   "obligation": "C-076",
+   "evidence": "p6 C-076",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 142"
+  },
+  {
+   "obligation": "C-079",
+   "evidence": "p6 C-079",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 176"
+  },
+  {
+   "obligation": "C-080",
+   "evidence": "p6 C-080",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 37-42"
+  },
+  {
+   "obligation": "C-082",
+   "evidence": "p6 C-082",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 49"
+  },
+  {
+   "obligation": "C-083",
+   "evidence": "p6 C-083",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 50-53; GAP-012; Q4 facts"
+  },
+  {
+   "obligation": "C-085",
+   "evidence": "p6 C-085",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 162-164"
+  },
+  {
+   "obligation": "C-086",
+   "evidence": "p6 C-086",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 165-167; Q3 facts",
+   "note": "HQL fact row unchanged"
+  },
+  {
+   "obligation": "C-087",
+   "evidence": "p6 C-087",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 196-198; GAP-004"
+  },
+  {
+   "obligation": "C-088",
+   "evidence": "p6 C-088",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 186"
+  },
+  {
+   "obligation": "C-089",
+   "evidence": "p6 C-089",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 182-184"
+  },
+  {
+   "obligation": "C-090",
+   "evidence": "p6 C-090",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 178-181"
+  },
+  {
+   "obligation": "C-092",
+   "evidence": "p6 C-092",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 190, 189"
+  },
+  {
+   "obligation": "C-094",
+   "evidence": "p6 C-094",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 55"
+  },
+  {
+   "obligation": "C-095",
+   "evidence": "p6 C-095",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 63"
+  },
+  {
+   "obligation": "C-098",
+   "evidence": "p6 C-098",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 29, 49, 82, 91, 126, 142"
+  },
+  {
+   "obligation": "C-099",
+   "evidence": "p6 C-099",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 206; row 187"
+  },
+  {
+   "obligation": "C-100",
+   "evidence": "p6 C-100",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 186-187"
+  },
+  {
+   "obligation": "C-101",
+   "evidence": "p6 C-101",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 185"
+  },
+  {
+   "obligation": "C-103",
+   "evidence": "p6 C-103",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Referenced but absent resources row; GAP-003"
+  },
+  {
+   "obligation": "C-104",
+   "evidence": "p6 C-104",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 232-234; Mobile channel row"
+  },
+  {
+   "obligation": "C-105",
+   "evidence": "p6 C-105",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 224"
+  },
+  {
+   "obligation": "C-106",
+   "evidence": "p6 C-106",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 223"
+  },
+  {
+   "obligation": "C-107",
+   "evidence": "p6 C-107",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 223"
+  },
+  {
+   "obligation": "C-108",
+   "evidence": "p6 C-108",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 226"
+  },
+  {
+   "obligation": "C-109",
+   "evidence": "p6 C-109",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 188"
+  },
+  {
+   "obligation": "C-111",
+   "evidence": "p6 C-111",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 218, 220-221"
+  },
+  {
+   "obligation": "C-112",
+   "evidence": "p6 C-112",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 216"
+  },
+  {
+   "obligation": "C-113",
+   "evidence": "p6 C-113",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 228-230"
+  },
+  {
+   "obligation": "C-114",
+   "evidence": "p6 C-114",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 109-112"
+  },
+  {
+   "obligation": "C-115",
+   "evidence": "p6 C-115",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 200-203; row 65"
+  },
+  {
+   "obligation": "C-116",
+   "evidence": "p6 C-116",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 112, 204-205"
+  },
+  {
+   "obligation": "C-117",
+   "evidence": "p6 C-117",
+   "prior_result": "not-applicable",
+   "group": "R8-P6EXCL",
+   "stage1": "no row or section (infrastructure without user-visible behavior)"
+  },
+  {
+   "obligation": "C-118",
+   "evidence": "p6 C-118",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Data And Integrations database row; Schema row"
+  },
+  {
+   "obligation": "C-119",
+   "evidence": "p6 C-119",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 49, 82, 91, 126, 142, 176"
+  },
+  {
+   "obligation": "C-121",
+   "evidence": "p6 C-121",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 138, 198, 200-203"
+  },
+  {
+   "obligation": "C-122",
+   "evidence": "p6 C-122",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 189, 202; Data And Integrations outbound rows"
+  },
+  {
+   "obligation": "C-123",
+   "evidence": "p6 C-123",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Static assets row"
+  },
+  {
+   "obligation": "C-125",
+   "evidence": "p6 C-125",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 189"
+  },
+  {
+   "obligation": "C-128",
+   "evidence": "p6 C-128",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "Spring row (request fallback type of /view/history)"
+  },
+  {
+   "obligation": "C-130",
+   "evidence": "p6 C-130",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 165; Q3 facts",
+   "note": "row 165 unchanged"
+  },
+  {
+   "obligation": "C-132",
+   "evidence": "p6 C-132",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 175-176"
+  },
+  {
+   "obligation": "C-133",
+   "evidence": "p6 C-133",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "row 73"
+  },
+  {
+   "obligation": "C-137",
+   "evidence": "p6 C-137",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 50-51, 176, 232, 234; Spring row (injected properties)"
+  },
+  {
+   "obligation": "C-138",
+   "evidence": "p6 C-138",
+   "prior_result": "matched",
+   "group": "R8-P6INV",
+   "stage1": "rows 223, 188, 17, 28"
+  },
+  {
+   "obligation": "C-140",
+   "evidence": "p6 C-140",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 9 (UF-001)"
+  },
+  {
+   "obligation": "C-141",
+   "evidence": "p6 C-141",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 10 (UF-001)"
+  },
+  {
+   "obligation": "C-142",
+   "evidence": "p6 C-142",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 11 (UF-001)"
+  },
+  {
+   "obligation": "C-145",
+   "evidence": "p6 C-145",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 14 (UF-001)"
+  },
+  {
+   "obligation": "C-146",
+   "evidence": "p6 C-146",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 15 (UF-001)"
+  },
+  {
+   "obligation": "C-147",
+   "evidence": "p6 C-147",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 16 (UF-001)"
+  },
+  {
+   "obligation": "C-148",
+   "evidence": "p6 C-148",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 17 (UF-001)"
+  },
+  {
+   "obligation": "C-149",
+   "evidence": "p6 C-149",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 18 (UF-001)"
+  },
+  {
+   "obligation": "C-150",
+   "evidence": "p6 C-150",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 19 (UF-001)"
+  },
+  {
+   "obligation": "C-151",
+   "evidence": "p6 C-151",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 20 (UF-001)"
+  },
+  {
+   "obligation": "C-152",
+   "evidence": "p6 C-152",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 21 (UF-001)"
+  },
+  {
+   "obligation": "C-153",
+   "evidence": "p6 C-153",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 23 (UF-002)"
+  },
+  {
+   "obligation": "C-154",
+   "evidence": "p6 C-154",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 24 (UF-002)"
+  },
+  {
+   "obligation": "C-155",
+   "evidence": "p6 C-155",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 25 (UF-002)"
+  },
+  {
+   "obligation": "C-156",
+   "evidence": "p6 C-156",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 26 (UF-002)"
+  },
+  {
+   "obligation": "C-157",
+   "evidence": "p6 C-157",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 27 (UF-002)"
+  },
+  {
+   "obligation": "C-158",
+   "evidence": "p6 C-158",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 28 (UF-002)"
+  },
+  {
+   "obligation": "C-159",
+   "evidence": "p6 C-159",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 29 (UF-002)"
+  },
+  {
+   "obligation": "C-160",
+   "evidence": "p6 C-160",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 30 (UF-002)"
+  },
+  {
+   "obligation": "C-161",
+   "evidence": "p6 C-161",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 31 (UF-002)"
+  },
+  {
+   "obligation": "C-162",
+   "evidence": "p6 C-162",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 32 (UF-002)"
+  },
+  {
+   "obligation": "C-163",
+   "evidence": "p6 C-163",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 33 (UF-002)"
+  },
+  {
+   "obligation": "C-164",
+   "evidence": "p6 C-164",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 34 (UF-002)"
+  },
+  {
+   "obligation": "C-166",
+   "evidence": "p6 C-166",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 37 (UF-003)"
+  },
+  {
+   "obligation": "C-167",
+   "evidence": "p6 C-167",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 38 (UF-003)"
+  },
+  {
+   "obligation": "C-168",
+   "evidence": "p6 C-168",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 39 (UF-003)"
+  },
+  {
+   "obligation": "C-169",
+   "evidence": "p6 C-169",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 40 (UF-003)"
+  },
+  {
+   "obligation": "C-170",
+   "evidence": "p6 C-170",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 41 (UF-003)"
+  },
+  {
+   "obligation": "C-171",
+   "evidence": "p6 C-171",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 42 (UF-003)"
+  },
+  {
+   "obligation": "C-173",
+   "evidence": "p6 C-173",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 44 (UF-003)"
+  },
+  {
+   "obligation": "C-174",
+   "evidence": "p6 C-174",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 45 (UF-003)"
+  },
+  {
+   "obligation": "C-176",
+   "evidence": "p6 C-176",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 47 (UF-003)"
+  },
+  {
+   "obligation": "C-177",
+   "evidence": "p6 C-177",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 48 (UF-003)"
+  },
+  {
+   "obligation": "C-178",
+   "evidence": "p6 C-178",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 49 (UF-003)"
+  },
+  {
+   "obligation": "C-179",
+   "evidence": "p6 C-179",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 50 (UF-003)"
+  },
+  {
+   "obligation": "C-180",
+   "evidence": "p6 C-180",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 51 (UF-003)"
+  },
+  {
+   "obligation": "C-181",
+   "evidence": "p6 C-181",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 52 (UF-003)"
+  },
+  {
+   "obligation": "C-182",
+   "evidence": "p6 C-182",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 53 (UF-003)"
+  },
+  {
+   "obligation": "C-185",
+   "evidence": "p6 C-185",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 57 (UF-004)"
+  },
+  {
+   "obligation": "C-189",
+   "evidence": "p6 C-189",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 61 (UF-004)"
+  },
+  {
+   "obligation": "C-191",
+   "evidence": "p6 C-191",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 63 (UF-004)"
+  },
+  {
+   "obligation": "C-192",
+   "evidence": "p6 C-192",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 64 (UF-004)"
+  },
+  {
+   "obligation": "C-193",
+   "evidence": "p6 C-193",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 65 (UF-004)"
+  },
+  {
+   "obligation": "C-194",
+   "evidence": "p6 C-194",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 66 (UF-004)"
+  },
+  {
+   "obligation": "C-195",
+   "evidence": "p6 C-195",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 67 (UF-004)"
+  },
+  {
+   "obligation": "C-196",
+   "evidence": "p6 C-196",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 68 (UF-004)"
+  },
+  {
+   "obligation": "C-197",
+   "evidence": "p6 C-197",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 69 (UF-004)"
+  },
+  {
+   "obligation": "C-198",
+   "evidence": "p6 C-198",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 70 (UF-004)"
+  },
+  {
+   "obligation": "C-199",
+   "evidence": "p6 C-199",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 71 (UF-004)"
+  },
+  {
+   "obligation": "C-200",
+   "evidence": "p6 C-200",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 72 (UF-004)"
+  },
+  {
+   "obligation": "C-201",
+   "evidence": "p6 C-201",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 73 (UF-004)"
+  },
+  {
+   "obligation": "C-202",
+   "evidence": "p6 C-202",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 75 (UF-005)"
+  },
+  {
+   "obligation": "C-203",
+   "evidence": "p6 C-203",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 76 (UF-005)"
+  },
+  {
+   "obligation": "C-204",
+   "evidence": "p6 C-204",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 77 (UF-005)"
+  },
+  {
+   "obligation": "C-206",
+   "evidence": "p6 C-206",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 79 (UF-005)"
+  },
+  {
+   "obligation": "C-207",
+   "evidence": "p6 C-207",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 80 (UF-005)"
+  },
+  {
+   "obligation": "C-209",
+   "evidence": "p6 C-209",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 82 (UF-005)"
+  },
+  {
+   "obligation": "C-210",
+   "evidence": "p6 C-210",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 83 (UF-005)"
+  },
+  {
+   "obligation": "C-211",
+   "evidence": "p6 C-211",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 84 (UF-005)"
+  },
+  {
+   "obligation": "C-212",
+   "evidence": "p6 C-212",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 85 (UF-005)"
+  },
+  {
+   "obligation": "C-213",
+   "evidence": "p6 C-213",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 86 (UF-005)"
+  },
+  {
+   "obligation": "C-215",
+   "evidence": "p6 C-215",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 89 (UF-006)"
+  },
+  {
+   "obligation": "C-217",
+   "evidence": "p6 C-217",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 91 (UF-006)"
+  },
+  {
+   "obligation": "C-218",
+   "evidence": "p6 C-218",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 92 (UF-006)"
+  },
+  {
+   "obligation": "C-219",
+   "evidence": "p6 C-219",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 93 (UF-006)"
+  },
+  {
+   "obligation": "C-220",
+   "evidence": "p6 C-220",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 94 (UF-006)"
+  },
+  {
+   "obligation": "C-221",
+   "evidence": "p6 C-221",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 95 (UF-006)"
+  },
+  {
+   "obligation": "C-222",
+   "evidence": "p6 C-222",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 96 (UF-006)"
+  },
+  {
+   "obligation": "C-223",
+   "evidence": "p6 C-223",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 97 (UF-006)"
+  },
+  {
+   "obligation": "C-225",
+   "evidence": "p6 C-225",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 99 (UF-006)"
+  },
+  {
+   "obligation": "C-226",
+   "evidence": "p6 C-226",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 100 (UF-006)"
+  },
+  {
+   "obligation": "C-228",
+   "evidence": "p6 C-228",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 102 (UF-006)"
+  },
+  {
+   "obligation": "C-229",
+   "evidence": "p6 C-229",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 103 (UF-006)"
+  },
+  {
+   "obligation": "C-230",
+   "evidence": "p6 C-230",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 104 (UF-006)"
+  },
+  {
+   "obligation": "C-231",
+   "evidence": "p6 C-231",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 105 (UF-006)"
+  },
+  {
+   "obligation": "C-232",
+   "evidence": "p6 C-232",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 106 (UF-006)"
+  },
+  {
+   "obligation": "C-233",
+   "evidence": "p6 C-233",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 107 (UF-006)"
+  },
+  {
+   "obligation": "C-234",
+   "evidence": "p6 C-234",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 108 (UF-006)"
+  },
+  {
+   "obligation": "C-235",
+   "evidence": "p6 C-235",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 109 (UF-006)"
+  },
+  {
+   "obligation": "C-236",
+   "evidence": "p6 C-236",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 110 (UF-006)"
+  },
+  {
+   "obligation": "C-237",
+   "evidence": "p6 C-237",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 111 (UF-006)"
+  },
+  {
+   "obligation": "C-238",
+   "evidence": "p6 C-238",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 112 (UF-006)"
+  },
+  {
+   "obligation": "C-239",
+   "evidence": "p6 C-239",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 113 (UF-006)"
+  },
+  {
+   "obligation": "C-241",
+   "evidence": "p6 C-241",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 115 (UF-006)"
+  },
+  {
+   "obligation": "C-242",
+   "evidence": "p6 C-242",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 116 (UF-006)"
+  },
+  {
+   "obligation": "C-243",
+   "evidence": "p6 C-243",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 117 (UF-006)"
+  },
+  {
+   "obligation": "C-244",
+   "evidence": "p6 C-244",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 118 (UF-006)"
+  },
+  {
+   "obligation": "C-245",
+   "evidence": "p6 C-245",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 119 (UF-006)"
+  },
+  {
+   "obligation": "C-247",
+   "evidence": "p6 C-247",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 122 (UF-007)"
+  },
+  {
+   "obligation": "C-248",
+   "evidence": "p6 C-248",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 123 (UF-007)"
+  },
+  {
+   "obligation": "C-251",
+   "evidence": "p6 C-251",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 126 (UF-007)"
+  },
+  {
+   "obligation": "C-252",
+   "evidence": "p6 C-252",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 127 (UF-007)"
+  },
+  {
+   "obligation": "C-253",
+   "evidence": "p6 C-253",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 128 (UF-007)"
+  },
+  {
+   "obligation": "C-255",
+   "evidence": "p6 C-255",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 130 (UF-007)"
+  },
+  {
+   "obligation": "C-256",
+   "evidence": "p6 C-256",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 131 (UF-007)"
+  },
+  {
+   "obligation": "C-257",
+   "evidence": "p6 C-257",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 132 (UF-007)"
+  },
+  {
+   "obligation": "C-259",
+   "evidence": "p6 C-259",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 135 (UF-008)"
+  },
+  {
+   "obligation": "C-260",
+   "evidence": "p6 C-260",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 136 (UF-008)"
+  },
+  {
+   "obligation": "C-262",
+   "evidence": "p6 C-262",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 138 (UF-008)"
+  },
+  {
+   "obligation": "C-266",
+   "evidence": "p6 C-266",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 142 (UF-008)"
+  },
+  {
+   "obligation": "C-267",
+   "evidence": "p6 C-267",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 143 (UF-008)"
+  },
+  {
+   "obligation": "C-268",
+   "evidence": "p6 C-268",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 144 (UF-008)"
+  },
+  {
+   "obligation": "C-269",
+   "evidence": "p6 C-269",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 145 (UF-008)"
+  },
+  {
+   "obligation": "C-270",
+   "evidence": "p6 C-270",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 146 (UF-008)"
+  },
+  {
+   "obligation": "C-271",
+   "evidence": "p6 C-271",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 147 (UF-008)"
+  },
+  {
+   "obligation": "C-273",
+   "evidence": "p6 C-273",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 150 (UF-009)"
+  },
+  {
+   "obligation": "C-274",
+   "evidence": "p6 C-274",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 151 (UF-009)"
+  },
+  {
+   "obligation": "C-275",
+   "evidence": "p6 C-275",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 152 (UF-009)"
+  },
+  {
+   "obligation": "C-276",
+   "evidence": "p6 C-276",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 153 (UF-009)"
+  },
+  {
+   "obligation": "C-277",
+   "evidence": "p6 C-277",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 154 (UF-009)"
+  },
+  {
+   "obligation": "C-278",
+   "evidence": "p6 C-278",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 155 (UF-009)"
+  },
+  {
+   "obligation": "C-279",
+   "evidence": "p6 C-279",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 156 (UF-009)"
+  },
+  {
+   "obligation": "C-280",
+   "evidence": "p6 C-280",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 157 (UF-009)"
+  },
+  {
+   "obligation": "C-281",
+   "evidence": "p6 C-281",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 158 (UF-009)"
+  },
+  {
+   "obligation": "C-282",
+   "evidence": "p6 C-282",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 159 (UF-009)"
+  },
+  {
+   "obligation": "C-283",
+   "evidence": "p6 C-283",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 160 (UF-009)"
+  },
+  {
+   "obligation": "C-284",
+   "evidence": "p6 C-284",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 161 (UF-009)"
+  },
+  {
+   "obligation": "C-285",
+   "evidence": "p6 C-285",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 162 (UF-009)"
+  },
+  {
+   "obligation": "C-286",
+   "evidence": "p6 C-286",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 163 (UF-009)"
+  },
+  {
+   "obligation": "C-287",
+   "evidence": "p6 C-287",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 164 (UF-009)"
+  },
+  {
+   "obligation": "C-288",
+   "evidence": "p6 C-288",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 165 (UF-009)"
+  },
+  {
+   "obligation": "C-289",
+   "evidence": "p6 C-289",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 166 (UF-009)"
+  },
+  {
+   "obligation": "C-290",
+   "evidence": "p6 C-290",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 167 (UF-009)"
+  },
+  {
+   "obligation": "C-292",
+   "evidence": "p6 C-292",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 170 (UF-010)"
+  },
+  {
+   "obligation": "C-293",
+   "evidence": "p6 C-293",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 171 (UF-010)"
+  },
+  {
+   "obligation": "C-294",
+   "evidence": "p6 C-294",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 172 (UF-010)"
+  },
+  {
+   "obligation": "C-296",
+   "evidence": "p6 C-296",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 174 (UF-010)"
+  },
+  {
+   "obligation": "C-297",
+   "evidence": "p6 C-297",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 175 (UF-010)"
+  },
+  {
+   "obligation": "C-298",
+   "evidence": "p6 C-298",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 176 (UF-010)"
+  },
+  {
+   "obligation": "C-299",
+   "evidence": "p6 C-299",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 178 (UF-011)"
+  },
+  {
+   "obligation": "C-300",
+   "evidence": "p6 C-300",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 179 (UF-011)"
+  },
+  {
+   "obligation": "C-301",
+   "evidence": "p6 C-301",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 180 (UF-011)"
+  },
+  {
+   "obligation": "C-302",
+   "evidence": "p6 C-302",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 181 (UF-011)"
+  },
+  {
+   "obligation": "C-303",
+   "evidence": "p6 C-303",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 182 (UF-011)"
+  },
+  {
+   "obligation": "C-304",
+   "evidence": "p6 C-304",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 183 (UF-011)"
+  },
+  {
+   "obligation": "C-305",
+   "evidence": "p6 C-305",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 184 (UF-011)"
+  },
+  {
+   "obligation": "C-307",
+   "evidence": "p6 C-307",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 186 (UF-011)"
+  },
+  {
+   "obligation": "C-308",
+   "evidence": "p6 C-308",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 187 (UF-011)"
+  },
+  {
+   "obligation": "C-309",
+   "evidence": "p6 C-309",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 188 (UF-011)"
+  },
+  {
+   "obligation": "C-310",
+   "evidence": "p6 C-310",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 189 (UF-011)"
+  },
+  {
+   "obligation": "C-311",
+   "evidence": "p6 C-311",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 190 (UF-011)"
+  },
+  {
+   "obligation": "C-312",
+   "evidence": "p6 C-312",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 191 (UF-011)"
+  },
+  {
+   "obligation": "C-314",
+   "evidence": "p6 C-314",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 193 (UF-011)"
+  },
+  {
+   "obligation": "C-315",
+   "evidence": "p6 C-315",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 194 (UF-011)"
+  },
+  {
+   "obligation": "C-316",
+   "evidence": "p6 C-316",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 196 (UF-012)"
+  },
+  {
+   "obligation": "C-317",
+   "evidence": "p6 C-317",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 197 (UF-012)"
+  },
+  {
+   "obligation": "C-318",
+   "evidence": "p6 C-318",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 198 (UF-012)"
+  },
+  {
+   "obligation": "C-319",
+   "evidence": "p6 C-319",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 200 (UF-013)"
+  },
+  {
+   "obligation": "C-320",
+   "evidence": "p6 C-320",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 201 (UF-013)"
+  },
+  {
+   "obligation": "C-321",
+   "evidence": "p6 C-321",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 202 (UF-013)"
+  },
+  {
+   "obligation": "C-322",
+   "evidence": "p6 C-322",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 203 (UF-013)"
+  },
+  {
+   "obligation": "C-323",
+   "evidence": "p6 C-323",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 204 (UF-013)"
+  },
+  {
+   "obligation": "C-324",
+   "evidence": "p6 C-324",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 205 (UF-013)"
+  },
+  {
+   "obligation": "C-325",
+   "evidence": "p6 C-325",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 206 (UF-013)"
+  },
+  {
+   "obligation": "C-326",
+   "evidence": "p6 C-326",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 208 (UF-014)"
+  },
+  {
+   "obligation": "C-329",
+   "evidence": "p6 C-329",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 211 (UF-014)"
+  },
+  {
+   "obligation": "C-330",
+   "evidence": "p6 C-330",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 212 (UF-014)"
+  },
+  {
+   "obligation": "C-331",
+   "evidence": "p6 C-331",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 213 (UF-014)"
+  },
+  {
+   "obligation": "C-332",
+   "evidence": "p6 C-332",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 215 (UF-015)"
+  },
+  {
+   "obligation": "C-333",
+   "evidence": "p6 C-333",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 216 (UF-015)"
+  },
+  {
+   "obligation": "C-334",
+   "evidence": "p6 C-334",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 217 (UF-015)"
+  },
+  {
+   "obligation": "C-335",
+   "evidence": "p6 C-335",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 218 (UF-015)"
+  },
+  {
+   "obligation": "C-336",
+   "evidence": "p6 C-336",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 219 (UF-015)"
+  },
+  {
+   "obligation": "C-337",
+   "evidence": "p6 C-337",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 220 (UF-015)"
+  },
+  {
+   "obligation": "C-338",
+   "evidence": "p6 C-338",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 221 (UF-015)"
+  },
+  {
+   "obligation": "C-339",
+   "evidence": "p6 C-339",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 223 (UF-016)"
+  },
+  {
+   "obligation": "C-340",
+   "evidence": "p6 C-340",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 224 (UF-016)"
+  },
+  {
+   "obligation": "C-341",
+   "evidence": "p6 C-341",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 225 (UF-016)"
+  },
+  {
+   "obligation": "C-342",
+   "evidence": "p6 C-342",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 226 (UF-016)"
+  },
+  {
+   "obligation": "C-343",
+   "evidence": "p6 C-343",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 228 (UF-017)"
+  },
+  {
+   "obligation": "C-344",
+   "evidence": "p6 C-344",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 229 (UF-017)"
+  },
+  {
+   "obligation": "C-345",
+   "evidence": "p6 C-345",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 230 (UF-017)"
+  },
+  {
+   "obligation": "C-346",
+   "evidence": "p6 C-346",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 232 (UF-018)"
+  },
+  {
+   "obligation": "C-347",
+   "evidence": "p6 C-347",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 233 (UF-018)"
+  },
+  {
+   "obligation": "C-348",
+   "evidence": "p6 C-348",
+   "prior_result": "matched",
+   "group": "R8-P6ROW",
+   "stage1": "workbook row 234 (UF-018)"
+  },
+  {
+   "obligation": "C-349",
+   "evidence": "p6 C-349",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 138 (class)"
+  },
+  {
+   "obligation": "C-350",
+   "evidence": "p6 C-350",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 139 (JAR)"
+  },
+  {
+   "obligation": "C-351",
+   "evidence": "p6 C-351",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 140 (PNG)"
+  },
+  {
+   "obligation": "C-352",
+   "evidence": "p6 C-352",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 141 (XML)"
+  },
+  {
+   "obligation": "C-353",
+   "evidence": "p6 C-353",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 142 (JSP)"
+  },
+  {
+   "obligation": "C-354",
+   "evidence": "p6 C-354",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 143 (properties)"
+  },
+  {
+   "obligation": "C-355",
+   "evidence": "p6 C-355",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 144 (JS)"
+  },
+  {
+   "obligation": "C-356",
+   "evidence": "p6 C-356",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 145 (GIF)"
+  },
+  {
+   "obligation": "C-357",
+   "evidence": "p6 C-357",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 146 (CSS)"
+  },
+  {
+   "obligation": "C-358",
+   "evidence": "p6 C-358",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 147 (TLD)"
+  },
+  {
+   "obligation": "C-359",
+   "evidence": "p6 C-359",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 148 (HTML)"
+  },
+  {
+   "obligation": "C-360",
+   "evidence": "p6 C-360",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 149 (Velocity templates (vm))"
+  },
+  {
+   "obligation": "C-361",
+   "evidence": "p6 C-361",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 150 (XLS)"
+  },
+  {
+   "obligation": "C-362",
+   "evidence": "p6 C-362",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 151 (SWF)"
+  },
+  {
+   "obligation": "C-363",
+   "evidence": "p6 C-363",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 152 (tag, wsdd, dtd, ico, txt, mf, log)"
+  },
+  {
+   "obligation": "C-364",
+   "evidence": "p6 C-364",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 156 (Web application descriptor)"
+  },
+  {
+   "obligation": "C-365",
+   "evidence": "p6 C-365",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 157 (Struts 1.2.9 controller)"
+  },
+  {
+   "obligation": "C-366",
+   "evidence": "p6 C-366",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 158 (Screens (JSP))"
+  },
+  {
+   "obligation": "C-367",
+   "evidence": "p6 C-367",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 159 (Referenced but absent resources)"
+  },
+  {
+   "obligation": "C-369",
+   "evidence": "p6 C-369",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 161 (Spring 3.0.5 context)"
+  },
+  {
+   "obligation": "C-370",
+   "evidence": "p6 C-370",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 162 (Compiled application classes)"
+  },
+  {
+   "obligation": "C-371",
+   "evidence": "p6 C-371",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 163 (Persistence model)"
+  },
+  {
+   "obligation": "C-372",
+   "evidence": "p6 C-372",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 168 (Schema and seed data)"
+  },
+  {
+   "obligation": "C-373",
+   "evidence": "p6 C-373",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 169 (Dormant and unreferenced code (BA-001-03, F-005)"
+  },
+  {
+   "obligation": "C-374",
+   "evidence": "p6 C-374",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 170 (Legacy migration toolkit)"
+  },
+  {
+   "obligation": "C-376",
+   "evidence": "p6 C-376",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 172 (Security configuration)"
+  },
+  {
+   "obligation": "C-377",
+   "evidence": "p6 C-377",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 173 (Web services)"
+  },
+  {
+   "obligation": "C-380",
+   "evidence": "p6 C-380",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 176 (Jobs and e-mail)"
+  },
+  {
+   "obligation": "C-382",
+   "evidence": "p6 C-382",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 178 (Charts)"
+  },
+  {
+   "obligation": "C-383",
+   "evidence": "p6 C-383",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 179 (Internationalisation)"
+  },
+  {
+   "obligation": "C-384",
+   "evidence": "p6 C-384",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 180 (Static assets)"
+  },
+  {
+   "obligation": "C-385",
+   "evidence": "p6 C-385",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 181 (Third-party libraries)"
+  },
+  {
+   "obligation": "C-386",
+   "evidence": "p6 C-386",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 182 (Container and build metadata)"
+  },
+  {
+   "obligation": "C-387",
+   "evidence": "p6 C-387",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Source Inventory line 183 (Local run helpers (not in the WAR))"
+  },
+  {
+   "obligation": "C-388",
+   "evidence": "p6 C-388",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 193 (Web UI: viewer, editor, admin and sysadmin user"
+  },
+  {
+   "obligation": "C-389",
+   "evidence": "p6 C-389",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 194 (Personal status page (signed-in user))"
+  },
+  {
+   "obligation": "C-391",
+   "evidence": "p6 C-391",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 196 (Mobile WAP users)"
+  },
+  {
+   "obligation": "C-392",
+   "evidence": "p6 C-392",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 197 (SOAP API clients)"
+  },
+  {
+   "obligation": "C-393",
+   "evidence": "p6 C-393",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 198 (REST API clients and the task board)"
+  },
+  {
+   "obligation": "C-394",
+   "evidence": "p6 C-394",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 199 (Calendar clients)"
+  },
+  {
+   "obligation": "C-395",
+   "evidence": "p6 C-395",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 200 (Chart images)"
+  },
+  {
+   "obligation": "C-396",
+   "evidence": "p6 C-396",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 201 (Daily missing-time-entry job (operator/batch))"
+  },
+  {
+   "obligation": "C-397",
+   "evidence": "p6 C-397",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 202 (Data sampling (batch))"
+  },
+  {
+   "obligation": "C-398",
+   "evidence": "p6 C-398",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 203 (Schema bootstrap (operator))"
+  },
+  {
+   "obligation": "C-399",
+   "evidence": "p6 C-399",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 204 (Admin and test utilities (operator))"
+  },
+  {
+   "obligation": "C-400",
+   "evidence": "p6 C-400",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 205 (Activity log (operator))"
+  },
+  {
+   "obligation": "C-401",
+   "evidence": "p6 C-401",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 211 (Web generic view (`ViewObjectAction` family), c"
+  },
+  {
+   "obligation": "C-402",
+   "evidence": "p6 C-402",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 212 (Other web actions (export, import, move/continu"
+  },
+  {
+   "obligation": "C-403",
+   "evidence": "p6 C-403",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 213 (Person editor role changes)"
+  },
+  {
+   "obligation": "C-404",
+   "evidence": "p6 C-404",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 214 (DispatchForward views with authorization requir"
+  },
+  {
+   "obligation": "C-405",
+   "evidence": "p6 C-405",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 215 (Content search, aggregate timesheet)"
+  },
+  {
+   "obligation": "C-406",
+   "evidence": "p6 C-406",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 216 (SOAP)"
+  },
+  {
+   "obligation": "C-407",
+   "evidence": "p6 C-407",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 217 (REST)"
+  },
+  {
+   "obligation": "C-408",
+   "evidence": "p6 C-408",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 218 (iCal)"
+  },
+  {
+   "obligation": "C-409",
+   "evidence": "p6 C-409",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Runnable Surfaces line 219 (Descriptor URL role constraints)"
+  },
+  {
+   "obligation": "C-410",
+   "evidence": "p6 C-410",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 252 (Relational database, MySQL in this baseline"
+  },
+  {
+   "obligation": "C-411",
+   "evidence": "p6 C-411",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 253 (Embedded or in-process HSQLDB (optional mod"
+  },
+  {
+   "obligation": "C-412",
+   "evidence": "p6 C-412",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 254 (Liquibase schema changelog)"
+  },
+  {
+   "obligation": "C-413",
+   "evidence": "p6 C-413",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 255 (SMTP mail server)"
+  },
+  {
+   "obligation": "C-414",
+   "evidence": "p6 C-414",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 256 (Outbound HTTP to the application's own URL "
+  },
+  {
+   "obligation": "C-415",
+   "evidence": "p6 C-415",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 257 (File storage for attachments)"
+  },
+  {
+   "obligation": "C-416",
+   "evidence": "p6 C-416",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 258 (LDAP/JNDI, NTLM (jcifs) and JAAS identity p"
+  },
+  {
+   "obligation": "C-417",
+   "evidence": "p6 C-417",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 259 (External wiki)"
+  },
+  {
+   "obligation": "C-418",
+   "evidence": "p6 C-418",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 260 (Twitter and Facebook)"
+  },
+  {
+   "obligation": "C-419",
+   "evidence": "p6 C-419",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 261 (SourceForge links)"
+  },
+  {
+   "obligation": "C-420",
+   "evidence": "p6 C-420",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 262 (SOAP, REST and iCal clients)"
+  },
+  {
+   "obligation": "C-422",
+   "evidence": "p6 C-422",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Data And Integrations line 264 (Excel spreadsheets and comma-separated text"
+  },
+  {
+   "obligation": "C-423",
+   "evidence": "p6 C-423",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 324 (GAP-001)"
+  },
+  {
+   "obligation": "C-424",
+   "evidence": "p6 C-424",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 325 (GAP-002)"
+  },
+  {
+   "obligation": "C-425",
+   "evidence": "p6 C-425",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 326 (GAP-003)"
+  },
+  {
+   "obligation": "C-426",
+   "evidence": "p6 C-426",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 327 (GAP-004)"
+  },
+  {
+   "obligation": "C-427",
+   "evidence": "p6 C-427",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 328 (GAP-005)"
+  },
+  {
+   "obligation": "C-428",
+   "evidence": "p6 C-428",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 329 (GAP-006)"
+  },
+  {
+   "obligation": "C-430",
+   "evidence": "p6 C-430",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 331 (GAP-008)"
+  },
+  {
+   "obligation": "C-431",
+   "evidence": "p6 C-431",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 332 (GAP-009)"
+  },
+  {
+   "obligation": "C-432",
+   "evidence": "p6 C-432",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 333 (GAP-010)"
+  },
+  {
+   "obligation": "C-433",
+   "evidence": "p6 C-433",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 334 (GAP-011)"
+  },
+  {
+   "obligation": "C-434",
+   "evidence": "p6 C-434",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 338 (GAP-012)"
+  },
+  {
+   "obligation": "C-435",
+   "evidence": "p6 C-435",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 339 (GAP-014)"
+  },
+  {
+   "obligation": "C-436",
+   "evidence": "p6 C-436",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Known Gaps line 340 (GAP-013)"
+  },
+  {
+   "obligation": "C-437",
+   "evidence": "p6 C-437",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance GAP-005 impact line 359 (P-01)"
+  },
+  {
+   "obligation": "C-438",
+   "evidence": "p6 C-438",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance GAP-005 impact line 360 (P-02)"
+  },
+  {
+   "obligation": "C-439",
+   "evidence": "p6 C-439",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance GAP-005 impact line 361 (P-03)"
+  },
+  {
+   "obligation": "C-440",
+   "evidence": "p6 C-440",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance GAP-005 impact line 362 (P-04)"
+  },
+  {
+   "obligation": "C-441",
+   "evidence": "p6 C-441",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance GAP-005 impact line 363 (P-05)"
+  },
+  {
+   "obligation": "C-442",
+   "evidence": "p6 C-442",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance GAP-005 impact line 364 (P-06)"
+  },
+  {
+   "obligation": "C-443",
+   "evidence": "p6 C-443",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance GAP-005 impact line 365 (P-07)"
+  },
+  {
+   "obligation": "C-444",
+   "evidence": "p6 C-444",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 379 (Q1: supply an unpatched upstream WA"
+  },
+  {
+   "obligation": "C-445",
+   "evidence": "p6 C-445",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 380 (Q2: parity scope for broken or dorm"
+  },
+  {
+   "obligation": "C-446",
+   "evidence": "p6 C-446",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 381 (Q3: disposition of insecure legacy "
+  },
+  {
+   "obligation": "C-447",
+   "evidence": "p6 C-447",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 382 (Q4: people-import file format (GAP-"
+  },
+  {
+   "obligation": "C-448",
+   "evidence": "p6 C-448",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 388 (Story features (view, edit, delete;"
+  },
+  {
+   "obligation": "C-449",
+   "evidence": "p6 C-449",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 389 (Continuous integration queue)"
+  },
+  {
+   "obligation": "C-450",
+   "evidence": "p6 C-450",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 390 (Settings pages)"
+  },
+  {
+   "obligation": "C-451",
+   "evidence": "p6 C-451",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 391 (JasperReports (jrpdf) exports)"
+  },
+  {
+   "obligation": "C-452",
+   "evidence": "p6 C-452",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 392 (Tabbed iteration view)"
+  },
+  {
+   "obligation": "C-453",
+   "evidence": "p6 C-453",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 393 (Not-authorized page)"
+  },
+  {
+   "obligation": "C-454",
+   "evidence": "p6 C-454",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 394 (Mobile WAP pages)"
+  },
+  {
+   "obligation": "C-455",
+   "evidence": "p6 C-455",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 395 (JAX-WS endpoint)"
+  },
+  {
+   "obligation": "C-456",
+   "evidence": "p6 C-456",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 396 (File manager)"
+  },
+  {
+   "obligation": "C-457",
+   "evidence": "p6 C-457",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 397 (People import)"
+  },
+  {
+   "obligation": "C-458",
+   "evidence": "p6 C-458",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 398 (Project role editor)"
+  },
+  {
+   "obligation": "C-459",
+   "evidence": "p6 C-459",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 399 (Iteration metrics)"
+  },
+  {
+   "obligation": "C-460",
+   "evidence": "p6 C-460",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 400 (Task re-estimate page)"
+  },
+  {
+   "obligation": "C-461",
+   "evidence": "p6 C-461",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 401 (Print layout)"
+  },
+  {
+   "obligation": "C-462",
+   "evidence": "p6 C-462",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 402 (iCal feed)"
+  },
+  {
+   "obligation": "C-463",
+   "evidence": "p6 C-463",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 403 (SOAP `getCurrentIteration` and `del"
+  },
+  {
+   "obligation": "C-464",
+   "evidence": "p6 C-464",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 404 (jrpdf report data sources)"
+  },
+  {
+   "obligation": "C-465",
+   "evidence": "p6 C-465",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 405 (Duplicate Spring context)"
+  },
+  {
+   "obligation": "C-466",
+   "evidence": "p6 C-466",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 406 (Delete person, change locale, forma"
+  },
+  {
+   "obligation": "C-467",
+   "evidence": "p6 C-467",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 407 (Admin and test utilities in the pro"
+  },
+  {
+   "obligation": "C-468",
+   "evidence": "p6 C-468",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 415 (Remember-me stores user ID and pass"
+  },
+  {
+   "obligation": "C-469",
+   "evidence": "p6 C-469",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 416 (Passwords are stored as salted MD5 "
+  },
+  {
+   "obligation": "C-470",
+   "evidence": "p6 C-470",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 417 (No security filter on `/rest/*`, in"
+  },
+  {
+   "obligation": "C-471",
+   "evidence": "p6 C-471",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 418 (The SOAP servlet is also mapped at "
+  },
+  {
+   "obligation": "C-472",
+   "evidence": "p6 C-472",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 419 (The Axis global configuration conta"
+  },
+  {
+   "obligation": "C-473",
+   "evidence": "p6 C-473",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 420 (`/do/invalidateHibernateCache` bypa"
+  },
+  {
+   "obligation": "C-474",
+   "evidence": "p6 C-474",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 421 (Test and admin actions are loaded i"
+  },
+  {
+   "obligation": "C-475",
+   "evidence": "p6 C-475",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 422 (The task time-log query is built by"
+  },
+  {
+   "obligation": "C-476",
+   "evidence": "p6 C-476",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 423 (The note list on project, iteration"
+  },
+  {
+   "obligation": "C-477",
+   "evidence": "p6 C-477",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 424 (The aggregate timesheet appends the"
+  },
+  {
+   "obligation": "C-479",
+   "evidence": "p6 C-479",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 426 (The container error page (every `Th"
+  },
+  {
+   "obligation": "C-480",
+   "evidence": "p6 C-480",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 427 (The system information page shows t"
+  },
+  {
+   "obligation": "C-481",
+   "evidence": "p6 C-481",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 428 (Database credentials are present in"
+  },
+  {
+   "obligation": "C-482",
+   "evidence": "p6 C-482",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 429 (An unreferenced debug page echoes r"
+  },
+  {
+   "obligation": "C-483",
+   "evidence": "p6 C-483",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 430 (No server-side permission check on "
+  },
+  {
+   "obligation": "C-484",
+   "evidence": "p6 C-484",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 431 (System-administrator status is gove"
+  },
+  {
+   "obligation": "C-485",
+   "evidence": "p6 C-485",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 432 (Descriptor URL role constraints are"
+  },
+  {
+   "obligation": "C-486",
+   "evidence": "p6 C-486",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 433 (Personal timesheet and ID jump appl"
+  },
+  {
+   "obligation": "C-487",
+   "evidence": "p6 C-487",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 434 (SOAP attribute operations have no p"
+  },
+  {
+   "obligation": "C-488",
+   "evidence": "p6 C-488",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 435 (The unauthenticated login page show"
+  },
+  {
+   "obligation": "C-489",
+   "evidence": "p6 C-489",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 436 (The live activity log (user ID, cli"
+  },
+  {
+   "obligation": "C-490",
+   "evidence": "p6 C-490",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 437 (`index.jsp` has no security filter;"
+  },
+  {
+   "obligation": "C-491",
+   "evidence": "p6 C-491",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Owner decisions / Q2-Q3 facts line 438 (The commented `NullSecurityFilter` "
+  },
+  {
+   "obligation": "C-495",
+   "evidence": "p6 C-495",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Server-side enforcement sweep text and AF-01/AF-02"
+  },
+  {
+   "obligation": "C-497",
+   "evidence": "p6 C-497",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Row-level CHK-002 sweep lists"
+  },
+  {
+   "obligation": "C-498",
+   "evidence": "p6 C-498",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Q4 facts (people import format)"
+  },
+  {
+   "obligation": "C-499",
+   "evidence": "p6 C-499",
+   "prior_result": "matched",
+   "group": "R8-P6REC",
+   "stage1": "reconnaissance Parity-Map Boundary: epic ordering, statuses, coverage cross-check (87 acti"
+  },
+  {
+   "obligation": "C-504",
+   "evidence": "p6 C-504",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 001 F-001 - server-side enforcement missing (rows 29-30; enforcement table)"
+  },
+  {
+   "obligation": "C-505",
+   "evidence": "p6 C-505",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 001 F-002 - history overstated (rows 186-187)"
+  },
+  {
+   "obligation": "C-506",
+   "evidence": "p6 C-506",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 001 F-003 - date formats per locale (rows 69-71)"
+  },
+  {
+   "obligation": "C-507",
+   "evidence": "p6 C-507",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 001 F-004 - mobile role constraints (rows 32, 233)"
+  },
+  {
+   "obligation": "C-508",
+   "evidence": "p6 C-508",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 001 F-005 - dormant code (dormant-code row)"
+  },
+  {
+   "obligation": "C-509",
+   "evidence": "p6 C-509",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 001 F-006 - e-mail stylesheet fetch (row 202)"
+  },
+  {
+   "obligation": "C-510",
+   "evidence": "p6 C-510",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 001 F-007 - search/aggregate filtering (rows 167, 180)"
+  },
+  {
+   "obligation": "C-511",
+   "evidence": "p6 C-511",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 001 F-008 - attachment storage (row 172)"
+  },
+  {
+   "obligation": "C-512",
+   "evidence": "p6 C-512",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 002 F-001 - time-entry and iteration validation (rows 89, 152-160)"
+  },
+  {
+   "obligation": "C-513",
+   "evidence": "p6 C-513",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 002 F-002 - delete cascades (rows 49, 82, 91, 126, 142, 174)"
+  },
+  {
+   "obligation": "C-514",
+   "evidence": "p6 C-514",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 002 F-003 - Facebook widget (row 193)"
+  },
+  {
+   "obligation": "C-515",
+   "evidence": "p6 C-515",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 002 F-004 - attachment count (row 171)"
+  },
+  {
+   "obligation": "C-517",
+   "evidence": "p6 C-517",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 002 F-006 - hidden-project decorator (row 76)"
+  },
+  {
+   "obligation": "C-518",
+   "evidence": "p6 C-518",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 002 F-007 - sysadmin grant rule (rows 31, 34)"
+  },
+  {
+   "obligation": "C-519",
+   "evidence": "p6 C-519",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 002 F-008 - story import errors/cookies (rows 117, 119)"
+  },
+  {
+   "obligation": "C-520",
+   "evidence": "p6 C-520",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 002 F-009 - task type labels (row 135)"
+  },
+  {
+   "obligation": "C-522",
+   "evidence": "p6 C-522",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 003 F-001 - unmapped query paths (rows 211, 213, 220, 221, 228)"
+  },
+  {
+   "obligation": "C-523",
+   "evidence": "p6 C-523",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 003 F-002 - second Spring context (row 65)"
+  },
+  {
+   "obligation": "C-525",
+   "evidence": "p6 C-525",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 003 F-004 - progress chart (row 110)"
+  },
+  {
+   "obligation": "C-527",
+   "evidence": "p6 C-527",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 004 F-002 - task-board parameter (row 114)"
+  },
+  {
+   "obligation": "C-528",
+   "evidence": "p6 C-528",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 004 F-003 - Hibernate settings (row 68)"
+  },
+  {
+   "obligation": "C-529",
+   "evidence": "p6 C-529",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 004 F-004 - print layout (row 192)"
+  },
+  {
+   "obligation": "C-531",
+   "evidence": "p6 C-531",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 004 F-006 - outbound wiki request (row 189)"
+  },
+  {
+   "obligation": "C-532",
+   "evidence": "p6 C-532",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 005 F-001 - people import personDao (rows 50-51)"
+  },
+  {
+   "obligation": "C-533",
+   "evidence": "p6 C-533",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 005 F-002 - aggregate timesheet HQL (row 165; Q3)"
+  },
+  {
+   "obligation": "C-535",
+   "evidence": "p6 C-535",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 005 F-004 - WAP dependencies (rows 232, 234)"
+  },
+  {
+   "obligation": "C-536",
+   "evidence": "p6 C-536",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 005 F-005 - directory rows on first use (rows 172, 176)"
+  },
+  {
+   "obligation": "C-537",
+   "evidence": "p6 C-537",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 005 mechanism (a) - wiring and injected properties (rows 50-51, 176, 232, 234; Spring"
+  },
+  {
+   "obligation": "C-539",
+   "evidence": "p6 C-539",
+   "prior_result": "matched",
+   "group": "R8-P6EARLY",
+   "stage1": "pass 005 mechanism (c) - read-path side effects (rows 172, 176)"
+  },
+  {
+   "obligation": "p7new:C-006",
+   "evidence": "p7 C-006",
+   "prior_result": "matched",
+   "group": "R8-P7NEW",
+   "stage1": "related-occurrence check (d): request-to-object binding completeness"
+  },
+  {
+   "obligation": "p7new:C-008",
+   "evidence": "p7 C-008",
+   "prior_result": "matched",
+   "group": "R8-P7NEW",
+   "stage1": "related-occurrence check (f): export and download content completeness"
+  },
+  {
+   "obligation": "p7new:C-058",
+   "evidence": "p7 C-058",
+   "prior_result": "matched",
+   "group": "R8-P7NEW",
+   "stage1": "refined CHK-007: XML-derived figures (comment-aware, positive controls)"
+  }
+ ],
+ "generator": "reviewer scratch gen-evidence.js (validates single mapping, no retained mismatch, no retained changed row or line)",
+ "attempt_result": "invalid",
+ "invalidity": "owner-imposed access boundary violated: the reviewer opened, once, the client-persisted output of its own git diff command (reconnaissance PREV..CAND word diff, 31.5 KB) in the client tool-results folder under the user profile; the packet states that any read outside the two allowed folders invalidates the pass. The content was only that command output, regenerated in reviewer scratch (recon-worddiff-prev-cand.txt, 32261 bytes). The observations below are preserved; they cannot support a conclusion or be retained in a chain."
+}

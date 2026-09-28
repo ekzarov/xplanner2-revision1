@@ -1,0 +1,455 @@
+{
+ "packet": "S02-P008",
+ "pass": 8,
+ "attempt_result": "invalid",
+ "invalidity": "owner-imposed access boundary violated: the reviewer opened, once, the client-persisted output of its own git diff command (reconnaissance PREV..CAND word diff, 31.5 KB) in the client tool-results folder under the user profile; the packet states that any read outside the two allowed folders invalidates the pass. The content was only that command output, regenerated in reviewer scratch (recon-worddiff-prev-cand.txt, 32261 bytes). The observations below are preserved; they cannot support a conclusion or be retained in a chain.",
+ "control_mode": "correction-validation",
+ "reviewed_revision": "605f94df9a52004945f4ad991d0018c57d1bb49b",
+ "previous_revision": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+ "base_revision": "15cb6b26946f73596177eba8cead333383d9f728",
+ "baseline_pass": 6,
+ "previous_pass": 7,
+ "counts": {
+  "total": 27,
+  "matched": 15,
+  "mismatch": 11,
+  "not-applicable": 1
+ },
+ "findings": {
+  "F-001": "low",
+  "F-002": "low",
+  "F-003": "low"
+ },
+ "exclusions": {
+  "E-001": "author tool-execution facts (packet boundary)"
+ },
+ "blockers": {},
+ "items": [
+  {
+   "id": "C-001",
+   "item": "Spring view-name prefix outcomes (pass-007 F-001 Spring part; remainder of pass-006 F-002): row 60 F and H, Source Inventory Spring MVC row, Runnable Surfaces settings row, GAP-007 Spring clause, reading-block Spring clause",
+   "expected": "a {objectType} value starting with redirect: becomes a RedirectView (context path only for a leading /, then sendRedirect) and forward: an InternalResourceView forward; a plain value resolves to /WEB-INF/jsp/<v>.jsp (no page); reach /setting/* behind WebSecurityFilter; Inferred",
+   "observed": "UrlBasedViewResolver#createView tests \"redirect:\" then \"forward:\" before AbstractCachingViewResolver#createView; RedirectView#renderMergedOutputModel prepends getContextPath only when contextRelative and the URL starts with \"/\", then sendRedirect; CommonObjectHandler#list/#edit println and return the path value; spring-web.xml:26-30 sets no redirect options; web.xml:164-167,313-316; saved-URL return after login via FormSecurityFilter#onAuthenticationFailure (GET) and AuthenticationAction#execute getSavedUrl",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/disasm.js listings of UrlBasedViewResolver, RedirectView, CommonObjectHandler, FormSecurityFilter, AuthenticationAction"
+   ],
+   "link": "none",
+   "covers": [
+    "C-013",
+    "C-110",
+    "C-134",
+    "C-188",
+    "C-378",
+    "C-390"
+   ]
+  },
+  {
+   "id": "C-002",
+   "item": "Q3 returnto and view-name fact (13 methods, Tiles-definition exception, Spring prefixes, list of other in-application navigation); closure of the Tiles part of pass-007 F-001",
+   "expected": "every framework resolution of a request-chosen forward path recorded with the complete definition set the Struts processor uses",
+   "observed": "13 methods in 12 classes redirect to returnto (reproduced). The Struts processor takes its DefinitionsFactory from the servlet-context attribute org.apache.struts.tiles.DEFINITIONS_FACTORY at init (TilesRequestProcessor#initDefinitionsMapping); TilesPlugin#initDefinitionsFactory reuses an existing factory (\"No new creation\"). spring-web.xml:17-24 TilesConfigurer (spring-struts jar) creates a factory from tiles-definitions.xml AND tiles-pages.xml via TilesUtil#createDefinitionsFactory, which sets the same attribute; SpringServlet has load-on-startup 1, XPlannerServlet 2 (web.xml:271,248). The definition set is therefore expected to be 5 names including viewLayout (tiles-pages.xml:6, page viewLayoutNew.jsp), which meStatus.jsp:10 itself relies on. The fact states 4 names. The list of other in-application navigation omits ViewObjectAction#getForwardPath (URL-encoded returnto appended to the fixed display forward; safe)",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/disasm.js listings of TilesConfigurer, TilesUtil, TilesUtilImpl, TilesUtilStrutsImpl, TilesPlugin, TilesRequestProcessor, ContentTag, ViewObjectAction; navsites.json"
+   ],
+   "link": "F-001",
+   "covers": [
+    "C-127"
+   ]
+  },
+  {
+   "id": "C-003",
+   "item": "pass-007 F-002 closure: row 98 script sink, row 101 pointer (author extension), Q3 reflected-output fact (script contexts, row 101), GAP-007 button-script clause",
+   "expected": "editIterationStatus.jsp:32 binds returnto; :70 writes it unescaped into the Cancel onclick script after the context path; the page serves /do/start/iteration and /do/close/iteration",
+   "observed": "confirmed at editIterationStatus.jsp:32,70 and struts-config.xml:119-120,245,251; row 98 H and row 101 H state it; the Q3 fact lists both script contexts (dashboard.jsp:132, editIterationStatus.jsp:70) and row 101; row 98 start-branch text (message_1/message_4) byte-identical",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/wbdiff-prev-cand.json",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/reqsinks.json"
+   ],
+   "link": "none",
+   "covers": [
+    "C-224",
+    "C-062",
+    "C-227",
+    "C-063",
+    "C-478",
+    "C-516"
+   ]
+  },
+  {
+   "id": "C-004",
+   "item": "pass-007 F-003 closure: public-page key figure 45 and derivation (Runnable Surfaces bullet, unauth-06 and props rows, BA-001-08 figure annotation, reading block), rows 8 and 56 per-bundle notes, author extension navigation.top",
+   "expected": "keys over every key-taking attribute and the layout/include chain, with positive controls, compared in all 10 bundles",
+   "observed": "45 keys rendered without a session (39 static key attributes + login.title + error.title + system.info.title + app.label.version + footer.message + navigation.top), 4 header keys only for a signed-in user, 1 inside an HTML comment, navigation.back unreachable (no caller sets back); positive controls login.title, app.label.version, footer.message, navigation.top, login.instructions, system.info.title, error.title found; per bundle (10 files incl. ResourceBundle--.properties): login.title missing only in fr; app.label.version and navigation.top in all 10; footer.message only default, -- and de; error.title missing in de and es; system.info.title only default and --; all equal to rows 8 and 56",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/pubkeys.js",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/pubkeys.json",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/keypresence.js"
+   ],
+   "link": "none",
+   "covers": [
+    "C-139",
+    "C-184",
+    "C-039",
+    "C-017",
+    "p7new:C-009"
+   ]
+  },
+  {
+   "id": "C-005",
+   "item": "check (h) completeness and refined CHK-012 navigation over the governed scope: every request-chosen view name, forward path or definition name resolved through the bundled framework",
+   "expected": "complete site inventory; each outcome recorded with reach",
+   "observed": "own inventory over 594 classes: 13 returnto redirect methods, CloseIterationAction, IntegrationAction#addProjectId, IdSearchAction, saved login URL (FormSecurityFilter), ViewObjectAction#getForwardPath (encoded returnto into a fixed forward; not in the author list), 2 Spring handler methods (MePage uses the constant view/meStatus); JSP navigation tags have no request-derived target beyond the recorded html:link page=returnto (rows 50, 169) and index.jsp:29. Framework resolution: Spring prefixes correct; Tiles lookup uses the shared factory with 5 definitions, not 4 (see C-002)",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/navsites.js",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/navsites.json"
+   ],
+   "link": "F-001",
+   "covers": [
+    "p7new:C-007",
+    "C-492"
+   ]
+  },
+  {
+   "id": "C-006",
+   "item": "check (i) completeness and refined CHK-012 HTML and script output over all 74 JSP and tag files",
+   "expected": "every request value written into a script context or HTML listed or justified",
+   "observed": "tokenizer scan: 103 script contexts (60 script bodies, 39 on* handlers incl. custom tags, 4 javascript: URLs) reproduced; request values inside them: only editIterationStatus.jsp:70 and dashboard.jsp:132; HTML-context request outputs all belong to the 17 recorded pages, generalError.jsp:26, unexpectedError.jsp (row 56) or are integer-parsed / bound query parameters / jsp:param-overridden includes (notes.jsp, person*TableFragment.jsp); wap/auth.jsp echoes request values but is unreferenced under WEB-INF (recorded as excluded); own client scripts: the only location.search reader (swfobject getQueryParamValue) is never called",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/scriptctx.js",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/scriptctx.json",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/reqsinks.js",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/reqsinks.json"
+   ],
+   "link": "none",
+   "covers": [
+    "p7new:C-057",
+    "C-126",
+    "C-534",
+    "C-538",
+    "C-379"
+   ]
+  },
+  {
+   "id": "C-007",
+   "item": "check (j) completeness, including the Scope Validation claim that the only other tag-handler text in the public layout chain is the unreachable back link",
+   "expected": "every text the public layout chain renders, keys and tag-handler texts, identified",
+   "observed": "keys complete (C-004). But NavigationBarTag#doEndTag reads the request oid (else fkey) and, because breadcrumb.tag:10 passes type=\"${objectType}\" (coerced to \"\" when unset), calls #setObject(int), which loads the object through IdSearchHelper#search (Session#get over Project, Iteration, UserStory, Task, Person, Note; no permission check); #render then adds links whose text is the project, iteration, story, task or feature name (createLinkToContent), written by breadcrumb.tag:15,18 with unescaped EL. login.jsp and unexpectedError.jsp use this layout, /do/login is in the security bypass list (security.xml:3), and OpenSessionInViewFilter covers /*",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/disasm.js listings of NavigationBarTag, IdSearchHelper, DatabaseTagSupport, RequestContextAwareTag, JspAwareRequestContext, RequestContextUtils, Link"
+   ],
+   "link": "F-002",
+   "covers": [],
+   "obligation": "new: author check (j)"
+  },
+  {
+   "id": "C-008",
+   "item": "figure: check (h) \"46 findForward calls in 30 methods, 45 constant, 1 mapping parameter\" (forwards-09 row, disposition record)",
+   "expected": "reproducible count",
+   "observed": "ActionMapping#findForward: 44 calls in 31 methods, 43 with a constant name and 1 with the mapping parameter (DispatchForward#execute); in addition 1 ModuleConfig#findForwardConfig in LinkTag#hyperlink (tag attribute) and 4 getInputForward calls. Pass 007 also counted 44 with 43 constants",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/navsites.js"
+   ],
+   "link": "F-003",
+   "covers": [],
+   "obligation": "new: added figure"
+  },
+  {
+   "id": "C-009",
+   "item": "figure: check (i) \"77 dynamic outputs\" in the 103 script contexts",
+   "expected": "reproducible count with its definition stated",
+   "observed": "the 103 contexts and the 2 request values reproduce; the output count depends on an unstated definition: 54 outputs in bodies, handlers and URLs plus 31 html:rewrite in script src attributes (tokenizer), or 82 under a regex replica of the stated context patterns; the cited output is untracked author scratch",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/scriptctx.json"
+   ],
+   "link": "F-003",
+   "covers": [],
+   "obligation": "new: added figure"
+  },
+  {
+   "id": "C-010",
+   "item": "Scope And Provenance edits (snapshot date, analyst list BA-001-09, skill blob)",
+   "expected": "supported",
+   "observed": "dates and task list consistent with the correction record; SKILL.md blob d09ba8ced6616dc34fb30a9f2ecde6ab9c3a5398 at CAND",
+   "result": "matched",
+   "evidence": [
+    "git rev-parse 605f94df9a52004945f4ad991d0018c57d1bb49b:.agents/skills/migration-ba/SKILL.md"
+   ],
+   "link": "none",
+   "covers": [
+    "C-493"
+   ]
+  },
+  {
+   "id": "C-011",
+   "item": "reading block (lines 37-46)",
+   "expected": "summary agrees with the detailed records and source",
+   "observed": "row count, statuses and the Spring, script-output and key clauses agree; the navigation clause repeats \"one of the 4 Tiles definition names\"",
+   "result": "mismatch",
+   "evidence": [
+    "candidate legacy_reconnaissance.md:37-46"
+   ],
+   "link": "F-001",
+   "covers": [
+    "C-494"
+   ]
+  },
+  {
+   "id": "C-012",
+   "item": "GAP-007 appended clause (Spring redirect, button script)",
+   "expected": "supported",
+   "observed": "supported by C-001 and C-003; the earlier GAP-007 sentences are byte-identical",
+   "result": "matched",
+   "evidence": [
+    "recon diff hunk @@ -334 +336 @@"
+   ],
+   "link": "none",
+   "covers": [
+    "C-429"
+   ]
+  },
+  {
+   "id": "C-013",
+   "item": "Build, Run, And Test Evidence: new forwards-09 row",
+   "expected": "legacy facts reproducible",
+   "observed": "Spring and Struts resolution statements correct except the definition set (4 named, 5 expected) and the findForward figure (C-008)",
+   "result": "mismatch",
+   "evidence": [
+    "candidate legacy_reconnaissance.md:302"
+   ],
+   "link": "F-001, F-003",
+   "covers": [],
+   "obligation": "new: added row"
+  },
+  {
+   "id": "C-014",
+   "item": "Build, Run, And Test Evidence: new script-sinks-09 and public-keys-09 row",
+   "expected": "legacy facts reproducible",
+   "observed": "74 files, 103 contexts, 2 request values, 45/4/1 keys, positive controls reproduce; \"77 dynamic outputs\" not reproducible (C-009)",
+   "result": "mismatch",
+   "evidence": [
+    "candidate legacy_reconnaissance.md:303"
+   ],
+   "link": "F-003",
+   "covers": [],
+   "obligation": "new: added row"
+  },
+  {
+   "id": "C-015",
+   "item": "Build, Run, And Test Evidence: legacy-hash rerun, unauth-06 and props annotations, edit/diff tools row, build-workbook row, artifact-links figure",
+   "expected": "legacy facts reproducible",
+   "observed": "legacy blobs identical at BASE, PREV, CAND; 5 rows changed, none added, no status change (own cell diff); 18 epics, 210 rows, last row 234, 31 provenance notes, sheet XML unchanged; audit:artifact-links 226 documents reproduced",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/wbdiff-prev-cand.json",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/xlsx-*.parts"
+   ],
+   "link": "none",
+   "covers": [
+    "C-503"
+   ]
+  },
+  {
+   "id": "C-016",
+   "item": "Build, Run, And Test Evidence: author tool-execution facts (audit:project, audit:workbook:excel and artifact-reading exit codes, scratch outputs)",
+   "expected": "process records, not legacy claims",
+   "observed": "outside permitted evidence; every legacy fact they support is checked in its own item",
+   "result": "not-applicable",
+   "evidence": [
+    "packet S02-P008 forbidden_always"
+   ],
+   "link": "E-001",
+   "covers": [],
+   "obligation": "exclusion"
+  },
+  {
+   "id": "C-017",
+   "item": "Return Correction Evidence: 4 new rows and the record paragraph",
+   "expected": "dispositions and changed rows match the actual correction",
+   "observed": "changed rows and sections match; the row for checks (h)-(j) states \"no further row affected\", which F-001 and F-002 contradict",
+   "result": "mismatch",
+   "evidence": [
+    "candidate legacy_reconnaissance.md:560-565"
+   ],
+   "link": "F-001, F-002",
+   "covers": [
+    "C-500"
+   ]
+  },
+  {
+   "id": "C-018",
+   "item": "Stage 1 Exit Checklist line (210 rows after BA-001-09)",
+   "expected": "supported",
+   "observed": "210 scenario rows",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/wb-candidate.json"
+   ],
+   "link": "none",
+   "covers": [
+    "C-501"
+   ]
+  },
+  {
+   "id": "C-019",
+   "item": "Error Prevention section: BA-001-09 self-check and learning update; BA-001-08 marked historical",
+   "expected": "self-check claims supported",
+   "observed": "CHK-001, CHK-004, CHK-007 (45 keys) supported; \"CHK-012: request-chosen navigation was resolved through the bundled Spring and Struts Tiles code\" is incomplete (definition set, F-001)",
+   "result": "mismatch",
+   "evidence": [
+    "candidate legacy_reconnaissance.md:591-605"
+   ],
+   "link": "F-001",
+   "covers": [
+    "C-502"
+   ]
+  },
+  {
+   "id": "C-020",
+   "item": "rows that describe the returnto redirect (43, 46, 58, 62, 78, 88, 121, 129, 134, 140, 149): dependency of the Tiles refinement",
+   "expected": "row statements consistent with the refined outcome",
+   "observed": "cells byte-identical; each row states the redirect and points to the Q3 facts, where the Tiles exception belongs",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/wb-candidate.json"
+   ],
+   "link": "none",
+   "covers": [
+    "C-172",
+    "C-175",
+    "C-186",
+    "C-190",
+    "C-205",
+    "C-214",
+    "C-246",
+    "C-254",
+    "C-258",
+    "C-264",
+    "C-272"
+   ]
+  },
+  {
+   "id": "C-021",
+   "item": "unauthenticated public-page outputs under CHK-011 and refined CHK-012 (request value to lookup to page output) on the 5 public pages",
+   "expected": "each public-page output recorded with its exposure",
+   "observed": "login.jsp and unexpectedError.jsp render the breadcrumb: a request oid or fkey makes it load that object without authentication and print the names of its project, iteration, story and task (see C-007); not recorded in the unauthenticated list, GAP-007, rows 8, 56 or 185. The figure \"45 keys rendered without a session\" also omits the failure-message keys that the login page renders through html:messages (login.failed and the login-module keys; recorded per bundle in rows 12-13)",
+   "result": "mismatch",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/disasm.js listings (C-007)",
+    "WAR:WEB-INF/jsp/security/login.jsp:50-59",
+    "class AuthenticationAction#execute"
+   ],
+   "link": "F-002",
+   "covers": [
+    "C-496",
+    "C-015",
+    "C-135"
+   ]
+  },
+  {
+   "id": "C-022",
+   "item": "rows and sections whose source dependency the changed claims cite: rows 12 and 13 (per-bundle), 55, 114, 185, 192; Source Inventory Tiles row; Tiles inventory item",
+   "expected": "supported",
+   "observed": "row 12: login.failed missing only in fr; row 13: userNotFound and passwordNotSet only default, --, de, ja; row 55 and 114 unchanged and consistent (unexpectedError.jsp, dashboard.jsp:132); row 185 states the breadcrumb (supported; the public-page case is F-002); row 192 ContentTag#doStartTag print switch confirmed; Source Inventory Tiles row states 5 definitions including viewLayout (correct, and contradicts the Q3 fact)",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/keypresence.js",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/disasm.js ContentTag"
+   ],
+   "link": "none",
+   "covers": [
+    "C-143",
+    "C-144",
+    "C-183",
+    "C-240",
+    "C-306",
+    "C-313",
+    "C-368",
+    "C-102"
+   ]
+  },
+  {
+   "id": "C-023",
+   "item": "CHK-001 line citations",
+   "expected": "every cited file:line exists and holds the cited element",
+   "observed": "60 of 60 line references in the PREV..CAND additions, each content-checked; 572 of 572 in the whole candidate records (4 bare-name references resolve to 2 files each and were resolved by context)",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/citecheck.js",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/citecheck-delta.json",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/citecheck-all.json"
+   ],
+   "link": "none",
+   "covers": [
+    "p7new:C-061"
+   ]
+  },
+  {
+   "id": "C-024",
+   "item": "CHK-009 in the PREV..CAND additions, the candidate records and the correction record",
+   "expected": "0 credential values",
+   "observed": "0 credential values and 0 login-pair forms; 42 raw plain-word hits in the additions are product, package and role names, \"web root\" and the word itself in prose (contextual classification with values masked); positive controls on the source files found",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/credscan.js",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/credctx.js"
+   ],
+   "link": "none",
+   "covers": [
+    "p7new:C-062"
+   ]
+  },
+  {
+   "id": "C-025",
+   "item": "refined CHK-007 over the figures of the change set and superseded values",
+   "expected": "every figure regenerated; stale values only as labelled history",
+   "observed": "210 rows, 111 Yes, 77 Inferred, 21 Partial, 1 No, 18 epics, last row 234, 31 provenance notes, 14 gaps, 5 changed rows, 45/39/4/1 keys, 74/103/2, 13 methods in 12 classes, per-bundle presence: all reproduce; every remaining 41 is labelled historical; the only page-text key figure in the records is the public-page one. Mismatching figures are separate items (C-002, C-008, C-009)",
+   "result": "matched",
+   "evidence": [
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/wb-candidate.json",
+    "reviewer scratch .migration-tmp/stage-02-p008/reviewer-scratch/pubkeys.json"
+   ],
+   "link": "none",
+   "covers": [
+    "p7new:C-059",
+    "p7new:C-060",
+    "C-521"
+   ]
+  },
+  {
+   "id": "C-026",
+   "item": "complete change set PREV..CAND and chain continuity",
+   "expected": "every governed change identified and classified; BASE..PREV equals the pass-007 change set",
+   "observed": "13 files in 4 commits; recon 13 hunks; workbook 6 cells in 5 rows, only xl/sharedStrings.xml differs; checklist CHK-007 and CHK-012 refined; status and pass-007 records are PM or review records; legacy blobs identical; BASE..PREV regenerated: 78 files, 6 commits, 22 hunks, 29 cells in 26 rows, identical to change-set.json of pass 007",
+   "result": "matched",
+   "evidence": [
+    "change-set.json"
+   ],
+   "link": "none",
+   "covers": [
+    "p7new:C-065"
+   ]
+  },
+  {
+   "id": "C-027",
+   "item": "chain eligibility: pass 006 as root, pass 007 as predecessor",
+   "expected": "same source and scope; independent complete predecessors; retrievable evidence; no skipped attempt",
+   "observed": "eligible; see the report section Stage 2 Correction Validation",
+   "result": "matched",
+   "evidence": [
+    "packet hashes; S02-P006 and S02-P007 evidence; migration_status.yaml review_passes 1-7"
+   ],
+   "link": "none",
+   "covers": [],
+   "obligation": "new: chain eligibility"
+  }
+ ]
+}

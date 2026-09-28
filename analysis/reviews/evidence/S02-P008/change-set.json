@@ -1,0 +1,227 @@
+{
+ "packet": "S02-P008",
+ "generated_by": "reviewer scratch gen-evidence.js (git diff, exceljs cell dump, package-part hashes)",
+ "previous": "4c1ada255ef8b662b7d51f45eaaed17b8547e3e6",
+ "candidate": "605f94df9a52004945f4ad991d0018c57d1bb49b",
+ "commits": [
+  "605f94d Merge pull request #21 from ekzarov/stage-01/pass-007-corrections",
+  "94cf867 Stage 1 re-entry: correct F-001..F-003 from Stage 2 pass 007",
+  "3586c42 Merge pull request #20 from ekzarov/stage-02/pass-007",
+  "136ec63 Stage 2 pass 007 (correction-validation): findings, return to Stage 1"
+ ],
+ "files_changed": 13,
+ "files": [
+  {
+   "status": "M",
+   "path": "analysis/error-prevention-checklist.md",
+   "classification": "project checklist: CHK-007 and CHK-012 refined (pass-007 P-2, P-1); newly applicable checks"
+  },
+  {
+   "status": "M",
+   "path": "analysis/legacy_reconnaissance.md",
+   "classification": "governed Stage 1 record (rechecked)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/legacy_user_flows.xlsx",
+   "classification": "governed Stage 1 record (rechecked)"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_status.yaml",
+   "classification": "PM status (pass-007 ledger entry, return and re-entry transitions); not a Stage 1 claim"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P007/access-log.md",
+   "classification": "pass-007 review report or evidence (chain input; immutable)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P007/change-set.json",
+   "classification": "pass-007 review report or evidence (chain input; immutable)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P007/comparison-results.json",
+   "classification": "pass-007 review report or evidence (chain input; immutable)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P007/coverage-reconciliation.json",
+   "classification": "pass-007 review report or evidence (chain input; immutable)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P007/independence-record.md",
+   "classification": "pass-007 review report or evidence (chain input; immutable)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P007/packet.json",
+   "classification": "pass-007 review report or evidence (chain input; immutable)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P007/pm-report-transcription.json",
+   "classification": "pass-007 review report or evidence (chain input; immutable)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/stage-02-pass-007.md",
+   "classification": "pass-007 review report or evidence (chain input; immutable)"
+  },
+  {
+   "status": "A",
+   "path": "analysis/stages/stage-01/stage-02-pass-007-dispositions.md",
+   "classification": "Stage 1 correction record BA-001-09 (claims checked where they state legacy facts)"
+  }
+ ],
+ "legacy_tree_identical": true,
+ "legacy_blobs": [
+  "100644 blob 2ce397b10a8ab6ade87db4c180660dc0af7824f0\tlegacy/README.md",
+  "100644 blob 17915d5adc9d717b0d253d600fbec74fedff6d9b\tlegacy/demo-seed.sql",
+  "100644 blob 2bd14d97f61e8679e9932cc25d60180fcf69aef6\tlegacy/docker-compose.yml",
+  "100644 blob 7c7f540ee21dc1a8ebf12d4e6b9bcb815d6a17bf\tlegacy/xplanner-plus.war"
+ ],
+ "reconnaissance": {
+  "prev_sha256": "c672ad6faf8a0567eb2fb36259c137c4f238cfe86ddbb57041c972720f3043a1",
+  "cand_sha256": "649870c13b4d4cc5a4c98b93c7608b8a16a57cc185586d1efcc165d50402d130",
+  "hunks_count": 23,
+  "hunks": [
+   "@@ -37 +37 @@",
+   "@@ -39,5 +39,4 @@",
+   "@@ -45 +44 @@",
+   "@@ -47 +46 @@",
+   "@@ -101,2 +100,2 @@",
+   "@@ -104 +103 @@",
+   "@@ -175 +174 @@",
+   "@@ -196 +195 @@",
+   "@@ -227 +226 @@",
+   "@@ -275 +274 @@",
+   "@@ -291 +290 @@",
+   "@@ -301 +300 @@",
+   "@@ -302,0 +302,3 @@",
+   "@@ -307 +309 @@",
+   "@@ -310,4 +312,4 @@",
+   "@@ -334 +336 @@",
+   "@@ -429 +431 @@",
+   "@@ -436 +438 @@",
+   "@@ -557,0 +560,4 @@",
+   "@@ -559 +565 @@",
+   "@@ -572 +578 @@",
+   "@@ -585,2 +591,11 @@",
+   "@@ -590 +605 @@"
+  ],
+  "sections": [
+   "reading block",
+   "Scope And Provenance (date, analyst, skill)",
+   "Source Inventory Spring MVC row",
+   "Runnable Surfaces settings row",
+   "Runnable Surfaces public-page texts bullet",
+   "Build, Run, And Test Evidence: legacy hash, unauth-06, props-parse-08, 3 new tool rows, build-workbook, audit:project, audit:artifact-links, artifact-reading, audit:workbook:excel",
+   "GAP-007",
+   "Q3 reflected-output fact",
+   "Q3 returnto and view-name fact",
+   "Return Correction Evidence (4 rows, paragraph)",
+   "Stage 1 Exit Checklist",
+   "Error Prevention"
+  ],
+  "removed_text": "only replaced figures and phrases: the BA-001-08 reading-block bullets, \"(Inferred; ...)\" of row 60 H narrowed to \"a value without a view prefix\", F60 rewritten, \"41\" figures annotated"
+ },
+ "workbook": {
+  "prev_sha256": "2949146c30a9b5fb461f262ce047c7cf8c4c1008a974a68d08d7054b25342305",
+  "cand_sha256": "df7437bed8e4c05074a3210ac74bda4ab30ebf9949860591a4a6a674261b5fdc",
+  "package_parts_changed": [
+   "xl/sharedStrings.xml"
+  ],
+  "changed_cells": 6,
+  "changed_rows": [
+   8,
+   56,
+   60,
+   98,
+   101
+  ],
+  "rows_added_or_removed": 0,
+  "status_column_changes": 0,
+  "cells": [
+   {
+    "cell": "H8",
+    "row": 8,
+    "attr": "v",
+    "before_length": 899,
+    "after_length": 1755,
+    "change": "text appended"
+   },
+   {
+    "cell": "H56",
+    "row": 56,
+    "attr": "v",
+    "before_length": 1451,
+    "after_length": 2251,
+    "change": "text rewritten"
+   },
+   {
+    "cell": "F60",
+    "row": 60,
+    "attr": "v",
+    "before_length": 231,
+    "after_length": 367,
+    "change": "text rewritten"
+   },
+   {
+    "cell": "H60",
+    "row": 60,
+    "attr": "v",
+    "before_length": 774,
+    "after_length": 1941,
+    "change": "text rewritten"
+   },
+   {
+    "cell": "H98",
+    "row": 98,
+    "attr": "v",
+    "before_length": 1474,
+    "after_length": 2149,
+    "change": "text appended"
+   },
+   {
+    "cell": "H101",
+    "row": 101,
+    "attr": "v",
+    "before_length": 1077,
+    "after_length": 1363,
+    "change": "text appended"
+   }
+  ]
+ },
+ "checklist": {
+  "prev_sha256": "6e01c409fc6b6a595f1ff618a7a0e474dcde9b084e368171f1e37489fe74ff32",
+  "cand_sha256": "599fbd661a9193a83d4d50cc62afad5d42de388d1bf16ef190a5a44386afcff2",
+  "changed_rows": [
+   "CHK-007 How to check and Basis",
+   "CHK-012 How to check and Basis"
+  ]
+ },
+ "base_to_previous_check": {
+  "regenerated": {
+   "files": 78,
+   "commits": 6,
+   "recon_hunks": 22,
+   "workbook_cells": 29,
+   "workbook_rows": 26
+  },
+  "pass007_change_set": {
+   "files": 78,
+   "commits": 6,
+   "recon_hunks": 22,
+   "workbook_cells": 29,
+   "workbook_rows": 26
+  },
+  "file_lists_equal": true,
+  "hunk_headers_equal": true,
+  "cell_lists_equal": true
+ },
+ "note": "Cell texts are not reproduced; lengths and change type only. No credential-bearing value is included."
+}
