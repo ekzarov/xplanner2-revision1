@@ -69,6 +69,7 @@
   - [Phase A Saved Checkpoint](#read-phase-a-saved-checkpoint)
 - [Stage 2 Phase B - Two-Way Reconciliation](#read-stage-2-phase-b-two-way-reconciliation)
 - [Stage 2 Correction Validation](#read-stage-2-correction-validation)
+  - [Attempt Recovery](#read-attempt-recovery)
 - [Comparison Scope](#read-comparison-scope)
 - [Comparison Results](#read-comparison-results)
 - [Coverage Summary](#read-coverage-summary)
@@ -247,7 +248,7 @@ Use the same immutable report, not another canonical artifact. Prior `findings`
 reports remain findings; the fresh reviewer independently owns this new verdict.
 
 - Root full baseline: <pass/report, report and blind-checkpoint hashes, complete comparison ledger>
-- Latest preceding control: <pass/report and hash; all intervening reports/dispositions>
+- Latest preceding control: <latest chronological Stage 2 attempt, even blocked/invalid; pass/report and hash; all intervening reports/dispositions>
 - Source identity: <baseline and current legacy set revisions/content hashes; equality evidence>
 - Baseline and candidate: <exact reviewed Stage 1 revisions and record hashes>
 - Eligibility decision: <independence, complete coverage, accessible evidence, same governed scope>
@@ -284,7 +285,50 @@ structure/references, not source equality or semantic coverage. Full-blind mode
 records `control_mode: full-blind` without correction-only fields.
 If eligibility is blocked/invalid and a baseline/predecessor is unknown, omit
 that pointer in status and explain the failure in the coverage record. Never
-invent references; this attempt cannot support or be skipped in a closure chain.
+invent references; this attempt supplies no verified coverage and remains in the
+chronological chain. A later success after a failed attempt needs the governed
+recovery assessment below, not a retroactive rewrite of this attempt.
+
+<a id="read-attempt-recovery"></a>
+
+### Attempt Recovery
+
+Complete only when actually recovering under
+[Stage 2 attempt recovery](README.md#stage-2-attempt-recovery); otherwise remove
+the declarations below and mark this subsection not applicable. Recovery belongs
+only to a new Stage 2 correction-validation `clean` or `findings` result, never
+a failed result, full-blind pass or another stage. Do not assert verification
+before performing it. Replace the uppercase placeholders with actual plain values.
+
+- Recovery session: CURRENT_SESSION_ID
+- Recovery coverage base: LAST_VALID_PASS_NUMBER
+- Recovery excluded passes: FAILED_PASS_NUMBERS_COMMA_SEPARATED_IN_ORDER
+- Recovery basis: verified
+
+Each declaration must occur exactly once as visible text in `assessment_record`;
+comments and code fences do not count. That record must be a nonempty,
+non-template repository-local file and may be this current report. PM records
+the optional `recovery` object with `coverage_base_pass`, `excluded_passes`,
+`basis_unchanged: verified` and `assessment_record` from this actual assessment.
+`previous_pass` remains the latest chronological attempt, not the coverage base.
+
+- Valid coverage base: <last preceding eligible clean/findings full root or correction-validation using that root; same scope, no unchecked work; report/check IDs and hashes>
+- Preserved evidence: <root and prior report/checkpoint/source hashes; independence, completeness and provenance independently verified unchanged>
+- Whole change set: <all changes since the valid coverage base, not only since the failed attempt>
+
+| Excluded failed attempt / report / hash | Cause and isolation | Mandatory unchecked, new or failed-attempt-only work | Source-backed observations and independent resolution |
+|---|---|---|---|
+| <every intervening blocked/invalid correction-validation, chronologically; same scope and explicit baseline_pass> | <failure cause; effect on root/prior evidence; containment> | <scope and new check IDs; unresolved items remain visible> | <all observation IDs, source, new independent checks/dispositions; leads are not accepted closure> |
+
+Failed attempts contribute no verified coverage. Their original verdicts, reports
+and hashes remain immutable. Do not skip a newer valid baseline or a failed
+full-blind, unknown-root or changed-scope attempt. Missing baseline evidence
+blocks; changed source/scope, unreliable independence/completeness/provenance or
+systemic/unbounded omissions require another fresh full-blind session. The new
+reviewer is not the failed reviewer, an author or any prior reviewer; it does
+not change Stage 1 work. Only separately authorized bounded Stage 1 corrections
+may follow observations. The linked procedure governs eligibility and closure;
+Stage 19 and ordinary successful chains remain unchanged.
 
 <a id="read-comparison-scope"></a>
 

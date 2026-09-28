@@ -27,7 +27,7 @@ Open an artifact below for its purpose, author, governing instructions and examp
 
 
 
-One immutable report per fresh BA attempt: full-blind inventory/reconciliation or eligible bounded correction-validation. Records mode, eligibility, root/predecessor and candidate pins, whole-scope coverage, findings and clean/findings/blocked/invalid verdict. No new canonical artifact or invented Phase A. **Stage 2: full-blind or eligible correction-validation:** full-blind is the default for initial/new scope: save a fresh complete neutral Phase A inventory, snapshot and access sequence before two-way Phase B; preserve the snapshot and resolve disagreements from source; correction-validation is not blind and creates no new Phase A. A complete valid full-blind baseline may have findings. Pin the root full report, snapshot and source hashes, predecessor, latest candidate and every intervening report/change; read reports, checklist and dispositions immediately; Verify the entire actual diff, all open findings, related mechanisms/dependencies and affected old matched claims. Expand bounded impact checks when needed without invalidating the whole baseline; CHK is not a scope ceiling; Record mode, root/predecessor and a whole-scope coverage table in the existing report. Retain exact prior C IDs only with applicability rationale, not as new matches; union retained coverage and new checks without double counting. Clean requires no unchecked scope or open findings, including Low; Changed source, new channels or scope, contamination, unreliable/missing/incomplete baseline or systemic/unbounded impact: stop closure as blocked/invalid as appropriate and require a full new blind session before prior information. Both modes require a fresh independent read-only BA, never the author or a reused reviewer. No new canonical artifact. Follow analysis/reviews/README.md#stage-2-correction-validation. Findings return to Stage 1; Stage 3 live verification and Stage 19 blind acceptance remain unchanged.
+One immutable report per fresh BA attempt: full-blind inventory/reconciliation or eligible bounded correction-validation. Records mode, eligibility, root/predecessor and candidate pins, whole-scope coverage, findings and clean/findings/blocked/invalid verdict. No new canonical artifact or invented Phase A. **Stage 2: full-blind or eligible correction-validation:** full-blind is the default for initial/new scope: save a fresh complete neutral Phase A inventory, snapshot and access sequence before two-way Phase B; preserve the snapshot and resolve disagreements from source; correction-validation is not blind and creates no new Phase A. A complete valid full-blind baseline may have findings. Pin the root full report, snapshot and source hashes, predecessor, latest candidate and every intervening report/change; read reports, checklist and dispositions immediately; Verify the entire actual diff, all open findings, related mechanisms/dependencies and affected old matched claims. Expand bounded impact checks when needed without invalidating the whole baseline; CHK is not a scope ceiling; Record mode, root/predecessor and a whole-scope coverage table in the existing report. Retain exact prior C IDs only with applicability rationale, not as new matches; union retained coverage and new checks without double counting. Clean requires no unchecked scope or open findings, including Low; Changed source, new channels or scope, compromised baseline independence, unreliable/incomplete baseline or systemic/unbounded impact require a full new blind session before prior information. Missing evidence or uncertain failure containment blocks pending proof; record blocked/invalid as appropriate; Failed attempts stay immutable and add no verified coverage. previous_pass is chronological; recovery after consecutive failed correction-validation with the same scope and explicit root requires a new independent assessment of all changes since the last valid base and resolution of excluded observations. Follow analysis/reviews/README.md#stage-2-attempt-recovery. Both modes require a fresh independent read-only BA, never the author or a reused reviewer. No new canonical artifact. Follow analysis/reviews/README.md#stage-2-correction-validation. Findings return to Stage 1; Stage 3 live verification and Stage 19 blind acceptance remain unchanged.
 
 - **Created by:** A fresh independent agent assigned to Stage 2 authors a report for the exact reviewed scope.
 - **Maintained / decided by:** The reviewer creates a new immutable report for each attempt; the author of the reviewed work cannot approve their own work.
@@ -518,7 +518,7 @@ canonical artifact. Record:
 
 | Record | Required evidence |
 |---|---|
-| Mode and chain | `correction-validation`, root full report/pass and hash, latest preceding pass/report and hash, every intervening record, exact baseline and candidate revisions. No skipped or superseded control attempt. |
+| Mode and chain | `correction-validation`, root full report/pass and hash, latest chronological attempt/report and hash, every intervening record, exact baseline and candidate revisions. No omitted attempt. After an attempt-local failure, distinguish history from the last valid coverage base using [attempt recovery](#stage-2-attempt-recovery). |
 | Eligibility | Same immutable legacy source set and scope; valid independent full coverage, retrievable evidence and blind checkpoint; exact changed records and source/dependency impact. Old `findings` is never relabelled `clean`. |
 | Open items | Every unresolved F/B/CHK or source-backed return remark in the chain, author disposition and independent closure or remaining finding. A rejected/narrowed finding needs source evidence, not author agreement alone. |
 | Rechecked coverage | All actual added/changed/deleted claims, their dependencies and same-mechanism occurrences, affected previously matched claims, applicable checklist changes and regression checks. Explain deletion, renumbering and coverage moves; they cannot erase an obligation. |
@@ -553,7 +553,9 @@ For `correction-validation`, also record `baseline_pass`, `previous_pass` and
 `coverage_record` (the existing report or its durable linked coverage evidence).
 For a blocked/invalid eligibility attempt, unknown baseline/predecessor fields
 may be omitted; record the exact failure in `coverage_record`, never invent a
-reference. Such an attempt cannot be retained or skipped as an eligible chain.
+reference. Such an attempt cannot contribute retained coverage or disappear from
+the history. A later pass needs either a new full baseline or the independently
+verified [attempt recovery](#stage-2-attempt-recovery) below.
 The status audit checks the mode, references and chain, not semantic adequacy,
 source equality or the truth of retained coverage; PM and reviewer check those.
 Existing projects adopt the synchronized rule explicitly without reinitializing,
@@ -569,6 +571,80 @@ restriction. In Phase B, the corresponding parity row describes editing but
 omits the restriction: C-012 is a mismatch linked to F-001. Conversely, a
 background job claimed by reconnaissance but disabled in the shipped
 configuration needs a source-based correction even if Phase A did not list it.
+
+#### Stage 2 Attempt Recovery
+
+**A failed attempt is not automatically a failed baseline.** This procedure is
+limited to Stage 2 `correction-validation`; full-blind and Stage 19 requirements
+are unchanged. It does not make a failed verdict valid or permit unchecked work.
+
+1. PM preserves every `blocked`/`invalid` report, access log, finding, hash and
+   ledger entry. A source-backed observation from a failed attempt is a lead,
+   not accepted evidence of closure. Authorized bounded Stage 1 corrections may
+   verify and disposition these leads before the next control; they must cite
+   their source and may not claim the failed reviewer cleared anything. Returning
+   from Stage 2 to Stage 1 after a failed correction-validation attempt requires
+   explicit `transition_history[].owner_approval` for that review's exact scope,
+   a durable record of the bounded correction authorization and the failed
+   report in `gate_evidence`. This is remediation authority, not a `findings`
+   verdict or an exit to Stage 3. Without it, remain blocked/awaiting owner at
+   Stage 2; do not edit Stage 1 artifacts under a reviewer's assignment.
+2. A new independent reviewer, never an author, prior reviewer or the failed
+   reviewer, reads the complete chain. Identify the failure cause and affected
+   session/files/checks, evidence of its containment and remediation, and why
+   the root and last valid coverage base retain independence, completeness,
+   provenance and exact source identity. A timeout or access-boundary violation
+   confined to the failed session can be recoverable; its label alone proves
+   nothing. Uncertain containment blocks recovery. Do not reinterpret an owner
+   access prohibition or authorize access to a user profile to obtain proof.
+3. The same source and governed scope must remain valid. A changed source/scope,
+   unreliable baseline, systemic omission or unbounded impact still requires
+   full-blind control; missing evidence blocks validation. Recovery cannot jump
+   over a full-blind attempt, a different root/scope or a newer valid pass.
+   Failed attempts with unknown root references are not automatically eligible.
+4. Regenerate all changes from the valid coverage base through the latest
+   candidate, including changes around every failed attempt. Independently
+   recheck affected mechanisms, every required item left unverified, work whose
+   only support came from failed attempts, and all their source-backed leads.
+   Reconcile all open items, including earlier findings. Retain exact check IDs
+   only from eligible valid reports with current applicability reasoning, never
+   from a failed attempt's matching checks, retained table or closure claims.
+5. Record the assessment in the new report's existing Stage 2 Correction
+   Validation section (or its durable linked evidence). PM verifies the handoff
+   and records the new structured fields below. Passing the structural audit is
+   not proof of containment or semantic coverage. If recovery cannot be
+   established, record `blocked`/`invalid` and the actual trigger without a
+   successful `recovery` attestation; do not silently rerun the whole discovery.
+
+For a successful eligibility assessment and a new `clean` or `findings` result:
+
+| Status field | Meaning |
+|---|---|
+| `baseline_pass` | The unchanged eligible full-blind root. |
+| `previous_pass` | The latest chronological Stage 2 attempt, including a failed one. |
+| `recovery.coverage_base_pass` | The latest preceding valid `clean`/`findings` pass, either that root or correction-validation under it. |
+| `recovery.excluded_passes` | Every intervening `blocked`/`invalid` correction-validation attempt, in order; excluded from verified coverage, not from history. Each must record the same root and scope. |
+| `recovery.basis_unchanged` | `verified` only after the new reviewer establishes the preserved basis and bounds of the failure. |
+| `recovery.assessment_record` | Repository-local non-template file containing this new reviewer's assessment; normally the current report, not a new artifact family. |
+
+The assessment has exactly one visible declaration for each field below, filled
+with actual values. These bind it to the new session and chain; they do not
+replace the reasoning and check-level reconciliation:
+
+```text
+- Recovery session: <current session_id>
+- Recovery coverage base: <pass number>
+- Recovery excluded passes: <comma-separated pass numbers in order>
+- Recovery basis: verified
+```
+
+**Illustrative chain, not an approval:** root 006, valid correction-validation
+007, invalid 008, then fresh pass 009 records `previous_pass: 8` and recovery
+from `coverage_base_pass: 7` with `excluded_passes: [8]`. Pass 008 stays invalid;
+009 independently establishes every claim it needs. If 009 has findings, Stage
+1 receives bounded corrections. Only a new eligible `clean` closes Stage 2;
+Stage 3 and owner gates are not implied. Ordinary uninterrupted chains omit
+`recovery`. Do not backfill new fields into sealed historical attempts.
 
 ### Stage 7 - Wireframe control
 

@@ -190,7 +190,17 @@ test('Stage 2 instructions and presentation require durable independent discover
   assert.deepEqual(profiles.reconnaissance.stages, [2]);
   assert.deepEqual(profiles.reconnaissance.artifacts, ['stage-02-review']);
   assert.ok(!profiles.review.artifacts.includes('stage-02-review'));
-  for (const locale of ['en', 'ru']) assert.equal(profiles.reconnaissance[locale].fields.length, 5);
+  for (const locale of ['en', 'ru']) {
+    const fields = profiles.reconnaissance[locale].fields;
+    assert.equal(fields.length, 6);
+    const recovery = fields.filter(field => field.includes('#stage-2-attempt-recovery'));
+    assert.equal(recovery.length, 1, locale + ': one recovery guard');
+    assert.match(recovery[0], /previous_pass/);
+    assert.match(recovery[0], /correction-validation/);
+  }
+  assert.match(profiles.reconnaissance.en.fields[5], /add no verified coverage/);
+  assert.match(profiles.reconnaissance.en.fields[5], /same scope and explicit root/);
+  assert.match(profiles.reconnaissance.en.fields[5], /resolution of excluded observations/);
 });
 
 for (const [name, paths] of [

@@ -117,6 +117,29 @@ requirements. Confirmed repeatable omissions follow the existing
 [checklist admission and deduplication rules](error-prevention.md#admission-and-generalization);
 do not seed new projects with another project's CHK IDs or decisions.
 
+## Packet Transport Safety
+
+PM and every assigned agent apply this generic boundary to all packets and tool
+output, not only blind reviews. Before large-output commands, explicitly agree
+project-local scratch paths and permitted uses for output, temporary files and
+caches. Keep scratch outside reviewed artifacts and immutable evidence; a
+reviewer's scratch permission never permits changing the reviewed tree. Scope
+and pre-filter commands, or redirect output into that authorized scratch, then
+read bounded excerpts. Configure tool temp/cache destinations within that scope.
+
+Never open client-persisted output files outside allowed folders, even when the
+agent produced the output or only wants to inspect its own diff. Regenerate the
+permitted output inside an authorized folder instead. A client spill path is
+not authorization, and a blanket user-profile allowlist is not a remedy. If
+safe transport is unavailable, stop the affected operation and ask for a bounded
+permission or tool adjustment. Disclose actual access violations immediately
+in the existing report/work record, including cause, affected scope and isolation
+impact; do not erase the failed attempt or silently continue as eligible.
+
+This safety rule does not relax phase restrictions or change Stage 19. Only
+Stage 2 correction-validation has the separately governed
+[attempt recovery procedure](reviews/README.md#stage-2-attempt-recovery).
+
 ## Review Modes
 
 ### Slice peer review
@@ -218,9 +241,19 @@ all intervening review/correction records; current candidate and applicable
 checklist; and proposed rechecked/retained coverage. The fresh independent BA
 validates that chain and actual complete diff, not just a supplied patch.
 Follow [the eligibility, expansion and clean-closure rules](reviews/README.md#stage-2-correction-validation).
-Missing evidence blocks; contaminated or systemic/unbounded coverage requires
+Missing evidence blocks; compromised baseline independence or systemic/unbounded coverage requires
 another fresh full-blind session. Do not call correction-validation blind or
 claim its retained checks were newly executed.
+
+For [Stage 2 attempt recovery](reviews/README.md#stage-2-attempt-recovery), include
+the latest chronological attempt, the last valid coverage base and every
+intervening failed correction-validation report with the same scope and explicit
+root. The new reviewer checks preserved root/prior evidence, each failure's
+cause and isolation, all changes since that valid base, incomplete or
+failed-attempt-only work and every source-backed excluded observation. Failed
+reports supply leads, never accepted closure or retained coverage. Record the
+assessment in the current report or existing repository-local durable evidence;
+do not rewrite failed reports/hashes or manufacture missing attempted references.
 
 ### Expectation-Only Extracts
 

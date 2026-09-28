@@ -430,6 +430,14 @@ starts each series at `001`:
 Never reuse or rewrite an existing report. The `review_passes` ledger in
 [`analysis/migration_status.yaml`](./migration_status.yaml) is the authoritative stage-to-report mapping.
 
+Stage 2 `previous_pass` retains the latest chronological attempt, including
+`blocked`/`invalid`; those failures supply no verified coverage. A later
+successful correction-validation may use only the independently assessed
+[attempt recovery](reviews/README.md#stage-2-attempt-recovery), preserving failed
+reports and hashes. Ordinary successful chains and Stage 19 are unchanged.
+All agents follow [packet transport safety](agent_orchestration.md#packet-transport-safety)
+when producing and reading command output; client spill files are not a read grant.
+
 Each review session id is unique. A closing pass applies only to the exact entry
 into its control stage: if the process returns and re-enters Stage 2, 7, 10, 14,
 16, or 19, the earlier pass is stale and a new eligible session must run before
@@ -842,7 +850,8 @@ removed before the review is considered operationally complete.
 - correction-validation is not blind and creates no new Phase A. A complete valid full-blind baseline may have findings. Pin the root full report, snapshot and source hashes, predecessor, latest candidate and every intervening report/change; read reports, checklist and dispositions immediately
 - Verify the entire actual diff, all open findings, related mechanisms/dependencies and affected old matched claims. Expand bounded impact checks when needed without invalidating the whole baseline; CHK is not a scope ceiling
 - Record mode, root/predecessor and a whole-scope coverage table in the existing report. Retain exact prior C IDs only with applicability rationale, not as new matches; union retained coverage and new checks without double counting. Clean requires no unchecked scope or open findings, including Low
-- Changed source, new channels or scope, contamination, unreliable/missing/incomplete baseline or systemic/unbounded impact: stop closure as blocked/invalid as appropriate and require a full new blind session before prior information
+- Changed source, new channels or scope, compromised baseline independence, unreliable/incomplete baseline or systemic/unbounded impact require a full new blind session before prior information. Missing evidence or uncertain failure containment blocks pending proof; record blocked/invalid as appropriate
+- Failed attempts stay immutable and add no verified coverage. previous_pass is chronological; recovery after consecutive failed correction-validation with the same scope and explicit root requires a new independent assessment of all changes since the last valid base and resolution of excluded observations. Follow analysis/reviews/README.md#stage-2-attempt-recovery
 
 Both modes require a fresh independent read-only BA, never the author or a reused reviewer. No new canonical artifact. Follow analysis/reviews/README.md#stage-2-correction-validation. Findings return to Stage 1; Stage 3 live verification and Stage 19 blind acceptance remain unchanged.
 <!-- RECORD_BOUNDARY_2_END -->

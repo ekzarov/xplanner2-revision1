@@ -325,6 +325,16 @@ must be resolved. Unreliable baseline or unbounded impact requires full-blind
 control in another fresh session. The happy-path example above still illustrates
 the initial full-blind pass, not a fixed team or mandatory full repeat.
 
+[Stage 2 attempt recovery](reviews/README.md#stage-2-attempt-recovery) distinguishes
+a contained failed reviewer session from an unreliable baseline. Failed attempts
+remain chronological immutable records and contribute no verified coverage.
+Missing evidence or uncertain containment blocks pending proof; recovery is not
+automatic. A blocked/invalid correction-validation return to bounded Stage 1
+corrections needs the procedure's explicit owner authorization. Stage 19 is unchanged.
+All assignments follow [packet transport safety](agent_orchestration.md#packet-transport-safety):
+authorized project-local scratch/temp/cache, bounded output, no out-of-scope
+client-spill reads or blanket user-profile allowlist, and disclosure of violations.
+
 <a id="read-where-stages-fit"></a>
 
 ## Where Stages Fit

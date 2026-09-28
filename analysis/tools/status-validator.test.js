@@ -261,6 +261,7 @@ function recordedEvidence(status) {
     paths.add(entry.report);
     paths.add(entry.independence_record);
     paths.add(entry.coverage_record);
+    paths.add(entry.recovery?.assessment_record);
   }
   for (const entry of status.owner_decisions) paths.add(entry.record);
   for (const report of status.delivery.owner_walkthrough_reports || []) paths.add(report);
@@ -591,7 +592,7 @@ for (const result of ['blocked', 'invalid']) {
     }
   });
 
-  test(`Stage 2 a ${result} closure interrupts eligibility until a new full baseline`, () => {
+  test(`Stage 2 a ${result} closure needs explicit recovery or a new full baseline`, () => {
     for (const unknown of [false, true]) {
       const failed = correctionPass(2, { result });
       if (unknown) {
@@ -612,6 +613,284 @@ for (const result of ['blocked', 'invalid']) {
     }
   });
 }
+
+function recoveryPass(pass = 3, coverageBase = 1, excluded = [2], overrides = {}) {
+  return correctionPass(pass, {
+    recovery: {
+      coverage_base_pass: coverageBase,
+      excluded_passes: excluded,
+      basis_unchanged: 'verified',
+      assessment_record: expectedRecoveryReport(pass),
+    },
+    ...overrides,
+  });
+}
+
+function expectedRecoveryReport(pass) {
+  return `analysis/reviews/stage-02-pass-${String(pass).padStart(3, '0')}.md`;
+}
+
+function recoveryAssessment(pass) {
+  return '# Independent attempt recovery\n\n- Control mode: correction-validation\n' +
+    `- Recovery session: ${pass.session_id}\n` +
+    `- Recovery coverage base: ${pass.recovery.coverage_base_pass}\n` +
+    `- Recovery excluded passes: ${pass.recovery.excluded_passes.join(', ')}\n` +
+    '- Recovery basis: verified\n\n' +
+    'The failure was confined to the excluded session. Source and prior evidence hashes were verified; ' +
+    'all affected claims and observations were independently checked, without retaining failed-attempt coverage.\n';
+}
+
+test('Stage 2 recovery preserves the real 006-007-008-009 chain without relabelling invalid evidence', () => {
+  for (const result of ['clean', 'findings']) {
+    const passes = [
+      stage2Pass(6, { result: 'findings' }),
+      correctionPass(7, { result: 'findings', baseline_pass: 6, previous_pass: 6 }),
+      correctionPass(8, { result: 'invalid', baseline_pass: 6, previous_pass: 7 }),
+      recoveryPass(9, 7, [8], { result, baseline_pass: 6, previous_pass: 8 }),
+    ];
+    const status = correctionStatus(passes);
+    const before = structuredClone(status);
+    assert.deepEqual(validateStatus(status), []);
+    assert.deepEqual(status, before);
+    assert.equal(passClosesStage(passes[2]), false);
+    assert.equal(status.progress.agent_reviews.invalid, 1);
+    assert.equal(status.schema_version, '1.5.0');
+  }
+});
+
+test('Stage 2 recovery can exclude multiple failed attempts but carries no verified coverage from them', () => {
+  const passes = [stage2Pass(1),
+    correctionPass(2, { result: 'invalid', authored_artifacts: ['candidate.md'] }),
+    correctionPass(3, { result: 'blocked', unchecked_scopes: ['unfinished checks'] }),
+    recoveryPass(4, 1, [2, 3]), correctionPass(5),
+    correctionPass(6, { result: 'invalid' }), recoveryPass(7, 5, [6])];
+  assert.deepEqual(validateStatus(correctionStatus(passes)), []);
+  assert.deepEqual(validateStatus(correctionStatus([...passes].reverse())), []);
+  for (const failed of [passes[1], passes[2], passes[5]]) assert.equal(passClosesStage(failed), false);
+  for (const result of ['clean', 'findings']) {
+    passes[3].result = result;
+    passes[3].unchecked_scopes = ['failed work not independently rechecked'];
+    assert.match(validateStatus(correctionStatus(passes)).join('\n'), /unchecked_scopes cannot be clean or findings/);
+  }
+});
+
+test('Stage 2 recovery cannot omit attempts, reorder exclusions or use failed coverage as its base', () => {
+  const history = [stage2Pass(1), correctionPass(2, { result: 'invalid' }), correctionPass(3, { result: 'blocked' })];
+  for (const excluded of [[2], [3], [3, 2], [1, 2, 3], [2, 3, 4], [2, 2, 3], []]) {
+    assert.notDeepEqual(validateStatus(correctionStatus([...history, recoveryPass(4, 1, excluded)])), []);
+  }
+  for (const base of [2, 3, 4, 5, 99]) {
+    assert.match(validateStatus(correctionStatus([...history, recoveryPass(4, base, [2, 3])])).join('\n'), /coverage_base_pass/);
+  }
+  const latestSkipped = recoveryPass(4, 1, [2, 3], { previous_pass: 2 });
+  assert.match(validateStatus(correctionStatus([...history, latestSkipped])).join('\n'), /latest preceding Stage 2 attempt/);
+  const validMiddle = [stage2Pass(1), correctionPass(2), correctionPass(3, { result: 'invalid' }), recoveryPass(4, 1, [2, 3])];
+  assert.match(validateStatus(correctionStatus(validMiddle)).join('\n'), /latest preceding valid/);
+});
+
+test('Stage 2 recovery never crosses full-blind attempts, changed roots/scopes or unknown failure references', () => {
+  for (const middle of [
+    stage2Pass(2, { result: 'invalid' }),
+    stage2Pass(2, { result: 'blocked' }),
+    correctionPass(2, { result: 'invalid', baseline_pass: 99 }),
+    correctionPass(2, { result: 'invalid', baseline_pass: undefined }),
+    correctionPass(2, { result: 'invalid', scope: 'changed scope' }),
+    correctionPass(2, { result: 'invalid', reviewed_at: '2026-07-28T10:02:04Z' }),
+    correctionPass(2, { result: 'invalid', reviewed_at: '2026-07-28T10:02:01Z' }),
+  ]) {
+    assert.notDeepEqual(validateStatus(correctionStatus([stage2Pass(1), middle, recoveryPass()])), []);
+  }
+});
+
+test('Stage 2 recovery does not rehabilitate an ineligible root or last valid coverage base', () => {
+  for (const change of [
+    { result: 'invalid' }, { result: 'blocked' }, { scope: 'changed scope' },
+    { authored_artifacts: ['record.md'] }, { unchecked_scopes: ['missing mandatory coverage'] },
+  ]) {
+    assert.notDeepEqual(validateStatus(correctionStatus([
+      stage2Pass(1, change), correctionPass(2, { result: 'invalid' }), recoveryPass(),
+    ])), []);
+    assert.notDeepEqual(validateStatus(correctionStatus([
+      stage2Pass(1), correctionPass(2, change), correctionPass(3, { result: 'invalid' }), recoveryPass(4, 2, [3]),
+    ])), []);
+  }
+  const reused = recoveryPass(3, 1, [2], { session_id: 'session-stage-02-2' });
+  assert.match(validateStatus(correctionStatus([
+    stage2Pass(1), correctionPass(2, { result: 'invalid' }), reused,
+  ])).join('\n'), /session_id.*must be unique/);
+});
+
+test('Stage 2 recovery rejects reversed or tied timestamps even when a failed predecessor reference is unknown', () => {
+  for (const reviewed_at of ['2026-07-28T10:02:02Z', '2026-07-28T10:02:03Z']) {
+    const middle = correctionPass(3, { result: 'blocked', reviewed_at });
+    delete middle.previous_pass;
+    const passes = [stage2Pass(1),
+      correctionPass(2, { result: 'invalid', reviewed_at: '2026-07-28T10:02:03Z' }),
+      middle, recoveryPass(4, 1, [2, 3])];
+    assert.match(validateStatus(correctionStatus(passes)).join('\n'), /strictly increasing review time/);
+  }
+});
+
+test('Stage 2 recovery attestation is typed, nonempty and restricted to eligible correction results', () => {
+  const history = [stage2Pass(1), correctionPass(2, { result: 'invalid' })];
+  for (const field of Object.keys(recoveryPass().recovery)) {
+    const missing = recoveryPass();
+    delete missing.recovery[field];
+    assert.match(validateStatus(correctionStatus([...history, missing])).join('\n'), new RegExp(field));
+  }
+  for (const change of [
+    { coverage_base_pass: '1' }, { coverage_base_pass: 0 },
+    { excluded_passes: ['2'] }, { excluded_passes: null },
+    { basis_unchanged: 'pending' }, { basis_unchanged: false },
+    { assessment_record: '' }, { assessment_record: '  ' }, { extra: 'invented' },
+  ]) {
+    const pass = recoveryPass();
+    Object.assign(pass.recovery, change);
+    assert.notDeepEqual(validateStatus(correctionStatus([...history, pass])), []);
+  }
+  for (const result of ['invalid', 'blocked']) {
+    assert.notDeepEqual(validateStatus(correctionStatus([...history, recoveryPass(3, 1, [2], { result })])), []);
+  }
+  for (const mode of [undefined, 'full-blind']) {
+    const pass = stage2Pass(3, { control_mode: mode, recovery: recoveryPass().recovery });
+    assert.notDeepEqual(validateStatus(correctionStatus([...history, pass])), []);
+  }
+  for (const stage of ['stage-07', 'stage-10', 'stage-14', 'stage-16', 'stage-19']) {
+    assert.notDeepEqual(validateStatus(validStatus({
+      review_passes: [reviewPass(stage, 3, { recovery: recoveryPass().recovery })],
+    })), []);
+  }
+  assert.notDeepEqual(validateStatus(correctionStatus([stage2Pass(1), recoveryPass(2, 1, [1])])), []);
+});
+
+test('Stage 2 recovery assessment must exist, be durable and bind the current session and chain', (t) => {
+  const root = temporaryDirectory(t, 'stage2-recovery-evidence-');
+  const pass = recoveryPass();
+  const status = correctionStatus([stage2Pass(1), correctionPass(2, { result: 'invalid' }), pass]);
+  const body = recoveryAssessment(pass);
+  materializeEvidence(root, status, { [pass.report]: body });
+  const file = writeStatus(root, status);
+  assert.doesNotThrow(() => loadAndValidateStatus(file));
+  for (const content of [
+    body.replace(pass.session_id, 'a-prior-session'),
+    body.replace('Recovery coverage base: 1', 'Recovery coverage base: 2'),
+    body.replace('Recovery excluded passes: 2', 'Recovery excluded passes: 1'),
+    body.replace('Recovery basis: verified', 'Recovery basis: pending'),
+    body.replace('- Recovery excluded passes: 2\n', ''),
+    body.replace('- Recovery basis: verified', '<!-- - Recovery basis: verified -->'),
+    body.replace('- Recovery basis: verified', '```text\n- Recovery basis: verified\n```'),
+    body.replace('- Recovery basis: verified\n', '') + '\n    - Recovery basis: verified\n',
+    body.replace('- Recovery session:', '```text\n- Recovery session:'),
+    body.replace('- Recovery session:', '````text\n```\n- Recovery session:') + '\n````\n',
+    body.replace('- Recovery session:', '~~~~text\n~~~\n- Recovery session:') + '\n~~~~\n',
+    body.replace('- Recovery basis: verified', '> - Recovery basis: verified'),
+    body.replace('- Recovery basis: verified', '`Recovery basis: verified`'),
+    body + '\n- Recovery session: a-different-session\n',
+  ]) {
+    fs.writeFileSync(path.join(root, pass.report), content);
+    assert.throws(() => loadAndValidateStatus(file), /recovery assessment must have one/, content);
+  }
+  fs.writeFileSync(path.join(root, pass.report), body);
+  for (const record of ['analysis/reviews/missing-recovery.md', '../outside.md', 'analysis/reviews']) {
+    pass.recovery.assessment_record = record;
+    assert.throws(() => loadAndValidateStatus(writeStatus(root, status)), /does not exist|escapes/);
+  }
+  pass.recovery.assessment_record = 'analysis/reviews/recovery.md';
+  for (const content of ['', '# Recovery\n\nTODO: <independent assessment>\n']) {
+    fs.writeFileSync(path.join(root, pass.recovery.assessment_record), content);
+    assert.throws(() => loadAndValidateStatus(writeStatus(root, status)), /empty or template-only/);
+  }
+  fs.writeFileSync(path.join(root, pass.recovery.assessment_record), body);
+  assert.doesNotThrow(() => loadAndValidateStatus(writeStatus(root, status)));
+});
+
+test('Stage 2 visible declarations survive multiline inline code without hiding duplicates', (t) => {
+  const root = temporaryDirectory(t, 'stage2-recovery-inline-code-');
+  const pass = recoveryPass();
+  const status = correctionStatus([stage2Pass(1), correctionPass(2, { result: 'invalid' }), pass]);
+  const body = recoveryAssessment(pass);
+  materializeEvidence(root, status, { [pass.report]: body });
+  const file = writeStatus(root, status);
+  for (const [label, value, error] of [
+    ['Recovery basis', 'pending', /recovery assessment must have one Recovery basis/],
+    ['Control mode', 'full-blind', /one valid Control mode declaration/],
+  ]) {
+    fs.writeFileSync(path.join(root, pass.report), body + `\n- ${label}: ${value}\n  \`quoted\n  code\`\n`);
+    assert.throws(() => loadAndValidateStatus(file), error);
+  }
+  for (const label of ['Recovery basis: verified', 'Control mode: correction-validation']) {
+    fs.writeFileSync(path.join(root, pass.report), body.replace(`- ${label}\n`, `- ${label}\n  \`quoted\n  code\`\n`));
+    assert.doesNotThrow(() => loadAndValidateStatus(file));
+  }
+  for (const quoted of [
+    '`quoted\nRecovery basis: pending\nControl mode: full-blind`',
+    '    Recovery basis: pending\n    Control mode: full-blind',
+  ]) {
+    fs.writeFileSync(path.join(root, pass.report), body + '\n' + quoted + '\n');
+    assert.doesNotThrow(() => loadAndValidateStatus(file));
+  }
+  // Indented lazy list continuation is visible Markdown, not a code block.
+  fs.writeFileSync(path.join(root, pass.report), body.replace('- Recovery basis: verified', '    - Recovery basis: verified'));
+  assert.doesNotThrow(() => loadAndValidateStatus(file));
+});
+
+test('Stage 2 failed correction observations return to authoring only with explicit scoped owner remediation authority', () => {
+  for (const result of ['blocked', 'invalid']) {
+    const failed = correctionPass(2, { result });
+    const approval = { ...ownerApproval(), approved_at: '2026-07-28T10:02:40Z' };
+    const back = transition('stage-02', 'stage-01', 3, approval);
+    back.gate_evidence.push(failed.report);
+    const status = correctionStatus([stage2Pass(1), failed]);
+    status.transition_history.push(back);
+    status.control.current_stage = 'stage-01';
+    status.control.previous_stage = 'stage-02';
+    status.progress.completed_percent = 0;
+    assert.deepEqual(validateStatus(status), []);
+    assert.equal(failed.result, result);
+    assert.equal(passClosesStage(failed), false);
+    for (const change of [
+      { owner_approval: null },
+      { owner_approval: { ...approval, scope: 'other-scope' } },
+      { owner_approval: { ...approval, approved_by: 'agent-not-owner' } },
+      { owner_approval: { ...approval, approved_at: '2026-07-28T10:01:00Z' } },
+      { owner_approval: { ...approval, approved_at: '2026-07-28T10:04:00Z' } },
+      { gate_evidence: ['unrelated.md'] },
+    ]) {
+      const wrong = structuredClone(status);
+      Object.assign(wrong.transition_history.at(-1), change);
+      assert.notDeepEqual(validateStatus(wrong), []);
+    }
+    const forward = structuredClone(status);
+    forward.transition_history.at(-1).to = 'stage-03';
+    forward.control.current_stage = 'stage-03';
+    forward.control.previous_stage = 'stage-02';
+    forward.progress.completed_percent = formalStageProgress('stage-03').percent;
+    assert.match(validateStatus(forward).join('\n'), /pass for exit to stage-03 must be clean/);
+    failed.control_mode = 'full-blind';
+    delete failed.baseline_pass;
+    delete failed.previous_pass;
+    delete failed.coverage_record;
+    assert.match(validateStatus(status).join('\n'), /pass for exit to stage-01 must be findings/);
+  }
+});
+
+test('Stage 2 recovery supports an authorized correction return and still needs clean control after re-entry', () => {
+  for (const result of ['clean', 'findings']) {
+    const failed = correctionPass(2, { result: 'invalid' });
+    const next = recoveryPass(3, 1, [2], { result, reviewed_at: '2026-07-28T10:04:30Z' });
+    const status = correctionStatus([stage2Pass(1), failed, next]);
+    const back = transition('stage-02', 'stage-01', 3, { ...ownerApproval(), approved_at: '2026-07-28T10:02:40Z' });
+    back.gate_evidence.push(failed.report);
+    status.transition_history.push(back, transition('stage-01', 'stage-02', 4));
+    assert.deepEqual(validateStatus(status), []);
+    status.transition_history.push(transition('stage-02', 'stage-03', 5));
+    status.control.current_stage = 'stage-03';
+    status.control.previous_stage = 'stage-02';
+    status.progress.completed_percent = formalStageProgress('stage-03').percent;
+    if (result === 'clean') assert.deepEqual(validateStatus(status), []);
+    else assert.match(validateStatus(status).join('\n'), /pass for exit to stage-03 must be clean/);
+  }
+});
 
 test('Stage 2 closure exit remains clean-only and requires a pass in the current stage entry', () => {
   const status = correctionStatus();
@@ -712,7 +991,7 @@ test('Stage 2 explicit modes require exactly one actual matching report declarat
       const report = path.join(root, pass.report);
       const marker = `- Control mode: ${control_mode}\n`;
       for (const content of [body, `${body}<!--\n${marker}-->\n`, `${body}\x60\x60\x60text\n${marker}\x60\x60\x60\n`,
-        `${body}    ${marker}`, `${body}> ${marker}`, `${body}${marker}${marker}`]) {
+        `${body}\n    ${marker}`, `${body}> ${marker}`, `${body}${marker}${marker}`]) {
         fs.writeFileSync(report, content);
         assert.throws(() => loadAndValidateStatus(file), /one valid Control mode declaration/);
       }

@@ -1191,7 +1191,37 @@
         "previous_pass": {
           "type": "integer",
           "minimum": 1,
-          "description": "For clean/findings, the required latest preceding Stage 2 attempt: the root or an eligible correction-validation pass using that root. For blocked/invalid attempts, omit when unknown or record an attempted earlier predecessor. Failed attempts cannot be inherited or skipped by later successful correction validation; a new full baseline is required."
+          "description": "For clean/findings, the required latest chronological Stage 2 attempt, including a failed one. A failed predecessor requires verified recovery from the last valid coverage base; its coverage is never inherited and its record is never omitted. For blocked/invalid attempts, omit when unknown or record an attempted earlier predecessor."
+        },
+        "recovery": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["coverage_base_pass", "excluded_passes", "basis_unchanged", "assessment_record"],
+          "description": "New reviewer's verified recovery after attempt-local failures, not an amendment of failed verdicts. Only Stage 2 correction-validation with clean/findings may attest recovery. Semantic eligibility and complete rechecking remain reviewer obligations.",
+          "properties": {
+            "coverage_base_pass": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Latest preceding valid clean/findings Stage 2 pass under the same full root and scope."
+            },
+            "excluded_passes": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "type": "integer", "minimum": 1 },
+              "description": "Exact chronological list of all failed correction-validation attempts between coverage base and this pass; excluded only from verified coverage."
+            },
+            "basis_unchanged": {
+              "const": "verified",
+              "description": "Fresh reviewer attests the source, scope and valid evidence basis remain eligible and the failure is contained; not established by schema validation."
+            },
+            "assessment_record": {
+              "$ref": "#/$defs/nonEmptyString",
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Non-template repository-local assessment, normally this pass's report, with Recovery session, Recovery coverage base, Recovery excluded passes and Recovery basis declarations matching this entry."
+            }
+          }
         },
         "coverage_record": {
           "$ref": "#/$defs/nonEmptyString",
@@ -1295,6 +1325,17 @@
       },
       "allOf": [
         {
+          "if": { "required": ["recovery"] },
+          "then": {
+            "required": ["control_mode", "baseline_pass", "previous_pass"],
+            "properties": {
+              "stage": { "const": "stage-02" },
+              "control_mode": { "const": "correction-validation" },
+              "result": { "enum": ["clean", "findings"] }
+            }
+          }
+        },
+        {
           "if": {
             "required": ["control_mode"]
           },
@@ -1326,7 +1367,8 @@
             "properties": {
               "baseline_pass": false,
               "previous_pass": false,
-              "coverage_record": false
+              "coverage_record": false,
+              "recovery": false
             }
           }
         }
