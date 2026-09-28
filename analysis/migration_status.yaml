@@ -31,12 +31,12 @@ project:
 
 control:
   state: active
-  current_stage: stage-02
-  stage_status: awaiting_owner
-  previous_stage: stage-01
-  next_action: 'Process maintenance PR adopting Starter b3fc045 (Stage 2 Attempt Recovery, Packet Transport Safety) awaits owner merge. Then, per the owner instruction of 2026-09-28: an owner-approved bounded Stage 1 return for the source-backed observations F-001..F-003 of invalid pass 008, a separate correction PR, and after its merge one fresh independent BA correction-validation pass 009 that itself assesses whether recovery from coverage base pass 007 (root 006, excluded 008) is possible. A full-blind pass is needed only if that reviewer establishes a trigger, which PM shows to the owner first. Stage 3 not authorized.'
+  current_stage: stage-01
+  stage_status: awaiting_review
+  previous_stage: stage-02
+  next_action: 'Stage 1 remediation BA-001-10 verified by PM against the assignment boundary (analysis/stages/stage-01/stage-02-pass-008-dispositions.md: the pass-008 leads F-001..F-003 confirmed from source, F-001 extended to single-argument forwards and request-keyed caches, F-003 narrowed for the 77 outputs; 3 rows changed, no rows added, no status change, no expansion; EL output recorded as a bounded fact with an owner-decision recommendation; assignment section unchanged). Owner merges the correction PR; then one fresh independent BA (not an author, prior reviewer or the pass-008 reviewer) runs correction-validation pass 009 with its own recovery assessment (root 006, coverage base 007, excluded 008). A full-blind trigger is shown to the owner first; PM stops after the pass 009 result. Stage 3 not authorized.'
   automatic_advancement: false
-  prevention_self_check: 'stage-02 pass 008 entry (correction-validation, not blind): the reviewer receives analysis/error-prevention-checklist.md (CHK-001..CHK-012, CHK-007 and CHK-012 refined after passes 006 and 007), the prior reports and dispositions immediately.'
+  prevention_self_check: 'stage-01 remediation after invalid stage-02 pass 008: author confirmed from source the errors behind proposals P-1..P-3; PM admitted them as refinements (no new IDs): P-1 refines CHK-003 (writers of shared registries and start-up order), P-2 refines CHK-011 (tag handlers in public layout chains), P-3 refines CHK-007 (stated counting rule). Checklist CHK-001..CHK-012.'
 
 constitution:
   status: ratified
@@ -193,6 +193,19 @@ transition_history:
       - 'analysis/stages/stage-01/stage-02-pass-007-dispositions.md'
       - 'analysis/legacy_reconnaissance.md'
     owner_approval: null
+  - from: stage-02
+    to: stage-01
+    reason: 'Owner-approved bounded Stage 1 remediation after the failed Stage 2 correction-validation attempt 008 (analysis/reviews/stage-02-pass-008.md, result invalid, report SHA-256 0bfc7d9b6404aad91eab3797b9a641a6dce73bcb6891fd7ebd02a3c2bf4d8e3b): verify and correct its source-backed observations F-001..F-003 and directly related mechanisms under the boundary in analysis/stages/stage-01/stage-02-pass-008-dispositions.md. Remediation authority only; pass 008 stays invalid; not a findings verdict and not an exit to Stage 3.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-28T11:19:42Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-02-pass-008.md'
+      - 'analysis/stages/stage-01/stage-02-pass-008-dispositions.md'
+    owner_approval:
+      approved_by: 'ekzarov'
+      approved_at: '2026-09-28T11:17:50Z'
+      record: 'analysis/stages/stage-01/stage-02-pass-008-dispositions.md'
+      scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
 
 review_passes:
   - stage: stage-02
@@ -405,9 +418,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 2 correction-validation pass 008 invalid (reviewer read its own client-persisted command output outside the allowed folders); its source-backed observations F-001..F-003 (all low) are leads, not closure evidence; Stage 2 open, awaiting owner; Starter b3fc045 recovery rule being adopted. Stage 1 records have 210 rows.'
-  completed_percent: 5
-  updated_at: '2026-09-28T11:12:47Z'
+  summary: 'Stage 1 remediated after invalid Stage 2 pass 008 (its observations confirmed from source): 210 scenario rows in 18 epics (Yes 111, Inferred 77, Partial 21, No 1), all static-only and open; awaiting Stage 2 correction-validation pass 009 with recovery assessment.'
+  completed_percent: 0
+  updated_at: '2026-09-28T11:43:40Z'
   agent_reviews:
     total: 8
     valid: 7
