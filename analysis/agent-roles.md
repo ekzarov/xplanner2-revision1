@@ -245,6 +245,18 @@ is not blind and never reuses an author or earlier reviewer session. A required
 full-blind restart needs another fresh session without those conclusions.
 The role stays BA / independent-review; control mode does not create a seventh role.
 
+After a failed correction-validation attempt, use
+[Stage 2 attempt recovery](reviews/README.md#stage-2-attempt-recovery) before
+claiming a new clean/findings result. The new BA is neither the failed reviewer,
+an author nor any prior reviewer. Chronology retains every failed attempt;
+failed observations are leads requiring independent resolution, not coverage or
+accepted closure. PM assigns only authorized bounded Stage 1 corrections; a
+blocked/invalid correction-validation return requires the exact owner approval
+and durable authorization defined by the recovery procedure, not an automatic return.
+Assignments also name explicitly authorized project-local scratch and apply
+[packet transport safety](agent_orchestration.md#packet-transport-safety);
+client persistence never expands the read allowlist.
+
 ## Runtime Portability
 
 `AGENTS.md` and the thin `CLAUDE.md` entry bridge both direct sessions to

@@ -26,6 +26,35 @@ anchored contents, then detailed evidence and remaining work.
   checks summary/navigation presence. The author must still reconcile the summary
   with actual evidence; the command cannot decide whether the claims are true.
 
+## Stage 2 Recovery Evidence
+
+`audit:status` checks optional Stage 2 correction-validation recovery under
+[the governing procedure](../reviews/README.md#stage-2-attempt-recovery), not the
+truth of its source/coverage assessment. The chronological `previous_pass` is
+not the valid coverage base; excluded failed attempts contribute no coverage.
+Existing failed attempts remain recordable without recovery or invented missing
+references; historical records are not rewritten to satisfy the new policy.
+
+Only a new `clean`/`findings` recovery result uses `recovery` with
+`coverage_base_pass`, ordered `excluded_passes`, `basis_unchanged: verified` and
+`assessment_record`. The last is a nonempty non-template repository-local file,
+possibly the current report. It needs exactly one visible declaration each:
+
+```text
+- Recovery session: <current session_id>
+- Recovery coverage base: <coverage_base_pass>
+- Recovery excluded passes: <comma-separated pass numbers in order>
+- Recovery basis: verified
+```
+
+The example fence is guidance only: actual declarations belong in the report's
+recovery subsection as visible text, not comments or code fences. Matching
+markers bind the record to this session and chain; they do not verify preserved
+evidence, failure isolation or independent resolution of excluded observations.
+Unknown roots, failed full-blind or changed-scope attempts are not automatically
+recoverable. Follow [packet transport safety](../agent_orchestration.md#packet-transport-safety)
+for large command output and explicitly authorized project-local temp/cache.
+
 ## Portable Role Contract
 
 Run `npm --prefix analysis/tools run audit:roles` after changing the

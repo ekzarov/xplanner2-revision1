@@ -236,6 +236,16 @@ New/reopened SDD uses the graph policy; old exact approvals remain history.
   Initial/new scope, changed legacy, unreliable/incomplete evidence or unbounded
   impact requires full-blind control. No unresolved finding, low-only exception,
   missing required check or CHK whitelist supplies clean closure. Stage 19 is unchanged.
+- **Stage 2 failed attempts:** [attempt recovery](reviews/README.md#stage-2-attempt-recovery)
+  separates chronological `previous_pass` from the last valid coverage base.
+  Failed attempts remain recorded and add no verified coverage. Only a fresh
+  independent BA may establish recovery after consecutive failed
+  correction-validation attempts with the same scope and explicit root; it is
+  not automatic and does not alter full-blind or Stage 19 rules. All packets
+  follow [transport safety](agent_orchestration.md#packet-transport-safety).
+  A blocked/invalid correction-validation return to Stage 1 requires the
+  recovery procedure's exact owner approval and durable bounded-correction
+  authorization with failed-report evidence; no other backward gate is relaxed.
 - **Stages 11-12:** follow the [architecture review-cycle contract](architecture/review-cycles.md).
   Stage 11 writes a numbered immutable owner verdict; Stage 12 writes a separate
   numbered immutable closure report against the unchanged approved architecture.

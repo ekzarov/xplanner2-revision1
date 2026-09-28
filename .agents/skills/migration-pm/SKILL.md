@@ -21,8 +21,20 @@ Read [MIGRATION.md](../../../MIGRATION.md) and the
    For Stage 2, propose full-blind or eligible correction-validation and require
    the fresh BA to verify the baseline chain, complete diff and retained coverage.
    Correction-validation is not blind; no unresolved finding is waived.
+   Failed attempts remain chronological records, never verified coverage.
+   Use [Stage 2 recovery](../../../analysis/reviews/README.md#stage-2-attempt-recovery)
+   only after a new eligible BA verifies the preserved evidence and all excluded
+   observations; do not silently skip a failed attempt or change its verdict.
+   Returning a blocked/invalid correction-validation to Stage 1 needs the
+   procedure's exact owner approval, durable bounded-correction authorization
+   and failed-report gate evidence; it is neither a waiver nor acceptance.
 6. If the runtime cannot delegate safely, return a bounded packet for a separate
    owner-launched session. Report blocked delegation, not a simulated specialist.
+
+Apply [packet transport safety](../../../analysis/agent_orchestration.md#packet-transport-safety)
+to every assignment: explicitly authorize bounded project-local output/temp/cache
+scratch, prevent out-of-scope client-spill reads and disclose violations. Do not
+grant blanket user-profile access as a workaround.
 
 For every PR, follow [the communication contract](../../../analysis/migration_methodology.md#pr-descriptions-comments-and-commits)
 and explicitly load [the template](../../../.github/pull_request_template.md).

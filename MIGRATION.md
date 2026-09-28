@@ -117,11 +117,23 @@ baseline. That mode reads earlier reports/checklist immediately, checks the
 whole actual change and affected mechanisms, and justifies retained check IDs.
 Record `control_mode` and the required baseline/predecessor/coverage references
 in the existing report and status. No new artifact or new Phase A is required.
-Missing/unreliable evidence, changed source/scope or systemic/unbounded impact
+Missing baseline evidence blocks validation. Unreliable baseline independence,
+completeness or provenance, changed source/scope or systemic/unbounded impact
 requires full-blind control in another fresh session. A closing `clean` still
 needs complete reconciled coverage, no unresolved findings (including low) and
 no required unchecked scope. Stage 19 is unchanged; source evidence resolves
 disagreements, not either agent's authority.
+
+After a failed Stage 2 correction-validation attempt, follow
+[Stage 2 attempt recovery](analysis/reviews/README.md#stage-2-attempt-recovery).
+`previous_pass` still names the latest chronological attempt, not the coverage
+base. Failed attempts remain immutable and supply no verified coverage; recovery
+is an independently assessed exception, not an automatic retry or a Stage 19 change.
+Returning a blocked/invalid Stage 2 correction-validation attempt to Stage 1
+for bounded corrections needs the exact owner-authorized route in that procedure;
+failed observations alone never authorize a return or acceptance.
+All assignments follow [packet transport safety](analysis/agent_orchestration.md#packet-transport-safety)
+for authorized scratch, bounded outputs and disclosure of access violations.
 
 Every new stage, decision or execution record follows the
 [artifact result boundaries](analysis/artifact-result-boundaries.md): established

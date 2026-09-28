@@ -102,6 +102,12 @@ reads the checklist and prior records immediately. It is independent but not
 blind; checklist applicability includes changes since the baseline. CHK rows
 never define the full coverage boundary or excuse an unlisted defect.
 
+For [Stage 2 attempt recovery](reviews/README.md#stage-2-attempt-recovery), select
+checks against all changes since the last valid coverage base, not only the
+failed attempt's diff. Its observations remain leads for independent resolution.
+Use [packet transport safety](agent_orchestration.md#packet-transport-safety)
+for permitted output/scratch; do not open a client spill outside allowed folders.
+
 ## Self-Check And Learning Note
 
 Use a short **Error prevention** section in the current working report or

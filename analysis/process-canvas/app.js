@@ -61,6 +61,7 @@ const englishUi = {
   correctionInputs: 'correction-validation (eligible baseline): immediate inputs',
   correctionAccess: 'I from the start, not blind: current Stage 1 records, full status, prior reports, checklist and dispositions. Pin the complete valid root full-blind report (findings allowed), its snapshot and source hashes, predecessor, latest candidate and every intervening report/change. No new Phase A. PM alone updates shared status.',
   openStage2Modes: 'Stage 2: full-blind / correction-validation',
+  openStage2Recovery: 'Stage 2: failed-attempt recovery rules',
   frameMeaning: 'Frames show responsibility, not a passed result.',
   example: 'Example', usedAt: 'Used at', implementationReference: 'Implementation or evidence reference',
   inputArtifacts: 'Input artifacts', updatedArtifacts: 'Updated artifacts', outputArtifacts: 'Output artifacts', none: 'None',
@@ -1295,6 +1296,7 @@ function correctionHelp(stage) {
     + ['correctionScopeText', 'correctionExpansionText', 'correctionHandoffText', 'correctionControlText']
       .map(key => `<p>${escapeHtml(tr(key))}</p>`).join('')
     + `<a class="source-link" href="${data.repository}/blob/main/analysis/reviews/README.md#stage-2-correction-validation" target="_blank" rel="noopener">${escapeHtml(tr('openStage2Modes'))}</a>`
+    + `<a class="source-link" href="${data.repository}/blob/main/analysis/reviews/README.md#stage-2-attempt-recovery" target="_blank" rel="noopener">${escapeHtml(tr('openStage2Recovery'))}</a>`
     + `<a class="source-link" href="${data.repository}/blob/main/analysis/reviews/README.md#correction-scope-and-handoff" target="_blank" rel="noopener">${escapeHtml(tr('openCorrectionScope'))}</a></details>`;
 }
 

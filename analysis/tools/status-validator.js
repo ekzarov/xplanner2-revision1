@@ -3,6 +3,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const MarkdownIt = require('markdown-it');
 const { constitutionVersion } = require('./constitution-version');
 const {
   AuditResult,
@@ -29,6 +30,7 @@ const WAIVER_PERMITTED_NEXT_STAGE = Object.freeze({
   pre_sdd_knowledge: 'stage-15',
 });
 const ARTIFACT_BINDING_REQUIRED_FROM = Date.parse('2026-08-07T18:00:00Z');
+const evidenceMarkdown = new MarkdownIt({ html: true });
 
 function stageNumber(stage) {
   const match = typeof stage === 'string' && stage.match(/^stage-(\d{2})$/);
@@ -152,8 +154,8 @@ function validateStage2Chains(reviewPasses) {
         errors.push(`${label} ${field} must reference an earlier Stage 2 pass by number and review time`);
       }
     }
-    // Failed eligibility attempts record evidence, not an eligible chain. Later
-    // clean/findings attempts still cannot inherit or skip these ledger entries.
+    // Failed attempts preserve history, never coverage. Recovery is a separate
+    // fresh-review attestation on a later successful eligibility assessment.
     if (!requiresEligibleChain) continue;
     // Mode-less historic passes used the full-only policy. Semantic eligibility
     // and retained coverage must still be verified in the new reviewer report.
@@ -164,10 +166,35 @@ function validateStage2Chains(reviewPasses) {
     if (!previous || passes[index - 1] !== previous) {
       errors.push(`${label} previous_pass must reference the latest preceding Stage 2 attempt without skipping any attempt`);
     }
-    if (!complete(previous) || previous.scope !== entry.scope ||
-        (previous !== baseline && (previous.control_mode !== 'correction-validation' ||
-          previous.baseline_pass !== entry.baseline_pass))) {
-      errors.push(`${label} previous_pass must be a valid clean/findings pass in the same scope with no unchecked_scopes, either the root or correction-validation with the same baseline_pass`);
+    let coverageBase = previous;
+    if (entry.recovery) {
+      const recovery = entry.recovery;
+      coverageBase = byNumber.get(recovery.coverage_base_pass);
+      const earlier = passes.slice(0, index);
+      const lastValid = earlier.findLast((pass) => ['clean', 'findings'].includes(pass.result));
+      if (!coverageBase || coverageBase !== lastValid ||
+          Date.parse(coverageBase.reviewed_at) >= Date.parse(entry.reviewed_at)) {
+        errors.push(`${label} recovery.coverage_base_pass must reference the latest preceding valid Stage 2 pass by number and review time`);
+      }
+      const excluded = coverageBase && earlier.includes(coverageBase)
+        ? earlier.slice(earlier.indexOf(coverageBase) + 1) : [];
+      if (!excluded.length || excluded.length !== recovery.excluded_passes.length ||
+          excluded.some((pass, i) => pass.pass !== recovery.excluded_passes[i])) {
+        errors.push(`${label} recovery.excluded_passes must list every intervening failed attempt in chronological order, without omission`);
+      }
+      if (excluded.some((pass, i) => !['blocked', 'invalid'].includes(pass.result) ||
+          pass.control_mode !== 'correction-validation' || pass.baseline_pass !== entry.baseline_pass ||
+          pass.scope !== entry.scope ||
+          Date.parse(pass.reviewed_at) <= Date.parse((excluded[i - 1] || coverageBase).reviewed_at) ||
+          Date.parse(pass.reviewed_at) >= Date.parse(entry.reviewed_at))) {
+        errors.push(`${label} recovery may exclude only earlier blocked/invalid correction-validation attempts with the same root and scope in strictly increasing review time; never a full-blind or unknown-root attempt`);
+      }
+    }
+    if (!complete(coverageBase) || coverageBase.scope !== entry.scope ||
+        (coverageBase !== baseline && (coverageBase.control_mode !== 'correction-validation' ||
+          coverageBase.baseline_pass !== entry.baseline_pass))) {
+      const field = entry.recovery ? 'recovery.coverage_base_pass' : 'previous_pass';
+      errors.push(`${label} ${field} must be a valid clean/findings pass in the same scope with no unchecked_scopes, either the root or correction-validation with the same baseline_pass`);
     }
   }
   return errors;
@@ -380,6 +407,15 @@ function validateStatus(status, schema = loadStatusSchema()) {
         if (!closes) {
           errors.push(`/review_passes latest ${stage} pass for exit to ${window.exit.to} must be clean, or low-cosmetic findings dispositioned in a recorded polish backlog`);
         }
+      } else if (stage === 'stage-02' && window.exit.to === 'stage-01' &&
+          latest?.control_mode === 'correction-validation' && ['blocked', 'invalid'].includes(latest.result)) {
+        const approval = window.exit.owner_approval;
+        if (!approval || approval.scope !== latest.scope ||
+            Date.parse(approval.approved_at) < Date.parse(latest.reviewed_at) ||
+            Date.parse(approval.approved_at) > Date.parse(window.exit.changed_at) ||
+            !window.exit.gate_evidence.includes(latest.report)) {
+          errors.push('/transition_history Stage 2 failed-attempt remediation to Stage 1 requires owner_approval after that attempt for its exact scope and its report in gate_evidence');
+        }
       } else if (!latest || latest.result !== 'findings') {
         errors.push(`/review_passes latest ${stage} pass for exit to ${window.exit.to} must be findings`);
       }
@@ -539,6 +575,7 @@ function durableEvidencePaths(status) {
     add(pass.report);
     add(pass.independence_record);
     add(pass.coverage_record);
+    add(pass.recovery?.assessment_record);
   }
   for (const decision of status.owner_decisions || []) add(decision.record);
   for (const blocker of status.blockers || []) {
@@ -606,6 +643,29 @@ function templateOnlyEvidence(content) {
 function independenceDeclaration(report) {
   const match = report.match(/^##+\s*Independence Declaration\s*$([\s\S]*?)(?=^##\s|\Z)/im);
   return match ? match[1] : null;
+}
+
+function visibleDeclarations(content, label) {
+  const lines = [];
+  let quoteDepth = 0;
+  // Parse Markdown blocks so longer/unclosed fences and quoted examples cannot
+  // supply declarations. Inline code remains quoted, including field values.
+  for (const token of evidenceMarkdown.parse(content, {})) {
+    if (token.type === 'blockquote_open') quoteDepth += 1;
+    if (token.type === 'blockquote_close') quoteDepth -= 1;
+    if (token.type !== 'inline' || quoteDepth) continue;
+    const visible = (token.children || []).map((child) => {
+      if (child.type === 'text') return child.content;
+      if (child.type === 'code_inline') return '`' + child.content + '`';
+      if (['softbreak', 'hardbreak'].includes(child.type)) return '\n';
+      if (child.type === 'html_inline') return child.content.replace(/[^\n]/g, '');
+      return '';
+    }).join('');
+    // Inline code can collapse source newlines. Keep all surrounding visible
+    // declarations; the block parser already excludes actual indented code.
+    lines.push(...visible.split(/\r?\n/));
+  }
+  return lines.filter((line) => new RegExp(`^[ \\t]*[-*]?[ \\t]*${label}:`, 'i').test(line));
 }
 
 function validateRecordedEvidence(status, root) {
@@ -680,12 +740,7 @@ function validateRecordedEvidenceInner(status, root) {
     if (pass.stage !== 'stage-02') continue;
     const report = records.get(pass.report);
     if (!report) continue;
-    const declarations = report
-      .replace(/<!--[\s\S]*?-->/g, '')
-      .replace(/```[\s\S]*?```|~~~[\s\S]*?~~~/g, '')
-      .replace(/^(?: {4}|\t).*$/gm, '')
-      .split(/\r?\n/)
-      .filter((line) => /^[ \t]*[-*]?[ \t]*Control mode:/i.test(line));
+    const declarations = visibleDeclarations(report, 'Control mode');
     // Only mode-less historical entries may omit the report declaration.
     if (!declarations.length && pass.control_mode === undefined) continue;
     const mode = documentField(declarations[0] || '', 'Control mode');
@@ -693,6 +748,27 @@ function validateRecordedEvidenceInner(status, root) {
       errors.push(`/review_passes stage-02 pass ${pass.pass} report must have one valid Control mode declaration when control_mode is explicit or a marker is present`);
     } else if (mode !== (pass.control_mode || 'full-blind')) {
       errors.push(`/review_passes stage-02 pass ${pass.pass} report Control mode must match structured control_mode (required for correction-validation)`);
+    }
+  }
+
+  for (const pass of status.review_passes || []) {
+    if (!pass.recovery) continue;
+    const assessment = records.get(pass.recovery.assessment_record);
+    if (!assessment) continue; // Missing/unsafe evidence was rejected above.
+    const expected = {
+      'Recovery session': pass.session_id,
+      'Recovery coverage base': String(pass.recovery.coverage_base_pass),
+      'Recovery excluded passes': pass.recovery.excluded_passes.join(', '),
+      'Recovery basis': 'verified',
+    };
+    for (const [label, value] of Object.entries(expected)) {
+      const declarations = visibleDeclarations(assessment, label);
+      const actual = documentField(declarations[0] || '', label);
+      const normalized = label === 'Recovery excluded passes' && actual !== null
+        ? actual.replace(/\s*,\s*/g, ', ') : actual;
+      if (declarations.length !== 1 || normalized !== value) {
+        errors.push(`/review_passes stage-02 pass ${pass.pass} recovery assessment must have one ${label} declaration matching this pass`);
+      }
     }
   }
 

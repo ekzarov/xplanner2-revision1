@@ -367,6 +367,7 @@ $staticFiles = @(
     'analysis/tools/error-prevention-audit.test.js',
     'analysis/process-cheatsheet.md',
     'analysis/tools/review-comparison-template.test.js',
+    'analysis/tools/stage2-recovery-docs.test.js',
     'analysis/tools/artifact-result-boundaries.test.js',
     'analysis/artifact-result-boundaries.md',
     'analysis/process-upgrade-1.5.md',

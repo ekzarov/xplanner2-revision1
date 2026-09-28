@@ -25,6 +25,11 @@ than repeating Stage 1 discovery. Independent Stage 2 control remains separate.
    complete actual diff/affected mechanisms and justifies retained coverage.
    Neither changes the author's files nor reuses authoring or earlier review
    context. An unreliable baseline or unbounded impact requires fresh full-blind control.
+   After a failed attempt, follow [Stage 2 recovery](../../../analysis/reviews/README.md#stage-2-attempt-recovery):
+   distinguish the chronological predecessor from the last valid coverage base,
+   independently resolve excluded observations and never inherit failed coverage.
+   A blocked/invalid correction-validation return to bounded Stage 1 work needs
+   the procedure's explicit owner authorization; observations alone do not grant it.
 5. Self-check the allowed result and return evidence, gaps and questions to PM
    in the role contract's RESULT format; shared ledgers are PM's write scope.
 
@@ -33,3 +38,7 @@ the actual deployment operator separately from your behavior verification in the
 walkthrough. Missing role accounts or unsafe test data go back to PM/owner;
 deployment or reachability alone is not parity evidence. Follow
 [the environment procedure](../../../config/REMOTE_SERVER.md#configure-before-remote-work).
+
+Use [packet transport safety](../../../analysis/agent_orchestration.md#packet-transport-safety):
+pre-filter or redirect large output to explicitly authorized project-local
+scratch. Never open client spill files outside the allowed folders; disclose violations.
