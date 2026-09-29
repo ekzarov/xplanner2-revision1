@@ -4,7 +4,10 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const MarkdownIt = require('markdown-it');
+const cheerio = require('cheerio');
+const { hasEvidencePlaceholders } = require('./evidence-placeholders');
 const { constitutionVersion } = require('./constitution-version');
+const { validateReviewIncidents, validateIncidentEvidence } = require('./review-incidents');
 const {
   AuditResult,
   PLACEHOLDER,
@@ -16,6 +19,7 @@ const {
   readJsonFile,
   rejectGovernedOverrides,
   resolveInside,
+  sha256Buffer,
   sha256File,
   validateSchema,
 } = require('./lib');
@@ -205,6 +209,7 @@ function validateStatus(status, schema = loadStatusSchema()) {
   if (errors.length) return errors;
 
   const reviewPasses = Array.isArray(status.review_passes) ? status.review_passes : [];
+  errors.push(...validateReviewIncidents(status));
   errors.push(...validateStage2Chains(reviewPasses));
   const ownerDecisions = Array.isArray(status.owner_decisions) ? status.owner_decisions : [];
   const formalProgress = formalStageProgress(status.control.current_stage);
@@ -576,6 +581,7 @@ function durableEvidencePaths(status) {
     add(pass.independence_record);
     add(pass.coverage_record);
     add(pass.recovery?.assessment_record);
+    add(pass.incident_assessment?.record);
   }
   for (const decision of status.owner_decisions || []) add(decision.record);
   for (const blocker of status.blockers || []) {
@@ -631,7 +637,7 @@ function withoutCodeSpans(text) {
 function templateOnlyEvidence(content) {
   const text = content.trim();
   if (!text) return true;
-  if (PLACEHOLDER.test(withoutCodeSpans(text))) return true;
+  if (hasEvidencePlaceholders(withoutCodeSpans(text))) return true;
   const meaningful = text
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/[`#>*_[\]()|:;.,!?/\\-]/g, ' ')
@@ -645,9 +651,19 @@ function independenceDeclaration(report) {
   return match ? match[1] : null;
 }
 
-function visibleDeclarations(content, label) {
+function visibleDeclarations(content, label, { plain = false } = {}) {
   const lines = [];
   let quoteDepth = 0;
+  let renderedLines;
+  if (plain) {
+    // Raw HTML wrappers can span Markdown blocks, so token visibility alone is
+    // insufficient. Do not infer visibility under executable or stylesheet content.
+    const document = cheerio.load(evidenceMarkdown.render(content));
+    const dynamic = document('script, style, link[rel="stylesheet"]').length;
+    document('blockquote, pre, code, template, noscript, details, [hidden], [style], [aria-hidden="true"]').remove();
+    renderedLines = new Set(dynamic ? [] : document('body').text().split(/\r?\n/)
+      .map((line) => line.trim().replace(/^[-*]\s*/, '')));
+  }
   // Parse Markdown blocks so longer/unclosed fences and quoted examples cannot
   // supply declarations. Inline code remains quoted, including field values.
   for (const token of evidenceMarkdown.parse(content, {})) {
@@ -663,7 +679,11 @@ function visibleDeclarations(content, label) {
     }).join('');
     // Inline code can collapse source newlines. Keep all surrounding visible
     // declarations; the block parser already excludes actual indented code.
-    lines.push(...visible.split(/\r?\n/));
+    const markup = plain && (token.children || []).some((child) =>
+      ['html_inline', 'code_inline', 'link_open', 'image'].includes(child.type));
+    lines.push(...visible.split(/\r?\n/).map((line) =>
+      markup || (plain && !renderedLines.has(line.trim().replace(/^[-*]\s*/, '')))
+        ? line + '\0' : line));
   }
   return lines.filter((line) => new RegExp(`^[ \\t]*[-*]?[ \\t]*${label}:`, 'i').test(line));
 }
@@ -711,6 +731,7 @@ function validateRecordedEvidence(status, root) {
 function validateRecordedEvidenceInner(status, root) {
   const errors = [];
   const records = new Map();
+  const hashes = new Map();
   if (!status || typeof status !== 'object') return ['/status must be an object'];
   try { require('./architecture-review-records').validateReviewTransitions(root, status); }
   catch (error) { errors.push(error.message); }
@@ -725,16 +746,20 @@ function validateRecordedEvidenceInner(status, root) {
         errors.push(`/recorded evidence must not use a symbolic link: ${relative}`);
         continue;
       }
-      const content = fs.readFileSync(file, 'utf8');
+      const bytes = fs.readFileSync(file);
+      const content = bytes.toString('utf8');
       if (templateOnlyEvidence(content)) {
         errors.push(`/recorded evidence is empty or template-only: ${relative}`);
       } else {
         records.set(relative, content);
+        hashes.set(relative, sha256Buffer(bytes));
       }
     } catch (error) {
       errors.push(error.message);
     }
   }
+
+  errors.push(...validateIncidentEvidence(status, records, hashes, visibleDeclarations));
 
   for (const pass of status.review_passes || []) {
     if (pass.stage !== 'stage-02') continue;

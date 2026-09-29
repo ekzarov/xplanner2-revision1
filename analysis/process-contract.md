@@ -95,6 +95,14 @@ classification does not waive secret policy or authorize silent changes to
 immutable evidence. The detailed procedure lives in the orchestration protocol;
 project decisions and learned checks are not starter defaults.
 
+Operational incidents follow [the common assessment procedure](agent_orchestration.md#operational-incident-assessment).
+A masking failure remains a failure even without a committed value. Review
+usability is assessed separately against independence, source/scope, integrity,
+permitted support and disclosure safeguards; only a supported non-material
+assessment may receive exact owner approval. Material/unknown safeguards block;
+sealed reports and invalid verdicts are not repaired by approval. Synchronizing
+this rule into a project is not acceptance of a pending pass.
+
 ## Document Ownership
 
 **The constitution sets the limits; the methodology explains how to work within them.**
