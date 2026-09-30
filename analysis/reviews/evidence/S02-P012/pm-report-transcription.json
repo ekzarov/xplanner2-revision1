@@ -1,0 +1,12 @@
+{
+  "packet_id": "S02-P012",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-012.md",
+  "producer": "Reviewer subagent a1d8c39bcc8758c6c authored the report and all evidence and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p012/reviewer-scratch/stage-02-pass-012.md",
+  "source_sha256": "0389168dad12aefb67009b815b61df14611655fa718ff4d12d749e10518c86be",
+  "pm_changes": "Only the literal token CURRENT_SESSION_ID was replaced with the client-assigned session id a1d8c39bcc8758c6c, in the report and in independence-record.md. No other byte changed (verified with diff).",
+  "final_report_sha256": "389f18dbde908896ab9e12dc200c301fdd07c1176d9f54d59d8ab4594d2c53fe",
+  "reviewer_disclosures": "D-1, D-3..D-6, D-8: inline node -e calls without the temp variables (timestamp, hash or count output only). D-2: the packet was read once with the client file-read tool instead of the runner. D-7: one small here-document without TMPDIR. Assessed in the companion incident-assessment.md (owner decision pending). Packet notes: decisions_in_force still listed the operator choice not to use pass 010, superseded by the owner approval; open_items called pass 010 an excluded attempt. PM fixed both in the packet builder for the next packet.",
+  "recorded_at": "2026-09-30T18:56:00Z"
+}

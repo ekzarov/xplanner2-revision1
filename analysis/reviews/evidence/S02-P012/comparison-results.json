@@ -1,0 +1,603 @@
+{
+  "packet": "S02-P012",
+  "pass": 12,
+  "control_mode": "correction-validation",
+  "reviewed_revision": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+  "base_revision": "9667b69d774bad704766a6bd7d439ca8fe4cac78",
+  "root_revision": "15cb6b26946f73596177eba8cead333383d9f728",
+  "root_pass": 6,
+  "previous_pass": 11,
+  "coverage_base_pass": 10,
+  "excluded_passes": [
+    11
+  ],
+  "counts": {
+    "total": 41,
+    "matched": 27,
+    "mismatch": 12,
+    "not-checked": 0,
+    "not-applicable": 2
+  },
+  "note": "Newly executed checks only; retained coverage is in coverage-reconciliation.json and is not counted here.",
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "low",
+      "checks": [
+        "C-010",
+        "C-011",
+        "C-020",
+        "C-021",
+        "C-022",
+        "C-026",
+        "C-027",
+        "C-034"
+      ],
+      "carries": "pass-010 F-001 (figures part)"
+    },
+    {
+      "id": "F-002",
+      "severity": "low",
+      "checks": [
+        "C-018",
+        "C-022",
+        "C-026",
+        "C-027",
+        "C-034"
+      ],
+      "carries": "pass-009 F-003"
+    },
+    {
+      "id": "F-003",
+      "severity": "low",
+      "checks": [
+        "C-014",
+        "C-020",
+        "C-027",
+        "C-029",
+        "C-033"
+      ],
+      "carries": "pass-010 F-003 (display side)"
+    }
+  ],
+  "closed": [
+    "pass-010 F-002",
+    "pass-010 F-004",
+    "pass-010 F-005",
+    "pass-010 F-001 divergence part",
+    "pass-010 F-003 converter mechanism part"
+  ],
+  "exclusions": [
+    {
+      "id": "E-001",
+      "check": "C-040"
+    },
+    {
+      "id": "E-002",
+      "check": "C-041"
+    }
+  ],
+  "blockers": [],
+  "items": [
+    {
+      "id": "C-001",
+      "item": "Packet integrity and every pin",
+      "expected": "packet SHA-256 7073b2b7...759d; every sha256 pin of the packet at CAND",
+      "observed": "43 of 43 comparisons match: 25 record/provenance pins in the candidate checkout and the main tree, runner 06b6170a and config 209b1134, and the 4 legacy files in the 3 checkouts and the main tree (demo-seed.sql by LF-normalized checkout bytes; committed bytes via git show hash 41b2f6a3)",
+      "result": "matched",
+      "evidence": "verify-pins.js; git show 2c176d4:legacy/demo-seed.sql",
+      "finding": "none",
+      "covers": [
+        "P10:C-045"
+      ]
+    },
+    {
+      "id": "C-002",
+      "item": "Runner and pinned checkouts",
+      "expected": "runner self-test passes; root, base and candidate checkouts at 15cb6b2, 9667b69 and 2c176d4 with an empty status",
+      "observed": "self-test OK (30 cases); rev-parse and status --short as pinned and empty at start and at end",
+      "result": "matched",
+      "evidence": "safe-run.js --self-test; git rev-parse HEAD; git status --short",
+      "finding": "none",
+      "covers": []
+    },
+    {
+      "id": "C-003",
+      "item": "Root pass 006 eligibility",
+      "expected": "README Stage 2 Correction Validation: complete independent full-blind baseline with retrievable blind checkpoint",
+      "observed": "report ee71a38f, ledger a205b9b5, snapshot c8d4f780, inventory 8f734d0d match; 138 Phase A items saved 2026-09-25T13:23:33Z before the Phase B release at 13:25:05Z; ledger 539 = 519 matched + 17 mismatch + 0 not-checked + 3 not-applicable; ROOT..CAND adds sealed review files only (53 A; the 2 M are README.md and the template)",
+      "result": "matched",
+      "evidence": "phase-a-snapshot.md; pm-phase-b-release.json; chain-check.js; git diff --name-status ROOT CAND -- analysis/reviews",
+      "finding": "none",
+      "covers": [
+        "P9:C-002"
+      ]
+    },
+    {
+      "id": "C-004",
+      "item": "Coverage base pass 010 validity",
+      "expected": "latest preceding valid clean/findings pass; incident assessment owner-approved",
+      "observed": "pass 010 findings under root 006 (previous 009, valid); ledger 46 = 28/16/0/2; coverage 588 = 224 + 364 + 0; base checkout reproduces its reviewed records (recon 7c57c864, workbook 8eb58ab3); companion fa700605 matches the packet; owner decision stage-02-pass-010-incident-approval: approved by ekzarov at 2026-09-30T17:58:36Z, scope binds session a81d0356af46a1dd1 and report f567227d; the pass-10 status entry records incident_assessment with five guards verified. Pass 010 findings F-001..F-005 stay findings",
+      "result": "matched",
+      "evidence": "migration_status.yaml; S02-P010 incident-assessment.md, pm-incident-verification.json; chain-check.js",
+      "finding": "none",
+      "covers": [
+        "N-02"
+      ]
+    },
+    {
+      "id": "C-005",
+      "item": "Excluded pass 011: failure cause and containment",
+      "expected": "attempt recovery step 2: cause, affected session/files/checks, containment",
+      "observed": "cause: one git log -1 --format=%cI on the pinned candidate (outside the packet list), which read one commit object and printed one timestamp; session aeef20966517c8dbc; 8d137ed..CAND adds only S02-P010 incident files, S02-P011 files, the pass-011 report and status; no Stage 1 record changed after 8d137ed; pass 011 retained nothing and its coverage is 595 uncovered",
+      "result": "matched",
+      "evidence": "S02-P011 access-log.md; git diff --name-status 8d137ed 2c176d4",
+      "finding": "none",
+      "covers": [
+        "N-01"
+      ]
+    },
+    {
+      "id": "C-006",
+      "item": "Chain completeness and recovery step 3",
+      "expected": "no omitted attempt; recovery does not jump over a newer valid pass, a full-blind attempt or a different root/scope",
+      "observed": "chain 006, 007, 008 (invalid, recovered by 009), 009, 010, 011 (invalid, baseline_pass 6, same scope string); no pass after 010 is valid; no full-blind attempt after 006",
+      "result": "matched",
+      "evidence": "migration_status.yaml review_passes",
+      "finding": "none",
+      "covers": [
+        "P10:C-002",
+        "P10:C-003"
+      ]
+    },
+    {
+      "id": "C-007",
+      "item": "Same legacy source and governed scope",
+      "expected": "constitution A1/A4; README trigger list",
+      "observed": "legacy blobs identical ROOT/BASE/CAND (empty diff); sources/ and provenance, constitution, checklist and SKILL.md unchanged BASE..CAND; A4 source tree 1117 of 1117 files match the manifest (803 Java, 39 withheld); WAR 964 files, 594 classes, 102 JARs; 210 rows, none added, removed or renumbered",
+      "result": "matched",
+      "evidence": "git diff --name-status; src-manifest.js; unzip",
+      "finding": "none",
+      "covers": [
+        "P9:C-004",
+        "P10:C-005",
+        "P10:C-006",
+        "P10:C-020"
+      ]
+    },
+    {
+      "id": "C-008",
+      "item": "Change set BASE..CAND regenerated, including the changes around pass 011",
+      "expected": "complete independent regeneration",
+      "observed": "22 files: 3 Stage 1 records (reconnaissance 24 hunks, +57/-34; workbook 22 cells in rows 69, 70, 71, 89, 178, 180, 182, 184, 186, 216: D 5, F 6, G 1, H 10; new dispositions record), status and 18 sealed review files; BASE..8d137ed 12 files, 8d137ed..CAND 11 files (no Stage 1 record); statuses 169/19/21/1 to 168/20/21/1",
+      "result": "matched",
+      "evidence": "change-set.json; wbdiff.js",
+      "finding": "none",
+      "covers": [
+        "P7:C-065"
+      ]
+    },
+    {
+      "id": "C-009",
+      "item": "Pass-010 F-001: divergent classes recorded and no row relies on them",
+      "expected": "every known source/WAR body difference recorded, WAR governs (A4)",
+      "observed": "WAR LinkTag#addNavigationParameters reads the Spring REQUEST_ATTRIBUTES request URI without a mapping, the source throws JspTagException; WAR AbstractFormat#getFormat falls back to the servlet-context resources, the source has none; only row 114 cites LinkTag, for the shared mapping branch; no row cites AbstractFormat",
+      "result": "matched",
+      "evidence": "cls.js listings; SRC LinkTag.java:118-134, AbstractFormat.java:15-19; wbgrep.js",
+      "finding": "none",
+      "covers": [
+        "P10:C-017",
+        "N-05"
+      ]
+    },
+    {
+      "id": "C-010",
+      "item": "Pass-010 F-001: rule M reproducible as written",
+      "expected": "CHK-007: 4739 - 84 - 23 - 35 = 4597, 4595 found, 347 of 620 constructors",
+      "observed": "the 23 named members include 10 synthetic access$N members that are also among the 35 synthetic or bridge members; applying the three stated exclusions leaves 4607 (4605 found; the 2 not found are in ViewPersonAction); 622 non-synthetic constructors, 349 without a declared source constructor",
+      "result": "mismatch",
+      "evidence": "corr.js; corr-check.js (decoder: 4586 bodies, 0 unknown opcodes, 0 off-boundary targets)",
+      "finding": "F-001",
+      "covers": [
+        "P10:C-015",
+        "N-06"
+      ]
+    },
+    {
+      "id": "C-011",
+      "item": "Pass-010 F-001: rule S reproducible as written",
+      "expected": "CHK-007: each ldc loading a String constant is one entry; 3892 - 388 - 118 = 3386; 155 not found",
+      "observed": "ldc/ldc_w load 3482 String constants and 388 Class constants (3870 together); the 388 excluded class constants are not String loads, so the rule contradicts itself; 3482 - 118 empty = 3364, not 3386; my reading of the three found-cases leaves 158 not found (the pieces rule is not defined)",
+      "result": "mismatch",
+      "evidence": "corr.js; corr-check.js",
+      "finding": "F-001",
+      "covers": [
+        "P10:C-016",
+        "N-07"
+      ]
+    },
+    {
+      "id": "C-012",
+      "item": "Pass-010 F-002: note id resolves to the parent (rows 178, 180, 182, 184)",
+      "expected": "the object actually listed or redirected to (CHK-012)",
+      "observed": "IdSearchHelper#search tries Project, Iteration, UserStory, Task, Person, Note and returns Note#getParent for a note; getParent uses DomainContext#getNoteTarget and OLDIdSearchHelper#search on the thread session (same substitution); ContentSearchAction adds the result at index 0 when global scope is on and it is Nameable, with no authorizer call; IdSearchAction redirects to /do/view/<type>?oid=<id> of the returned object; HibernateSessionFilter binds the session before chain.doFilter (web.xml:147-152); source identical; row cells and notes state this",
+      "result": "matched",
+      "evidence": "cls.js listings; SRC IdSearchHelper.java:20-37, Note.java:130-133; rowcells.js",
+      "finding": "none",
+      "covers": [
+        "P6:C-033",
+        "P6:C-089",
+        "P6:C-090",
+        "P6:C-299",
+        "P6:C-301",
+        "P6:C-303",
+        "P6:C-305",
+        "P6:C-510"
+      ]
+    },
+    {
+      "id": "C-013",
+      "item": "Pass-010 F-003: converter mechanism and rows 70, 71, 186",
+      "expected": "pattern and locale source of every converter (CHK-004)",
+      "observed": "initConverters builds dateTimeConverter and dateConverter from MessageResources#getMessage(String) (null locale -> defaultLocale = Locale.getDefault() set in the constructor; XPlannerMessageResources overrides only getMessage(Locale,String); no setDefaultLocale call), decimalConverter from DecimalFormat.getInstance(request.getLocale()), numberConverter from NumberFormat.getIntegerInstance(); callers exactly IdSearchAction#doExecute, IterationEditorForm#validate, TimeEditorForm#validate; IterationEditorForm#reset nulls the shared dateConverter; TaskEditorForm#validate builds its own; no setLenient call; history.jsp:61,106 are the only pattern-less formatDate uses and FormatDateTag caches the default pattern with the first rendering request locale; rows 70, 71 and 186 and the row 71 live question agree",
+      "result": "matched",
+      "evidence": "cls.js listings incl. struts-1.2.9.jar MessageResources; callers.js; SRC AbstractEditorForm.java:29-32,152-168",
+      "finding": "none",
+      "covers": [
+        "P6:C-100",
+        "P6:C-199",
+        "P6:C-505",
+        "P6:C-198",
+        "P6:C-307",
+        "P6:C-088",
+        "P9:C-018",
+        "N-13"
+      ]
+    },
+    {
+      "id": "C-014",
+      "item": "Pass-010 F-003: display side and consumer lists (Q3 registry sentence, reading block, row 69 D, H69/H71/H89, H89 patterns)",
+      "expected": "every display and parse consumer with its locale source (CHK-003/CHK-004, refined by P-3)",
+      "observed": "the time editor shows its start, end and report dates through UpdateTimeAction#populateForm with the session-locale formats and its durations with the request-locale DecimalFormat.format, and Insert Time fills format.datetime of the session bundle (editTimeEntries.jsp:31,37); only its validation (TimeEditorForm#valideRow) uses the static converters; TaskEditorForm#setCreatedDate fills a string that no JSP renders. The Q3 sentence \"The iteration, time and task editors validate and show dates and durations with them\" and the reading-block \"validate and show dates with static converters\" are wrong for the time and task editors; the session-consumer lists (D69 and the H69/H71/H89 notes: \"saving time entries\") omit the time editor display and Insert Time; H89 keeps \"date and date-time patterns\" although the iteration editor parses only with dateConverter",
+      "result": "mismatch",
+      "evidence": "cls.js UpdateTimeAction#populateForm, #getDateFormat; editTimeEntries.jsp:31,37,100-125; callers.js",
+      "finding": "F-003",
+      "covers": [
+        "P6:C-036",
+        "P6:C-061",
+        "P6:C-215",
+        "P6:C-512",
+        "P6:C-197",
+        "P6:C-506",
+        "P10:C-023",
+        "N-10"
+      ]
+    },
+    {
+      "id": "C-015",
+      "item": "Pass-010 F-003: static formatter enumeration",
+      "expected": "8 static formatter fields; 3 set at class initialization with their patterns and consumers",
+      "observed": "8 fields found (5 converters, TaskVelocityData.keyFormatter yyyy.MM.dd, DailyTimesheetEntry.shortDateFormat EEE d-MMM-yy read by getEntryDateShort at timesheet.jsp:85, SpreadsheetStory.formatter ddMMMyy with no caller of toString); positive control FormatDateTag.dateFormatters (map) listed separately",
+      "result": "matched",
+      "evidence": "static-fmt.js; callers.js",
+      "finding": "none",
+      "covers": [
+        "N-09"
+      ]
+    },
+    {
+      "id": "C-016",
+      "item": "Pass-010 F-004: row 216 and linked statements",
+      "expected": "status back to Inferred unless a method-level basis is cited",
+      "observed": "G216 Inferred; note records the reason; web.xml:168-176 are the /soap/* and /ical/* Basic filter mappings and 299-300 map /servlet/AxisServlet, whose /* filters are non-security (ServletRequestFilter, OpenSessionInViewFilter, HibernateSessionFilter); reading block and Boundary say 57 after the return",
+      "result": "matched",
+      "evidence": "web.xml; rowcells.js; recon.diff",
+      "finding": "none",
+      "covers": [
+        "P6:C-011",
+        "P6:C-112",
+        "P6:C-333",
+        "P6:C-135"
+      ]
+    },
+    {
+      "id": "C-017",
+      "item": "Pass-010 F-005: record corrections to BA-001-11",
+      "expected": "the 31 inserted notes, the prefix statement and the omitted audit:artifact-links row corrected in the new record",
+      "observed": "31 H cells hold the provenance sentence and the BA-001-11 note before it, all 210 cells hold the BA-001-11 note (the S02-P010 change set records 179 appended, 31 inserted); the base reconnaissance audit:artifact-links row carries \"in BA-001-11: 244\"; the record states all three and that the BA-001-12 note of row 178 sits before its provenance sentence (verified: 1 of 10)",
+      "result": "matched",
+      "evidence": "provcheck.js; S02-P010 change-set.json; recon.diff",
+      "finding": "none",
+      "covers": [
+        "P10:C-009",
+        "P10:C-014",
+        "P10:C-035"
+      ]
+    },
+    {
+      "id": "C-018",
+      "item": "Pass-009 F-003: restated script-context counting rule",
+      "expected": "CHK-007: 74 files, 103 contexts, 78 outputs (32/27/18/1) under the rule as written",
+      "observed": "as written (quotes inside scriptlets and JSP custom tags do not end a value) the rule gives 103 contexts and 81 outputs (32/30/18/1), or 82 if a nested <%= %> counts separately; the extra 3 are in the exportLinks.jsp overlib onclick (lines 34-39), which spans an xplanner:link with removeQuotes=\"true\"; 103/78 reproduces only if quotes inside custom tags do end a value, contrary to the text; the 3 outputs write constants and bundle texts, so \"2 request values\" stays true",
+      "result": "mismatch",
+      "evidence": "scriptctx.js (default, --nest-once, --scriptlet-only)",
+      "finding": "F-002",
+      "covers": [
+        "P6:C-500",
+        "P9:C-020",
+        "P9:C-021",
+        "N-14"
+      ]
+    },
+    {
+      "id": "C-019",
+      "item": "Source-backed leads of excluded pass 011",
+      "expected": "every lead independently resolved",
+      "observed": "B-001 (pass 010 incident unassessed) is resolved by the owner decision (C-004); its identity figures reproduce (12 files BASE..8d137ed, 22 cells, 24 hunks, 168/20/21/1) except its removed-line count: -27 is -34 when list-item lines starting with a hyphen are counted (C-008); PO-1..PO-4 are packet-text observations with no Stage 1 claim; no other lead",
+      "result": "matched",
+      "evidence": "stage-02-pass-011.md; C-004; C-008",
+      "finding": "none",
+      "covers": [
+        "N-03"
+      ]
+    },
+    {
+      "id": "C-020",
+      "item": "Reconnaissance reading block (CAND 37-48)",
+      "expected": "summary true",
+      "observed": "status and row statements true; the correspondence bullet repeats the irreproducible 4597/3386 figures (F-001); the F-003 bullet says the editor forms \"validate and show dates with static converters\" (F-003)",
+      "result": "mismatch",
+      "evidence": "recon.diff hunks 1-4",
+      "finding": "F-001, F-003",
+      "covers": [
+        "P6:C-494"
+      ]
+    },
+    {
+      "id": "C-021",
+      "item": "Scope And Provenance edits (CAND 93-98, 112-115)",
+      "expected": "rules M and S reproducible; divergence bullet true; snapshot, analyst, skill",
+      "observed": "rules M and S do not reproduce (C-010, C-011); known-differences bullet true (C-009); snapshot/analyst/skill lines consistent (skill blob 560391d6 equals CAND)",
+      "result": "mismatch",
+      "evidence": "recon.diff hunks 5-7",
+      "finding": "F-001",
+      "covers": [
+        "P6:C-493"
+      ]
+    },
+    {
+      "id": "C-022",
+      "item": "Build, Run, And Test Evidence rows changed (CAND 288, 317, 322, 324, 329, 332-335)",
+      "expected": "reproducible figures; author tool facts excluded (C-040)",
+      "observed": "script-sinks-09 row: 78 not reproducible as written (F-002); method-corr row and new BA-001-12 row repeat 4597/3386 (F-001); legacy hashes equal; workbook hash 4f26e8e7 equals CAND",
+      "result": "mismatch",
+      "evidence": "recon.diff hunks 8-14",
+      "finding": "F-001, F-002",
+      "covers": [
+        "P6:C-503",
+        "N-08"
+      ]
+    },
+    {
+      "id": "C-023",
+      "item": "Q3 registry fact (CAND 460) apart from the display sentence",
+      "expected": "prior writers and caches unchanged and true; new converter and formatter facts true",
+      "observed": "the BA-001-11 text is a byte-identical prefix; decimalConverter, numberConverter (IdSearchAction), TaskEditorForm converter and the 3 class-initialized formatters are true (C-013, C-015); the display sentence is C-014",
+      "result": "matched",
+      "evidence": "recon.diff hunk 15",
+      "finding": "none",
+      "covers": [
+        "P6:C-126",
+        "P6:C-492",
+        "P6:C-534",
+        "P6:C-538",
+        "P9:C-017"
+      ]
+    },
+    {
+      "id": "C-024",
+      "item": "Q3 read-check fact (CAND 464)",
+      "expected": "note-to-parent substitution stated",
+      "observed": "stated for the content search and the ID jump; rows 164, 178, 180, 182, 184",
+      "result": "matched",
+      "evidence": "recon.diff hunk 16; C-012",
+      "finding": "none",
+      "covers": [
+        "P6:C-486"
+      ]
+    },
+    {
+      "id": "C-025",
+      "item": "Parity-Map Boundary (CAND 491-493) and Stage 1 Exit Checklist (CAND 616)",
+      "expected": "counts and statements true",
+      "observed": "168/20/21/1 reproduce; 57 after the row 216 return; the BA-001-12 row list equals the change set; 210 rows",
+      "result": "matched",
+      "evidence": "wbdiff.js; recon.diff hunks 17, 22",
+      "finding": "none",
+      "covers": [
+        "P6:C-501"
+      ]
+    },
+    {
+      "id": "C-026",
+      "item": "Return Correction Evidence changed and new rows and paragraph (CAND 591, 593, 596-603)",
+      "expected": "dispositions true",
+      "observed": "rows consistent with the record and the \"pending\" column convention of earlier rows; but the pass-009 F-003 row says the rule is \"restated as the tool applies it\" (not so, F-002) and the pass-010 F-001 row says the figures are kept \"with stated counting rules\" (not reproducible, F-001); the paragraph lacks a space after \"figures.\" (editorial, not a finding)",
+      "result": "mismatch",
+      "evidence": "recon.diff hunks 18-21",
+      "finding": "F-001, F-002",
+      "covers": [
+        "N-11"
+      ]
+    },
+    {
+      "id": "C-027",
+      "item": "Error Prevention BA-001-12 entries and annotations (CAND 629-653)",
+      "expected": "self-check claims supported",
+      "observed": "CHK-007 line (\"regenerated under stated rules with breakdowns\") unsupported (F-001, F-002); CHK-003/CHK-004 line true for the static fields but the display-side miss persists (F-003); the call-path and reset self-detections are true",
+      "result": "mismatch",
+      "evidence": "recon.diff hunks 23-24",
+      "finding": "F-001, F-002, F-003",
+      "covers": [
+        "P6:C-502",
+        "N-12"
+      ]
+    },
+    {
+      "id": "C-028",
+      "item": "Dispositions record consistency with the regenerated change set",
+      "expected": "rows, cells, sections and totals as regenerated",
+      "observed": "Changed Rows equals the 22 regenerated cells (11 D/F, 1 G, 10 H); the section list covers all 24 hunks; totals and status counts true; the row 178 placement is disclosed",
+      "result": "matched",
+      "evidence": "wb-changed.json; recon.diff",
+      "finding": "none",
+      "covers": [
+        "N-04"
+      ]
+    },
+    {
+      "id": "C-029",
+      "item": "Unchanged cells of the 10 changed rows",
+      "expected": "no remaining copy of a corrected claim",
+      "observed": "E69 still reads \"Date formats follow the UI locale bundle\" without the editor exception now stated in D69 and F69; other unchanged cells agree",
+      "result": "mismatch",
+      "evidence": "rowcells.js",
+      "finding": "F-003",
+      "covers": []
+    },
+    {
+      "id": "C-030",
+      "item": "Before-text preservation in the 10 changed H cells",
+      "expected": "existing evidence text kept",
+      "observed": "9 cells keep the before text as prefix; H178 inserts the note before the unchanged provenance sentence (as disclosed); no text lost",
+      "result": "matched",
+      "evidence": "wbdiff.js",
+      "finding": "none",
+      "covers": []
+    },
+    {
+      "id": "C-031",
+      "item": "CHK-001 citations in the change set",
+      "expected": "every SRC path, cited method and WAR/JSP line resolves",
+      "observed": "23 SRC paths, 19 cited methods, 23 WAR citations and 6 bare JSP citations resolve (3 checker hits were trailing-comma artifacts, checked by context)",
+      "result": "matched",
+      "evidence": "citecheck.js",
+      "finding": "none",
+      "covers": [
+        "P7:C-061"
+      ]
+    },
+    {
+      "id": "C-032",
+      "item": "CHK-002 negative claims in the change set",
+      "expected": "negative claims have negative checks",
+      "observed": "no other pattern-less formatDate (2 uses, both history.jsp); no security filter on /servlet/AxisServlet; no initConverters caller besides the 3",
+      "result": "matched",
+      "evidence": "grep; web.xml; callers.js",
+      "finding": "none",
+      "covers": [
+        "P10:C-040"
+      ]
+    },
+    {
+      "id": "C-033",
+      "item": "CHK-003 and CHK-004 over the date and number mechanisms",
+      "expected": "every display and parse consumer with locale source",
+      "observed": "static fields enumerated and true; time-editor display and Insert Time missed",
+      "result": "mismatch",
+      "evidence": "C-013..C-015",
+      "finding": "F-003",
+      "covers": []
+    },
+    {
+      "id": "C-034",
+      "item": "CHK-007 figures in the change set",
+      "expected": "every figure reproducible under its stated rule",
+      "observed": "status counts, 10 rows, 22 cells, 8 fields, 103 contexts reproduce; 4597/4595, 3386/155 and 78 do not (C-010, C-011, C-018)",
+      "result": "mismatch",
+      "evidence": "C-010, C-011, C-018",
+      "finding": "F-001, F-002",
+      "covers": []
+    },
+    {
+      "id": "C-035",
+      "item": "CHK-009 credential values in the change set",
+      "expected": "no credential value in new text",
+      "observed": "credscan.js over the changed reconnaissance lines, the 22 changed cells and the dispositions record: 0 credential values",
+      "result": "matched",
+      "evidence": "credscan.js (counts only)",
+      "finding": "none",
+      "covers": [
+        "P7:C-062"
+      ]
+    },
+    {
+      "id": "C-036",
+      "item": "CHK-011 over the changed unauthenticated-surface claims",
+      "expected": "unauthenticated surfaces correctly labelled",
+      "observed": "row 216 (/servlet/AxisServlet) is unauthenticated and now Inferred; the F-002 rows concern /do/* pages behind WebSecurityFilter",
+      "result": "matched",
+      "evidence": "web.xml",
+      "finding": "none",
+      "covers": [
+        "P9:C-039"
+      ]
+    },
+    {
+      "id": "C-037",
+      "item": "CHK-012 over the changed request-derived claims",
+      "expected": "request id traced to the object loaded, listed or redirected to",
+      "observed": "as C-012; the breadcrumb (NavigationBarTag#setObject) uses the same lookup, as recorded",
+      "result": "matched",
+      "evidence": "callers.js",
+      "finding": "none",
+      "covers": []
+    },
+    {
+      "id": "C-038",
+      "item": "CHK-005, CHK-006, CHK-008, CHK-010 applicability",
+      "expected": "rechecked only where their inputs changed",
+      "observed": "no validation key, delete, query path or link-parameter claim changed in the change set",
+      "result": "matched",
+      "evidence": "recon.diff; wb-changed.json",
+      "finding": "none",
+      "covers": []
+    },
+    {
+      "id": "C-039",
+      "item": "Checklist identity",
+      "expected": "checklist 8a15e08c unchanged BASE..CAND",
+      "observed": "unchanged; CHK-001..CHK-012",
+      "result": "matched",
+      "evidence": "git diff; verify-pins.js",
+      "finding": "none",
+      "covers": [
+        "P10:C-044"
+      ]
+    },
+    {
+      "id": "C-040",
+      "item": "Author tool-execution facts in the changed tool rows",
+      "expected": "not a legacy claim",
+      "observed": "exit codes, branches and audit counts of the author session are outside the permitted evidence; each legacy fact they support is checked in its own item",
+      "result": "not-applicable",
+      "evidence": "packet boundary",
+      "finding": "E-001",
+      "covers": [
+        "P9:C-046"
+      ]
+    },
+    {
+      "id": "C-041",
+      "item": "Release-WAR equality (594 classes byte-identical to v1.1a4)",
+      "expected": "owner-approved intake fact",
+      "observed": "outside the permitted inputs; no conclusion here depends on it (every relied-on source reading was compared with the baseline WAR bytecode)",
+      "result": "not-applicable",
+      "evidence": "war-comparison.json",
+      "finding": "E-002",
+      "covers": [
+        "P10:C-021"
+      ]
+    }
+  ]
+}

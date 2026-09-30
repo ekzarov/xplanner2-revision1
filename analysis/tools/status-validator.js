@@ -8,6 +8,7 @@ const cheerio = require('cheerio');
 const { hasEvidencePlaceholders } = require('./evidence-placeholders');
 const { constitutionVersion } = require('./constitution-version');
 const { validateReviewIncidents, validateIncidentEvidence } = require('./review-incidents');
+const { attributionError } = require('./delegated-authority');
 // Project rule (xplanner2-revision1 departure): Stage 2 live-check carryover.
 const { validateLiveCarryover, liveCarryoverCloses, validateLiveCarryoverEvidence } = require('./stage2-live-carryover');
 const {
@@ -254,8 +255,10 @@ function validateStatus(status, schema = loadStatusSchema()) {
   for (const decision of ownerDecisions) {
     if (decisionIds.has(decision.id)) errors.push(`/owner_decisions duplicate id "${decision.id}"`);
     decisionIds.add(decision.id);
-    if (decision.decided_by !== status.project.owner) {
-      errors.push(`/owner_decisions "${decision.id}" decided_by must equal project.owner`);
+    // Project hook: honest attribution of delegated decisions (delegated-authority.js).
+    const attribution = attributionError(decision, status);
+    if (attribution) {
+      errors.push(`/owner_decisions "${decision.id}" ${attribution}`);
     }
     if (decision.id.startsWith('waiver:')) {
       const [prefix, gate, ...scopeParts] = decision.id.split(':');

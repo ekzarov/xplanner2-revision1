@@ -1,0 +1,333 @@
+{
+  "packet_id": "S02-P012",
+  "review_pass": 12,
+  "review_mode": "formal independent pass, Stage 2 control reconciliation, control_mode correction-validation with attempt recovery (independent, NOT blind; no Phase A)",
+  "governing_procedure": "analysis/reviews/README.md#stage-2-correction-validation and #stage-2-attempt-recovery; analysis/agent_orchestration.md#correction-validation-packets, #packet-transport-safety and #operational-incident-assessment; constitution A4; MIGRATION.md#source-readiness",
+  "expected_result_schema": "exactly one of clean | findings | blocked | invalid",
+  "report_path": "analysis/reviews/stage-02-pass-012.md",
+  "report_delivery": "Write the report to .migration-tmp/stage-02-p012/reviewer-scratch/stage-02-pass-012.md; PM copies it byte-exact (only the literal token CURRENT_SESSION_ID may be replaced).",
+  "route": "base-010",
+  "decisions_in_force": [
+    "operator decision (Codex, under operational-mandate-until-stage-04:xplanner2-revision1; NOT an owner approval or rejection): do not use passes 010 and 011 as evidentiary base; recover from the last usable base; no waiver, no finding carryover, no weakened result",
+    "constitution-amendment-a4:xplanner2-revision1: approved by ekzarov at 2026-09-30T10:40:00Z",
+    "source-intake-fallback-001:xplanner2-revision1: approved by ekzarov at 2026-09-30T11:01:28Z",
+    "operational-mandate-until-stage-04:xplanner2-revision1: approved by ekzarov at 2026-09-30T13:31:30Z",
+    "stage-02-attempt-recovery-adoption:xplanner2-revision1: approved by ekzarov at 2026-09-28T11:12:47Z",
+    "stage-02-correction-validation-adoption:xplanner2-revision1: approved by ekzarov at 2026-09-25T14:35:02Z",
+    "stage-02-live-carryover:xplanner2-revision1: approved by ekzarov at 2026-09-30T07:44:00Z",
+    "stage-02-pass-009-incident-approval:xplanner2-revision1: approved by ekzarov at 2026-09-30T07:36:10Z",
+    "stage-01-stored-value-output-inventory:xplanner2-revision1: deferred by ekzarov at 2026-09-28T13:12:39Z"
+  ],
+  "proposed_chain": {
+    "root": {
+      "pass": 6,
+      "result": "findings",
+      "report": {
+        "path": "analysis/reviews/stage-02-pass-006.md",
+        "sha256": "ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      "comparison_ledger": {
+        "path": "analysis/reviews/evidence/S02-P006/comparison-results.json",
+        "sha256": "a205b9b5d697bb44a4322aad3a35f79e70bb825480f7dac69276d7a1e994702c",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      "blind_checkpoint": [
+        {
+          "path": "analysis/reviews/evidence/S02-P006/phase-a-snapshot.md",
+          "sha256": "c8d4f7807a452121c850419e212107781fb704ead38669adf0ec1c7bf5b774d9",
+          "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P006/phase-a-inventory.json",
+          "sha256": "8f734d0d25c532c1663dcd85f0f3d9ccf9ce820a49db23ed3c765efc04e64cbe",
+          "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+        }
+      ],
+      "reviewed_revision": "15cb6b26946f73596177eba8cead333383d9f728"
+    },
+    "previous": {
+      "pass": 11,
+      "result": "invalid",
+      "report": {
+        "path": "analysis/reviews/stage-02-pass-011.md",
+        "sha256": "4add59cbfd2d612fcc42b5664bf3546667876a900faab64ecee29c1f67c2b210",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      "reviewed_revision": "8d137ed39a6f576dc7f5d402711cb885960807bf",
+      "note": "latest chronological attempt; supplies leads only"
+    },
+    "coverage_base": {
+      "pass": 10,
+      "result": "findings",
+      "report": {
+        "path": "analysis/reviews/stage-02-pass-010.md",
+        "sha256": "f567227da6872e947656dd47ceb0d5958bcf546234097a4f50c16be7aadd8f78",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      "comparison_ledger": {
+        "path": "analysis/reviews/evidence/S02-P010/comparison-results.json",
+        "sha256": "bc7b42679b16f702195023e084e123c8da2670d2181c26a49139401c638ba6aa",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      "coverage_record": {
+        "path": "analysis/reviews/evidence/S02-P010/coverage-reconciliation.json",
+        "sha256": "b7b29dae570bf95f536384aef1e0d29936b3e50469c460bc000310c76e63c6a2",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      "reviewed_revision": "9667b69d774bad704766a6bd7d439ca8fe4cac78"
+    },
+    "excluded_passes": [
+      {
+        "pass": 11,
+        "result": "invalid",
+        "report": {
+          "path": "analysis/reviews/stage-02-pass-011.md",
+          "sha256": "4add59cbfd2d612fcc42b5664bf3546667876a900faab64ecee29c1f67c2b210",
+          "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+        },
+        "reviewed_revision": "8d137ed39a6f576dc7f5d402711cb885960807bf",
+        "use": "leads only; no coverage, closure, retained item or matching check may come from it"
+      }
+    ],
+    "incident_dispositions": [
+      {
+        "pass": 6,
+        "result": "findings",
+        "companion": null,
+        "owner_decision": "not applicable",
+        "note": "no disclosed incident requiring assessment"
+      },
+      {
+        "pass": 7,
+        "result": "findings",
+        "companion": null,
+        "owner_decision": "not applicable",
+        "note": "no disclosed incident requiring assessment"
+      },
+      {
+        "pass": 8,
+        "result": "invalid",
+        "companion": null,
+        "owner_decision": "not applicable",
+        "note": "invalid attempt: its incidents are recorded in its own access log; it supplies leads only, never coverage"
+      },
+      {
+        "pass": 9,
+        "result": "findings",
+        "companion": {
+          "path": "analysis/reviews/evidence/S02-P009/incident-assessment.md",
+          "sha256": "da20a8b753f928c4a1162afe89dcc0be55f5ad01a9d2c5a60e6fd2c9a277e68d",
+          "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+        },
+        "classification": "non-material",
+        "owner_decision": "stage-02-pass-009-incident-approval:xplanner2-revision1: approved by ekzarov at 2026-09-30T07:36:10Z"
+      },
+      {
+        "pass": 10,
+        "result": "findings",
+        "companion": {
+          "path": "analysis/reviews/evidence/S02-P010/incident-assessment.md",
+          "sha256": "fa7006054b82f2327bb6a633a65e277db876ba9f64ba16818eb89f7cddf3c0d7",
+          "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+        },
+        "classification": "non-material",
+        "owner_decision": "stage-02-pass-010-incident-approval:xplanner2-revision1: approved by ekzarov at 2026-09-30T17:58:36Z"
+      },
+      {
+        "pass": 11,
+        "result": "invalid",
+        "companion": null,
+        "owner_decision": "not applicable",
+        "note": "invalid attempt: its incidents are recorded in its own access log; it supplies leads only, never coverage"
+      }
+    ],
+    "eligibility_question": "Decide yourself whether recovery from coverage base 10 with excluded [11] is eligible under the attempt-recovery rules, including step 3 (recovery cannot jump over a newer valid pass) and the ledger results above. If not eligible, stop and record blocked/invalid with the exact trigger; do not run discovery."
+  },
+  "intervening_records": [
+    {
+      "path": "analysis/stages/stage-02/live-check-carryover-pass-009.md",
+      "sha256": "14dc9dc3d5f36f1e6ba4797f637918089c60bc1b60dafa80c1ee1021e1b3f04f",
+      "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+      "what": "carryover of pass-009 F-001..F-003 (PR #27)"
+    },
+    {
+      "path": "analysis/source-assessment-001.md",
+      "sha256": "cd68565d649826770d8a94d6d0a594ddd003ab1ce9d74c15742104cbeb1a95fa",
+      "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+      "what": "source assessment (PR #30)"
+    },
+    {
+      "path": "analysis/source-intake-decision-001.md",
+      "sha256": "d2b5773b41bc5514a42d884a48d0c1afae0965a6166dd800192379a40686cbad",
+      "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+      "what": "owner decisions for A4 and fallback"
+    },
+    {
+      "path": ".specify/memory/constitution.md",
+      "sha256": "bbf55c46f5da7c6d35b87da066b57748aedbaaacb044242a7c75f68378a26e36",
+      "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+      "what": "constitution 1.1.0 with A4"
+    },
+    {
+      "path": "analysis/stages/stage-01/source-reconciliation-001.md",
+      "sha256": "b3d65a923729f52765084ccedf449ddcb89ea92525addaf4b192f8b93a76965f",
+      "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+      "what": "BA-001-11 author reconciliation of 210 rows (PR #31)"
+    },
+    {
+      "path": "analysis/stages/stage-01/stage-02-pass-010-dispositions.md",
+      "sha256": "8835272fff7f7b2bb8d78832d17da3863343588ca7cd60d5f6a0d6e616f1828c",
+      "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+      "what": "BA-001-12 author corrections of pass-010 F-001..F-005 and pass-009 F-003 (PR #33); author claims to verify from WAR/source, not from pass-010 conclusions"
+    },
+    {
+      "path": "analysis/stages/stage-03/deploy/README.md",
+      "sha256": "35c12c5d7ea561c16880681e7124cb63eb2d0ffc560191ed313f9b7428981073",
+      "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+      "what": "Stage 3 isolated deployment procedure; no Stage 3 business check executed"
+    }
+  ],
+  "candidate": {
+    "revision": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+    "records": [
+      {
+        "path": "analysis/legacy_reconnaissance.md",
+        "sha256": "b8e9981fd260f4e4b6712cff087f0e8d59212de4379aaeefc1e38c584dee5b44",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      {
+        "path": "analysis/legacy_user_flows.xlsx",
+        "sha256": "4f26e8e7ee4e4fecb0db5764b39b1d085b256fff6d54c5696a061cee99bd097a",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      }
+    ],
+    "checklist": {
+      "path": "analysis/error-prevention-checklist.md",
+      "sha256": "8a15e08c98b63b86c881d172ba34ca55e7edeab00cc4d229a90be2664842a90b",
+      "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+    }
+  },
+  "change_set_from_coverage_base": {
+    "from": "9667b69d774bad704766a6bd7d439ca8fe4cac78",
+    "to": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+    "changed_paths": [
+      "analysis/legacy_reconnaissance.md",
+      "analysis/legacy_user_flows.xlsx",
+      "analysis/stages/stage-01/stage-02-pass-010-dispositions.md"
+    ],
+    "note": "regenerate it yourself; this list is a convenience, not a scope ceiling"
+  },
+  "open_items": [
+    "pass-010 F-001..F-005 (from an excluded attempt: leads to recheck from WAR/source)",
+    "pass-009 F-003 (carried; owner-accepted risk under the carryover, still open)"
+  ],
+  "legacy_source_set": [
+    {
+      "path": "legacy/README.md",
+      "root": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "coverage_base": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "candidate": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460"
+    },
+    {
+      "path": "legacy/demo-seed.sql",
+      "root": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "coverage_base": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "candidate": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1"
+    },
+    {
+      "path": "legacy/docker-compose.yml",
+      "root": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "coverage_base": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "candidate": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff"
+    },
+    {
+      "path": "legacy/xplanner-plus.war",
+      "root": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "coverage_base": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "candidate": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc"
+    }
+  ],
+  "upstream_source": {
+    "root": "sources/xplanner-plus-r426 (local, outside Git, read-only; 39 files withheld from Git/CI: cite by path only, never quote)",
+    "provenance": [
+      {
+        "path": "sources/provenance/source-manifest.json",
+        "sha256": "921457c77b4358ca3a735222142668eaf7a76232a0ce6d7e43c0c2ebab5cf201",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      {
+        "path": "sources/provenance/xplanner-plus-r426-allowlist.json",
+        "sha256": "b77f870d2211e461eca7fff9ab2d208291474377c3e365c57eb97b72a7242131",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      {
+        "path": "sources/provenance/source-links.json",
+        "sha256": "fed60e59f4132f64a0648a80ca0c35075a2fbc3bd13e9fd5ba09efbddd1c6aa5",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      {
+        "path": "sources/provenance/war-comparison.json",
+        "sha256": "ff2aad5754bf79c14b75bc7a130e90ea36f3ecad0ee4861715eca487c8d0d65d",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      },
+      {
+        "path": "sources/provenance/package.json",
+        "sha256": "e4997615bc10e922f8b910ff850203b1f52a1d862179f7a2437b8dd9d361af72",
+        "at": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941"
+      }
+    ]
+  },
+  "pinned_worktrees": {
+    "root": ".migration-tmp/stage-02-p012/root (ROOT 15cb6b2, reviewed by pass 006)",
+    "base": ".migration-tmp/stage-02-p012/base (BASE 9667b69, reviewed by pass 010)",
+    "candidate": ".migration-tmp/stage-02-p012/candidate (CAND 2c176d4)"
+  },
+  "pm_proposed_coverage": {
+    "recheck": [
+      "the complete change set BASE..CAND in the Stage 1 records, including every change around the excluded attempts 11",
+      "every changed claim against the WAR and the A4 source (WAR authoritative), independently of any conclusion of an excluded attempt",
+      "the six open items and every item, row or dependency they touch",
+      "every source-backed lead of the excluded attempts",
+      "the checklist CHK-001..CHK-012 where applicable, including CHK-009 for the 39 withheld files"
+    ],
+    "retain": {
+      "eligible_reports": [
+        "analysis/reviews/stage-02-pass-006.md",
+        "analysis/reviews/stage-02-pass-007.md",
+        "analysis/reviews/stage-02-pass-009.md",
+        "analysis/reviews/stage-02-pass-010.md"
+      ],
+      "rule": "retain only exact check IDs from these reports with current applicability reasoning; never from an excluded or failed attempt"
+    },
+    "bounds": "Short content control: the PR #33 corrections (BA-001-12) and the six open items against the WAR and the A4 source, their affected links, and the reuse of admissible retained coverage with reasons. No new reconnaissance; expand only where a concrete affected link requires it.",
+    "stop": "If recovery is not eligible or a full-blind trigger exists, stop without any blind inventory; record blocked/invalid with the exact trigger."
+  },
+  "execution_support": {
+    "runner": {
+      "path": ".migration-tmp/stage-02-p012/tools/safe-run.js",
+      "sha256": "06b6170ad8b04652a137f420c20d9d979c05cd8e2c08c56afa492b1caee25dcc",
+      "config": ".migration-tmp/stage-02-p012/tools/safe-run.config.json",
+      "config_sha256": "209b1134642d1a6ba4284eba79039a2ee4ff9c8b193de7da9077c9b99c5a6bab",
+      "self_test": "node .migration-tmp/stage-02-p012/tools/safe-run.js --self-test"
+    },
+    "rule": "Run every git command, every node run and every read that may exceed a screen through the runner. It sets TEMP/TMP/TMPDIR, refuses unlisted git subcommands, unpinned revisions and parent-scratch listings, withholds credential-pattern lines and cuts output before it reaches the client. It is support, not a sandbox: the packet limits still bind any direct command.",
+    "prepared_commands": {
+      "commit_time": "node .migration-tmp/stage-02-p012/tools/safe-run.js git -C .migration-tmp/stage-02-p012/candidate show -s --format=%cI 2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+      "head_check": "node .migration-tmp/stage-02-p012/tools/safe-run.js git -C .migration-tmp/stage-02-p012/candidate rev-parse HEAD",
+      "clean_check": "node .migration-tmp/stage-02-p012/tools/safe-run.js git -C .migration-tmp/stage-02-p012/candidate status --short",
+      "change_set_names": "node .migration-tmp/stage-02-p012/tools/safe-run.js git -C .migration-tmp/stage-02-p012/candidate diff --name-status 9667b69d774bad704766a6bd7d439ca8fe4cac78 2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+      "bounded_diff": "node .migration-tmp/stage-02-p012/tools/safe-run.js --save .migration-tmp/stage-02-p012/reviewer-scratch/recon.diff git -C .migration-tmp/stage-02-p012/candidate diff -U0 9667b69d774bad704766a6bd7d439ca8fe4cac78 2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941 -- analysis/legacy_reconnaissance.md",
+      "bounded_read": "node .migration-tmp/stage-02-p012/tools/safe-run.js read .migration-tmp/stage-02-p012/reviewer-scratch/recon.diff --from 1 --lines 120",
+      "own_script": "node .migration-tmp/stage-02-p012/tools/safe-run.js node .migration-tmp/stage-02-p012/reviewer-scratch/<script>.js",
+      "own_listing": "node .migration-tmp/stage-02-p012/tools/safe-run.js list .migration-tmp/stage-02-p012/reviewer-scratch"
+    }
+  },
+  "transport_safety": "Large output only into .migration-tmp/stage-02-p012/reviewer-scratch/**; never list .migration-tmp or other sessions' folders; never open client-persisted files outside the allowed folders or anything under the user profile; disclose any deviation at once in the access log.",
+  "permitted_operations": "Read-only: project folder, the three pinned worktrees, legacy/, sources/ (never execute or build); WAR extraction and own read-only node scripts in the reviewer scratch; git rev-parse, status, diff and show only, on the pinned worktrees and on revisions 15cb6b2, 9667b69, 8d137ed, 2c176d4. Commit metadata only via git show -s --format. No git log, runtime, network, installs, commits or branch changes.",
+  "reviewer_write_allowlist": [
+    "analysis/reviews/evidence/S02-P012/** except packet.json and pm-*.json",
+    ".migration-tmp/stage-02-p012/reviewer-scratch/**",
+    ".migration-tmp/stage-02-p012/temp/**"
+  ]
+}

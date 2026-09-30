@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-02
+  current_stage: stage-03
   stage_status: in_progress
-  previous_stage: stage-01
-  next_action: 'After PR #34 merges: rebuild the pass-012 packet on main, run the preflight, then a fresh independent BA runs correction-validation pass 012 (root 006, previous 011, recovery coverage base 010, excluded [11]) limited to the PR #33 corrections, the six open items, their affected links and justified retained coverage; no new reconnaissance. Clean: control records PR, then Stage 3 on the existing isolated environment through the existing tunnel, no redeploy.'
+  previous_stage: stage-02
+  next_action: 'Stage 3 live walkthrough in the existing isolated environment through the existing tunnel (127.0.0.1:18080 application, 18025 mail sink), without redeploy: the first chain sign-in -> project -> iteration -> task -> time entry, the pass-009 carried live checks and the pass-012 F-003 time-editor locale check; record expected versus observed behavior and the affected rows; stop at Stage 4 entry before business decisions.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -265,6 +265,16 @@ transition_history:
       - 'analysis/legacy_reconnaissance.md'
     owner_approval: null
 
+  - from: stage-02
+    to: stage-03
+    reason: 'Stage 2 exit under the project rule stage-02-live-carryover: pass 012 (correction-validation, recovery from coverage base 010, excluded 011; findings F-001..F-003, all low; incidents accepted non-material) carried into a Stage 3 live check (F-003) and accepted documentation residual risks (F-001, F-002) by Codex under the delegated authority operational-mandate-expansion-until-stage-04 (analysis/stages/stage-02/live-check-carryover-pass-012.md); findings remain open; Stage 3 continues in the existing isolated environment under stage-03-legacy-grant, without redeploy.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-30T19:23:16Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-02-pass-012.md'
+      - 'analysis/stages/stage-02/live-check-carryover-pass-012.md'
+      - 'analysis/stages/stage-03/deploy/README.md'
+    owner_approval: null
 review_passes:
   - stage: stage-02
     pass: 1
@@ -451,6 +461,44 @@ review_passes:
     baseline_pass: 6
     previous_pass: 10
     coverage_record: 'analysis/reviews/evidence/S02-P011/coverage-reconciliation.json'
+  - stage: stage-02
+    pass: 12
+    result: findings
+    report: 'analysis/reviews/stage-02-pass-012.md'
+    reviewer: 'BA independent reviewer (subagent a1d8c39bcc8758c6c of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer-p012'
+    session_id: 'a1d8c39bcc8758c6c'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P012/independence-record.md'
+    reviewed_at: '2026-09-30T18:53:38Z'
+    scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
+    waiver_ids: []
+    control_mode: correction-validation
+    baseline_pass: 6
+    previous_pass: 11
+    coverage_record: 'analysis/reviews/evidence/S02-P012/coverage-reconciliation.json'
+    recovery:
+      coverage_base_pass: 10
+      excluded_passes: [11]
+      basis_unchanged: verified
+      assessment_record: 'analysis/reviews/stage-02-pass-012.md'
+    findings_severity_max: low
+    incident_assessment:
+      record: 'analysis/reviews/evidence/S02-P012/incident-assessment.md'
+      report_sha256: '389f18dbde908896ab9e12dc200c301fdd07c1176d9f54d59d8ab4594d2c53fe'
+      classification: non-material
+      guards:
+        independence: verified
+        source_scope: verified
+        evidence_integrity: verified
+        permitted_support: verified
+        disclosure: verified
+      owner_decision_id: 'stage-02-pass-012-incident-approval:xplanner2-revision1'
+    live_carryover:
+      record: 'analysis/stages/stage-02/live-check-carryover-pass-012.md'
+      report_sha256: '389f18dbde908896ab9e12dc200c301fdd07c1176d9f54d59d8ab4594d2c53fe'
+      owner_decision_id: 'stage-02-live-carryover-pass-012:xplanner2-revision1'
+      blocking_class_check: confirmed
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -607,6 +655,37 @@ owner_decisions:
     rationale: 'Owner words relayed by Codex: "вообще я бы тебе отдал пока полный контроль до 4 шага чтобы ты меня не спрашивал больше и делал все сам" and "разрешаю" for PR #31 plus one correction-validation pass (Codex handoff 2026-09-30T13:31:30Z; PR #31 comment 5912342979). decided_at is the Codex recording time.'
     record: 'analysis/maintenance/process-departure-2026-09-30-operational-mandate.md'
     residual_risk: 'The constitution invariant of owner-only merge authority is departed from for this period; decisions arrive relayed; the owner may revoke at any time.'
+  - id: 'operational-mandate-expansion-until-stage-04:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-30T19:16:33Z'
+    scope: 'Expansion of the operational mandate until Stage 4 entry: the owner delegates to the coordinating operator Codex the decisions needed to reach Stage 4, taken on its own responsibility without further owner confirmation. Not delegated: independent review verdicts, secrets, infrastructure access beyond the existing Stage 3 grant, other application stacks, waivers, Stage 4 business and product decisions, Stage 5. Delegated decisions name Codex as decider and cite this delegation; none is a personal owner approval.'
+    rationale: 'Owner words relayed by Codex: «передаю тебе упралдвение и иду спать. сделай что можешь с клодом. и не надо меня спрашивать про пождтвержление до 4 фазі. принмай на свой расчет и я тее доверяю до 4 стейджа». Relay recorded 2026-09-30T19:16:33Z (.migration-tmp/coordination/codex-stage4-expanded-mandate-2026-09-30.md) and posted as PR #35 comment 5918018266 from the account ekzarov at 2026-09-30T19:17:14Z; the exact owner-chat time is not known to PM, so decided_at is the relay recording time.'
+    record: 'analysis/maintenance/process-departure-2026-09-30-operational-mandate.md'
+    residual_risk: 'Owner gate decisions before Stage 4 are taken by an agent operator without the owner reading the exact records; the owner may revoke at any time; the owner sees the results at Stage 4 entry.'
+    delegation:
+      delegate: 'Codex'
+      ends_at_stage: stage-04
+  - id: 'stage-02-pass-012-incident-approval:xplanner2-revision1'
+    decision: approved
+    decided_by: 'Codex'
+    decided_at: '2026-09-30T19:16:33Z'
+    scope: 'review-incident:["stage-02",12,"a1d8c39bcc8758c6c","analysis/reviews/stage-02-pass-012.md","389f18dbde908896ab9e12dc200c301fdd07c1176d9f54d59d8ab4594d2c53fe","Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved."]'
+    rationale: 'Delegated decision by Codex under operational-mandate-expansion-until-stage-04, not a personal owner approval. Codex read the pass-012 incident assessment (SHA-256 543b0e0ed4ed2e1772c09337eff6af3b0f96edc671d23ffb14bddc16020903e7) and PM support verification, checked both hashes, and accepts the non-material disposition of D-1..D-10 with all five safeguards verified at PR #35 HEAD 7934bde. Pass 012 stays findings; pass 011 stays invalid. Source: PR #35 comment 5918018266.'
+    record: 'analysis/reviews/evidence/S02-P012/incident-assessment.md'
+    residual_risk: 'The client transcript keeps the packet text, about 257 lines of committed status and template text, one timestamp, one hash and four counts (no credential); at most two small temp files of the reviewer notes or output lists may exist in the user temp folder; client retention unknown. Prevention: runner-run helper scripts instead of inline node -e; temp variables exported at the start of every command; file tool instead of here-documents; bounded reads through the runner.'
+    delegated_authority:
+      authority_decision_id: 'operational-mandate-expansion-until-stage-04:xplanner2-revision1'
+  - id: 'stage-02-live-carryover-pass-012:xplanner2-revision1'
+    decision: approved
+    decided_by: 'Codex'
+    decided_at: '2026-09-30T19:16:33Z'
+    scope: 'stage-02-live-carryover:["stage-02",12,"a1d8c39bcc8758c6c","analysis/reviews/stage-02-pass-012.md","389f18dbde908896ab9e12dc200c301fdd07c1176d9f54d59d8ab4594d2c53fe","analysis/stages/stage-02/live-check-carryover-pass-012.md"]'
+    rationale: 'Delegated decision by Codex under operational-mandate-expansion-until-stage-04, not a personal owner approval, applying the project rule stage-02-live-carryover to pass 012: F-003 carried into a concrete Stage 3 live check of the time editor date display and Insert Time under different session locales; F-001 and F-002 accepted as bounded documentation residual risks on count accuracy. Findings stay findings; nothing is called clean; no Stage 1 correction or pass 013 precedes Stage 3. Source: PR #35 comment 5918018266.'
+    record: 'analysis/stages/stage-02/live-check-carryover-pass-012.md'
+    residual_risk: 'The reconnaissance keeps the inaccurate method, string and script-output counts (F-001, F-002) until a later correction; F-003 stays a static finding until the live check runs and is then known only for the tested locales; the carried items are not re-verified by another Stage 2 pass; the carryover was decided by a delegated operator.'
+    delegated_authority:
+      authority_decision_id: 'operational-mandate-expansion-until-stage-04:xplanner2-revision1'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -637,12 +716,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 corrected after pass 010 (168 Yes, 20 Inferred, 21 Partial, 1 No); Stage 2 pass 011 invalid; pass-010 incident assessment owner-approved non-material; pass 012 prepared.'
-  completed_percent: 5
-  updated_at: '2026-09-30T18:10:00Z'
+  summary: 'Stage 2 exited to Stage 3 under the live-check carryover of pass 012 (findings F-001..F-003, all low, open); Stage 3 live walkthrough in the existing isolated environment.'
+  completed_percent: 11
+  updated_at: '2026-09-30T19:23:16Z'
   agent_reviews:
-    total: 11
-    valid: 9
+    total: 12
+    valid: 10
     blocked: 0
     invalid: 2
     active: 0

@@ -1478,6 +1478,23 @@
         },
         "permitted_next_stage": {
           "$ref": "#/$defs/stage"
+        },
+        "delegation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["delegate", "ends_at_stage"],
+          "properties": {
+            "delegate": { "$ref": "#/$defs/nonEmptyString" },
+            "ends_at_stage": { "$ref": "#/$defs/stage" }
+          }
+        },
+        "delegated_authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["authority_decision_id"],
+          "properties": {
+            "authority_decision_id": { "$ref": "#/$defs/nonEmptyString" }
+          }
         }
       },
       "allOf": [
