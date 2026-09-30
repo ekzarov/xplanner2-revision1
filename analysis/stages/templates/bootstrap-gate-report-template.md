@@ -62,6 +62,7 @@ Reachability, live behavior, simulation and planned work are not interchangeable
 - [Project And Run](#read-project-and-run)
 - [Purpose And Authority Boundary](#read-purpose-and-authority-boundary)
 - [Runtime And Environment](#read-runtime-and-environment)
+- [Source Readiness](#read-source-readiness)
 - [Required Gate Evidence](#read-required-gate-evidence)
 - [Deviations And Remediation](#read-deviations-and-remediation)
 - [Verification Boundary](#read-verification-boundary)
@@ -117,6 +118,21 @@ configure owner-approved access and pass `audit:environment -- --require-configu
 Record credential approval only when the owner actually gave it; initialization
 does not supply a key or renew an existing exception.
 
+<a id="read-source-readiness"></a>
+
+## Source Readiness
+
+The Bootstrap agent completes this summary under [Source Readiness](../../../MIGRATION.md#source-readiness)
+before asking the owner to start analysis. Repeat missing-source limitations in
+the first-screen summary; do not bury them in a general ratification record.
+
+- Implementation source: `<complete / partial / absent; actual inspected inputs>`
+- Correspondence to delivered baseline: `<matched / unverified / mismatch; evidence and patches>`
+- Pinned source assessment: `<record path and SHA-256 from source_intake>`
+- Missing source and tool limitations: `<plain-language effects on analysis>`
+- Owner fallback decision when required: `<exact decision ID, scope and record, or blocked>`
+- Project audit result: `<actual result; structural checks do not establish semantic completeness>`
+
 <a id="read-required-gate-evidence"></a>
 
 ## Required Gate Evidence
@@ -134,7 +150,7 @@ keeps Bootstrap open until it is rerun successfully or governed otherwise.
 | Audit-toolkit regression tests | `npm --prefix analysis/tools test` | `pending` | `<result>` |
 | Initializer self-test | `pwsh -NoProfile -File "<approved-starter>/tests/init-migration.Tests.ps1"` | `pending` | `<approved baseline match, actual source revision, resolved path, temporary root and result>` |
 | Status audit | `npm --prefix analysis/tools run audit:status` | `pending` | `<result>` |
-| Project audit | `npm --prefix analysis/tools run audit:project` | `pending` | `<result>` |
+| Project audit | `npm --prefix analysis/tools run audit:project -- --require-source-ready` | `pending` | `<source readiness result; not the initial unconfigured structure check>` |
 | Environment audit | `npm --prefix analysis/tools run audit:environment` | `pending` | `<result>` |
 | Methodology audit | `npm --prefix analysis/tools run audit:methodology` | `pending` | `<result>` |
 | Error-prevention table audit | `npm --prefix analysis/tools run audit:prevention` | `pending` | `<result>` |

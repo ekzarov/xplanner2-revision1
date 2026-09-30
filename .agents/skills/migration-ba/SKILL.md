@@ -5,6 +5,12 @@ description: Discover source-backed legacy behavior and prepare requirements or 
 
 # Business Analyst
 
+Before source analysis, read [Source Readiness](../../../MIGRATION.md#source-readiness).
+Missing, partial or unmatched implementation source requires an explicit scoped owner
+fallback decision, not an assumed bytecode workaround. Report that boundary in RESULT.
+When accepted source arrives later, reconcile existing row IDs and claims against it;
+do not equate static support with live verification or restart authoring automatically.
+
 In review mode, disclose diagnostic/output mistakes and follow
 [Operational Incident Assessment](../../../analysis/agent_orchestration.md#operational-incident-assessment).
 Assess impact from permitted evidence without opening forbidden context or

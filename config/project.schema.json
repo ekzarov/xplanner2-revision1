@@ -4,6 +4,28 @@
   "additionalProperties": false,
   "required": ["schema_version", "project", "runtime", "paths", "commands"],
   "properties": {
+    "source_intake": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["classification", "baseline_match", "source_roots", "inputs", "assessment_record", "assessment_sha256", "limitations", "fallback_decision_id"],
+          "properties": {
+            "classification": { "enum": ["complete", "partial", "absent"] },
+            "baseline_match": { "enum": ["matched", "unverified", "mismatch"] },
+            "source_roots": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+            "inputs": { "type": "array", "minItems": 1, "items": {
+              "type": "object", "additionalProperties": false, "required": ["path", "sha256"],
+              "properties": { "path": { "type": "string", "minLength": 1 }, "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" } }
+            } },
+            "assessment_record": { "type": "string", "minLength": 1 },
+            "assessment_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            "limitations": { "type": "string", "minLength": 1, "pattern": "\\S" },
+            "fallback_decision_id": { "type": ["string", "null"], "minLength": 1 }
+          }
+        }
+      ]
+    },
     "prototype_compatibility": {
       "type": "object", "additionalProperties": false,
       "required": ["manifest_sha256", "approval_sha256", "decision_sha256", "source_revision", "recorded_by", "reason"],

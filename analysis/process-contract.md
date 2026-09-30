@@ -61,6 +61,15 @@ rewritten. Existing-project updates follow
 state without inferring Stage 1 approval. These pointers do not define another
 Bootstrap procedure or extend the status schema.
 
+[Source Readiness](../MIGRATION.md#source-readiness) blocks analysis when matching
+implementation source is missing, partial or unverified unless the owner explicitly
+accepts the pinned fallback assessment. Bootstrap/PM inspects actual inputs and
+prominently explains missing code, substitute methods and limitations before the
+owner decides. `audit:project` enforces the recorded boundary; a directory, generic
+ratification or green audit is not source completeness or runtime verification.
+Late source acquisition preserves the executable and prior evidence; BA reconciles
+the existing map under the authorized scope rather than rebuilding it automatically.
+
 Initialization is local preparation, not a credential approval or deployment.
 The starter source remains read-only; tools and dependency caches are installed
 only in the target. New projects generate an exact empty environment contract
@@ -355,7 +364,7 @@ These roles do not retrospectively change actual author metadata.
 | methodology | Starter process maintainer (human or authorized agent); the initializer supplies the project copy. | The process maintainer updates procedures and synchronizes their presentations. | MIGRATION.md |
 | constitution | The Bootstrap initializer renders the template; the Bootstrap agent records the human owner ratification. | The agent records explicit owner-approved amendments; the owner decides the governing rules. | Bootstrap constitution ratification |
 | status | The Bootstrap initializer creates the checkpoint from its template. | PM records durable outcomes, blockers and authorized transitions from specialist evidence; reviewers never edit shared status. | Bootstrap and Stage 1-19 status contract; analysis/agent-roles.md |
-| project-contract | The Bootstrap initializer renders project identity and command slots; the Bootstrap agent fills verified project values. | The responsible project agent records explicit command/configuration changes and validates the contract. | Bootstrap project contract |
+| project-contract | The Bootstrap initializer renders project identity and command slots; Bootstrap/PM records verified values and the source-assessment companion. | PM maintains source intake and new pinned assessments; the owner decides any fallback. The responsible agent maintains commands. | Bootstrap project contract; MIGRATION.md#source-readiness |
 | environment-contract | The initializer generates an unconfigured contract from the public-safe template; an authorized agent records owner-approved environments before remote work. | The deployment agent or authorized operator maintains verified connection and deployment settings; initialization never renews credential approval. | Bootstrap and remote-operation environment contract |
 | bootstrap-gate-report | The initializer creates a pending report; the Bootstrap agent fills it from actual audit output. | The Bootstrap agent records reruns and corrections; the human owner authorizes entry to Stage 1. | Bootstrap audit and transition procedure |
 | recon-record | The initializer creates an empty record; the Stage 1 reconnaissance agent writes the findings. | The reconnaissance agent updates the inventory when discovery or an authorized return changes its scope. | Bootstrap and Stage 1 |

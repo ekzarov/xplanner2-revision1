@@ -81,11 +81,11 @@
       "actions": [
         "Confirm starter revision, project identity and integration branch before initialization",
         "Review the constitution with the owner; its version must match status even before ratification",
-        "Record exact source paths and environment contract",
+        "Inspect actual implementation source and its match to the delivered baseline; missing, partial or unmatched source needs explicit owner fallback approval, not general ratification",
         "Run every Bootstrap check; record results and blockers in the report and status before waiting for corrections"
       ],
       "input": "Starter repository + project identity + owner",
-      "exit": "Ratified constitution, completed Bootstrap gate report and explicit owner authorization to enter Stage 1",
+      "exit": "Source readiness or exact owner-approved fallback, ratified constitution, completed Bootstrap gate report and explicit owner authorization to enter Stage 1",
       "returns": "Bootstrap remains blocked until every required contract and audit is valid and the gate report is complete.",
       "checkRole": "none",
       "ownerGate": true,
@@ -165,7 +165,7 @@
         "Create one atomic scenario per parity-map row",
         "PM publishes the draft or corrections in their own PR; required CI and owner merge precede fresh Stage 2 control"
       ],
-      "input": "Immutable legacy revision + project contract",
+      "input": "Immutable legacy revision + project contract + assessed source readiness or exact owner-approved fallback",
       "exit": "Initial reconnaissance and parity map pass the workbook audit",
       "returns": "Any later parity-map defect returns here.",
       "reentry": {
@@ -2262,17 +2262,17 @@
       "sourcePath": "config/project.template.yaml",
       "lifecycle": "generated",
       "projectOutput": "Bootstrap creates this file from the starter template. The agent records the project identity, owner-confirmed source locations and real build, test and delivery commands before the stages that require them.",
-      "initialCreator": "The Bootstrap initializer renders project identity and command slots; the Bootstrap agent fills verified project values.",
+      "initialCreator": "The Bootstrap initializer renders project identity and command slots; Bootstrap/PM records verified values and the source-assessment companion.",
       "responsibility": {
         "en": {
-          "creator": "The Bootstrap initializer renders project identity and command slots; the Bootstrap agent fills verified project values.",
-          "maintainer": "The responsible project agent records explicit command/configuration changes and validates the contract.",
-          "instructions": "Bootstrap project contract"
+          "creator": "The Bootstrap initializer renders project identity and command slots; Bootstrap/PM records verified values and the source-assessment companion.",
+          "maintainer": "PM maintains source intake and new pinned assessments; the owner decides any fallback. The responsible agent maintains commands.",
+          "instructions": "Bootstrap project contract; MIGRATION.md#source-readiness"
         },
         "ru": {
-          "creator": "Инициализатор Bootstrap формирует идентичность проекта и поля команд; Bootstrap-агент заполняет проверенные значения.",
-          "maintainer": "Ответственный агент проекта записывает изменения команд и настроек и проверяет контракт.",
-          "instructions": "Подготовка: контракт проекта и проверенных команд."
+          "creator": "Инициализатор Bootstrap формирует идентичность проекта и поля команд; Bootstrap/PM записывает проверенные значения и сопроводительную оценку исходников.",
+          "maintainer": "PM поддерживает учёт исходников и новые закреплённые оценки; обходной метод разрешает владелец. Ответственный агент поддерживает команды.",
+          "instructions": "Контракт проекта при подготовке; MIGRATION.md#source-readiness"
         }
       },
       "creationStageId": "stage-00",
@@ -4405,8 +4405,8 @@
       "id": "project-audit",
       "label": "audit:project",
       "role": "Node.js script",
-      "desc": "Validates that project.yaml is complete and internally consistent: project identity, legacy and target paths, working directories, runtime declarations and stage-specific command slots. It prevents an agent from running checks in the wrong repository or claiming readiness before required project commands are configured.",
-      "usage": "Run during Bootstrap and whenever project paths, target platforms or command entries change. At Stages 17 and 18 it also enforces that the commands required by that stage are no longer null.",
+      "desc": "Validates project identity, paths, runtime and stage-required commands, plus source-intake metadata, input hashes and any required exact owner fallback decision. It does not prove source completeness or live behavior; the agent must explain missing source before analysis.",
+      "usage": "Run audit:project -- --require-source-ready before declaring Bootstrap ready and before new or reopened source analysis. The plain initial structure check is not source readiness. Missing, partial or unmatched source requires a pinned assessment and explicit owner fallback decision. Also run when project paths, platforms or commands change; Stages 17 and 18 require their command slots.",
       "example": "If commands.visual_parity is missing when a UI slice reaches Stage 17, audit:project fails before the agent can claim the candidate is build-ready.",
       "sourcePath": "analysis/tools/project-config-audit.js",
       "sourceExists": true,

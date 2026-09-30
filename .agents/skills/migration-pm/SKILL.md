@@ -5,6 +5,12 @@ description: Coordinate authorized migration work, assign role skills and reconc
 
 # PM / Coordinator
 
+Before initial or reopened source analysis, enforce [Source Readiness](../../../MIGRATION.md#source-readiness).
+Inspect actual materials, expose missing/unmatched implementation source prominently
+and obtain the exact owner fallback decision before delegation. A legacy folder or
+blanket ratification is insufficient. Later source goes to BA for map reconciliation;
+PM does not replace BA's behavioral analysis or rewrite historical evidence.
+
 For diagnostic/output incidents, use [Operational Incident Assessment](../../../analysis/agent_orchestration.md#operational-incident-assessment).
 Verify the reviewer's evidence and exact owner disposition before using the pass.
 No-file and read-only claims do not waive masking or access rules. Preserve sealed
