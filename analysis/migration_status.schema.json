@@ -1229,6 +1229,18 @@
           "pattern": "\\S",
           "description": "Required repository-local non-empty, non-template report or evidence path, including failure evidence for blocked/invalid eligibility attempts. May be the current report. Failure details, source equality, exact changes and retained-item coverage remain reviewer obligations, not schema guarantees."
         },
+        "live_carryover": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["record", "report_sha256", "owner_decision_id", "blocking_class_check"],
+          "properties": {
+            "record": { "type": "string", "minLength": 1 },
+            "report_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            "owner_decision_id": { "type": "string", "minLength": 1 },
+            "blocking_class_check": { "const": "confirmed" }
+          },
+          "description": "Project rule (xplanner2-revision1 departure): a usable low stage-02 findings pass carried into Stage 3 live checks or owner-accepted residual risks under an exact owner decision. Findings stay findings."
+        },
         "incident_assessment": {
           "$ref": "#/$defs/reviewIncidentAssessment",
           "description": "Optional aggregate for disclosed incidents, not detection of unreported incidents or proof of substance. Clean/findings requires non-material classification, every guard verified and an exact owner approval; blocked/invalid remains failed. Historical entries without this field need no rewrite."

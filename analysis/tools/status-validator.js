@@ -8,6 +8,8 @@ const cheerio = require('cheerio');
 const { hasEvidencePlaceholders } = require('./evidence-placeholders');
 const { constitutionVersion } = require('./constitution-version');
 const { validateReviewIncidents, validateIncidentEvidence } = require('./review-incidents');
+// Project rule (xplanner2-revision1 departure): Stage 2 live-check carryover.
+const { validateLiveCarryover, liveCarryoverCloses, validateLiveCarryoverEvidence } = require('./stage2-live-carryover');
 const {
   AuditResult,
   PLACEHOLDER,
@@ -210,6 +212,7 @@ function validateStatus(status, schema = loadStatusSchema()) {
 
   const reviewPasses = Array.isArray(status.review_passes) ? status.review_passes : [];
   errors.push(...validateReviewIncidents(status));
+  errors.push(...validateLiveCarryover(status));
   errors.push(...validateStage2Chains(reviewPasses));
   const ownerDecisions = Array.isArray(status.owner_decisions) ? status.owner_decisions : [];
   const formalProgress = formalStageProgress(status.control.current_stage);
@@ -408,7 +411,9 @@ function validateStatus(status, schema = loadStatusSchema()) {
       if (forward) {
         // The owner decision authorises the low-cosmetic closure for stage-07
         // only; every other forward exit keeps clean-only semantics.
-        const closes = stage === 'stage-07' ? passClosesStage(latest) : Boolean(latest && latest.result === 'clean');
+        // Project rule: stage-02 may also exit on an owner-approved live-check carryover.
+        const closes = stage === 'stage-07' ? passClosesStage(latest)
+          : Boolean(latest && latest.result === 'clean') || (stage === 'stage-02' && liveCarryoverCloses(latest, status));
         if (!closes) {
           errors.push(`/review_passes latest ${stage} pass for exit to ${window.exit.to} must be clean, or low-cosmetic findings dispositioned in a recorded polish backlog`);
         }
@@ -582,6 +587,7 @@ function durableEvidencePaths(status) {
     add(pass.coverage_record);
     add(pass.recovery?.assessment_record);
     add(pass.incident_assessment?.record);
+    add(pass.live_carryover?.record);
   }
   for (const decision of status.owner_decisions || []) add(decision.record);
   for (const blocker of status.blockers || []) {
@@ -760,6 +766,7 @@ function validateRecordedEvidenceInner(status, root) {
   }
 
   errors.push(...validateIncidentEvidence(status, records, hashes, visibleDeclarations));
+  errors.push(...validateLiveCarryoverEvidence(status, records, hashes, visibleDeclarations));
 
   for (const pass of status.review_passes || []) {
     if (pass.stage !== 'stage-02') continue;

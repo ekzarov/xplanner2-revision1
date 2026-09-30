@@ -34,7 +34,7 @@ control:
   current_stage: stage-02
   stage_status: awaiting_owner
   previous_stage: stage-01
-  next_action: 'Stage 2 pass 009 findings F-001..F-003 (all low) are kept open in this Stage 2 entry; the owner authorized (2026-09-30) a project exception to carry them into Stage 3 live checks or explicitly accepted residual risks without pass 010 and without calling the result clean. Next: a separate PR implements the project rule stage-02-live-carryover (validator, tests, documents, departure record, carryover record, owner decision). The Stage 2 -> Stage 3 transition also needs the owner Stage 3 grant for the exact environment, operations and data. No pass 010; BA-001-11 corrections before Stage 3 are not performed.'
+  next_action: 'Stage 2 pass 009 findings F-001..F-003 are carried under owner decision stage-02-live-carryover (record analysis/stages/stage-02/live-check-carryover-pass-009.md); the Stage 2 -> Stage 3 transition is recorded only after the owner Stage 3 grant for the exact environment, operations and data and a configured environment contract (audit:environment --require-configured). No pass 010; findings remain open.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -353,6 +353,12 @@ review_passes:
         permitted_support: verified
         disclosure: verified
       owner_decision_id: 'stage-02-pass-009-incident-approval:xplanner2-revision1'
+    findings_severity_max: low
+    live_carryover:
+      record: 'analysis/stages/stage-02/live-check-carryover-pass-009.md'
+      report_sha256: '8847eda3f48bf1e273a18e848ddcc5e6a43eff1d134ed31eea15dabf1459cb08'
+      owner_decision_id: 'stage-02-live-carryover:xplanner2-revision1'
+      blocking_class_check: confirmed
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -453,6 +459,22 @@ owner_decisions:
     rationale: 'Owner accepts the reviewer incident assessment of Stage 2 pass 009 (record at PR #25 HEAD f42e3f5) as non-material with all five safeguards verified, explicitly including the unknown origin of the core.autocrlf git setting and the retention of the factory default login pair in the client transcript. Approval accepts only this operational disposition: findings F-001..F-003 remain findings; masking still applies; no Stage 3 or merge permission is implied.'
     record: 'analysis/reviews/evidence/S02-P009/incident-assessment.md'
     residual_risk: 'The factory default login pair may persist in client transcripts under the owner profile; one unused tool-setting value of unknown origin entered the attempt; git command discipline relies on the reviewer (A5, A6); the command facts rest on the reviewer log; any installation still using the factory pair stays exposed. Prevention: never print credential-bearing lines; run git only through an allowlist wrapper and never query git config; packets name the exact git form for reading branches; CHK-009 to treat tool output as new material.'
+  - id: 'process-departure-stage2-live-carryover:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-30T07:44:00Z'
+    scope: 'Project exception to the Starter Stage 2 exit criterion: a usable low-only Stage 2 findings pass may permit Stage 3 when every finding is carried into a Stage 3 live check or an explicitly owner-accepted residual risk under an exact owner decision; findings stay findings and are never renamed clean; blocking classes (independence, baseline/provenance, missing coverage or blocked/invalid, credentials, safe launch, systemic impact, severity above low) stay blocking. Project-local implementation in analysis/tools/stage2-live-carryover.js with marked hooks in status-validator.js and the schema. The Starter is not changed; the project does not claim full Starter conformance for this gate.'
+    rationale: 'Owner priority (2026-09-30): move to live legacy verification with less static depth and explicitly recorded residual risks instead of another Stage 2 pass.'
+    record: 'analysis/maintenance/process-departure-2026-09-30-stage2-live-carryover.md'
+    residual_risk: 'Known low record inaccuracies enter Stage 3 uncorrected; carried items are not re-verified by an independent Stage 2 pass; later Starter syncs must preserve the marked project hooks.'
+  - id: 'stage-02-live-carryover:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-30T07:44:00Z'
+    scope: 'stage-02-live-carryover:["stage-02",9,"a81963deb7fe2b1fd","analysis/reviews/stage-02-pass-009.md","8847eda3f48bf1e273a18e848ddcc5e6a43eff1d134ed31eea15dabf1459cb08","analysis/stages/stage-02/live-check-carryover-pass-009.md"]'
+    rationale: 'Owner decision of 2026-09-30: carry Stage 2 pass 009 findings F-001..F-003 (all low) without pass 010 and without calling the result clean: F-002 as a live check, F-001 as a limited live check plus accepted risk, F-003 as accepted risk; the Stage 1 correction BA-001-11 before Stage 3 is not performed.'
+    record: 'analysis/stages/stage-02/live-check-carryover-pass-009.md'
+    residual_risk: 'The reconnaissance keeps three known low inaccuracies (cache writer classes and two missing locale registries, history date format, script-context counting rule) until a later correction; request-keyed caches are unbounded and their growth is not tested live; carried items are not independently re-verified.'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -485,7 +507,7 @@ delivery:
 progress:
   summary: 'Stage 2 correction-validation pass 009 findings (F-001..F-003, all low; recovery from coverage base 007, 008 excluded); its operational incidents approved as non-material by the owner; findings remain open pending the owner-authorized live-check carryover rule and the Stage 3 grant. Stage 1 records have 210 rows.'
   completed_percent: 5
-  updated_at: '2026-09-30T07:36:10Z'
+  updated_at: '2026-09-30T07:44:00Z'
   agent_reviews:
     total: 9
     valid: 8
