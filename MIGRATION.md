@@ -559,6 +559,13 @@ a new report and another eligible fresh session. A clean report registered in
 permits Stage 3. Stage 2 has no owner approval gate and does not claim that the
 legacy behavior has been observed live; that live check belongs to Stage 3.
 
+**Project addition, xplanner2-revision1 (process departure of 2026-09-30):** by owner
+decision, a usable low-only Stage 2 `findings` pass may also permit Stage 3 when every
+finding is carried into a Stage 3 live check or an explicitly owner-accepted residual
+risk under an exact owner decision. Findings stay findings; blocking classes stay
+blocking. See [the departure record](analysis/maintenance/process-departure-2026-09-30-stage2-live-carryover.md).
+This project does not claim full Starter conformance for this gate.
+
 ## Status And Transition Contract
 
 The project status starts at `bootstrap` with no owner decisions, transition

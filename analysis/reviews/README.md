@@ -581,6 +581,13 @@ configuration needs a source-based correction even if Phase A did not list it.
 
 #### Stage 2 Attempt Recovery
 
+> **Project addition, xplanner2-revision1:** the Stage 2 exit may also use an
+> owner-approved live-check carryover of a usable low `findings` pass. This is a
+> recorded project departure, not a Starter rule; see
+> [the departure record](../maintenance/process-departure-2026-09-30-stage2-live-carryover.md).
+> It never renames findings as `clean` and changes no reviewer obligation below.
+
+
 **A failed attempt is not automatically a failed baseline.** This procedure is
 limited to Stage 2 `correction-validation`; full-blind and Stage 19 requirements
 are unchanged. It does not make a failed verdict valid or permit unchecked work.
