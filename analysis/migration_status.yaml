@@ -34,7 +34,7 @@ control:
   current_stage: stage-01
   stage_status: awaiting_owner
   previous_stage: stage-02
-  next_action: 'Publish Stage 2 pass 009 (findings F-001..F-003, all low; recovery from coverage base 007 with 008 excluded) as a separate control-records PR. Before merge the owner decides whether the reviewer-disclosed read-only git commands outside the packet list are acceptable; if not, PM re-records pass 009 as invalid instead. Then STOP: no pass 010, no further corrections and no Stage 3 without a new owner decision.'
+  next_action: 'PR #25 (pass 009 records) waits for the incident assessment under owner decision stage-02-pass-009-incident-procedure: the reviewer reassesses all five safeguards in analysis/reviews/evidence/S02-P009/incident-assessment.md; PM verifies and presents the result; the owner approves or rejects the exact assessment (review-incident scope). Until then pass 009 supplies no usable coverage. Then bounded corrections BA-001-11 of F-001..F-003 (authorized) in a separate PR. No pass 010 and no Stage 3 without a separate owner decision.'
   automatic_advancement: false
   prevention_self_check: 'stage-01 re-entry after stage-02 pass 009 pending owner decision; reviewer found CHK-003 with CHK-012 (F-001 message-resource and locale registries), CHK-004 with CHK-003 (F-002 formatDate default pattern and locale cache) and CHK-007 (F-003 counting rule not reproducible as written) failing; proposals to refine CHK-003, CHK-004 and CHK-007 pending author confirmation.'
 
@@ -434,6 +434,14 @@ owner_decisions:
     rationale: 'Owner decision on the BA-001-10 recommendation after pass 008: the output classification fits later security work better than a Stage 1 reconnaissance expansion; truthful bounded recording is kept.'
     record: 'analysis/stages/stage-01/stage-02-pass-008-dispositions.md'
     residual_risk: 'Unclassified stored-value output may hide further unescaped rendering of user-controlled data; it remains an open Q3/GAP-007 risk for Stage 3 and Stage 9.'
+  - id: 'stage-02-pass-009-incident-procedure:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-30T07:22:35Z'
+    scope: 'Apply Operational Incident Assessment (analysis/agent_orchestration.md#operational-incident-assessment, Starter 40be1fa) to the disclosed deviations of the not yet accepted Stage 2 pass 009 (session a81963deb7fe2b1fd): the four read-only git commands outside the packet list (A1-A4), the factory default login pair printed into tool output (B), and the two read-only git commands during the assessment preparation (A5, A6), instead of automatic invalidation for any deviation from the S02-P009 git command list. Not a general rule that any read-only command is permitted; source boundaries, independence, evidence integrity and secret protection remain binding. The reviewer assesses all five safeguards itself; an unknown diagnostic path does not by itself mean unknown impact, and an unverified safeguard must not be declared verified. This authorizes applying the procedure, not its result. The S02-P009 packet, the sealed report and their hashes stay unchanged; pass 008 stays invalid.'
+    rationale: 'Owner decision of 2026-09-30 after the PM clarification that the invalidation clause of the S02-P009 assignment was a PM-authored git command list, while the facts of the deviations are recorded in the access log and the incident companion.'
+    record: 'analysis/reviews/evidence/S02-P009/incident-assessment.md'
+    residual_risk: 'Git command discipline relies on the reviewer; the factory pair may persist in client transcripts; the origin file of the core.autocrlf value is unknown.'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -466,7 +474,7 @@ delivery:
 progress:
   summary: 'Stage 2 correction-validation pass 009 returned findings (F-001..F-003, all low; 46 new checks, 500 retained, 0 uncovered; recovery established, pass 008 excluded); recorded stored-value output facts suffice for this control; process returned to Stage 1; awaiting owner decision. Stage 1 records have 210 rows.'
   completed_percent: 0
-  updated_at: '2026-09-28T14:01:01Z'
+  updated_at: '2026-09-30T07:22:35Z'
   agent_reviews:
     total: 9
     valid: 8
