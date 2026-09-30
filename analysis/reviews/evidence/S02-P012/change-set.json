@@ -1,0 +1,462 @@
+{
+  "packet": "S02-P012",
+  "generated_by": "reviewer scripts gen-changeset.js, wbdump.js, wbdiff.js (reviewer scratch)",
+  "from": "9667b69d774bad704766a6bd7d439ca8fe4cac78",
+  "to": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+  "command": "git -C .migration-tmp/stage-02-p012/candidate diff --name-status 9667b69 2c176d4 (runner)",
+  "files": {
+    "stage1_records": [
+      "M analysis/legacy_reconnaissance.md",
+      "M analysis/legacy_user_flows.xlsx",
+      "A analysis/stages/stage-01/stage-02-pass-010-dispositions.md"
+    ],
+    "status": [
+      "M analysis/migration_status.yaml"
+    ],
+    "sealed_review_files_added": [
+      "analysis/reviews/stage-02-pass-010.md",
+      "analysis/reviews/stage-02-pass-011.md",
+      "analysis/reviews/evidence/S02-P010/ (9 files)",
+      "analysis/reviews/evidence/S02-P011/ (7 files)"
+    ],
+    "total": 22
+  },
+  "around_excluded_pass_011": {
+    "BASE..8d137ed": "12 files: the 3 Stage 1 records, status, the pass-010 report and 7 S02-P010 files",
+    "8d137ed..CAND": "11 files: status, 2 S02-P010 incident files, 7 S02-P011 files and the pass-011 report; no Stage 1 record"
+  },
+  "unchanged_BASE_CAND": [
+    "legacy/ (4 files; also unchanged since ROOT)",
+    "sources/provenance/ (5 files)",
+    ".specify/memory/constitution.md",
+    "analysis/error-prevention-checklist.md",
+    ".agents/skills/migration-ba/SKILL.md",
+    "analysis/stages/stage-01/source-reconciliation-001.md"
+  ],
+  "reconnaissance": {
+    "hunks": 24,
+    "added": 57,
+    "removed": 34,
+    "by_hunk": [
+      {
+        "base": "37",
+        "cand": "37",
+        "removed": 1,
+        "added": 1,
+        "n": 1,
+        "section": "reading block"
+      },
+      {
+        "base": "39,5",
+        "cand": "39,6",
+        "removed": 5,
+        "added": 6,
+        "n": 2,
+        "section": "reading block"
+      },
+      {
+        "base": "45",
+        "cand": "46",
+        "removed": 1,
+        "added": 1,
+        "n": 3,
+        "section": "reading block"
+      },
+      {
+        "base": "47",
+        "cand": "48",
+        "removed": 1,
+        "added": 1,
+        "n": 4,
+        "section": "reading block"
+      },
+      {
+        "base": "92,2",
+        "cand": "93,6",
+        "removed": 2,
+        "added": 6,
+        "n": 5,
+        "section": "Scope And Provenance"
+      },
+      {
+        "base": "107,2",
+        "cand": "112,2",
+        "removed": 2,
+        "added": 2,
+        "n": 6,
+        "section": "Scope And Provenance"
+      },
+      {
+        "base": "110",
+        "cand": "115",
+        "removed": 1,
+        "added": 1,
+        "n": 7,
+        "section": "Scope And Provenance"
+      },
+      {
+        "base": "283",
+        "cand": "288",
+        "removed": 1,
+        "added": 1,
+        "n": 8,
+        "section": "Build, Run, And Test Evidence"
+      },
+      {
+        "base": "312",
+        "cand": "317",
+        "removed": 1,
+        "added": 1,
+        "n": 9,
+        "section": "Build, Run, And Test Evidence"
+      },
+      {
+        "base": "317",
+        "cand": "322",
+        "removed": 1,
+        "added": 1,
+        "n": 10,
+        "section": "Build, Run, And Test Evidence"
+      },
+      {
+        "base": "318,0",
+        "cand": "324",
+        "removed": 0,
+        "added": 1,
+        "n": 11,
+        "section": "Build, Run, And Test Evidence"
+      },
+      {
+        "base": "323",
+        "cand": "329",
+        "removed": 1,
+        "added": 1,
+        "n": 12,
+        "section": "Build, Run, And Test Evidence"
+      },
+      {
+        "base": "326,4",
+        "cand": "332,4",
+        "removed": 4,
+        "added": 4,
+        "n": 13,
+        "section": "Build, Run, And Test Evidence"
+      },
+      {
+        "base": "454",
+        "cand": "460",
+        "removed": 1,
+        "added": 1,
+        "n": 14,
+        "section": "Q3 facts (owner decisions and open questions)"
+      },
+      {
+        "base": "458",
+        "cand": "464",
+        "removed": 1,
+        "added": 1,
+        "n": 15,
+        "section": "Q3 facts (owner decisions and open questions)"
+      },
+      {
+        "base": "485,2",
+        "cand": "491,3",
+        "removed": 2,
+        "added": 3,
+        "n": 16,
+        "section": "Parity-Map Boundary"
+      },
+      {
+        "base": "584",
+        "cand": "591",
+        "removed": 1,
+        "added": 1,
+        "n": 17,
+        "section": "Return Correction Evidence"
+      },
+      {
+        "base": "586",
+        "cand": "593",
+        "removed": 1,
+        "added": 1,
+        "n": 18,
+        "section": "Return Correction Evidence"
+      },
+      {
+        "base": "589",
+        "cand": "596,6",
+        "removed": 1,
+        "added": 6,
+        "n": 19,
+        "section": "Return Correction Evidence"
+      },
+      {
+        "base": "591",
+        "cand": "603",
+        "removed": 1,
+        "added": 1,
+        "n": 20,
+        "section": "Return Correction Evidence"
+      },
+      {
+        "base": "604",
+        "cand": "616",
+        "removed": 1,
+        "added": 1,
+        "n": 21,
+        "section": "Stage 1 Exit Checklist"
+      },
+      {
+        "base": "617,2",
+        "cand": "629,13",
+        "removed": 2,
+        "added": 13,
+        "n": 22,
+        "section": "Error Prevention"
+      },
+      {
+        "base": "622",
+        "cand": "645",
+        "removed": 1,
+        "added": 1,
+        "n": 23,
+        "section": "Error Prevention"
+      },
+      {
+        "base": "630",
+        "cand": "653",
+        "removed": 1,
+        "added": 1,
+        "n": 24,
+        "section": "Error Prevention"
+      }
+    ],
+    "blob": {
+      "base": "7c57c864",
+      "cand": "b8e9981f"
+    }
+  },
+  "workbook": {
+    "parts_changed": [
+      "xl/sharedStrings.xml",
+      "xl/worksheets/sheet1.xml"
+    ],
+    "cells_changed": 22,
+    "by_column": {
+      "D": 5,
+      "F": 6,
+      "H": 10,
+      "G": 1
+    },
+    "rows": [
+      69,
+      70,
+      71,
+      89,
+      178,
+      180,
+      182,
+      184,
+      186,
+      216
+    ],
+    "cells": [
+      {
+        "cell": "D69",
+        "column": "D",
+        "row": 69,
+        "shape": "rewritten",
+        "before_length": 203,
+        "after_length": 476
+      },
+      {
+        "cell": "F69",
+        "column": "F",
+        "row": 69,
+        "shape": "rewritten",
+        "before_length": 66,
+        "after_length": 244
+      },
+      {
+        "cell": "H69",
+        "column": "H",
+        "row": 69,
+        "shape": "before text kept as prefix, note appended",
+        "before_length": 1227,
+        "after_length": 3200
+      },
+      {
+        "cell": "D70",
+        "column": "D",
+        "row": 70,
+        "shape": "rewritten",
+        "before_length": 236,
+        "after_length": 331
+      },
+      {
+        "cell": "F70",
+        "column": "F",
+        "row": 70,
+        "shape": "note inserted at 17 of 118 (before text intact)",
+        "before_length": 118,
+        "after_length": 150
+      },
+      {
+        "cell": "H70",
+        "column": "H",
+        "row": 70,
+        "shape": "before text kept as prefix, note appended",
+        "before_length": 566,
+        "after_length": 756
+      },
+      {
+        "cell": "D71",
+        "column": "D",
+        "row": 71,
+        "shape": "rewritten",
+        "before_length": 244,
+        "after_length": 495
+      },
+      {
+        "cell": "F71",
+        "column": "F",
+        "row": 71,
+        "shape": "rewritten",
+        "before_length": 103,
+        "after_length": 325
+      },
+      {
+        "cell": "H71",
+        "column": "H",
+        "row": 71,
+        "shape": "before text kept as prefix, note appended",
+        "before_length": 786,
+        "after_length": 3012
+      },
+      {
+        "cell": "H89",
+        "column": "H",
+        "row": 89,
+        "shape": "before text kept as prefix, note appended",
+        "before_length": 936,
+        "after_length": 3073
+      },
+      {
+        "cell": "H178",
+        "column": "H",
+        "row": 178,
+        "shape": "note inserted at 751 of 1213 (before text intact)",
+        "before_length": 1213,
+        "after_length": 2211
+      },
+      {
+        "cell": "D180",
+        "column": "D",
+        "row": 180,
+        "shape": "note inserted at 147 of 170 (before text intact)",
+        "before_length": 170,
+        "after_length": 219
+      },
+      {
+        "cell": "H180",
+        "column": "H",
+        "row": 180,
+        "shape": "before text kept as prefix, note appended",
+        "before_length": 1290,
+        "after_length": 2387
+      },
+      {
+        "cell": "D182",
+        "column": "D",
+        "row": 182,
+        "shape": "rewritten",
+        "before_length": 196,
+        "after_length": 241
+      },
+      {
+        "cell": "F182",
+        "column": "F",
+        "row": 182,
+        "shape": "rewritten",
+        "before_length": 131,
+        "after_length": 240
+      },
+      {
+        "cell": "H182",
+        "column": "H",
+        "row": 182,
+        "shape": "before text kept as prefix, note appended",
+        "before_length": 872,
+        "after_length": 2097
+      },
+      {
+        "cell": "F184",
+        "column": "F",
+        "row": 184,
+        "shape": "rewritten",
+        "before_length": 82,
+        "after_length": 148
+      },
+      {
+        "cell": "H184",
+        "column": "H",
+        "row": 184,
+        "shape": "before text kept as prefix, note appended",
+        "before_length": 623,
+        "after_length": 1098
+      },
+      {
+        "cell": "F186",
+        "column": "F",
+        "row": 186,
+        "shape": "note inserted at 206 of 240 (before text intact)",
+        "before_length": 240,
+        "after_length": 268
+      },
+      {
+        "cell": "H186",
+        "column": "H",
+        "row": 186,
+        "shape": "before text kept as prefix, note appended",
+        "before_length": 1622,
+        "after_length": 1984
+      },
+      {
+        "cell": "G216",
+        "column": "G",
+        "row": 216,
+        "shape": "rewritten",
+        "before_length": 3,
+        "after_length": 8
+      },
+      {
+        "cell": "H216",
+        "column": "H",
+        "row": 216,
+        "shape": "before text kept as prefix, note appended",
+        "before_length": 383,
+        "after_length": 790
+      }
+    ],
+    "statuses": {
+      "base": {
+        "Yes": 169,
+        "Inferred": 19,
+        "Partial": 21,
+        "No": 1
+      },
+      "cand": {
+        "Yes": 168,
+        "Inferred": 20,
+        "Partial": 21,
+        "No": 1
+      }
+    },
+    "rows_total": 210,
+    "rows_added_removed_renumbered": 0,
+    "blob": {
+      "base": "8eb58ab3",
+      "cand": "4f26e8e7"
+    }
+  }
+}

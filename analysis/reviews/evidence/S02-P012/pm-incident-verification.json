@@ -1,0 +1,21 @@
+{
+  "packet_id": "S02-P012",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "recorded_at": "2026-09-30T19:01:16Z",
+  "companion": "analysis/reviews/evidence/S02-P012/incident-assessment.md",
+  "companion_source_sha256": "883d83dd3ed8d168207e11ea3c9c451f5db332dcc032be8ffd37ac049c97db85",
+  "companion_sha256": "543b0e0ed4ed2e1772c09337eff6af3b0f96edc671d23ffb14bddc16020903e7",
+  "pm_changes": "Only the literal token CURRENT_SESSION_ID was replaced with a1d8c39bcc8758c6c (one occurrence, the Incident session line); verified with diff.",
+  "report": "analysis/reviews/stage-02-pass-012.md",
+  "report_sha256": "389f18dbde908896ab9e12dc200c301fdd07c1176d9f54d59d8ab4594d2c53fe",
+  "reviewer_classification": "non-material; all five guards declared verified; deviations D-1..D-10 (inline node -e without temp variables, one packet read with the client file tool, one here-document and one process substitution without TMPDIR, two direct reads longer than a screen)",
+  "pm_verification": {
+    "evidence_hashes": "Report 389f18db and access-log e8fbe8be, change-set befc4243, comparison-results 24630987, coverage-reconciliation 5a4f7799 equal the reviewer's RESULT; independence-record changed only by the PM token replacement (318c8bb1).",
+    "worktrees": "The three pinned checkouts had no changes at the end (git status empty in candidate).",
+    "runner_log": "Reviewer runner log has 228 entries with 8 refusals, consistent with the companion (212 entries and 8 refusals at RESULT, plus the assessment's own runner calls).",
+    "credentials": "PM exact-form scan: repository total unchanged at the known historical 8; 0 in the new evidence.",
+    "not_checked": "PM did not open the user profile or temp folders; the companion's unknowns (possible pipe-vs-temp-file use for D-7/D-10, client retention) stay explicit."
+  },
+  "pm_conclusion": "The companion's support is consistent with the checked evidence. PM verification only, not approval.",
+  "owner_decision": "pending"
+}

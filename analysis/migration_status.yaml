@@ -32,9 +32,9 @@ project:
 control:
   state: active
   current_stage: stage-02
-  stage_status: in_progress
+  stage_status: awaiting_owner
   previous_stage: stage-01
-  next_action: 'After PR #34 merges: rebuild the pass-012 packet on main, run the preflight, then a fresh independent BA runs correction-validation pass 012 (root 006, previous 011, recovery coverage base 010, excluded [11]) limited to the PR #33 corrections, the six open items, their affected links and justified retained coverage; no new reconnaissance. Clean: control records PR, then Stage 3 on the existing isolated environment through the existing tunnel, no redeploy.'
+  next_action: 'Owner decision: (1) the pass-012 incident assessment (companion analysis/reviews/evidence/S02-P012/incident-assessment.md, pending), and (2) the route for pass-012 findings F-001..F-003 (all low): live-check carryover into Stage 3 under the project rule stage-02-live-carryover, or a bounded Stage 1 correction followed by a fresh correction-validation (root 006, previous and coverage base 012). Stage 3 stays paused until then.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -451,6 +451,28 @@ review_passes:
     baseline_pass: 6
     previous_pass: 10
     coverage_record: 'analysis/reviews/evidence/S02-P011/coverage-reconciliation.json'
+  - stage: stage-02
+    pass: 12
+    result: findings
+    report: 'analysis/reviews/stage-02-pass-012.md'
+    reviewer: 'BA independent reviewer (subagent a1d8c39bcc8758c6c of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer-p012'
+    session_id: 'a1d8c39bcc8758c6c'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P012/independence-record.md'
+    reviewed_at: '2026-09-30T18:53:38Z'
+    scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
+    waiver_ids: []
+    control_mode: correction-validation
+    baseline_pass: 6
+    previous_pass: 11
+    coverage_record: 'analysis/reviews/evidence/S02-P012/coverage-reconciliation.json'
+    recovery:
+      coverage_base_pass: 10
+      excluded_passes: [11]
+      basis_unchanged: verified
+      assessment_record: 'analysis/reviews/stage-02-pass-012.md'
+    findings_severity_max: low
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -637,12 +659,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 corrected after pass 010 (168 Yes, 20 Inferred, 21 Partial, 1 No); Stage 2 pass 011 invalid; pass-010 incident assessment owner-approved non-material; pass 012 prepared.'
+  summary: 'Stage 2 pass 012 (correction-validation, recovery from 010, excluded 011): findings F-001..F-003, all low; pass-010 F-002, F-004, F-005 closed; incident assessment and findings route await the owner.'
   completed_percent: 5
-  updated_at: '2026-09-30T18:10:00Z'
+  updated_at: '2026-09-30T18:55:45Z'
   agent_reviews:
-    total: 11
-    valid: 9
+    total: 12
+    valid: 10
     blocked: 0
     invalid: 2
     active: 0
