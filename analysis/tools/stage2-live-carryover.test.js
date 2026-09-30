@@ -87,6 +87,16 @@ test('status-validator uses the carryover rule only for the stage-02 forward exi
   const file = path.join(__dirname, '..', 'migration_status.yaml');
   const base = YAML.parse(fs.readFileSync(file, 'utf8'));
   const latest = base.review_passes.filter((r) => r.stage === 'stage-02').sort((a, b) => b.pass - a.pass)[0];
+  const exitError = /latest stage-02 pass for exit to stage-03 must be clean/;
+  const recordedExit = base.transition_history.some((x) => x.from === 'stage-02' && x.to === 'stage-03');
+  if (recordedExit && latest && latest.result === 'findings' && latest.live_carryover) {
+    // The exit is already recorded: it must pass with the carryover and fail without it.
+    assert.ok(!validateStatus(base).some((e) => exitError.test(e)), 'recorded carryover exit must validate');
+    const stripped = structuredClone(base);
+    delete stripped.review_passes.find((r) => r.stage === 'stage-02' && r.pass === latest.pass).live_carryover;
+    assert.ok(validateStatus(stripped).some((e) => exitError.test(e)), 'the exit must fail without the carryover');
+    return;
+  }
   if (base.control.current_stage !== 'stage-02' || !latest || latest.result !== 'findings') {
     t.skip('project status is not at a stage-02 findings pass');
     return;
@@ -103,7 +113,6 @@ test('status-validator uses the carryover rule only for the stage-02 forward exi
     clone.control.previous_stage = 'stage-02';
     return clone;
   };
-  const exitError = /latest stage-02 pass for exit to stage-03 must be clean/;
   const without = withExit(base);
   const p1 = without.review_passes.find((r) => r.stage === 'stage-02' && r.pass === latest.pass);
   delete p1.live_carryover;

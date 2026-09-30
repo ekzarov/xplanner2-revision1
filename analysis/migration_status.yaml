@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-02
-  stage_status: awaiting_owner
-  previous_stage: stage-01
-  next_action: 'Stage 2 pass 009 findings F-001..F-003 are carried under owner decision stage-02-live-carryover (record analysis/stages/stage-02/live-check-carryover-pass-009.md); the Stage 2 -> Stage 3 transition is recorded only after the owner Stage 3 grant for the exact environment, operations and data and a configured environment contract (audit:environment --require-configured). No pass 010; findings remain open.'
+  current_stage: stage-03
+  stage_status: in_progress
+  previous_stage: stage-02
+  next_action: 'Stage 3: PM runs the pinned remote:check and analysis/stages/stage-03/deploy/deploy.sh under stage-03-legacy-grant (tunnel-only, internal network, unchanged WAR verified by SHA-256); then BA starts the first live business scenario login -> project -> iteration -> story/task -> complete task -> time entry -> logout and records evidence; carried Stage 2 findings F-001..F-003 are checked per the carryover record.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -214,6 +214,16 @@ transition_history:
     gate_evidence:
       - 'analysis/stages/stage-01/stage-02-pass-008-dispositions.md'
       - 'analysis/legacy_reconnaissance.md'
+    owner_approval: null
+  - from: stage-02
+    to: stage-03
+    reason: 'Stage 2 exit under the owner-approved project rule stage-02-live-carryover: pass 009 (findings F-001..F-003, all low, recovery from coverage base 007, incidents approved non-material) carried into Stage 3 live checks or accepted residual risks (analysis/stages/stage-02/live-check-carryover-pass-009.md); findings remain open; owner Stage 3 grant stage-03-legacy-grant.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-30T08:38:54Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-02-pass-009.md'
+      - 'analysis/stages/stage-02/live-check-carryover-pass-009.md'
+      - 'analysis/stages/stage-03/deploy/README.md'
     owner_approval: null
 
 review_passes:
@@ -475,6 +485,14 @@ owner_decisions:
     rationale: 'Owner decision of 2026-09-30: carry Stage 2 pass 009 findings F-001..F-003 (all low) without pass 010 and without calling the result clean: F-002 as a live check, F-001 as a limited live check plus accepted risk, F-003 as accepted risk; the Stage 1 correction BA-001-11 before Stage 3 is not performed.'
     record: 'analysis/stages/stage-02/live-check-carryover-pass-009.md'
     residual_risk: 'The reconnaissance keeps three known low inaccuracies (cache writer classes and two missing locale registries, history date format, script-context counting rule) until a later correction; request-keyed caches are unbounded and their growth is not tested live; carried items are not independently re-verified.'
+  - id: 'stage-03-legacy-grant:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-30T08:38:54Z'
+    scope: 'Stage 3 grant (owner chat 2026-09-30, within the bounds relayed by Codex): environment xplanner2-revision1-legacy on 91.98.17.159:22 (hostname legacy-transformation-demo, Linux), user root, host key pinned SHA256:tjVnlwT6cUWqYC4m5VFgx7t9J8faycyGrF06M/odOoA, client key fingerprint SHA256:IcNaMh2vOKc0ny3HfJGfw3Epd3p3UbsEXHYNEvVk0DY; programmatic use of the owner key file only, never disclosed; operations: create, start, stop and remove only the new Compose project xplanner2-revision1 under /opt/xplanner2-revision1 (only if free) with its own network, volume and database; tunnel-only access, no published ports, internal network without egress, mail to a local sink; empty new database, Liquibase at first start, synthetic data and role test accounts with secrets only in protected storage; no real data, no public legacy, no load or destructive tests, no change to existing applications, data, proxies or access; publication in Git of non-secret connection parameters only (IP, SSH login, port, public fingerprints); tunnel-only schema mode approved. Stop on host pin/identity mismatch, risk to other resources, insufficient capacity or any operation outside the grant; leave the environment running for the owner.'
+    rationale: 'Owner priority: start the Stage 3 live walkthrough with the business path login -> project -> iteration -> story/task -> complete task -> time entry -> logout.'
+    record: 'analysis/stages/stage-03/deploy/README.md'
+    residual_risk: 'Root access to a shared demo server; the factory default account is used inside the tunnel-only environment only; the carried Stage 2 findings F-001..F-003 remain open.'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -505,9 +523,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 2 correction-validation pass 009 findings (F-001..F-003, all low; recovery from coverage base 007, 008 excluded); its operational incidents approved as non-material by the owner; findings remain open pending the owner-authorized live-check carryover rule and the Stage 3 grant. Stage 1 records have 210 rows.'
-  completed_percent: 5
-  updated_at: '2026-09-30T07:44:00Z'
+  summary: 'Stage 2 exited under the owner-approved live-check carryover (pass 009 findings F-001..F-003 remain open); Stage 3 isolated legacy deployment prepared. Stage 1 records have 210 rows.'
+  completed_percent: 11
+  updated_at: '2026-09-30T08:38:54Z'
   agent_reviews:
     total: 9
     valid: 8

@@ -1,0 +1,53 @@
+# Stage 3 isolated legacy deployment for xplanner2-revision1 (owner grant 2026-09-30).
+# Compose project "xplanner2-revision1" under /opt/xplanner2-revision1 only.
+# - The WAR is the unchanged baseline, mounted read-only and verified by SHA-256 before start.
+# - One Docker "internal" network: no egress, no published ports, no host network, no Docker socket.
+#   Access only through an SSH tunnel to the fixed internal addresses below.
+# - Mail: the WAR sends to localhost:25. Mailpit shares the app's network namespace, so mail
+#   stays inside this project.
+# - Credentials come from ./.env (mode 600, written on the server, never printed or committed).
+name: xplanner2-revision1
+services:
+  db:
+    image: mysql:5.7                     # matches the bundled mysql-connector-java-5.1.13
+    command: --character-set-server=utf8 --collation-server=utf8_general_ci
+    env_file: .env
+    volumes: [mysql-data:/var/lib/mysql]
+    networks:
+      internal:
+        ipv4_address: ${XP2R1_DB_IP}
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "--silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 36
+      start_period: 20s
+    mem_limit: ${XP2R1_DB_MEM}
+    restart: unless-stopped
+  xplanner:
+    image: tomcat:9.0-jre8
+    depends_on:
+      db: { condition: service_healthy }
+    volumes:
+      - ./baseline/xplanner-plus.war:/usr/local/tomcat/webapps/xplanner-legacy.war:ro
+    environment:
+      # -Xverify:none: the bundled Javassist emits proxy bytecode that a modern verifier rejects.
+      - CATALINA_OPTS=-Xms256m -Xmx768m -Dfile.encoding=UTF-8 -Xverify:none -Djava.awt.headless=true
+    networks:
+      internal:
+        ipv4_address: ${XP2R1_APP_IP}
+    mem_limit: ${XP2R1_APP_MEM}
+    restart: unless-stopped
+  mail:
+    image: axllent/mailpit
+    network_mode: "service:xplanner"     # receives localhost:25 of the app; UI on the app address:8025
+    environment: [MP_SMTP_BIND_ADDR=0.0.0.0:25, MP_UI_BIND_ADDR=0.0.0.0:8025]
+    mem_limit: 128m
+    restart: unless-stopped
+volumes:
+  mysql-data:
+networks:
+  internal:
+    internal: true
+    ipam:
+      config: [{ subnet: "${XP2R1_SUBNET}" }]
