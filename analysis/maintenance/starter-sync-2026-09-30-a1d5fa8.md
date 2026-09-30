@@ -34,7 +34,7 @@
 ## Authorization And Baselines
 
 - **Target:** `a1d5fa8a2f4c8ef3e70123af4878232be337b23b`, the merge of Starter PR #1 (`codex/source-readiness-gate`). The delta from the base consists of `44ae6f3` (require source readiness before analysis), `d9e16cb` (strict source readiness and assessment ownership), `8f15b3f` (align the Bootstrap gate definition) and the merge commit.
-- **Owner authorization:** `ekzarov`, chat message on 2026-09-30. It covers the whole delta from the current base, without rerunning the initializer, and it preserves project records and `legacy/`. While GitHub Actions is unavailable because of billing, the missing CI does not block the merge. CI is recorded as not run, not as passed. Local checks and an independent review are mandatory.
+- **Owner authorization:** `ekzarov`, chat message on 2026-09-30. It covers the whole delta from the current base, without rerunning the initializer, and it preserves project records and [`legacy/`](../../legacy). While GitHub Actions is unavailable because of billing, the missing CI does not block the merge. CI is recorded as not run, not as passed. Local checks and an independent review are mandatory.
 - **Documented sync base:** `40be1fac4402b0d18d64385faadf0a46a7e98e06`, per [`starter-sync-2026-09-29-40be1fa.md`](./starter-sync-2026-09-29-40be1fa.md).
 - **Project base:** `main` at `eb7720f` (after PR #28). Branch: `process/starter-sync-a1d5fa8`.
 - **Starter:** HEAD `a1d5fa8`, clean working tree, used read-only.
@@ -51,7 +51,7 @@
 | Merged with resolved conflicts, 2 | [`ARTIFACTS.md`](../../ARTIFACTS.md) (generated guidance rows; Starter text taken, block regenerated) and [`analysis/artifact-responsibilities.md`](../artifact-responsibilities.md) (Starter text taken) |
 | Regenerated guidance only | [`config/project.yaml`](../../config/project.yaml): only its generated `ARTIFACT RESPONSIBILITY` header comment changed. No project value changed. |
 
-**Result against Starter HEAD `a1d5fa8`.** 19 of the 26 files are byte-equal after LF normalization. Six differ only by project clickable links: `ARTIFACTS.md`, `analysis/artifact-naming.md`, `analysis/artifact-responsibilities.md`, `analysis/migration_methodology.md`, the Bootstrap gate report template and `analysis/tools/README.md`. [`MIGRATION.md`](../../MIGRATION.md) also keeps the project addition for the Stage 2 live-check carryover.
+**Result against Starter HEAD `a1d5fa8`.** 19 of the 26 files are byte-equal after LF normalization. Six differ only by project clickable links: [`ARTIFACTS.md`](../../ARTIFACTS.md), [`analysis/artifact-naming.md`](../artifact-naming.md), [`analysis/artifact-responsibilities.md`](../artifact-responsibilities.md), [`analysis/migration_methodology.md`](../migration_methodology.md), the Bootstrap gate report template and [`analysis/tools/README.md`](../tools/README.md). [`MIGRATION.md`](../../MIGRATION.md) also keeps the project addition for the Stage 2 live-check carryover.
 
 <a id="read-constitution-check"></a>
 
@@ -71,7 +71,7 @@ PM compared the source-readiness gate with [the constitution](../../.specify/mem
 - **Not touched:**
   - status and the transition history;
   - the constitution and `.migration-starter.json`;
-  - `legacy/`, the Stage 1 records and all reviews and evidence;
+  - [`legacy/`](../../legacy), the Stage 1 records and all reviews and evidence;
   - the checklist;
   - the environment contract.
 - **Initializer.** It was not rerun.
