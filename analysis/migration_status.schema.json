@@ -1229,6 +1229,10 @@
           "pattern": "\\S",
           "description": "Required repository-local non-empty, non-template report or evidence path, including failure evidence for blocked/invalid eligibility attempts. May be the current report. Failure details, source equality, exact changes and retained-item coverage remain reviewer obligations, not schema guarantees."
         },
+        "incident_assessment": {
+          "$ref": "#/$defs/reviewIncidentAssessment",
+          "description": "Optional aggregate for disclosed incidents, not detection of unreported incidents or proof of substance. Clean/findings requires non-material classification, every guard verified and an exact owner approval; blocked/invalid remains failed. Historical entries without this field need no rewrite."
+        },
         "result": {
           "enum": [
             "clean",
@@ -1373,6 +1377,51 @@
           }
         }
       ]
+    },
+    "reviewIncidentGuard": {
+      "enum": ["verified", "failed", "unknown"]
+    },
+    "reviewIncidentAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record", "report_sha256", "classification", "guards"],
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/nonEmptyString",
+          "type": "string",
+          "pattern": "\\S",
+          "description": "Repository-local non-template companion distinct from review.report, containing canonical visible Incident declarations. Owner decision.record must equal this path. The immutable report is not rewritten."
+        },
+        "report_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "SHA-256 of the exact existing report bytes; scope and companion declarations use lowercase hex."
+        },
+        "classification": {
+          "enum": ["non-material", "material", "unresolved"]
+        },
+        "guards": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["independence", "source_scope", "evidence_integrity", "permitted_support", "disclosure"],
+          "properties": {
+            "independence": { "$ref": "#/$defs/reviewIncidentGuard" },
+            "source_scope": { "$ref": "#/$defs/reviewIncidentGuard" },
+            "evidence_integrity": { "$ref": "#/$defs/reviewIncidentGuard" },
+            "permitted_support": { "$ref": "#/$defs/reviewIncidentGuard" },
+            "disclosure": {
+              "$ref": "#/$defs/reviewIncidentGuard",
+              "description": "Verified requires credible evidence of no sensitive exposure; unknown diagnostic provenance or no file access alone is not clearance. Independent review verifies substance."
+            }
+          }
+        },
+        "owner_decision_id": {
+          "$ref": "#/$defs/nonEmptyString",
+          "type": "string",
+          "pattern": "\\S",
+          "description": "Required approved owner_decision for clean/findings, including nonempty residual_risk. Its unique ID, project.owner, timestamp at/after reviewed_at, identical record and incidentDecisionScope(review) binding are validated. Failed attempts need no approval; a supplied decision reference must still bind exactly."
+        }
+      }
     },
     "ownerDecision": {
       "type": "object",

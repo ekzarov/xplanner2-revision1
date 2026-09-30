@@ -62,6 +62,8 @@ const englishUi = {
   correctionAccess: 'I from the start, not blind: current Stage 1 records, full status, prior reports, checklist and dispositions. Pin the complete valid root full-blind report (findings allowed), its snapshot and source hashes, predecessor, latest candidate and every intervening report/change. No new Phase A. PM alone updates shared status.',
   openStage2Modes: 'Stage 2: full-blind / correction-validation',
   openStage2Recovery: 'Stage 2: failed-attempt recovery rules',
+  incidentAssessmentText: 'Disclose command/output mistakes. Independently assess independence, source scope, evidence integrity, permitted support and disclosure. Only a supported non-material disposition can receive exact owner approval; unknown/material safeguards block use. Sealed reports and invalid verdicts stay unchanged. Read-only and no-file claims do not excuse masking failures.',
+  openIncidentAssessment: 'Operational incident assessment and diagnostic permissions',
   frameMeaning: 'Frames show responsibility, not a passed result.',
   example: 'Example', usedAt: 'Used at', implementationReference: 'Implementation or evidence reference',
   inputArtifacts: 'Input artifacts', updatedArtifacts: 'Updated artifacts', outputArtifacts: 'Output artifacts', none: 'None',
@@ -1297,6 +1299,8 @@ function correctionHelp(stage) {
       .map(key => `<p>${escapeHtml(tr(key))}</p>`).join('')
     + `<a class="source-link" href="${data.repository}/blob/main/analysis/reviews/README.md#stage-2-correction-validation" target="_blank" rel="noopener">${escapeHtml(tr('openStage2Modes'))}</a>`
     + `<a class="source-link" href="${data.repository}/blob/main/analysis/reviews/README.md#stage-2-attempt-recovery" target="_blank" rel="noopener">${escapeHtml(tr('openStage2Recovery'))}</a>`
+    + `<p>${escapeHtml(tr('incidentAssessmentText'))}</p>`
+    + `<a class="source-link" href="${data.repository}/blob/main/analysis/agent_orchestration.md#operational-incident-assessment" target="_blank" rel="noopener">${escapeHtml(tr('openIncidentAssessment'))}</a>`
     + `<a class="source-link" href="${data.repository}/blob/main/analysis/reviews/README.md#correction-scope-and-handoff" target="_blank" rel="noopener">${escapeHtml(tr('openCorrectionScope'))}</a></details>`;
 }
 

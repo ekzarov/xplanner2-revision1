@@ -19,6 +19,8 @@ A quick reading aid, not a new gate or project verdict. The process-maintenance 
 
 ## Shared Rules
 
+- **Operational incidents:** disclose command/output mistakes and assess their effect on independence, source scope, evidence integrity, permitted support and disclosure. Only a supported non-material disposition can receive exact owner approval; unknown/material safeguards block. Preserve sealed reports and invalid verdicts. Read-only and no-file claims do not excuse a masking failure. [Assessment procedure](agent_orchestration.md#operational-incident-assessment).
+
 - **Portable team:** PM delegates each specialist task with the exact skill path. The receiver reads it, returns ACK, routes questions through PM and returns RESULT with evidence. BA, UX, Architect, Developer and QA are specializations, not permanent sessions. Fresh review is separate from authorship. [Required handoff protocol](agent-roles.md).
 
 - **Reads** = inputs, not permission to change them. **Writes result** = create or populate the stage-owned result; on return, revise mutable results but create a new numbered immutable review/delivery report. **Updates shared** = read and update an existing shared artifact, only within the stage's authority.

@@ -351,6 +351,29 @@ test('correction guidance links resolve from both review templates and their out
   assert(read('analysis/reviews/README.md').includes('### Correction Scope And Handoff'));
 });
 
+test('incident assessment is routed without granting blanket diagnostics or evidence waivers', () => {
+  const anchor = '#operational-incident-assessment';
+  for (const file of ['MIGRATION.md', 'analysis/migration_methodology.md',
+    'analysis/process-contract.md', 'analysis/reviews/README.md',
+    'analysis/reviews/stage-NN-pass-NNN-template.md',
+    '.agents/skills/migration-pm/SKILL.md', '.agents/skills/migration-ba/SKILL.md',
+    'analysis/process-cheatsheet.md', 'analysis/process-canvas/app.js',
+    'analysis/migration_artifact_flow.drawio']) assert(read(file).includes(anchor), file);
+  const html = cheerio.load(read('analysis/migration_methodology.html'));
+  assert.equal(html('#operational-incidents').length, 1);
+  assert(html('#operational-incidents a').attr('href').endsWith(anchor));
+  const guide = read('analysis/agent_orchestration.md').replace(/\s+/g, ' ');
+  for (const rule of ['still breaches masking', 'an unknown safeguard cannot be called verified',
+    'already `invalid` attempt cannot be promoted', 'not permission to browse the user profile',
+    'never retroactively validates']) {
+    assert(guide.includes(rule), rule);
+  }
+  for (const file of ['evidence-placeholders.js', 'evidence-placeholders.test.js',
+    'review-incidents.js', 'review-incidents.test.js']) {
+    assert(read('init-migration.ps1').includes(`'analysis/tools/${file}'`), file);
+  }
+});
+
 test('cheat sheet covers every stage and artifact without changing the shared flow', () => {
   const {readContract} = require('./process-contract');
   const MarkdownIt = require('markdown-it');

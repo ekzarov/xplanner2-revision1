@@ -117,6 +117,80 @@ requirements. Confirmed repeatable omissions follow the existing
 [checklist admission and deduplication rules](error-prevention.md#admission-and-generalization);
 do not seed new projects with another project's CHK IDs or decisions.
 
+## Operational Incident Assessment
+
+**A disclosed mistake and an unusable review are different questions.** This
+procedure does not excuse the mistake, waive constitutional safeguards or let
+PM change a review verdict. It applies to new incidents and explicitly adopted
+assessments of still-pending attempts, never retroactively validates an `invalid`
+attempt. Stricter project rules remain binding; synchronize or amend them with
+the required owner authority before applying this procedure.
+
+1. **Stop the affected operation and disclose without reproducing values.**
+   Preserve the report, access sequence, hashes and known facts. Record the
+   exact command, allowed inputs/revisions, actual data read or emitted,
+   audience, retained output and unknowns. Do not open forbidden locations to
+   investigate, repeat sensitive output, or infer harmlessness from read-only
+   execution, a low finding severity, green CI or an empty repository scan.
+2. **Reviewer assesses materiality; PM verifies the support.** Check all five
+   safeguards: independence (no authoring or premature blind context), source
+   and scope (only permitted evidence and pinned revisions), evidence integrity
+   (no reviewed-tree mutation or lost provenance), permitted support (every
+   finding and retained-coverage claim independently supported by allowed
+   evidence), and disclosure (no unapproved sensitive-data transmission).
+   Record evidence for each check and the exact limits of what is known.
+3. **Fail closed on a material or unresolved impact.** Lost independence,
+   forbidden substantive context, changed evidence/revision, incomplete scope
+   or uncontained disclosure cannot be waived by the owner under this procedure.
+   Use `invalid` for an unusable attempt, or `blocked` while required facts
+   cannot be established. A missing harmless diagnostic value can stay unknown
+   only when evidence independently establishes all five safeguards; an unknown
+   safeguard cannot be called verified. Stop affected publication for actual or
+   potentially sensitive credentials and seek authorized containment.
+4. **Only a supported non-material assessment can go to the owner.** An extra
+   diagnostic command may qualify if it supplied no forbidden substantive
+   context and did not support the conclusion. An accidental public factory
+   value in tool output still breaches masking: public provenance, permitted
+   audience and exposure boundaries must be established separately. Absence
+   from files proves neither no disclosure nor transcript deletion. Unknown
+   client retention and environment use stay explicit residual risks; do not
+   demand proof about every installation worldwide. A historical snapshot
+   exception does not authorize new output. Actual or potentially sensitive
+   values cannot qualify through public availability alone.
+5. **Owner decides the exact assessment, not a new verdict.** Record explicit
+   approval or rejection for this pass/session, report hash and scope, together
+   with rationale, residual risk and prevention. Pending approval cannot close
+   a gate, restore a chain or become a usable baseline. Approval only accepts
+   the supported operational disposition; findings remain findings, separate
+   stage/merge permissions remain required, and future masking still applies.
+   Rejection or unresolved materiality stops use of the attempt. Preserve any
+   original sealed verdict and append its unusable disposition outside it;
+   the status ledger must reflect `invalid`/`blocked`, not continue to claim
+   usable coverage. An already `invalid` attempt cannot be promoted by approval.
+6. **Keep sealed evidence sealed.** Put the assessment and owner decision in a
+   companion under the existing review-evidence folder; link the original
+   report and its SHA-256. Never patch the sealed report to remove an incident,
+   improve its verdict or recompute its historic hashes. If the original
+   reviewer is unavailable, a fresh eligible reviewer must assess the incident
+   from permitted evidence without impersonating that session; record identity
+   and limits in the companion. Inability to establish the safeguards blocks.
+
+PM records `incident_assessment` on the affected review entry. The
+[status audit contract](tools/README.md#review-incident-evidence) binds the
+companion, report hash, safeguards and exact owner decision. It rejects usable
+`clean`/`findings` entries without supported non-material disposition and
+approval. It cannot discover an undisclosed incident or prove factual claims;
+reviewer/PM disclosure and independent semantic verification remain mandatory.
+Historical records without incidents are not bulk rewritten. Failed-attempt
+[Stage 2 recovery](reviews/README.md#stage-2-attempt-recovery) remains separate;
+this procedure supplies no new recovery or Stage 19 acceptance exception.
+
+**Examples:** a pinned-tree listing used only to explain file identities can
+be assessed without rerunning all substantive checks. Reading the author's
+earlier conclusions during blind Phase A cannot. A factory password printed
+into the approved client's output is a masking incident even with zero matches
+in the new files; public classification alone does not settle its disposition.
+
 ## Packet Transport Safety
 
 PM and every assigned agent apply this generic boundary to all packets and tool
@@ -207,6 +281,28 @@ because a required tool, environment, permission, dependency, or scope item is
 unavailable.
 
 ## Deterministic Review Packet
+
+### Diagnostic Command Permissions
+
+PM specifies permitted operations, exact roots/revision pins, phase restrictions
+and output handling before launch, not merely a list of command names. A packet
+may authorize `git ls-tree` on named pinned trees, scoped `git check-attr` for
+named paths and a single-key `git config --get core.autocrlf` diagnostic.
+Git's normal configuration loading is tool operation, not permission to browse
+the user profile. Default config lookup can consult local/global/system values:
+explicitly authorize that one value or use `--local` and record no local value.
+Do not expand it to `--list`, `--show-origin`, arbitrary keys or profile reads.
+Attribute inspection may also use effective Git configuration; its output is
+diagnostic, never evidence that working-copy bytes equal pinned source bytes.
+
+Working-copy status/diffs require a named allowed file set and mode. They are
+not an alternative to the authoritative pinned diff; filled state may be read
+in correction-validation only as permitted by its packet, never leaked into
+blind Phase A. An unlisted operation requires clarification before execution;
+if it already happened, use [incident assessment](#operational-incident-assessment)
+instead of silently extending the packet. Neither read-only status nor the
+examples above creates a blanket allowlist. Capture minimal, masked diagnostic
+results inside authorized scratch so later assessments need not guess.
 
 Before invocation, create a packet containing the items below, subject to the
 mandatory phased-access boundary for Stage 2 full-blind and Stage 19. A full packet is never

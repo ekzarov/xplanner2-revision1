@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
+const { INCIDENT_GUARDS, incidentDecisionScope } = require('./review-incidents');
 const {
   auditedScope,
   formalStageProgress,
@@ -2072,4 +2073,67 @@ test('a backlog that never mentions the pass does not close it', (t) => {
     entry.stage === 'stage-07' ? { ...entry, ...closingFields } : entry) });
   const errors = validateRecordedEvidence(status, directory);
   assert(errors.some((error) => error.includes('does not record this pass')), errors.join(String.fromCharCode(92) + 'n'));
+});
+
+function approveIncident(status, pass) {
+  pass.incident_assessment = {
+    record: `analysis/reviews/${pass.session_id}-incident.md`,
+    report_sha256: 'a'.repeat(64),
+    classification: 'non-material',
+    guards: Object.fromEntries(Object.keys(INCIDENT_GUARDS).map((guard) => [guard, 'verified'])),
+    owner_decision_id: `incident:${pass.session_id}`,
+  };
+  status.owner_decisions.push({
+    id: pass.incident_assessment.owner_decision_id,
+    decision: 'approved', decided_by: status.project.owner, decided_at: pass.reviewed_at,
+    scope: incidentDecisionScope(pass), record: pass.incident_assessment.record,
+    rationale: 'Owner approves only this supported non-material operational disposition.',
+    residual_risk: 'Recorded diagnostic uncertainty does not support the substantive conclusion.',
+  });
+}
+
+test('material/unresolved findings cannot become usable Stage 2 baseline coverage through incident metadata', () => {
+  const root = stage2Pass(1, { result: 'findings' });
+  const status = correctionStatus([root, correctionPass(2)]);
+  approveIncident(status, root);
+  assert.deepEqual(validateStatus(status), []);
+  for (const classification of ['material', 'unresolved']) {
+    root.incident_assessment.classification = classification;
+    assert.match(validateStatus(status).join('\n'), /stage-02 pass 1 incident_assessment.*requires non-material/);
+  }
+  root.incident_assessment.classification = 'non-material';
+  status.owner_decisions = [];
+  assert.match(validateStatus(status).join('\n'), /exactly one owner decision/);
+});
+
+test('approved incident never substitutes for failed Stage 2 predecessor recovery', () => {
+  const failed = correctionPass(2, { result: 'invalid' });
+  const status = correctionStatus([stage2Pass(1), failed, correctionPass(3)]);
+  approveIncident(status, failed);
+  assert.match(validateStatus(status).join('\n'), /previous_pass must be a valid clean\/findings pass/);
+  status.review_passes[2] = recoveryPass(3);
+  assert.deepEqual(validateStatus(status), []);
+  assert.equal(failed.result, 'invalid');
+  assert.equal(passClosesStage(failed), false);
+});
+
+test('incident audit guards Stage 7 exits without broadening cosmetic exceptions or Stage 19 acceptance', () => {
+  const status = completedStatus();
+  const pass = status.review_passes.find((entry) => entry.stage === 'stage-07');
+  Object.assign(pass, {
+    result: 'findings', findings_severity_max: 'low', never_cosmetic_check: 'confirmed',
+    all_findings_cosmetic: 'confirmed', dispositioned_in: 'ui-polish-backlog.md',
+  });
+  approveIncident(status, pass);
+  assert.deepEqual(validateStatus(status), []);
+  pass.incident_assessment.classification = 'material';
+  assert.match(validateStatus(status).join('\n'), /stage-07 pass 1 incident_assessment.*requires non-material/);
+  pass.incident_assessment.classification = 'non-material';
+  pass.findings_severity_max = 'medium';
+  assert.match(validateStatus(status).join('\n'), /latest stage-07 pass for exit/);
+  pass.findings_severity_max = 'low';
+  const acceptance = status.review_passes.find((entry) => entry.stage === 'stage-19');
+  acceptance.result = 'findings';
+  approveIncident(status, acceptance);
+  assert.match(validateStatus(status).join('\n'), /latest stage-19 pass for exit/);
 });
