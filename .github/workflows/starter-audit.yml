@@ -35,6 +35,12 @@ jobs:
           AUDIT_TEST_MODE: ''
         run: npm --prefix analysis/tools ci --ignore-scripts
 
+      # Project addition (xplanner2-revision1, constitution A4): restore only the
+      # allowlisted upstream SVN r426 files, verified by SHA-256, for source_intake.
+      - name: Restore allowlisted upstream sources (project A4)
+        if: ${{ hashFiles('sources/provenance/xplanner-plus-r426-allowlist.json') != '' }}
+        run: node analysis/tools/restore-upstream-sources.js
+
       - name: Validate environment contract and embedded credential visibility
         env:
           REPOSITORY_VISIBILITY: ${{ github.event.repository.visibility }}

@@ -46,6 +46,30 @@ paths:
   target_source: target
   environments: config/environments.yaml
 
+# Source readiness, not just the existence of paths.legacy_source.
+# Bootstrap/PM records the inspected input and exact fallback decision under
+# MIGRATION.md#source-readiness (assessment analysis/source-assessment-001.md; constitution A4).
+source_intake:
+  classification: partial
+  baseline_match: unverified
+  source_roots:
+    - 'sources/xplanner-plus-r426'
+  inputs:
+    - path: 'sources/provenance/source-manifest.json'
+      sha256: '921457c77b4358ca3a735222142668eaf7a76232a0ce6d7e43c0c2ebab5cf201'
+    - path: 'sources/provenance/xplanner-plus-r426-allowlist.json'
+      sha256: 'b77f870d2211e461eca7fff9ab2d208291474377c3e365c57eb97b72a7242131'
+    - path: 'sources/provenance/source-links.json'
+      sha256: 'fed60e59f4132f64a0648a80ca0c35075a2fbc3bd13e9fd5ba09efbddd1c6aa5'
+    - path: 'sources/provenance/war-comparison.json'
+      sha256: 'ff2aad5754bf79c14b75bc7a130e90ea36f3ecad0ee4861715eca487c8d0d65d'
+    - path: 'sources/provenance/package.json'
+      sha256: 'e4997615bc10e922f8b910ff850203b1f52a1d862179f7a2437b8dd9d361af72'
+  assessment_record: 'analysis/source-assessment-001.md'
+  assessment_sha256: 'cd68565d649826770d8a94d6d0a594ddd003ab1ce9d74c15742104cbeb1a95fa'
+  limitations: 'No reproducible build (source-to-bytecode identity unproven); SVN xplanner.properties stamps 1.1a2/r293 vs release 1.1a4/r426; three patched configuration entries where the baseline WAR is authoritative; no source for the 102 bundled libraries; 39 password-bearing files withheld from Git and CI; source does not prove live behavior.'
+  fallback_decision_id: 'source-intake-fallback-001:xplanner2-revision1'
+
 # Commands stay null until the owner or an authorized maintainer records and
 # verifies the exact project command. Null becomes a hard stop at the declared
 # required stage, never an invitation to infer a stack-specific command.

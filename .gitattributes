@@ -19,3 +19,6 @@ analysis/reviews/evidence/** -text
 # Stage 3 deployment script and pinned SSH host keys must keep LF on every checkout.
 *.sh text eol=lf
 config/known_hosts.* text eol=lf
+
+# Source provenance is hash-pinned by source_intake: store exact bytes.
+sources/provenance/** -text
