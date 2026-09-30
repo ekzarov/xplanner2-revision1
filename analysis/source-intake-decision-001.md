@@ -46,3 +46,5 @@ The relayed decision is PM-verified against the exact package that was shown: as
 - **What the fallback approves:** `classification: partial`, `baseline_match: unverified`, with the baseline WAR authoritative.
 - **Sources in CI:** only the 1078 allowlisted files, restored with SHA-256 verification. The 39 withheld files are never fetched.
 - **What it does not authorize:** a live Stage 3 run, a new Stage 2 control, or any merge of a future pull request.
+
+The owner confirmed the relayed fallback and placement decision in the PM chat on 2026-09-30 ("обобряю") and merged PR #30 (merge `38d4a2f404433462dc0177ae7cc4adbad5cf8c4e`, 2026-09-30T11:27:26Z).

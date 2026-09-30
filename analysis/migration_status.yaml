@@ -32,9 +32,9 @@ project:
 control:
   state: active
   current_stage: stage-01
-  stage_status: in_progress
+  stage_status: awaiting_review
   previous_stage: stage-03
-  next_action: 'Stage 1 source reconciliation: BA reconciles all 210 existing parity-map rows against the admitted upstream source (sources/xplanner-plus-r426, analysis/source-assessment-001.md) and the baseline WAR, starting with the 77 Inferred and 21 Partial rows, preserving IDs and confirmed work; row-level results per the BA assignment boundary in the correction record; one correction record and PR; then STOP for the owner. No live Stage 3 run, no new Stage 2 control.'
+  next_action: 'Stage 1 source reconciliation BA-001-11 verified by PM against the assignment boundary (analysis/stages/stage-01/source-reconciliation-001.md): all 210 rows reconciled (167 confirmed, 21 correction needed, 21 runtime-only, 1 still unsupported); statuses 111/77/21/1 -> 169/19/21/1 (58 Inferred -> Yes on method-level evidence); carried pass-009 F-001 and F-002 resolved statically, F-003 stays an accepted residual. Owner merges the correction PR; the next independent Stage 2 control (mode proposed to the owner before launch) must run before Stage 3 resumes in the authorized isolated environment.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -552,9 +552,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Constitution 1.1.0 (A4) admits the attributed upstream source (partial/unverified; WAR authoritative); Stage 3 paused with the isolated environment running; bounded return to Stage 1 for the source reconciliation of the 210 existing rows. Carried Stage 2 findings F-001..F-003 remain open.'
+  summary: 'Stage 1 records reconciled against the A4-admitted upstream source (partial/unverified, WAR authoritative): 210 rows, 169 Yes, 19 Inferred, 21 Partial, 1 No; 27 rows keep runtime questions for Stage 3; awaiting the correction PR and the next Stage 2 control.'
   completed_percent: 0
-  updated_at: '2026-09-30T11:07:14Z'
+  updated_at: '2026-09-30T12:15:45Z'
   agent_reviews:
     total: 9
     valid: 8
