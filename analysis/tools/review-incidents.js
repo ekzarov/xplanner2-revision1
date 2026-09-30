@@ -1,6 +1,7 @@
 'use strict';
 
 const { isNonEmptyString } = require('./lib');
+const { attributionError } = require('./delegated-authority');
 
 const INCIDENT_GUARDS = Object.freeze({
   independence: 'Incident independence',
@@ -59,8 +60,9 @@ function validateReviewIncidents(status) {
     if (substantive && !isNonEmptyString(decision.residual_risk)) {
       errors.push(`${label} clean/findings owner decision requires nonempty residual_risk`);
     }
-    if (decision.decided_by !== status.project.owner) {
-      errors.push(`${label} decision.decided_by must equal project.owner`);
+    // Project hook: the owner, or a delegate under an owner delegation (delegated-authority.js).
+    if (attributionError(decision, status)) {
+      errors.push(`${label} decision.decided_by must equal project.owner or a valid delegate`);
     }
     if (decision.scope !== incidentDecisionScope(review)) {
       errors.push(`${label} decision.scope must equal incidentDecisionScope(review), binding the exact stage/pass/session/report/hash/scope`);

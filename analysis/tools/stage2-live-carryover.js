@@ -8,6 +8,7 @@
 // It is not part of the Starter; see analysis/maintenance/ for the departure record.
 
 const { isNonEmptyString } = require('./lib');
+const { attributionError } = require('./delegated-authority');
 
 function liveCarryoverScope(review) {
   return 'stage-02-live-carryover:' + JSON.stringify([
@@ -50,7 +51,7 @@ function validateLiveCarryover(status) {
     }
     const [decision] = decisions;
     if (decision.decision !== 'approved') errors.push(`${label} requires an approved owner decision`);
-    if (decision.decided_by !== status.project.owner) errors.push(`${label} decision.decided_by must equal project.owner`);
+    if (attributionError(decision, status)) errors.push(`${label} decision.decided_by must equal project.owner or a valid delegate`);
     if (decision.scope !== liveCarryoverScope(review)) {
       errors.push(`${label} decision.scope must equal liveCarryoverScope(review)`);
     }
