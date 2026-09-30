@@ -337,3 +337,20 @@ test('pins nonstandard SSH ports exactly', (t) => {
   const result = auditEnvironmentConfig({ root: sample.root });
   assert.equal(result.ok, true, result.errors.join('\n'));
 });
+
+// Project addition (xplanner2-revision1): tunnel-only legacy exposure.
+test('tunnel-only exposure allows empty public_endpoints and nothing else', (t) => {
+  const sample = fixture(t);
+  externalAuthentication(t, sample);
+  sample.environment.exposure = { mode: 'tunnel-only', loopback_ports: [18080] };
+  sample.environment.public_endpoints = {};
+  sample.save();
+  assert.deepEqual(validateSchema(schema, sample.config), []);
+  sample.environment.public_endpoints = { legacy: 'https://fixture.invalid' };
+  assert.notDeepEqual(validateSchema(schema, sample.config), [], 'tunnel-only must not publish an endpoint');
+  delete sample.environment.exposure;
+  sample.environment.public_endpoints = {};
+  assert.notDeepEqual(validateSchema(schema, sample.config), [], 'public mode still needs an https endpoint');
+  sample.environment.public_endpoints = { web: 'http://fixture.invalid' };
+  assert.notDeepEqual(validateSchema(schema, sample.config), [], 'public mode still needs https');
+});
