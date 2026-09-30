@@ -361,6 +361,12 @@ stage rather than skipping to the next box.
 
 ## Reading And Maintenance
 
+Before delegating source analysis, PM follows [Source Readiness](../MIGRATION.md#source-readiness):
+inspect what was actually delivered and explain missing or unmatched implementation
+source to the owner. The owner, not BA, chooses any exact fallback method. Later
+sources go to BA to reconcile the existing map; PM does not rewrite requirements,
+and source inspection is not a live test. Historical evidence stays unchanged.
+
 This explanatory overview is created and maintained by the process maintainer
 (human or authorized agent). It does not create an orchestration server, install
 an agent provider, choose models or change delegation permissions.

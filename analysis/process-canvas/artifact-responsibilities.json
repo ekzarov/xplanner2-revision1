@@ -85,14 +85,14 @@
   },
   "project-contract": {
     "en": {
-      "creator": "The Bootstrap initializer renders project identity and command slots; the Bootstrap agent fills verified project values.",
-      "maintainer": "The responsible project agent records explicit command/configuration changes and validates the contract.",
-      "instructions": "Bootstrap project contract"
+      "creator": "The Bootstrap initializer renders project identity and command slots; Bootstrap/PM records verified values and the source-assessment companion.",
+      "maintainer": "PM maintains source intake and new pinned assessments; the owner decides any fallback. The responsible agent maintains commands.",
+      "instructions": "Bootstrap project contract; MIGRATION.md#source-readiness"
     },
     "ru": {
-      "creator": "Инициализатор Bootstrap формирует идентичность проекта и поля команд; Bootstrap-агент заполняет проверенные значения.",
-      "maintainer": "Ответственный агент проекта записывает изменения команд и настроек и проверяет контракт.",
-      "instructions": "Подготовка: контракт проекта и проверенных команд."
+      "creator": "Инициализатор Bootstrap формирует идентичность проекта и поля команд; Bootstrap/PM записывает проверенные значения и сопроводительную оценку исходников.",
+      "maintainer": "PM поддерживает учёт исходников и новые закреплённые оценки; обходной метод разрешает владелец. Ответственный агент поддерживает команды.",
+      "instructions": "Контракт проекта при подготовке; MIGRATION.md#source-readiness"
     }
   },
   "environment-contract": {

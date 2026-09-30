@@ -83,9 +83,9 @@ The combined readiness check run before Stage 1. It exercises the starter tools 
 
 **Are the project paths and required commands configured for this stage?**
 
-Validates that project.yaml is complete and internally consistent: project identity, legacy and target paths, working directories, runtime declarations and stage-specific command slots. It prevents an agent from running checks in the wrong repository or claiming readiness before required project commands are configured.
+Validates project identity, paths, runtime and stage-required commands, plus source-intake metadata, input hashes and any required exact owner fallback decision. It does not prove source completeness or live behavior; the agent must explain missing source before analysis.
 
-**When:** Run during Bootstrap and whenever project paths, target platforms or command entries change. At Stages 17 and 18 it also enforces that the commands required by that stage are no longer null.
+**When:** Run audit:project -- --require-source-ready before declaring Bootstrap ready and before new or reopened source analysis. The plain initial structure check is not source readiness. Missing, partial or unmatched source requires a pinned assessment and explicit owner fallback decision. Also run when project paths, platforms or commands change; Stages 17 and 18 require their command slots.
 
 **Example:** If commands.visual_parity is missing when a UI slice reaches Stage 17, audit:project fails before the agent can claim the candidate is build-ready.
 

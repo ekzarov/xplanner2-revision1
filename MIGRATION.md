@@ -289,7 +289,9 @@ process contract and report template link here rather than maintain another reci
    the version does not ratify the constitution or authorize Stage 1.
 3. Set [`config/project.yaml`](./config/project.yaml) `paths.legacy_source` to the attributable legacy
    source inside the initialized repository and confirm the target path and
-   command working directories. Later-stage command values remain `null` until
+   command working directories. Complete [Source Readiness](#source-readiness)
+   before requesting Stage 1 authority; an existing directory is not proof that
+   implementation source was supplied. Later-stage command values remain `null` until
    their declared stages require them; Bootstrap never guesses commands.
 4. The owner reviews the rendered constitution and explicitly decides any
    project-specific amendments and stable version. The agent records those
@@ -342,6 +344,81 @@ project and environment contracts, completed Bootstrap gate report, empty
 reconnaissance and parity records, and the installed process/audit toolkit. The
 `.migration-starter.json` marker supports initializer safety only and is not
 migration evidence.
+
+### Source Readiness
+
+The Bootstrap agent inventories the delivered materials **before behavioral
+analysis**, and PM presents the result prominently to the owner. Record what is
+present and missing: editable implementation source, binary packages, configuration,
+tests, build metadata and runtime access. A WAR/JAR/executable, bytecode listing,
+decompiled text, screenshots or a folder named `legacy` is not original source.
+An open-source license is not evidence that matching source was delivered.
+
+1. Inspect the actual input, including archive contents where applicable, without
+   running it. Record origin, exact version/revision, hashes and any local patches.
+   Check an authorized upstream source for missing code; request permission when
+   acquisition or tools are outside the approved boundary. Do not silently write
+   a custom disassembler or use another migration as the substitute.
+2. Create a concise, separate source-assessment record in [analysis/](analysis/) (not business
+   requirements). Bootstrap/PM creates and maintains it under this procedure;
+   the owner decides any fallback. List inspected materials, missing parts,
+   source-to-binary correspondence and its limits, available/absent tools,
+   expected cost/uncertainty, proposed method and scope, and later verification.
+   Do not copy credential values. Keep this record stable while its decision is
+   in use; later assessments are new records, not rewritten approval evidence.
+3. Fill `source_intake` in the project contract: `classification` is `complete`,
+   `partial` or `absent` for implementation source; `baseline_match` is `matched`,
+   `unverified` or `mismatch`. Pin the assessment and input files, list source
+   roots and limitations. `matched` needs documented correspondence to the exact
+   delivered baseline, including patches, not merely the same product/version.
+4. If source is not complete **or** correspondence is not matched, clearly tell
+   the owner: **"Matching implementation source is missing or incomplete; the
+   proposed analysis would rely on these substitutes and leave these gaps."**
+   Stage 1 is blocked until source is supplied or the owner explicitly approves
+   this exact fallback assessment. Use a separate `owner_decisions` entry with
+   the scope printed by `audit:project`, decision `approved`, actual owner/time,
+   rationale and a durable decision record. Link its ID as `fallback_decision_id`.
+   General constitution ratification, a source-path confirmation, a merge or
+   Stage 1 start approval does not imply fallback consent. One conversation may
+   make all decisions, but source limitations and fallback must be explicit.
+5. Run `audit:project -- --require-source-ready` before marking the project ready
+   or requesting the Stage 1 start decision, independently of the current
+   `command_contract_configured` value. Record the result in the Bootstrap report's
+   first-screen summary. The audit enforces metadata, hashes, local paths and
+   scoped approval, not semantic completeness. The agent still verifies meaning.
+   Approved fallback remains visible in every handoff; static support is not
+   runtime observation. No-source work is allowed only within its approved method
+   and scope, never silently promoted to source-verified or live-verified behavior.
+
+New projects receive `source_intake: null` and cannot pass the configured project
+gate until it is assessed. Existing projects in Bootstrap or Stage 1 must assess
+before proceeding. Later-stage projects without the field keep historical gates
+and receive an audit warning; assess before any new/reopened source analysis.
+Do not rewrite completed Bootstrap reports or infer retrospective approval.
+Adoption does not reset the project or automatically invalidate old evidence.
+
+An initial plain `audit:project` may check the structure of an unconfigured
+Bootstrap workspace; it warns that source readiness is not established. It is
+not the source gate above and cannot justify `command_contract_configured: passed`
+or entry into analysis. Stage 1 and configured projects enforce intake even
+without the explicit readiness flag.
+
+The source assessment is a **companion of the project-contract artifact family**,
+catalogued in [ARTIFACTS.md](ARTIFACTS.md), not a second migration checkpoint.
+Use a new `analysis/source-assessment-NNN.md` for each materially changed intake.
+Its compact template is: title and purpose; Created by / Maintained by / Governing
+instructions; warning summary and next action; Contents; Inputs And Provenance;
+Correspondence And Patches; Missing Source And Tools; Proposed Method And Limits;
+Owner Decision Required; Verification Boundary. Do not put an approval inferred
+by the author into this record. The separate owner decision references its pin.
+
+When sources arrive later, preserve the immutable executable baseline and prior
+reports. PM records the new input and obtains any required constitutional change;
+BA reconciles the existing map against accepted source, preserving row IDs and
+correct observations. Separate checked, changed, unsupported and runtime-only
+claims. Determine the affected control scope explicitly under the existing review
+rules; this is neither permission to restart all authoring nor to declare old
+coverage valid against new inputs without assessment.
 
 ### Bootstrap Evidence And Blockers
 
@@ -724,8 +801,12 @@ history or rotate the server key; historical exposure remains separate work.
 
 The bootstrap field `command_contract_configured: passed` means the project
 identity, legacy path, command slots, working directories, environment-name
-lists, and required-stage metadata are structurally valid. It does not claim
-that later-stage command values are already known.
+lists, and required-stage metadata are structurally valid, and the Bootstrap
+project audit passed with `--require-source-ready` under Source Readiness above.
+An approved, bounded source fallback may satisfy that check; a plain initial
+structure check may not. This does not claim that later-stage command values
+are already known, that source completeness was proved mechanically, or that
+runtime behavior was observed. Pre-policy historical gates retain their meaning.
 
 Command success is evidence only. Deployment does not imply a passing smoke
 test, a passing smoke test does not imply acceptance, and rollback is never

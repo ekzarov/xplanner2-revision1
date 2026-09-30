@@ -37,6 +37,12 @@ A slice-specific fixed-name record can live in a scope subdirectory, for example
 
 ## Guidance Versus Project Evidence
 
+The project-contract companion `analysis/source-assessment-NNN.md` uses the
+compact record structure in [Source Readiness](../MIGRATION.md#source-readiness).
+Bootstrap/PM assigns the next unused number when the assessed intake materially
+changes, retains previous assessments, and pins the current record in
+[`config/project.yaml`](../config/project.yaml). It is not a new stage or a replacement for reconnaissance.
+
 Every Markdown template starts with a collapsed **Artifact guidance (not project
 evidence)** block. It explains when and how the artifact is used and gives an
 example; it is reusable process help, not a statement about the current project.

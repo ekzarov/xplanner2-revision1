@@ -801,6 +801,12 @@ removed before the review is considered operationally complete.
 <a id="stage-01"></a>
 ### Stage 1 — Reconnaissance (legacy code → parity map)
 
+**Source prerequisite:** PM and BA first check [Source Readiness](../MIGRATION.md#source-readiness)
+and `audit:project`. Missing, incomplete or unmatched implementation source blocks
+analysis without the owner's exact fallback decision. Show that limitation in the
+handoff; static, decompiled and live evidence remain distinct. Newly supplied source
+requires reconciliation of the existing map, not silent replacement of the baseline.
+
 <!-- AGENT_ROLE_1_START -->
 **Role and skill.** Business Analyst (responsible author). PM coordinates; the assigned session reads .agents/skills/migration-ba/SKILL.md and returns ACK before work. Support on demand: Architect. Questions and RESULT return to PM with exact artifacts, checks and remaining gaps. Human decisions remain with the owner. [Delegation contract](agent-roles.md).
 <!-- AGENT_ROLE_1_END -->

@@ -55,9 +55,9 @@ const stages = [
   {
     id: 'stage-00', number: 'B', phase: 'bootstrap', title: 'Bootstrap', kind: 'owner', actor: 'Owner + initializer',
     summary: 'Install the reusable process, identify the project, and authorize the first reconnaissance.',
-    actions: ['Confirm starter revision, project identity and integration branch before initialization', 'Review the constitution with the owner; its version must match status even before ratification', 'Record exact source paths and environment contract', 'Run every Bootstrap check; record results and blockers in the report and status before waiting for corrections'],
+    actions: ['Confirm starter revision, project identity and integration branch before initialization', 'Review the constitution with the owner; its version must match status even before ratification', 'Inspect actual implementation source and its match to the delivered baseline; missing, partial or unmatched source needs explicit owner fallback approval, not general ratification', 'Run every Bootstrap check; record results and blockers in the report and status before waiting for corrections'],
     input: 'Starter repository + project identity + owner',
-    exit: 'Ratified constitution, completed Bootstrap gate report and explicit owner authorization to enter Stage 1',
+    exit: 'Source readiness or exact owner-approved fallback, ratified constitution, completed Bootstrap gate report and explicit owner authorization to enter Stage 1',
     returns: 'Bootstrap remains blocked until every required contract and audit is valid and the gate report is complete.',
 
   },
@@ -65,7 +65,7 @@ const stages = [
     id: 'stage-01', number: 1, phase: 'requirements', title: 'Reconnaissance', kind: 'work', actor: 'Primary agent',
     summary: 'Inspect the immutable legacy source and turn observable behavior into an evidence-backed parity map.',
     actions: ['Inventory channels, roles, routes, jobs and integrations', 'Trace behavior to source/configuration evidence', 'Record unknowns and deployment constraints', 'Create one atomic scenario per parity-map row', 'PM publishes the draft or corrections in their own PR; required CI and owner merge precede fresh Stage 2 control'],
-    input: 'Immutable legacy revision + project contract',
+    input: 'Immutable legacy revision + project contract + assessed source readiness or exact owner-approved fallback',
     exit: 'Initial reconnaissance and parity map pass the workbook audit',
     returns: 'Any later parity-map defect returns here.',
     reentry: {
@@ -812,7 +812,7 @@ const gatePractice = {
     xplannerPath: 'analysis/stages/bootstrap/bootstrap-gate-report.md',
   },
   'project-audit': {
-    usage: 'Run during Bootstrap and whenever project paths, target platforms or command entries change. At Stages 17 and 18 it also enforces that the commands required by that stage are no longer null.',
+    usage: 'Run audit:project -- --require-source-ready before declaring Bootstrap ready and before new or reopened source analysis. The plain initial structure check is not source readiness. Missing, partial or unmatched source requires a pinned assessment and explicit owner fallback decision. Also run when project paths, platforms or commands change; Stages 17 and 18 require their command slots.',
     example: 'If commands.visual_parity is missing when a UI slice reaches Stage 17, audit:project fails before the agent can claim the candidate is build-ready.',
     sourcePath: 'analysis/tools/project-config-audit.js',
     xplannerPath: 'config/project.yaml',
@@ -936,7 +936,7 @@ const gatePractice = {
 const gates = [
   ['dependency-audit', 'audit:dependencies', 'Node.js script', 'Validates graph structure, pinned sources, parity scope, completion cycles and exact review digests. New/reopened SDD binds the node digest. The reviewer still checks meaning, completeness and conditions; graph validity is not permission to implement or release.'],
   ['bootstrap-audits', 'Bootstrap audits', 'Automated gate', 'The combined readiness check run before Stage 1. It exercises the starter tools and validates the status, project and environment contracts plus methodology and process-view consistency. The active Bootstrap agent records exact commands and outcomes in bootstrap-gate-report.md, and migration_status.yaml cites that report; green means the governed workspace is usable, not that legacy behavior has been discovered or approved.'],
-  ['project-audit', 'audit:project', 'Node.js script', 'Validates that project.yaml is complete and internally consistent: project identity, legacy and target paths, working directories, runtime declarations and stage-specific command slots. It prevents an agent from running checks in the wrong repository or claiming readiness before required project commands are configured.'],
+  ['project-audit', 'audit:project', 'Node.js script', 'Validates project identity, paths, runtime and stage-required commands, plus source-intake metadata, input hashes and any required exact owner fallback decision. It does not prove source completeness or live behavior; the agent must explain missing source before analysis.'],
   ['workbook-audit', 'audit:workbook', 'Node.js script', 'Validates the structure and internal consistency of the parity workbook: required columns, identifiers, allowed states, evidence references, decisions and formulas. Passing proves that the map is mechanically usable and complete in shape; independent review and live walkthrough still determine whether its business meaning is true.'],
   ['walkthrough-outcome', 'Stage 3 outcome gate', 'Recorded evidence gate', 'Controls the exit from live legacy verification. It requires a walkthrough record with environment, roles, actions, observations and explicit residual unverified scope; when the legacy system cannot be exercised, only a recorded owner decision to simulate or waive the blocked part permits progression.'],
   ['stage-05-owner-gate', 'Stage 5 owner gate', 'Human decision', 'A mandatory human stop before wireframes are produced. The owner must select and record the application form, channels, visual direction and accessibility baseline, or explicitly waive a decision; the agent may prepare options but cannot choose the product experience on the owner\'s behalf.'],

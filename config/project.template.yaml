@@ -1,7 +1,7 @@
 # ARTIFACT RESPONSIBILITY START (guidance, not project state)
-# Created by: The Bootstrap initializer renders project identity and command slots; the Bootstrap agent fills verified project values.
-# Maintained / decided by: The responsible project agent records explicit command/configuration changes and validates the contract.
-# Governing instructions: Bootstrap project contract
+# Created by: The Bootstrap initializer renders project identity and command slots; Bootstrap/PM records verified values and the source-assessment companion.
+# Maintained / decided by: PM maintains source intake and new pinned assessments; the owner decides any fallback. The responsible agent maintains commands.
+# Governing instructions: Bootstrap project contract; MIGRATION.md#source-readiness
 # ARTIFACT RESPONSIBILITY END
 # =============================================================================
 # ARTIFACT GUIDANCE (not project data)
@@ -45,6 +45,11 @@ paths:
   legacy_source: null
   target_source: '.'
   environments: config/environments.yaml
+
+# Source readiness, not just the existence of paths.legacy_source.
+# Bootstrap/PM records the inspected input and exact fallback decision under
+# MIGRATION.md#source-readiness. Null blocks the configured Bootstrap/Stage 1 gate.
+source_intake: null
 
 # Commands stay null until the owner or an authorized maintainer records and
 # verifies the exact project command. Null becomes a hard stop at the declared

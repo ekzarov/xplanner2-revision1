@@ -425,6 +425,28 @@ test('current stage duties, instruction anchors and frame meanings agree', () =>
   assert(read('analysis/migration_artifact_flow.drawio').includes('stage-flow-stage-12'));
 });
 
+test('source readiness is visible in Bootstrap, skills and human process views', () => {
+  const entry = read('MIGRATION.md');
+  assert(entry.includes('### Source Readiness'));
+  assert(entry.includes('General constitution ratification'));
+  assert(entry.includes('Stage 1 is blocked'));
+  assert(entry.includes('Do not rewrite completed Bootstrap reports'));
+  for (const file of ['.agents/skills/migration-pm/SKILL.md', '.agents/skills/migration-ba/SKILL.md',
+    'analysis/process-contract.md', 'analysis/migration_methodology.md', 'analysis/agent-system-overview.md',
+    'analysis/stages/templates/bootstrap-gate-report-template.md']) assert(read(file).includes('#source-readiness'), file);
+  assert(read('analysis/migration_methodology.html').includes('Source readiness:'));
+  assert(read('analysis/migration_artifact_flow.drawio').includes('source-intake-gate'));
+  const data = JSON.parse(read('analysis/process-canvas/data.json'));
+  assert(data.stages.find(s => s.id === 'stage-00').exit.includes('owner-approved fallback'));
+  assert(read('config/project.template.yaml').includes('source_intake: null'));
+  assert(entry.includes('audit:project -- --require-source-ready'));
+  assert(entry.includes('project audit passed with `--require-source-ready`'));
+  assert(read('analysis/stages/templates/bootstrap-gate-report-template.md').includes('--require-source-ready'));
+  assert(read('ARTIFACTS.md').includes('analysis/source-assessment-NNN.md'));
+  assert(read('analysis/artifact-responsibilities.md').includes('source-assessment companion'));
+  assert(read('analysis/artifact-naming.md').includes('analysis/source-assessment-NNN.md'));
+});
+
 test('artifact role table preserves candidate boundaries and two-phase acceptance', () => {
   const graph = read('analysis/artifact-relationship-graph.md');
   const row = n => graph.split(/\r?\n/).find(line => line.startsWith('| ' + n + ':')).split('|').slice(1, -1).map(s => s.trim());
