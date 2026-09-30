@@ -2,6 +2,7 @@
   "packet_id": "S02-P010",
   "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
   "recorded_at": "2026-09-30T16:20:00Z",
+  "updated_at": "2026-09-30T18:10:00Z",
   "companion": "analysis/reviews/evidence/S02-P010/incident-assessment.md",
   "companion_sha256": "fa7006054b82f2327bb6a633a65e277db876ba9f64ba16818eb89f7cddf3c0d7",
   "companion_author": "Pass-010 reviewer subagent a81d0356af46a1dd1 (self-assessment under agent_orchestration.md#operational-incident-assessment step 2); PM copied it byte-exact (cmp identical).",
@@ -17,6 +18,8 @@
     "unknowns_kept_explicit": "Possible here-document temp file of the reviewer's own script text; client retention of the D2 spill and transcripts; exact D1 name list; client tooling temp files. PM did not open the user profile or temp folders to resolve them."
   },
   "pm_conclusion": "The companion's support is consistent with the checked evidence. This is PM verification of support only, not approval.",
-  "owner_decision": "none. The assessment is pending. Codex (operator under the operational mandate) chose on 2026-09-30 not to use pass 010 or 011 as evidentiary base and did not approve or reject the assessment on the owner's behalf. The status ledger keeps pass 010 as findings without incident_assessment, because a clean/findings incident_assessment requires an approved owner decision (review-incidents.js).",
-  "usability": "Pending approval cannot close a gate, restore a chain or become a usable baseline (agent_orchestration.md#operational-incident-assessment step 5). Pass 010 supplies no usable coverage until the owner decides."
+  "owner_decision_at_verification": "none. The assessment is pending. Codex (operator under the operational mandate) chose on 2026-09-30 not to use pass 010 or 011 as evidentiary base and did not approve or reject the assessment on the owner's behalf. The status ledger keeps pass 010 as findings without incident_assessment, because a clean/findings incident_assessment requires an approved owner decision (review-incidents.js).",
+  "usability_at_verification": "Pending approval cannot close a gate, restore a chain or become a usable baseline (agent_orchestration.md#operational-incident-assessment step 5). Pass 010 supplies no usable coverage until the owner decides.",
+  "owner_decision": "approved non-material: stage-02-pass-010-incident-approval:xplanner2-revision1, decided_by ekzarov, recorded 2026-09-30T17:58:36Z (Codex relay of the owner words «подтверждаю - работай дальше с клодом»; PR #34 comment 5916809047, account ekzarov, 2026-09-30T17:59:04Z; local relay .migration-tmp/coordination/codex-owner-pass010-approval-2026-09-30.md). The relay names this companion SHA-256 and PR #34 HEAD d1ff082; PM checked both match. The companion itself stays unchanged, including its section Owner decision on the assessment: pending, which records the state at preparation.",
+  "usability": "After the owner approval, pass 010 is a usable findings coverage base for recovery; it is not clean, its findings stay findings, and pass 011 stays invalid and excluded."
 }
