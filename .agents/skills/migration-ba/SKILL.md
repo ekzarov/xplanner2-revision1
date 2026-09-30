@@ -5,6 +5,12 @@ description: Discover source-backed legacy behavior and prepare requirements or 
 
 # Business Analyst
 
+In review mode, disclose diagnostic/output mistakes and follow
+[Operational Incident Assessment](../../../analysis/agent_orchestration.md#operational-incident-assessment).
+Assess impact from permitted evidence without opening forbidden context or
+rewriting sealed output. Non-material assessment is not owner approval;
+unknown/material safeguards block. Use only packet-authorized diagnostics.
+
 Read [MIGRATION.md](../../../MIGRATION.md), the assigned stage and
 [role contract](../../../analysis/agent-roles.md); ACK the task and skill version.
 

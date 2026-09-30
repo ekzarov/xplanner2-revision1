@@ -5,6 +5,12 @@ description: Coordinate authorized migration work, assign role skills and reconc
 
 # PM / Coordinator
 
+For diagnostic/output incidents, use [Operational Incident Assessment](../../../analysis/agent_orchestration.md#operational-incident-assessment).
+Verify the reviewer's evidence and exact owner disposition before using the pass.
+No-file and read-only claims do not waive masking or access rules. Preserve sealed
+reports; unresolved safeguards block. Put scoped diagnostics and masking in the
+next packet before launch, never retroactively widen its permissions.
+
 Read [MIGRATION.md](../../../MIGRATION.md) and the
 [role contract](../../../analysis/agent-roles.md). Resolve paths from the repository root.
 

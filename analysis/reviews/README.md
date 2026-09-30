@@ -205,6 +205,13 @@ Each report has exactly one result:
 - `invalid` - reviewer eligibility, isolation, revision, scope, or protocol
   rules were violated, so the attempt cannot support a conclusion.
 
+Disclose every operational incident. A supported non-material diagnostic or
+output incident follows [Operational Incident Assessment](../agent_orchestration.md#operational-incident-assessment),
+not an automatic whole-pass retry or a silent exception. Missing assessment or
+owner approval blocks use of the attempt; material or unresolved safeguard
+failures cannot be waived. Already invalid attempts stay invalid, and sealed
+reports keep their bytes. The companion and ledger record the disposition.
+
 A clean report advances nothing by itself. All stage-specific automated gates,
 blocked-scope closure, and owner decisions must also be complete.
 

@@ -134,6 +134,11 @@ for bounded corrections needs the exact owner-authorized route in that procedure
 failed observations alone never authorize a return or acceptance.
 All assignments follow [packet transport safety](analysis/agent_orchestration.md#packet-transport-safety)
 for authorized scratch, bounded outputs and disclosure of access violations.
+Handle disclosed operational incidents through
+[Operational Incident Assessment](analysis/agent_orchestration.md#operational-incident-assessment).
+PM must not infer validity from read-only commands or the absence of credentials
+in Git. Non-material disposition needs evidence and exact owner approval;
+material/unknown safeguard failures block, and invalid attempts stay invalid.
 
 Every new stage, decision or execution record follows the
 [artifact result boundaries](analysis/artifact-result-boundaries.md): established

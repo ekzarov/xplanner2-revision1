@@ -45,6 +45,12 @@
 > Cite source locations, not credential values. Record check scope and limitations
 > in Method and Coverage; do not silently rewrite previously frozen snapshots.
 
+> **Operational incidents:** Disclose command/output mistakes and follow
+> [incident assessment](../agent_orchestration.md#operational-incident-assessment).
+> Record facts, unknowns and safeguard evidence, not only a claim of no impact.
+> After sealing, use a linked companion and exact owner disposition; never
+> rewrite this report. An invalid verdict cannot be promoted by approval.
+
 </details>
 <!-- ARTIFACT_AUTHORING_NOTES_END -->
 

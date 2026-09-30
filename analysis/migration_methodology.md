@@ -448,6 +448,13 @@ substantive review.
 
 ## Actors
 
+All stages use [Operational Incident Assessment](agent_orchestration.md#operational-incident-assessment)
+for diagnostic-command and output-handling incidents. Disclose the mistake,
+independently assess its effect and bind any supported non-material disposition
+to the owner's exact decision. This does not waive independence, source scope,
+secret policy, unchanged evidence, complete coverage or a stage's clean-pass
+criterion. Do not rewrite sealed reports or promote an invalid attempt.
+
 For the high-level interaction model, see the
 [agent system overview](agent-system-overview.md). The normative
 [role contract](agent-roles.md) assigns PM, BA, UX, Architect, Developer and QA
