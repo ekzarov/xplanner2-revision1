@@ -1,0 +1,134 @@
+{
+  "packet": "S02-P011",
+  "pass": 11,
+  "stage": "stage-02",
+  "control_mode": "correction-validation",
+  "result": "invalid",
+  "note": "Newly executed checks of pass 011 only. The attempt is invalid under the assignment invalidation clause (reviewer Incident 2, git log outside the permitted git list); it stopped at eligibility (B-001, recorded as a lead). No retained check is counted here and none of these checks is usable coverage.",
+  "totals": {
+    "total": 13,
+    "matched": 7,
+    "mismatch": 0,
+    "not-checked": 6,
+    "not-applicable": 0
+  },
+  "checks": [
+    {
+      "id": "C-001",
+      "item": "packet S02-P011 integrity and every packet pin",
+      "expected": "packet SHA-256 ababa75e...5e2205; every pinned file matches in the main tree and the candidate checkout; legacy pins match at ROOT, PREV and CAND",
+      "observed": "packet hash matches; 53 of 57 comparisons match directly; the 4 legacy/demo-seed.sql comparisons match by committed blob (git show at ROOT, PREV, CAND gives 41b2f6a3...66e1); the checkout bytes differ only by CRLF line endings (9387 vs 9279 bytes over 108 lines)",
+      "result": "matched",
+      "evidence": "reviewer scratch verify-pins.js and pins.txt; git show <rev>:legacy/demo-seed.sql | sha256sum",
+      "link": "none"
+    },
+    {
+      "id": "C-002",
+      "item": "pinned checkouts",
+      "expected": "root 15cb6b2, previous 9667b69, candidate 8d137ed; empty git status --short",
+      "observed": "as expected at start and at end; main tree HEAD 8d137ed with only the untracked S02-P011 evidence folder",
+      "result": "matched",
+      "evidence": "git -C <checkout> rev-parse HEAD; git -C <checkout> status --short",
+      "link": "none"
+    },
+    {
+      "id": "C-003",
+      "item": "root pass 006 eligibility as full-blind baseline",
+      "expected": "report, ledger and blind checkpoint hashes as pinned; Phase A checkpoint before Phase B release; complete ledger; S02-P006 evidence unmodified through CAND",
+      "observed": "hashes match; checkpoint verified at 13:25:05Z with 138 Phase A items (pm-phase-b-release.json); ledger 539 = 519 matched + 17 mismatch + 0 not-checked + 3 not-applicable; git diff ROOT..CAND shows the S02-P006 files as additions only; status entry pass 6 result findings",
+      "result": "matched",
+      "evidence": "pins.txt; S02-P006 pm-phase-b-release.json; comparison-results.json of pass 006 (own count); git diff --name-status ROOT CAND",
+      "link": "none"
+    },
+    {
+      "id": "C-004",
+      "item": "chronological chain without omitted attempt",
+      "expected": "every Stage 2 attempt after root 006 is listed with its result and previous_pass",
+      "observed": "006 findings; 007 findings (previous 6); 008 invalid (previous 7); 009 findings (previous 8, recovery base 7, excluded 8, incident assessment owner-approved); 010 findings (previous 9); no attempt after 010 before this pass",
+      "result": "matched",
+      "evidence": "analysis/migration_status.yaml review_passes at CAND",
+      "link": "none"
+    },
+    {
+      "id": "C-005",
+      "item": "legacy source set identity",
+      "expected": "the four legacy/ files identical at ROOT, PREV and CAND",
+      "observed": "committed blobs identical (C-001); git diff ROOT CAND -- legacy/ is empty; WAR re-hashed 46ff9dc0...4edc and extracted: 964 files, 594 classes, 102 JARs",
+      "result": "matched",
+      "evidence": "git diff --name-status ROOT CAND -- legacy; sha256sum; unzip into reviewer scratch",
+      "link": "none"
+    },
+    {
+      "id": "C-006",
+      "item": "A4 admission and governed scope PREV..CAND",
+      "expected": "no change of the admitted source basis, constitution or governed scope since the A4 admission assessed at PREV",
+      "observed": "git diff PREV CAND touches no file under sources/, .specify/ or legacy/; the five provenance pins match; workbook still 210 scenario rows (168 + 20 + 21 + 1), no row added, removed or renumbered (same 10 changed sheet rows before and after). A4 remains an extension of evidence for the unchanged WAR, not a source-set change",
+      "result": "matched",
+      "evidence": "names.txt; change-set.json status_counts; constitution A1, A4",
+      "link": "none"
+    },
+    {
+      "id": "C-007",
+      "item": "identity of the complete change set PREV..CAND (not its claims)",
+      "expected": "as listed by the assignment: rows 69, 70, 71, 89, 178, 180, 182, 184, 186, 216; reconnaissance sections; the new dispositions record; status",
+      "observed": "12 files: reconnaissance (24 hunks, +57/-27 lines, 8 sections), workbook (22 cells in exactly the 10 listed rows: D 5, F 6, G 1, H 10; the H178 note is inserted before the provenance sentence, the other 9 H cells keep the before text as prefix), migration_status.yaml, the new stage-02-pass-010-dispositions.md, and 8 pass-010 review files. source-reconciliation-001.md is unchanged. Identity matches the expected list; the claims were not validated",
+      "result": "matched",
+      "evidence": "analysis/reviews/evidence/S02-P011/change-set.json",
+      "link": "none"
+    },
+    {
+      "id": "C-008",
+      "item": "pass 010 usable as previous pass and coverage base",
+      "expected": "every disclosed operational incident of pass 010 has a reviewer assessment, PM verification and an exact owner decision; the pass-10 status entry records incident_assessment (reviews README Results; agent_orchestration Operational Incident Assessment steps 5-6)",
+      "observed": "pass 010 disclosed three deviations (access-log Deviations 1-3: a listing that showed other sessions' scratch names, a client spill of an unbounded output, TEMP/TMP/TMPDIR not set for part of the node runs) and asked for PM verification under the procedure; no companion exists under S02-P010, the pass-10 status entry has no incident_assessment, and no owner_decisions entry covers pass 010. The PM transcription calls only the spill compliant. The required owner decision is missing, so the attempt's coverage cannot be used",
+      "result": "not-checked",
+      "evidence": "S02-P010 access-log.md, pm-report-transcription.json; migration_status.yaml review_passes pass 10 and owner_decisions at CAND",
+      "link": "B-001"
+    },
+    {
+      "id": "C-009",
+      "item": "closure of pass-010 F-001..F-005 and pass-009 F-003 against the source and the WAR",
+      "expected": "each correction independently verified; WAR governs",
+      "observed": "not performed: stopped at eligibility",
+      "result": "not-checked",
+      "evidence": "none",
+      "link": "B-001"
+    },
+    {
+      "id": "C-010",
+      "item": "claims of the 22 changed cells, the 24 reconnaissance hunks, the correspondence statements and counting rules, and the dispositions record",
+      "expected": "supported by the source and the WAR bytecode and configuration",
+      "observed": "not performed: stopped at eligibility",
+      "result": "not-checked",
+      "evidence": "none",
+      "link": "B-001"
+    },
+    {
+      "id": "C-011",
+      "item": "statements directly linked to the six items and every pass-006/010 item touched by PREV..CAND",
+      "expected": "rechecked",
+      "observed": "not performed: stopped at eligibility",
+      "result": "not-checked",
+      "evidence": "none",
+      "link": "B-001"
+    },
+    {
+      "id": "C-012",
+      "item": "retention of exact pass-006 and pass-010 check IDs",
+      "expected": "current applicability reasoning per retained ID",
+      "observed": "not performed: pass-010 coverage is not usable (C-008); pass-006 IDs could only be retained through the pass-007/009/010 chain",
+      "result": "not-checked",
+      "evidence": "none",
+      "link": "B-001"
+    },
+    {
+      "id": "C-013",
+      "item": "CHK-001..CHK-012 applied to the change set, and the BA-001-12 self-check",
+      "expected": "independent result per applicable check",
+      "observed": "not performed: stopped at eligibility",
+      "result": "not-checked",
+      "evidence": "none",
+      "link": "B-001"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "packet_id": "S02-P011",
+  "review_mode": "formal independent pass, Stage 2 control reconciliation, control_mode correction-validation (independent, NOT blind; no Phase A)",
+  "governing_procedure": "analysis/reviews/README.md#stage-2-correction-validation; analysis/agent_orchestration.md#correction-validation-packets and #packet-transport-safety; constitution A4; MIGRATION.md#source-readiness",
+  "expected_result_schema": "exactly one of clean | findings | blocked | invalid",
+  "report_path": "analysis/reviews/stage-02-pass-011.md",
+  "review_pass": 11,
+  "owner_decisions": [
+    "owner \"разрешаю\" (relayed by Codex): one independent correction-validation pass assessing root 006 / previous 009 after A4; stop on an unsuitable baseline or blocking findings",
+    "constitution-amendment-a4 and source-intake-fallback-001 (upstream source admitted as supplementary evidence; partial / unverified; WAR authoritative)",
+    "operational-mandate-until-stage-04 (project departure; independent verdicts are NOT delegated)",
+    "stage-02-live-carryover (pass 009 carryover record), stage-02-pass-009-incident-approval, stage-01-stored-value-output-inventory (deferred)"
+  ],
+  "proposed_chain": {
+    "root": {
+      "pass": 6,
+      "report": {
+        "path": "analysis/reviews/stage-02-pass-006.md",
+        "sha256": "ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67"
+      },
+      "comparison_ledger": {
+        "path": "analysis/reviews/evidence/S02-P006/comparison-results.json",
+        "sha256": "a205b9b5d697bb44a4322aad3a35f79e70bb825480f7dac69276d7a1e994702c"
+      },
+      "blind_checkpoint": [
+        {
+          "path": "analysis/reviews/evidence/S02-P006/phase-a-snapshot.md",
+          "sha256": "c8d4f7807a452121c850419e212107781fb704ead38669adf0ec1c7bf5b774d9"
+        },
+        {
+          "path": "analysis/reviews/evidence/S02-P006/phase-a-inventory.json",
+          "sha256": "8f734d0d25c532c1663dcd85f0f3d9ccf9ce820a49db23ed3c765efc04e64cbe"
+        }
+      ],
+      "reviewed_revision": "15cb6b26946f73596177eba8cead333383d9f728"
+    },
+    "previous": {
+      "pass": 10,
+      "result": "findings F-001..F-005 (all low); pass-009 F-003 open; eligibility after A4 admitted",
+      "report": {
+        "path": "analysis/reviews/stage-02-pass-010.md",
+        "sha256": "f567227da6872e947656dd47ceb0d5958bcf546234097a4f50c16be7aadd8f78"
+      },
+      "comparison_ledger": {
+        "path": "analysis/reviews/evidence/S02-P010/comparison-results.json",
+        "sha256": "bc7b42679b16f702195023e084e123c8da2670d2181c26a49139401c638ba6aa"
+      },
+      "coverage_record": {
+        "path": "analysis/reviews/evidence/S02-P010/coverage-reconciliation.json",
+        "sha256": "b7b29dae570bf95f536384aef1e0d29936b3e50469c460bc000310c76e63c6a2"
+      },
+      "change_set": {
+        "path": "analysis/reviews/evidence/S02-P010/change-set.json",
+        "sha256": "c9559f04313d407c2fb38274f0fa6f273d9d83075f6c88001af4e46cbfa73cb1"
+      },
+      "reviewed_revision": "9667b69d774bad704766a6bd7d439ca8fe4cac78"
+    },
+    "eligibility_question": "Pass 010 admitted correction-validation after A4. Re-validate the chain (006 root, 010 previous and coverage base) yourself. Constitution A4 adds attributed upstream source as supplementary evidence. The legacy WAR (source set under review) is unchanged. Decide yourself whether this is a changed source set or governed scope (full-blind trigger) or an admissible extension of evidence for correction-validation, and record the reasoning."
+  },
+  "intervening_records": [
+    {
+      "path": "analysis/stages/stage-02/live-check-carryover-pass-009.md",
+      "sha256": "14dc9dc3d5f36f1e6ba4797f637918089c60bc1b60dafa80c1ee1021e1b3f04f",
+      "what": "carryover of pass-009 F-001..F-003 (PR #27)"
+    },
+    {
+      "path": "analysis/stages/stage-03/deploy/README.md",
+      "sha256": "35c12c5d7ea561c16880681e7124cb63eb2d0ffc560191ed313f9b7428981073",
+      "what": "Stage 3 isolated deployment procedure (PR #28); no Stage 3 business check executed"
+    },
+    {
+      "path": "analysis/source-assessment-001.md",
+      "sha256": "cd68565d649826770d8a94d6d0a594ddd003ab1ce9d74c15742104cbeb1a95fa",
+      "what": "source assessment (PR #30)"
+    },
+    {
+      "path": "analysis/source-intake-decision-001.md",
+      "sha256": "d2b5773b41bc5514a42d884a48d0c1afae0965a6166dd800192379a40686cbad",
+      "what": "owner decisions for A4 and fallback"
+    },
+    {
+      "path": "analysis/stages/stage-01/source-reconciliation-001.md",
+      "sha256": "b3d65a923729f52765084ccedf449ddcb89ea92525addaf4b192f8b93a76965f",
+      "what": "BA-001-11 reconciliation of 210 rows (PR #31)"
+    },
+    {
+      "path": "analysis/stages/stage-01/stage-02-pass-010-dispositions.md",
+      "sha256": "8835272fff7f7b2bb8d78832d17da3863343588ca7cd60d5f6a0d6e616f1828c",
+      "what": "BA-001-12 correction of pass-010 F-001..F-005 and pass-009 F-003 (PR #33, operator Codex under the owner operational mandate)"
+    },
+    {
+      "path": ".specify/memory/constitution.md",
+      "sha256": "bbf55c46f5da7c6d35b87da066b57748aedbaaacb044242a7c75f68378a26e36",
+      "what": "constitution 1.1.0 with A4"
+    }
+  ],
+  "candidate": {
+    "revision": "8d137ed39a6f576dc7f5d402711cb885960807bf",
+    "records": [
+      {
+        "path": "analysis/legacy_reconnaissance.md",
+        "sha256": "b8e9981fd260f4e4b6712cff087f0e8d59212de4379aaeefc1e38c584dee5b44"
+      },
+      {
+        "path": "analysis/legacy_user_flows.xlsx",
+        "sha256": "4f26e8e7ee4e4fecb0db5764b39b1d085b256fff6d54c5696a061cee99bd097a"
+      }
+    ],
+    "checklist": {
+      "path": "analysis/error-prevention-checklist.md",
+      "sha256": "8a15e08c98b63b86c881d172ba34ca55e7edeab00cc4d229a90be2664842a90b"
+    }
+  },
+  "legacy_source_set": [
+    {
+      "path": "legacy/README.md",
+      "root": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "previous": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460",
+      "candidate": "78b1a6b4c0e9fda7ec173f279a20d7b90645eb457c325483e6f1c876ac6e5460"
+    },
+    {
+      "path": "legacy/demo-seed.sql",
+      "root": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "previous": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1",
+      "candidate": "41b2f6a33ee1dddced3fdb09feca1d241bc20156c022763eadee84e6a4fb66e1"
+    },
+    {
+      "path": "legacy/docker-compose.yml",
+      "root": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "previous": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff",
+      "candidate": "e15cd9db799e6d20b199021fae832b7a9a450695395361dbc1bdab9d0969e9ff"
+    },
+    {
+      "path": "legacy/xplanner-plus.war",
+      "root": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "previous": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+      "candidate": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc"
+    }
+  ],
+  "upstream_source": {
+    "root": "sources/xplanner-plus-r426 (local, outside Git, read-only; 39 files withheld from Git/CI: cite by path only, never quote)",
+    "provenance": [
+      {
+        "path": "sources/provenance/source-manifest.json",
+        "sha256": "921457c77b4358ca3a735222142668eaf7a76232a0ce6d7e43c0c2ebab5cf201"
+      },
+      {
+        "path": "sources/provenance/xplanner-plus-r426-allowlist.json",
+        "sha256": "b77f870d2211e461eca7fff9ab2d208291474377c3e365c57eb97b72a7242131"
+      },
+      {
+        "path": "sources/provenance/source-links.json",
+        "sha256": "fed60e59f4132f64a0648a80ca0c35075a2fbc3bd13e9fd5ba09efbddd1c6aa5"
+      },
+      {
+        "path": "sources/provenance/war-comparison.json",
+        "sha256": "ff2aad5754bf79c14b75bc7a130e90ea36f3ecad0ee4861715eca487c8d0d65d"
+      },
+      {
+        "path": "sources/provenance/package.json",
+        "sha256": "e4997615bc10e922f8b910ff850203b1f52a1d862179f7a2437b8dd9d361af72"
+      }
+    ]
+  },
+  "pinned_worktrees": {
+    "root": ".migration-tmp/stage-02-p011/root (ROOT)",
+    "previous": ".migration-tmp/stage-02-p011/previous (PREV, reviewed by pass 009)",
+    "candidate": ".migration-tmp/stage-02-p011/candidate (CAND)"
+  },
+  "pm_proposed_coverage": {
+    "recheck": [
+      "the complete change set PREV..CAND: 10 rows (69, 70, 71, 89, 178, 180, 182, 184, 186, 216), the reconnaissance sections listed in the pass-010 dispositions, the correspondence statements and their counting rules",
+      "closure of pass-010 F-001..F-005 and pass-009 F-003 against the source AND the WAR (the WAR governs)",
+      "the statements directly linked to those findings (for example other rows citing the same classes, facts or figures)",
+      "every pass-006/pass-010 item whose claim, row or dependency PREV..CAND touches"
+    ],
+    "retain": "only exact check IDs from eligible valid reports (006, 010) with current applicability reasoning against PREV..CAND",
+    "bound": "Do not expand to a full reconnaissance; if the impact cannot be bounded, record that explicitly with the reason. If the baseline is unsuitable or a full-blind trigger exists, stop without any blind inventory; record blocked/invalid with the exact trigger."
+  },
+  "transport_safety": "Large output only into .migration-tmp/stage-02-p011/reviewer-scratch/**; never open client-persisted files outside the allowed folders; disclose any violation.",
+  "permitted_operations": "Read-only: project folder, pinned worktrees, legacy/, sources/ (never execute or build); WAR extraction and own read-only node scripts in the reviewer scratch; git rev-parse, status, diff and show between ROOT, PREV and CAND only. No runtime, network, installs, commits or branch changes.",
+  "reviewer_write_allowlist": [
+    "analysis/reviews/evidence/S02-P011/** except packet.json and pm-*.json",
+    ".migration-tmp/stage-02-p011/reviewer-scratch/**",
+    ".migration-tmp/temp/**"
+  ],
+  "report_delivery": "Write the report to .migration-tmp/stage-02-p011/reviewer-scratch/stage-02-pass-010.md; PM copies it byte-exact (only the literal token CURRENT_SESSION_ID may be replaced)."
+}

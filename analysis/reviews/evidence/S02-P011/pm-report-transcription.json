@@ -1,0 +1,12 @@
+{
+  "packet_id": "S02-P011",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-011.md",
+  "producer": "Reviewer subagent aeef20966517c8dbc authored the report and all evidence and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p011/reviewer-scratch/stage-02-pass-011.md",
+  "source_sha256": "4e8ac4c3942035faa5d5662c40bd88b2aeec1e9566ddc0ca0955cfe1e8a32a8e",
+  "pm_changes": "Only the literal token CURRENT_SESSION_ID was replaced with the client-assigned session id aeef20966517c8dbc, once in the report and once in independence-record.md. No other byte changed (verified with diff).",
+  "final_report_sha256": "4add59cbfd2d612fcc42b5664bf3546667876a900faab64ecee29c1f67c2b210",
+  "reviewer_disclosures": "Result invalid: one git log command outside the permitted git list (read one commit timestamp of the pinned candidate; supports no conclusion). Lead B-001: the pass-010 disclosed deviations have no Operational Incident Assessment, so pass 010 is not usable as previous or coverage base until assessed and decided by the owner. Packet defects PO-1..PO-4 noted (stale report_delivery path, stale PREV label, stale previous-pass text in owner decisions, no pass-010 incident disposition listed); PM regenerates these fields in the next packet.",
+  "recorded_at": "2026-09-30T15:50:00Z"
+}
