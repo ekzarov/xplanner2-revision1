@@ -31,6 +31,7 @@
 - [Residual Risks](#read-residual-risks)
 - [Prevention](#read-prevention)
 - [Owner Decision On The Assessment](#read-owner-decision-on-the-assessment)
+- [Owner Decision Recorded (PM)](#read-owner-decision-recorded)
 
 </details>
 <!-- ARTIFACT_READING_END -->
@@ -215,3 +216,14 @@ This is the same self-report basis that every access attestation in this project
 ## Owner Decision On The Assessment
 
 Pending; no owner decision recorded on this assessment. The procedure decision above authorizes applying the procedure only.
+
+<a id="read-owner-decision-recorded"></a>
+
+## Owner Decision Recorded (PM)
+
+Recorded by PM / Coordinator, Claude Code session `d0ec1166-ffc9-446a-ba86-d768242e6de8`, on 2026-09-30T07:36:10Z. It is appended below the reviewer's assessment, which is unchanged above.
+
+- **Decision:** approved, by `ekzarov`, chat message on 2026-09-30.
+- **What it approves:** this assessment (at PR #25 HEAD `f42e3f5`) as `non-material`, explicitly including the unknown origin of the git setting and the retention of the factory default login pair in the client transcript.
+- **Status entry:** owner decision `stage-02-pass-009-incident-approval:xplanner2-revision1` in [`analysis/migration_status.yaml`](../../../migration_status.yaml), with the exact `incidentDecisionScope` binding.
+- **Limits:** the approval accepts only the operational disposition. Findings F-001..F-003 remain findings. Masking still applies. No Stage 3 or merge permission is implied.
