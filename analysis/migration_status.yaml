@@ -34,7 +34,7 @@ control:
   current_stage: stage-01
   stage_status: in_progress
   previous_stage: stage-03
-  next_action: 'Stage 1 source reconciliation: BA reconciles all 210 existing parity-map rows against the admitted upstream source (sources/xplanner-plus-r426, analysis/source-assessment-001.md) and the baseline WAR, starting with the 77 Inferred and 21 Partial rows, preserving IDs and confirmed work; row-level results per the Codex handoff format; one correction record and PR; then STOP for the owner. No live Stage 3 run, no new Stage 2 control.'
+  next_action: 'Stage 1 source reconciliation: BA reconciles all 210 existing parity-map rows against the admitted upstream source (sources/xplanner-plus-r426, analysis/source-assessment-001.md) and the baseline WAR, starting with the 77 Inferred and 21 Partial rows, preserving IDs and confirmed work; row-level results per the BA assignment boundary in the correction record; one correction record and PR; then STOP for the owner. No live Stage 3 run, no new Stage 2 control.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -233,7 +233,11 @@ transition_history:
     gate_evidence:
       - 'analysis/source-assessment-001.md'
       - 'analysis/source-intake-decision-001.md'
-    owner_approval: null
+    owner_approval:
+      approved_by: 'ekzarov'
+      approved_at: '2026-09-30T11:01:28Z'
+      record: 'analysis/source-intake-decision-001.md'
+      scope: 'Bounded return stage-03 -> stage-01 for the source reconciliation of the 210 existing parity-map rows against the A4-admitted upstream source and the baseline WAR (starting with Inferred and Partial rows; IDs and confirmed work preserved); stop after the report and PR; no live Stage 3 run and no new Stage 2 control.'
 
 review_passes:
   - stage: stage-02
@@ -507,7 +511,7 @@ owner_decisions:
     decided_by: 'ekzarov'
     decided_at: '2026-09-30T10:40:00Z'
     scope: 'Constitution amendment A4 (version 1.0.0 -> 1.1.0): the official XPlanner+ SVN r426 source is admitted as supplementary evidence only where it corresponds to the baseline WAR; the WAR stays authoritative; limits are recorded, never business facts; legacy/, A2, A3 and earlier records unchanged; raw source outside Git.'
-    rationale: 'Owner approval in the PM chat on 2026-09-30 of the PM-proposed amendment text, together with the bounded return to Stage 1 for the source reconciliation of the 210 existing rows.'
+    rationale: 'Owner approval in the PM chat on 2026-09-30 of the PM-proposed amendment text, together with the bounded return to Stage 1 for the source reconciliation of the 210 existing rows. decided_at is approximate: the exact receipt time of that chat message was not captured.'
     record: '.specify/memory/constitution.md'
     residual_risk: 'Source-to-bytecode identity is not proven; name-level mapping only until method-level reading or live observation.'
   - id: 'source-intake-fallback-001:xplanner2-revision1'

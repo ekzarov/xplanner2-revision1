@@ -42,8 +42,21 @@ function safeTarget(sourceRoot, relative) {
   return target;
 }
 
-async function restore({ root = ROOT, fetch = httpsFetch, concurrency = 8, retries = 3, log = console.log } = {}) {
-  const allowlist = JSON.parse(fs.readFileSync(path.join(root, ALLOWLIST), 'utf8'));
+// Before any download: the allowlist must be the exact file pinned by
+// config/project.yaml source_intake, and its source_root must be the pinned root.
+function verifyPinnedAllowlist(root, bytes, allowlist) {
+  const YAML = require('yaml');
+  const intake = YAML.parse(fs.readFileSync(path.join(root, 'config', 'project.yaml'), 'utf8')).source_intake;
+  const pin = intake && (intake.inputs || []).find((input) => input.path === ALLOWLIST);
+  if (!pin) throw new Error('allowlist is not a pinned source_intake input');
+  if (sha256(bytes) !== pin.sha256) throw new Error('allowlist hash does not match its source_intake pin');
+  if (!(intake.source_roots || []).includes(allowlist.source_root)) throw new Error('allowlist source_root is not a pinned source_intake root');
+}
+
+async function restore({ root = ROOT, fetch = httpsFetch, concurrency = 8, retries = 3, log = console.log, verifyPin = true } = {}) {
+  const bytes = fs.readFileSync(path.join(root, ALLOWLIST));
+  const allowlist = JSON.parse(bytes.toString('utf8'));
+  if (verifyPin) verifyPinnedAllowlist(root, bytes, allowlist);
   const origin = allowlist.origin;
   if (typeof origin !== 'string' || !/^https:\/\/svn\.code\.sf\.net\/p\/xplanner-plus\/code\/!svn\/bc\/426\//.test(origin)) {
     throw new Error('allowlist origin is not the pinned official SVN revision 426');

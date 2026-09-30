@@ -32,7 +32,7 @@
 
 | Decision | Exact owner words | Channel and time |
 |---|---|---|
-| Amendment A4 and the bounded return to Stage 1 | «Одобряю предложенную тобой поправку A4 и ограниченный возврат для сверки всех 210 существующих строк по исходникам и WAR. Ограничения соответствия сохраняются, при расхождениях WAR остаётся главным.» | PM chat, 2026-09-30, direct from the owner |
+| Amendment A4 and the bounded return to Stage 1 | «Одобряю предложенную тобой поправку A4 и ограниченный возврат для сверки всех 210 существующих строк по исходникам и WAR. Ограничения соответствия сохраняются, при расхождениях WAR остаётся главным.» | PM chat, 2026-09-30, direct from the owner (recorded as about 10:40Z; the exact receipt time was not captured) |
 | Fallback approval and source placement | «Одобряю слияние PR #29 и подготовленный пакет source-assessment-001. Исходники остаются вне Git, CI восстанавливает разрешённые файлы с проверкой хешей. Разрешаю BA сверить существующие 210 строк по исходникам и WAR. После отчёта и PR остановиться, живой прогон и новый контроль не запускать.» | Codex chat, relayed verbatim by Codex to the PM chat. Codex recorded it at 2026-09-30T11:01:28Z. The same decision appears in PR #29 comment 5909863061, created at 2026-09-30T11:02:15Z from the account `ekzarov`. |
 
 The relayed decision is PM-verified against the exact package that was shown: assessment SHA-256 `cd68565d649826770d8a94d6d0a594ddd003ab1ce9d74c15742104cbeb1a95fa` and scope `source-intake:b1c6f67d93e46477d0b2b5ff942ce88b4cf9189810c1fef3aae3c804a62622bd`. The owner is asked to confirm it in the PM chat before this change is merged.

@@ -450,9 +450,11 @@ architecture work. They are not hard-coded by this starter constitution.
 
 ## Project-Specific Amendments
 
-Decided by owner `ekzarov` at ratification on 2026-09-23 (version `1.0.0`),
-recorded by the Bootstrap PM agent. Each amendment only tightens the starter
-safeguards; none weakens a governance invariant.
+A1-A3 were decided by owner `ekzarov` at ratification on 2026-09-23 (version
+`1.0.0`), recorded by the Bootstrap PM agent. A4 was decided by the owner on
+2026-09-30 (version `1.1.0`). It admits attributed upstream source as
+supplementary evidence under the limits stated there; the baseline WAR stays
+authoritative. No amendment weakens a governance invariant.
 
 <a id="read-a1-war-only-legacy-evidence"></a>
 
@@ -461,8 +463,9 @@ safeguards; none weakens a governance invariant.
 The legacy baseline in [`legacy/`](../../legacy) is the XPlanner+ v1.1a4 WAR
 distribution with its local run helpers, not a complete upstream Java source
 checkout. Legacy behavior is established from the available package contents
-and from live observation. Anything that cannot be verified from these materials
-is explicitly marked unverified. Assumptions are never presented as facts.
+and from live observation, as amended by [A4](#read-a4-attributed-upstream-source-as-supplementary-evidence)
+for attributed upstream source. Anything that cannot be verified from these
+materials is explicitly marked unverified. Assumptions are never presented as facts.
 
 - **Rationale:** the supplied input lacks full Java source; Principles II and III
   must stay honest about that limitation.
