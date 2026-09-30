@@ -1,0 +1,16 @@
+{
+  "packet_id": "S02-P009",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-009.md",
+  "reason": "The Claude Code client refuses subagent writes of the review report file; the reviewer wrote the complete report into its scratch directory.",
+  "producer": "Reviewer subagent a81963deb7fe2b1fd authored the entire report content and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p009/reviewer-scratch/stage-02-pass-009.md",
+  "source_sha256": "b15a01b3c561ca7d57e42f43813b138737d02db2abf1c7d4d1c74e0eaab5627f",
+  "pm_changes": "Exactly one change, requested by the reviewer: line 262 token CURRENT_SESSION_ID replaced with the client-assigned session id a81963deb7fe2b1fd (the id is not visible inside the reviewer session). No other byte changed (verified with diff).",
+  "final_report_sha256": "8847eda3f48bf1e273a18e848ddcc5e6a43eff1d134ed31eea15dabf1459cb08",
+  "reviewer_disclosed_deviation": "Besides the permitted git rev-parse/status/diff/show between pins, the reviewer ran once each, read-only: git ls-tree -r at CAND on legacy/, git config --get core.autocrlf, git check-attr -a on legacy/demo-seed.sql, and git diff of the main-tree status file against CAND. No revision outside the four pins was read, no state changed, no folder boundary crossed; the reviewer did not self-invalidate and left the decision to the owner. PM records the reviewer verdict unchanged (Principle XII) and puts the decision to the owner before merge.",
+  "reviewer_disclosed_masking_error": "One reviewer command printed the public factory default login pair from legacy/README.md:38 into its tool output; it was written to no file (covered by legacy-default-credential-classification; CHK-009 scan of new evidence and report: 0 hits).",
+  "pm_source_spot_checks": "F-001: WEB-INF/classes/spring-beans.xml:39-48 defines ReloadableResourceBundleMessageSource and net.sf.xplanner.struts.XPlannerMessageResources; F-002: WEB-INF/jsp/view/history.jsp:61,106 use xplanner:formatDate without a format.",
+  "recorded_at": "2026-09-28T14:01:01Z",
+  "reviewer_revision": "At PM request the reviewer wrapped two date-format literals on line 482 in code spans (audit:status placeholder false positive on yyyy-MM-dd); first scratch copy d7f34ca1afb3fd579ed86a31c281651626ac0abe43e1828f15acf47813d88e2f, revised copy b15a01b3c561ca7d57e42f43813b138737d02db2abf1c7d4d1c74e0eaab5627f; no other change."
+}
