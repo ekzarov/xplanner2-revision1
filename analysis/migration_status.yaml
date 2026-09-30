@@ -34,7 +34,7 @@ control:
   current_stage: stage-02
   stage_status: awaiting_owner
   previous_stage: stage-01
-  next_action: 'Owner decision on the Operational Incident Assessment of the pass-010 deviations (companion analysis/reviews/evidence/S02-P010/incident-assessment.md, pending). Pass 011 is invalid (git log outside the permitted list) and its lead B-001 found pass 010 unassessed. Approved non-material: a fresh BA runs correction-validation with previous 11, recovery coverage base 010, excluded [11]. Otherwise: coverage base 009, excluded [10, 11]. Stage 3 stays paused.'
+  next_action: 'Owner decision on the pass-010 incident assessment (companion analysis/reviews/evidence/S02-P010/incident-assessment.md, reviewer non-material, PM-verified support, pending). Operator Codex chose not to use passes 010 and 011 as evidentiary base; recovery from coverage base 009 excluding 010 needs pass 010 recorded unusable, which requires owner rejection (Operational Incident Assessment step 5); approval instead allows coverage base 010 excluding 011. Pass-012 packet preflight prepared; no new pass started; Stage 3 paused.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -618,7 +618,7 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 corrected after pass 010 (168 Yes, 20 Inferred, 21 Partial, 1 No); Stage 2 pass 011 invalid; pass-010 incident assessment awaits the owner decision.'
+  summary: 'Stage 1 corrected after pass 010 (168 Yes, 20 Inferred, 21 Partial, 1 No); Stage 2 pass 011 invalid; pass-010 incident assessment recorded and pending the owner decision.'
   completed_percent: 5
   updated_at: '2026-09-30T15:50:00Z'
   agent_reviews:

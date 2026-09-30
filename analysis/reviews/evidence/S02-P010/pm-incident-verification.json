@@ -1,0 +1,22 @@
+{
+  "packet_id": "S02-P010",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "recorded_at": "2026-09-30T16:20:00Z",
+  "companion": "analysis/reviews/evidence/S02-P010/incident-assessment.md",
+  "companion_sha256": "fa7006054b82f2327bb6a633a65e277db876ba9f64ba16818eb89f7cddf3c0d7",
+  "companion_author": "Pass-010 reviewer subagent a81d0356af46a1dd1 (self-assessment under agent_orchestration.md#operational-incident-assessment step 2); PM copied it byte-exact (cmp identical).",
+  "report": "analysis/reviews/stage-02-pass-010.md",
+  "report_sha256": "f567227da6872e947656dd47ceb0d5958bcf546234097a4f50c16be7aadd8f78",
+  "reviewer_classification": "non-material; all five guards declared verified",
+  "pm_verification": {
+    "evidence_hashes": "Recomputed: change-set.json c9559f04, comparison-results.json bc7b4267, coverage-reconciliation.json b7b29dae, independence-record.md af2ec868, access-log.md 171af92b; all equal the companion's figures.",
+    "reviewed_revision": "git show 9667b69:<path> reproduces reconnaissance 7c57c864, workbook 8eb58ab3, checklist 8a15e08c, source-reconciliation-001 b3d65a92, WAR 46ff9dc0.",
+    "d2_excerpt": "PM regenerated git diff -U0 026fd97 9667b69 -- analysis/legacy_reconnaissance.md: be87fb7f, equal to the reviewer's scratch recon-u0.diff; sed -n '60,140p' | cut -c1-2500 gives 31090 bytes, matching the client-reported size. PM exact-form credential scan of the regenerated excerpt and of the companion: 0 occurrences (repository total unchanged at the known historical 8). The client spill file itself was not opened.",
+    "access_log_erratum": "The sealed access-log.md Deviation 2 names the spilled command as an awk read; the companion records that it was sed -n '60,140p' | cut -c1-2500. The access sequence stays sealed and unedited (OIA step 1 and 6: preserve the access sequence and hashes); this companion is the correction of record.",
+    "numbering_note": "Companion D1-D3 are access-log Deviations 1-3. Access-log item 4 (credential masking) records compliance, not an incident. Companion D4 is a separate event during the assessment preparation (git status on removed checkouts; nothing read).",
+    "unknowns_kept_explicit": "Possible here-document temp file of the reviewer's own script text; client retention of the D2 spill and transcripts; exact D1 name list; client tooling temp files. PM did not open the user profile or temp folders to resolve them."
+  },
+  "pm_conclusion": "The companion's support is consistent with the checked evidence. This is PM verification of support only, not approval.",
+  "owner_decision": "none. The assessment is pending. Codex (operator under the operational mandate) chose on 2026-09-30 not to use pass 010 or 011 as evidentiary base and did not approve or reject the assessment on the owner's behalf. The status ledger keeps pass 010 as findings without incident_assessment, because a clean/findings incident_assessment requires an approved owner decision (review-incidents.js).",
+  "usability": "Pending approval cannot close a gate, restore a chain or become a usable baseline (agent_orchestration.md#operational-incident-assessment step 5). Pass 010 supplies no usable coverage until the owner decides."
+}
