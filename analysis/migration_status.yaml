@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-01
-  stage_status: awaiting_review
-  previous_stage: stage-03
-  next_action: 'Stage 1 source reconciliation BA-001-11 verified by PM against the assignment boundary (analysis/stages/stage-01/source-reconciliation-001.md): all 210 rows reconciled (167 confirmed, 21 correction needed, 21 runtime-only, 1 still unsupported); statuses 111/77/21/1 -> 169/19/21/1 (58 Inferred -> Yes on method-level evidence); carried pass-009 F-001 and F-002 resolved statically, F-003 stays an accepted residual. Owner merges the correction PR; the next independent Stage 2 control (mode proposed to the owner before launch) must run before Stage 3 resumes in the authorized isolated environment.'
+  current_stage: stage-02
+  stage_status: in_progress
+  previous_stage: stage-01
+  next_action: 'Stage 2 pass 010 (packet S02-P010, correction-validation): a fresh independent BA (not an author or earlier reviewer) first decides eligibility after A4 (root 006, previous 009), then reviews the complete change set 026fd97..90977b1; report analysis/reviews/stage-02-pass-010.md, evidence analysis/reviews/evidence/S02-P010/. Unsuitable baseline or blocking findings: stop and report the exact reason. Clean: integrate records, then resume Stage 3 in the isolated environment.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -238,6 +238,15 @@ transition_history:
       approved_at: '2026-09-30T11:01:28Z'
       record: 'analysis/source-intake-decision-001.md'
       scope: 'Bounded return stage-03 -> stage-01 for the source reconciliation of the 210 existing parity-map rows against the A4-admitted upstream source and the baseline WAR (starting with Inferred and Partial rows; IDs and confirmed work preserved); stop after the report and PR; no live Stage 3 run and no new Stage 2 control.'
+  - from: stage-01
+    to: stage-02
+    reason: 'Stage 1 source reconciliation merged (PR #31, CI green; main 90977b1055c17ee4e0aebd629cf3abbe360950d4); open for one independent Stage 2 correction-validation pass 010 (owner "разрешаю", relayed by Codex): proposed root 006, previous 009, with an explicit eligibility assessment after constitution A4; stop on an unsuitable baseline or blocking findings.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-30T13:35:04Z'
+    gate_evidence:
+      - 'analysis/stages/stage-01/source-reconciliation-001.md'
+      - 'analysis/legacy_reconnaissance.md'
+    owner_approval: null
 
 review_passes:
   - stage: stage-02
@@ -522,6 +531,14 @@ owner_decisions:
     rationale: 'Owner approval of the exact fallback assessment analysis/source-assessment-001.md (classification partial, baseline_match unverified, baseline WAR authoritative; sources outside Git; CI restores only the 1078 allowlisted files with SHA-256 checks), given in the Codex chat and relayed verbatim to the PM chat (decided_at is the Codex recording time); see analysis/source-intake-decision-001.md.'
     record: 'analysis/source-intake-decision-001.md'
     residual_risk: 'Correspondence is by release equality and name mapping, not a reproducible build; SVN configuration stamps differ from the release; library source absent; 39 withheld files; the CI restore depends on the availability of the official SVN.'
+  - id: 'operational-mandate-until-stage-04:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-09-30T13:31:30Z'
+    scope: 'Project departure until Stage 4 entry: coordination, routine checks, technical PRs and their merge by the operator Codex after the required local checks, CI and independent review pass on the exact HEAD, and already authorized isolated Stage 3 tests. Not delegated: independent verdicts, new infrastructure access, secrets, new material risks, waivers, Stage 2 carryover of new findings, Stage 3 fallback, Stage 4 business and product decisions, Stage 5.'
+    rationale: 'Owner words relayed by Codex: "вообще я бы тебе отдал пока полный контроль до 4 шага чтобы ты меня не спрашивал больше и делал все сам" and "разрешаю" for PR #31 plus one correction-validation pass (Codex handoff 2026-09-30T13:31:30Z; PR #31 comment 5912342979). decided_at is the Codex recording time.'
+    record: 'analysis/maintenance/process-departure-2026-09-30-operational-mandate.md'
+    residual_risk: 'The constitution invariant of owner-only merge authority is departed from for this period; decisions arrive relayed; the owner may revoke at any time.'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -552,9 +569,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 records reconciled against the A4-admitted upstream source (partial/unverified, WAR authoritative): 210 rows, 169 Yes, 19 Inferred, 21 Partial, 1 No; 27 rows keep runtime questions for Stage 3; awaiting the correction PR and the next Stage 2 control.'
-  completed_percent: 0
-  updated_at: '2026-09-30T12:15:45Z'
+  summary: 'Stage 1 reconciled against the A4 upstream source (169 Yes, 19 Inferred, 21 Partial, 1 No); Stage 2 correction-validation pass 010 in progress under the relayed owner mandate until Stage 4 entry.'
+  completed_percent: 5
+  updated_at: '2026-09-30T13:35:04Z'
   agent_reviews:
     total: 9
     valid: 8
