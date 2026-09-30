@@ -15,3 +15,7 @@
 
 # Review evidence is hash-pinned: store exact bytes, no line-ending conversion.
 analysis/reviews/evidence/** -text
+
+# Stage 3 deployment script and pinned SSH host keys must keep LF on every checkout.
+*.sh text eol=lf
+config/known_hosts.* text eol=lf

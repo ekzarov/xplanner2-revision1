@@ -1,0 +1,41 @@
+# Non-secret published copy of the Stage 3 environment contract (owner grant stage-03-legacy-grant).
+# config/environments.yaml stays unconfigured in Git because CI has no key; the operator copies this
+# file over config/environments.yaml in the local working tree only (never committed) before
+# audit:environment --require-configured and remote:check.
+# ARTIFACT RESPONSIBILITY START (guidance, not project state)
+# Created by: The initializer generates an unconfigured contract from the public-safe template; an authorized agent records owner-approved environments before remote work.
+# Maintained / decided by: The deployment agent or authorized operator maintains verified connection and deployment settings; initialization never renews credential approval.
+# Governing instructions: Bootstrap and remote-operation environment contract
+# ARTIFACT RESPONSIBILITY END
+# Public-safe starting point. No remote operation is authorized by this file.
+# Template output: config/environments.yaml
+schema_version: '1.0.0'
+default_environment: xplanner2-revision1-legacy
+environments:
+  xplanner2-revision1-legacy:
+    purpose: 'Isolated Stage 3 live walkthrough of the unchanged legacy WAR (SHA-256 46ff9dc0...) for xplanner2-revision1; loopback-only ports reached through an SSH tunnel; no public legacy endpoint.'
+    connection:
+      protocol: ssh
+      host: 91.98.17.159
+      port: 22
+      username: root
+      authentication:
+        mode: environment_variable
+        private_key_environment_variable: XPLANNER2R1_DEMO_SSH_KEY_B64
+        public_key_fingerprint: 'SHA256:IcNaMh2vOKc0ny3HfJGfw3Epd3p3UbsEXHYNEvVk0DY'
+      known_hosts_file: config/known_hosts.xplanner2-revision1
+      host_key_fingerprints:
+        - 'SHA256:tjVnlwT6cUWqYC4m5VFgx7t9J8faycyGrF06M/odOoA'
+    deployment:
+      root_pattern: /opt/xplanner2-revision1
+      existing_project_roots: {}
+      container_runtime: docker-compose
+      reverse_proxy: nginx
+    exposure:
+      mode: tunnel-only
+      loopback_ports: [18080, 18025]
+    public_endpoints: {}
+    verification:
+      connection_command: 'npm --prefix analysis/tools run remote:check'
+      expected_hostname: legacy-transformation-demo
+      expected_kernel: Linux
