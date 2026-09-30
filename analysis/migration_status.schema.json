@@ -1232,9 +1232,10 @@
         "live_carryover": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["record", "owner_decision_id", "blocking_class_check"],
+          "required": ["record", "report_sha256", "owner_decision_id", "blocking_class_check"],
           "properties": {
             "record": { "type": "string", "minLength": 1 },
+            "report_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
             "owner_decision_id": { "type": "string", "minLength": 1 },
             "blocking_class_check": { "const": "confirmed" }
           },

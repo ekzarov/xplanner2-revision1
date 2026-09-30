@@ -44,8 +44,8 @@
 A Stage 2 → Stage 3 forward transition may rest on the latest Stage 2 pass with `result: findings` only when all of the following hold:
 1. **The pass is usable.** Its chain is valid and its reviewer eligible. It is not `blocked` or `invalid` and has no `unchecked_scopes`. Any disclosed incident has an approved non-material assessment.
 2. **The findings are low and not blocking.** `findings_severity_max` is `low`, and PM attests that no finding falls into a [blocking class](#read-blocking-classes).
-3. **Every finding is carried.** A carryover record lists each finding with either a concrete Stage 3 live check or an explicitly owner-accepted residual risk. It binds the pass session and the exact report SHA-256.
-4. **The owner approved this exact carryover.** An approved owner decision has scope `liveCarryoverScope(pass)`, the same record and a nonempty residual risk, and is dated no earlier than the review.
+3. **Every finding is carried.** A carryover record lists each finding with either a concrete Stage 3 live check or an explicitly owner-accepted residual risk. It binds the pass session and the exact report SHA-256, which is also stored as `live_carryover.report_sha256`.
+4. **The owner approved this exact carryover.** An approved owner decision has scope `liveCarryoverScope(pass)` (stage, pass, session, report path, report SHA-256, record), the same record and a nonempty residual risk, and is dated no earlier than the review.
 
 Under Principle XII, a pass counts only for the Stage 2 entry in which it ran. The carried pass must therefore still be the latest pass of the current Stage 2 entry: no return to Stage 1 and no re-entry in between. Record corrections of carried findings happen later, at Stage 3 from live results or in a later correction. They are not claimed as independently verified.
 

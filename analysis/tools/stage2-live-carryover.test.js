@@ -14,7 +14,7 @@ function fixture(overrides = {}) {
     stage: 'stage-02', pass: 9, result: 'findings', session_id: 's9',
     report: 'analysis/reviews/stage-02-pass-009.md', reviewed_at: '2026-09-28T14:01:01Z',
     findings_severity_max: 'low',
-    live_carryover: { record: RECORD, owner_decision_id: 'carry', blocking_class_check: 'confirmed' },
+    live_carryover: { record: RECORD, report_sha256: 'a'.repeat(64), owner_decision_id: 'carry', blocking_class_check: 'confirmed' },
     ...overrides.review,
   };
   const decision = {
@@ -71,10 +71,11 @@ test('rejects a missing blocking-class attestation and the report as record', ()
 test('the carryover record must bind the session and exact report hash', () => {
   const { review, status } = fixture();
   const declarations = (content, label) => content.split('\n').filter((l) => new RegExp(`^[ \\t]*[-*]?[ \\t]*${label}:`).test(l));
-  const hashes = new Map([[review.report, 'abc']]);
-  const good = new Map([[RECORD, '- Carryover session: s9\n- Carryover report SHA-256: abc\n']]);
+  const A = 'a'.repeat(64);
+  const hashes = new Map([[review.report, A]]);
+  const good = new Map([[review.report, 'r'], [RECORD, `- Carryover session: s9\n- Carryover report SHA-256: ${A}\n`]]);
   assert.deepEqual(validateLiveCarryoverEvidence(status, good, hashes, declarations), []);
-  const bad = new Map([[RECORD, '- Carryover session: s9\n- Carryover report SHA-256: def\n']]);
+  const bad = new Map([[review.report, 'r'], [RECORD, '- Carryover session: s9\n- Carryover report SHA-256: def\n']]);
   assert.ok(validateLiveCarryoverEvidence(status, bad, hashes, declarations).some((e) => /report SHA-256/.test(e)));
 });
 
@@ -110,11 +111,37 @@ test('status-validator uses the carryover rule only for the stage-02 forward exi
   const withCarry = withExit(base);
   const p2 = withCarry.review_passes.find((r) => r.stage === 'stage-02' && r.pass === latest.pass);
   p2.findings_severity_max = 'low';
-  p2.live_carryover = { record: 'x/carry.md', owner_decision_id: 'test-carry', blocking_class_check: 'confirmed' };
+  p2.live_carryover = { record: 'x/carry.md', report_sha256: 'a'.repeat(64), owner_decision_id: 'test-carry', blocking_class_check: 'confirmed' };
   withCarry.owner_decisions.push({
     id: 'test-carry', decision: 'approved', decided_by: withCarry.project.owner,
     decided_at: new Date(Date.parse(p2.reviewed_at) + 1000).toISOString().replace(/\.\d+Z$/, 'Z'),
     scope: liveCarryoverScope(p2), rationale: 'test', record: 'x/carry.md', residual_risk: 'test risk',
   });
   assert.ok(!validateStatus(withCarry).some((e) => exitError.test(e)), 'an approved low carryover may exit');
+});
+
+const lines = (content, label) => content.split('\n').filter((l) => new RegExp(`^[ \t]*[-*]?[ \t]*${label}:`).test(l));
+
+test('replacing the report and the record together breaks the prior owner approval', () => {
+  const { review, status } = fixture();
+  assert.deepEqual(validateLiveCarryover(status), []);
+  const B = 'b'.repeat(64);
+  // New report bytes with a rewritten carryover field and record that match them:
+  review.live_carryover.report_sha256 = B;
+  const records = new Map([[review.report, 'new'], [RECORD, `- Carryover session: s9\n- Carryover report SHA-256: ${B}\n`]]);
+  const hashes = new Map([[review.report, B]]);
+  assert.deepEqual(validateLiveCarryoverEvidence(status, records, hashes, lines), []);
+  // ...but the owner decision still binds the approved hash, so the carryover no longer closes.
+  assert.ok(validateLiveCarryover(status).some((e) => /liveCarryoverScope/.test(e)));
+  assert.equal(liveCarryoverCloses(review, status), false);
+});
+
+test('rejects a carryover whose recorded hash differs from the actual report bytes', () => {
+  const { review, status } = fixture();
+  const A = 'a'.repeat(64);
+  const records = new Map([[review.report, 'changed'], [RECORD, `- Carryover session: s9\n- Carryover report SHA-256: ${A}\n`]]);
+  const hashes = new Map([[review.report, 'c'.repeat(64)]]);
+  assert.ok(validateLiveCarryoverEvidence(status, records, hashes, lines).some((e) => /exact existing report bytes/.test(e)));
+  review.live_carryover.report_sha256 = 'NOTAHASH';
+  assert.ok(validateLiveCarryover(status).some((e) => /lowercase report_sha256/.test(e)));
 });

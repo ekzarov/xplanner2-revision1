@@ -356,6 +356,7 @@ review_passes:
     findings_severity_max: low
     live_carryover:
       record: 'analysis/stages/stage-02/live-check-carryover-pass-009.md'
+      report_sha256: '8847eda3f48bf1e273a18e848ddcc5e6a43eff1d134ed31eea15dabf1459cb08'
       owner_decision_id: 'stage-02-live-carryover:xplanner2-revision1'
       blocking_class_check: confirmed
 owner_decisions:
@@ -470,7 +471,7 @@ owner_decisions:
     decision: approved
     decided_by: 'ekzarov'
     decided_at: '2026-09-30T07:44:00Z'
-    scope: 'stage-02-live-carryover:["stage-02",9,"a81963deb7fe2b1fd","analysis/reviews/stage-02-pass-009.md","analysis/stages/stage-02/live-check-carryover-pass-009.md"]'
+    scope: 'stage-02-live-carryover:["stage-02",9,"a81963deb7fe2b1fd","analysis/reviews/stage-02-pass-009.md","8847eda3f48bf1e273a18e848ddcc5e6a43eff1d134ed31eea15dabf1459cb08","analysis/stages/stage-02/live-check-carryover-pass-009.md"]'
     rationale: 'Owner decision of 2026-09-30: carry Stage 2 pass 009 findings F-001..F-003 (all low) without pass 010 and without calling the result clean: F-002 as a live check, F-001 as a limited live check plus accepted risk, F-003 as accepted risk; the Stage 1 correction BA-001-11 before Stage 3 is not performed.'
     record: 'analysis/stages/stage-02/live-check-carryover-pass-009.md'
     residual_risk: 'The reconnaissance keeps three known low inaccuracies (cache writer classes and two missing locale registries, history date format, script-context counting rule) until a later correction; request-keyed caches are unbounded and their growth is not tested live; carried items are not independently re-verified.'

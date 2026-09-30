@@ -15,6 +15,7 @@ function liveCarryoverScope(review) {
     review.pass,
     review.session_id,
     review.report,
+    String(review.live_carryover.report_sha256 || '').toLowerCase(),
     review.live_carryover.record,
   ]);
 }
@@ -34,6 +35,9 @@ function validateLiveCarryover(status) {
     }
     if (carryover.blocking_class_check !== 'confirmed') {
       errors.push(`${label} requires blocking_class_check: confirmed`);
+    }
+    if (typeof carryover.report_sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(carryover.report_sha256)) {
+      errors.push(`${label} requires the lowercase report_sha256 of the carried report`);
     }
     if (!isNonEmptyString(carryover.record) || carryover.record === review.report) {
       errors.push(`${label} record must be a separate carryover record`);
@@ -75,11 +79,14 @@ function validateLiveCarryoverEvidence(status, records, hashes, visibleDeclarati
     const carryover = review.live_carryover;
     if (!carryover || !isNonEmptyString(carryover.record)) continue;
     const label = `/review_passes ${review.stage} pass ${review.pass} live_carryover`;
+    if (records.has(review.report) && hashes.get(review.report) !== carryover.report_sha256) {
+      errors.push(`${label} report_sha256 must match the exact existing report bytes`);
+    }
     const record = records.get(carryover.record);
     if (!record) continue; // Missing or template-only records fail in recordedEvidence.
     const expected = {
       'Carryover session': review.session_id,
-      'Carryover report SHA-256': hashes.get(review.report),
+      'Carryover report SHA-256': carryover.report_sha256,
     };
     for (const [declaration, value] of Object.entries(expected)) {
       const lines = visibleDeclarations(record, declaration, { plain: true });
