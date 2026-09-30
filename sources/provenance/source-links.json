@@ -1,0 +1,2979 @@
+{
+  "revision": 426,
+  "method": "Class package/name to source path, nested class suffix removed. Mechanical linkage only, not code-equivalence proof.",
+  "total_classes": 594,
+  "linked_classes": 594,
+  "missing": [],
+  "links": [
+    {
+      "class": "WEB-INF/classes/com/sabre/security/jndi/AuthenticationException.class",
+      "source": "src/com/sabre/security/jndi/AuthenticationException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/sabre/security/jndi/JNDIAuthenticator.class",
+      "source": "src/com/sabre/security/jndi/JNDIAuthenticator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/sabre/security/jndi/JNDIAuthenticatorImpl.class",
+      "source": "src/com/sabre/security/jndi/JNDIAuthenticatorImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/sabre/security/jndi/JNDIAuthenticatorImpl$1.class",
+      "source": "src/com/sabre/security/jndi/JNDIAuthenticatorImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/sabre/security/jndi/User.class",
+      "source": "src/com/sabre/security/jndi/User.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/sabre/security/jndi/util/Base64.class",
+      "source": "src/com/sabre/security/jndi/util/Base64.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/sabre/security/jndi/util/HexUtils.class",
+      "source": "src/com/sabre/security/jndi/util/HexUtils.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/tacitknowledge/util/migration/jdbc/AutopatchSupport.class",
+      "source": "src/com/tacitknowledge/util/migration/jdbc/AutopatchSupport.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/tacitknowledge/util/migration/jdbc/HsqlAwareStandaloneMigrationLauncher.class",
+      "source": "src/com/tacitknowledge/util/migration/jdbc/HsqlAwareStandaloneMigrationLauncher.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/tacitknowledge/util/migration/jdbc/MigrationInformation.class",
+      "source": "src/com/tacitknowledge/util/migration/jdbc/MigrationInformation.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/tacitknowledge/util/migration/jdbc/MigrationLauncherFactoryLoader.class",
+      "source": "src/com/tacitknowledge/util/migration/jdbc/MigrationLauncherFactoryLoader.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/tacitknowledge/util/migration/jdbc/StandaloneMigrationLauncher.class",
+      "source": "src/com/tacitknowledge/util/migration/jdbc/StandaloneMigrationLauncher.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/tacitknowledge/util/migration/jdbc/UpdatePatchLevel.class",
+      "source": "src/com/tacitknowledge/util/migration/jdbc/UpdatePatchLevel.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/AbstractAction.class",
+      "source": "src/com/technoetic/xplanner/actions/AbstractAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/AbstractAction$1.class",
+      "source": "src/com/technoetic/xplanner/actions/AbstractAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/AbstractIterationAction.class",
+      "source": "src/com/technoetic/xplanner/actions/AbstractIterationAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/admin/InvalidateCacheAction.class",
+      "source": "src/com/technoetic/xplanner/actions/admin/InvalidateCacheAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/admin/InvalidateHibernateCacheAction.class",
+      "source": "src/com/technoetic/xplanner/actions/admin/InvalidateHibernateCacheAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/AuthenticationAction.class",
+      "source": "src/com/technoetic/xplanner/actions/AuthenticationAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ChangeLocaleAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ChangeLocaleAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/CloseIterationAction.class",
+      "source": "src/com/technoetic/xplanner/actions/CloseIterationAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/CommandExecutorAction.class",
+      "source": "src/com/technoetic/xplanner/actions/CommandExecutorAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ContentSearchAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ContentSearchAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/Continuer.class",
+      "source": "src/com/technoetic/xplanner/actions/Continuer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ContinueUnfinishedStoriesAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ContinueUnfinishedStoriesAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/DeleteNoteAction.class",
+      "source": "src/com/technoetic/xplanner/actions/DeleteNoteAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/DeleteObjectAction.class",
+      "source": "src/com/technoetic/xplanner/actions/DeleteObjectAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/DispatchForward.class",
+      "source": "src/com/technoetic/xplanner/actions/DispatchForward.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/DomainOrderer.class",
+      "source": "src/com/technoetic/xplanner/actions/DomainOrderer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/DownloadAttachmentAction.class",
+      "source": "src/com/technoetic/xplanner/actions/DownloadAttachmentAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditIterationAction.class",
+      "source": "src/com/technoetic/xplanner/actions/EditIterationAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditNoteAction.class",
+      "source": "src/com/technoetic/xplanner/actions/EditNoteAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditObjectAction.class",
+      "source": "src/com/technoetic/xplanner/actions/EditObjectAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditPersonAction.class",
+      "source": "src/com/technoetic/xplanner/actions/EditPersonAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditPersonHelper.class",
+      "source": "src/com/technoetic/xplanner/actions/EditPersonHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditProjectAction.class",
+      "source": "src/com/technoetic/xplanner/actions/EditProjectAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditPropertiesAction.class",
+      "source": "src/com/technoetic/xplanner/actions/EditPropertiesAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditRoleAction.class",
+      "source": "src/com/technoetic/xplanner/actions/EditRoleAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditStoryAction.class",
+      "source": "src/com/technoetic/xplanner/actions/EditStoryAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/EditTaskAction.class",
+      "source": "src/com/technoetic/xplanner/actions/EditTaskAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ExceptionHandler.class",
+      "source": "src/com/technoetic/xplanner/actions/ExceptionHandler.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ExportAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ExportAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/FileManagerAction.class",
+      "source": "src/com/technoetic/xplanner/actions/FileManagerAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/IdSearchAction.class",
+      "source": "src/com/technoetic/xplanner/actions/IdSearchAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ImportPeopleAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ImportPeopleAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ImportPeopleAction$1.class",
+      "source": "src/com/technoetic/xplanner/actions/ImportPeopleAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ImportPeopleAction$PeopleImportException.class",
+      "source": "src/com/technoetic/xplanner/actions/ImportPeopleAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ImportStoriesAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ImportStoriesAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/IntegrationAction.class",
+      "source": "src/com/technoetic/xplanner/actions/IntegrationAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/IntegrationEmailNotifier.class",
+      "source": "src/com/technoetic/xplanner/actions/IntegrationEmailNotifier.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/IntegrationListener.class",
+      "source": "src/com/technoetic/xplanner/actions/IntegrationListener.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/LogoutAction.class",
+      "source": "src/com/technoetic/xplanner/actions/LogoutAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/MoveContinueStory.class",
+      "source": "src/com/technoetic/xplanner/actions/MoveContinueStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/MoveContinueStoryAction.class",
+      "source": "src/com/technoetic/xplanner/actions/MoveContinueStoryAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/MoveContinueTaskAction.class",
+      "source": "src/com/technoetic/xplanner/actions/MoveContinueTaskAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/MoveStoriesAction.class",
+      "source": "src/com/technoetic/xplanner/actions/MoveStoriesAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/PutTheClockForwardAction.class",
+      "source": "src/com/technoetic/xplanner/actions/PutTheClockForwardAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ReorderStoriesAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ReorderStoriesAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/SearchResultAuthorizationPredicate.class",
+      "source": "src/com/technoetic/xplanner/actions/SearchResultAuthorizationPredicate.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/StartIterationAction.class",
+      "source": "src/com/technoetic/xplanner/actions/StartIterationAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/StoryContinuer.class",
+      "source": "src/com/technoetic/xplanner/actions/StoryContinuer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/SystemInfoAction.class",
+      "source": "src/com/technoetic/xplanner/actions/SystemInfoAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/TaskContinuer.class",
+      "source": "src/com/technoetic/xplanner/actions/TaskContinuer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/UpdateTimeAction.class",
+      "source": "src/com/technoetic/xplanner/actions/UpdateTimeAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/UpdateTimeNotificationReceivers.class",
+      "source": "src/com/technoetic/xplanner/actions/UpdateTimeNotificationReceivers.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ViewAggregateTimesheetAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ViewAggregateTimesheetAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ViewIterationMetricsAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ViewIterationMetricsAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ViewObjectAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ViewObjectAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ViewPersonAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ViewPersonAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/actions/ViewTimesheetAction.class",
+      "source": "src/com/technoetic/xplanner/actions/ViewTimesheetAction.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/BorderPostProcessor.class",
+      "source": "src/com/technoetic/xplanner/charts/BorderPostProcessor.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/CategoryPostProcessor.class",
+      "source": "src/com/technoetic/xplanner/charts/CategoryPostProcessor.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/DataSample2.class",
+      "source": "src/com/technoetic/xplanner/charts/DataSample2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/DataSampleData.class",
+      "source": "src/com/technoetic/xplanner/charts/DataSampleData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/DataSampler.class",
+      "source": "src/com/technoetic/xplanner/charts/DataSampler.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/DataSamplerImpl.class",
+      "source": "src/com/technoetic/xplanner/charts/DataSamplerImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/DataSamplingCommand.class",
+      "source": "src/com/technoetic/xplanner/charts/DataSamplingCommand.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/DataSamplingJob.class",
+      "source": "src/com/technoetic/xplanner/charts/DataSamplingJob.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/PieChartPostProcessor.class",
+      "source": "src/com/technoetic/xplanner/charts/PieChartPostProcessor.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/PieChartQuery.class",
+      "source": "src/com/technoetic/xplanner/charts/PieChartQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/TaskDispositionActualHoursData.class",
+      "source": "src/com/technoetic/xplanner/charts/TaskDispositionActualHoursData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/TaskDispositionData.class",
+      "source": "src/com/technoetic/xplanner/charts/TaskDispositionData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/TaskDispositionEstimatedHoursData.class",
+      "source": "src/com/technoetic/xplanner/charts/TaskDispositionEstimatedHoursData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/TaskTypeActualHoursData.class",
+      "source": "src/com/technoetic/xplanner/charts/TaskTypeActualHoursData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/TaskTypeData.class",
+      "source": "src/com/technoetic/xplanner/charts/TaskTypeData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/TaskTypeEstimatedHoursData.class",
+      "source": "src/com/technoetic/xplanner/charts/TaskTypeEstimatedHoursData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/TaskVelocityData.class",
+      "source": "src/com/technoetic/xplanner/charts/TaskVelocityData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/timesheet/PersonTimesheetIterationData.class",
+      "source": "src/com/technoetic/xplanner/charts/timesheet/PersonTimesheetIterationData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/timesheet/PersonTimesheetProjectData.class",
+      "source": "src/com/technoetic/xplanner/charts/timesheet/PersonTimesheetProjectData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/timesheet/PersonTimesheetStoryData.class",
+      "source": "src/com/technoetic/xplanner/charts/timesheet/PersonTimesheetStoryData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/charts/XplannerPieChartData.class",
+      "source": "src/com/technoetic/xplanner/charts/XplannerPieChartData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/Command.class",
+      "source": "src/com/technoetic/xplanner/Command.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/AggregateTimesheetQuery.class",
+      "source": "src/com/technoetic/xplanner/db/AggregateTimesheetQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/CacheInvalidateForPersonAnywhereInAttrListInterceptor.class",
+      "source": "src/com/technoetic/xplanner/db/CacheInvalidateForPersonAnywhereInAttrListInterceptor.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/ContentSearchHelper.class",
+      "source": "src/com/technoetic/xplanner/db/ContentSearchHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/CurrentTaskQuery.class",
+      "source": "src/com/technoetic/xplanner/db/CurrentTaskQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/CustomerStoriesQuery.class",
+      "source": "src/com/technoetic/xplanner/db/CustomerStoriesQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/EHCacheHelper.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/EHCacheHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/GlobalSessionFactory.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/GlobalSessionFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/HibernateHelper.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/HibernateHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/HibernateIdentityGenerator.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/HibernateIdentityGenerator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/HibernateOperationsWrapper.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/HibernateOperationsWrapper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/HibernateSessionFilter.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/HibernateSessionFilter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/IdGenerator.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/IdGenerator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/ThreadSession.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/ThreadSession.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/TransformingSchemaExport.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/TransformingSchemaExport.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/XPlannerInterceptor.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/XPlannerInterceptor.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/XPlannerMySQLDialect.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/XPlannerMySQLDialect.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/XPlannerOracleDialect.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/XPlannerOracleDialect.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/XPlannerSessionFactory.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/XPlannerSessionFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/XPlannerSessionFactory$1.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/XPlannerSessionFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/XPlannerSessionFactory$Log4JDebugLoggerWriter.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/XPlannerSessionFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hibernate/XPlannerSessionFactory$SessionCountingInvoker.class",
+      "source": "src/com/technoetic/xplanner/db/hibernate/XPlannerSessionFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hsqldb/HsqlServer.class",
+      "source": "src/com/technoetic/xplanner/db/hsqldb/HsqlServer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/hsqldb/HsqlServer$1.class",
+      "source": "src/com/technoetic/xplanner/db/hsqldb/HsqlServer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IdSearchHelper.class",
+      "source": "src/com/technoetic/xplanner/db/IdSearchHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery$1.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery$2.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery$3.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery$4.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery$5.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery$6.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery$Aggregator.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery$DispositionAggregator.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/IterationStatisticsQuery$TypeAggregator.class",
+      "source": "src/com/technoetic/xplanner/db/IterationStatisticsQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/jdbc/DriverWrapper.class",
+      "source": "src/com/technoetic/xplanner/db/jdbc/DriverWrapper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/MethodCacheInterceptor.class",
+      "source": "src/com/technoetic/xplanner/db/MethodCacheInterceptor.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/MethodCacheInvalidateForSelectedArgumentsInterceptor.class",
+      "source": "src/com/technoetic/xplanner/db/MethodCacheInvalidateForSelectedArgumentsInterceptor.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/MethodCacheInvalidateInterceptor.class",
+      "source": "src/com/technoetic/xplanner/db/MethodCacheInvalidateInterceptor.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/NoteHelper.class",
+      "source": "src/com/technoetic/xplanner/db/NoteHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/OLDIdSearchHelper.class",
+      "source": "src/com/technoetic/xplanner/db/OLDIdSearchHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/PersonTimesheetQuery.class",
+      "source": "src/com/technoetic/xplanner/db/PersonTimesheetQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/PlannedTaskQuery.class",
+      "source": "src/com/technoetic/xplanner/db/PlannedTaskQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/QueryException.class",
+      "source": "src/com/technoetic/xplanner/db/QueryException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/SearchContentQuery.class",
+      "source": "src/com/technoetic/xplanner/db/SearchContentQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/SearchResultFactory.class",
+      "source": "src/com/technoetic/xplanner/db/SearchResultFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/TaskQuery.class",
+      "source": "src/com/technoetic/xplanner/db/TaskQuery.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/TaskQueryDao.class",
+      "source": "src/com/technoetic/xplanner/db/TaskQueryDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/TaskQueryDao$TaskStatusFilter.class",
+      "source": "src/com/technoetic/xplanner/db/TaskQueryDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/db/TaskQueryHelper.class",
+      "source": "src/com/technoetic/xplanner/db/TaskQueryHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/ActionMapping.class",
+      "source": "src/com/technoetic/xplanner/domain/ActionMapping.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/CharacterEnum.class",
+      "source": "src/com/technoetic/xplanner/domain/CharacterEnum.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/CharacterEnumType.class",
+      "source": "src/com/technoetic/xplanner/domain/CharacterEnumType.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Describable.class",
+      "source": "src/com/technoetic/xplanner/domain/Describable.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Disposition.class",
+      "source": "src/com/technoetic/xplanner/domain/Disposition.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/DomainClass.class",
+      "source": "src/com/technoetic/xplanner/domain/DomainClass.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/DomainMetaDataRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/DomainMetaDataRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/DomainMetaDataRepository$1.class",
+      "source": "src/com/technoetic/xplanner/domain/DomainMetaDataRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/DomainMetaDataRepository$2.class",
+      "source": "src/com/technoetic/xplanner/domain/DomainMetaDataRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/DomainObject2.class",
+      "source": "src/com/technoetic/xplanner/domain/DomainObject2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/DomainObjectWikiLinkFormatter.class",
+      "source": "src/com/technoetic/xplanner/domain/DomainObjectWikiLinkFormatter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/ext/IterationTasks.class",
+      "source": "src/com/technoetic/xplanner/domain/ext/IterationTasks.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Feature.class",
+      "source": "src/com/technoetic/xplanner/domain/Feature.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Identifiable.class",
+      "source": "src/com/technoetic/xplanner/domain/Identifiable.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Integration.class",
+      "source": "src/com/technoetic/xplanner/domain/Integration.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/io/IOStream.class",
+      "source": "src/com/technoetic/xplanner/domain/io/IOStream.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/io/IOStream$CharacterEnumConverter.class",
+      "source": "src/com/technoetic/xplanner/domain/io/IOStream.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/io/IOStream$Document.class",
+      "source": "src/com/technoetic/xplanner/domain/io/IOStream.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/io/IOStream$IterationStatusConverter.class",
+      "source": "src/com/technoetic/xplanner/domain/io/IOStream.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/io/IOStream$ReferencedPersonList.class",
+      "source": "src/com/technoetic/xplanner/domain/io/IOStream.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Iteration2.class",
+      "source": "src/com/technoetic/xplanner/domain/Iteration2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/IterationStatus.class",
+      "source": "src/com/technoetic/xplanner/domain/IterationStatus.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/IterationStatusPersistent.class",
+      "source": "src/com/technoetic/xplanner/domain/IterationStatusPersistent.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Nameable.class",
+      "source": "src/com/technoetic/xplanner/domain/Nameable.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Note2.class",
+      "source": "src/com/technoetic/xplanner/domain/Note2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/NoteAttachable.class",
+      "source": "src/com/technoetic/xplanner/domain/NoteAttachable.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/NotificationReceiversComparator.class",
+      "source": "src/com/technoetic/xplanner/domain/NotificationReceiversComparator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Project2.class",
+      "source": "src/com/technoetic/xplanner/domain/Project2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/RelationshipConvertor.class",
+      "source": "src/com/technoetic/xplanner/domain/RelationshipConvertor.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/RelationshipMappingRegistry.class",
+      "source": "src/com/technoetic/xplanner/domain/RelationshipMappingRegistry.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/AttributeRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/AttributeRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/AttributeRepositoryImpl.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/AttributeRepositoryImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/DuplicateUserIdException.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/DuplicateUserIdException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/HibernateObjectRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/HibernateObjectRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/IterationRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/IterationRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/MetaRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/MetaRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/MetaRepositoryImpl.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/MetaRepositoryImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/ObjectNotFoundException.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/ObjectNotFoundException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/ObjectRepositororyFactory.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/ObjectRepositororyFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/ObjectRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/ObjectRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/PersonHibernateObjectRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/PersonHibernateObjectRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/RepositoryException.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/RepositoryException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/RepositoryHistoryAdapter.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/RepositoryHistoryAdapter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/RepositoryHistoryAdapter$SaveEventHibernateCallback.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/RepositoryHistoryAdapter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/RepositorySecurityAdapter.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/RepositorySecurityAdapter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/RoleAssociationRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/RoleAssociationRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/RoleAssociationRepositoryImpl.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/RoleAssociationRepositoryImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/RoleRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/RoleRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/RoleRepositoryImpl.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/RoleRepositoryImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/TaskRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/TaskRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/TaskRepositoryHibernate.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/TaskRepositoryHibernate.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/TaskRepositoryHibernate$TaskStatusFilter.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/TaskRepositoryHibernate.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/repository/UserStoryRepository.class",
+      "source": "src/com/technoetic/xplanner/domain/repository/UserStoryRepository.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Role2.class",
+      "source": "src/com/technoetic/xplanner/domain/Role2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/RoleAssociation2.class",
+      "source": "src/com/technoetic/xplanner/domain/RoleAssociation2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/SearchResult.class",
+      "source": "src/com/technoetic/xplanner/domain/SearchResult.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/StoryDisposition.class",
+      "source": "src/com/technoetic/xplanner/domain/StoryDisposition.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/StoryDispositionType.class",
+      "source": "src/com/technoetic/xplanner/domain/StoryDispositionType.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/StoryOrderNoChangeComparator.class",
+      "source": "src/com/technoetic/xplanner/domain/StoryOrderNoChangeComparator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/StoryStatus.class",
+      "source": "src/com/technoetic/xplanner/domain/StoryStatus.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/StoryStatusType.class",
+      "source": "src/com/technoetic/xplanner/domain/StoryStatusType.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/Task2.class",
+      "source": "src/com/technoetic/xplanner/domain/Task2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/TaskDisposition.class",
+      "source": "src/com/technoetic/xplanner/domain/TaskDisposition.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/TaskDispositionType.class",
+      "source": "src/com/technoetic/xplanner/domain/TaskDispositionType.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/TaskStatus.class",
+      "source": "src/com/technoetic/xplanner/domain/TaskStatus.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/TimeEntry2.class",
+      "source": "src/com/technoetic/xplanner/domain/TimeEntry2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/UserStory2.class",
+      "source": "src/com/technoetic/xplanner/domain/UserStory2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/UserStoryDispositionType.class",
+      "source": "src/com/technoetic/xplanner/domain/UserStoryDispositionType.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/virtual/DailyTimesheetEntry.class",
+      "source": "src/com/technoetic/xplanner/domain/virtual/DailyTimesheetEntry.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/virtual/Timesheet.class",
+      "source": "src/com/technoetic/xplanner/domain/virtual/Timesheet.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/domain/virtual/TimesheetEntry.class",
+      "source": "src/com/technoetic/xplanner/domain/virtual/TimesheetEntry.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/DomainSpecificProperties.class",
+      "source": "src/com/technoetic/xplanner/DomainSpecificProperties.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/DomainSpecificProperties$1.class",
+      "source": "src/com/technoetic/xplanner/DomainSpecificProperties.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/DomainSpecificProperties$GetAttributeHibernateCallback.class",
+      "source": "src/com/technoetic/xplanner/DomainSpecificProperties.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/DomainSpecificPropertiesFactory.class",
+      "source": "src/com/technoetic/xplanner/DomainSpecificPropertiesFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/CsvExporter.class",
+      "source": "src/com/technoetic/xplanner/export/CsvExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/Exporter.class",
+      "source": "src/com/technoetic/xplanner/export/Exporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/ExportException.class",
+      "source": "src/com/technoetic/xplanner/export/ExportException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/IterationDataSource.class",
+      "source": "src/com/technoetic/xplanner/export/IterationDataSource.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/MpxExporter.class",
+      "source": "src/com/technoetic/xplanner/export/MpxExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/MpxExporter$1.class",
+      "source": "src/com/technoetic/xplanner/export/MpxExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/MpxExporter$ResourceRegistry.class",
+      "source": "src/com/technoetic/xplanner/export/MpxExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/MspdiExporter.class",
+      "source": "src/com/technoetic/xplanner/export/MspdiExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/PdfExporter.class",
+      "source": "src/com/technoetic/xplanner/export/PdfExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/PdfExporter$Field.class",
+      "source": "src/com/technoetic/xplanner/export/PdfExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/PdfReportExporter.class",
+      "source": "src/com/technoetic/xplanner/export/PdfReportExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/PdfReportExporter$PersonDataSource.class",
+      "source": "src/com/technoetic/xplanner/export/PdfReportExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/PdfReportExporter$TaskDataSource.class",
+      "source": "src/com/technoetic/xplanner/export/PdfReportExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/PdfReportExporter$UserStoryDataSource.class",
+      "source": "src/com/technoetic/xplanner/export/PdfReportExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/XmlExporter.class",
+      "source": "src/com/technoetic/xplanner/export/XmlExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/XmlExporter$1.class",
+      "source": "src/com/technoetic/xplanner/export/XmlExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/XmlExporter$2.class",
+      "source": "src/com/technoetic/xplanner/export/XmlExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/export/XmlExporter$XPlannerData.class",
+      "source": "src/com/technoetic/xplanner/export/XmlExporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/file/DefaultFileSystem.class",
+      "source": "src/com/technoetic/xplanner/file/DefaultFileSystem.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/file/Directory2.class",
+      "source": "src/com/technoetic/xplanner/file/Directory2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/file/File2.class",
+      "source": "src/com/technoetic/xplanner/file/File2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/file/FileSystem.class",
+      "source": "src/com/technoetic/xplanner/file/FileSystem.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/file/FileSystemImpl.class",
+      "source": "src/com/technoetic/xplanner/file/FileSystemImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/filters/ActivityLogFilter.class",
+      "source": "src/com/technoetic/xplanner/filters/ActivityLogFilter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/filters/ActivityLogFilterHelper.class",
+      "source": "src/com/technoetic/xplanner/filters/ActivityLogFilterHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/filters/HsqldbServerContextListener.class",
+      "source": "src/com/technoetic/xplanner/filters/HsqldbServerContextListener.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/filters/RequestCharacterEncodingFilter.class",
+      "source": "src/com/technoetic/xplanner/filters/RequestCharacterEncodingFilter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/filters/ServletRequestFilter.class",
+      "source": "src/com/technoetic/xplanner/filters/ServletRequestFilter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/filters/ThreadServletRequest.class",
+      "source": "src/com/technoetic/xplanner/filters/ThreadServletRequest.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/format/AbstractFormat.class",
+      "source": "src/com/technoetic/xplanner/format/AbstractFormat.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/format/DateFormat.class",
+      "source": "src/com/technoetic/xplanner/format/DateFormat.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/format/DateTimeFormat.class",
+      "source": "src/com/technoetic/xplanner/format/DateTimeFormat.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/format/DecimalFormat.class",
+      "source": "src/com/technoetic/xplanner/format/DecimalFormat.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/format/PrintfFormat.class",
+      "source": "src/com/technoetic/xplanner/format/PrintfFormat.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/format/PrintfFormat$ConversionSpecification.class",
+      "source": "src/com/technoetic/xplanner/format/PrintfFormat.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/AbstractEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/AbstractEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/AggregateTimesheetForm.class",
+      "source": "src/com/technoetic/xplanner/forms/AggregateTimesheetForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/ContinueUnfinishedStoriesForm.class",
+      "source": "src/com/technoetic/xplanner/forms/ContinueUnfinishedStoriesForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/FeatureEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/FeatureEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/FileManagerForm.class",
+      "source": "src/com/technoetic/xplanner/forms/FileManagerForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/ImportForm.class",
+      "source": "src/com/technoetic/xplanner/forms/ImportForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/ImportPeopleForm.class",
+      "source": "src/com/technoetic/xplanner/forms/ImportPeopleForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/ImportStoriesForm.class",
+      "source": "src/com/technoetic/xplanner/forms/ImportStoriesForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/IterationEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/IterationEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/IterationStatusEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/IterationStatusEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/MoveContinueStoryForm.class",
+      "source": "src/com/technoetic/xplanner/forms/MoveContinueStoryForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/MoveContinueTaskForm.class",
+      "source": "src/com/technoetic/xplanner/forms/MoveContinueTaskForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/MoveStoriesForm.class",
+      "source": "src/com/technoetic/xplanner/forms/MoveStoriesForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/NoteEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/NoteEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/PeopleImportResult.class",
+      "source": "src/com/technoetic/xplanner/forms/PeopleImportResult.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/PersonEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/PersonEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/PersonEditorForm$1.class",
+      "source": "src/com/technoetic/xplanner/forms/PersonEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/PersonTimesheetForm.class",
+      "source": "src/com/technoetic/xplanner/forms/PersonTimesheetForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/ProjectEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/ProjectEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/ProjectEditorForm$PersonInfo.class",
+      "source": "src/com/technoetic/xplanner/forms/ProjectEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/ReorderStoriesForm.class",
+      "source": "src/com/technoetic/xplanner/forms/ReorderStoriesForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/RoleEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/RoleEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/RoleEditorForm$1.class",
+      "source": "src/com/technoetic/xplanner/forms/RoleEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/TaskEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/TaskEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/TimeEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/TimeEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/TimeEditorForm$TimeEntryMemento.class",
+      "source": "src/com/technoetic/xplanner/forms/TimeEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/forms/UserStoryEditorForm.class",
+      "source": "src/com/technoetic/xplanner/forms/UserStoryEditorForm.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/history/History2.class",
+      "source": "src/com/technoetic/xplanner/history/History2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/history/HistorySupport.class",
+      "source": "src/com/technoetic/xplanner/history/HistorySupport.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/ical/iCalServlet.class",
+      "source": "src/com/technoetic/xplanner/ical/iCalServlet.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/MissingColumnHeaderSpreadsheetImporterException.class",
+      "source": "src/com/technoetic/xplanner/importer/MissingColumnHeaderSpreadsheetImporterException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/MissingFieldSpreadsheetImporterException.class",
+      "source": "src/com/technoetic/xplanner/importer/MissingFieldSpreadsheetImporterException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/CookbookFields.class",
+      "source": "src/com/technoetic/xplanner/importer/spreadsheet/CookbookFields.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/MissingWorksheetException.class",
+      "source": "src/com/technoetic/xplanner/importer/spreadsheet/MissingWorksheetException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/Spreadsheet.class",
+      "source": "src/com/technoetic/xplanner/importer/spreadsheet/Spreadsheet.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetHeaderConfiguration.class",
+      "source": "src/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetHeaderConfiguration.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetHeaderReader.class",
+      "source": "src/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetHeaderReader.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetStoryFilter.class",
+      "source": "src/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetStoryFilter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetStoryReader.class",
+      "source": "src/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetStoryReader.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetStoryReader$StoryRowIterator.class",
+      "source": "src/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetStoryReader.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetStoryWriter.class",
+      "source": "src/com/technoetic/xplanner/importer/spreadsheet/SpreadsheetStoryWriter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/SpreadsheetImporterException.class",
+      "source": "src/com/technoetic/xplanner/importer/SpreadsheetImporterException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/SpreadsheetStory.class",
+      "source": "src/com/technoetic/xplanner/importer/SpreadsheetStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/SpreadsheetStoryFactory.class",
+      "source": "src/com/technoetic/xplanner/importer/SpreadsheetStoryFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/SpreadsheetStoryImporter.class",
+      "source": "src/com/technoetic/xplanner/importer/SpreadsheetStoryImporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/util/IOStreamFactory.class",
+      "source": "src/com/technoetic/xplanner/importer/util/IOStreamFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/importer/WrongImportFileSpreadsheetImporterException.class",
+      "source": "src/com/technoetic/xplanner/importer/WrongImportFileSpreadsheetImporterException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/mail/EmailFormatter.class",
+      "source": "src/com/technoetic/xplanner/mail/EmailFormatter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/mail/EmailFormatterImpl.class",
+      "source": "src/com/technoetic/xplanner/mail/EmailFormatterImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/mail/EmailMessage.class",
+      "source": "src/com/technoetic/xplanner/mail/EmailMessage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/mail/EmailMessageFactory.class",
+      "source": "src/com/technoetic/xplanner/mail/EmailMessageFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/mail/EmailMessageImpl.class",
+      "source": "src/com/technoetic/xplanner/mail/EmailMessageImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/mail/EmailNotificationSupport.class",
+      "source": "src/com/technoetic/xplanner/mail/EmailNotificationSupport.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/mail/MissingTimeEntryEmailJob.class",
+      "source": "src/com/technoetic/xplanner/mail/MissingTimeEntryEmailJob.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/mail/MissingTimeEntryNotifier.class",
+      "source": "src/com/technoetic/xplanner/mail/MissingTimeEntryNotifier.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/mail/SmtpAuthenticator.class",
+      "source": "src/com/technoetic/xplanner/mail/SmtpAuthenticator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/metrics/DeveloperMetrics.class",
+      "source": "src/com/technoetic/xplanner/metrics/DeveloperMetrics.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/metrics/IterationMetrics.class",
+      "source": "src/com/technoetic/xplanner/metrics/IterationMetrics.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/metrics/IterationMetrics$1.class",
+      "source": "src/com/technoetic/xplanner/metrics/IterationMetrics.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/metrics/IterationMetrics$2.class",
+      "source": "src/com/technoetic/xplanner/metrics/IterationMetrics.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/metrics/IterationMetrics$3.class",
+      "source": "src/com/technoetic/xplanner/metrics/IterationMetrics.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/metrics/UserStoryMetrics.class",
+      "source": "src/com/technoetic/xplanner/metrics/UserStoryMetrics.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/AuthorizationException.class",
+      "source": "src/com/technoetic/xplanner/security/auth/AuthorizationException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/AuthorizationHelper.class",
+      "source": "src/com/technoetic/xplanner/security/auth/AuthorizationHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/Authorizer.class",
+      "source": "src/com/technoetic/xplanner/security/auth/Authorizer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/AuthorizerImpl.class",
+      "source": "src/com/technoetic/xplanner/security/auth/AuthorizerImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/AuthorizerInitializer.class",
+      "source": "src/com/technoetic/xplanner/security/auth/AuthorizerInitializer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/AuthorizerQueryHelper.class",
+      "source": "src/com/technoetic/xplanner/security/auth/AuthorizerQueryHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/Permission2.class",
+      "source": "src/com/technoetic/xplanner/security/auth/Permission2.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/PermissionHelper.class",
+      "source": "src/com/technoetic/xplanner/security/auth/PermissionHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/PermissionSetKey.class",
+      "source": "src/com/technoetic/xplanner/security/auth/PermissionSetKey.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/PrincipalSpecificPermissionHelper.class",
+      "source": "src/com/technoetic/xplanner/security/auth/PrincipalSpecificPermissionHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/PrincipalSpecificPermissionHelper$1.class",
+      "source": "src/com/technoetic/xplanner/security/auth/PrincipalSpecificPermissionHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/PrincipalSpecificPermissionHelper$PersonFilter.class",
+      "source": "src/com/technoetic/xplanner/security/auth/PrincipalSpecificPermissionHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/auth/SystemAuthorizer.class",
+      "source": "src/com/technoetic/xplanner/security/auth/SystemAuthorizer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/AuthenticationException.class",
+      "source": "src/com/technoetic/xplanner/security/AuthenticationException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/Authenticator.class",
+      "source": "src/com/technoetic/xplanner/security/Authenticator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/AuthenticatorImpl.class",
+      "source": "src/com/technoetic/xplanner/security/AuthenticatorImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/config/AuthConstraint.class",
+      "source": "src/com/technoetic/xplanner/security/config/AuthConstraint.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/config/SecurityConfiguration.class",
+      "source": "src/com/technoetic/xplanner/security/config/SecurityConfiguration.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/config/SecurityConstraint.class",
+      "source": "src/com/technoetic/xplanner/security/config/SecurityConstraint.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/config/SecurityRole.class",
+      "source": "src/com/technoetic/xplanner/security/config/SecurityRole.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/config/WebResourceCollection.class",
+      "source": "src/com/technoetic/xplanner/security/config/WebResourceCollection.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/CredentialCookie.class",
+      "source": "src/com/technoetic/xplanner/security/CredentialCookie.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/filter/AbstractSecurityFilter.class",
+      "source": "src/com/technoetic/xplanner/security/filter/AbstractSecurityFilter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/filter/BasicSecurityFilter.class",
+      "source": "src/com/technoetic/xplanner/security/filter/BasicSecurityFilter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/filter/FormSecurityFilter.class",
+      "source": "src/com/technoetic/xplanner/security/filter/FormSecurityFilter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/filter/NullSecurityFilter.class",
+      "source": "src/com/technoetic/xplanner/security/filter/NullSecurityFilter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/install/BootstrapSystemUser.class",
+      "source": "src/com/technoetic/xplanner/security/install/BootstrapSystemUser.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/LoginContext.class",
+      "source": "src/com/technoetic/xplanner/security/LoginContext.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/LoginModule.class",
+      "source": "src/com/technoetic/xplanner/security/LoginModule.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/ConfigurationException.class",
+      "source": "src/com/technoetic/xplanner/security/module/ConfigurationException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/jaas/JaasLoginModuleAdapter.class",
+      "source": "src/com/technoetic/xplanner/security/module/jaas/JaasLoginModuleAdapter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/jaas/JaasLoginModuleAdapterFactory.class",
+      "source": "src/com/technoetic/xplanner/security/module/jaas/JaasLoginModuleAdapterFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/jaas/UserIdAndPasswordCallbackHandler.class",
+      "source": "src/com/technoetic/xplanner/security/module/jaas/UserIdAndPasswordCallbackHandler.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/jndi/JNDILoginModule.class",
+      "source": "src/com/technoetic/xplanner/security/module/jndi/JNDILoginModule.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/LoginModuleFactory.class",
+      "source": "src/com/technoetic/xplanner/security/module/LoginModuleFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/LoginModuleLoader.class",
+      "source": "src/com/technoetic/xplanner/security/module/LoginModuleLoader.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/LoginSupport.class",
+      "source": "src/com/technoetic/xplanner/security/module/LoginSupport.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/LoginSupportImpl.class",
+      "source": "src/com/technoetic/xplanner/security/module/LoginSupportImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/ntlm/NtlmLoginHelper.class",
+      "source": "src/com/technoetic/xplanner/security/module/ntlm/NtlmLoginHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/ntlm/NtlmLoginHelperImpl.class",
+      "source": "src/com/technoetic/xplanner/security/module/ntlm/NtlmLoginHelperImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/ntlm/NtlmLoginModule.class",
+      "source": "src/com/technoetic/xplanner/security/module/ntlm/NtlmLoginModule.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/module/XPlannerLoginModule.class",
+      "source": "src/com/technoetic/xplanner/security/module/XPlannerLoginModule.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/PersonPrincipal.class",
+      "source": "src/com/technoetic/xplanner/security/PersonPrincipal.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/SecurityHelper.class",
+      "source": "src/com/technoetic/xplanner/security/SecurityHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/TomcatUserImporter.class",
+      "source": "src/com/technoetic/xplanner/security/TomcatUserImporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/TomcatUserImporter$User.class",
+      "source": "src/com/technoetic/xplanner/security/TomcatUserImporter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/util/Base64.class",
+      "source": "src/com/technoetic/xplanner/security/util/Base64.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/security/util/HexUtils.class",
+      "source": "src/com/technoetic/xplanner/security/util/HexUtils.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/domain/DomainData.class",
+      "source": "src/com/technoetic/xplanner/soap/domain/DomainData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/domain/FeatureData.class",
+      "source": "src/com/technoetic/xplanner/soap/domain/FeatureData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/domain/IterationData.class",
+      "source": "src/com/technoetic/xplanner/soap/domain/IterationData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/domain/NoteData.class",
+      "source": "src/com/technoetic/xplanner/soap/domain/NoteData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/domain/PersonData.class",
+      "source": "src/com/technoetic/xplanner/soap/domain/PersonData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/domain/ProjectData.class",
+      "source": "src/com/technoetic/xplanner/soap/domain/ProjectData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/domain/TaskData.class",
+      "source": "src/com/technoetic/xplanner/soap/domain/TaskData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/domain/TimeEntryData.class",
+      "source": "src/com/technoetic/xplanner/soap/domain/TimeEntryData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/domain/UserStoryData.class",
+      "source": "src/com/technoetic/xplanner/soap/domain/UserStoryData.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/ObjectNotFoundException.class",
+      "source": "src/com/technoetic/xplanner/soap/ObjectNotFoundException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/XPlanner.class",
+      "source": "src/com/technoetic/xplanner/soap/XPlanner.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/XPlanner$1.class",
+      "source": "src/com/technoetic/xplanner/soap/XPlanner.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/soap/XPlanner$2.class",
+      "source": "src/com/technoetic/xplanner/soap/XPlanner.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/SystemInfo.class",
+      "source": "src/com/technoetic/xplanner/SystemInfo.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/SystemInfo$1.class",
+      "source": "src/com/technoetic/xplanner/SystemInfo.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/SystemInfo$2.class",
+      "source": "src/com/technoetic/xplanner/SystemInfo.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/SystemInfo$3.class",
+      "source": "src/com/technoetic/xplanner/SystemInfo.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/AccessKeyTransformer.class",
+      "source": "src/com/technoetic/xplanner/tags/AccessKeyTransformer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/AuthenticatedUserTag.class",
+      "source": "src/com/technoetic/xplanner/tags/AuthenticatedUserTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/AuthenticatedUserTEI.class",
+      "source": "src/com/technoetic/xplanner/tags/AuthenticatedUserTEI.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/CewolfProgressBarChartImage.class",
+      "source": "src/com/technoetic/xplanner/tags/CewolfProgressBarChartImage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/CharacterEnumSelectTag.class",
+      "source": "src/com/technoetic/xplanner/tags/CharacterEnumSelectTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ContentTag.class",
+      "source": "src/com/technoetic/xplanner/tags/ContentTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ContentTitleArgTag.class",
+      "source": "src/com/technoetic/xplanner/tags/ContentTitleArgTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ContentTitleTag.class",
+      "source": "src/com/technoetic/xplanner/tags/ContentTitleTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ContextInitiator.class",
+      "source": "src/com/technoetic/xplanner/tags/ContextInitiator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/db/DatabaseTagSupport.class",
+      "source": "src/com/technoetic/xplanner/tags/db/DatabaseTagSupport.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/db/UseBeansParameterTag.class",
+      "source": "src/com/technoetic/xplanner/tags/db/UseBeansParameterTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/db/UseBeansTag.class",
+      "source": "src/com/technoetic/xplanner/tags/db/UseBeansTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/db/UseBeansTEI.class",
+      "source": "src/com/technoetic/xplanner/tags/db/UseBeansTEI.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/db/UseBeanTag.class",
+      "source": "src/com/technoetic/xplanner/tags/db/UseBeanTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/db/UseBeanTEI.class",
+      "source": "src/com/technoetic/xplanner/tags/db/UseBeanTEI.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/ActionButtonsColumnTag.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/ActionButtonsColumnTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/ActionButtonsTag.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/ActionButtonsTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/ActionButtonsTagInfo.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/ActionButtonsTagInfo.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/AllTasksTableDecorator.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/AllTasksTableDecorator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/ColumnTag.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/ColumnTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/HeaderCell.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/HeaderCell.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/HoursDecorator.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/HoursDecorator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/IterationRowDecorator.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/IterationRowDecorator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/PersonIdDecorator.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/PersonIdDecorator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/Row.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/Row.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/Row$1.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/Row.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/Row$DefaultRowDecorator.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/Row.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/RowDecorator.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/RowDecorator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/TableModel.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/TableModel.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/TaskDecorator.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/TaskDecorator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/TaskOrdering.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/TaskOrdering.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/TaskRowDecorator.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/TaskRowDecorator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/UserStoryDecorator.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/UserStoryDecorator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/displaytag/WritableTableTag.class",
+      "source": "src/com/technoetic/xplanner/tags/displaytag/WritableTableTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/domain/ActionTag.class",
+      "source": "src/com/technoetic/xplanner/tags/domain/ActionTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/domain/UnknownActionException.class",
+      "source": "src/com/technoetic/xplanner/tags/domain/UnknownActionException.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/DomainContext.class",
+      "source": "src/com/technoetic/xplanner/tags/DomainContext.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/FormatDateTag.class",
+      "source": "src/com/technoetic/xplanner/tags/FormatDateTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/HistoryLinkTag.class",
+      "source": "src/com/technoetic/xplanner/tags/HistoryLinkTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/IsUserAuthorizedForAnyTag.class",
+      "source": "src/com/technoetic/xplanner/tags/IsUserAuthorizedForAnyTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/IsUserAuthorizedTag.class",
+      "source": "src/com/technoetic/xplanner/tags/IsUserAuthorizedTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/IsUserInRoleTag.class",
+      "source": "src/com/technoetic/xplanner/tags/IsUserInRoleTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/IterationLoader.class",
+      "source": "src/com/technoetic/xplanner/tags/IterationLoader.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/IterationModel.class",
+      "source": "src/com/technoetic/xplanner/tags/IterationModel.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/IterationOptionsTag.class",
+      "source": "src/com/technoetic/xplanner/tags/IterationOptionsTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/LinkParamTag.class",
+      "source": "src/com/technoetic/xplanner/tags/LinkParamTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/LinkTag.class",
+      "source": "src/com/technoetic/xplanner/tags/LinkTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/NavigationBarTag.class",
+      "source": "src/com/technoetic/xplanner/tags/NavigationBarTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/OptionsTag.class",
+      "source": "src/com/technoetic/xplanner/tags/OptionsTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/OutlineTag.class",
+      "source": "src/com/technoetic/xplanner/tags/OutlineTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/PageHelper.class",
+      "source": "src/com/technoetic/xplanner/tags/PageHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/PersonOptionsTag.class",
+      "source": "src/com/technoetic/xplanner/tags/PersonOptionsTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/PrintLinkTag.class",
+      "source": "src/com/technoetic/xplanner/tags/PrintLinkTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ProgressBarDelegatorTag.class",
+      "source": "src/com/technoetic/xplanner/tags/ProgressBarDelegatorTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ProgressBarHtmlTag.class",
+      "source": "src/com/technoetic/xplanner/tags/ProgressBarHtmlTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ProgressBarImage.class",
+      "source": "src/com/technoetic/xplanner/tags/ProgressBarImage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ProgressBarImage$Model.class",
+      "source": "src/com/technoetic/xplanner/tags/ProgressBarImage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ProgressBarImageTag.class",
+      "source": "src/com/technoetic/xplanner/tags/ProgressBarImageTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/ProgressBarTag.class",
+      "source": "src/com/technoetic/xplanner/tags/ProgressBarTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/PropertyEqualTag.class",
+      "source": "src/com/technoetic/xplanner/tags/PropertyEqualTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/PropertyTag.class",
+      "source": "src/com/technoetic/xplanner/tags/PropertyTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/StoryModel.class",
+      "source": "src/com/technoetic/xplanner/tags/StoryModel.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/StoryOptionsTag.class",
+      "source": "src/com/technoetic/xplanner/tags/StoryOptionsTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/TilesHelper.class",
+      "source": "src/com/technoetic/xplanner/tags/TilesHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/TwikiTag.class",
+      "source": "src/com/technoetic/xplanner/tags/TwikiTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/util/BoxedListTag.class",
+      "source": "src/com/technoetic/xplanner/tags/util/BoxedListTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/util/BoxTag.class",
+      "source": "src/com/technoetic/xplanner/tags/util/BoxTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tags/WritableTag.class",
+      "source": "src/com/technoetic/xplanner/tags/WritableTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tx/CheckedExceptionHandlingTransactionTemplate.class",
+      "source": "src/com/technoetic/xplanner/tx/CheckedExceptionHandlingTransactionTemplate.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/tx/CheckedExceptionHandlingTransactionTemplate$1.class",
+      "source": "src/com/technoetic/xplanner/tx/CheckedExceptionHandlingTransactionTemplate.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/Callable.class",
+      "source": "src/com/technoetic/xplanner/util/Callable.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/ClassUtil.class",
+      "source": "src/com/technoetic/xplanner/util/ClassUtil.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/CollectionUtils.class",
+      "source": "src/com/technoetic/xplanner/util/CollectionUtils.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/CollectionUtils$DoubleFilter.class",
+      "source": "src/com/technoetic/xplanner/util/CollectionUtils.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/CollectionUtils$DoublePropertyFilter.class",
+      "source": "src/com/technoetic/xplanner/util/CollectionUtils.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/CookieSupport.class",
+      "source": "src/com/technoetic/xplanner/util/CookieSupport.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/FileUtilities.class",
+      "source": "src/com/technoetic/xplanner/util/FileUtilities.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/HttpClient.class",
+      "source": "src/com/technoetic/xplanner/util/HttpClient.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/InputStreamFormFile.class",
+      "source": "src/com/technoetic/xplanner/util/InputStreamFormFile.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/Interval.class",
+      "source": "src/com/technoetic/xplanner/util/Interval.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/LocaleUtil.class",
+      "source": "src/com/technoetic/xplanner/util/LocaleUtil.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/LogUtil.class",
+      "source": "src/com/technoetic/xplanner/util/LogUtil.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/MainBeanFactory.class",
+      "source": "src/com/technoetic/xplanner/util/MainBeanFactory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/PropertyUtils.class",
+      "source": "src/com/technoetic/xplanner/util/PropertyUtils.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/RequestUtils.class",
+      "source": "src/com/technoetic/xplanner/util/RequestUtils.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/StringUtilities.class",
+      "source": "src/com/technoetic/xplanner/util/StringUtilities.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/TimeGenerator.class",
+      "source": "src/com/technoetic/xplanner/util/TimeGenerator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/util/ToStringUtils.class",
+      "source": "src/com/technoetic/xplanner/util/ToStringUtils.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/views/ActionRenderer.class",
+      "source": "src/com/technoetic/xplanner/views/ActionRenderer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/views/HistoryPage.class",
+      "source": "src/com/technoetic/xplanner/views/HistoryPage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/views/IconConstants.class",
+      "source": "src/com/technoetic/xplanner/views/IconConstants.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/views/IterationAccuracyPage.class",
+      "source": "src/com/technoetic/xplanner/views/IterationAccuracyPage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/views/IterationPage.class",
+      "source": "src/com/technoetic/xplanner/views/IterationPage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/views/IterationStoriesPage.class",
+      "source": "src/com/technoetic/xplanner/views/IterationStoriesPage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/webservers/JettyServer.class",
+      "source": "src/com/technoetic/xplanner/webservers/JettyServer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/DomainObjectSchemeHandler.class",
+      "source": "src/com/technoetic/xplanner/wiki/DomainObjectSchemeHandler.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/ExternalTwikiAdapter.class",
+      "source": "src/com/technoetic/xplanner/wiki/ExternalTwikiAdapter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/ExternalWikiAdapter.class",
+      "source": "src/com/technoetic/xplanner/wiki/ExternalWikiAdapter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/GenericWikiAdapter.class",
+      "source": "src/com/technoetic/xplanner/wiki/GenericWikiAdapter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/PropertySimpleSchemeHandler.class",
+      "source": "src/com/technoetic/xplanner/wiki/PropertySimpleSchemeHandler.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/SchemeHandler.class",
+      "source": "src/com/technoetic/xplanner/wiki/SchemeHandler.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/SimpleSchemeHandler.class",
+      "source": "src/com/technoetic/xplanner/wiki/SimpleSchemeHandler.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/SimpleWikiAdapter.class",
+      "source": "src/com/technoetic/xplanner/wiki/SimpleWikiAdapter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/TwikiFormat.class",
+      "source": "src/com/technoetic/xplanner/wiki/TwikiFormat.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/WackoWikiFormat.class",
+      "source": "src/com/technoetic/xplanner/wiki/WackoWikiFormat.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/wiki/WikiFormat.class",
+      "source": "src/com/technoetic/xplanner/wiki/WikiFormat.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/XPlannerProperties.class",
+      "source": "src/com/technoetic/xplanner/XPlannerProperties.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/technoetic/xplanner/XPlannerProperties$PropertyInitializer.class",
+      "source": "src/com/technoetic/xplanner/XPlannerProperties.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/thoughtworks/proxy/kit/SimpleInvoker.class",
+      "source": "src/com/thoughtworks/proxy/kit/SimpleInvoker.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/thoughtworks/proxy/toys/decorate/DecoratingInvoker.class",
+      "source": "src/com/thoughtworks/proxy/toys/decorate/DecoratingInvoker.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/com/thoughtworks/proxy/toys/echo/EchoDecorator.class",
+      "source": "src/com/thoughtworks/proxy/toys/echo/EchoDecorator.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/context/ContextLoaderListener.class",
+      "source": "src/net/sf/xplanner/context/ContextLoaderListener.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/AttributeDao.class",
+      "source": "src/net/sf/xplanner/dao/AttributeDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/Dao.class",
+      "source": "src/net/sf/xplanner/dao/Dao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/DataSampleDao.class",
+      "source": "src/net/sf/xplanner/dao/DataSampleDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/AttributeDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/AttributeDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/BaseDao.class",
+      "source": "src/net/sf/xplanner/dao/impl/BaseDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/CommonDao.class",
+      "source": "src/net/sf/xplanner/dao/impl/CommonDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/DataSampleDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/DataSampleDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/ObjectTypeDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/ObjectTypeDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/PersonDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/PersonDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/ProjectDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/ProjectDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/RoleDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/RoleDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/SettingDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/SettingDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/TaskDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/TaskDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/TimeEntryDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/TimeEntryDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/UserStoryDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/UserStoryDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/impl/ViewDaoImpl.class",
+      "source": "src/net/sf/xplanner/dao/impl/ViewDaoImpl.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/ObjectTypeDao.class",
+      "source": "src/net/sf/xplanner/dao/ObjectTypeDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/PersonDao.class",
+      "source": "src/net/sf/xplanner/dao/PersonDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/ProjectDao.class",
+      "source": "src/net/sf/xplanner/dao/ProjectDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/RoleDao.class",
+      "source": "src/net/sf/xplanner/dao/RoleDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/SettingDao.class",
+      "source": "src/net/sf/xplanner/dao/SettingDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/TaskDao.class",
+      "source": "src/net/sf/xplanner/dao/TaskDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/TimeEntryDao.class",
+      "source": "src/net/sf/xplanner/dao/TimeEntryDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/UserStoryDao.class",
+      "source": "src/net/sf/xplanner/dao/UserStoryDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dao/ViewDao.class",
+      "source": "src/net/sf/xplanner/dao/ViewDao.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Attribute.class",
+      "source": "src/net/sf/xplanner/domain/Attribute.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/AttributeId.class",
+      "source": "src/net/sf/xplanner/domain/AttributeId.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/DataSample.class",
+      "source": "src/net/sf/xplanner/domain/DataSample.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/DataSampleId.class",
+      "source": "src/net/sf/xplanner/domain/DataSampleId.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Directory.class",
+      "source": "src/net/sf/xplanner/domain/Directory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/DomainObject.class",
+      "source": "src/net/sf/xplanner/domain/DomainObject.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/enums/IterationType.class",
+      "source": "src/net/sf/xplanner/domain/enums/IterationType.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/enums/SettingScope.class",
+      "source": "src/net/sf/xplanner/domain/enums/SettingScope.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/enums/TaskStatus.class",
+      "source": "src/net/sf/xplanner/domain/enums/TaskStatus.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/File.class",
+      "source": "src/net/sf/xplanner/domain/File.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/History.class",
+      "source": "src/net/sf/xplanner/domain/History.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Identifier.class",
+      "source": "src/net/sf/xplanner/domain/Identifier.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Integration.class",
+      "source": "src/net/sf/xplanner/domain/Integration.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Iteration.class",
+      "source": "src/net/sf/xplanner/domain/Iteration.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/NamedObject.class",
+      "source": "src/net/sf/xplanner/domain/NamedObject.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Note.class",
+      "source": "src/net/sf/xplanner/domain/Note.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/NotificationReceivers.class",
+      "source": "src/net/sf/xplanner/domain/NotificationReceivers.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/NotificationReceiversId.class",
+      "source": "src/net/sf/xplanner/domain/NotificationReceiversId.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/ObjectType.class",
+      "source": "src/net/sf/xplanner/domain/ObjectType.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Patches.class",
+      "source": "src/net/sf/xplanner/domain/Patches.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Permission.class",
+      "source": "src/net/sf/xplanner/domain/Permission.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Person.class",
+      "source": "src/net/sf/xplanner/domain/Person.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/PersonRole.class",
+      "source": "src/net/sf/xplanner/domain/PersonRole.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/PersonRoleId.class",
+      "source": "src/net/sf/xplanner/domain/PersonRoleId.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Project.class",
+      "source": "src/net/sf/xplanner/domain/Project.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Role.class",
+      "source": "src/net/sf/xplanner/domain/Role.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Setting.class",
+      "source": "src/net/sf/xplanner/domain/Setting.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/Task.class",
+      "source": "src/net/sf/xplanner/domain/Task.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/TimeEntry.class",
+      "source": "src/net/sf/xplanner/domain/TimeEntry.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$1.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$10.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$2.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$3.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$4.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$5.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$6.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$7.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$8.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/UserStory$9.class",
+      "source": "src/net/sf/xplanner/domain/UserStory.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/view/IterationView.class",
+      "source": "src/net/sf/xplanner/domain/view/IterationView.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/view/ProjectView.class",
+      "source": "src/net/sf/xplanner/domain/view/ProjectView.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/view/TaskView.class",
+      "source": "src/net/sf/xplanner/domain/view/TaskView.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/domain/view/UserStoryView.class",
+      "source": "src/net/sf/xplanner/domain/view/UserStoryView.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/dwr/Project.class",
+      "source": "src/net/sf/xplanner/dwr/Project.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/email/Content.class",
+      "source": "src/net/sf/xplanner/email/Content.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/email/EmailContextHelper.class",
+      "source": "src/net/sf/xplanner/email/EmailContextHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/email/EmailHelper.class",
+      "source": "src/net/sf/xplanner/email/EmailHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/email/EmailPerChangeListener.class",
+      "source": "src/net/sf/xplanner/email/EmailPerChangeListener.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/events/EventManager.class",
+      "source": "src/net/sf/xplanner/events/EventManager.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/events/EventSource.class",
+      "source": "src/net/sf/xplanner/events/EventSource.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/events/ObjectCreated.class",
+      "source": "src/net/sf/xplanner/events/ObjectCreated.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/events/ObjectDeleted.class",
+      "source": "src/net/sf/xplanner/events/ObjectDeleted.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/events/ObjectUpdated.class",
+      "source": "src/net/sf/xplanner/events/ObjectUpdated.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/events/XplannerEvent.class",
+      "source": "src/net/sf/xplanner/events/XplannerEvent.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/functions/Functions.class",
+      "source": "src/net/sf/xplanner/functions/Functions.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/hibernate/AliasToBeanResultTransformer.class",
+      "source": "src/net/sf/xplanner/hibernate/AliasToBeanResultTransformer.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/hibernate/ObjectSetter.class",
+      "source": "src/net/sf/xplanner/hibernate/ObjectSetter.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/rest/Result.class",
+      "source": "src/net/sf/xplanner/rest/Result.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/rest/UpdateManager.class",
+      "source": "src/net/sf/xplanner/rest/UpdateManager.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/rest/UpdateService.class",
+      "source": "src/net/sf/xplanner/rest/UpdateService.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/rest/ViewManager.class",
+      "source": "src/net/sf/xplanner/rest/ViewManager.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/rest/ViewService.class",
+      "source": "src/net/sf/xplanner/rest/ViewService.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/struts/XPlannerActionServlet.class",
+      "source": "src/net/sf/xplanner/struts/XPlannerActionServlet.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/struts/XPlannerMessageResources.class",
+      "source": "src/net/sf/xplanner/struts/XPlannerMessageResources.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/tags/domain/Link.class",
+      "source": "src/net/sf/xplanner/tags/domain/Link.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/tags/NavigationBarTag.class",
+      "source": "src/net/sf/xplanner/tags/NavigationBarTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/util/DaoScanner.class",
+      "source": "src/net/sf/xplanner/util/DaoScanner.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/web/BasePage.class",
+      "source": "src/net/sf/xplanner/web/BasePage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/web/CommonObjectHandler.class",
+      "source": "src/net/sf/xplanner/web/CommonObjectHandler.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/net/sf/xplanner/web/MePage.class",
+      "source": "src/net/sf/xplanner/web/MePage.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/org/apache/struts/upload/MultipartRequestWrapper.class",
+      "source": "src/org/apache/struts/upload/MultipartRequestWrapper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/org/displaytag/pagination/Pagination.class",
+      "source": "src/org/displaytag/pagination/Pagination.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/org/displaytag/pagination/SmartListHelper.class",
+      "source": "src/org/displaytag/pagination/SmartListHelper.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/org/displaytag/properties/TableProperties.class",
+      "source": "src/org/displaytag/properties/TableProperties.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/org/displaytag/properties/TableProperties$1.class",
+      "source": "src/org/displaytag/properties/TableProperties.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/org/displaytag/properties/TableProperties$2.class",
+      "source": "src/org/displaytag/properties/TableProperties.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/org/displaytag/tags/ColumnTag.class",
+      "source": "src/org/displaytag/tags/ColumnTag.java",
+      "present": true
+    },
+    {
+      "class": "WEB-INF/classes/org/displaytag/tags/TableTag.class",
+      "source": "src/org/displaytag/tags/TableTag.java",
+      "present": true
+    }
+  ]
+}

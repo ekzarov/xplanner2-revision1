@@ -45,6 +45,16 @@ function sourceIntakeScope(intake) {
   return `source-intake:${sha256Buffer(JSON.stringify(canonical))}`;
 }
 
+// Project fix (xplanner2-revision1): same prose extraction as status-validator withoutCodeSpans.
+function proseOnly(text) {
+  return text
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/~~~[\s\S]*?~~~/g, ' ')
+    .replace(/`(?:[^`\n]|\n(?!\s*\n))*`/g, ' ')
+    .replace(/^(?: {4}|\t).*$/gm, ' ');
+}
+
 function auditSourceIntake(root, config, status, result, configured, requireSourceReady = false) {
   const intake = config.source_intake;
   const stage = stageNumber(status.control.current_stage);
@@ -69,7 +79,9 @@ function auditSourceIntake(root, config, status, result, configured, requireSour
     const file = local(relative);
     if (!fs.statSync(file).isFile()) throw new Error('source_intake record must be a file');
     const body = fs.readFileSync(file, 'utf8');
-    if (!body.trim() || hasEvidencePlaceholders(body)) throw new Error('source_intake record is empty or contains placeholders');
+    // Project fix (xplanner2-revision1): probe prose only, as hasEvidencePlaceholders requires
+    // and status-validator does; HTML comments and code are not placeholders.
+    if (!body.trim() || hasEvidencePlaceholders(proseOnly(body))) throw new Error('source_intake record is empty or contains placeholders');
     return file;
   };
   try {
@@ -196,4 +208,4 @@ if (require.main === module) {
   }));
 }
 
-module.exports = { COMMAND_NAMES, EXPECTED_COMMAND_STAGES, auditProjectConfig, stageNumber, sourceIntakeScope };
+module.exports = { COMMAND_NAMES, EXPECTED_COMMAND_STAGES, auditProjectConfig, stageNumber, sourceIntakeScope, proseOnly };

@@ -1,3 +1,7 @@
+<!-- Project amendment impact: 1.0.0 -> 1.1.0 (2026-09-30). Owner ekzarov approved
+amendment A4: the attributed official XPlanner+ SVN r426 source is admitted as
+supplementary evidence where it corresponds to the baseline WAR; the WAR stays
+authoritative. MINOR: an added enforceable section; no principle or invariant changes. -->
 <!-- Project sync impact: 0.2.2-draft -> 1.0.0 (2026-09-23). Owner ekzarov ratified
 the rendered starter constitution as the first stable project version and added
 project-specific amendments A1-A3 outside Core Principles. The core principles and
@@ -46,6 +50,7 @@ unfilled in this unratified starter template. -->
   - [A1. WAR-Only Legacy Evidence](#read-a1-war-only-legacy-evidence)
   - [A2. Prior-Migration Examples Are Not Evidence](#read-a2-prior-migration-examples-are-not-evidence)
   - [A3. No Secrets In The Repository](#read-a3-no-secrets-in-the-repository)
+  - [A4. Attributed Upstream Source As Supplementary Evidence](#read-a4-attributed-upstream-source-as-supplementary-evidence)
 - [Ratification Checklist](#read-ratification-checklist)
 - [Bootstrap Decision Record](#read-bootstrap-decision-record)
 - [Governance](#read-governance)
@@ -56,9 +61,9 @@ unfilled in this unratified starter template. -->
 > **Project state:** RATIFIED
 > **Project:** `XPlanner 2 Revision 1`
 > **Owner:** `ekzarov`
-> **Version:** `1.0.0`
+> **Version:** `1.1.0`
 > **Ratified:** 2026-09-23 by `ekzarov`
-> **Last amended:** 2026-09-23 (project-specific amendments A1-A3 at ratification)
+> **Last amended:** 2026-09-30 (amendment A4, owner-approved; A1-A3 at ratification)
 
 This constitution governs the whole modernization project. Its principles remain
 applicable if the workflow is reorganized or renumbered. They define obligations
@@ -497,6 +502,39 @@ temporary demo-credential exception in Principle XI does not apply to this proje
 - **Migration impact:** environment contracts use external secret references
   only; access and credentials are supplied through an approved channel outside Git.
 
+<a id="read-a4-attributed-upstream-source-as-supplementary-evidence"></a>
+
+### A4. Attributed Upstream Source As Supplementary Evidence
+
+The official XPlanner+ SVN revision 426 source tree (archive SHA-256
+`31f8f0fe9dd673d420113de016095e66993031b0cfd709fd428bdee36341e258`, manifest
+`921457c77b4358ca3a735222142668eaf7a76232a0ce6d7e43c0c2ebab5cf201`; 1117 files,
+803 Java) is admitted as supplementary evidence of implementation and conditions
+of the legacy baseline, but only where it corresponds to the baseline WAR
+`46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc`. All 594
+application classes of that WAR are byte-identical to the official v1.1a4 release
+`b4f109896acc2eea0101a1244f1741448beceb3c31435b8bf3a7b0eaa545655c`.
+
+- The baseline WAR stays authoritative. For its three patched configuration
+  entries, and wherever source and WAR differ, the WAR governs. Differences,
+  missing library source and unresolved correspondence (SVN stamps 1.1a2 / r293;
+  no reproducible build) are recorded as limitations, never as business facts.
+- The source does not prove live behavior, does not by itself remove `Inferred`
+  and does not replace the WAR. [`legacy/`](../../legacy), amendments A2 and A3,
+  earlier records and sealed reports are unchanged.
+- The raw source is kept in the project workspace outside Git; Git holds only its
+  provenance and hashes. Credential values are never reproduced.
+- **Rationale:** the delivered package lacks Java source; the attributable upstream
+  source of the same release reduces unverified static claims without weakening
+  Principles II and III.
+- **Affected stages and artifacts:** the source assessment and `source_intake`,
+  the reconnaissance and parity map, their controls and every later evidence
+  reference.
+- **Migration impact:** evidence may cite `SRC:<path>` from the pinned tree next to
+  the WAR evidence; A1 otherwise stays in force.
+- **Owner decision:** approved by `ekzarov`, chat message on 2026-09-30, version
+  `1.1.0`, date 2026-09-30.
+
 <a id="read-ratification-checklist"></a>
 
 ## Ratification Checklist
@@ -623,5 +661,5 @@ process, but it must then identify the departure and MUST NOT claim full
 conformance with this starter methodology.
 
 **Status:** RATIFIED
-**Version:** `1.0.0`
+**Version:** `1.1.0`
 **Ratified:** 2026-09-23 by `ekzarov`

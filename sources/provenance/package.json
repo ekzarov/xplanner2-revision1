@@ -1,0 +1,30 @@
+{
+  "acquired_at": "2026-09-30T09:44:57.409Z",
+  "origin": "https://svn.code.sf.net/p/xplanner-plus/code/!svn/bc/426/trunk/xplanner-plus/",
+  "files": [
+    {
+      "path": "xplanner-plus-r426.zip",
+      "sha256": "31f8f0fe9dd673d420113de016095e66993031b0cfd709fd428bdee36341e258"
+    },
+    {
+      "path": "source-manifest.json",
+      "sha256": "921457c77b4358ca3a735222142668eaf7a76232a0ce6d7e43c0c2ebab5cf201"
+    },
+    {
+      "path": "source-links.json",
+      "sha256": "fed60e59f4132f64a0648a80ca0c35075a2fbc3bd13e9fd5ba09efbddd1c6aa5"
+    },
+    {
+      "path": "war-comparison.json",
+      "sha256": "ff2aad5754bf79c14b75bc7a130e90ea36f3ecad0ee4861715eca487c8d0d65d"
+    },
+    {
+      "path": "upstream-v1.1a4.war",
+      "sha256": "b4f109896acc2eea0101a1244f1741448beceb3c31435b8bf3a7b0eaa545655c"
+    }
+  ],
+  "license": "Upstream conf/license.txt: LGPL v3. License and original bytes retained.",
+  "source_correspondence": "Candidate upstream revision 426, matching the build revision declared by the release. All 594 local application classes equal the official release and map to source paths. Not a reproducible-build proof.",
+  "limitation": "SVN src/xplanner.properties still contains older release stamps (1.1a2 / r293); the released WAR declares 1.1a4 / r426. Preserve both. Do not treat upstream configuration as the patched runtime configuration.",
+  "work_boundary": "No business requirement or parity-map row reviewed by Codex. No source scripts/builds executed. No runtime scenario executed."
+}
