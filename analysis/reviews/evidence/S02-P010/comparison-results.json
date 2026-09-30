@@ -1,0 +1,770 @@
+{
+ "packet": "S02-P010",
+ "pass": 10,
+ "control_mode": "correction-validation",
+ "reviewed_revision": "9667b69d774bad704766a6bd7d439ca8fe4cac78",
+ "base_revision": "026fd972915bb58c449b0c6187620589a70b62d8",
+ "root_revision": "15cb6b26946f73596177eba8cead333383d9f728",
+ "root_pass": 6,
+ "previous_pass": 9,
+ "counts": {
+  "total": 46,
+  "matched": 28,
+  "mismatch": 16,
+  "not-checked": 0,
+  "not-applicable": 2
+ },
+ "findings": [
+  "F-001",
+  "F-002",
+  "F-003",
+  "F-004",
+  "F-005"
+ ],
+ "carried_open": [
+  "pass-009 F-003"
+ ],
+ "exclusions": [
+  "E-001",
+  "E-002"
+ ],
+ "blockers": [],
+ "items": [
+  {
+   "id": "C-001",
+   "item": "Root pass 006 eligibility",
+   "expected": "full-blind, fresh reviewer, Phase A saved before Phase B, complete ledger, pinned hashes, evidence unchanged",
+   "observed": "report ee71a38f...cff67, snapshot c8d4f780...74d9, inventory 8f734d0d...4cbe (138 items), ledger a205b9b5...702c with 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); snapshot saved 13:23:33Z, Phase B released 13:25:05Z, first access 13:25:49Z; S02-P006 files only added ROOT..PREV..CAND",
+   "result": "matched",
+   "depth": "chain",
+   "evidence": "packet hash checks; git diff --name-status ROOT PREV and PREV CAND; pass-006 report lines 152, 177, 183",
+   "finding": "none",
+   "covers_prior": [
+    "P9:C-002"
+   ]
+  },
+  {
+   "id": "C-002",
+   "item": "Previous pass 009 validity as the coverage base",
+   "expected": "valid findings pass under root 006; incidents owner-approved non-material; hashes as pinned",
+   "observed": "report 8847eda3...cb08, ledger 34fcc500...f2c, coverage 3180bb82...f77, incident companion da20a8b7...7e68d all match; owner decisions stage-02-pass-009-incident-procedure and stage-02-pass-009-incident-approval recorded; live carryover decision stage-02-live-carryover recorded; no Stage 2 attempt after 009",
+   "result": "matched",
+   "depth": "chain",
+   "evidence": "analysis/migration_status.yaml review entry pass 9; incident-assessment.md Owner Decision Recorded (PM)",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-003",
+   "item": "Chain integrity and ledger consistency (006, 007, 008 invalid, 009, this pass)",
+   "expected": "no omitted attempt; previous_pass = coverage base = 9; no recovery needed",
+   "observed": "status entries 6 findings, 7 findings (baseline 6), 8 invalid, 9 findings (baseline 6, previous 8, recovery base 7, excluded 8); all review evidence add-only; the chronological predecessor 009 is valid, so this pass is an ordinary correction-validation under root 006 without attempt recovery",
+   "result": "matched",
+   "depth": "chain",
+   "evidence": "migration_status.yaml review_passes; names-root-prev.txt, names-prev-cand.txt",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-004",
+   "item": "Legacy source identity at ROOT, PREV and CAND",
+   "expected": "same four legacy files",
+   "observed": "committed blobs identical at the three revisions (README 78b1a6b4...5460, compose e15cd9db...e9ff, WAR 46ff9dc0...4edc, seed 41b2f6a3...66e1); the seed checkout reads 2d32f7d5... only through CRLF conversion (LF-normalized hash equals the blob); WAR extracted by the reviewer: 964 files, 594 classes, 102 JARs",
+   "result": "matched",
+   "depth": "chain",
+   "evidence": "git show <rev>:legacy/demo-seed.sql | sha256sum; unzip into scratch",
+   "finding": "none",
+   "covers_prior": [
+    "P9:C-004"
+   ]
+  },
+  {
+   "id": "C-005",
+   "item": "A4 admissibility: supplementary source versus changed legacy source set or governed scope",
+   "expected": "full-blind only if the legacy source set or governed scope changes",
+   "observed": "A4 admits r426 only where it corresponds to the WAR, keeps the WAR authoritative and legacy/ unchanged, and records differences as limitations; the control authority remains the WAR; no row, channel or subsystem was added; the source adds evidence depth only. Admissible extension of evidence, not a full-blind trigger",
+   "result": "matched",
+   "depth": "chain",
+   "evidence": "constitution 1.1.0 A1, A4; source-assessment-001; source-intake-decision-001; README Stage 2 Correction Validation",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-006",
+   "item": "Governed scope unchanged",
+   "expected": "210 scenario rows, 18 epics, same channels",
+   "observed": "workbook sheet has 234 rows, 3276 cells at PREV and CAND; no row added, removed or renumbered; A-C and E cells unchanged; row attributes unchanged; no new surface in the reconnaissance",
+   "result": "matched",
+   "depth": "diff",
+   "evidence": "wbdump.js cell dump of PREV and CAND",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-007",
+   "item": "Complete change set PREV..CAND regenerated and classified",
+   "expected": "every changed file classified; Stage 1 obligations identified",
+   "observed": "83 files (see change-set.json): 2 Stage 1 records, 1 new correction record, 2 intake records, 5 provenance files, 9 pass-009 sealed files, 1 carryover record, 4 Stage 3 deployment files, constitution, 5 maintenance/departure records, process docs, tools and config; reconnaissance 26 zero-context hunks (54 added, 32 removed lines); workbook only xl/sharedStrings.xml and xl/worksheets/sheet1.xml differ",
+   "result": "matched",
+   "depth": "diff",
+   "evidence": "git diff --name-status and -U0 PREV CAND; package-part hashes",
+   "finding": "none",
+   "covers_prior": [
+    "P7:C-065"
+   ]
+  },
+  {
+   "id": "C-008",
+   "item": "Workbook cell diff against the correction record",
+   "expected": "exactly the recorded changes",
+   "observed": "291 changed cells: H 210, G 58, D 14, F 9; the 58 status cells and the 23 requirement/expected cells equal the record lists; the 23 before/after texts equal the Changed Rows table exactly; styles unchanged",
+   "result": "matched",
+   "depth": "diff",
+   "evidence": "wbdump.js; changedrows.js",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-009",
+   "item": "Evidence-cell preservation statement",
+   "expected": "record: \"the before text is kept unchanged as a prefix (asserted for 210 rows)\"",
+   "observed": "the before text is intact in all 210 rows, but in the 31 rows with provenance notes the new note is inserted before the unchanged provenance sentence, not appended after the whole before text (rows 9, 11, 21, 33, 47, 55, 56, 64, 66, 67, 94, 109, 111, 112, 115, 118, 122, 172, 178, 188, 189, 194, 196, 198, 200, 203, 204, 205, 206, 208, 223)",
+   "result": "mismatch",
+   "depth": "diff",
+   "evidence": "wbdump.js prefix and insertion test",
+   "finding": "F-005",
+   "covers_prior": []
+  },
+  {
+   "id": "C-010",
+   "item": "Inferred -> Yes status changes, 54 rows",
+   "expected": "method-level source support that the WAR bytecode and configuration do not contradict; bytecode read where control flow matters",
+   "observed": "supported in rows 10, 13, 14, 16, 23, 24, 25, 29, 31, 32, 34, 47, 61, 62, 66, 67, 80, 100, 112, 118, 119, 122, 130, 132, 136, 145, 147, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 164, 167, 181, 183, 187, 192, 197, 204, 205, 206, 218, 224, 225, 226, 229, 230, 233; control flow read in the WAR bytecode for every row whose claim depends on it (for example valideRow, StartIterationAction#doExecute with the beforeObjectCommit hook, ContentSearchAction, saveOrUpdateAttribute, the security filters and WebResourceCollection); negative claims confirmed by reachability with positive controls",
+   "result": "matched",
+   "depth": "method+bytecode+reach",
+   "evidence": "bundles/row-*.txt; disasm.js; callgraph.js",
+   "finding": "none",
+   "covers_prior": [
+    "P6:C-010",
+    "P6:C-012",
+    "P6:C-014",
+    "P6:C-021",
+    "P6:C-025",
+    "P6:C-027",
+    "P6:C-028",
+    "P6:C-033",
+    "P6:C-035",
+    "P6:C-041",
+    "P6:C-042",
+    "P6:C-044",
+    "P6:C-046",
+    "P6:C-049",
+    "P6:C-050",
+    "P6:C-060",
+    "P6:C-070",
+    "P6:C-071",
+    "P6:C-074",
+    "P6:C-077",
+    "P6:C-081",
+    "P6:C-085",
+    "P6:C-086",
+    "P6:C-087",
+    "P6:C-097",
+    "P6:C-098",
+    "P6:C-099",
+    "P6:C-105",
+    "P6:C-108",
+    "P6:C-111",
+    "P6:C-113",
+    "P6:C-114",
+    "P6:C-116",
+    "P6:C-131",
+    "P6:C-136",
+    "P6:C-145",
+    "P6:C-147",
+    "P6:C-153",
+    "P6:C-154",
+    "P6:C-155",
+    "P6:C-159",
+    "P6:C-161",
+    "P6:C-162",
+    "P6:C-164",
+    "P6:C-176",
+    "P6:C-190",
+    "P6:C-194",
+    "P6:C-195",
+    "P6:C-226",
+    "P6:C-238",
+    "P6:C-245",
+    "P6:C-247",
+    "P6:C-255",
+    "P6:C-257",
+    "P6:C-269",
+    "P6:C-271",
+    "P6:C-274",
+    "P6:C-275",
+    "P6:C-277",
+    "P6:C-279",
+    "P6:C-280",
+    "P6:C-282",
+    "P6:C-283",
+    "P6:C-287",
+    "P6:C-290",
+    "P6:C-304",
+    "P6:C-308",
+    "P6:C-313",
+    "P6:C-317",
+    "P6:C-323",
+    "P6:C-324",
+    "P6:C-325",
+    "P6:C-335",
+    "P6:C-340",
+    "P6:C-341",
+    "P6:C-342",
+    "P6:C-344",
+    "P6:C-345",
+    "P6:C-504",
+    "P6:C-507",
+    "P6:C-510",
+    "P6:C-512",
+    "P6:C-516",
+    "P6:C-518",
+    "P6:C-519",
+    "P6:C-524",
+    "P6:C-529",
+    "P6:C-144"
+   ]
+  },
+  {
+   "id": "C-011",
+   "item": "Numeric-id lookup: rows 178 (note), 180, 182 and 184 (status and cells)",
+   "expected": "the object with the searched id is listed, or the browser goes to /do/view/<type>?oid=<id>",
+   "observed": "IdSearchHelper#search returns the parent object when the id belongs to a note (bytecode: instanceof Note, Note#getParent); ContentSearchAction lists that parent first; IdSearchAction redirects to the parent type with the parent id. Rows 180, 182 and 184 and the row 178 note describe the note itself, its page and the same id",
+   "result": "mismatch",
+   "depth": "method+bytecode",
+   "evidence": "IdSearchHelper#search, IdSearchAction#doExecute, ContentSearchAction#doExecute listings",
+   "finding": "F-002",
+   "covers_prior": [
+    "P6:C-089",
+    "P6:C-090",
+    "P6:C-301",
+    "P6:C-303",
+    "P6:C-305"
+   ]
+  },
+  {
+   "id": "C-012",
+   "item": "Row 216 Inferred -> Yes",
+   "expected": "status change only on a method-level source reading (assignment rule); record: every one of the 58 rests on such a reading",
+   "observed": "row 216 is a descriptor fact with \"none: descriptor fact, no Java involved\"; its evidence is the same web.xml mapping already cited while the row was Inferred; the descriptor fact itself is true",
+   "result": "mismatch",
+   "depth": "descriptor",
+   "evidence": "WAR:WEB-INF/web.xml:168-176, 299-305; rowtable.json row 216",
+   "finding": "F-004",
+   "covers_prior": [
+    "P6:C-011",
+    "P6:C-112",
+    "P6:C-333"
+   ]
+  },
+  {
+   "id": "C-013",
+   "item": "Corrected requirement/expected cells, 17 of 23 (rows 10, 11, 61, 80, 98, 118, 136, 138, 153, 155, 158, 170, 181, 233)",
+   "expected": "each corrected text supported by source and WAR bytecode",
+   "observed": "all supported; row 11 correctly kept Inferred with a live question; row 98 start-page cases and the close-then-start sequence confirmed; row 138 old-assignee value from the new acceptor confirmed in code and in the WAR template (oldAsignee); row 80 cell omits the empty-value branch that its evidence note states (observation, not a defect)",
+   "result": "matched",
+   "depth": "method+bytecode",
+   "evidence": "bundles; disasm.js; WAR email_notification_task_updated.vm",
+   "finding": "none",
+   "covers_prior": [
+    "P6:C-018",
+    "P6:C-031",
+    "P6:C-038",
+    "P6:C-040",
+    "P6:C-043",
+    "P6:C-056",
+    "P6:C-066",
+    "P6:C-073",
+    "P6:C-078",
+    "P6:C-096",
+    "P6:C-120",
+    "P6:C-121",
+    "P6:C-141",
+    "P6:C-142",
+    "P6:C-189",
+    "P6:C-207",
+    "P6:C-244",
+    "P6:C-260",
+    "P6:C-262",
+    "P6:C-276",
+    "P6:C-278",
+    "P6:C-281",
+    "P6:C-292",
+    "P6:C-302",
+    "P6:C-347",
+    "P6:C-062",
+    "P6:C-224"
+   ]
+  },
+  {
+   "id": "C-014",
+   "item": "BA-001-11 evidence notes of all 210 rows",
+   "expected": "fields equal the per-row table; citations resolve; depth labels true; runtime-only labels genuine; reasons supported",
+   "observed": "table and workbook agree on 210 statuses and outcomes; 266 SRC citations and 315 method citations resolve in source and in WAR bytecode; the 199 distinct cited methods agree at call level with the WAR bytecode except the recorded ViewPersonAction; name/descriptor/class notes add no new fact; 21 runtime-only rows and row 63 are honestly labelled; reasons of the method-level notes read; exceptions are linked in C-011 (row 178), C-012 (row 216), C-025 (row 71) and C-009 (insertion)",
+   "result": "matched",
+   "depth": "method+bytecode",
+   "evidence": "rowtable.js; citecheck.js; bodycheck.js",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-015",
+   "item": "Method-name correspondence figure (4595 of 4597)",
+   "expected": "figure reproducible from a stated rule (CHK-007)",
+   "observed": "substance reproduced: after excluding compiler-generated members only ViewPersonAction#setTaskDao and #setUserStoryDao are undeclared; the total 4597 is not reproducible under any natural rule (4739 methods; 4704 non-synthetic; 4620 without static initializers; 4579 excluding also anonymous constructors) and no rule is stated; the cited output lies in the author scratch",
+   "result": "mismatch",
+   "depth": "figure",
+   "evidence": "methodcorr.js; classes.json",
+   "finding": "F-001",
+   "covers_prior": []
+  },
+  {
+   "id": "C-016",
+   "item": "String-constant correspondence (3386 checked, 155 unmatched: 50 framework, 17 withheld, 88 numeric) and \"None shows divergent code\"",
+   "expected": "figure reproducible; statement true",
+   "observed": "not reproducible (2969 string constants per class, 3159 with numeric constants); the statement is false: the WAR-only constant of the Spring request attributes in LinkTag belongs to divergent code, and the source literal \"can't find ActionMapping in request\" is absent from the WAR",
+   "result": "mismatch",
+   "depth": "figure+bytecode",
+   "evidence": "strcorr.js; LinkTag listings",
+   "finding": "F-001",
+   "covers_prior": []
+  },
+  {
+   "id": "C-017",
+   "item": "Source-to-bytecode divergence inventory (\"ViewPersonAction diverges\")",
+   "expected": "every method whose body differs between source and WAR is recorded as a limitation (A4)",
+   "observed": "call-level comparison of all 4704 non-synthetic methods: besides ViewPersonAction, LinkTag#addNavigationParameters (WAR: without a Struts mapping, returnto = the Spring request URI; source: JspTagException) and AbstractFormat#getFormat (WAR: falls back to the servlet-context message resources; source: no fallback) diverge; the other reports are masking artifacts of credential-bearing code; no record relies on the divergent branches",
+   "result": "mismatch",
+   "depth": "bytecode",
+   "evidence": "bodyall.js; LinkTag and AbstractFormat listings; record search",
+   "finding": "F-001",
+   "covers_prior": []
+  },
+  {
+   "id": "C-018",
+   "item": "Non-class WAR entries against SVN (268: 253 identical, 12 different, 3 without counterpart); 71 of 73 JSPs identical",
+   "expected": "figures and file list reproducible",
+   "observed": "reproduced exactly with the same 12 files and 3 entries; 73 JSPs, 2 differ (baseHeader.jsp, history.jsp)",
+   "result": "matched",
+   "depth": "figure",
+   "evidence": "warsrc.js",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-019",
+   "item": "jrpdf templates present in SVN, absent from the WAR (rows 211, 213; GAP-003; Source Inventory)",
+   "expected": "templates absent from WAR and JARs; present in SVN",
+   "observed": "confirmed: 4 JR*.jrxml in the SVN reports folder; no .jrxml or .jasper in the WAR or its 102 JARs; the task.story query defect remains (PdfReportExporter data sources)",
+   "result": "matched",
+   "depth": "bytecode",
+   "evidence": "find/unzip -l; PdfReportExporter listings",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-020",
+   "item": "Source tree identity and composition",
+   "expected": "1117 files, 803 Java (524 src, 279 test), manifest hashes, 39 withheld",
+   "observed": "reproduced; all 1117 files match source-manifest.json; allowlist lists 39 withheld files",
+   "result": "matched",
+   "depth": "chain",
+   "evidence": "find; manifest rehash",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-021",
+   "item": "Release-WAR equality (594 classes byte-identical to v1.1a4)",
+   "expected": "owner-approved source-intake fact",
+   "observed": "the release WAR is outside the permitted inputs; war-comparison.json holds summary counts consistent with the baseline (964/594); no conclusion of this pass depends on it because every relied-on source reading was compared with the baseline WAR bytecode directly",
+   "result": "not-applicable",
+   "depth": "chain",
+   "evidence": "sources/provenance/war-comparison.json",
+   "finding": "E-002",
+   "covers_prior": []
+  },
+  {
+   "id": "C-022",
+   "item": "Pass-009 F-001 closure (Q3 cache fact, reading block, navsites tool row)",
+   "expected": "the actions required by pass-009 F-001",
+   "observed": "done and true in the WAR: XPlannerActionServlet installs the strutsMessageSource bean (WAR spring-beans.xml:46-48) and XPlannerMessageResources delegates to the Spring source; inherited Struts formats cache; displaytag TableProperties.prototypes with the request-locale resolver (TableTag.properties:28-29); FormatDateTag dateFormatters; Spring view-cache key view name + \"_\" + locale; the reading block no longer states three caches; the tool row keeps its historical figure with a correction pointer; the Stage 3 part is covered by the owner-approved carryover",
+   "result": "matched",
+   "depth": "bytecode",
+   "evidence": "XPlannerActionServlet, XPlannerMessageResources, MessageResources, TableProperties, FormatDateTag, AbstractCachingViewResolver listings",
+   "finding": "none",
+   "covers_prior": [
+    "P9:C-017"
+   ]
+  },
+  {
+   "id": "C-023",
+   "item": "Pass-009 F-002 closure (rows 69, 70, 186 history exception)",
+   "expected": "history-date exception recorded in rows 69-70 or 186 with evidence",
+   "observed": "recorded: WAR history.jsp:61,106 use formatDate without format or formatKey; built-in pattern and first-use request locale confirmed in FormatDateTag bytecode; row 69 date-time typo corrected to the bundle value",
+   "result": "matched",
+   "depth": "bytecode",
+   "evidence": "history.jsp; FormatDateTag#doStartTag listing; bundle values",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-024",
+   "item": "Pass-009 F-003 (script-context counting rule)",
+   "expected": "closed or explicitly open",
+   "observed": "not resolved: the script-sinks-09 tool row, the pass-008 lead row of Return Correction Evidence and the BA-001-10 self-check line are unchanged apart from the historical label; the proposed rule text in the correction record is not applied and not verified",
+   "result": "mismatch",
+   "depth": "diff",
+   "evidence": "recon-u0.diff; source-reconciliation-001.md Carried Pass-009 Findings",
+   "finding": "pass-009 F-003 (carried, open)",
+   "covers_prior": [
+    "P6:C-500",
+    "P9:C-020",
+    "P9:C-021"
+   ]
+  },
+  {
+   "id": "C-025",
+   "item": "Refined CHK-003/CHK-004 over the changed locale claims: rows 69, 70, 71, 186 and the parse side of date and number entry",
+   "expected": "each formatting and parsing call recorded with its pattern and locale source, including shared formatter caches",
+   "observed": "AbstractEditorForm#initConverters fills static dateTimeConverter and dateConverter through MessageResources#getMessage(String), which uses the JVM default locale, once for all users, and a static decimalConverter with the first request's Accept-Language locale; TaskEditorForm keeps a static date converter the same way. IterationEditorForm formats and parses its dates, TimeEditorForm#valideRow validates dates and durations, and TaskEditorForm the created date with them, while UpdateTimeAction saves with the session-locale pattern. Rows 69-70 (\"displayed and entered as\" per bundle), row 71 (parsing \"use the locale pattern\", confirmed again by its new note) and row 89 do not record this; row 186 says \"first request after start-up\" where the formatter is created by the first request that renders a history date",
+   "result": "mismatch",
+   "depth": "bytecode",
+   "evidence": "regscan.js; AbstractEditorForm, TaskEditorForm, IterationEditorForm, MessageResources listings; editIteration.jsp:52-57",
+   "finding": "F-003",
+   "covers_prior": [
+    "P6:C-036",
+    "P6:C-100",
+    "P6:C-199",
+    "P6:C-505",
+    "P6:C-197",
+    "P6:C-198",
+    "P6:C-307",
+    "P6:C-506",
+    "P6:C-088",
+    "P9:C-018"
+   ]
+  },
+  {
+   "id": "C-026",
+   "item": "Reconnaissance reading block (lines 37-47)",
+   "expected": "summary matches the records and the source",
+   "observed": "counts and corrections correct except the correspondence sentence (only ViewPersonAction; F-001) and \"a numeric content search adds the object with that id\" (a note id yields its parent; F-002)",
+   "result": "mismatch",
+   "depth": "diff",
+   "evidence": "legacy_reconnaissance.md:37-47",
+   "finding": "F-001, F-002",
+   "covers_prior": [
+    "P6:C-494"
+   ]
+  },
+  {
+   "id": "C-027",
+   "item": "Scope And Provenance edits (lines 91-96, 107-111)",
+   "expected": "provenance and correspondence statements true",
+   "observed": "snapshot date, analyst, skill blob 560391d6, governing inputs and source identity correct; the correspondence bullets repeat the irreproducible figures and \"None shows divergent code\"",
+   "result": "mismatch",
+   "depth": "diff",
+   "evidence": "legacy_reconnaissance.md:91-96",
+   "finding": "F-001",
+   "covers_prior": [
+    "P6:C-493"
+   ]
+  },
+  {
+   "id": "C-028",
+   "item": "Evidence legend (SRC notation, Yes and Inferred definitions; lines 126-130)",
+   "expected": "consistent with A4 and the assessment",
+   "observed": "consistent: Yes needs a method-level source reading not contradicted by the bytecode and configuration; Inferred covers runtime-dependent or not fully read rows; earlier Yes rows remain valid under the broader definition",
+   "result": "matched",
+   "depth": "diff",
+   "evidence": "legacy_reconnaissance.md:126-130",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-029",
+   "item": "Source Inventory absent-resources and Export rows, Runnable Surfaces mobile row, GAP-003 (lines 167, 185, 204, 346)",
+   "expected": "true in the WAR",
+   "observed": "true: templates absent from the WAR and present in SVN; the web filter intercepts /do/mobile/login (filter order mobile then web; security.xml bypass has /do/login only; exact or wildcard matching in WebResourceCollection)",
+   "result": "matched",
+   "depth": "bytecode+descriptor",
+   "evidence": "web.xml:84-110, 155-166; security.xml:2-6; mobile-security.xml:2-5; WebResourceCollection listings",
+   "finding": "none",
+   "covers_prior": [
+    "P6:C-052",
+    "P6:C-069",
+    "P6:C-103",
+    "P6:C-104",
+    "P6:C-367",
+    "P6:C-381",
+    "P6:C-391",
+    "P6:C-425"
+   ]
+  },
+  {
+   "id": "C-030",
+   "item": "Build, Run, And Test Evidence rows changed (lines 283, 314, 317-318, 323, 326-329)",
+   "expected": "figures reproducible",
+   "observed": "legacy hash row, 266/315 citations, 151/59 decisions, outcome figures and the audit rows consistent; the method-corr tool row repeats the irreproducible 4597 and 3386/155 figures",
+   "result": "mismatch",
+   "depth": "figure",
+   "evidence": "legacy_reconnaissance.md:314-318",
+   "finding": "F-001",
+   "covers_prior": [
+    "P6:C-503"
+   ]
+  },
+  {
+   "id": "C-031",
+   "item": "Q3 cache fact completeness (line 454) under refined CHK-003/CHK-012",
+   "expected": "every shared registry filled from a request or header value recorded with its writer",
+   "observed": "the pass-009 F-001 items are recorded correctly (C-022); the static decimal parser of AbstractEditorForm, fixed by the first request's Accept-Language locale, and the static date converters are not recorded",
+   "result": "mismatch",
+   "depth": "bytecode",
+   "evidence": "regscan.js (positive controls: FormatDateTag.dateFormatters, TableProperties.prototypes)",
+   "finding": "F-003",
+   "covers_prior": [
+    "P6:C-126",
+    "P6:C-492",
+    "P6:C-534",
+    "P6:C-538"
+   ]
+  },
+  {
+   "id": "C-032",
+   "item": "Q3 read-check fact (line 458): content search adds the object with that id",
+   "expected": "true in the WAR",
+   "observed": "for a note id the parent object is added",
+   "result": "mismatch",
+   "depth": "bytecode",
+   "evidence": "IdSearchHelper#search listing",
+   "finding": "F-002",
+   "covers_prior": [
+    "P6:C-486"
+   ]
+  },
+  {
+   "id": "C-033",
+   "item": "Parity-Map Boundary counts, Return Correction Evidence rows and paragraph, Stage 1 Exit Checklist (lines 485-486, 586-591, 604)",
+   "expected": "counts and dispositions true",
+   "observed": "169/19/21/1 and 210 rows reproduced; F-001 and F-002 rows true; the F-003 row states it open; exit line updated",
+   "result": "matched",
+   "depth": "diff",
+   "evidence": "wbdump.js status counts",
+   "finding": "none",
+   "covers_prior": [
+    "P6:C-501"
+   ]
+  },
+  {
+   "id": "C-034",
+   "item": "Error Prevention BA-001-11 learning update and self-check (lines 617-626)",
+   "expected": "claims supported",
+   "observed": "CHK-004 \"the pattern and locale source of each formatting tag\" is incomplete (static editor converters, F-003); CHK-007 \"correspondence counts as stated\" is not reproducible (F-001); the other lines hold",
+   "result": "mismatch",
+   "depth": "diff",
+   "evidence": "legacy_reconnaissance.md:617-626",
+   "finding": "F-001, F-003",
+   "covers_prior": [
+    "P6:C-502"
+   ]
+  },
+  {
+   "id": "C-035",
+   "item": "Correction record source-reconciliation-001.md consistency with the regenerated change set",
+   "expected": "assignment followed; summary, tables and lists match the change",
+   "observed": "summary counts, transitions, depth split, 27 live questions, additions list, changed-rows table (23/23 exact) match; the changed-sections list omits the audit:artifact-links row (PREV line 318); \"kept as a prefix\" and \"only the source note was appended\" are inaccurate for 31 rows (C-009); \"each rests on a method-level reading\" is false for row 216 (C-012)",
+   "result": "mismatch",
+   "depth": "diff",
+   "evidence": "changedrows.js; recon-u0.diff",
+   "finding": "F-005, F-004",
+   "covers_prior": []
+  },
+  {
+   "id": "C-036",
+   "item": "Re-executed pass-007-backed obligations: rows 18, 26, 33, 35, 38, 41-43, 46, 48, 58, 59, 78, 81, 88, 90, 114, 121, 124, 125, 129, 134, 137, 139-141, 143, 149, 169, 173, 208-213 and the related persistence lines",
+   "expected": "current cells supported by the WAR",
+   "observed": "supported: JSP gating lines, no server-side authorization on the edit and time paths (reachability), EditRoleAction orphan hook, merge binding in EditObjectAction#populateObject, validation branches, completion forms, ChangeLocaleAction, EditIterationAction hook, export queries and formats, index.jsp routing",
+   "result": "matched",
+   "depth": "bytecode+descriptor+reach",
+   "evidence": "rowshow.js; disasm.js; callgraph.js; JSP lines",
+   "finding": "none",
+   "covers_prior": [
+    "P6:C-053",
+    "P6:C-059",
+    "P6:C-084",
+    "P6:C-091",
+    "P6:C-093",
+    "P6:C-124",
+    "P6:C-129",
+    "P6:C-165",
+    "P6:C-172",
+    "P6:C-175",
+    "P6:C-186",
+    "P6:C-187",
+    "P6:C-205",
+    "P6:C-208",
+    "P6:C-214",
+    "P6:C-216",
+    "P6:C-246",
+    "P6:C-249",
+    "P6:C-250",
+    "P6:C-254",
+    "P6:C-258",
+    "P6:C-261",
+    "P6:C-263",
+    "P6:C-264",
+    "P6:C-265",
+    "P6:C-272",
+    "P6:C-291",
+    "P6:C-295",
+    "P6:C-327",
+    "P6:C-328"
+   ]
+  },
+  {
+   "id": "C-037",
+   "item": "Re-executed obligation for rows 88-90: row 89 accepted date patterns",
+   "expected": "\"the accepted date and date-time patterns follow format.date and format.datetime of the active bundle\"",
+   "observed": "IterationEditorForm parses with the static converter built in the JVM default locale (C-025)",
+   "result": "mismatch",
+   "depth": "bytecode",
+   "evidence": "IterationEditorForm#validate, AbstractEditorForm#initConverters listings",
+   "finding": "F-003",
+   "covers_prior": [
+    "P6:C-061",
+    "P6:C-215"
+   ]
+  },
+  {
+   "id": "C-038",
+   "item": "Re-executed pass-007 figure and sweep obligations",
+   "expected": "figures reproducible with stated rules",
+   "observed": "reproduced: 114 entries / 106 keys / 3 bracketed; 87 = 74 + 7 + 6 mappings (raw control 75), 24 form beans, 47 global forwards, 8 filters, 80 action beans (raw control 75 + 6); Liquibase 8/21/4/2/10/26/3/1; 73 JSPs (31 view, 16 edit); 10 bundles, format.date 6/4, task.type.overhead in 6; 1 RequestUtils.populate site and 10 bean-copy sites; 5 response writers",
+   "result": "matched",
+   "depth": "figure",
+   "evidence": "figures.js; callgraph.js sweeps",
+   "finding": "none",
+   "covers_prior": [
+    "P6:C-034",
+    "P6:C-375",
+    "P6:C-421",
+    "P7:C-006",
+    "P7:C-008",
+    "P7:C-058",
+    "P7:C-060",
+    "P6:C-521",
+    "P7:C-059"
+   ]
+  },
+  {
+   "id": "C-039",
+   "item": "CHK-001 citations",
+   "expected": "every cited file:line exists and contains the element",
+   "observed": "499 WAR citations (458 line positions) resolve structurally, the one exception an intentionally elided path; the new WAR line citation (TableTag.properties:28-29) matches; 266 SRC citations and 315 method citations resolve",
+   "result": "matched",
+   "depth": "figure",
+   "evidence": "warcite.js; citecheck.js",
+   "finding": "none",
+   "covers_prior": [
+    "P7:C-061"
+   ]
+  },
+  {
+   "id": "C-040",
+   "item": "CHK-002 negative claims in the change set",
+   "expected": "each negative claim has a negative check with a positive control",
+   "observed": "no authorizer reachable from the generic view/edit/delete, timesheet, ID search and REST methods (positive controls DispatchForward, EditPersonAction hook hit); no caller of SecurityConfiguration#isAuthorized or of the case-sensitivity option in bytecode, JSPs or descriptors; /do/search/id linked from no page; no packaged .jrxml; every SOAP object operation reaches XPlanner#hasPermission, the five attribute operations do not",
+   "result": "matched",
+   "depth": "reach",
+   "evidence": "callgraph.js",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-041",
+   "item": "CHK-009 credential values in the change set",
+   "expected": "zero values",
+   "observed": "0 credential values: 104 values from 32 credential-bearing files (positive control 104/104 found in their own source); every hit in the changed text is a word or identifier collision (product name, role names, the words password/passwords, a task-type label, key-name fragments)",
+   "result": "matched",
+   "depth": "figure",
+   "evidence": "credscan.js; credclass.js (values never printed)",
+   "finding": "none",
+   "covers_prior": [
+    "P7:C-062"
+   ]
+  },
+  {
+   "id": "C-042",
+   "item": "CHK-011 regression over the changed unauthenticated-surface claims (rows 10, 13, 14, 16, 61, 216, 225, 233)",
+   "expected": "each exposure recorded",
+   "observed": "recorded and true (bypass entries, filter mappings, Axis alternate path, no /rest/* filter, mobile login interception)",
+   "result": "matched",
+   "depth": "descriptor+bytecode",
+   "evidence": "web.xml; security.xml; filter listings",
+   "finding": "none",
+   "covers_prior": [
+    "P9:C-039"
+   ]
+  },
+  {
+   "id": "C-043",
+   "item": "CHK-012 regression over the changed request-derived claims (rows 10, 58, 62, 181, 183)",
+   "expected": "each request value traced to its sink",
+   "observed": "savedUrl with ?null, returnto redirects, locale parameter, error message in the Accept-Language locale, ID search error keys: true",
+   "result": "matched",
+   "depth": "bytecode",
+   "evidence": "listings in bundles",
+   "finding": "none",
+   "covers_prior": [
+    "P7:C-057"
+   ]
+  },
+  {
+   "id": "C-044",
+   "item": "Checklist identity and applicability",
+   "expected": "the applicable checklist",
+   "observed": "analysis/error-prevention-checklist.md 8a15e08c...2a90b, unchanged PREV..CAND; CHK-001..CHK-012 applicable",
+   "result": "matched",
+   "depth": "chain",
+   "evidence": "sha256sum",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-045",
+   "item": "Intervening records and governing changes",
+   "expected": "no effect on Stage 1 obligations beyond the recorded ones",
+   "observed": "carryover record, Stage 3 deployment records (no live result entered the Stage 1 records), source assessment and intake decision, A4, the departures (independent verdicts and carryover of new findings are not delegated), Starter sync process files: process only",
+   "result": "matched",
+   "depth": "chain",
+   "evidence": "change-set.json",
+   "finding": "none",
+   "covers_prior": []
+  },
+  {
+   "id": "C-046",
+   "item": "Author tool-execution facts in the new tool rows",
+   "expected": "not a legacy claim",
+   "observed": "exit codes and author-scratch outputs are process records outside the permitted evidence; every legacy fact they support is checked in its own item",
+   "result": "not-applicable",
+   "depth": "chain",
+   "evidence": "packet boundary",
+   "finding": "E-001",
+   "covers_prior": [
+    "P9:C-046"
+   ]
+  }
+ ]
+}
