@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-02
-  stage_status: in_progress
-  previous_stage: stage-01
-  next_action: 'Stage 2 pass 010 (packet S02-P010, correction-validation): a fresh independent BA (not an author or earlier reviewer) first decides eligibility after A4 (root 006, previous 009), then reviews the complete change set 026fd97..90977b1; report analysis/reviews/stage-02-pass-010.md, evidence analysis/reviews/evidence/S02-P010/. Unsuitable baseline or blocking findings: stop and report the exact reason. Clean: integrate records, then resume Stage 3 in the isolated environment.'
+  current_stage: stage-01
+  stage_status: awaiting_owner
+  previous_stage: stage-02
+  next_action: 'Publish the pass 010 control records (findings F-001..F-005, all low; pass-009 F-003 open). STOP for the owner: the operational mandate delegates neither verdicts nor the carryover of new findings. Options: bounded Stage 1 correction of F-001..F-005 plus pass-009 F-003 followed by a new correction-validation (root 006, previous 010), or an owner decision to carry the low findings into Stage 3 under the project rule. No Stage 3 resume yet.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -247,6 +247,14 @@ transition_history:
       - 'analysis/stages/stage-01/source-reconciliation-001.md'
       - 'analysis/legacy_reconnaissance.md'
     owner_approval: null
+  - from: stage-02
+    to: stage-01
+    reason: 'Finding-driven return: Stage 2 correction-validation pass 010 (analysis/reviews/stage-02-pass-010.md, report SHA-256 f567227da6872e947656dd47ceb0d5958bcf546234097a4f50c16be7aadd8f78) result findings F-001..F-005 (all low); eligibility after A4 admitted; pass-009 F-001 and F-002 closed, F-003 still open. Per the owner route, stop for the owner.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-09-30T14:43:06Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-02-pass-010.md'
+    owner_approval: null
 
 review_passes:
   - stage: stage-02
@@ -391,6 +399,22 @@ review_passes:
       report_sha256: '8847eda3f48bf1e273a18e848ddcc5e6a43eff1d134ed31eea15dabf1459cb08'
       owner_decision_id: 'stage-02-live-carryover:xplanner2-revision1'
       blocking_class_check: confirmed
+  - stage: stage-02
+    pass: 10
+    result: findings
+    report: 'analysis/reviews/stage-02-pass-010.md'
+    reviewer: 'BA independent reviewer (subagent a81d0356af46a1dd1 of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer-p010'
+    session_id: 'a81d0356af46a1dd1'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P010/independence-record.md'
+    reviewed_at: '2026-09-30T14:43:06Z'
+    scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
+    waiver_ids: []
+    control_mode: correction-validation
+    baseline_pass: 6
+    previous_pass: 9
+    coverage_record: 'analysis/reviews/evidence/S02-P010/coverage-reconciliation.json'
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -569,12 +593,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 reconciled against the A4 upstream source (169 Yes, 19 Inferred, 21 Partial, 1 No); Stage 2 correction-validation pass 010 in progress under the relayed owner mandate until Stage 4 entry.'
-  completed_percent: 5
-  updated_at: '2026-09-30T13:35:04Z'
+  summary: 'Stage 2 correction-validation pass 010 returned findings (F-001..F-005, all low; 46 new checks, 364 retained, 0 uncovered; A4 eligibility admitted); process returned to Stage 1; awaiting owner. Stage 1 records: 169 Yes, 19 Inferred, 21 Partial, 1 No.'
+  completed_percent: 0
+  updated_at: '2026-09-30T14:43:06Z'
   agent_reviews:
-    total: 9
-    valid: 8
+    total: 10
+    valid: 9
     blocked: 0
     invalid: 1
     active: 0

@@ -1,0 +1,13 @@
+{
+  "packet_id": "S02-P010",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-010.md",
+  "producer": "Reviewer subagent a81d0356af46a1dd1 authored the report and all evidence and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p010/reviewer-scratch/stage-02-pass-010.md",
+  "source_sha256": "96bfc28393f7d4b0cfcfd1f8d6d01547b6dd11c44edc53928dfaeb93d0f27910",
+  "pm_changes": "Only the literal token CURRENT_SESSION_ID was replaced with the client-assigned session id a81d0356af46a1dd1, once in the report and once in independence-record.md (as requested by the reviewer). No other byte changed (verified with diff).",
+  "final_report_sha256": "f567227da6872e947656dd47ceb0d5958bcf546234097a4f50c16be7aadd8f78",
+  "reviewer_disclosures": "Client-injected context (CLAUDE.md bridge, auto-memory index, git status snapshot, attribution instruction; not acted on). One listing of .migration-tmp showed scratch file names of other sessions; none opened (inside the project). The client persisted one bounded scratch excerpt under the user profile; it was not opened and the scratch file was re-read in smaller chunks (transport-safety compliant). TEMP/TMP/TMPDIR were set for only part of the node runs. Git limited to rev-parse/status/diff/show on the three pinned revisions.",
+  "recorded_at": "2026-09-30T14:43:06Z",
+  "reviewer_revision": "At PM request the reviewer made three plain legacy/ paths clickable (lines 254, 256, 265); first scratch copy a6acde1a7d0b5188edf8d047f961c71b6175c7f4faedbc6add44f721bfbdd330; no substance changed."
+}
