@@ -212,7 +212,7 @@ These are observations of the legacy reference. They do not change the workbook 
 
 ## Handoff For Other Parts
 
-The handoff file [handoff.json](../../../../../../.migration-tmp/stage-03/ba-scratch/setup/handoff.json) lists the account user IDs with verified roles and person ids (no passwords), the project and chain ids, the key page URLs, how sign-in works and the traps below.
+The handoff file the private operational handoff (`handoff.json` in the setup scratch folder, kept outside Git; it holds account ids and sign-in mechanics, no passwords) lists the account user IDs with verified roles and person ids (no passwords), the project and chain ids, the key page URLs, how sign-in works and the traps below.
 
 - Sign-in: `GET /do/login`, then POST `userId`, `password` and `action=Login` to the form action; success answers 302 to `/do/view/projects`. Logout is `GET /do/logout` (200, login page).
 - No CSRF token on any form used. The project editor needs `action=Create` or `action=Update` set explicitly.
