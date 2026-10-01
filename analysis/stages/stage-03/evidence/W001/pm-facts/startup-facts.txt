@@ -1,0 +1,66 @@
+# PM read-only server facts for rows 65 and 68 (collected 2026-09-30T19:35:49Z by PM via pm-log-facts.sh; credential-like lines excluded at source)
+app log lines total: 502
+app container started: 2026-09-30T09:21:04.451600795Z
+--- liquibase: line count 21
+[    421]   INFO - org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@363bf9d: defining beans [prop
+INFO 9/30/26 9:21 AM:liquibase: Successfully acquired change log lock
+INFO 9/30/26 9:21 AM:liquibase: Creating database history table with name: `DATABASECHANGELOG`
+INFO 9/30/26 9:21 AM:liquibase: Reading from `DATABASECHANGELOG`
+INFO 9/30/26 9:21 AM:liquibase: Reading from `DATABASECHANGELOG`
+INFO 9/30/26 9:21 AM:liquibase: ChangeSet classpath:db-changelog.xml::1-1::maksym ran successfully in 239ms
+INFO 9/30/26 9:21 AM:liquibase: ChangeSet classpath:db-changelog.xml::1-2::maksym ran successfully in 343ms
+INFO 9/30/26 9:21 AM:liquibase: ChangeSet classpath:db-changelog.xml::1-3::maksym ran successfully in 14ms
+INFO 9/30/26 9:21 AM:liquibase: ChangeSet classpath:db-changelog.xml::2-1::maksym ran successfully in 27ms
+INFO 9/30/26 9:21 AM:liquibase: ChangeSet classpath:db-changelog.xml::2-2::maksym ran successfully in 12ms
+INFO 9/30/26 9:21 AM:liquibase: ChangeSet classpath:db-changelog.xml::2-3::maksym ran successfully in 42ms
+INFO 9/30/26 9:21 AM:liquibase: ChangeSet classpath:db-changelog.xml::2-4::maksym ran successfully in 20ms
+INFO 9/30/26 9:21 AM:liquibase: ChangeSet classpath:db-changelog.xml::2-5::maksym ran successfully in 7ms
+INFO 9/30/26 9:21 AM:liquibase: Successfully released change log lock
+INFO 9/30/26 9:21 AM:liquibase: Successfully released change log lock
+[   3023]   INFO - org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@124bc9fa: defining beans [/ch
+INFO 9/30/26 9:21 AM:liquibase: Successfully acquired change log lock
+INFO 9/30/26 9:21 AM:liquibase: Reading from `DATABASECHANGELOG`
+INFO 9/30/26 9:21 AM:liquibase: Reading from `DATABASECHANGELOG`
+INFO 9/30/26 9:21 AM:liquibase: Successfully released change log lock
+INFO 9/30/26 9:21 AM:liquibase: Successfully released change log lock
+--- scheduler/quartz/timer lines: 4
+[    421]   INFO - org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@363bf9d: defining beans [prop
+[   2602]   INFO - org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService  'scheduler' 
+[   3023]   INFO - org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@124bc9fa: defining beans [/ch
+[   3261]   INFO - org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService  'scheduler' 
+--- deployment/context start lines:
+30-Sep-2026 09:21:05.766 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/xplanner-legacy.war]
+[      0]   INFO - org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started 
+[      8]   INFO - org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Sep 30 09:21:07 UTC 2026]; root of context hierarchy 
+[   2637]   INFO - org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2637 ms 
+[   2687]   INFO - org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'SpringServlet-servlet': startup date [Wed Sep 30 09:21:10 UTC 2026]; parent: Root WebA
+[   2919]   INFO - org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'XPlannerServlet-servlet': startup date [Wed Sep 30 09:21:10 UTC 2026]; parent: Root We
+30-Sep-2026 09:21:11.134 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/xplanner-legacy.war] has finished in [5,366] ms
+30-Sep-2026 09:21:11.147 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [5433] milliseconds
+--- hibernate cache/pool lines:
+[   1972]   INFO - org.hibernate.transaction.TransactionManagerLookupFactory - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended) 
+[   1973]   INFO - org.hibernate.cfg.SettingsFactory - Second-level cache: enabled 
+[   1973]   INFO - org.hibernate.cfg.SettingsFactory - Query cache: disabled 
+[   1973]   INFO - org.hibernate.cfg.SettingsFactory - Structured second-level cache entries: disabled 
+[   2602]   INFO - org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService  'scheduler' 
+[   2609]   INFO - org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  
+[   3136]   INFO - org.hibernate.transaction.TransactionManagerLookupFactory - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended) 
+[   3138]   INFO - org.hibernate.cfg.SettingsFactory - Second-level cache: enabled 
+[   3138]   INFO - org.hibernate.cfg.SettingsFactory - Query cache: disabled 
+[   3138]   INFO - org.hibernate.cfg.SettingsFactory - Structured second-level cache entries: disabled 
+[   3261]   INFO - org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService  'scheduler' 
+[   3261]   INFO - org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService  
+[   2355]   WARN - org.springframework.aop.framework.Cglib2AopProxy - Unable to proxy method [public final void org.springframework.dao.support.DaoSupport.afterPropertiesSet() throws java.lang.IllegalArgumentException,or
+[   2433]   WARN - org.springframework.aop.framework.Cglib2AopProxy - Unable to proxy method [public final void org.springframework.dao.support.DaoSupport.afterPropertiesSet() throws java.lang.IllegalArgumentException,or
+[   2576]  ERROR - org.apache.velocity.app.VelocityEngine - ResourceManager : unable to find resource 'VM_global_library.vm' in any resource loader. 
+[   2576]   INFO - org.apache.velocity.app.VelocityEngine - Velocimacro : error using  VM library template VM_global_library.vm : org.apache.velocity.exception.ResourceNotFoundException: Unable to find resource 'VM_globa
+[   3256]  ERROR - org.apache.velocity.app.VelocityEngine - ResourceManager : unable to find resource 'VM_global_library.vm' in any resource loader. 
+[   3256]   INFO - org.apache.velocity.app.VelocityEngine - Velocimacro : error using  VM library template VM_global_library.vm : org.apache.velocity.exception.ResourceNotFoundException: Unable to find resource 'VM_globa
+--- database (read-only queries):
+schemas: xplanner
+tables in xplanner: 23
+changelog tables: xplanner.DATABASECHANGELOG,xplanner.DATABASECHANGELOGLOCK
+qrtz tables: 0
+changelog rows in xplanner: 8, distinct ids: 8, first: 2026-09-30 09:21:09, last: 2026-09-30 09:21:09
+lock rows in xplanner: 1, locked: 0
+

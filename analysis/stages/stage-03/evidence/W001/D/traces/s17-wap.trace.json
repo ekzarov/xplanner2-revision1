@@ -1,0 +1,277 @@
+{
+  "at": "2026-09-30T20:26:25.524Z",
+  "results": [
+    {
+      "id": "anon GET /do/mobile/login",
+      "status": 302,
+      "ct": "",
+      "location": "/xplanner-legacy/do/login",
+      "bytes": 0,
+      "wml": false,
+      "text": ""
+    },
+    {
+      "id": "anon GET /do/mobile/view/projects",
+      "status": 302,
+      "ct": "",
+      "location": "/xplanner-legacy/do/mobile/login",
+      "bytes": 0,
+      "wml": false,
+      "text": ""
+    },
+    {
+      "id": "session GET /do/mobile/login",
+      "status": 500,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 21478,
+      "wml": false,
+      "text": "user <editor.userId> M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in de"
+    },
+    {
+      "id": "session POST /do/mobile/login",
+      "status": 500,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 21780,
+      "wml": false,
+      "text": "user <editor.userId> M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in de"
+    },
+    {
+      "id": "session GET mobile/view/projects",
+      "status": 404,
+      "ct": "text/html;charset=utf-8",
+      "bytes": 781,
+      "wml": false,
+      "text": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "id": "session GET mobile/view/project",
+      "status": 404,
+      "ct": "text/html;charset=utf-8",
+      "bytes": 781,
+      "wml": false,
+      "text": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "id": "session GET mobile/view/iteration",
+      "status": 404,
+      "ct": "text/html;charset=utf-8",
+      "bytes": 781,
+      "wml": false,
+      "text": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "id": "session GET mobile/view/story",
+      "status": 404,
+      "ct": "text/html;charset=utf-8",
+      "bytes": 781,
+      "wml": false,
+      "text": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "id": "session GET mobile/view/task",
+      "status": 404,
+      "ct": "text/html;charset=utf-8",
+      "bytes": 781,
+      "wml": false,
+      "text": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "id": "session GET mobile/view/person",
+      "status": 404,
+      "ct": "text/html;charset=utf-8",
+      "bytes": 781,
+      "wml": false,
+      "text": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "id": "session GET mobile/view/project with projectId",
+      "status": 500,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 21857,
+      "wml": false,
+      "text": "user <editor.userId> M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in de"
+    },
+    {
+      "id": "session GET mobile/view/projects with projectId",
+      "status": 500,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 21733,
+      "wml": false,
+      "text": "user <editor.userId> M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in de"
+    }
+  ],
+  "trace": [
+    {
+      "at": "2026-09-30T20:26:21.343Z",
+      "client": "anon",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/login",
+      "status": 302,
+      "location": "/xplanner-legacy/do/login",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 0,
+      "label": "mobile login anon"
+    },
+    {
+      "at": "2026-09-30T20:26:21.628Z",
+      "client": "anon",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/view/projects",
+      "status": 302,
+      "location": "/xplanner-legacy/do/mobile/login",
+      "bytes": 0,
+      "label": "mobile projects anon"
+    },
+    {
+      "at": "2026-09-30T20:26:21.916Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:26:22.209Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:26:22.515Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/login",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21478,
+      "label": "mobile login form in session",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error  [... 8678 chars]"
+    },
+    {
+      "at": "2026-09-30T20:26:22.854Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/mobile/login",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21780,
+      "label": "mobile login submit (credentials not recorded)",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do n [... 8740 chars]"
+    },
+    {
+      "at": "2026-09-30T20:26:23.162Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/view/projects",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 781,
+      "label": "mobile view projects",
+      "excerpt": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "at": "2026-09-30T20:26:23.441Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/view/project?oid=224",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 781,
+      "label": "mobile view project",
+      "excerpt": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "at": "2026-09-30T20:26:23.724Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/view/iteration?oid=234",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 781,
+      "label": "mobile view iteration",
+      "excerpt": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "at": "2026-09-30T20:26:24.009Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/view/story?oid=256",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 781,
+      "label": "mobile view story",
+      "excerpt": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "at": "2026-09-30T20:26:24.290Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/view/task?oid=270",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 781,
+      "label": "mobile view task",
+      "excerpt": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "at": "2026-09-30T20:26:24.573Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/view/person?oid=209",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 781,
+      "label": "mobile view person",
+      "excerpt": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "at": "2026-09-30T20:26:24.882Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/view/project?oid=224&projectId=224",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21857,
+      "label": "mobile view project with projectId",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error  [... 8818 chars]"
+    },
+    {
+      "at": "2026-09-30T20:26:25.218Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/view/projects?projectId=224",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21733,
+      "label": "mobile view projects with projectId",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error  [... 8782 chars]"
+    },
+    {
+      "at": "2026-09-30T20:26:25.524Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    }
+  ]
+}

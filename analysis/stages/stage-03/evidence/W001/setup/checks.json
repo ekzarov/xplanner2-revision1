@@ -1,0 +1,1496 @@
+{
+  "part": "setup",
+  "performed_by": "BA (Claude Code subagent, responsible-agent verification) for PM session d0ec1166-ffc9-446a-ba86-d768242e6de8; deployment operator Codex (PM handoff 2026-09-30T19:31Z)",
+  "started_at": "2026-09-30T19:40:50.620Z",
+  "finished_at": "2026-09-30T19:49:39.208Z",
+  "environment": {
+    "app": "http://127.0.0.1:18080/xplanner-legacy/",
+    "mail_sink": "http://127.0.0.1:18025/",
+    "war_sha256": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+    "deployed_commit": "eb7720f"
+  },
+  "summary": {
+    "checks": 63,
+    "by_verdict": {
+      "match": 47,
+      "finding": 14,
+      "blocked": 2
+    },
+    "rows": 45,
+    "rows_by_verdict": {
+      "difference": 14,
+      "partially verified": 17,
+      "live-verified": 12,
+      "unverified": 2
+    }
+  },
+  "rows": [
+    {
+      "row": 8,
+      "use_case": "Log in with valid credentials",
+      "verdict": "difference",
+      "note": "setup-F-01",
+      "checks": [
+        "setup-C-009",
+        "setup-C-010",
+        "setup-C-011",
+        "setup-C-012",
+        "setup-C-013"
+      ]
+    },
+    {
+      "row": 17,
+      "use_case": "Access protected pages without a session",
+      "verdict": "partially verified",
+      "note": "not observed: /setting/* requests were not made.",
+      "checks": [
+        "setup-C-018"
+      ]
+    },
+    {
+      "row": 18,
+      "use_case": "Access protected pages without a session",
+      "verdict": "partially verified",
+      "note": "not observed: the branch that redirects to the projects list was not requested.",
+      "checks": [
+        "setup-C-035"
+      ]
+    },
+    {
+      "row": 19,
+      "use_case": "Log out",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-014",
+        "setup-C-015",
+        "setup-C-016",
+        "setup-C-017"
+      ]
+    },
+    {
+      "row": 23,
+      "use_case": "Role hierarchy and default permissions",
+      "verdict": "partially verified",
+      "note": "not observed: display level only; server-side effects not tested here.",
+      "checks": [
+        "setup-C-028"
+      ]
+    },
+    {
+      "row": 24,
+      "use_case": "Role hierarchy and default permissions",
+      "verdict": "difference",
+      "note": "setup-F-03",
+      "checks": [
+        "setup-C-020",
+        "setup-C-021",
+        "setup-C-024"
+      ]
+    },
+    {
+      "row": 25,
+      "use_case": "Role hierarchy and default permissions",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-026",
+        "setup-C-062"
+      ]
+    },
+    {
+      "row": 26,
+      "use_case": "Permission-driven UI actions",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-027",
+        "setup-C-063"
+      ]
+    },
+    {
+      "row": 33,
+      "use_case": "Assign project roles to a person",
+      "verdict": "difference",
+      "note": "setup-F-02",
+      "checks": [
+        "setup-C-006",
+        "setup-C-061"
+      ]
+    },
+    {
+      "row": 34,
+      "use_case": "Assign project roles to a person",
+      "verdict": "partially verified",
+      "note": "not observed: grant on create observed; revocation on a later save and checkbox visibility for non-sysadmins not exercised.",
+      "checks": [
+        "setup-C-003"
+      ]
+    },
+    {
+      "row": 37,
+      "use_case": "List people",
+      "verdict": "partially verified",
+      "note": "not observed: paging not observable with 5 people.",
+      "checks": [
+        "setup-C-004"
+      ]
+    },
+    {
+      "row": 39,
+      "use_case": "List people",
+      "verdict": "difference",
+      "note": "setup-F-04",
+      "checks": [
+        "setup-C-030"
+      ]
+    },
+    {
+      "row": 40,
+      "use_case": "View person page",
+      "verdict": "difference",
+      "note": "setup-F-05",
+      "checks": [
+        "setup-C-031",
+        "setup-C-032"
+      ]
+    },
+    {
+      "row": 41,
+      "use_case": "View person page",
+      "verdict": "unverified",
+      "note": "blocked by setup-F-05: the only person page with tasks fails.",
+      "checks": [
+        "setup-C-033"
+      ]
+    },
+    {
+      "row": 42,
+      "use_case": "View person page",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-029"
+      ]
+    },
+    {
+      "row": 43,
+      "use_case": "Create person",
+      "verdict": "difference",
+      "note": "setup-F-03",
+      "checks": [
+        "setup-C-002",
+        "setup-C-022"
+      ]
+    },
+    {
+      "row": 46,
+      "use_case": "Edit person and password",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-007"
+      ]
+    },
+    {
+      "row": 47,
+      "use_case": "Edit person and password",
+      "verdict": "partially verified",
+      "note": "not observed: stored digest form and change of an existing password not observed.",
+      "checks": [
+        "setup-C-008"
+      ]
+    },
+    {
+      "row": 50,
+      "use_case": "Import people from a file",
+      "verdict": "difference",
+      "note": "setup-F-03",
+      "checks": [
+        "setup-C-023"
+      ]
+    },
+    {
+      "row": 75,
+      "use_case": "List projects",
+      "verdict": "partially verified",
+      "note": "not observed: sorting not observable with one project.",
+      "checks": [
+        "setup-C-034"
+      ]
+    },
+    {
+      "row": 76,
+      "use_case": "List projects",
+      "verdict": "partially verified",
+      "note": "not observed: ordering of hidden projects not tested.",
+      "checks": [
+        "setup-C-019"
+      ]
+    },
+    {
+      "row": 77,
+      "use_case": "List projects",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-001"
+      ]
+    },
+    {
+      "row": 78,
+      "use_case": "Create project",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-005",
+        "setup-C-060"
+      ]
+    },
+    {
+      "row": 83,
+      "use_case": "View project",
+      "verdict": "partially verified",
+      "note": "not observed: paging and sorting not observable with one iteration.",
+      "checks": [
+        "setup-C-036"
+      ]
+    },
+    {
+      "row": 84,
+      "use_case": "View project",
+      "verdict": "difference",
+      "note": "setup-F-06",
+      "checks": [
+        "setup-C-037"
+      ]
+    },
+    {
+      "row": 88,
+      "use_case": "Create iteration",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-038"
+      ]
+    },
+    {
+      "row": 91,
+      "use_case": "Delete iteration",
+      "verdict": "partially verified",
+      "note": "not observed: only the link visibility; the delete and its cascade were not run.",
+      "checks": [
+        "setup-C-025"
+      ]
+    },
+    {
+      "row": 92,
+      "use_case": "View iteration stories",
+      "verdict": "partially verified",
+      "note": "not observed: progress-bar markup not inspected.",
+      "checks": [
+        "setup-C-044"
+      ]
+    },
+    {
+      "row": 93,
+      "use_case": "View iteration stories",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-039"
+      ]
+    },
+    {
+      "row": 98,
+      "use_case": "Start iteration",
+      "verdict": "partially verified",
+      "note": "not observed: opening data samples not observable in the UI.",
+      "checks": [
+        "setup-C-040"
+      ]
+    },
+    {
+      "row": 121,
+      "use_case": "Create user story",
+      "verdict": "difference",
+      "note": "setup-F-07",
+      "checks": [
+        "setup-C-041",
+        "setup-C-042"
+      ]
+    },
+    {
+      "row": 122,
+      "use_case": "Create user story",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-043"
+      ]
+    },
+    {
+      "row": 125,
+      "use_case": "Edit user story",
+      "verdict": "difference",
+      "note": "setup-F-07",
+      "checks": [
+        "setup-C-047"
+      ]
+    },
+    {
+      "row": 127,
+      "use_case": "View user story",
+      "verdict": "partially verified",
+      "note": "not observed: customer display not observed (no customer assigned).",
+      "checks": [
+        "setup-C-045"
+      ]
+    },
+    {
+      "row": 128,
+      "use_case": "View user story",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-046"
+      ]
+    },
+    {
+      "row": 134,
+      "use_case": "Create task",
+      "verdict": "difference",
+      "note": "setup-F-08",
+      "checks": [
+        "setup-C-048",
+        "setup-C-049"
+      ]
+    },
+    {
+      "row": 135,
+      "use_case": "Create task",
+      "verdict": "partially verified",
+      "note": "not observed: server-default-locale branch not tested.",
+      "checks": [
+        "setup-C-050"
+      ]
+    },
+    {
+      "row": 136,
+      "use_case": "Create task",
+      "verdict": "partially verified",
+      "note": "not observed: the planned branch (inactive iteration) not observed.",
+      "checks": [
+        "setup-C-051"
+      ]
+    },
+    {
+      "row": 138,
+      "use_case": "Task e-mail notification",
+      "verdict": "unverified",
+      "note": "no message reached the mail sink; cause not isolable without the application log.",
+      "checks": [
+        "setup-C-059"
+      ]
+    },
+    {
+      "row": 140,
+      "use_case": "Complete or reopen task",
+      "verdict": "difference",
+      "note": "setup-F-09",
+      "checks": [
+        "setup-C-053"
+      ]
+    },
+    {
+      "row": 141,
+      "use_case": "Complete or reopen task",
+      "verdict": "difference",
+      "note": "setup-F-09",
+      "checks": [
+        "setup-C-054"
+      ]
+    },
+    {
+      "row": 143,
+      "use_case": "View task",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "setup-C-052"
+      ]
+    },
+    {
+      "row": 149,
+      "use_case": "Record time on a task",
+      "verdict": "partially verified",
+      "note": "not observed: the Insert Time script was not run.",
+      "checks": [
+        "setup-C-055"
+      ]
+    },
+    {
+      "row": 151,
+      "use_case": "Record time on a task",
+      "verdict": "partially verified",
+      "note": "not observed: the client-side recalculation was not run.",
+      "checks": [
+        "setup-C-056"
+      ]
+    },
+    {
+      "row": 162,
+      "use_case": "Personal timesheet",
+      "verdict": "difference",
+      "note": "setup-F-05",
+      "checks": [
+        "setup-C-057",
+        "setup-C-058"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "setup-C-001",
+      "row": 77,
+      "role": "factory default account (seeded system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "With no readable project the projects page shows the projects.none message.",
+      "source": "analysis/legacy_user_flows.xlsx row 77 (List projects), columns D and F",
+      "action": "Signed in as the factory account on the new database and opened /do/view/projects (the login redirect target).",
+      "mode": "live",
+      "observed": "Page \"XPlanner Projects\" shows \"No projects defined yet.\" and an \"Add Project\" link.",
+      "evidence": "traces/results-phaseA1.json#projects-empty",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-002",
+      "row": 43,
+      "role": "factory default account (seeded system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A user with create.person adds a person with name, user ID, initials, e-mail, phone and password; the person is saved and the user is returned to the people list.",
+      "source": "analysis/legacy_user_flows.xlsx row 43 (Create person), columns D and F",
+      "action": "Opened Add Person from /do/view/people and submitted the personEditor form four times (name, userIdentifier, initials S3V/S3E/S3A/S3S, email, empty phone, newPassword and newPasswordConfirm from the account file, action=Create).",
+      "mode": "live",
+      "observed": "Each POST /do/edit/person answered 302 to /do/view/people; the four people are listed with oids 209-212.",
+      "evidence": "traces/results-phaseA1.json#create-viewer..create-sysadmin",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-003",
+      "row": 34,
+      "role": "factory default account (seeded system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The System administrator checkbox is shown to sysadmins; posting systemAdmin=true grants the system administrator role.",
+      "source": "analysis/legacy_user_flows.xlsx row 34 (Assign project roles to a person), columns D and F",
+      "action": "Created s3sysadmin with the \"System Administrator?\" checkbox ticked (systemAdmin=true); later signed in as s3sysadmin.",
+      "mode": "live",
+      "observed": "The checkbox is on the editor for the factory account; the saved editor shows it checked for oid 212; s3sysadmin sees Add Project, the Hidden? column and project Delete without any role on S3 Shared. Revocation on a later save and visibility to non-sysadmins were not exercised.",
+      "evidence": "traces/results-phaseA2.json#sysadmin-state; traces/results-phaseB.json#accounts.sysadmin",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-004",
+      "row": 37,
+      "role": "factory default account (seeded system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "People list with user ID, name, initials, phone and e-mail, sortable, paged at the bottom, mailto links, default sort by name.",
+      "source": "analysis/legacy_user_flows.xlsx row 37 (List people), columns D and F",
+      "action": "Opened /do/view/people after creating the four people.",
+      "mode": "live",
+      "observed": "Columns Actions, User Id, Name, Initials, Phone, Email; sort links on User Id, Name, Initials and Email; 5 mailto links; rows in name order. Paging not observable with 5 people.",
+      "evidence": "traces/results-phaseA1.json#people-list",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-005",
+      "row": 78,
+      "role": "factory default account (seeded system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A user with create.project creates a project with name, description, escape-brackets, missing-time reminder and wiki URL; returned to the projects list.",
+      "source": "analysis/legacy_user_flows.xlsx row 78 (Create project), columns D and F",
+      "action": "Opened Add Project, submitted projectEditorForm with name \"S3 Shared\", a description and action=Create (the value the Create button sets by onclick).",
+      "mode": "live",
+      "observed": "Editor shows Name, Description, Hidden, Escape brackets, reminder checkbox and Project Wiki link; POST answered 302 to /do/view/projects; project listed with ID 220.",
+      "evidence": "traces/results-phaseA1.json#create-project; traces/phaseA1-factory.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-006",
+      "row": 33,
+      "role": "factory default account (seeded system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Per-project radio buttons in the person editor set none/viewer/editor/admin; saved roles change what the person can see and do.",
+      "source": "analysis/legacy_user_flows.xlsx row 33 (Assign project roles to a person), columns D and F",
+      "action": "Opened the person editor of oids 209, 210 and 211 and submitted it with the S3 Shared role set to viewer, editor and admin.",
+      "mode": "live",
+      "observed": "The editor offers a drop-down select projectRole[0] (hidden projectId[0]=220) with None, Viewer, Editor, Admin, not radio buttons. Each POST answered 302 to /do/view/people; re-opened editors show viewer, editor and admin selected; the roles changed the visible controls (checks on rows 24-26).",
+      "evidence": "traces/results-phaseA2.json#role-viewer..role-admin",
+      "verdict": "finding",
+      "finding": "setup-F-02"
+    },
+    {
+      "id": "setup-C-007",
+      "row": 46,
+      "role": "factory default account (seeded system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An authorized user updates a person; changes saved; returnto page shown.",
+      "source": "analysis/legacy_user_flows.xlsx row 46 (Edit person and password), columns D and F",
+      "action": "Submitted the person editor (action=Update) for oids 209-211 as part of the role assignment.",
+      "mode": "live",
+      "observed": "POST answered 302 to the returnto page /do/view/people; the change is shown on re-opening.",
+      "evidence": "traces/results-phaseA2.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-008",
+      "row": 47,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Password fields are shown when the login module can change passwords; a new password is stored and replaces the old one.",
+      "source": "analysis/legacy_user_flows.xlsx row 47 (Edit person and password), columns D and F",
+      "action": "Set the password on create through newPassword/newPasswordConfirm; signed in with each account.",
+      "mode": "live",
+      "observed": "New password / Confirm New Password fields are present; all four accounts sign in with the password set in the editor. The stored digest form and a change of an existing password were not observed.",
+      "evidence": "traces/results-phaseA1.json; traces/results-phaseB.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-009",
+      "row": 8,
+      "role": "s3viewer (viewer on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Sign-in with user ID and password redirects to /do/view/projects.",
+      "source": "analysis/legacy_user_flows.xlsx row 8 (Log in with valid credentials), columns D and F",
+      "action": "GET /do/login, POST the login form (userId, password, action=Login; remember left unchecked).",
+      "mode": "live",
+      "observed": "POST answered 302 to /do/view/projects; page \"XPlanner Projects\" with \"user <userId>\" in the header.",
+      "evidence": "traces/results-phaseB.json#accounts.viewer.login",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-010",
+      "row": 8,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Same as above.",
+      "source": "analysis/legacy_user_flows.xlsx row 8 (Log in with valid credentials), columns D and F",
+      "action": "Same as above.",
+      "mode": "live",
+      "observed": "POST answered 302 to /do/view/projects (landing page \"XPlanner Projects\").",
+      "evidence": "traces/results-phaseB.json#accounts.editor.login",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-011",
+      "row": 8,
+      "role": "s3admin (admin on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Same as above.",
+      "source": "analysis/legacy_user_flows.xlsx row 8 (Log in with valid credentials), columns D and F",
+      "action": "Same as above.",
+      "mode": "live",
+      "observed": "POST answered 302 to /do/view/projects (landing page \"XPlanner Projects\").",
+      "evidence": "traces/results-phaseB.json#accounts.admin.login",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-012",
+      "row": 8,
+      "role": "s3sysadmin (system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Same as above.",
+      "source": "analysis/legacy_user_flows.xlsx row 8 (Log in with valid credentials), columns D and F",
+      "action": "Same as above.",
+      "mode": "live",
+      "observed": "POST answered 302 to /do/view/projects (landing page \"XPlanner Projects\").",
+      "evidence": "traces/results-phaseB.json#accounts.sysadmin.login",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-013",
+      "row": 8,
+      "role": "no session",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Login form with User ID, Password, Remember me and a \"Log In\" button.",
+      "source": "analysis/legacy_user_flows.xlsx row 8 (Log in with valid credentials), columns D and F",
+      "action": "Read the login page form.",
+      "mode": "live",
+      "observed": "Form loginForm posts to /do/login with fields userId, password, remember (value Y, checked by default) and submit action with the label \"Login\" (label \"Remember me?\").",
+      "evidence": "traces/results-phaseB.json",
+      "verdict": "finding",
+      "finding": "setup-F-01"
+    },
+    {
+      "id": "setup-C-014",
+      "row": 19,
+      "role": "s3viewer (viewer on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Log out invalidates the session, removes the remember-me cookies and shows the login page.",
+      "source": "analysis/legacy_user_flows.xlsx row 19 (Log out), columns D and F",
+      "action": "GET /do/logout, then GET /do/view/projects.",
+      "mode": "live",
+      "observed": "/do/logout answered 200 with the login form and Set-Cookie userid and password with Max-Age=0 plus a new session cookie; the next protected request answered 302 to /do/login.",
+      "evidence": "traces/results-phaseB.json#accounts.viewer.logout",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-015",
+      "row": 19,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Same as above.",
+      "source": "analysis/legacy_user_flows.xlsx row 19 (Log out), columns D and F",
+      "action": "Same as above (phase B and again at the end of the chain).",
+      "mode": "live",
+      "observed": "Same observation both times.",
+      "evidence": "traces/results-phaseB.json#accounts.editor.logout; traces/results-chain6.json#sign-out",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-016",
+      "row": 19,
+      "role": "s3admin (admin on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Same as above.",
+      "source": "analysis/legacy_user_flows.xlsx row 19 (Log out), columns D and F",
+      "action": "Same as above.",
+      "mode": "live",
+      "observed": "Same observation.",
+      "evidence": "traces/results-phaseB.json#accounts.admin.logout",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-017",
+      "row": 19,
+      "role": "s3sysadmin (system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Same as above.",
+      "source": "analysis/legacy_user_flows.xlsx row 19 (Log out), columns D and F",
+      "action": "Same as above.",
+      "mode": "live",
+      "observed": "Same observation.",
+      "evidence": "traces/results-phaseB.json#accounts.sysadmin.logout",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-018",
+      "row": 17,
+      "role": "no session",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A /do/* request without a session is redirected to /do/login.",
+      "source": "analysis/legacy_user_flows.xlsx row 17 (Access protected pages without a session), columns D and F",
+      "action": "GET /do/view/projects without a session and after each logout; GET /do/view/task?oid=264 after logout.",
+      "mode": "live",
+      "observed": "Every request answered 302 to /do/login. /setting/* was not requested.",
+      "evidence": "traces/results-phaseB.json#after_logout; traces/results-chain6.json#sign-out",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-019",
+      "row": 76,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The Hidden column is shown only to users who may hide projects.",
+      "source": "analysis/legacy_user_flows.xlsx row 76 (List projects), columns D and F",
+      "action": "Opened /do/view/projects as each role account.",
+      "mode": "live",
+      "observed": "Only s3sysadmin sees \"Hidden?\" (value N); s3viewer, s3editor and s3admin do not. Ordering of hidden projects was not tested (no hidden project).",
+      "evidence": "traces/results-phaseB.json#projects",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-020",
+      "row": 24,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Editors and admins may not create projects: the \"Create project\" link is hidden.",
+      "source": "analysis/legacy_user_flows.xlsx row 24 (Role hierarchy and default permissions), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "Looked for Add Project on /do/view/projects as each role account.",
+      "mode": "live",
+      "observed": "Add Project is shown only to s3sysadmin; not to s3viewer, s3editor or s3admin.",
+      "evidence": "traces/results-phaseB.json#projects.links",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-021",
+      "row": 24,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Editors may not create people: the \"Add person\" link is hidden for them (and shown only with create.person, rows 43 and 50).",
+      "source": "analysis/legacy_user_flows.xlsx row 24 (Role hierarchy and default permissions), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "Opened /do/view/people as each role account.",
+      "mode": "live",
+      "observed": "Add Person and Import People are shown to all four accounts, including s3viewer and s3editor.",
+      "evidence": "traces/results-phaseB.json#people",
+      "verdict": "finding",
+      "finding": "setup-F-03"
+    },
+    {
+      "id": "setup-C-022",
+      "row": 43,
+      "role": "s3viewer (viewer on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The Add Person link is shown under create.person only.",
+      "source": "analysis/legacy_user_flows.xlsx row 43 (Create person), columns D and F",
+      "action": "Opened /do/view/people as s3viewer and s3editor.",
+      "mode": "live",
+      "observed": "Add Person (/do/edit/person) is shown to both.",
+      "evidence": "traces/results-phaseB.json#people.add_person",
+      "verdict": "finding",
+      "finding": "setup-F-03"
+    },
+    {
+      "id": "setup-C-023",
+      "row": 50,
+      "role": "s3viewer (viewer on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The Import People link is shown under create.person only.",
+      "source": "analysis/legacy_user_flows.xlsx row 50 (Import people from a file), columns D and F",
+      "action": "Opened /do/view/people as s3viewer and s3editor.",
+      "mode": "live",
+      "observed": "Import People (/do/import/people) is shown to both. The import itself was not exercised.",
+      "evidence": "traces/results-phaseB.json#people.import_people",
+      "verdict": "finding",
+      "finding": "setup-F-03"
+    },
+    {
+      "id": "setup-C-024",
+      "row": 24,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Editors may not delete iterations: the iteration delete control is hidden for them.",
+      "source": "analysis/legacy_user_flows.xlsx row 24 (Role hierarchy and default permissions), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "Opened the project and iteration pages after the iteration existed.",
+      "mode": "live",
+      "observed": "s3editor sees the iteration edit icon but no delete icon or Delete link; s3admin and s3sysadmin see both.",
+      "evidence": "traces/results-phaseD.json#roles",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-025",
+      "row": 91,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The iteration delete link is shown to users with delete permission on the iteration, not to editors.",
+      "source": "analysis/legacy_user_flows.xlsx row 91 (Delete iteration), columns D and F",
+      "action": "Same pages as above; the delete itself was not run.",
+      "mode": "live",
+      "observed": "Delete shown to s3admin and s3sysadmin, hidden for s3editor and s3viewer.",
+      "evidence": "traces/results-phaseD.json#roles",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-026",
+      "row": 25,
+      "role": "s3sysadmin (system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A role assigned for project 0 applies to all projects.",
+      "source": "analysis/legacy_user_flows.xlsx row 25 (Role hierarchy and default permissions), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "Signed in as s3sysadmin (system administrator, no role on S3 Shared) and opened S3 Shared.",
+      "mode": "live",
+      "observed": "S3 Shared is listed and its page offers Edit, Delete and Create Iteration.",
+      "evidence": "traces/results-phaseB.json#accounts.sysadmin.project",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-027",
+      "row": 26,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Edit, delete, move/continue and time actions appear only with permission (project delete needs sysadmin.delete, project edit admin.edit).",
+      "source": "analysis/legacy_user_flows.xlsx row 26 (Permission-driven UI actions), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "Opened the project, iteration, story and task pages as each role account after the chain.",
+      "mode": "live",
+      "observed": "s3viewer sees no action control on any of the four pages; s3editor sees story and task edit/delete/move-continue/time controls and Create Iteration but no project Edit; s3admin adds project Edit; only s3sysadmin sees project Delete.",
+      "evidence": "traces/results-phaseD.json; traces/results-phaseB.json#project",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-028",
+      "row": 23,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "viewer < editor < admin < sysadmin: a viewer reads, an editor creates and edits, an admin adds admin rights, a sysadmin does everything.",
+      "source": "analysis/legacy_user_flows.xlsx row 23 (Role hierarchy and default permissions), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "Compared the visible controls of the four accounts (display level only; no direct request was tried).",
+      "mode": "live",
+      "observed": "The controls grow in that order (checks on rows 24-26); the server-side effect of each permission was not tested in this part.",
+      "evidence": "traces/results-phaseD.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-029",
+      "row": 42,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The person-page edit link is shown to that person or to a user with admin.edit on system.person for some project; links to people, timesheet and exports.",
+      "source": "analysis/legacy_user_flows.xlsx row 42 (View person page), columns D and F",
+      "action": "Opened the own person page and another person page as each role account (before the chain data existed).",
+      "mode": "live",
+      "observed": "Own page: Edit, People, Timesheet and Export for all four; another person page: Edit only for s3admin and s3sysadmin.",
+      "evidence": "traces/results-phaseB.json#own_person, other_person",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-030",
+      "row": 39,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "With projectId the list shows only people with a role on the project, titled \"People in project <name>\".",
+      "source": "analysis/legacy_user_flows.xlsx row 39 (List people), columns D and F",
+      "action": "Opened /do/view/people?projectId=220 as each role account.",
+      "mode": "live",
+      "observed": "Heading \"People on project: S3 Shared\" (HTML title \"People\"; bundle key people.project.title); listed: the three project members plus s3sysadmin and the factory account, which hold only the project-0 system administrator role.",
+      "evidence": "traces/results-phaseB.json#project_people",
+      "verdict": "finding",
+      "finding": "setup-F-04"
+    },
+    {
+      "id": "setup-C-031",
+      "row": 40,
+      "role": "s3viewer (viewer on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A person page shows active, planned and completed tasks, stories as customer and tracker, and future tasks, with \"none\" messages.",
+      "source": "analysis/legacy_user_flows.xlsx row 40 (View person page), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "Opened the person page of s3viewer (no work assigned).",
+      "mode": "live",
+      "observed": "HTTP 200 with the six \"No ...\" messages.",
+      "evidence": "traces/results-phaseB.json#accounts.viewer.own_person",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-032",
+      "row": 40,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Same page for a person with work.",
+      "source": "analysis/legacy_user_flows.xlsx row 40 (View person page), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "After the chain (s3editor tracks the story and accepts the completed task with 1.5 h), opened /do/view/person?oid=210 three times.",
+      "mode": "live",
+      "observed": "HTTP 500 \"An error has occurred\": javax.el.ELException reading cachedActualHours on net.sf.xplanner.domain.UserStory, caused by org.hibernate.LazyInitializationException for UserStory.tasks and Task.timeEntries (no session). The person page of s3viewer (oid 209) still renders.",
+      "evidence": "traces/results-chain6.json#open-timesheet.person_page; traces/results-chain7.json#person-page-retry",
+      "verdict": "finding",
+      "finding": "setup-F-05"
+    },
+    {
+      "id": "setup-C-033",
+      "row": 41,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Clock and edit icons per active task on the person page.",
+      "source": "analysis/legacy_user_flows.xlsx row 41 (View person page), columns D and F",
+      "action": "Not observable: the person page of the only account with tasks fails (row 40).",
+      "mode": "not-run",
+      "observed": "not observed",
+      "evidence": "traces/results-chain7.json#person-page-retry",
+      "verdict": "blocked",
+      "finding": null
+    },
+    {
+      "id": "setup-C-034",
+      "row": 75,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Projects list with ID, name and the iteration in progress; people and aggregate timesheet links.",
+      "source": "analysis/legacy_user_flows.xlsx row 75 (List projects), columns D and F",
+      "action": "Opened /do/view/projects before and after starting the iteration.",
+      "mode": "live",
+      "observed": "Columns ID, Project Name, Iteration; after the start the row shows \"S3-setup Iteration 1\"; People and Team Timesheet links. Sorting not observable with one project.",
+      "evidence": "traces/results-phaseB.json#projects; traces/results-chain2.json#projects-current-iteration",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-035",
+      "row": 18,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "With exactly one visible project that has a current iteration the root URL redirects to that iteration.",
+      "source": "analysis/legacy_user_flows.xlsx row 18 (Access protected pages without a session), columns D and F",
+      "action": "GET /xplanner-legacy/ after the start.",
+      "mode": "live",
+      "observed": "302 to /do/view/iteration?oid=231. The other branch (redirect to the projects list) was not requested.",
+      "evidence": "traces/results-chain2.json#root-url",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-036",
+      "row": 83,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Project page with description and an iteration table (ID, name, start/end, days worked, stories), icons by permission, create iteration, people, export and history links.",
+      "source": "analysis/legacy_user_flows.xlsx row 83 (View project), columns D and F",
+      "action": "Opened S3 Shared after creating the iteration.",
+      "mode": "live",
+      "observed": "Table headers Actions, ID, Iteration, Start Date, End Date, Days Wrk., Stories; row 231 2026-09-30 to 2026-10-13, 0.0, 0; links People, Export, History, Create Iteration. Paging and sorting not observable with one iteration.",
+      "evidence": "traces/results-chain1.json#project-after-create",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-037",
+      "row": 84,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A project without iterations shows iterations.none (\"No iterations for this project.\").",
+      "source": "analysis/legacy_user_flows.xlsx row 84 (View project), columns D and F",
+      "action": "Opened S3 Shared before any iteration existed, as each role account.",
+      "mode": "live",
+      "observed": "The page shows the description and actions only; no \"No iterations for this project.\" message.",
+      "evidence": "traces/results-phaseB.json#project.text",
+      "verdict": "finding",
+      "finding": "setup-F-06"
+    },
+    {
+      "id": "setup-C-038",
+      "row": 88,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A user with create permission creates an iteration with name, start and end date (calendar pickers) and description; returned.",
+      "source": "analysis/legacy_user_flows.xlsx row 88 (Create iteration), columns D and F",
+      "action": "Followed Create Iteration, submitted iterationEditor with \"S3-setup Iteration 1\", 2026-09-30, 2026-10-13 and a description.",
+      "mode": "live",
+      "observed": "Editor has calendar image buttons; POST answered 302 to /do/view/project?oid=220 and the iteration is listed (oid 231).",
+      "evidence": "traces/results-chain1.json#create-iteration",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-039",
+      "row": 93,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An iteration without stories shows stories.none.",
+      "source": "analysis/legacy_user_flows.xlsx row 93 (View iteration stories), columns D and F",
+      "action": "Opened the new iteration.",
+      "mode": "live",
+      "observed": "\"No stories have been defined.\" is shown.",
+      "evidence": "traces/results-chain1.json#open-iteration",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-040",
+      "row": 98,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An editor starts an iteration; without another active iteration it starts at once, no confirmation page.",
+      "source": "analysis/legacy_user_flows.xlsx row 98 (Start iteration), columns D and F",
+      "action": "Followed the Start link (GET /do/start/iteration?oid=231).",
+      "mode": "live",
+      "observed": "302 back to /do/view/iteration?oid=231, no confirmation page; Start is replaced by Close and a Dashboard link appears; the projects list shows it as current. Opening data samples are not observable in the UI.",
+      "evidence": "traces/results-chain2.json#start-iteration",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-041",
+      "row": 121,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An editor creates a story with name, disposition, customer, tracker, status, priority, order, estimate and description; saved; returned to the iteration.",
+      "source": "analysis/legacy_user_flows.xlsx row 121 (Create user story), columns D and F",
+      "action": "Followed Create Story and submitted storyEditor (\"S3-setup Story 1\", tracker s3editor, estimate 4.0).",
+      "mode": "live",
+      "observed": "POST answered 302 to /do/view/iteration?oid=231; story 253 listed.",
+      "evidence": "traces/results-chain3.json#create-story",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-042",
+      "row": 121,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The disposition and status chosen in the editor are stored with the story.",
+      "source": "analysis/legacy_user_flows.xlsx row 121 (Create user story), columns D and F",
+      "action": "Submitted dispositionName=added (the pre-selected value) and statusName=defined.",
+      "mode": "live",
+      "observed": "The story page and the iteration table show Disposition \"Planned\" and Status \"Draft\".",
+      "evidence": "traces/results-chain3.json#open-story",
+      "verdict": "finding",
+      "finding": "setup-F-07"
+    },
+    {
+      "id": "setup-C-043",
+      "row": 122,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A new story defaults to priority 4.",
+      "source": "analysis/legacy_user_flows.xlsx row 122 (Create user story), columns D and F",
+      "action": "Read the new story editor.",
+      "mode": "live",
+      "observed": "Priority field pre-filled with 4 (order 1, estimate 0.0).",
+      "evidence": "traces/results-chain2.json#story-editor",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-044",
+      "row": 92,
+      "role": "s3viewer (viewer on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Iteration page with date range, progress bar, estimated/actual/remaining hours and the story table columns.",
+      "source": "analysis/legacy_user_flows.xlsx row 92 (View iteration stories), columns D and F",
+      "action": "Opened the iteration after the chain as each role account.",
+      "mode": "live",
+      "observed": "Date range, \"Hours: Estimate 4.0, Actual 1.5, Remaining 0.0\" and headers Sel., Actions, ID, Order, User Story, !, Cust., Progress, Act., Rem., Cur. Est., Orig. Est., Tasks, Tracker, Disp., Status; icons only for s3editor and above. The progress-bar markup was not inspected.",
+      "evidence": "traces/results-phaseD.json#iteration.summary; traces/results-chain3.json#iteration-story-table",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-045",
+      "row": 127,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Story page with estimated/actual/remaining hours, customer, tracker, last update, disposition, status, description and a task table; create task, export and history links.",
+      "source": "analysis/legacy_user_flows.xlsx row 127 (View user story), columns D and F",
+      "action": "Opened story 253.",
+      "mode": "live",
+      "observed": "Priority, Estimated Hours, Actual Hours, Tracker, Remaining Hours, Last Update, Disposition, Status, description; Create Task, Export, History. No customer line (none assigned); a story with a customer was not viewed.",
+      "evidence": "traces/results-chain3.json#open-story",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-046",
+      "row": 128,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A story without tasks shows story.no_tasks.",
+      "source": "analysis/legacy_user_flows.xlsx row 128 (View user story), columns D and F",
+      "action": "Opened story 253 before creating the task.",
+      "mode": "live",
+      "observed": "\"No tasks have been defined.\" is shown.",
+      "evidence": "traces/results-chain3.json#open-story",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-047",
+      "row": 125,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An editor updates a story; changes saved.",
+      "source": "analysis/legacy_user_flows.xlsx row 125 (Edit user story), columns D and F",
+      "action": "Followed Edit on story 253 and submitted statusName=defined, dispositionName=added, action=Update.",
+      "mode": "live",
+      "observed": "POST answered 302 to the story; Disposition stays \"Planned\" and Status \"Draft\". The edit form pre-selects neither the stored disposition nor the stored status.",
+      "evidence": "traces/results-chain4.json#story-update-status",
+      "verdict": "finding",
+      "finding": "setup-F-07"
+    },
+    {
+      "id": "setup-C-048",
+      "row": 134,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An editor creates a task with name, type, disposition, acceptor, estimate and description; returned to the story.",
+      "source": "analysis/legacy_user_flows.xlsx row 134 (Create task), columns D and F",
+      "action": "Followed Create Task and submitted taskEditor (\"S3-setup Task 1\", type Feature, acceptor s3editor, 2.0 h).",
+      "mode": "live",
+      "observed": "POST answered 302 to /do/view/userstory?oid=253; task 264 listed with type Feature, acceptor S3E, estimate 2.0.",
+      "evidence": "traces/results-chain4.json#create-task",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-049",
+      "row": 134,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The disposition chosen in the task editor is stored.",
+      "source": "analysis/legacy_user_flows.xlsx row 134 (Create task), columns D and F",
+      "action": "Submitted the pre-selected dispositionName=discovered.",
+      "mode": "live",
+      "observed": "The story task table shows Disp. \"Planned\".",
+      "evidence": "traces/results-chain4.json#story-task-table",
+      "verdict": "finding",
+      "finding": "setup-F-08"
+    },
+    {
+      "id": "setup-C-050",
+      "row": 135,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Task type options carry label text as values.",
+      "source": "analysis/legacy_user_flows.xlsx row 135 (Create task), columns D and F",
+      "action": "Read the task editor type select and the stored type (Accept-Language en-US).",
+      "mode": "live",
+      "observed": "Option values equal the English labels (Feature, Debt, Defect, FTest, ATest, Overhead); stored and shown \"Feature\". The server-default-locale branch was not tested with another locale.",
+      "evidence": "traces/results-chain3.json#task-editor",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-051",
+      "row": 136,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The default disposition of a new task is \"discovered\" when the iteration is active.",
+      "source": "analysis/legacy_user_flows.xlsx row 136 (Create task), columns D and F",
+      "action": "Read the task editor with the iteration started.",
+      "mode": "live",
+      "observed": "\"Discovered\" is pre-selected. The \"planned\" branch (inactive iteration) was not observed.",
+      "evidence": "traces/results-chain3.json#task-editor",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-052",
+      "row": 143,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Task page with acceptor, estimated hours, created date, actual hours, description and the time log (start, end, report date, duration, pair, description); action links by permission; export and history.",
+      "source": "analysis/legacy_user_flows.xlsx row 143 (View task), columns D and F",
+      "action": "Opened task 264 before and after entering time.",
+      "mode": "live",
+      "observed": "Acceptor, Estimated Hours, Created 2026-09-30, Actual Hours, description; time-log headers Start Time, End Time, Reported Date, Dur., Pair, Description; Edit, Delete, Move/Continue, Edit Time, Export, History.",
+      "evidence": "traces/results-chain4.json#open-task; traces/results-chain6.json#task-after-time",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-053",
+      "row": 140,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A \"Complete\" button on the task page completes the task; page reloads.",
+      "source": "analysis/legacy_user_flows.xlsx row 140 (Complete or reopen task), columns D and F",
+      "action": "Submitted the task page form \"completion\" with its button.",
+      "mode": "live",
+      "observed": "The button reads \"Complete Task\"; the form posts oid, action=Update, merge=true, completed=true to /do/edit/task; 302 back to the task page, which then offers \"Reopen Task\".",
+      "evidence": "traces/results-chain5.json#complete-task",
+      "verdict": "finding",
+      "finding": "setup-F-09"
+    },
+    {
+      "id": "setup-C-054",
+      "row": 141,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A \"Reopen\" button reopens a completed task.",
+      "source": "analysis/legacy_user_flows.xlsx row 141 (Complete or reopen task), columns D and F",
+      "action": "Read the completed task page; the reopen was not submitted (the task stays completed for the chain).",
+      "mode": "live",
+      "observed": "The button reads \"Reopen Task\" (completed=false in its form); shown to s3editor, s3admin and s3sysadmin, not to s3viewer.",
+      "evidence": "traces/results-chain5.json#complete-task; traces/results-phaseD.json#task.buttons",
+      "verdict": "finding",
+      "finding": "setup-F-09"
+    },
+    {
+      "id": "setup-C-055",
+      "row": 149,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The time editor shows a grid with an empty new row; Update saves; redirect to the task page.",
+      "source": "analysis/legacy_user_flows.xlsx row 149 (Record time on a task), columns D and F",
+      "action": "Followed Edit Time and submitted row 0 with duration 1.5, report date 2026-09-30 (pre-filled), person 1 s3editor, description, submit=Update.",
+      "mode": "live",
+      "observed": "Grid with one new row, Insert Time button, format hint \"YYYY-MM-DD HH:MM\"; POST answered 302 to /do/view/task?oid=264; the time log shows 2026-09-30, 1.5 and the s3editor person as pair member 1. The Insert Time script was not run.",
+      "evidence": "traces/results-chain6.json#enter-time",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-056",
+      "row": 151,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The remaining-hours value updates the task estimate on save.",
+      "source": "analysis/legacy_user_flows.xlsx row 151 (Record time on a task), columns D and F",
+      "action": "Submitted remaining hours 0.0 (the value the page script leaves when actual exceeds remaining) with the 1.5 h entry.",
+      "mode": "live",
+      "observed": "Estimated Hours changed from 2.0 to \"1.5 (2.0)\", Actual Hours 1.5. The client-side recalculation itself was not run.",
+      "evidence": "traces/results-chain6.json#task-after-time",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-057",
+      "row": 162,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A personal timesheet for a period summarises hours by project, iteration and story with daily totals and pie charts.",
+      "source": "analysis/legacy_user_flows.xlsx row 162 (Personal timesheet), columns D and F",
+      "action": "Opened /do/view/timesheet?oid=210 (link rendered on the person page in phase B), then submitted the period form for 2026-09-30.",
+      "mode": "live",
+      "observed": "Default period 2026-09-27 to 2026-10-03; summary S3 Shared / S3-setup Iteration 1 / S3-setup Story 1 1.5, Total 1.5; daily table (Wed 30-Sep-26 1.5); three chart images. The period form re-rendered for one day.",
+      "evidence": "traces/results-chain7.json#open-timesheet, timesheet-period",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-058",
+      "row": 162,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The timesheet is reached from the person page.",
+      "source": "analysis/legacy_user_flows.xlsx row 162 (Personal timesheet), columns D and F",
+      "action": "Opened the own person page to use its Timesheet link after the chain.",
+      "mode": "live",
+      "observed": "The person page answers HTTP 500 (row 40), so the Timesheet link is not reachable from it for this account.",
+      "evidence": "traces/results-chain6.json#open-timesheet",
+      "verdict": "finding",
+      "finding": "setup-F-05"
+    },
+    {
+      "id": "setup-C-059",
+      "row": 138,
+      "role": "s3editor (editor on S3 Shared)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript); mail sink API",
+      "expected": "Creating or updating a task sends \"Task was created.\" / \"Task was updated.\" to the editor and acceptor.",
+      "source": "analysis/legacy_user_flows.xlsx row 138 (Task e-mail notification), columns D and F",
+      "action": "After creating, completing and updating task 264, listed the Mailpit sink messages (GET /api/v1/messages).",
+      "mode": "live",
+      "observed": "The sink held 0 messages at 19:48Z and 19:49Z. Whether the application sent nothing or delivery failed cannot be told without the application log, which BA cannot read.",
+      "evidence": "traces/results-chain6.json#mail-sink; traces/results-chain7.json#mail-sink-recheck",
+      "verdict": "blocked",
+      "finding": null
+    },
+    {
+      "id": "setup-C-060",
+      "row": 78,
+      "role": "s3sysadmin (system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A user with create.project creates a project; returned to the projects list.",
+      "source": "analysis/legacy_user_flows.xlsx row 78 (Create project), columns D and F",
+      "action": "As s3sysadmin, opened Add Project and submitted projectEditorForm four times in order: S3-A Access, S3-B Planning, S3-C Time, S3-D Integrations (action=Create).",
+      "mode": "live",
+      "observed": "Each POST answered 302 to /do/view/projects; the projects are listed with ids 221, 222, 223, 224. No factory account was needed. The first script run created the projects and then stopped: it read the relative project links (\"project?...\") wrongly, so no role was changed. The second run found all four and skipped creating them. No duplicate project exists.",
+      "evidence": "traces/results-addendum1.json#create ...; traces/addendum1-sysadmin.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-061",
+      "row": 33,
+      "role": "s3sysadmin (system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A user with admin.edit.role on a project sets a person's role for it; saved roles change what the person can see and do.",
+      "source": "analysis/legacy_user_flows.xlsx row 33 (Assign project roles to a person), columns D and F",
+      "action": "As s3sysadmin (admin.edit.role through project 0), opened the person editors of s3viewer, s3editor and s3admin once each. Set the four new project selects to viewer, editor and admin and kept every other select as rendered. The s3sysadmin editor was never opened.",
+      "mode": "live",
+      "observed": "Each POST answered 302 to /do/view/people. Re-read editors show S3 Shared unchanged plus the new role on 221-224; the systemAdmin box is unchecked for all three, as before. The control is still the drop-down (setup-F-02).",
+      "evidence": "traces/results-addendum1.json#roles viewer..roles admin",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-062",
+      "row": 25,
+      "role": "s3sysadmin (system administrator)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A system administrator (project-0 role) sees and administers every project.",
+      "source": "analysis/legacy_user_flows.xlsx row 25 (Role hierarchy and default permissions), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "After the role changes, signed in as s3sysadmin and opened the projects list and all five project pages (GET only).",
+      "mode": "live",
+      "observed": "Add Project and the Hidden? column are present; all five projects are listed with Edit and Delete. s3sysadmin is still a system administrator.",
+      "evidence": "traces/results-addendum2.json#accounts.sysadmin",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "setup-C-063",
+      "row": 26,
+      "role": "s3viewer, s3editor, s3admin, s3sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Controls follow the role on each project (viewer read only; editor Create Iteration; admin also project Edit; sysadmin also project Delete).",
+      "source": "analysis/legacy_user_flows.xlsx row 26 (Permission-driven UI actions), columns D and F; analysis/legacy_reconnaissance.md Runnable Surfaces (server-side permission enforcement table)",
+      "action": "Signed in as each role account and opened the five project pages (GET only).",
+      "mode": "live",
+      "observed": "All five projects are listed for every account. s3viewer sees no control, s3editor sees Create Iteration without Edit, s3admin sees Edit without Delete and s3sysadmin sees Edit and Delete, on all five projects.",
+      "evidence": "traces/results-addendum2.json; traces/addendum2-viewer.trace.json; traces/addendum2-editor.trace.json; traces/addendum2-admin.trace.json; traces/addendum2-sysadmin.trace.json",
+      "verdict": "match",
+      "finding": null
+    }
+  ],
+  "findings": [
+    {
+      "id": "setup-F-01",
+      "rows": [
+        8
+      ],
+      "cells": [
+        "F8"
+      ],
+      "observed": "The submit button of the login form reads \"Login\" (bundle login.label); the checkbox label reads \"Remember me?\".",
+      "expected": "Login form with a \"Log In\" button.",
+      "minimal_correction": "Row 8, column F: replace \"Log In button\" with \"Login button\".",
+      "severity": "low"
+    },
+    {
+      "id": "setup-F-02",
+      "rows": [
+        33
+      ],
+      "cells": [
+        "F33"
+      ],
+      "observed": "The person editor offers one drop-down select per project (projectRole[i], hidden projectId[i]) with None, Viewer, Editor, Admin.",
+      "expected": "Per-project radio buttons.",
+      "minimal_correction": "Row 33, column F: \"Per-project role drop-down (None, Viewer, Editor, Admin) in the person editor\".",
+      "severity": "low"
+    },
+    {
+      "id": "setup-F-03",
+      "rows": [
+        24,
+        43,
+        50
+      ],
+      "cells": [
+        "D24",
+        "F24",
+        "H43",
+        "H50"
+      ],
+      "observed": "Add Person and Import People on /do/view/people are shown to s3viewer, s3editor, s3admin and s3sysadmin.",
+      "expected": "Row 24: the \"Add person\" link is hidden for editors; rows 43 and 50: the links are shown under create.person.",
+      "minimal_correction": "Row 24: remove \"create people\" from the display-level list, or state that the Add Person and Import People links are shown to every signed-in role observed (viewer included); rows 43 and 50: record that the create.person condition on the people page does not hide the links from viewers or editors live.",
+      "severity": "medium"
+    },
+    {
+      "id": "setup-F-04",
+      "rows": [
+        39
+      ],
+      "cells": [
+        "F39"
+      ],
+      "observed": "Heading \"People on project: S3 Shared\" (people.project.title = \"People on project: {0}\"); HTML title \"People\"; the list includes the two system administrators, who hold only the project-0 role.",
+      "expected": "Title \"People in project <name>\"; only project members listed.",
+      "minimal_correction": "Row 39, column F: \"Heading 'People on project: <name>'; project members, including system administrators through their project-0 role\".",
+      "severity": "low"
+    },
+    {
+      "id": "setup-F-05",
+      "rows": [
+        40,
+        162
+      ],
+      "cells": [
+        "D40",
+        "F40",
+        "G40",
+        "F162"
+      ],
+      "observed": "For s3editor (tracker of story 253, acceptor of completed task 264 with a 1.5 h entry) /do/view/person?oid=210 answers HTTP 500: javax.el.ELException reading cachedActualHours on UserStory, root org.hibernate.LazyInitializationException for UserStory.tasks and Task.timeEntries. Repeated three times; the page of a person without work renders. The timesheet itself works by its own URL.",
+      "expected": "Row 40: sections with task and story tables; row 162: the timesheet is opened from the person page.",
+      "minimal_correction": "Row 40: add an alternative path \"person page fails with HTTP 500 (lazy loading outside the session) when the person tracks a story or has tasks with time\" and set column G to Partial; row 41: note that it depends on row 40; row 162: note that the entry point fails in that state while /do/view/timesheet?oid=<id> works.",
+      "severity": "high"
+    },
+    {
+      "id": "setup-F-06",
+      "rows": [
+        84
+      ],
+      "cells": [
+        "F84"
+      ],
+      "observed": "A project with no iterations shows no \"No iterations for this project.\" message (all four roles).",
+      "expected": "Message iterations.none.",
+      "minimal_correction": "Row 84: record that the message is not shown live (column G Partial or No), pending a source check of the iterationCount condition in project.jsp.",
+      "severity": "low"
+    },
+    {
+      "id": "setup-F-07",
+      "rows": [
+        121,
+        125
+      ],
+      "cells": [
+        "D121",
+        "F121",
+        "F125"
+      ],
+      "observed": "Disposition and status chosen in the story editor are not stored: created with added/defined and updated to defined/added, the story stays Planned/Draft; the edit form pre-selects neither value.",
+      "expected": "Story saved with the chosen disposition and status; changes saved on edit.",
+      "minimal_correction": "Rows 121 and 125: state that disposition and status from the editor are not persisted (the story keeps Planned and Draft) and that the edit form does not pre-select them.",
+      "severity": "medium"
+    },
+    {
+      "id": "setup-F-08",
+      "rows": [
+        134
+      ],
+      "cells": [
+        "F134"
+      ],
+      "observed": "A task created with the pre-selected disposition \"discovered\" is shown with Disp. \"Planned\".",
+      "expected": "Task saved with the chosen disposition (row 136: default discovered for an active iteration).",
+      "minimal_correction": "Row 134: state that the disposition from the task editor is not stored on create (shown Planned); row 136: limit the claim to the pre-selection.",
+      "severity": "medium"
+    },
+    {
+      "id": "setup-F-09",
+      "rows": [
+        140,
+        141
+      ],
+      "cells": [
+        "F140",
+        "F141"
+      ],
+      "observed": "Buttons read \"Complete Task\" and \"Reopen Task\"; the completion form posts oid, action=Update, merge=true and completed=true/false to /do/edit/task.",
+      "expected": "\"Complete\" and \"Reopen\" buttons.",
+      "minimal_correction": "Rows 140 and 141, column F: use \"Complete Task\" and \"Reopen Task\" and note that the form uses merge=true (link to rows 124 and the task merge binding).",
+      "severity": "low"
+    }
+  ],
+  "not_checked": [
+    {
+      "row": 41,
+      "reason": "Person page of the only account with tasks answers HTTP 500 (setup-F-05).",
+      "retry_condition": "After the Stage 1 disposition of setup-F-05, or with a person whose page renders and who has an active task."
+    },
+    {
+      "row": 138,
+      "reason": "No message in the mail sink after task create, complete and update; the application log is not accessible to BA.",
+      "retry_condition": "PM checks the application log for mail errors and confirms the SMTP path to the sink; then repeat the task create and read the sink."
+    },
+    {
+      "row": 149,
+      "reason": "Insert Time is a client-side script; the built-in browser was not needed for the chain.",
+      "retry_condition": "A part that uses the built-in browser on 127.0.0.1:18080."
+    },
+    {
+      "row": 151,
+      "reason": "Remaining-hours recalculation is a client-side script.",
+      "retry_condition": "Same as row 149."
+    },
+    {
+      "row": "38, 44, 45, 48, 49, 51-53",
+      "reason": "People Management rows outside the setup steps (hidden people, validation, duplicate user ID, hide, delete, import).",
+      "retry_condition": "Assigned to the People Management part."
+    }
+  ]
+}

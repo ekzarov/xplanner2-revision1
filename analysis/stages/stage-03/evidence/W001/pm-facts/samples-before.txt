@@ -1,0 +1,17 @@
+# PM read-only datasample count before the scheduled jobs (collected 2026-09-30T21:49:56Z via pm-samples.sh; credential-like lines excluded)
+at 2026-09-30T21:49:56Z
+--- tables:
+DATABASECHANGELOG,DATABASECHANGELOGLOCK,attribute,datasample,history,identifier,integration,iteration,note,notification_receivers,object_type,patches,permission,person,person_role,project,roles,setting,story,task,time_entry,xdir,xfile
+--- project count and names:
+5
+S3 Shared | S3-A Access | S3-B Planning | S3-C Time | S3-D Integrations
+--- person count:
+11
+--- iteration columns:
+id,last_update,project_id,name,description,start_date,end_date,status,days_worked
+sample table: datasample
+--- datasample columns:
+sampleTime,referenceId,aspect,value
+--- datasample rows total:
+48
+

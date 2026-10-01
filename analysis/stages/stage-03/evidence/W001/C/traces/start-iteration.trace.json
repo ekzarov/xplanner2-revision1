@@ -1,0 +1,72 @@
+[
+  {
+    "at": "2026-09-30T20:14:29.338Z",
+    "client": "editor-en",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T20:14:29.623Z",
+    "client": "editor-en",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T20:14:29.943Z",
+    "client": "editor-en",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=232",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 18464
+  },
+  {
+    "at": "2026-09-30T20:14:30.252Z",
+    "client": "editor-en",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/start/iteration?fkey=223&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D232&projectId=223&oid=232",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/iteration?oid=232",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T20:14:30.569Z",
+    "client": "editor-en",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=232",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 18624
+  },
+  {
+    "at": "2026-09-30T20:14:30.848Z",
+    "client": "editor-en",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid[Max-Age=0] (expired)",
+      "password[Max-Age=0] (expired)",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746
+  }
+]

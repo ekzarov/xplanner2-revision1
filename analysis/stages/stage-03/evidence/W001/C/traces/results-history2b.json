@@ -1,0 +1,169 @@
+{
+  "started_at": "2026-09-30T20:18:47.082Z",
+  "steps": [
+    {
+      "step": "story-move-form",
+      "link": "/xplanner-legacy/do/move/continue/userstory?returnto=%2Fdo%2Fview%2Fprojects&oid=255",
+      "status": 200,
+      "fields": [
+        [
+          "hidden",
+          "oid",
+          "255",
+          null
+        ],
+        [
+          "hidden",
+          "iterationId",
+          "232",
+          null
+        ],
+        [
+          "hidden",
+          "merge",
+          "true",
+          null
+        ],
+        [
+          "hidden",
+          "fkey",
+          "null",
+          null
+        ],
+        [
+          "hidden",
+          "action",
+          "Move",
+          null
+        ],
+        [
+          "hidden",
+          "returnto",
+          "/do/view/iteration?oid=232",
+          null
+        ],
+        [
+          "select",
+          "targetIterationId",
+          "232",
+          "231=S3 Shared :: S3-setup Iteration 1|308=S3-A Access :: S3-A Iteration 1|309=S3-A Access :: S3-A Iteration Del|235=S3-B Planning :: S3-B I1 Current|236=S3-B Planning :: S3-B I2 Next|237=S3-B Planning :: S3-B I3 Later (edited)|238=S3-B Planning :: S3-B bad end|306=S3-B Planning :: S3-B date end 2026"
+        ],
+        [
+          "submit",
+          "actionBtn",
+          "Move",
+          null
+        ],
+        [
+          "submit",
+          "actionBtn",
+          "Continue",
+          null
+        ]
+      ]
+    },
+    {
+      "step": "story-move",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=232",
+      "cause": null,
+      "frames": null
+    },
+    {
+      "step": "history-task",
+      "status": 200,
+      "h1": [
+        "History: S3-C Task H"
+      ],
+      "tables": []
+    },
+    {
+      "step": "history-story2",
+      "status": 200,
+      "h1": [
+        "History: S3-C Story 2",
+        "Events"
+      ],
+      "tables": [
+        {
+          "id": "historyEvents",
+          "head": [
+            "Action",
+            "By",
+            "When",
+            "Description"
+          ],
+          "rows": [
+            [
+              "moved",
+              "<editor.name>",
+              "Mi Sep 30 20:18:48 UTC",
+              "from S3-C Iteration 1 to S3-C Iteration 2"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "step": "history-iteration2",
+      "status": 200,
+      "h1": [
+        "History: S3-C Iteration 2",
+        "Events"
+      ],
+      "tables": [
+        {
+          "id": "historyEvents",
+          "head": [
+            "Action",
+            "By",
+            "When",
+            "Description"
+          ],
+          "rows": [
+            [
+              "moved in",
+              "<editor.name>",
+              "Mi Sep 30 20:18:48 UTC",
+              "S3-C Story 2 from S3-C Iteration 1"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "step": "history-iteration1",
+      "status": 200,
+      "h1": [
+        "History: S3-C Iteration 1",
+        "Events"
+      ],
+      "tables": [
+        {
+          "id": "historyEvents",
+          "head": [
+            "Action",
+            "By",
+            "When",
+            "Description"
+          ],
+          "rows": [
+            [
+              "moved out",
+              "<editor.name>",
+              "Mi Sep 30 20:18:48 UTC",
+              "S3-C Story 2 to S3-C Iteration 2"
+            ],
+            [
+              "started",
+              "<editor.name>",
+              "Mi Sep 30 20:14:30 UTC",
+              ""
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "finished_at": "2026-09-30T20:18:50.065Z"
+}

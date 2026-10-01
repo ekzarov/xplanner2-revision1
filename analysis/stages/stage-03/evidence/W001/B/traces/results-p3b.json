@@ -1,0 +1,50 @@
+{
+  "phase": "p3b",
+  "started_at": "2026-09-30T20:19:37.748Z",
+  "finished_at": "2026-09-30T20:19:41.799Z",
+  "trace": "p3b-probe.trace.json",
+  "checks": [
+    {
+      "phase": "p3b",
+      "at": "2026-09-30T20:19:40.219Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 124,
+      "role": "editor",
+      "expected": "A direct story-editor request with merge=true skips validation, is rejected only for the same iteration (\"Cannot move or continue story in same iteration.\"), otherwise binds request parameters onto the story.",
+      "source": "analysis/legacy_user_flows.xlsx row 124 (Live question)",
+      "action": "As s3editor posted three merge=true requests to /do/edit/userstory for \"S3-B S7 Merge probe\" (with fkey and projectId): same iterationId; other iterationId plus priority 9 and a description; no iterationId plus priority 8 and a description. After each, the story page was read.",
+      "observed": "[{\"label\":\"same iteration, with fkey/projectId\",\"status\":200,\"location\":\"\",\"sameIterMsg\":true,\"error\":\"\",\"after\":{\"iteration\":\"S3-B I1 Current\",\"priority\":\"5\",\"description\":\"S3-B S7 Merge probe, part B. Priority: 5 Estimated Hours: 1.\"}},{\"label\":\"other iteration + priority/description, with fkey/projectId\",\"status\":200,\"location\":\"\",\"sameIterMsg\":true,\"error\":\"\",\"after\":{\"iteration\":\"S3-B I1 Current\",\"priority\":\"5\",\"description\":\"S3-B S7 Merge probe, part B. Priority: 5 Estimated Hours: 1.\"}},{\"label\":\"no iterationId, priority/description only\",\"status\":200,\"location\":\"\",\"sameIterMsg\":true,\"error\":\"\",\"after\":{\"iteration\":\"S3-B I1 Current\",\"priority\":\"5\",\"description\":\"S3-B S7 Merge probe, part B. Priority: 5 Estimated Hours: 1.\"}}]",
+      "evidence": "p3b-probe.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p3b",
+      "at": "2026-09-30T20:19:40.394Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 94,
+      "role": "viewer",
+      "expected": "Progress bars are rendered as HTML (xplanner.progressbar.impl=html); the actual-hours column is shown.",
+      "source": "analysis/legacy_user_flows.xlsx row 94",
+      "action": "Read the Progress column cell and progress-related elements of S3-B I1 Current as s3viewer.",
+      "observed": "Headers ID|Order|User Story|!|Cust.|Progress|Act.|Rem.|Cur. Est.|Orig. Est.|Tasks|Tracker|Disp.|Status; first-row Progress cell \"<table cellspacing=\"0\" cellpadding=\"0\" class=\"progressbar\" width=\"100%\"> <tbody><tr> <td class=\"progressbar_unworked\" width=\"100%\">&nbsp;</td> </tr> </tbody></table>\"; progress elements [\"table.progressbar#\",\"td.progressbar_unworked#\",\"table.progressbar#\",\"td.progressbar_unworked#\",\"table.progressbar#\",\"td.progressbar_unworked#\"]; img progress bars 0.",
+      "evidence": "p3b-probe.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p3b",
+      "at": "2026-09-30T20:19:41.115Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 92,
+      "role": "viewer, editor, admin, sysadmin",
+      "expected": "Per-story action icons are shown by permission.",
+      "source": "analysis/legacy_user_flows.xlsx row 92; setup-C-044",
+      "action": "Counted story edit/delete/move-continue links and iteration actions on S3-B I1 Current per role.",
+      "observed": "{\"viewer\":{\"edit\":0,\"delete\":0,\"moveContinue\":0,\"createStory\":0,\"import\":0,\"close\":0,\"editIteration\":0},\"editor\":{\"edit\":7,\"delete\":7,\"moveContinue\":7,\"createStory\":1,\"import\":1,\"close\":1,\"editIteration\":1},\"admin\":{\"edit\":7,\"delete\":7,\"moveContinue\":7,\"createStory\":1,\"import\":1,\"close\":1,\"editIteration\":1},\"sysadmin\":{\"edit\":7,\"delete\":7,\"moveContinue\":7,\"createStory\":1,\"import\":1,\"close\":1,\"editIteration\":1}}",
+      "evidence": "p3b-probe.trace.json",
+      "verdict": "match"
+    }
+  ]
+}

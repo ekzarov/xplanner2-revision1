@@ -1,0 +1,63 @@
+{
+  "started_at": "2026-09-30T20:31:47.296Z",
+  "r149_pair": {
+    "editor_status": 200,
+    "form": true,
+    "sent": {
+      "duration[2]": "0.5",
+      "person1Id[2]": "210",
+      "person2Id[2]": "211",
+      "description[2]": "S3-C V pair entry"
+    },
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/task?oid=268",
+    "timelog": [
+      " |  | 2026-09-30 | 0.5 | <editor.name> <editor.name> | S3-C V entry B edited",
+      " |  | 2026-09-30 | 0.5 | <editor.name> <admin.name> | S3-C V pair entry",
+      "2026-09-30 14:00 | 2026-09-30 15:00 | 2026-09-30 | 1.0 | <editor.name> | S3-C V entry A"
+    ]
+  },
+  "r194_feature_form": {
+    "name": "featureEditor",
+    "action": "/xplanner-legacy/do/edit/feature",
+    "fields": [
+      "hidden:returnto=/do/view/userstory?oid=254",
+      "hidden:fkey=254",
+      "hidden:storyId=254",
+      "hidden:id=0",
+      "text:name=",
+      "textarea:description=",
+      "hidden:action=Create",
+      "submit:null=Create",
+      "reset:null=Reset"
+    ]
+  },
+  "r194_feature_create": {
+    "status": 500,
+    "location": null,
+    "cause": "java.lang.ClassNotFoundException: net.sf.xplanner.domain.Feature ",
+    "title": "An error has occurred."
+  },
+  "r149_viewer_controls": {
+    "edit_time_link": false,
+    "actions": []
+  },
+  "r149_viewer_direct": {
+    "editor_status": 200,
+    "form": true,
+    "sent": {
+      "duration[3]": "0.25",
+      "person1Id[3]": "209",
+      "description[3]": "S3-C viewer direct time entry"
+    },
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/task?oid=268",
+    "timelog": [
+      " |  | 2026-09-30 | 0.5 | <editor.name> <editor.name> | S3-C V entry B edited",
+      " |  | 2026-09-30 | 0.5 | <editor.name> <admin.name> | S3-C V pair entry",
+      " |  | 2026-09-30 | 0.2 | <viewer.name> <admin.name> | S3-C viewer direct time entry",
+      "2026-09-30 14:00 | 2026-09-30 15:00 | 2026-09-30 | 1.0 | <editor.name> | S3-C V entry A"
+    ]
+  },
+  "finished_at": "2026-09-30T20:31:51.959Z"
+}

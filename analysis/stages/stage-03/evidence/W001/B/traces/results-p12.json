@@ -1,0 +1,23 @@
+{
+  "phase": "p12",
+  "started_at": "2026-09-30T20:46:53.134Z",
+  "finished_at": "2026-09-30T20:46:53.877Z",
+  "trace": "p12-targets.trace.json",
+  "checks": [
+    {
+      "phase": "p12",
+      "at": "2026-09-30T20:46:53.699Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 144,
+      "role": "editor",
+      "expected": "Move/Continue page with a target story select.",
+      "source": "analysis/legacy_user_flows.xlsx row 144",
+      "action": "Opened Move/Continue on \"S3-B T2 Test (edited)\" as s3editor (GET only) and read the target story options.",
+      "observed": "Title \"XPlanner - Move/Continue Task: S3-B T2 Test (edited)\"; 14 options from projects [\"S3 Shared\",\"S3-A Access\",\"S3-B Planning\",\"S3-C Time\",\"S3-D Integrations\"]; first options [\"253:S3 Shared :: S3-setup Iteration 1 :: S3-setup Story 1\",\"257:S3-A Access :: S3-A Iteration 1 (viewer edit) :: S3-A Story 1\",\"260:S3-B Planning :: S3-B I1 Current :: S3-B S2 Beta (edited)\",\"261:S3-B Planning :: S3-B I1 Current :: S3-B S3 Gamma\"]; buttons Move/Continue.",
+      "evidence": "p12-targets.trace.json",
+      "verdict": "finding",
+      "finding": "B-F-12"
+    }
+  ]
+}

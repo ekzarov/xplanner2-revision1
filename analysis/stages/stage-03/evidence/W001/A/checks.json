@@ -1,0 +1,1987 @@
+{
+  "part": "A",
+  "performed_by": "BA (W001-A), Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8; deployment operator Codex, PM-verified baseline 46ff9dc0…4edc",
+  "started_at": "2026-09-30T20:11:11.120Z",
+  "finished_at": "2026-09-30T20:43:08.005Z",
+  "rows": [
+    {
+      "row": 7,
+      "use_case": "UF-001 Authentication & Session (epic row)",
+      "verdict": "unverified",
+      "checks": [],
+      "note": "Epic summary row without its own behavior claim; its child rows 8-21 carry the verdicts."
+    },
+    {
+      "row": 8,
+      "use_case": "Log in with valid credentials",
+      "verdict": "difference",
+      "checks": [
+        "A-C-001",
+        "A-C-002"
+      ],
+      "covered_by_setup": [
+        "setup-C-009",
+        "setup-C-010",
+        "setup-C-011",
+        "setup-C-012",
+        "setup-C-013"
+      ],
+      "note": "Covered by setup (setup-F-01). The /do/login?oid= probe is a PM fact without the name-exposure detail."
+    },
+    {
+      "row": 9,
+      "use_case": "Login instructions help text",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-003",
+        "A-C-004"
+      ],
+      "note": "Credential part not checked (the factory pair may not be used or displayed in Part A)."
+    },
+    {
+      "row": 10,
+      "use_case": "Return to the saved URL",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-005",
+        "A-C-006"
+      ]
+    },
+    {
+      "row": 11,
+      "use_case": "Login module and user ID letter case",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-007"
+      ],
+      "note": "Live answer: an upper-case user ID authenticates in this deployment (MySQL 5.7)."
+    },
+    {
+      "row": 12,
+      "use_case": "Login rejected",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-008"
+      ]
+    },
+    {
+      "row": 13,
+      "use_case": "Unknown user / no password",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-009",
+        "A-C-010"
+      ]
+    },
+    {
+      "row": 14,
+      "use_case": "Login without submit field / blank credentials",
+      "verdict": "difference",
+      "checks": [
+        "A-C-011",
+        "A-C-012",
+        "A-C-013"
+      ]
+    },
+    {
+      "row": 15,
+      "use_case": "Remember me",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-014"
+      ]
+    },
+    {
+      "row": 16,
+      "use_case": "Cookie re-login",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-015",
+        "A-C-016"
+      ]
+    },
+    {
+      "row": 17,
+      "use_case": "Protected pages without a session",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-017"
+      ],
+      "covered_by_setup": [
+        "setup-C-018"
+      ],
+      "note": "/do/* covered by setup; bypass of /do/invalidateHibernateCache in A-C on row 61."
+    },
+    {
+      "row": 18,
+      "use_case": "Root URL routing",
+      "verdict": "difference",
+      "checks": [
+        "A-C-018",
+        "A-C-019",
+        "A-C-020"
+      ],
+      "covered_by_setup": [
+        "setup-C-035"
+      ]
+    },
+    {
+      "row": 19,
+      "use_case": "Log out",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-021"
+      ],
+      "covered_by_setup": [
+        "setup-C-014",
+        "setup-C-015",
+        "setup-C-016",
+        "setup-C-017"
+      ],
+      "note": "Covered by setup; remember-me cookie removal added."
+    },
+    {
+      "row": 20,
+      "use_case": "Session expiry",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-022"
+      ]
+    },
+    {
+      "row": 21,
+      "use_case": "Alternative login modules",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-023"
+      ],
+      "note": "Absence of LDAP/NTLM/JAAS login is not observable over HTTP."
+    },
+    {
+      "row": 22,
+      "use_case": "UF-002 Authorization & Roles (epic row)",
+      "verdict": "unverified",
+      "checks": [],
+      "note": "Epic summary row; child rows 23-35 carry the verdicts."
+    },
+    {
+      "row": 23,
+      "use_case": "Role hierarchy",
+      "verdict": "partially verified",
+      "checks": [],
+      "covered_by_setup": [
+        "setup-C-028"
+      ],
+      "note": "Covered by setup (display level); server-side effects per role are rows 29-30."
+    },
+    {
+      "row": 24,
+      "use_case": "Negative permissions",
+      "verdict": "difference",
+      "checks": [
+        "A-C-024",
+        "A-C-025"
+      ],
+      "covered_by_setup": [
+        "setup-C-020",
+        "setup-C-021",
+        "setup-C-022",
+        "setup-C-024"
+      ],
+      "note": "setup-F-03 stands; direct requests are not refused."
+    },
+    {
+      "row": 25,
+      "use_case": "Project-0 roles",
+      "verdict": "live-verified",
+      "checks": [],
+      "covered_by_setup": [
+        "setup-C-026",
+        "setup-C-062"
+      ],
+      "note": "Covered by setup."
+    },
+    {
+      "row": 26,
+      "use_case": "Permission-driven UI actions",
+      "verdict": "live-verified",
+      "checks": [],
+      "covered_by_setup": [
+        "setup-C-027",
+        "setup-C-063"
+      ],
+      "note": "Covered by setup."
+    },
+    {
+      "row": 27,
+      "use_case": "Projects list filtered by read permission",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-026"
+      ]
+    },
+    {
+      "row": 28,
+      "use_case": "DispatchForward not-authorized path",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-027",
+        "A-C-028",
+        "A-C-029"
+      ],
+      "note": "The WAP views (same mechanism) are Part D scope."
+    },
+    {
+      "row": 29,
+      "use_case": "Server-side permission enforcement (generic actions)",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-030",
+        "A-C-031",
+        "A-C-032"
+      ]
+    },
+    {
+      "row": 30,
+      "use_case": "Server-side permission enforcement (other actions)",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-033"
+      ],
+      "note": "One representative action (iteration close) exercised; the other listed action types were not."
+    },
+    {
+      "row": 31,
+      "use_case": "Person editor role changes",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-034"
+      ],
+      "note": "The \"other projects ignored\" branch was not tested: s3admin administers every S3 project, and posting project ids the editor does not offer is outside the bounds."
+    },
+    {
+      "row": 32,
+      "use_case": "Descriptor role constraints",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-035"
+      ],
+      "note": "Live observation cannot separate \"not evaluated\" from role \"*\"."
+    },
+    {
+      "row": 33,
+      "use_case": "Assign project roles",
+      "verdict": "difference",
+      "checks": [],
+      "covered_by_setup": [
+        "setup-C-006",
+        "setup-C-061"
+      ],
+      "note": "Covered by setup (setup-F-02)."
+    },
+    {
+      "row": 34,
+      "use_case": "System administrator checkbox and project-0 rule",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-036",
+        "A-C-037",
+        "A-C-038",
+        "A-C-039"
+      ],
+      "covered_by_setup": [
+        "setup-C-003"
+      ],
+      "note": "Direct-request grant not checked (bounds)."
+    },
+    {
+      "row": 35,
+      "use_case": "Project role editor",
+      "verdict": "unverified",
+      "checks": [
+        "A-C-040"
+      ],
+      "note": "Blocked: no entry link found and the editor answers 500 with the parameter forms tried."
+    },
+    {
+      "row": 36,
+      "use_case": "UF-003 People Management (epic row)",
+      "verdict": "unverified",
+      "checks": [],
+      "note": "Epic summary row; child rows 37-53 carry the verdicts."
+    },
+    {
+      "row": 37,
+      "use_case": "List people",
+      "verdict": "partially verified",
+      "checks": [],
+      "covered_by_setup": [
+        "setup-C-004"
+      ],
+      "note": "Covered by setup; paging not observable without growth data."
+    },
+    {
+      "row": 38,
+      "use_case": "Hidden people in the list",
+      "verdict": "difference",
+      "checks": [
+        "A-C-041",
+        "A-C-042"
+      ]
+    },
+    {
+      "row": 39,
+      "use_case": "People of one project",
+      "verdict": "difference",
+      "checks": [],
+      "covered_by_setup": [
+        "setup-C-030"
+      ],
+      "note": "Covered by setup (setup-F-04)."
+    },
+    {
+      "row": 40,
+      "use_case": "View person page",
+      "verdict": "difference",
+      "checks": [],
+      "covered_by_setup": [
+        "setup-C-031",
+        "setup-C-032"
+      ],
+      "note": "Covered by setup (setup-F-05). The page of s3a-member (no time entries) answered 200 (row 41 check)."
+    },
+    {
+      "row": 41,
+      "use_case": "Task actions on the person page",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-043"
+      ],
+      "covered_by_setup": [
+        "setup-C-033"
+      ],
+      "note": "Observed for a person without time entries; setup-F-05 still applies to persons with time."
+    },
+    {
+      "row": 42,
+      "use_case": "Person-page edit link",
+      "verdict": "live-verified",
+      "checks": [],
+      "covered_by_setup": [
+        "setup-C-029"
+      ],
+      "note": "Covered by setup."
+    },
+    {
+      "row": 43,
+      "use_case": "Create person",
+      "verdict": "difference",
+      "checks": [
+        "A-C-044",
+        "A-C-025"
+      ],
+      "covered_by_setup": [
+        "setup-C-002",
+        "setup-C-022"
+      ],
+      "note": "setup-F-03 stands (link shown to every role; a viewer can create a person)."
+    },
+    {
+      "row": 44,
+      "use_case": "Person validation",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-045",
+        "A-C-046"
+      ]
+    },
+    {
+      "row": 45,
+      "use_case": "Duplicate user ID",
+      "verdict": "difference",
+      "checks": [
+        "A-C-047"
+      ]
+    },
+    {
+      "row": 46,
+      "use_case": "Edit person",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-048"
+      ],
+      "covered_by_setup": [
+        "setup-C-007"
+      ]
+    },
+    {
+      "row": 47,
+      "use_case": "Password change",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-049"
+      ],
+      "covered_by_setup": [
+        "setup-C-008"
+      ],
+      "note": "The stored digest form is not observable over HTTP."
+    },
+    {
+      "row": 48,
+      "use_case": "Hide person",
+      "verdict": "difference",
+      "checks": [
+        "A-C-050"
+      ]
+    },
+    {
+      "row": 49,
+      "use_case": "Delete person",
+      "verdict": "difference",
+      "checks": [
+        "A-C-051",
+        "A-C-052",
+        "A-C-053",
+        "A-C-054"
+      ]
+    },
+    {
+      "row": 50,
+      "use_case": "Import people",
+      "verdict": "difference",
+      "checks": [
+        "A-C-055",
+        "A-C-056"
+      ],
+      "covered_by_setup": [
+        "setup-C-023"
+      ]
+    },
+    {
+      "row": 51,
+      "use_case": "Import per-line statuses",
+      "verdict": "difference",
+      "checks": [
+        "A-C-057"
+      ]
+    },
+    {
+      "row": 52,
+      "use_case": "Import without a file",
+      "verdict": "difference",
+      "checks": [
+        "A-C-058"
+      ]
+    },
+    {
+      "row": 53,
+      "use_case": "Import template link",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-059"
+      ]
+    },
+    {
+      "row": 54,
+      "use_case": "UF-004 Platform, Administration & Errors (epic row)",
+      "verdict": "unverified",
+      "checks": [],
+      "note": "Epic summary row; child rows 55-73 carry the verdicts."
+    },
+    {
+      "row": 55,
+      "use_case": "System information page",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-060"
+      ]
+    },
+    {
+      "row": 56,
+      "use_case": "Error pages",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-061"
+      ]
+    },
+    {
+      "row": 57,
+      "use_case": "Object not found",
+      "verdict": "difference",
+      "checks": [
+        "A-C-062"
+      ]
+    },
+    {
+      "row": 58,
+      "use_case": "Change display language",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-063",
+        "A-C-064"
+      ],
+      "note": "The external-returnto redirect of changeLocale was not observed."
+    },
+    {
+      "row": 59,
+      "use_case": "Settings pages",
+      "verdict": "difference",
+      "checks": [
+        "A-C-065",
+        "A-C-066"
+      ]
+    },
+    {
+      "row": 60,
+      "use_case": "Generic /setting handlers",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-067",
+        "A-C-068"
+      ],
+      "note": "Single-segment redirect:/forward: values and the standard-output print not observed."
+    },
+    {
+      "row": 61,
+      "use_case": "Cache utilities",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-069",
+        "A-C-070"
+      ],
+      "note": "Responses observed; cache effects and log lines are not observable."
+    },
+    {
+      "row": 62,
+      "use_case": "Test-support URLs",
+      "verdict": "unverified",
+      "checks": [
+        "A-C-071"
+      ],
+      "note": "Not run: shared global state."
+    },
+    {
+      "row": 63,
+      "use_case": "Tiles reload",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-072"
+      ],
+      "note": "The response is observed; the reload effect is not observable."
+    },
+    {
+      "row": 64,
+      "use_case": "Startup schema creation and seed",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-073"
+      ],
+      "note": "Table rename to \"roles\" not observed."
+    },
+    {
+      "row": 65,
+      "use_case": "Double Spring loading",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-074"
+      ],
+      "note": "The doubled 00:05 reminder job is not yet observable."
+    },
+    {
+      "row": 66,
+      "use_case": "No HSQLDB server",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-075"
+      ],
+      "note": "No log line about the HSQLDB listener in the PM extract."
+    },
+    {
+      "row": 67,
+      "use_case": "Configuration layering",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-076"
+      ],
+      "note": "Non-loading of the other variant files is not observable."
+    },
+    {
+      "row": 68,
+      "use_case": "Hibernate settings not applied",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-077"
+      ],
+      "note": "Cache provider and pool limits not in the PM extract."
+    },
+    {
+      "row": 69,
+      "use_case": "Date formats (ISO locales)",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-078"
+      ],
+      "note": "Calendar buttons, time-entry saving and editor converters not observed here (Part C live question)."
+    },
+    {
+      "row": 70,
+      "use_case": "Date formats (dd-MM-yyyy locales)",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-079"
+      ],
+      "note": "fr, it, pt_br and the Spanish date-time pattern not observed."
+    },
+    {
+      "row": 71,
+      "use_case": "Date picker conflict",
+      "verdict": "unverified",
+      "checks": [
+        "A-C-080"
+      ],
+      "note": "JavaScript; Part C scope."
+    },
+    {
+      "row": 72,
+      "use_case": "UTF-8 request decoding",
+      "verdict": "live-verified",
+      "checks": [
+        "A-C-081"
+      ]
+    },
+    {
+      "row": 73,
+      "use_case": "Activity logging",
+      "verdict": "partially verified",
+      "checks": [
+        "A-C-082"
+      ],
+      "note": "Public serving observed; the START/END line format was not examined."
+    }
+  ],
+  "checks": [
+    {
+      "id": "A-C-001",
+      "row": 8,
+      "role": "s3a-member (editor on 221)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Sign-in redirects to /do/view/projects.",
+      "source": "analysis/legacy_user_flows.xlsx row 8",
+      "action": "POST /do/login with userId, password, action=Login (no remember).",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/projects.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r47_new",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-002",
+      "row": 8,
+      "role": "no session",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Recorded probe: /do/login?oid=<id> before login (row 8 evidence, breadcrumb lookup).",
+      "source": "analysis/legacy_user_flows.xlsx row 8",
+      "action": "PM request GET /do/login?oid=220 without session (not run by BA).",
+      "mode": "live (PM-collected fact)",
+      "observed": "HTTP 200, no Location. Whether object names are shown was not recorded.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/redirect-facts.txt line 2",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "A-C-003",
+      "row": 9,
+      "role": "no session",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The login page shows the login-instructions help text with a link to the documentation site.",
+      "source": "analysis/legacy_user_flows.xlsx row 9",
+      "action": "GET /do/login; only link hosts extracted in memory.",
+      "mode": "live",
+      "observed": "HTTP 200; link hosts xplanner-plus.sourceforge.net, sourceforge.net, localhost:8080. The footer links to the same site, so the help-text link is not told apart by host alone.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r9",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-004",
+      "row": 9,
+      "role": "no session",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The default-bundle help text ends with the factory administrator login pair.",
+      "source": "analysis/legacy_user_flows.xlsx row 9",
+      "action": "Not run.",
+      "mode": "not-run",
+      "observed": "not observed",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "A-C-005",
+      "row": 10,
+      "role": "s3a-member",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "After login the browser lands on the saved GET URL.",
+      "source": "analysis/legacy_user_flows.xlsx row 10",
+      "action": "GET /do/view/project?oid=221 without session, then sign-in in the same session.",
+      "mode": "live",
+      "observed": "Before: 302 /xplanner-legacy/do/login; after sign-in: 302 Location http://127.0.0.1:18080/xplanner-legacy/do/view/project?oid=221 (absolute).",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r10_query",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-006",
+      "row": 10,
+      "role": "s3a-member",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A URL without query string is restored with \"?null\".",
+      "source": "analysis/legacy_user_flows.xlsx row 10",
+      "action": "GET /do/view/projects without session, then sign-in.",
+      "mode": "live",
+      "observed": "After sign-in: 302 Location http://127.0.0.1:18080/xplanner-legacy/do/view/projects?null.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r10_noquery",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-007",
+      "row": 11,
+      "role": "s3a-member",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Whether a user ID in different letter case authenticates depends on the database comparison (live question).",
+      "source": "analysis/legacy_user_flows.xlsx row 11",
+      "action": "Sign-in with user ID \"S3A-MEMBER\" and the correct password.",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/projects: accepted. The page header then shows the stored lower-case user ID.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r11",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-008",
+      "row": 12,
+      "role": "s3a-member",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A wrong password redisplays the login page with \"Could not authenticate user.\" and \"Wrong userid or password\".",
+      "source": "analysis/legacy_user_flows.xlsx row 12",
+      "action": "Sign-in with a wrong password.",
+      "mode": "live",
+      "observed": "HTTP 200, login form shown, both texts present.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r12",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-009",
+      "row": 13,
+      "role": "unregistered user ID",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Unknown user ID: \"User has not been registered with XPlanner\".",
+      "source": "analysis/legacy_user_flows.xlsx row 13",
+      "action": "Sign-in as s3a-unknown.",
+      "mode": "live",
+      "observed": "HTTP 200; \"Could not authenticate user.\" and the not-registered text present.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r13_unknown",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-010",
+      "row": 13,
+      "role": "s3a-nopw (no password)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A person without a password gets \"Password has not been set\".",
+      "source": "analysis/legacy_user_flows.xlsx row 13",
+      "action": "Sign-in as s3a-nopw with some password.",
+      "mode": "live",
+      "observed": "HTTP 200; \"Could not authenticate user.\" and the password-not-set text present.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r13_nopw",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-011",
+      "row": 14,
+      "role": "s3a-member",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A login POST without the submit field shows the login form.",
+      "source": "analysis/legacy_user_flows.xlsx row 14",
+      "action": "Fresh session: GET /do/login, then POST userId and password without action.",
+      "mode": "live",
+      "observed": "HTTP 200, login form shown, not signed in.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r14_fresh",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-012",
+      "row": 14,
+      "role": "blank credentials",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Blank credentials fail with the module message.",
+      "source": "analysis/legacy_user_flows.xlsx row 14",
+      "action": "Sign-in with empty userId and password and action=Login.",
+      "mode": "live",
+      "observed": "HTTP 200; \"Could not authenticate user.\" and the not-registered text present.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r14_blank",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-013",
+      "row": 14,
+      "role": "s3a-member",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Same claim, in a session that already posted action=Login.",
+      "source": "analysis/legacy_user_flows.xlsx row 14",
+      "action": "Failed sign-in (action=Login, wrong password), then POST userId and correct password without action in the same session.",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/projects: signed in. The same in phase 1 (POST without action after earlier failed logins in that session).",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r14_after_failed_login; traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r14_noaction",
+      "verdict": "finding",
+      "finding": "A-F-01"
+    },
+    {
+      "id": "A-C-014",
+      "row": 15,
+      "role": "s3a-member",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Remember me sets cookies \"userid\" and \"password\" (about 68 years, no Secure, no path).",
+      "source": "analysis/legacy_user_flows.xlsx row 15",
+      "action": "Sign-in with remember=Y; Set-Cookie names and attributes recorded, values not.",
+      "mode": "live",
+      "observed": "userid (Max-Age=2147483647; Expires=Mon, 18 Oct 2094 23:28:17 GMT); password (Max-Age=2147483647; Expires=Mon, 18 Oct 2094 23:28:17 GMT). No Path, Secure or HttpOnly attribute.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r15",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-015",
+      "row": 16,
+      "role": "cookie-only client",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A request with only the credential cookies is authenticated.",
+      "source": "analysis/legacy_user_flows.xlsx row 16",
+      "action": "New client with only userid and password cookies: GET /do/view/project?oid=221.",
+      "mode": "live",
+      "observed": "HTTP 200, page \"XPlanner Project: S3-A Access\".",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r16_ok",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-016",
+      "row": 16,
+      "role": "cookie-only client",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A failed cookie login falls back to the login redirect.",
+      "source": "analysis/legacy_user_flows.xlsx row 16",
+      "action": "Password of s3a-member changed, then the old cookies reused by a new client.",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/login; Set-Cookie userid and password Max-Age=0 (removed).",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r16_fail",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-017",
+      "row": 17,
+      "role": "no session",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "/setting/* requires a session (the /do/* part is setup-C-018).",
+      "source": "analysis/legacy_user_flows.xlsx row 17",
+      "action": "GET /setting/project/list without session.",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/login.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r17",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-018",
+      "row": 18,
+      "role": "s3a-member (one readable project, with current iteration 308)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "With exactly one visible project that has a current iteration, the root URL redirects to that iteration.",
+      "source": "analysis/legacy_user_flows.xlsx row 18",
+      "action": "Iteration 308 started; GET / as s3a-member.",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/projects. Five projects exist in the system; setup-C-035 saw the iteration redirect when one project existed.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r18",
+      "verdict": "finding",
+      "finding": "A-F-02"
+    },
+    {
+      "id": "A-C-019",
+      "row": 18,
+      "role": "s3admin (five readable projects)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Otherwise the root URL redirects to the projects list.",
+      "source": "analysis/legacy_user_flows.xlsx row 18",
+      "action": "GET / as s3admin.",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/projects.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r18",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-020",
+      "row": 18,
+      "role": "no session",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Root URL without session (index.jsp is not filtered).",
+      "source": "analysis/legacy_user_flows.xlsx row 18",
+      "action": "GET / without session.",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/projects;jsessionid=[REDACTED].",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r18",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-021",
+      "row": 19,
+      "role": "s3a-member (remember-me)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Logout removes the remember-me cookies and shows the login page.",
+      "source": "analysis/legacy_user_flows.xlsx row 19",
+      "action": "GET /do/logout after a remember-me sign-in.",
+      "mode": "live",
+      "observed": "HTTP 200; Set-Cookie userid and password Max-Age=0, new session cookie.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r19_remember_logout",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-022",
+      "row": 20,
+      "role": "s3admin (no remember-me)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "After 30 idle minutes the next request is unauthenticated.",
+      "source": "analysis/legacy_user_flows.xlsx row 20",
+      "action": "Sign-in, one request, 31 min idle, then GET /do/view/project?oid=221.",
+      "mode": "live",
+      "observed": "Before idle: 200; after idle: 302 Location /xplanner-legacy/do/login.",
+      "evidence": "traces/idle.trace.json; traces/results-idle.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-023",
+      "row": 21,
+      "role": "all accounts",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Only the XPlanner database module is active.",
+      "source": "analysis/legacy_user_flows.xlsx row 21",
+      "action": "Sign-ins of role and s3a- accounts (setup-C-009..012, this part).",
+      "mode": "live",
+      "observed": "Database accounts authenticate. The absence of LDAP, NTLM or JAAS modules is not observable over HTTP.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r47_new",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-024",
+      "row": 24,
+      "role": "editor account",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Nothing refuses a direct request for a hidden action (editor iteration delete).",
+      "source": "analysis/legacy_user_flows.xlsx row 24",
+      "action": "Editor sees no iteration delete link; GET the delete URL of own iteration 309 directly.",
+      "mode": "live",
+      "observed": "Delete links shown to editor: 0; request 302 Location /xplanner-legacy/do/view/project?oid=221; iteration 309 removed.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r24_editor_delete",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-025",
+      "row": 24,
+      "role": "viewer account",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Person creation by a role without create.person (link shown, setup-F-03).",
+      "source": "analysis/legacy_user_flows.xlsx row 24",
+      "action": "Viewer submits the Add Person form it is offered (s3a-byviewer).",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/people; person created (oid 288).",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r43_viewer_create",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-026",
+      "row": 27,
+      "role": "s3a-member; s3admin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The projects list shows only readable projects.",
+      "source": "analysis/legacy_user_flows.xlsx row 27",
+      "action": "GET /do/view/projects as each.",
+      "mode": "live",
+      "observed": "s3a-member: [221]; s3admin: [220,221,222,223,224].",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r27",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-027",
+      "row": 28,
+      "role": "viewer",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "DispatchForward view without projectId: not-authorized forward, page missing.",
+      "source": "analysis/legacy_user_flows.xlsx row 28",
+      "action": "GET /do/view/integrations.",
+      "mode": "live",
+      "observed": "HTTP 404 (container page).",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r28",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-028",
+      "row": 28,
+      "role": "s3a-member (no role on 220)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Without read permission on the project: not-authorized forward, page missing.",
+      "source": "analysis/legacy_user_flows.xlsx row 28",
+      "action": "GET /do/view/integrations?projectId=220.",
+      "mode": "live",
+      "observed": "HTTP 404 (container page).",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r28",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-029",
+      "row": 28,
+      "role": "viewer",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "With projectId and read permission the view is rendered (integration queue itself is rows 195+, Part D).",
+      "source": "analysis/legacy_user_flows.xlsx row 28",
+      "action": "GET /do/view/integrations?projectId=221.",
+      "mode": "live",
+      "observed": "HTTP 500; error page with javax.servlet.jsp.JspTagException, java.lang.IllegalArgumentException, javax.servlet.ServletException.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r28",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-030",
+      "row": 29,
+      "role": "viewer",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Generic edit performs no server-side check.",
+      "source": "analysis/legacy_user_flows.xlsx row 29",
+      "action": "Viewer opens the iteration editor of own iteration 308 by URL and posts a new name.",
+      "mode": "live",
+      "observed": "Editor 200; POST 302 Location /xplanner-legacy/do/view/iteration?oid=308; name now \"S3-A Iteration 1 (viewer edit)\".",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r29_viewer_edit",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-031",
+      "row": 29,
+      "role": "viewer",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Generic delete performs no server-side check.",
+      "source": "analysis/legacy_user_flows.xlsx row 29",
+      "action": "Viewer requests the delete URL of own story 258.",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/iteration?oid=308; story 258 removed.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r29_viewer_delete",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-032",
+      "row": 29,
+      "role": "s3a-member (no role on 220)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Generic view performs no server-side check.",
+      "source": "analysis/legacy_user_flows.xlsx row 29",
+      "action": "GET /do/view/project?oid=220.",
+      "mode": "live",
+      "observed": "HTTP 200, page \"XPlanner Project: S3 Shared\".",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r29_member_view",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-033",
+      "row": 30,
+      "role": "viewer",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Other actions (here iteration close) have no server-side check.",
+      "source": "analysis/legacy_user_flows.xlsx row 30",
+      "action": "Viewer requests the Close URL of own iteration 308.",
+      "mode": "live",
+      "observed": "302; Location /xplanner-legacy/do/continue/unfinished/stories?iterationId=308&/do/view/iteration?oid=308?oid=308&fkey=308; iteration 308 then offers Start again (closed).",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r30_viewer_close",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-034",
+      "row": 31,
+      "role": "s3admin (no project-0 role)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Role changes apply on projects where the user holds admin.edit.role; no sysadmin change without project-0 admin.edit.role.",
+      "source": "analysis/legacy_user_flows.xlsx row 31",
+      "action": "s3admin saves own s3a-sys (a system administrator at that moment) with phone changed and role viewer on 221.",
+      "mode": "live",
+      "observed": "Save 302; afterwards role on 221 \"viewer\", phone saved, system administrator kept: true.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r31_34",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-035",
+      "row": 32,
+      "role": "viewer",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Descriptor role constraints are not evaluated; any authenticated user passes.",
+      "source": "analysis/legacy_user_flows.xlsx row 32",
+      "action": "Viewer requests under /do/edit/* and /do/delete/* (A-C checks on row 29).",
+      "mode": "live",
+      "observed": "Both passed the filters. The descriptors list role \"*\" for these URLs, so passing them does not separate \"not evaluated\" from \"role * matches\".",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r29_viewer_edit",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-036",
+      "row": 34,
+      "role": "system administrator account",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The checkbox is shown to sysadmins; posting systemAdmin=true grants the role.",
+      "source": "analysis/legacy_user_flows.xlsx row 34",
+      "action": "Sysadmin saves own s3a-sys with the checkbox checked.",
+      "mode": "live",
+      "observed": "Save 302; re-opened editor shows the box checked: true.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r31_34",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-037",
+      "row": 34,
+      "role": "s3admin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The checkbox is not shown to non-sysadmins.",
+      "source": "analysis/legacy_user_flows.xlsx row 34",
+      "action": "s3admin opens the editor of own s3a-sys.",
+      "mode": "live",
+      "observed": "Checkbox present: false.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r31_34",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-038",
+      "row": 34,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A project-0 administrator saving without systemAdmin=true revokes the role.",
+      "source": "analysis/legacy_user_flows.xlsx row 34",
+      "action": "Sysadmin saves own s3a-sys with the checkbox unchecked.",
+      "mode": "live",
+      "observed": "Save 302; re-opened editor shows the box checked: false (revoked).",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r31_34",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-039",
+      "row": 34,
+      "role": "non-sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "System-administrator status can be granted by a direct request.",
+      "source": "analysis/legacy_user_flows.xlsx row 34",
+      "action": "Not run (outside the PM bounds: no escalation attempt).",
+      "mode": "not-run",
+      "observed": "not observed",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "A-C-040",
+      "row": 35,
+      "role": "s3admin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The project role editor lists people with role choices for one project.",
+      "source": "analysis/legacy_user_flows.xlsx row 35",
+      "action": "No link to /do/edit/roles found on the project page; opened by URL with projectId/fkey and with oid.",
+      "mode": "live",
+      "observed": "Both answered HTTP 500 (with oid: java.lang.NullPointerException); no form.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r35_open; traces/p2-recon.trace.json",
+      "verdict": "blocked",
+      "finding": null
+    },
+    {
+      "id": "A-C-041",
+      "row": 38,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The hide of s3a-hide is stored.",
+      "source": "analysis/legacy_user_flows.xlsx row 38",
+      "action": "Sysadmin re-opens the editor of own s3a-hide.",
+      "mode": "live",
+      "observed": "Hidden select value \"true\".",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r38_hidden_stored",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-042",
+      "row": 38,
+      "role": "viewer, editor, admin, sysadmin, s3a-member",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Hidden people are listed only for users with admin.hide on system.person.",
+      "source": "analysis/legacy_user_flows.xlsx row 38",
+      "action": "GET /do/view/people as each; count rows of s3a-hide.",
+      "mode": "live",
+      "observed": "Rows: {\"viewer\":1,\"editor\":1,\"admin\":1,\"sysadmin\":1,\"member\":1}: listed for every account, including viewer and editor.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r38",
+      "verdict": "finding",
+      "finding": "A-F-03"
+    },
+    {
+      "id": "A-C-043",
+      "row": 41,
+      "role": "s3a-member (own); s3admin; viewer",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Clock and edit icons per active task on the person page when the user may edit it.",
+      "source": "analysis/legacy_user_flows.xlsx row 41",
+      "action": "GET /do/view/person?oid=213 (acceptor of task 273, no time entries) as each.",
+      "mode": "live",
+      "observed": "Own: HTTP 200, 1 time and 1 edit link; s3admin: 1 and 1; viewer: 0 and 0.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r41",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-044",
+      "row": 43,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A user with create.person adds a person; returned to the people list.",
+      "source": "analysis/legacy_user_flows.xlsx row 43",
+      "action": "Create 7 s3a- persons.",
+      "mode": "live",
+      "observed": "Each POST 302 Location /xplanner-legacy/do/view/people; persons listed (oids 213-219).",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#persons",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-045",
+      "row": 44,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Missing name, user ID, e-mail and initials are reported.",
+      "source": "analysis/legacy_user_flows.xlsx row 44",
+      "action": "POST the add-person form with all fields empty.",
+      "mode": "live",
+      "observed": "HTTP 200; messages: Missing name. Missing user Id. Missing email. Missing initials.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r44_empty",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-046",
+      "row": 44,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Password and confirmation must match.",
+      "source": "analysis/legacy_user_flows.xlsx row 44",
+      "action": "POST with different new password and confirmation.",
+      "mode": "live",
+      "observed": "HTTP 200; \"Passwords do not match\" shown; person not created.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r44_mismatch",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-047",
+      "row": 45,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A duplicate user ID: editor redisplayed with \"User Id exists.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 45",
+      "action": "POST the add-person form with user ID s3a-member (twice, phases 1 and 2).",
+      "mode": "live",
+      "observed": "HTTP 500 error page (org.hibernate.exception.ConstraintViolationException, java.sql.BatchUpdateException); \"User Id exists.\" not shown; no duplicate created.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r45; traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r45",
+      "verdict": "finding",
+      "finding": "A-F-04"
+    },
+    {
+      "id": "A-C-048",
+      "row": 46,
+      "role": "s3admin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "An authorized user updates a person; returnto page shown.",
+      "source": "analysis/legacy_user_flows.xlsx row 46",
+      "action": "s3admin saves own s3a-sys (phone).",
+      "mode": "live",
+      "observed": "Save 302; phone now 555-0101.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r31_34",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-049",
+      "row": 47,
+      "role": "sysadmin; s3a-member",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A new password replaces the old one.",
+      "source": "analysis/legacy_user_flows.xlsx row 47",
+      "action": "Sysadmin sets a new password for s3a-member; sign-in with old and with new password.",
+      "mode": "live",
+      "observed": "Save 302; sign-in with the old password answered HTTP 200 (login page), with the new one 302 Location /xplanner-legacy/do/view/projects.",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r47_change",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-050",
+      "row": 48,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Hidden select Yes/No; hidden people disappear from normal lists.",
+      "source": "analysis/legacy_user_flows.xlsx row 48",
+      "action": "Sysadmin saves own s3a-hide with hidden=true.",
+      "mode": "live",
+      "observed": "Save 302; stored (A-C on row 38) but still listed for every account.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r48",
+      "verdict": "finding",
+      "finding": "A-F-03"
+    },
+    {
+      "id": "A-C-051",
+      "row": 49,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Delete of a person without references removes the person.",
+      "source": "analysis/legacy_user_flows.xlsx row 49",
+      "action": "GET /do/delete/person for own s3a-del1.",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/people; person removed.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r49",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-052",
+      "row": 49,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Delete of a story customer is rejected by a foreign key.",
+      "source": "analysis/legacy_user_flows.xlsx row 49",
+      "action": "GET /do/delete/person for own s3a-del2 (customer of story 257).",
+      "mode": "live",
+      "observed": "HTTP 500 error page; person not removed.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r49",
+      "verdict": "finding",
+      "finding": "A-F-05"
+    },
+    {
+      "id": "A-C-053",
+      "row": 49,
+      "role": "sysadmin; s3admin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Delete of a task acceptor leaves a dangling reference.",
+      "source": "analysis/legacy_user_flows.xlsx row 49",
+      "action": "GET /do/delete/person for own s3a-del3 (acceptor of task 272), then view story 257 and task 272.",
+      "mode": "live",
+      "observed": "Delete 302, person removed; then task 272 page HTTP 500 and story 257 page HTTP 500.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r49_after",
+      "verdict": "finding",
+      "finding": "A-F-05"
+    },
+    {
+      "id": "A-C-054",
+      "row": 49,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Where the delete is offered.",
+      "source": "analysis/legacy_user_flows.xlsx row 49",
+      "action": "Looked for delete links on the people list and the person page.",
+      "mode": "live",
+      "observed": "No delete link on either page; the delete was requested by URL.",
+      "evidence": "traces/p2b-roles.trace.json; traces/results-p2b-roles.json#obs.r49_pre; traces/p2-recon.trace.json",
+      "verdict": "finding",
+      "finding": "A-F-05"
+    },
+    {
+      "id": "A-C-055",
+      "row": 50,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The import page offers an upload form.",
+      "source": "analysis/legacy_user_flows.xlsx row 50",
+      "action": "Open Import People by the link the people list offers (with returnto).",
+      "mode": "live",
+      "observed": "HTTP 200 \"XPlanner - Import People\", file input present.",
+      "evidence": "traces/p3c-locale.trace.json; traces/results-p3c-locale.json#obs.import_link",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-056",
+      "row": 50,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Per-line checks run; the save of the first valid line fails with a null reference; no \"Success\" table.",
+      "source": "analysis/legacy_user_flows.xlsx row 50",
+      "action": "Upload one 3-line synthetic text file (malformed line, empty user ID, valid s3a-imp1).",
+      "mode": "live",
+      "observed": "HTTP 500 error page (java.lang.IndexOutOfBoundsException); no results table; s3a-imp1 not created.",
+      "evidence": "traces/p3b-import.trace.json; traces/results-p3b-import.json#obs.r50_51",
+      "verdict": "finding",
+      "finding": "A-F-06"
+    },
+    {
+      "id": "A-C-057",
+      "row": 51,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Malformed lines and empty user IDs are reported per line before any save.",
+      "source": "analysis/legacy_user_flows.xlsx row 51",
+      "action": "Same upload as the row 50 check.",
+      "mode": "live",
+      "observed": "No per-line status shown: the request ended in the error page.",
+      "evidence": "traces/p3b-import.trace.json; traces/results-p3b-import.json#obs.r50_51",
+      "verdict": "finding",
+      "finding": "A-F-06"
+    },
+    {
+      "id": "A-C-058",
+      "row": 52,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Import without a file: \"Please select a file to import.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 52",
+      "action": "Submit the import form without a file.",
+      "mode": "live",
+      "observed": "HTTP 500 error page (java.lang.AbstractMethodError); message not shown.",
+      "evidence": "traces/p3b-import.trace.json; traces/results-p3b-import.json#obs.r52",
+      "verdict": "finding",
+      "finding": "A-F-07"
+    },
+    {
+      "id": "A-C-059",
+      "row": 53,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Template link to files/peopleImportTemplate.xls (an Excel file).",
+      "source": "analysis/legacy_user_flows.xlsx row 53",
+      "action": "Follow the template link on the import page.",
+      "mode": "live",
+      "observed": "HTTP 200, application/vnd.ms-excel, 13824 bytes, OLE2 file signature.",
+      "evidence": "traces/p3b-import.trace.json; traces/results-p3b-import.json#obs.r53",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-060",
+      "row": 55,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "System information page with version, build, database, server, JVM and memory; password masked.",
+      "source": "analysis/legacy_user_flows.xlsx row 55",
+      "action": "GET /do/systemInfo (the footer link is absolute localhost:8080/xplanner and was not followed).",
+      "mode": "live",
+      "observed": "HTTP 200 \"System Information\"; version 1.1a4, MySQL driver, database URL, masked password, memory and servlet information present.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r55",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-061",
+      "row": 56,
+      "role": "s3admin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Unhandled exceptions show an error page with message, filing link, Cause and Stack Trace.",
+      "source": "analysis/legacy_user_flows.xlsx row 56",
+      "action": "Known error: iteration editor link without returnto.",
+      "mode": "live",
+      "observed": "HTTP 500 \"An error has occurred.\"; Cause, Stack Trace and support-tracker link present.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r56",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-062",
+      "row": 57,
+      "role": "s3admin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A non-existent object shows \"Object <id> not found\".",
+      "source": "analysis/legacy_user_flows.xlsx row 57",
+      "action": "GET /do/view/project?oid=999999 (twice).",
+      "mode": "live",
+      "observed": "HTTP 500 \"An error has occurred.\"; neither the id nor a not-found text is shown; no Cause or Stack Trace section.",
+      "evidence": "traces/p3c-locale.trace.json; traces/results-p3c-locale.json#obs.r57; traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r57",
+      "verdict": "finding",
+      "finding": "A-F-08"
+    },
+    {
+      "id": "A-C-063",
+      "row": 58,
+      "role": "s3admin (own session)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A language parameter switches the session locale; user returned to returnto.",
+      "source": "analysis/legacy_user_flows.xlsx row 58",
+      "action": "GET /do/changeLocale?language=de|es|en&returnto=/do/view/project?oid=221, then the project page.",
+      "mode": "live",
+      "observed": "Each 302 to the returnto page; titles \"XPlanner Projekt: S3-A Access\", \"XPlanner Proyecto: S3-A Access\", \"XPlanner Project: S3-A Access\". The html lang attribute stays \"en\".",
+      "evidence": "traces/p3c-locale.trace.json; traces/results-p3c-locale.json#obs.locale",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-064",
+      "row": 58,
+      "role": "any",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "An absolute URL in returnto sends the browser to another host (row 58 evidence).",
+      "source": "analysis/legacy_user_flows.xlsx row 58",
+      "action": "Dropped from Part A by PM; PM fact covers returnto on an editor page only.",
+      "mode": "live (PM-collected fact)",
+      "observed": "PM fact: GET /do/edit/project?oid=221&returnto=<external> answered 200 without Location; changeLocale with an external returnto was not requested.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/redirect-facts.txt line 9",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "A-C-065",
+      "row": 59,
+      "role": "viewer; sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Settings list headed \"Settings\"; \"Add Setting\" for users with create.project.",
+      "source": "analysis/legacy_user_flows.xlsx row 59",
+      "action": "GET /do/view/settings as each.",
+      "mode": "live",
+      "observed": "Both HTTP 200, title \"XPlanner Projects\", heading \"Settings XPlanner Projects\"; \"Add Setting\" shown to viewer and to sysadmin.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r59",
+      "verdict": "finding",
+      "finding": "A-F-09"
+    },
+    {
+      "id": "A-C-066",
+      "row": 59,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The add/edit editor JSP is missing.",
+      "source": "analysis/legacy_user_flows.xlsx row 59",
+      "action": "GET /do/edit/setting?returnto=/do/view/settings.",
+      "mode": "live",
+      "observed": "HTTP 404 (container page).",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r59",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-067",
+      "row": 60,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "A plain objectType value selects no existing page.",
+      "source": "analysis/legacy_user_flows.xlsx row 60",
+      "action": "GET /setting/project/list signed in.",
+      "mode": "live",
+      "observed": "HTTP 404.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r60_plain",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-068",
+      "row": 60,
+      "role": "PM",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Values starting with redirect: or forward: redirect or forward.",
+      "source": "analysis/legacy_user_flows.xlsx row 60",
+      "action": "PM requests of /setting/redirect:... and /setting/forward:... with slash-containing targets (not run by BA).",
+      "mode": "live (PM-collected fact)",
+      "observed": "All answered 404. The targets contain \"/\", so they span more than one path segment; the single-segment case was not requested.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/redirect-facts-2.txt lines 3-6; redirect-facts.txt lines 5-8",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "A-C-069",
+      "row": 61,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "/do/invalidateCache clears the permission cache; no page.",
+      "source": "analysis/legacy_user_flows.xlsx row 61",
+      "action": "GET /do/invalidateCache.",
+      "mode": "live",
+      "observed": "HTTP 200, 0 bytes. The cache effect and log line are not observable.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r61",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-070",
+      "row": 61,
+      "role": "no session",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "/do/invalidateHibernateCache bypasses authentication; no page.",
+      "source": "analysis/legacy_user_flows.xlsx row 61",
+      "action": "GET /do/invalidateHibernateCache without session.",
+      "mode": "live",
+      "observed": "HTTP 200, 0 bytes, no login redirect.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r61",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-071",
+      "row": 62,
+      "role": "none",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Test-support URLs run data sampling, the missing-time-entry notifier, the clock shift and property set.",
+      "source": "analysis/legacy_user_flows.xlsx row 62",
+      "action": "Not run: each changes state shared by all parts (application clock, a property value, mail to every person, data samples of all iterations).",
+      "mode": "not-run",
+      "observed": "not observed",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "A-C-072",
+      "row": 63,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "What /do/admin/reload-tiles returns (live question).",
+      "source": "analysis/legacy_user_flows.xlsx row 63",
+      "action": "GET /do/admin/reload-tiles.",
+      "mode": "live",
+      "observed": "HTTP 200, text/plain;charset=ISO-8859-1, body \"OK\". Whether the shared factory was reloaded is not observable.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r63",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-073",
+      "row": 64,
+      "role": "PM",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Liquibase creates 21 tables and seeds a system administrator on first start.",
+      "source": "analysis/legacy_user_flows.xlsx row 64",
+      "action": "PM read-only log and database facts.",
+      "mode": "live (PM-collected fact)",
+      "observed": "Liquibase ran change sets 1-1..2-5 at 09:21; 23 tables in schema xplanner including DATABASECHANGELOG and DATABASECHANGELOGLOCK (21 application tables); 8 change-log rows. The seeded administrator was used by setup (setup phase A). The table name \"roles\" was not observed.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/startup-facts.txt lines 4-25, 59-65",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-074",
+      "row": 65,
+      "role": "PM",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Two Spring contexts: Liquibase twice, two schedulers, two session factories (live question).",
+      "source": "analysis/legacy_user_flows.xlsx row 65",
+      "action": "PM read-only log facts.",
+      "mode": "live (PM-collected fact)",
+      "observed": "Two bean factories pre-instantiate singletons; Liquibase runs twice (the second run applies nothing); two \"scheduler\" executors initialise; two Hibernate settings blocks. The reminder job running twice at 00:05 is not yet observable.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/startup-facts.txt lines 4-58",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-075",
+      "row": 66,
+      "role": "sysadmin; PM",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "No HSQLDB server with the shipped properties.",
+      "source": "analysis/legacy_user_flows.xlsx row 66",
+      "action": "System information page; PM log facts.",
+      "mode": "live",
+      "observed": "The system information page shows the MySQL driver; the PM extract contains no HSQLDB line either way.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r55; .migration-tmp/stage-03/ba-scratch/pm-facts/startup-facts.txt",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-076",
+      "row": 67,
+      "role": "sysadmin; s3admin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Effective values (MySQL connection, application URL http://localhost:8080/xplanner, login instructions URL) come from xplanner-custom.properties.",
+      "source": "analysis/legacy_user_flows.xlsx row 67",
+      "action": "System information page; header and footer links; login page link hosts.",
+      "mode": "live",
+      "observed": "Database URL jdbc:mysql://db/xplanner shown; \"Me\" and system-information links point to http://localhost:8080/xplanner; the login page links to xplanner-plus.sourceforge.net. Whether other variant files are loaded is not observable.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r55; traces/p0-recon.trace.json; traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r9",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-077",
+      "row": 68,
+      "role": "PM",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Hibernate settings of the property files do not reach the web session factory (live question).",
+      "source": "analysis/legacy_user_flows.xlsx row 68",
+      "action": "PM log facts compared with WAR xplanner.properties:58,202-203,207-218.",
+      "mode": "live (PM-collected fact)",
+      "observed": "The log shows \"Query cache: disabled\" although the property file sets hibernate.cache.use_query_cache=true (consistent with the claim). \"Second-level cache: enabled\" equals both the Hibernate default and the file value, so it does not decide. The cache provider line and pool limits are not in the extract.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/startup-facts.txt lines 40-52",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-078",
+      "row": 69,
+      "role": "s3admin (own session en, de)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "formatKey date displays use yyyy-MM-dd in the default and de locales.",
+      "source": "analysis/legacy_user_flows.xlsx row 69",
+      "action": "Project 221 page in en and de sessions; iteration 308 dates.",
+      "mode": "live",
+      "observed": "en 2026-09-30 / 2026-10-13; de 2026-09-30 / 2026-10-13.",
+      "evidence": "traces/p3c-locale.trace.json; traces/results-p3c-locale.json#obs.locale",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-079",
+      "row": 70,
+      "role": "s3admin (own session es)",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "formatKey date displays use dd-MM-yyyy in the es locale.",
+      "source": "analysis/legacy_user_flows.xlsx row 70",
+      "action": "Project 221 page in an es session.",
+      "mode": "live",
+      "observed": "es 30-09-2026 / 13-10-2026.",
+      "evidence": "traces/p3c-locale.trace.json; traces/results-p3c-locale.json#obs.locale",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-080",
+      "row": 71,
+      "role": "none",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "jQuery date picker and calendar button patterns versus the server-default converter.",
+      "source": "analysis/legacy_user_flows.xlsx row 71",
+      "action": "Not run: needs JavaScript; the related time-editor check (F-003) is Part C scope.",
+      "mode": "not-run",
+      "observed": "not observed",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "A-C-081",
+      "row": 72,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "Non-ASCII input round-trips.",
+      "source": "analysis/legacy_user_flows.xlsx row 72",
+      "action": "Create person named with é, Ž, Ü, ï; read the people list.",
+      "mode": "live",
+      "observed": "Name shown unchanged (text/html;charset=UTF-8).",
+      "evidence": "traces/p1-auth.trace.json; traces/results-p1-auth.json#obs.r72",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "A-C-082",
+      "row": 73,
+      "role": "no session",
+      "channel": "web UI over HTTP (forms and links replayed without JavaScript)",
+      "expected": "The activity log is written into the web root and served without a security filter.",
+      "source": "analysis/legacy_user_flows.xlsx row 73",
+      "action": "GET /xplanner-legacy/xplanner-plus-activity.log without session, twice; content not recorded.",
+      "mode": "live",
+      "observed": "HTTP 200 text/plain, 315265 bytes, then 350720 bytes about a minute later (the file grows). A simple search for the path of an own recent request did not match; the line format was not examined.",
+      "evidence": "traces/p3a-platform.trace.json; traces/results-p3a-platform.json#obs.r73; traces/p3c-locale.trace.json; traces/results-p3c-locale.json#obs.r73",
+      "verdict": "match",
+      "finding": null
+    }
+  ],
+  "findings": [
+    {
+      "id": "A-F-01",
+      "rows": [
+        14
+      ],
+      "cells": [
+        "F14",
+        "G14"
+      ],
+      "observed": "After a failed sign-in (action=Login) in a session, a later login POST without the action field in the same session signs the user in (302 to the projects list). In a fresh session the same POST only shows the form.",
+      "expected": "A request without the submit field shows the login form.",
+      "minimal_correction": "Row 14: add that the check applies to a fresh session; once action=Login was posted in the session, a POST without the field authenticates (session-scoped form value, runtime observation).",
+      "severity": "medium"
+    },
+    {
+      "id": "A-F-02",
+      "rows": [
+        18
+      ],
+      "cells": [
+        "F18"
+      ],
+      "observed": "With five projects in the system, a person who can read only project 221 (current iteration 308 started) is redirected to /do/view/projects, not to the iteration.",
+      "expected": "Exactly one visible project with a current iteration redirects to that iteration.",
+      "minimal_correction": "Row 18: state that the one-project condition did not follow the user's read permission in this observation (redirect to the projects list with five projects in the system); the one-project redirect was seen only when one project existed (setup-C-035). Stage 1 to confirm the counting rule from source.",
+      "severity": "low"
+    },
+    {
+      "id": "A-F-03",
+      "rows": [
+        38,
+        48
+      ],
+      "cells": [
+        "F38",
+        "F48"
+      ],
+      "observed": "The hidden flag of s3a-hide is stored (\"true\" in the editor), but the person is still listed on /do/view/people for viewer, editor, admin, system administrator and an s3a- editor.",
+      "expected": "Hidden people are listed only for users with admin.hide; they disappear from normal lists.",
+      "minimal_correction": "Rows 38 and 48: record that hidden people remain listed for every observed role (Source implemented? Partial), pending a Stage 1 source check of the list filter.",
+      "severity": "medium"
+    },
+    {
+      "id": "A-F-04",
+      "rows": [
+        45
+      ],
+      "cells": [
+        "F45"
+      ],
+      "observed": "Creating a person with an existing user ID answers HTTP 500 (generic error page, database constraint violation); \"User Id exists.\" is not shown; no duplicate is stored.",
+      "expected": "Editor redisplayed with \"User Id exists.\"",
+      "minimal_correction": "Row 45, column F: \"HTTP 500 error page (database constraint); no duplicate stored\"; column G Partial.",
+      "severity": "medium"
+    },
+    {
+      "id": "A-F-05",
+      "rows": [
+        49
+      ],
+      "cells": [
+        "D49",
+        "F49",
+        "G49"
+      ],
+      "observed": "Deleting a person with no references: 302, removed. Deleting a story customer: HTTP 500, not removed. Deleting a task acceptor: 302, removed; then that story page and that task page answer HTTP 500. No delete control on the people list or the person page.",
+      "expected": "Person removed, or a database error when foreign keys refer to the person; other references left dangling (runtime unverified).",
+      "minimal_correction": "Row 49: record the three observed outcomes, that pages showing a deleted acceptor then answer HTTP 500, and that the delete is reachable only by URL; column G Yes for the reject case.",
+      "severity": "medium"
+    },
+    {
+      "id": "A-F-06",
+      "rows": [
+        50,
+        51
+      ],
+      "cells": [
+        "F50",
+        "F51"
+      ],
+      "observed": "The import page and form work. Uploading a 3-line text file (malformed line, empty user ID, one valid line) answers HTTP 500 (IndexOutOfBoundsException) with no results table and no person created.",
+      "expected": "Per-line statuses for malformed and empty lines, then a null-reference failure on the first save.",
+      "minimal_correction": "Rows 50-51: record that the upload ends in HTTP 500 before any per-line status is shown (IndexOutOfBoundsException for this file); which line triggers it was not isolated.",
+      "severity": "medium"
+    },
+    {
+      "id": "A-F-07",
+      "rows": [
+        52
+      ],
+      "cells": [
+        "F52",
+        "G52"
+      ],
+      "observed": "Submitting the import form without a file answers HTTP 500 (AbstractMethodError); \"Please select a file to import.\" is not shown.",
+      "expected": "Import page redisplayed with \"Please select a file to import.\"",
+      "minimal_correction": "Row 52, column F: \"HTTP 500 error page\"; column G Partial.",
+      "severity": "low"
+    },
+    {
+      "id": "A-F-08",
+      "rows": [
+        57
+      ],
+      "cells": [
+        "F57"
+      ],
+      "observed": "GET /do/view/project?oid=999999 answers HTTP 500 with the generic \"An error has occurred.\" page; neither the id nor a not-found text is shown.",
+      "expected": "General error page with \"Object <id> not found\".",
+      "minimal_correction": "Row 57, column F: \"HTTP 500, generic error page without the object id\"; Stage 1 to check which exception the view raises.",
+      "severity": "low"
+    },
+    {
+      "id": "A-F-09",
+      "rows": [
+        59
+      ],
+      "cells": [
+        "D59",
+        "F59"
+      ],
+      "observed": "The settings list (title \"XPlanner Projects\", heading \"Settings XPlanner Projects\") shows \"Add Setting\" to the viewer as well as to the system administrator.",
+      "expected": "\"Add Setting\" offered to users with create.project.",
+      "minimal_correction": "Row 59: record that \"Add Setting\" is shown to every observed role including viewer, and that the page title is \"XPlanner Projects\".",
+      "severity": "low"
+    }
+  ],
+  "not_checked": [
+    {
+      "row": 8,
+      "reason": "/do/login?oid= name exposure: PM fact records status only.",
+      "retry_condition": "PM redirect facts with a name-presence flag"
+    },
+    {
+      "row": 9,
+      "reason": "Factory pair in the help text may not be used or displayed in Part A.",
+      "retry_condition": "Owner/PM-assigned in-memory presence check"
+    },
+    {
+      "row": 34,
+      "reason": "Direct-request grant of the system-administrator role is outside the PM bounds (no escalation).",
+      "retry_condition": "Owner decision to test it on an isolated person"
+    },
+    {
+      "row": 35,
+      "reason": "Role editor answers HTTP 500; no entry link found.",
+      "retry_condition": "Stage 1 supplies the entry link or required parameters"
+    },
+    {
+      "row": 58,
+      "reason": "External returnto of changeLocale not requested (dropped from Part A by PM).",
+      "retry_condition": "PM redirect facts for /do/changeLocale"
+    },
+    {
+      "row": 60,
+      "reason": "Single-segment redirect:/forward: values not requested; slash-containing variants answered 404 (PM fact).",
+      "retry_condition": "PM redirect facts"
+    },
+    {
+      "row": 62,
+      "reason": "All four test-support actions change state shared by the other parts.",
+      "retry_condition": "Owner/PM-approved window with no other part running"
+    },
+    {
+      "row": 65,
+      "reason": "Doubled reminder job at 00:05 not yet observable.",
+      "retry_condition": "after 00:05 server time, read Mailpit"
+    },
+    {
+      "row": 71,
+      "reason": "JavaScript date picker; Part C scope.",
+      "retry_condition": "Part C browser check"
+    }
+  ]
+}

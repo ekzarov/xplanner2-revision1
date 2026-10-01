@@ -1,0 +1,74 @@
+[
+  {
+    "at": "2026-09-30T19:49:37.053Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T19:49:37.360Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;jsessionid=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:49:37.668Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5821
+  },
+  {
+    "at": "2026-09-30T19:49:38.140Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/timesheet?returnto=%2Fdo%2Fview%2Fperson%3Foid%3D210&fkey=210&oid=210&projectId=0",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10237
+  },
+  {
+    "at": "2026-09-30T19:49:38.488Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/view/timesheet",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9206
+  },
+  {
+    "at": "2026-09-30T19:49:38.843Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/person?oid=210",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 27746
+  },
+  {
+    "at": "2026-09-30T19:49:39.158Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)[Max-Age=0]",
+      "password(cleared)[Max-Age=0]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746
+  }
+]

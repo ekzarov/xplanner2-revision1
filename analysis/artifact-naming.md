@@ -24,7 +24,7 @@ output path does contain `NN`, `NNN`, `SLUG`, `CATEGORY`, `GATE`, or `SCOPE`,
 replace only those visible tokens and keep every other path segment unchanged.
 
 For example, `walkthrough-NNN-template.md` produces
-`analysis/stages/stage-03/walkthrough-001.md`.
+[`analysis/stages/stage-03/walkthrough-001.md`](./stages/stage-03/walkthrough-001.md).
 Do not rename that record to `stage-03-outcome.md`, `report.md` or
 `result.md` in a new project. Outcomes belong inside the record.
 Likewise, `delivery-NNN-template.md` produces `delivery-001.md`, and

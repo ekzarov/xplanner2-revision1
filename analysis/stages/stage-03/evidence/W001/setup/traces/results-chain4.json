@@ -1,0 +1,160 @@
+{
+  "started_at": "2026-09-30T19:47:04.804Z",
+  "steps": [
+    {
+      "at": "2026-09-30T19:47:05.748Z",
+      "step": "sign-in",
+      "post_status": 302
+    },
+    {
+      "at": "2026-09-30T19:47:07.060Z",
+      "step": "story-update-status",
+      "before": {
+        "disposition": "Planned",
+        "status": "Draft"
+      },
+      "posted": {
+        "statusName": "defined",
+        "dispositionName": "added"
+      },
+      "editor_selected": {
+        "status": null,
+        "disposition": null
+      },
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=253",
+      "after": {
+        "disposition": "Planned",
+        "status": "Draft"
+      }
+    },
+    {
+      "at": "2026-09-30T19:47:07.747Z",
+      "step": "create-task",
+      "defaults": {
+        "disposition": "discovered",
+        "type": "(none selected)"
+      },
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=253"
+    },
+    {
+      "at": "2026-09-30T19:47:08.074Z",
+      "step": "story-task-table",
+      "taskOid": 264,
+      "headers": [
+        "Actions",
+        "ID",
+        "Task Name",
+        "Type",
+        "Progress",
+        "Acc.",
+        "Ori.",
+        "Est.",
+        "Act.",
+        "Rem.",
+        "Disp."
+      ],
+      "rows": [
+        [
+          "",
+          "264",
+          "S3-setup Task 1",
+          "Feature",
+          "",
+          "",
+          "S3E",
+          "2.0",
+          "2.0",
+          "0.0",
+          "2.0",
+          "Planned"
+        ],
+        [
+          ""
+        ]
+      ]
+    },
+    {
+      "at": "2026-09-30T19:47:08.480Z",
+      "step": "open-task",
+      "status": 200,
+      "title": "XPlanner Task: S3-setup Task 1",
+      "text": "Top S3 Shared S3-setup Iteration 1 S3-setup Story 1 S3-setup Task 1 Export History Task: S3-setup Task 1 Task: S3-setup Task 1 [id=264] Synthetic task for the W001 setup chain. Acceptor: <editor.name> Estimated Hours: 2.0 (2.0) Created: 2026-09-30 Actual Hours: 0.0 Edit Delete Move/Continue Edit Time Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null",
+      "links": [
+        {
+          "href": "/xplanner-legacy/do/view/history?fkey=264&projectId=220&oid=264&@type=net.sf.xplanner.domain.Task",
+          "text": "History"
+        },
+        {
+          "href": "/xplanner-legacy/do/edit/task?fkey=253&oid=264&projectId=220",
+          "text": "Edit"
+        },
+        {
+          "href": "/xplanner-legacy/do/delete/task?oid=264",
+          "text": "Delete"
+        },
+        {
+          "href": "/xplanner-legacy/do/move/continue/task?oid=264",
+          "text": "Move/Continue"
+        },
+        {
+          "href": "/xplanner-legacy/do/edit/time?fkey=253&oid=264&projectId=220",
+          "text": "Edit Time"
+        },
+        {
+          "href": "/xplanner-legacy/do/edit/note?fkey=264&projectId=220&attachedToId=264",
+          "text": "Add Note/Attachment"
+        }
+      ],
+      "forms": [
+        {
+          "index": 1,
+          "name": "completion",
+          "action": "/xplanner-legacy/do/edit/task",
+          "method": "post",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "oid",
+              "value": "264"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "action",
+              "value": "Update"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "merge",
+              "value": "true"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "returnto",
+              "value": "/do/view/task?oid=264"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "completed",
+              "value": "true"
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "name": "complete",
+              "value": "Complete Task"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "taskOid": 264,
+  "finished_at": "2026-09-30T19:47:08.780Z"
+}

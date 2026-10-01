@@ -1,0 +1,22 @@
+{
+  "phase": "p10",
+  "started_at": "2026-09-30T20:39:50.134Z",
+  "finished_at": "2026-09-30T20:39:52.363Z",
+  "trace": "p10-final.trace.json",
+  "checks": [
+    {
+      "phase": "p10",
+      "at": "2026-09-30T20:39:50.737Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 92,
+      "role": "viewer",
+      "expected": "Zero values are highlighted in the story table.",
+      "source": "analysis/legacy_user_flows.xlsx row 92",
+      "action": "Read the highlighted cells of the S3-B I1 Current story table as s3viewer.",
+      "observed": "Highlighted (span.highlighted_message) [\"S3-B S2 Beta (edited): 0.0\",\"S3-B S2 Beta (edited): 0\",\"S3-B SV Viewer-created: 0.0\",\"S3-B SV Viewer-created: 0\"]; rows [\"260 | 1 | S3-B S2 Beta (edited) | 1 | S3S |  |  | 0.0 | 6.5 | 6.5 | 0.0 | 0 | S3A | Planned | Draft\",\"261 | 2 | S3-B S3 Gamma | 4 |  |  |  | 0.0 | 1.0 | 1.0 | 1.0 | 1 | S3E | Planned | Draft\",\"259 | 3 | S3-B S1 Alpha | 2 | S3A |  |  |  | 1.0 | 9.5 | 10.5 | 9.5 | 4 | S3E | Planned | Draft\",\"321 | 4 | S3-B S8 Continue | 4 |  |  |  |  | 2.0 | 5.0 | 7.0 | 5.0 | 1 | S3E | Planned | Draft\",\"322 | 5 | S3-B SV Viewer-created | 4 |  |  |  | 0.0 | 1.0 | 1.0 | 0.0 | 0 |  | Planned | Draft\",\"323 | 6 | S3-B S9 Mail story | 4 |  |  |  | 0.0 | 2.5 | 2.5 | 2.5 | 1 |  | Planned | Draft\"].",
+      "evidence": "p10-final.trace.json",
+      "verdict": "match"
+    }
+  ]
+}

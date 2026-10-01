@@ -1,0 +1,667 @@
+{
+  "at": "2026-09-30T20:17:01.279Z",
+  "facts": [
+    {
+      "check": "menu",
+      "kind": "project",
+      "status": 200,
+      "formats": [
+        "project/xml=XML",
+        "project/mpx=MPX",
+        "project/mspdi=MSPDI"
+      ],
+      "prefix_label": "Export"
+    },
+    {
+      "check": "menu",
+      "kind": "iteration",
+      "status": 200,
+      "formats": [
+        "iteration/xml=XML",
+        "iteration/mpx=MPX",
+        "iteration/mspdi=MSPDI",
+        "iteration/pdf=PDF",
+        "iteration/jrpdf=JRPDF"
+      ],
+      "prefix_label": "Export"
+    },
+    {
+      "check": "menu",
+      "kind": "userstory",
+      "status": 200,
+      "formats": [
+        "userstory/pdf=PDF",
+        "userstory/jrpdf=JRPDF"
+      ],
+      "prefix_label": "Export"
+    },
+    {
+      "check": "menu",
+      "kind": "task",
+      "status": 200,
+      "formats": [
+        "task/pdf=PDF",
+        "task/jrpdf=JRPDF"
+      ],
+      "prefix_label": "Export"
+    },
+    {
+      "check": "menu",
+      "kind": "person",
+      "status": 200,
+      "formats": [
+        "person/jrpdf=JRPDF"
+      ],
+      "prefix_label": "Export"
+    },
+    {
+      "check": "menu",
+      "kind": "person-editor-210",
+      "status": 500,
+      "formats": [],
+      "prefix_label": ""
+    },
+    {
+      "check": "export",
+      "kind": "project",
+      "fmt": "xml",
+      "oid": 224,
+      "status": 200,
+      "content_type": "text/xml",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 18158,
+      "root": "xplanner",
+      "distinct_elements": 123,
+      "top_counts": {
+        "name": 21,
+        "attributes": 19,
+        "description": 19,
+        "id": 19,
+        "hidden": 13,
+        "person": 12,
+        "email": 12,
+        "initials": 12,
+        "phone": 12,
+        "userId": 12,
+        "adjustedEstimatedHours": 5,
+        "estimatedHours": 5,
+        "postponedHours": 5,
+        "remainingHours": 5
+      },
+      "person_fields_in_first_person_block": [
+        "person2Id",
+        "reportDate",
+        "task",
+        "type",
+        "underestimatedHours",
+        "underestimatedOriginalHours",
+        "userStory",
+        "acceptorId",
+        "actualHours",
+        "addedHours",
+        "addedOriginalHours",
+        "adjustedEstimatedHours",
+        "completed",
+        "completedHours",
+        "completedOriginalHours",
+        "completedRemainingHours",
+        "createdDate",
+        "description",
+        "disposition",
+        "dispositionName",
+        "dispositionNameKey",
+        "estimatedHours",
+        "estimatedHoursBasedOnActuals",
+        "estimatedOriginalHours",
+        "estimatedOriginalHoursField",
+        "id",
+        "iterationStartEstimatedHours",
+        "name",
+        "newStatus",
+        "declaringClass"
+      ],
+      "password_element_present": false,
+      "mentions_S3D": 7
+    },
+    {
+      "check": "export",
+      "kind": "project",
+      "fmt": "mpx",
+      "oid": 224,
+      "status": 200,
+      "content_type": "application/mpx",
+      "content_disposition": "inline; filename=export.mpx",
+      "bytes": 1536,
+      "first_line": "MPX,Microsoft Project for Windows,4.0,AN",
+      "record_type_counts": {
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "30": 1,
+        "40": 1,
+        "41": 1,
+        "50": 12,
+        "60": 1,
+        "61": 1,
+        "70": 6,
+        "71": 6,
+        "75": 2,
+        "76": 2
+      },
+      "mentions_S3D": 7
+    },
+    {
+      "check": "export",
+      "kind": "project",
+      "fmt": "mspdi",
+      "oid": 224,
+      "status": 200,
+      "content_type": "application/mspdi",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 153462,
+      "root": "Project",
+      "Task": 6,
+      "Resource": 12,
+      "Assignment": 2,
+      "mentions_S3D": 7
+    },
+    {
+      "check": "export",
+      "kind": "iteration",
+      "fmt": "xml",
+      "oid": 234,
+      "status": 200,
+      "content_type": "text/xml",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 14222,
+      "root": "xplanner",
+      "distinct_elements": 118,
+      "top_counts": {
+        "name": 19,
+        "attributes": 17,
+        "description": 17,
+        "id": 17,
+        "person": 12,
+        "email": 12,
+        "hidden": 12,
+        "initials": 12,
+        "phone": 12,
+        "userId": 12,
+        "adjustedEstimatedHours": 4,
+        "estimatedHours": 4,
+        "postponedHours": 4,
+        "remainingHours": 4
+      },
+      "person_fields_in_first_person_block": [
+        "person2Id",
+        "reportDate",
+        "task",
+        "type",
+        "underestimatedHours",
+        "underestimatedOriginalHours",
+        "userStory",
+        "acceptorId",
+        "actualHours",
+        "addedHours",
+        "addedOriginalHours",
+        "adjustedEstimatedHours",
+        "completed",
+        "completedHours",
+        "completedOriginalHours",
+        "completedRemainingHours",
+        "createdDate",
+        "description",
+        "disposition",
+        "dispositionName",
+        "dispositionNameKey",
+        "estimatedHours",
+        "estimatedHoursBasedOnActuals",
+        "estimatedOriginalHours",
+        "estimatedOriginalHoursField",
+        "id",
+        "iterationStartEstimatedHours",
+        "name",
+        "newStatus",
+        "declaringClass"
+      ],
+      "password_element_present": false,
+      "mentions_S3D": 5
+    },
+    {
+      "check": "export",
+      "kind": "iteration",
+      "fmt": "mpx",
+      "oid": 234,
+      "status": 200,
+      "content_type": "application/mpx",
+      "content_disposition": "inline; filename=export.mpx",
+      "bytes": 1233,
+      "first_line": "MPX,Microsoft Project for Windows,4.0,AN",
+      "record_type_counts": {
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "30": 1,
+        "40": 1,
+        "41": 1,
+        "50": 12,
+        "60": 1,
+        "61": 1,
+        "70": 4,
+        "71": 4,
+        "75": 2,
+        "76": 2
+      },
+      "mentions_S3D": 5
+    },
+    {
+      "check": "export",
+      "kind": "iteration",
+      "fmt": "mspdi",
+      "oid": 234,
+      "status": 200,
+      "content_type": "application/mspdi",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 143975,
+      "root": "Project",
+      "Task": 4,
+      "Resource": 12,
+      "Assignment": 2,
+      "mentions_S3D": 5
+    },
+    {
+      "check": "export",
+      "kind": "iteration",
+      "fmt": "pdf",
+      "oid": 234,
+      "status": 200,
+      "content_type": "application/pdf",
+      "content_disposition": "inline; filename=export.pdf",
+      "bytes": 2205,
+      "head": "%PDF-1.4",
+      "is_pdf": true,
+      "eof_marker": true
+    },
+    {
+      "check": "export",
+      "kind": "iteration",
+      "fmt": "jrpdf",
+      "oid": 234,
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "content_disposition": null,
+      "bytes": 22608,
+      "error_excerpt": "or M e Logout T op S3-D Integrations An error has occurred. com.technoetic.xplanner.export.ExportException: Could not Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server "
+    },
+    {
+      "check": "export",
+      "kind": "userstory",
+      "fmt": "pdf",
+      "oid": 256,
+      "status": 200,
+      "content_type": "application/pdf",
+      "content_disposition": "inline; filename=export.pdf",
+      "bytes": 2205,
+      "head": "%PDF-1.4",
+      "is_pdf": true,
+      "eof_marker": true
+    },
+    {
+      "check": "export",
+      "kind": "userstory",
+      "fmt": "jrpdf",
+      "oid": 256,
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "content_disposition": null,
+      "bytes": 26229,
+      "error_excerpt": "p S3-D Integrations S3-D Iteration 1 An error has occurred. com.technoetic.xplanner.export.ExportException: org.hibernate.QueryException: could Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Atta"
+    },
+    {
+      "check": "export",
+      "kind": "task",
+      "fmt": "pdf",
+      "oid": 270,
+      "status": 200,
+      "content_type": "application/pdf",
+      "content_disposition": "inline; filename=export.pdf",
+      "bytes": 1218,
+      "head": "%PDF-1.4",
+      "is_pdf": true,
+      "eof_marker": true
+    },
+    {
+      "check": "export",
+      "kind": "task",
+      "fmt": "jrpdf",
+      "oid": 270,
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "content_disposition": null,
+      "bytes": 22796,
+      "error_excerpt": "ations S3-D Iteration 1 S3-D Story 1 An error has occurred. com.technoetic.xplanner.export.ExportException: Could not Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server "
+    },
+    {
+      "check": "export",
+      "kind": "person",
+      "fmt": "jrpdf",
+      "oid": 209,
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "content_disposition": null,
+      "bytes": 27930,
+      "error_excerpt": "user <editor.userId> M e Logout T op An error has occurred. com.technoetic.xplanner.export.ExportException: org.hibernate.QueryException: could Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Atta"
+    },
+    {
+      "check": "viewer",
+      "menu_formats": [
+        "project/xml",
+        "project/mpx",
+        "project/mspdi"
+      ],
+      "export_status": 200,
+      "content_type": "text/xml",
+      "bytes": 18158
+    }
+  ],
+  "trace": [
+    {
+      "at": "2026-09-30T20:16:52.824Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:16:53.111Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:16:53.409Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/project?oid=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 10945,
+      "label": "export menu project"
+    },
+    {
+      "at": "2026-09-30T20:16:53.705Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/iteration?oid=234",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 16247,
+      "label": "export menu iteration"
+    },
+    {
+      "at": "2026-09-30T20:16:53.998Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/userstory?oid=256",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 15516,
+      "label": "export menu userstory"
+    },
+    {
+      "at": "2026-09-30T20:16:54.298Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/task?oid=270",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 12043,
+      "label": "export menu task"
+    },
+    {
+      "at": "2026-09-30T20:16:54.589Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/person?oid=209",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 6140,
+      "label": "export menu person"
+    },
+    {
+      "at": "2026-09-30T20:16:54.929Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/person?oid=210",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 30806,
+      "label": "export menu person-editor-210"
+    },
+    {
+      "at": "2026-09-30T20:16:55.310Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/project/xml?oid=224",
+      "status": 200,
+      "content_type": "text/xml",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 18158,
+      "label": "export project/xml"
+    },
+    {
+      "at": "2026-09-30T20:16:55.654Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/project/mpx?oid=224",
+      "status": 200,
+      "content_type": "application/mpx",
+      "content_disposition": "inline; filename=export.mpx",
+      "bytes": 1536,
+      "label": "export project/mpx"
+    },
+    {
+      "at": "2026-09-30T20:16:56.361Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/project/mspdi?oid=224",
+      "status": 200,
+      "content_type": "application/mspdi",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 153462,
+      "label": "export project/mspdi"
+    },
+    {
+      "at": "2026-09-30T20:16:56.658Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/iteration/xml?oid=234",
+      "status": 200,
+      "content_type": "text/xml",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 14222,
+      "label": "export iteration/xml"
+    },
+    {
+      "at": "2026-09-30T20:16:56.951Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/iteration/mpx?oid=234",
+      "status": 200,
+      "content_type": "application/mpx",
+      "content_disposition": "inline; filename=export.mpx",
+      "bytes": 1233,
+      "label": "export iteration/mpx"
+    },
+    {
+      "at": "2026-09-30T20:16:57.316Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/iteration/mspdi?oid=234",
+      "status": 200,
+      "content_type": "application/mspdi",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 143975,
+      "label": "export iteration/mspdi"
+    },
+    {
+      "at": "2026-09-30T20:16:57.685Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/iteration/pdf?oid=234",
+      "status": 200,
+      "content_type": "application/pdf",
+      "content_disposition": "inline; filename=export.pdf",
+      "bytes": 2205,
+      "label": "export iteration/pdf"
+    },
+    {
+      "at": "2026-09-30T20:16:57.978Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/iteration/jrpdf?oid=234",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 22608,
+      "label": "export iteration/jrpdf"
+    },
+    {
+      "at": "2026-09-30T20:16:58.294Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/userstory/pdf?oid=256",
+      "status": 200,
+      "content_type": "application/pdf",
+      "content_disposition": "inline; filename=export.pdf",
+      "bytes": 2205,
+      "label": "export userstory/pdf"
+    },
+    {
+      "at": "2026-09-30T20:16:58.608Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/userstory/jrpdf?oid=256",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 26229,
+      "label": "export userstory/jrpdf"
+    },
+    {
+      "at": "2026-09-30T20:16:58.917Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/task/pdf?oid=270",
+      "status": 200,
+      "content_type": "application/pdf",
+      "content_disposition": "inline; filename=export.pdf",
+      "bytes": 1218,
+      "label": "export task/pdf"
+    },
+    {
+      "at": "2026-09-30T20:16:59.222Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/task/jrpdf?oid=270",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 22796,
+      "label": "export task/jrpdf"
+    },
+    {
+      "at": "2026-09-30T20:16:59.537Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/person/jrpdf?oid=209",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 27930,
+      "label": "export person/jrpdf"
+    },
+    {
+      "at": "2026-09-30T20:16:59.837Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    },
+    {
+      "at": "2026-09-30T20:17:00.113Z",
+      "client": "viewer",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:17:00.394Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:17:00.686Z",
+      "client": "viewer",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/project?oid=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 9595,
+      "label": "viewer project page"
+    },
+    {
+      "at": "2026-09-30T20:17:00.995Z",
+      "client": "viewer",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/project/xml?oid=224",
+      "status": 200,
+      "content_type": "text/xml",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 18158,
+      "label": "viewer export project/xml"
+    },
+    {
+      "at": "2026-09-30T20:17:01.279Z",
+      "client": "viewer",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    }
+  ]
+}

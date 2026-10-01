@@ -1,0 +1,228 @@
+{
+  "started_at": "2026-09-30T21:15:55.057Z",
+  "a_login": {
+    "ok": true,
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects"
+  },
+  "row62": [
+    {
+      "req": "GET /do/edit/properties?returnto=/do/view/projects (no propertyName)",
+      "status": 302,
+      "location": "/do/view/projects"
+    },
+    {
+      "req": "GET /do/edit/properties (no parameters)",
+      "status": 200,
+      "location": "",
+      "title": "XPlanner Projects"
+    },
+    {
+      "req": "GET /do/edit/properties?returnto=http://example.invalid/s3e-probe (not followed)",
+      "status": 302,
+      "location": "http://example.invalid/s3e-probe"
+    }
+  ],
+  "a_logout": {
+    "status": 200,
+    "session_cookie_left": true
+  },
+  "b_login": {
+    "ok": true,
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects"
+  },
+  "before": {
+    "timesheet": {
+      "status": 200,
+      "title": "XPlanner Timesheet: Person Name:",
+      "s3e_rows": [
+        "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 2.5",
+        "Total Hours | 2.5"
+      ]
+    },
+    "aggregate": {
+      "get_status": 200,
+      "fields": [
+        "selectedPeople(select)",
+        "startDateString(text)",
+        "setStartDate(image)",
+        "endDateString(text)",
+        "setEndDate(image)"
+      ],
+      "people_options": [
+        "211",
+        "210",
+        "212",
+        "209",
+        "288",
+        "217",
+        "213",
+        "215",
+        "219",
+        "1"
+      ],
+      "select_name": "selectedPeople",
+      "status": 200,
+      "s3e_rows": [
+        "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 2.5"
+      ],
+      "mentions_s3e": true
+    }
+  },
+  "delete_link": {
+    "text": "",
+    "href": "/do/delete/project?returnto=%2Fdo%2Fview%2Fprojects&oid=228",
+    "onclick": "return confirm('Do you want to delete project \\'S3-E Private\\'?')"
+  },
+  "delete": {
+    "status": 302,
+    "location": "/do/view/projects"
+  },
+  "after": {
+    "listed": false,
+    "pages": {
+      "project": {
+        "status": 500,
+        "location": "",
+        "title": "An error has occurred.",
+        "error": "user <sysadmin.userId> Me Logout"
+      },
+      "iteration_543": {
+        "status": 500,
+        "location": "",
+        "title": "An error has occurred.",
+        "error": "user <sysadmin.userId> Me Logout Top An error has occurred. An exception occurred Please create an issue following these instructions.In order to expedite the a"
+      },
+      "iteration_544": {
+        "status": 500,
+        "location": "",
+        "title": "An error has occurred.",
+        "error": "user <sysadmin.userId> Me Logout Top An error has occurred. An exception occurred Please create an issue following these instructions.In order to expedite the a"
+      },
+      "iteration_545": {
+        "status": 500,
+        "location": "",
+        "title": "An error has occurred.",
+        "error": "user <sysadmin.userId> Me Logout Top An error has occurred. An exception occurred Please create an issue following these instructions.In order to expedite the a"
+      },
+      "story_561": {
+        "status": 500,
+        "location": "",
+        "title": "An error has occurred.",
+        "error": "user <sysadmin.userId> Me Logout Top An error has occurred. No row with Please create an issue following these instructions.In order to expedite the analysis of"
+      },
+      "task_535": {
+        "status": 500,
+        "location": "",
+        "title": "An error has occurred.",
+        "error": "user <sysadmin.userId> Me Logout Top An error has occurred. javax.el.ELException: Error reading Please create an issue following these instructions.In order to "
+      }
+    },
+    "timesheet": {
+      "status": 200,
+      "title": "XPlanner Timesheet: Person Name:",
+      "s3e_rows": [
+        "Total Hours | 0.0"
+      ]
+    },
+    "aggregate": {
+      "get_status": 200,
+      "fields": [
+        "selectedPeople(select)",
+        "startDateString(text)",
+        "setStartDate(image)",
+        "endDateString(text)",
+        "setEndDate(image)"
+      ],
+      "people_options": [
+        "211",
+        "210",
+        "212",
+        "209",
+        "288",
+        "217",
+        "213",
+        "215",
+        "219",
+        "1"
+      ],
+      "select_name": "selectedPeople",
+      "status": 200,
+      "s3e_rows": [],
+      "mentions_s3e": false
+    },
+    "search_story": {
+      "status": 200,
+      "title": "Search Results",
+      "location": "",
+      "rows": []
+    },
+    "search_note": {
+      "status": 200,
+      "title": "Search Results",
+      "location": "",
+      "rows": []
+    },
+    "id_note_572": {
+      "status": 200,
+      "location": "",
+      "text": "user <sysadmin.userId> Me Logout Top An error has occurred. ID 572 not found switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on "
+    },
+    "notes": [
+      {
+        "id": 500,
+        "parent": 228,
+        "view": "project",
+        "on": "project 228",
+        "status": 200,
+        "subject": "S3-E note on Project (probe)"
+      },
+      {
+        "id": 504,
+        "parent": 543,
+        "view": "iteration",
+        "on": "iteration 543",
+        "status": 200,
+        "subject": "S3-E note on Iteration 1"
+      },
+      {
+        "id": 505,
+        "parent": 561,
+        "view": "userstory",
+        "on": "story 561",
+        "status": 200,
+        "subject": "S3-E note on Story 1"
+      },
+      {
+        "id": 572,
+        "parent": 535,
+        "view": "task",
+        "on": "task 535",
+        "status": 200,
+        "subject": "S3-E note on Task 1"
+      },
+      {
+        "id": 501,
+        "parent": 542,
+        "view": "iteration",
+        "on": "iteration 542 (deleted earlier)",
+        "status": 200,
+        "subject": "S3-E note on Iteration D2"
+      },
+      {
+        "id": 573,
+        "parent": 562,
+        "view": "userstory",
+        "on": "story 562 (deleted earlier)",
+        "status": 200,
+        "subject": "S3-E note on Story Del"
+      }
+    ]
+  },
+  "b_logout": {
+    "status": 200,
+    "session_cookie_left": true
+  },
+  "finished_at": "2026-09-30T21:16:05.656Z"
+}

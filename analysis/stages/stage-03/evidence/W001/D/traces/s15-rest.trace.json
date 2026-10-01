@@ -1,0 +1,290 @@
+{
+  "at": "2026-09-30T20:25:04.732Z",
+  "results": [
+    {
+      "id": "GET /rest/view",
+      "status": 200,
+      "ct": "text/plain",
+      "bytes": 9,
+      "body": "Hi there!"
+    },
+    {
+      "id": "GET project xml",
+      "status": 200,
+      "ct": "application/xml",
+      "bytes": 124,
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><projectView><id>224</id><name>S3-D Integrations</name></projectView>"
+    },
+    {
+      "id": "GET project json",
+      "status": 200,
+      "ct": "application/json",
+      "bytes": 174,
+      "body": "{\"hidden\":null,\"currentIteration\":null,\"notificationReceivers\":null,\"notes\":null,\"description\":null,\"name\":\"S3-D Integrations\",\"id\":224,\"lastUpdateTime\":null,\"attributes\":{}}"
+    },
+    {
+      "id": "GET project default accept",
+      "status": 200,
+      "ct": "application/xml",
+      "bytes": 124,
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><projectView><id>224</id><name>S3-D Integrations</name></projectView>"
+    },
+    {
+      "id": "GET stories xml",
+      "status": 200,
+      "ct": "application/xml",
+      "bytes": 1007,
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><userStoryViews><userStoryView><id>256</id><description>Part D synthetic story (updated over SOAP)</description><name>S3-D Story 1</name><actualHours>0.0</actualHours><dispositionCode>112</dispositionCode><estimatedHours>5.0</estimatedHours><orderNo>1</orderNo><postponedHours>0.0</postponedHours><priority>4</priority><status>100</status><task><id>270</id><descrip"
+    },
+    {
+      "id": "GET stories json",
+      "status": 200,
+      "ct": "application/json",
+      "bytes": 761,
+      "body": "[{\"status\":\"d\",\"actualHours\":0.0,\"tasks\":[{\"estimatedHours\":3.0,\"acceptorId\":210,\"completed\":false,\"createdDate\":\"2026-09-30\",\"originalEstimate\":3.0,\"type\":null,\"description\":\"Part D synthetic task.\",\"name\":\"S3-D Task 1\",\"id\":270,\"lastUpdateTime\":null,\"attributes\":{}},{\"estimatedHours\":2.0,\"acceptorId\":210,\"completed\":false,\"createdDate\":\"2026-09-30\",\"originalEstimate\":0.0,\"type\":null,\"description\":\"Part D synthetic "
+    },
+    {
+      "id": "POST 271 started 2.5",
+      "status": 200,
+      "ct": "application/json",
+      "bytes": 52,
+      "body": "{\"code\":0,\"decription\":\"Task updated\",\"error\":false}"
+    },
+    {
+      "id": "POST 271 started again",
+      "status": 200,
+      "ct": "application/json",
+      "bytes": 64,
+      "body": "{\"code\":401,\"decription\":\"Task status not changed\",\"error\":true}"
+    },
+    {
+      "id": "POST 271 notStarted",
+      "status": 200,
+      "ct": "application/json",
+      "bytes": 83,
+      "body": "{\"code\":402,\"decription\":\"Moving Task to not started not implemented\",\"error\":true}"
+    },
+    {
+      "id": "POST 999999 started",
+      "status": 200,
+      "ct": "application/json",
+      "bytes": 55,
+      "body": "{\"code\":404,\"decription\":\"Task not found\",\"error\":true}"
+    },
+    {
+      "id": "POST 271 unknown status",
+      "status": 200,
+      "ct": "application/json",
+      "bytes": 83,
+      "body": "{\"code\":402,\"decription\":\"Moving Task to not started not implemented\",\"error\":true}"
+    },
+    {
+      "id": "web task 271 after started",
+      "text": "Task:&#160; S3-D Task 2 Task: S3-D Task 2 [id=271] Part D synthetic task. Acceptor: <editor.name> Estimated Hours: 2.0 (2.5) Created: 2026-09-30 Actual Hours: 0.0 E dit D elete M ove/Continue Edit Time Notes: Add N ote/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null"
+    },
+    {
+      "id": "POST 271 completed",
+      "status": 200,
+      "ct": "application/json",
+      "bytes": 52,
+      "body": "{\"code\":0,\"decription\":\"Task updated\",\"error\":false}"
+    },
+    {
+      "id": "web task 271 after completed",
+      "text": "Task:&#160; S3-D Task 2 Task: S3-D Task 2 [id=271] Part D synthetic task. Acceptor: <editor.name> Estimated Hours: 2.0 (2.5) Created: 2026-09-30 Actual Hours: 0.0 E dit D elete M ove/Continue Edit Time Notes: Add N ote/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null"
+    }
+  ],
+  "trace": [
+    {
+      "at": "2026-09-30T20:24:59.975Z",
+      "client": "anon",
+      "method": "GET",
+      "path": "/xplanner-legacy/rest/view",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes": 9,
+      "label": "rest view text",
+      "excerpt": "Hi there!"
+    },
+    {
+      "at": "2026-09-30T20:25:00.285Z",
+      "client": "anon",
+      "method": "GET",
+      "path": "/xplanner-legacy/rest/view/project/224",
+      "status": 200,
+      "content_type": "application/xml",
+      "bytes": 124,
+      "label": "rest project xml",
+      "excerpt": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><projectView><id>224</id><name>S3-D Integrations</name></projectView>"
+    },
+    {
+      "at": "2026-09-30T20:25:00.641Z",
+      "client": "anon",
+      "method": "GET",
+      "path": "/xplanner-legacy/rest/view/project/224",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 174,
+      "label": "rest project json",
+      "excerpt": "{\"hidden\":null,\"currentIteration\":null,\"notificationReceivers\":null,\"notes\":null,\"description\":null,\"name\":\"S3-D Integrations\",\"id\":224,\"lastUpdateTime\":null,\"attributes\":{}}"
+    },
+    {
+      "at": "2026-09-30T20:25:00.928Z",
+      "client": "anon",
+      "method": "GET",
+      "path": "/xplanner-legacy/rest/view/project/224",
+      "status": 200,
+      "content_type": "application/xml",
+      "bytes": 124,
+      "label": "rest project default",
+      "excerpt": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><projectView><id>224</id><name>S3-D Integrations</name></projectView>"
+    },
+    {
+      "at": "2026-09-30T20:25:01.238Z",
+      "client": "anon",
+      "method": "GET",
+      "path": "/xplanner-legacy/rest/view/iteration/234/userstories",
+      "status": 200,
+      "content_type": "application/xml",
+      "bytes": 1007,
+      "label": "rest stories xml",
+      "excerpt": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><userStoryViews><userStoryView><id>256</id><description>Part D synthetic story (updated over SOAP)</description><name>S3-D Story 1</name><actualHours>0.0</actualHours><dispositionCode>112</dispositionCode><estimatedHours>5.0</estimatedHours><orderNo>1</orderNo><postponedHours>0.0</postponedHours><priority>4</priority><status>100</status><task> [... 1007 chars]"
+    },
+    {
+      "at": "2026-09-30T20:25:01.534Z",
+      "client": "anon",
+      "method": "GET",
+      "path": "/xplanner-legacy/rest/view/iteration/234/userstories",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 761,
+      "label": "rest stories json",
+      "excerpt": "[{\"status\":\"d\",\"actualHours\":0.0,\"tasks\":[{\"estimatedHours\":3.0,\"acceptorId\":210,\"completed\":false,\"createdDate\":\"2026-09-30\",\"originalEstimate\":3.0,\"type\":null,\"description\":\"Part D synthetic task.\",\"name\":\"S3-D Task 1\",\"id\":270,\"lastUpdateTime\":null,\"attributes\":{}},{\"estimatedHours\":2.0,\"acceptorId\":210,\"completed\":false,\"createdDate\":\"2026-09-30\",\"originalEstimate\":0.0,\"type\":null,\"description\":\"Part D synthetic task.\",\"name\":\"S3-D Task 2\",\"id\":271,\"lastUpdateTime\":null,\"attributes\":{}}],\"trackerId\":210,\"estimatedHours\":5.0,\"originalEstimatedHours\":null,\"dispositionCode\":\"p\",\"postponedHour [... 761 chars]"
+    },
+    {
+      "at": "2026-09-30T20:25:01.832Z",
+      "client": "anon",
+      "method": "POST",
+      "path": "/xplanner-legacy/rest/update/task/271/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 52,
+      "label": "rest status started",
+      "excerpt": "{\"code\":0,\"decription\":\"Task updated\",\"error\":false}"
+    },
+    {
+      "at": "2026-09-30T20:25:02.122Z",
+      "client": "anon",
+      "method": "POST",
+      "path": "/xplanner-legacy/rest/update/task/271/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 64,
+      "label": "rest status same",
+      "excerpt": "{\"code\":401,\"decription\":\"Task status not changed\",\"error\":true}"
+    },
+    {
+      "at": "2026-09-30T20:25:02.403Z",
+      "client": "anon",
+      "method": "POST",
+      "path": "/xplanner-legacy/rest/update/task/271/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 83,
+      "label": "rest status notStarted",
+      "excerpt": "{\"code\":402,\"decription\":\"Moving Task to not started not implemented\",\"error\":true}"
+    },
+    {
+      "at": "2026-09-30T20:25:02.685Z",
+      "client": "anon",
+      "method": "POST",
+      "path": "/xplanner-legacy/rest/update/task/999999/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 55,
+      "label": "rest status not found",
+      "excerpt": "{\"code\":404,\"decription\":\"Task not found\",\"error\":true}"
+    },
+    {
+      "at": "2026-09-30T20:25:02.968Z",
+      "client": "anon",
+      "method": "POST",
+      "path": "/xplanner-legacy/rest/update/task/271/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 83,
+      "label": "rest status unknown",
+      "excerpt": "{\"code\":402,\"decription\":\"Moving Task to not started not implemented\",\"error\":true}"
+    },
+    {
+      "at": "2026-09-30T20:25:03.245Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:25:03.530Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:25:03.843Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/task?oid=271",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 11017,
+      "label": "task 271 after started"
+    },
+    {
+      "at": "2026-09-30T20:25:04.139Z",
+      "client": "anon",
+      "method": "POST",
+      "path": "/xplanner-legacy/rest/update/task/271/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 52,
+      "label": "rest status completed",
+      "excerpt": "{\"code\":0,\"decription\":\"Task updated\",\"error\":false}"
+    },
+    {
+      "at": "2026-09-30T20:25:04.446Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/task?oid=271",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 11015,
+      "label": "task 271 after completed"
+    },
+    {
+      "at": "2026-09-30T20:25:04.732Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    }
+  ]
+}

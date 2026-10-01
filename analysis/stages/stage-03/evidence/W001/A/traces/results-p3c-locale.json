@@ -1,0 +1,84 @@
+{
+  "phase": "p3c-locale",
+  "started_at": "2026-09-30T20:24:09.548Z",
+  "obs": {
+    "locale": {
+      "default": {
+        "status": 200,
+        "html_lang": "en",
+        "title": "XPlanner Project: S3-A Access",
+        "dates": [
+          "2026-09-30",
+          "2026-10-13"
+        ]
+      },
+      "de": {
+        "change": {
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/project?oid=221"
+        },
+        "status": 200,
+        "html_lang": "en",
+        "title": "XPlanner Projekt: S3-A Access",
+        "dates": [
+          "2026-09-30",
+          "2026-10-13"
+        ]
+      },
+      "es": {
+        "change": {
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/project?oid=221"
+        },
+        "status": 200,
+        "html_lang": "en",
+        "title": "XPlanner Proyecto: S3-A Access",
+        "dates": [
+          "30-09-2026",
+          "13-10-2026"
+        ]
+      },
+      "en": {
+        "change": {
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/project?oid=221"
+        },
+        "status": 200,
+        "html_lang": "en",
+        "title": "XPlanner Project: S3-A Access",
+        "dates": [
+          "2026-09-30",
+          "2026-10-13"
+        ]
+      }
+    },
+    "import_link": {
+      "href": "/xplanner-legacy/do/import/people?returnto=%2Fdo%2Fview%2Fpeople",
+      "status": 200,
+      "title": "XPlanner - Import People",
+      "template_link": true,
+      "has_file_input": true
+    },
+    "r57": {
+      "status": 500,
+      "title": "An error has occurred.",
+      "mentions_oid": false,
+      "mentions_not_found": false,
+      "err": {
+        "title": "An error has occurred.",
+        "exception_classes": [],
+        "has_cause": false,
+        "has_stack_trace": false,
+        "has_unknown_error_text": false,
+        "has_support_link": false
+      }
+    },
+    "r73": {
+      "status": 200,
+      "ct": "text/plain",
+      "bytes": 350720,
+      "contains_own_recent_request": false
+    }
+  },
+  "finished_at": "2026-09-30T20:24:14.580Z"
+}

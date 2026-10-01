@@ -1,0 +1,97 @@
+{
+  "phase": "p2a-objects",
+  "started_at": "2026-09-30T20:18:05.103Z",
+  "objects": {
+    "it1": {
+      "oid": 308,
+      "existed": true
+    },
+    "itDel": {
+      "oid": 309,
+      "existed": true
+    },
+    "story1": {
+      "oid": 257,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=308"
+    },
+    "storyVDel": {
+      "oid": 258,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=308"
+    },
+    "taskDel3": {
+      "oid": 272,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=257"
+    },
+    "taskMember": {
+      "oid": 273,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=257"
+    }
+  },
+  "forms": {
+    "story": {
+      "id": null,
+      "name": "storyEditor",
+      "action": "/xplanner-legacy/do/edit/userstory",
+      "method": "POST",
+      "enctype": null,
+      "fields": [
+        "input:hidden iterationId=308",
+        "input:hidden id=0",
+        "input:hidden returnto=/do/view/iteration?oid=308",
+        "input:hidden fkey=308",
+        "input:text name=",
+        "input:text priority=4",
+        "input:text orderNo=2",
+        "input:text estimatedHoursField=0.0",
+        "input:hidden action=Create",
+        "input:submit null=Create",
+        "input:reset null=Reset",
+        "select dispositionName [planned*|carriedOver|added]",
+        "select customerId [0*|211|210|212|218|217|213|1]",
+        "select trackerId [0*|211|210|212|218|217|213|1]",
+        "select statusName [draft*|defined|estimated|planned|implemented|verified|accepted]",
+        "textarea: description="
+      ]
+    },
+    "task": {
+      "id": null,
+      "name": "taskEditor",
+      "action": "/xplanner-legacy/do/edit/task",
+      "method": "POST",
+      "enctype": null,
+      "fields": [
+        "input:hidden returnto=/do/view/userstory?oid=257",
+        "input:hidden fkey=257",
+        "input:hidden userStoryId=257",
+        "input:hidden id=0",
+        "input:hidden completed=false",
+        "input:text name=",
+        "input:text estimatedHours=0.0",
+        "input:hidden action=Create",
+        "input:submit null=Create",
+        "input:reset null=Reset",
+        "select type [Feature|Debt|Defect|FTest|ATest|Overhead]",
+        "select dispositionName [planned*|discovered|added|carriedOver]",
+        "select acceptorId [0*|211|210|212|218|217|213|1]",
+        "textarea: description="
+      ]
+    }
+  },
+  "it1_controls": [
+    "/xplanner-legacy/do/edit/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&projectId=221&oid=308",
+    "/xplanner-legacy/do/delete/iteration?returnto=%2Fdo%2Fview%2Fprojects&oid=308",
+    "/xplanner-legacy/do/start/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&projectId=221&oid=308"
+  ],
+  "project_iteration_controls": [
+    "/xplanner-legacy/do/edit/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221",
+    "/xplanner-legacy/do/edit/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221&oid=309",
+    "/xplanner-legacy/do/delete/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221&oid=309",
+    "/xplanner-legacy/do/edit/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221&oid=308",
+    "/xplanner-legacy/do/delete/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221&oid=308"
+  ],
+  "finished_at": "2026-09-30T20:18:11.855Z"
+}

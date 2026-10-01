@@ -1,0 +1,63 @@
+{
+  "started_at": "2026-09-30T20:29:15.135Z",
+  "steps": [
+    {
+      "step": "editor-es",
+      "status": 200,
+      "calendar_calls": [
+        "showCalendar('startDate', 'dd-MM-yyyy')",
+        "showCalendar('endDate', 'dd-MM-yyyy')"
+      ],
+      "dateField_class": 2
+    },
+    {
+      "step": "create-picker",
+      "sent": {
+        "startDateString": "2026-11-02",
+        "endDateString": "2026-11-15"
+      },
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/project?oid=223",
+      "messages": [],
+      "redisplay_excerpt": null
+    },
+    {
+      "step": "create-calendar",
+      "sent": {
+        "startDateString": "02-11-2026",
+        "endDateString": "15-11-2026"
+      },
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/project?oid=223",
+      "messages": [],
+      "redisplay_excerpt": null
+    },
+    {
+      "step": "project-es",
+      "iterations": "S3-C Iteration es-picker 02-11-2026 15-11-2026 0,0 0 314 S3-C Iteration 2 12-10-2026 25-10-2026 0,0 1 232 S3-C Iteration 1 28-09-2026 11-10-2026 0,0 1 317 S3-C Iteration es-calendar 18-05-0008 18-05-0021 0,0 0 4 items found, displaying all items. 1 Notas: A�adir nota/attachment switch width of Xplanner+ page Versi�n "
+    },
+    {
+      "step": "iteration-en",
+      "name": "S3-C Iteration es-picker",
+      "oid": 316,
+      "dates": "(2026-11-02 to 2026-11-15)"
+    },
+    {
+      "step": "iteration-en",
+      "name": "S3-C Iteration es-calendar",
+      "oid": 317,
+      "dates": "(0008-05-18 to 0021-05-18)"
+    }
+  ],
+  "r181_raw": {
+    "status": 200,
+    "invalid_content_hits": 0,
+    "missing_content_hits": 0,
+    "cause": null
+  },
+  "r174_note_editor_after_delete": {
+    "status": 200,
+    "subject": "S3-C viewer direct note (edited by editor)"
+  },
+  "finished_at": "2026-09-30T20:29:20.541Z"
+}

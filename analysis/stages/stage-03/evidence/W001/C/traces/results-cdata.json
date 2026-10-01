@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-09-30T20:11:52.810Z",
+  "steps": [
+    {
+      "step": "sign-in",
+      "ok": true,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects"
+    },
+    {
+      "step": "create-iteration",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/project?oid=223",
+      "id": 232
+    },
+    {
+      "step": "create-story1",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=232",
+      "id": 254,
+      "description": "Part C story (synthetic)."
+    },
+    {
+      "step": "create-taskEN",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=254",
+      "id": 265
+    },
+    {
+      "step": "create-taskDE",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=254",
+      "id": 266
+    },
+    {
+      "step": "create-taskES",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=254",
+      "id": 267
+    },
+    {
+      "step": "create-taskV",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=254",
+      "id": 268
+    },
+    {
+      "step": "create-taskH",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=254",
+      "id": 269
+    },
+    {
+      "step": "create-story2",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=232",
+      "id": 255,
+      "description": "Part C story with TWiki markup: *bold text* _italic text_ =fixed text= SthreeCeeTopic story:254 task:265 [[S3-C bracket link]]"
+    }
+  ],
+  "ids": {
+    "iteration": 232,
+    "story1": 254,
+    "taskEN": 265,
+    "taskDE": 266,
+    "taskES": 267,
+    "taskV": 268,
+    "taskH": 269,
+    "story2": 255
+  },
+  "finished_at": "2026-09-30T20:12:03.587Z"
+}

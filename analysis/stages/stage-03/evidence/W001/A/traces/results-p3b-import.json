@@ -1,0 +1,67 @@
+{
+  "phase": "p3b-import",
+  "started_at": "2026-09-30T20:24:36.762Z",
+  "obs": {
+    "page": {
+      "status": 200,
+      "title": "XPlanner - Import People",
+      "form": {
+        "id": null,
+        "name": "importPeople",
+        "action": "/xplanner-legacy/do/import/people",
+        "method": "POST",
+        "enctype": "multipart/form-data",
+        "fields": [
+          "input:hidden returnto=/do/view/people",
+          "input:file formFile=",
+          "input:hidden action=Update",
+          "input:submit null=Upload",
+          "input:reset reset=Reset"
+        ]
+      },
+      "template_links": [
+        "/xplanner-legacy/files/peopleImportTemplate.xls"
+      ]
+    },
+    "r53": {
+      "href": "/xplanner-legacy/files/peopleImportTemplate.xls",
+      "status": 200,
+      "ct": "application/vnd.ms-excel",
+      "bytes": 13824,
+      "xls_signature": true
+    },
+    "r52": {
+      "status": 500,
+      "location": null,
+      "statuses_shown": [],
+      "err": {
+        "title": "An error has occurred.",
+        "exception_classes": [
+          "java.lang.AbstractMethodError"
+        ],
+        "has_cause": true,
+        "has_stack_trace": true,
+        "has_unknown_error_text": false,
+        "has_support_link": true
+      }
+    },
+    "r50_51": {
+      "status": 500,
+      "location": null,
+      "statuses_shown": [],
+      "results_table": false,
+      "err": {
+        "title": "An error has occurred.",
+        "exception_classes": [
+          "java.lang.IndexOutOfBoundsException"
+        ],
+        "has_cause": true,
+        "has_stack_trace": true,
+        "has_unknown_error_text": false,
+        "has_support_link": true
+      },
+      "s3a_imp1_created": false
+    }
+  },
+  "finished_at": "2026-09-30T20:24:39.187Z"
+}

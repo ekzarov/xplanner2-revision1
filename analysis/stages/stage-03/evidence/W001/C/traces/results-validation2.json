@@ -1,0 +1,117 @@
+{
+  "started_at": "2026-09-30T20:21:25.870Z",
+  "attempts": [
+    {
+      "id": "r153-nonlast-missing-end-b",
+      "desc": "entry A row: end and duration cleared (not the last row)",
+      "sent": {
+        "endTime[0]": "",
+        "duration[0]": ""
+      },
+      "rowcount_before": 3,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Missing start or end time."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "",
+          "",
+          "2026-09-30",
+          "0.5",
+          "<editor.name> <editor.name>",
+          "S3-C V entry B edited"
+        ],
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.5 (4.0) Created: 2026-09-30 Actual Hours: 1.5 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r153-last-start-only-b",
+      "desc": "last row start time only, person 2 cleared",
+      "sent": {
+        "person1Id[2]": "210",
+        "startTime[2]": "2026-09-30 18:00",
+        "person2Id[2]": "0",
+        "description[2]": "S3-C V entry C"
+      },
+      "rowcount_before": 3,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=268",
+      "messages": [],
+      "redisplayed_editor": false,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "",
+          "",
+          "2026-09-30",
+          "0.5",
+          "<editor.name> <editor.name>",
+          "S3-C V entry B edited"
+        ],
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ],
+        [
+          "2026-09-30 18:00",
+          "",
+          "2026-09-30",
+          "",
+          "<editor.name>",
+          "S3-C V entry C"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.5 (4.0) Created: 2026-09-30 Actual Hours: 1.5 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r150-delete-b",
+      "desc": "tick delete on entry C",
+      "sent": {
+        "deleted[2]": "true"
+      },
+      "rowcount_before": 3,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=268",
+      "messages": [],
+      "redisplayed_editor": false,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "",
+          "",
+          "2026-09-30",
+          "0.5",
+          "<editor.name> <editor.name>",
+          "S3-C V entry B edited"
+        ],
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.5 (4.0) Created: 2026-09-30 Actual Hours: 1.5 E dit D elete M ove/Continue E"
+    }
+  ],
+  "description_maxlength": 500,
+  "finished_at": "2026-09-30T20:21:29.843Z"
+}

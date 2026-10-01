@@ -1,0 +1,91 @@
+{
+  "facts": {
+    "at": "2026-09-30T20:17:48.411Z",
+    "root": "xplanner",
+    "top_children": [
+      "projects",
+      "people"
+    ],
+    "people_container": [
+      "people"
+    ],
+    "person_entries": 12,
+    "person_entry_tag": "person",
+    "person_child_elements": [
+      "attributes",
+      "description",
+      "email",
+      "hidden",
+      "id",
+      "initials",
+      "name",
+      "phone",
+      "userId"
+    ],
+    "password_elements": 0,
+    "project_elements": 3,
+    "people_page_distinct_person_links": 12
+  },
+  "trace": [
+    {
+      "at": "2026-09-30T20:17:47.182Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:17:47.488Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:17:47.799Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/export/project/xml?oid=224",
+      "status": 200,
+      "content_type": "text/xml",
+      "content_disposition": "inline; filename=export.xml",
+      "bytes": 18158,
+      "label": "export project/xml (structure)"
+    },
+    {
+      "at": "2026-09-30T20:17:48.103Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/people",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 11343,
+      "label": "people list (count only)"
+    },
+    {
+      "at": "2026-09-30T20:17:48.411Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    }
+  ]
+}

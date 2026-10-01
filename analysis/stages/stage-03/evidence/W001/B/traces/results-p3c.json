@@ -1,0 +1,22 @@
+{
+  "phase": "p3c",
+  "started_at": "2026-09-30T20:20:19.005Z",
+  "finished_at": "2026-09-30T20:20:20.277Z",
+  "trace": "p3c-merge.trace.json",
+  "checks": [
+    {
+      "phase": "p3c",
+      "at": "2026-09-30T20:20:20.101Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 124,
+      "role": "editor",
+      "expected": "merge=true skips the name, estimate and priority checks, is rejected only when the target iteration equals the current one, otherwise binds request parameters directly onto the story.",
+      "source": "analysis/legacy_user_flows.xlsx row 124 (Live question)",
+      "action": "As s3editor posted merge=true requests to /do/edit/userstory for \"S3-B S7 Merge probe\" with the targetIterationId parameter the move/continue page uses: (1) target = current iteration; (2) target = S3-B I2 Next plus priority 9, a description and estimate -5, without a name.",
+      "observed": "[{\"label\":\"targetIterationId = current (I1), iterationId = I1\",\"status\":200,\"location\":\"\",\"sameIterMsg\":true,\"validationMsg\":false,\"error500\":false,\"after\":{\"iteration\":\"S3-B I1 Current\",\"name\":\"S3-B S7 Merge probe Story: S3-B S7 Merge probe \",\"priority\":\"5\",\"estimate\":\"1.0\",\"description\":\"S3-B S7 Merge probe, part B. Priority: 5 Estimated\"}},{\"label\":\"targetIterationId = I2, iterationId = I1, priority 9, description, estimate -5, no name\",\"status\":302,\"location\":\"/xplanner-legacy/do/view/userstory?oid=320\",\"sameIterMsg\":false,\"validationMsg\":false,\"error500\":false,\"after\":{\"iteration\":\"S3-B I1 Current\",\"name\":\"S3-B S7 Merge probe Story: S3-B S7 Merge probe \",\"priority\":\"9\",\"estimate\":\"-5.0\",\"description\":\"Merge probe: set by a merge=true request. Priority\"}}]",
+      "evidence": "p3c-merge.trace.json",
+      "verdict": "pending"
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "started_at": "2026-09-30T20:15:32.396Z",
+  "steps": [
+    {
+      "step": "sign-in",
+      "ok": true,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects"
+    },
+    {
+      "step": "a-typed-as-hint",
+      "rowcount": 1,
+      "report_date_prefill": "30-09-2026",
+      "sent": {
+        "startTime[0]": "30-09-2026 12:00",
+        "endTime[0]": "30-09-2026 13:30",
+        "person1Id[0]": "210",
+        "description[0]": "S3-C F-003 es typed",
+        "remainingHours": "4.0"
+      },
+      "status": 500,
+      "location": null,
+      "cause": "java.text.ParseException: Unparseable date: \"30-09-2026 12:00\" ",
+      "frames": [
+        "java.text.ParseException: Unparseable date: \"30-09-2026 12:00\"",
+        "at java.text.DateFormat.parse(DateFormat.java:366)",
+        "at com.technoetic.xplanner.actions.UpdateTimeAction.doUpdateTimeAction(UpdateTimeAction.java:145)",
+        "at com.technoetic.xplanner.actions.UpdateTimeAction.doAction(UpdateTimeAction.java:104)",
+        "at com.technoetic.xplanner.actions.UpdateTimeAction.doExecute(UpdateTimeAction.java:64)",
+        "at com.technoetic.xplanner.actions.AbstractAction$1.run(AbstractAction.java:82)",
+        "at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate$1.doInTransaction(CheckedExceptionHandlingTransactionTemplate.java:31)",
+        "at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:130)",
+        "at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate.execute(CheckedExceptionHandlingTransactionTemplate.java:28)",
+        "at com.technoetic.xplanner.actions.AbstractAction.execute(AbstractAction.java:80)",
+        "at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)",
+        "at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)"
+      ],
+      "redisplay_errors": null
+    },
+    {
+      "step": "b-insert-time-shape",
+      "rowcount": 1,
+      "report_date_prefill": "30-09-2026",
+      "sent": {
+        "startTime[0]": "30-09-2026 12:09 ",
+        "endTime[0]": "30-09-2026 13:09 ",
+        "person1Id[0]": "210",
+        "description[0]": "S3-C F-003 es insert-time shape",
+        "remainingHours": "4.0"
+      },
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=267",
+      "cause": null,
+      "frames": null,
+      "redisplay_errors": null
+    },
+    {
+      "step": "task-after",
+      "status": 200,
+      "timelog": [
+        [
+          "Fecha de inicio",
+          "Fecha de finalizaci�n",
+          "Reported Date",
+          "Dur.",
+          "Pareja",
+          "Descripci"
+        ],
+        [
+          "30-09-2026 12:09",
+          "30-09-2026 13:09",
+          "30-09-2026",
+          "1,0",
+          "<editor.name>",
+          "S3-C F-003 es insert-time shape"
+        ]
+      ],
+      "info": ""
+    },
+    {
+      "step": "editor-existing",
+      "status": 200,
+      "rowcount": "2",
+      "row0": {
+        "startTime": "30-09-2026 12:09 ",
+        "endTime": "30-09-2026 13:09 ",
+        "reportDate": "30-09-2026",
+        "duration": "1,0"
+      }
+    },
+    {
+      "step": "resave-unchanged",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=267",
+      "cause": null,
+      "frames": null
+    },
+    {
+      "step": "task-after-resave",
+      "status": 200,
+      "timelog": [
+        [
+          "Fecha de inicio",
+          "Fecha de finalizaci�n",
+          "Reported Date",
+          "Dur.",
+          "Pareja",
+          "Descripci"
+        ],
+        [
+          "30-09-2026 12:09",
+          "30-09-2026 13:09",
+          "30-09-2026",
+          "1,0",
+          "<editor.name>",
+          "S3-C F-003 es insert-time shape"
+        ]
+      ]
+    },
+    {
+      "step": "task-seen-in-en-session",
+      "status": 200,
+      "timelog": [
+        [
+          "Start Time",
+          "End Time",
+          "Reported Date",
+          "Dur.",
+          "Pair",
+          "Description"
+        ],
+        [
+          "2026-09-30 12:00",
+          "2026-09-30 13:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C F-003 es insert-time shape"
+        ]
+      ]
+    }
+  ],
+  "finished_at": "2026-09-30T20:15:36.910Z"
+}

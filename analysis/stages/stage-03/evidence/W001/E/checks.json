@@ -1,0 +1,711 @@
+{
+  "part": "E",
+  "performed_by": "BA (responsible-agent verification), Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, task W001-E; deployment operator: Codex",
+  "started_at": "2026-09-30T20:58:27.794Z",
+  "finished_at": "2026-09-30T21:16:05.656Z",
+  "rows": [
+    {
+      "row": 62,
+      "use_case": "Test-support URLs",
+      "verdict": "partially verified",
+      "note": "Only the no-op redirect of /do/edit/properties observed; the four state-changing actions not run.",
+      "checks": [
+        "E-C-020",
+        "E-C-021",
+        "E-C-022",
+        "E-C-023",
+        "E-C-024"
+      ]
+    },
+    {
+      "row": 71,
+      "use_case": "Iteration editor date pickers",
+      "verdict": "difference",
+      "note": "E-F-01",
+      "checks": [
+        "E-C-027",
+        "E-C-028",
+        "E-C-029",
+        "E-C-030"
+      ]
+    },
+    {
+      "row": 76,
+      "use_case": "Projects list hidden column",
+      "verdict": "partially verified",
+      "note": "Hidden column and Y for sysadmin only; hidden-project visibility for a reader with a role not observed.",
+      "checks": [
+        "E-C-012",
+        "E-C-013",
+        "E-C-014",
+        "E-C-015"
+      ]
+    },
+    {
+      "row": 82,
+      "use_case": "Delete project",
+      "verdict": "partially verified",
+      "note": "Cascade and orphan notes observed; history/person-role/attachment rows not observed.",
+      "checks": [
+        "E-C-019"
+      ]
+    },
+    {
+      "row": 91,
+      "use_case": "Delete iteration",
+      "verdict": "partially verified",
+      "note": "Cascade and orphan notes observed; history rows not observed.",
+      "checks": [
+        "E-C-016",
+        "E-C-017"
+      ]
+    },
+    {
+      "row": 112,
+      "use_case": "Burn-down data samples",
+      "verdict": "unverified",
+      "note": "Manual sampling action global; not run.",
+      "checks": [
+        "E-C-025"
+      ]
+    },
+    {
+      "row": 114,
+      "use_case": "Iteration task board (dashboard)",
+      "verdict": "live-verified",
+      "checks": [
+        "E-C-031"
+      ]
+    },
+    {
+      "row": 126,
+      "use_case": "Delete user story",
+      "verdict": "partially verified",
+      "note": "Cascade and orphan notes observed; history rows not observed.",
+      "checks": [
+        "E-C-018"
+      ]
+    },
+    {
+      "row": 149,
+      "use_case": "Record time on a task",
+      "verdict": "difference",
+      "note": "C-F-01 confirmed in a browser (es Insert Time).",
+      "checks": [
+        "E-C-032",
+        "E-C-033"
+      ]
+    },
+    {
+      "row": 151,
+      "use_case": "Remaining hours recalculation",
+      "verdict": "difference",
+      "note": "E-F-02",
+      "checks": [
+        "E-C-034",
+        "E-C-035"
+      ]
+    },
+    {
+      "row": 167,
+      "use_case": "Aggregate timesheet read filter",
+      "verdict": "live-verified",
+      "checks": [
+        "E-C-001",
+        "E-C-002",
+        "E-C-003",
+        "E-C-004"
+      ]
+    },
+    {
+      "row": 180,
+      "use_case": "Search read filter",
+      "verdict": "live-verified",
+      "checks": [
+        "E-C-005",
+        "E-C-006",
+        "E-C-007",
+        "E-C-008"
+      ]
+    },
+    {
+      "row": 184,
+      "use_case": "Jump by ID without read check",
+      "verdict": "live-verified",
+      "checks": [
+        "E-C-009",
+        "E-C-010",
+        "E-C-011"
+      ]
+    },
+    {
+      "row": 191,
+      "use_case": "Switch page width",
+      "verdict": "live-verified",
+      "checks": [
+        "E-C-026"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "E-C-001",
+      "row": 167,
+      "role": "viewer (no role on S3-E Private 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The aggregate timesheet includes only hours on projects the viewing user may read.",
+      "source": "analysis/legacy_user_flows.xlsx row 167, columns E and G",
+      "action": "POST /do/view/aggregateTimesheet (default week, selectedPeople=212 s3sysadmin, who has 1.5 h on S3-E Private task 535), before and after hiding the project.",
+      "mode": "live",
+      "observed": "No S3-E Private row in the result (the other projects of the person would be listed; the person has hours only on 228); the same person's hours are listed for s3sysadmin (see control check).",
+      "evidence": "traces/s5-readfilter-visible.trace.json; traces/s5-readfilter-hide.trace.json; traces/results-s5-visible.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-002",
+      "row": 167,
+      "role": "editor (no role on S3-E Private 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The aggregate timesheet includes only hours on projects the viewing user may read.",
+      "source": "analysis/legacy_user_flows.xlsx row 167, columns E and G",
+      "action": "POST /do/view/aggregateTimesheet (default week, selectedPeople=212 s3sysadmin, who has 1.5 h on S3-E Private task 535), before and after hiding the project.",
+      "mode": "live",
+      "observed": "No S3-E Private row in the result (the other projects of the person would be listed; the person has hours only on 228); the same person's hours are listed for s3sysadmin (see control check).",
+      "evidence": "traces/s5-readfilter-visible.trace.json; traces/s5-readfilter-hide.trace.json; traces/results-s5-visible.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-003",
+      "row": 167,
+      "role": "admin (no role on S3-E Private 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The aggregate timesheet includes only hours on projects the viewing user may read.",
+      "source": "analysis/legacy_user_flows.xlsx row 167, columns E and G",
+      "action": "POST /do/view/aggregateTimesheet (default week, selectedPeople=212 s3sysadmin, who has 1.5 h on S3-E Private task 535), before and after hiding the project.",
+      "mode": "live",
+      "observed": "No S3-E Private row in the result (the other projects of the person would be listed; the person has hours only on 228); the same person's hours are listed for s3sysadmin (see control check).",
+      "evidence": "traces/s5-readfilter-visible.trace.json; traces/s5-readfilter-hide.trace.json; traces/results-s5-visible.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-004",
+      "row": 167,
+      "role": "sysadmin (control)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A user who may read the project sees its hours.",
+      "source": "analysis/legacy_user_flows.xlsx row 167, columns E and G",
+      "action": "Same aggregate POST as s3sysadmin.",
+      "mode": "live",
+      "observed": "Row \"S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5\" listed, before and after hiding.",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-005",
+      "row": 180,
+      "role": "viewer (no role on 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Text matches are filtered to readable objects; a numeric search text puts the object with that id at the top without a read check; for a note id, the note's parent.",
+      "source": "analysis/legacy_user_flows.xlsx row 180, columns E and G",
+      "action": "GET /do/search/content for \"S3-E Story 1\" (global and restrictToProjectId=228), \"S3-E note on Task 1\", \"561\" (story id) and \"572\" (note id on task 535), before and after hiding.",
+      "mode": "live",
+      "observed": "Text searches: no results. \"561\": userstory 561 S3-E Story 1 listed (link /do/view/userstory?oid=561). \"572\": task 535 S3-E Task 1 listed (the note's parent), the note itself not listed. Same after hiding.",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-006",
+      "row": 180,
+      "role": "editor (no role on 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Text matches are filtered to readable objects; a numeric search text puts the object with that id at the top without a read check; for a note id, the note's parent.",
+      "source": "analysis/legacy_user_flows.xlsx row 180, columns E and G",
+      "action": "GET /do/search/content for \"S3-E Story 1\" (global and restrictToProjectId=228), \"S3-E note on Task 1\", \"561\" (story id) and \"572\" (note id on task 535), before and after hiding.",
+      "mode": "live",
+      "observed": "Text searches: no results. \"561\": userstory 561 S3-E Story 1 listed (link /do/view/userstory?oid=561). \"572\": task 535 S3-E Task 1 listed (the note's parent), the note itself not listed. Same after hiding.",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-007",
+      "row": 180,
+      "role": "admin (no role on 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Text matches are filtered to readable objects; a numeric search text puts the object with that id at the top without a read check; for a note id, the note's parent.",
+      "source": "analysis/legacy_user_flows.xlsx row 180, columns E and G",
+      "action": "GET /do/search/content for \"S3-E Story 1\" (global and restrictToProjectId=228), \"S3-E note on Task 1\", \"561\" (story id) and \"572\" (note id on task 535), before and after hiding.",
+      "mode": "live",
+      "observed": "Text searches: no results. \"561\": userstory 561 S3-E Story 1 listed (link /do/view/userstory?oid=561). \"572\": task 535 S3-E Task 1 listed (the note's parent), the note itself not listed. Same after hiding.",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-008",
+      "row": 180,
+      "role": "sysadmin (control)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A user who may read the project finds its objects by text.",
+      "source": "analysis/legacy_user_flows.xlsx row 180, columns E and G",
+      "action": "Same searches as s3sysadmin.",
+      "mode": "live",
+      "observed": "\"S3-E Story 1\": userstory 561; \"S3-E note on Task 1\": note 572 linking /do/view/task?oid=535; numeric searches as for the other roles.",
+      "evidence": "traces/results-s5-visible.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-009",
+      "row": 184,
+      "role": "viewer (no role on 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Jumping by ID applies no read check and the target view page does not check either; a note id opens the parent's page.",
+      "source": "analysis/legacy_user_flows.xlsx row 184, columns E and G",
+      "action": "GET /do/search/id?searchedId= 228, 543, 561, 535 and 505 (note on story 561); GET the view pages of project 228, iteration 543, story 561 and task 535 directly; before and after hiding.",
+      "mode": "live",
+      "observed": "Each id 302 to its view page (505 -> /do/view/userstory?oid=561); all four view pages 200 with the object's content (child names, time entry description). Same after hiding.",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-010",
+      "row": 184,
+      "role": "editor (no role on 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Jumping by ID applies no read check and the target view page does not check either; a note id opens the parent's page.",
+      "source": "analysis/legacy_user_flows.xlsx row 184, columns E and G",
+      "action": "GET /do/search/id?searchedId= 228, 543, 561, 535 and 505 (note on story 561); GET the view pages of project 228, iteration 543, story 561 and task 535 directly; before and after hiding.",
+      "mode": "live",
+      "observed": "Each id 302 to its view page (505 -> /do/view/userstory?oid=561); all four view pages 200 with the object's content (child names, time entry description). Same after hiding.",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-011",
+      "row": 184,
+      "role": "admin (no role on 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Jumping by ID applies no read check and the target view page does not check either; a note id opens the parent's page.",
+      "source": "analysis/legacy_user_flows.xlsx row 184, columns E and G",
+      "action": "GET /do/search/id?searchedId= 228, 543, 561, 535 and 505 (note on story 561); GET the view pages of project 228, iteration 543, story 561 and task 535 directly; before and after hiding.",
+      "mode": "live",
+      "observed": "Each id 302 to its view page (505 -> /do/view/userstory?oid=561); all four view pages 200 with the object's content (child names, time entry description). Same after hiding.",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-012",
+      "row": 76,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Users who may hide projects see a Hidden column with yes/no; hidden projects are listed after visible ones.",
+      "source": "analysis/legacy_user_flows.xlsx row 76, columns E and G",
+      "action": "Set Hidden on S3-E Private with the project editor (checkbox hidden=true, Update); re-read the editor and the projects list.",
+      "mode": "live",
+      "observed": "POST 302 /do/view/project?oid=228; editor checkbox now checked; list header \"Actions|ID|Project Name|Iteration|Hidden?\", row \"228 | S3-E Private | S3-E Iteration 1 | Y\" last (it also sorts last by name, so the hidden ordering is not separable here; see B-C-003).",
+      "evidence": "traces/s5-readfilter-hide.trace.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-013",
+      "row": 76,
+      "role": "viewer (no hide permission, no role on 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The Hidden column is shown only with hide permission.",
+      "source": "analysis/legacy_user_flows.xlsx row 76, columns E and G",
+      "action": "Read the projects list before and after hiding S3-E Private.",
+      "mode": "live",
+      "observed": "Header \"ID|Project Name|Iteration\" (no Hidden column); S3-E Private not listed before or after hiding (no read permission). Direct URLs and the ID jump still open the hidden project's pages (row 184 checks).",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-014",
+      "row": 76,
+      "role": "editor (no hide permission, no role on 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The Hidden column is shown only with hide permission.",
+      "source": "analysis/legacy_user_flows.xlsx row 76, columns E and G",
+      "action": "Read the projects list before and after hiding S3-E Private.",
+      "mode": "live",
+      "observed": "Header \"ID|Project Name|Iteration\" (no Hidden column); S3-E Private not listed before or after hiding (no read permission). Direct URLs and the ID jump still open the hidden project's pages (row 184 checks).",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-015",
+      "row": 76,
+      "role": "admin (no hide permission, no role on 228)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The Hidden column is shown only with hide permission.",
+      "source": "analysis/legacy_user_flows.xlsx row 76, columns E and G",
+      "action": "Read the projects list before and after hiding S3-E Private.",
+      "mode": "live",
+      "observed": "Header \"Actions|ID|Project Name|Iteration\" (no Hidden column); S3-E Private not listed before or after hiding (no read permission).",
+      "evidence": "traces/results-s5-visible.json; traces/results-s5-hide.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-016",
+      "row": 91,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An iteration delete cascades to its stories, tasks and time entries.",
+      "source": "analysis/legacy_user_flows.xlsx row 91, columns E and G",
+      "action": "Iteration 541 \"S3-E Iteration D\" (started) with story 328, task 533 and a 1.0 h entry; followed the iteration page Delete link (onclick not executed).",
+      "mode": "live",
+      "observed": "onclick \"return confirm('Do you want to delete iteration \\'S3-E Iteration D\\'?')\"; GET 302 /do/view/projects; iteration, story and task pages 500; not listed on the project; s3sysadmin timesheet 1.0 -> 0.0 and no aggregate row. The three note posts of this attempt failed (client encoding, see disclosures), so no note was attached.",
+      "evidence": "traces/s2b-iteration-delete.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-017",
+      "row": 91,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Attached notes are not deleted with the iteration; time entries are.",
+      "source": "analysis/legacy_user_flows.xlsx row 91, columns E and G",
+      "action": "Iteration 542 \"S3-E Iteration D2\" (started) with story 329, task 534, a 0.5 h entry and notes 501 (iteration), 502 (story), 503 (task); Delete link; then opened each note editor with the full link parameters, the ID jump and the content search.",
+      "mode": "live",
+      "observed": "Delete 302; iteration, story, task pages 500; timesheet 0.5 -> 0.0, no aggregate row. Notes 501, 502, 503: note editor 200 with the stored subject and body (still stored); ID jump answers \"ID n not found\"; content search no longer lists them.",
+      "evidence": "traces/s3-build.trace.json; traces/s4-note-orphan.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-018",
+      "row": 126,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A story delete cascades to its tasks and time entries; attached notes are not deleted.",
+      "source": "analysis/legacy_user_flows.xlsx row 126, columns E and G",
+      "action": "Story 562 \"S3-E Story Del\" in iteration 543 with task 536, a 0.5 h entry and notes 573 (story), 574 (task); story Delete link on the iteration page; read pages, timesheet, notes.",
+      "mode": "live",
+      "observed": "onclick \"return confirm('Do you want to delete story \\'S3-E Story Del\\'?')\"; GET 302 /do/view/iteration?oid=543; story and task pages 500, story not listed, sibling story 561 still 200; timesheet 2.0 -> 1.5 (only the deleted story's 0.5 h gone); notes 573 and 574 still open in the note editor with subject and body.",
+      "evidence": "traces/s3-build.trace.json; traces/s4-note-orphan.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-019",
+      "row": 82,
+      "role": "sysadmin",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A project delete cascades to iterations, stories, tasks and time entries; notes on any of them remain.",
+      "source": "analysis/legacy_user_flows.xlsx row 82, columns E and G",
+      "action": "Deleted S3-E Private (228) with the projects-list delete link; read the project, iterations 543-545, story 561, task 535, timesheet, aggregate, searches and notes 500, 504, 505, 572 (plus 501, 573).",
+      "mode": "live",
+      "observed": "onclick \"return confirm('Do you want to delete project \\'S3-E Private\\'?')\"; GET 302 /do/view/projects; not listed; all six pages 500; timesheet 2.5 -> 0.0 and no aggregate row; searches empty; ID jump on 572 \"ID 572 not found\"; all six notes still open in the note editor with their subjects.",
+      "evidence": "traces/s6-final.trace.json; traces/results-s6.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-020",
+      "row": 62,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Test-support actions execute and redirect to returnto or to the projects list.",
+      "source": "analysis/legacy_user_flows.xlsx row 62, columns E and G; reconnaissance Runnable Surfaces (admin and test utilities); SRC EditPropertiesAction#execute",
+      "action": "GET /do/edit/properties without propertyName (the action then sets nothing): with returnto=/do/view/projects, with no parameters, and with returnto=http://example.invalid/s3e-probe (Location recorded, not followed).",
+      "mode": "live",
+      "observed": "302 Location /xplanner-legacy/do/view/projects; no parameters: 200 \"XPlanner Projects\" (mapping forward); absolute returnto: 302 Location http://example.invalid/s3e-probe unchanged. Reached as an editor (no admin check).",
+      "evidence": "traces/s6-final.trace.json; traces/results-s6.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-021",
+      "row": 62,
+      "role": "none (not run)",
+      "channel": "web UI over HTTP",
+      "expected": "/do/edit/dataSample runs the data sampling command.",
+      "source": "analysis/legacy_user_flows.xlsx row 62, columns E and G",
+      "action": "Not run.",
+      "mode": "not-run",
+      "observed": "Not observed; reason and retry condition in not_checked.",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "E-C-022",
+      "row": 62,
+      "role": "none (not run)",
+      "channel": "web UI over HTTP",
+      "expected": "/do/edit/missingTimeEntryNotification runs the missing-time-entry notifier.",
+      "source": "analysis/legacy_user_flows.xlsx row 62, columns E and G",
+      "action": "Not run.",
+      "mode": "not-run",
+      "observed": "Not observed; reason and retry condition in not_checked.",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "E-C-023",
+      "row": 62,
+      "role": "none (not run)",
+      "channel": "web UI over HTTP",
+      "expected": "/do/edit/putTheClockForward moves the application clock by a positive dayOffset (any other value resets it).",
+      "source": "analysis/legacy_user_flows.xlsx row 62, columns E and G",
+      "action": "Not run.",
+      "mode": "not-run",
+      "observed": "Not observed; reason and retry condition in not_checked.",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "E-C-024",
+      "row": 62,
+      "role": "none (not run)",
+      "channel": "web UI over HTTP",
+      "expected": "/do/edit/properties sets a property when a name and a value are given.",
+      "source": "analysis/legacy_user_flows.xlsx row 62, columns E and G",
+      "action": "Not run.",
+      "mode": "not-run",
+      "observed": "Not observed; reason and retry condition in not_checked.",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "E-C-025",
+      "row": 112,
+      "role": "none (not run)",
+      "channel": "web UI over HTTP",
+      "expected": "Samples are written by the manual sampling action; the nightly Quartz trigger is not scheduled; charts may be sparse.",
+      "source": "analysis/legacy_user_flows.xlsx row 112, columns E and G",
+      "action": "Not run.",
+      "mode": "not-run",
+      "observed": "Not observed; reason and retry condition in not_checked.",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "E-C-026",
+      "row": 191,
+      "role": "editor (en)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "Clicking the page footer toggles a wide layout; the choice persists across pages via localStorage.",
+      "source": "analysis/legacy_user_flows.xlsx row 191, columns E and G",
+      "action": "Real clicks on \"switch width of Xplanner+ page\" on the projects page, navigation by the People link, second click, reload (1600 px viewport).",
+      "mode": "live",
+      "observed": "Normal .page 1020 px -> class \"wide\" 1584 px, localStorage.widescreen \"true\"; next page loads wide; second click -> 1020 px, \"false\"; reload stays normal.",
+      "evidence": "traces/browser-observations.json (row 191)",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-027",
+      "row": 71,
+      "role": "editor (en)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "The jQuery picker on date fields inserts yyyy-MM-dd; with a yyyy-MM-dd server default the date parses.",
+      "source": "analysis/legacy_user_flows.xlsx row 71, columns E and G (and D)",
+      "action": "Iteration editor of project 228: picked start and end with the jQuery picker; created \"S3-E Iteration JS en\".",
+      "mode": "live",
+      "observed": "Picker inserted \"2026-10-05\" and \"2026-10-16\"; iteration 544 stored 2026-10-05 to 2026-10-16.",
+      "evidence": "traces/browser-observations.json (row 71, en)",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-028",
+      "row": 71,
+      "role": "editor (en)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "The iteration editor calendar button inserts the session bundle's format.date.",
+      "source": "analysis/legacy_user_flows.xlsx row 71, columns E and G (and D)",
+      "action": "Clicked the end-date Calendar button with the name left empty.",
+      "mode": "live",
+      "observed": "showCalendar is undefined on the page (no calendar script loaded); click -> \"Uncaught ReferenceError: showCalendar is not defined\"; the type=image button then submitted the editor form, which came back with \"Missing iteration name.\"; nothing was inserted.",
+      "evidence": "traces/browser-observations.json (row 71, en)",
+      "verdict": "finding",
+      "finding": "E-F-01"
+    },
+    {
+      "id": "E-C-029",
+      "row": 71,
+      "role": "editor (es)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "The jQuery picker inserts yyyy-MM-dd in every session and parses with the server default.",
+      "source": "analysis/legacy_user_flows.xlsx row 71, columns E and G (and D)",
+      "action": "es session: picked start and end with the jQuery picker; created \"S3-E Iteration JS es\".",
+      "mode": "live",
+      "observed": "Picker inserted \"2026-10-07\" and \"2026-10-21\"; iteration 545 stored 07-10-2026 to 21-10-2026 as shown in es (2026-10-07 to 2026-10-21).",
+      "evidence": "traces/browser-observations.json (row 71, es)",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-030",
+      "row": 71,
+      "role": "editor (es)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "The calendar button of an es session inserts dd-MM-yyyy, which the server pattern reads as a different date.",
+      "source": "analysis/legacy_user_flows.xlsx row 71, columns E and G (and D)",
+      "action": "es session: clicked the start-date Calendar button (onclick showCalendar('startDate', 'dd-MM-yyyy')) with the name empty.",
+      "mode": "live",
+      "observed": "Same as en: ReferenceError, form submitted, \"Falta el nombre de la iteracion.\"; no dd-MM-yyyy value is ever inserted, so the misreading applies only to a typed date (part C, results-r71-iteration-es).",
+      "evidence": "traces/browser-observations.json (row 71, es)",
+      "verdict": "finding",
+      "finding": "E-F-01"
+    },
+    {
+      "id": "E-C-031",
+      "row": 114,
+      "role": "editor (en; no role on 228)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "For an active iteration the board shows stories with task cards in not started / in progress / done, loaded from the REST API; cards can be dragged but nothing is saved.",
+      "source": "analysis/legacy_user_flows.xlsx row 114, columns E and G",
+      "action": "Opened /do/view/dashboard for iteration 543 (link parameters of the iteration page); dragged the task card to \"done\" with the mouse; read the network list; reloaded.",
+      "mode": "live",
+      "observed": "REST GET /rest/view/iteration/543/userstories 200; columns not started / in progress / done; card S3-E Task 1 ID=535 under not started; after the drag it sat in the done column; no request followed the drag; after reload it was back under not started.",
+      "evidence": "traces/browser-observations.json (row 114)",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-032",
+      "row": 149,
+      "role": "editor (en)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "\"Insert Time\" fills the current time; Update saves and redirects to the task page.",
+      "source": "analysis/legacy_user_flows.xlsx row 149, columns E and G",
+      "action": "Time editor of task 535: clicked Insert Time twice; reloaded, entered a 1.0 h duration and clicked Update.",
+      "mode": "live",
+      "observed": "First click filled the new row's start \"2026-09-30 23:12\", the second its end (browser local clock, UTC+2); Update -> task page, new 1.0 h row in the log.",
+      "evidence": "traces/browser-observations.json (row 149, en)",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "E-C-033",
+      "row": 149,
+      "role": "editor (es)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "Insert Time uses the session bundle format.datetime (carried C-F-01: \"dd-MM-yyyy HH:MM \").",
+      "source": "analysis/legacy_user_flows.xlsx row 149, columns E and G; part C finding C-F-01",
+      "action": "es session: time editor of task 535, clicked \"Insertar fecha\" twice; not saved.",
+      "mode": "live",
+      "observed": "Start and end became \"30-09-2026 23:09 \" at browser time 23:14: the month replaces the minutes and a trailing space is added; the stored 13:00 entry is shown as \"30-09-2026 13:09 \". Confirms C-F-01 in a browser.",
+      "evidence": "traces/browser-observations.json (row 149, es)",
+      "verdict": "finding",
+      "finding": "C-F-01"
+    },
+    {
+      "id": "E-C-034",
+      "row": 151,
+      "role": "editor (en)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "The remaining-hours field recalculates as durations change (red when negative).",
+      "source": "analysis/legacy_user_flows.xlsx row 151, columns E and G",
+      "action": "Time editor of task 535: typed durations 1, 3 and 1 in the new row (Tab after each).",
+      "mode": "live",
+      "observed": "1.5 -> 0.5 (label black); with 3 the field shows 0, not -1.5, and the label \"remainingHoursLabel\" turns red; back to 0.5. Insert Time alone does not trigger the recalculation.",
+      "evidence": "traces/browser-observations.json (row 151)",
+      "verdict": "finding",
+      "finding": "E-F-02"
+    },
+    {
+      "id": "E-C-035",
+      "row": 151,
+      "role": "editor (en)",
+      "channel": "web UI in the built-in browser (JavaScript executed), URL session form",
+      "expected": "The task estimate is updated on save.",
+      "source": "analysis/legacy_user_flows.xlsx row 151, columns E and G",
+      "action": "Saved the 1.0 h entry with remaining 0.5 (browser Update).",
+      "mode": "live",
+      "observed": "Estimated Hours 3.0 = 2.5 actual + 0.5 remaining.",
+      "evidence": "traces/browser-observations.json (rows 149/151)",
+      "verdict": "match",
+      "finding": null
+    }
+  ],
+  "findings": [
+    {
+      "id": "E-F-01",
+      "rows": [
+        71,
+        69
+      ],
+      "cells": [
+        "row 71 column E (Functional requirement / step)",
+        "row 71 column G (Expected user-visible result)",
+        "row 71 column I (Source code evidence: editIteration.jsp:54,57 calendar button)",
+        "row 69 column E (calendar buttons follow the session bundle)"
+      ],
+      "observed": "On the iteration editor the Calendar buttons (input type=image, onclick \"return showCalendar(id, format.date)\") call a function the page never defines: the page loads jquery, jquery-ui, global.js and tooltip.js only; /calendar/calendar.js and calendarHelper.js are included only by timesheet.jsp and aggregateTimesheet.jsp. A click throws \"ReferenceError: showCalendar is not defined\" and the image button submits the editor form (redisplay \"Missing iteration name.\" in en, \"Falta el nombre de la iteracion.\" in es when the name is empty). No date is inserted. The jQuery picker inserts yyyy-MM-dd in en and es and those dates are stored as picked.",
+      "expected": "The calendar button inserts the session bundle format.date (dd-MM-yyyy in es), which the server default converter then misreads.",
+      "minimal_correction": "Row 71 (and row 69 wherever it says the calendar buttons insert a format): state that the iteration editor calendar buttons do nothing but submit the form (script not included; ReferenceError), so only the jQuery picker inserts dates (always yyyy-MM-dd, stored as picked on this yyyy-MM-dd server); the dd-MM-yyyy misreading applies to typed dates only. Expected: a click on a filled, valid form saves it (Inferred, not observed).",
+      "severity": "medium"
+    },
+    {
+      "id": "E-F-02",
+      "rows": [
+        151
+      ],
+      "cells": [
+        "row 151 column G (Expected user-visible result)"
+      ],
+      "observed": "When the recalculated remaining hours would be negative, the field shows 0 and only the \"remaining hours\" label turns red (editTimeEntries.js entryChanged). The recalculation runs on change of start, end, duration or delete; Insert Time alone does not trigger it.",
+      "expected": "Remaining hours shown (red when negative).",
+      "minimal_correction": "Row 151 column G: \"Remaining hours recalculated on change of an entry; a negative result is shown as 0 with the label in red; task estimate updated on save.\"",
+      "severity": "low"
+    }
+  ],
+  "not_checked": [
+    {
+      "row": 62,
+      "reason": "/do/edit/dataSample: the command samples every active iteration of every project (Metrics.xml IterationToSample, DataSamplingCommand#execute), so it writes data into other parts' iterations (part D waits on data-sample counts of iteration 234).",
+      "retry_condition": "Owner/PM-approved window in which data samples of all projects may change, or a separate isolated environment."
+    },
+    {
+      "row": 62,
+      "reason": "/do/edit/missingTimeEntryNotification: the notifier mails every person with missing time entries into the shared sink and would disturb the 00:05 reminder observation (row 65).",
+      "retry_condition": "After the row 65 observation, with PM approval for extra reminder mails."
+    },
+    {
+      "row": 62,
+      "reason": "/do/edit/putTheClockForward: any request either moves the global application clock (positive dayOffset) or resets it; both change state shared by all parts.",
+      "retry_condition": "Owner/PM-approved window with no other part running, or an isolated environment."
+    },
+    {
+      "row": 62,
+      "reason": "/do/edit/properties with a name and a value sets a global property.",
+      "retry_condition": "Isolated environment or an owner decision on a harmless property."
+    },
+    {
+      "row": 112,
+      "reason": "The manual sampling action is the global dataSample command above and cannot be limited to the own project; the unscheduled nightly trigger cannot be observed; samples written at start/close are not visible without charts or database access (the own iterations were deleted for rows 82-126).",
+      "retry_condition": "Same as the dataSample action, or a PM read-only database query of data samples."
+    },
+    {
+      "row": 76,
+      "reason": "Visibility of a hidden project for a reader who has a role on it but no hide permission: the assignment gave the role accounts no role on S3-E Private.",
+      "retry_condition": "PM assigns a role account a viewer/editor role on a hideable probe project."
+    },
+    {
+      "row": "82, 91, 126",
+      "reason": "History rows, person-role rows and attachment files after the delete were not observed (no database access; attachments cannot be stored, C-F-04); time-entry removal is observed at page level (timesheet, aggregate) only.",
+      "retry_condition": "PM read-only database query after a repeated delete."
+    }
+  ]
+}

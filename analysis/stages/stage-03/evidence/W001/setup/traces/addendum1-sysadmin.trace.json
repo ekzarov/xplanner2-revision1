@@ -1,0 +1,140 @@
+[
+  {
+    "at": "2026-09-30T19:59:26.250Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T19:59:26.568Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;jsessionid=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:59:26.891Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9933
+  },
+  {
+    "at": "2026-09-30T19:59:27.220Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9933
+  },
+  {
+    "at": "2026-09-30T19:59:27.554Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=209",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11833
+  },
+  {
+    "at": "2026-09-30T19:59:27.877Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:59:28.215Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=209",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11833
+  },
+  {
+    "at": "2026-09-30T19:59:28.543Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=210",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11833
+  },
+  {
+    "at": "2026-09-30T19:59:28.862Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:59:29.198Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=210",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11833
+  },
+  {
+    "at": "2026-09-30T19:59:29.527Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=211",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11829
+  },
+  {
+    "at": "2026-09-30T19:59:29.844Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:59:30.179Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=211",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11829
+  },
+  {
+    "at": "2026-09-30T19:59:30.480Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)[Max-Age=0]",
+      "password(cleared)[Max-Age=0]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746
+  }
+]

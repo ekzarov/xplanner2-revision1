@@ -1,0 +1,62 @@
+[
+  {
+    "at": "2026-09-30T20:13:12.993Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID"
+    ],
+    "bytes": 5494,
+    "label": "login form"
+  },
+  {
+    "at": "2026-09-30T20:13:13.293Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0,
+    "label": "login submit (credentials not recorded, remember omitted)"
+  },
+  {
+    "at": "2026-09-30T20:13:13.610Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/close/iteration?fkey=224&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D233&projectId=224&oid=233",
+    "status": 302,
+    "location": "/xplanner-legacy/do/continue/unfinished/stories?iterationId=233&/do/view/iteration?oid=233?oid=233&fkey=233",
+    "content_type": "text/html",
+    "bytes": 0,
+    "label": "close iteration A"
+  },
+  {
+    "at": "2026-09-30T20:13:13.924Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=224",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10922,
+    "label": "project after close"
+  },
+  {
+    "at": "2026-09-30T20:13:14.241Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)",
+      "password(cleared)",
+      "JSESSIONID"
+    ],
+    "bytes": 4746,
+    "label": "logout"
+  }
+]

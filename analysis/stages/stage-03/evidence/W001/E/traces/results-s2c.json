@@ -1,0 +1,45 @@
+{
+  "started_at": "2026-09-30T21:02:40.074Z",
+  "tries": [
+    {
+      "label": "browser-shaped empty file part (filename=\"\")",
+      "status": 302,
+      "location": "/do/view/project?oid=228"
+    }
+  ],
+  "login": {
+    "ok": true,
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects"
+  },
+  "link": {
+    "text": "Add Note/Attachment",
+    "href": "/do/edit/note?fkey=228&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D228&projectId=228&attachedToId=228",
+    "onclick": ""
+  },
+  "form": {
+    "action": "/do/edit/note",
+    "enctype": "multipart/form-data",
+    "fields": [
+      "id(hidden)=0",
+      "returnto(hidden)=/do/view/project?oid=228",
+      "projectId(hidden)=228",
+      "attachedToId(hidden)=228",
+      "subject(text)=",
+      "authorId(hidden)=212",
+      "body(textarea)=",
+      "formFile(file)=",
+      "action(hidden)=Create"
+    ]
+  },
+  "author_select": [],
+  "note_links": [
+    "/do/edit/note?fkey=228&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D228&projectId=228&oid=500&attachedToId=228",
+    "/do/delete/note?fkey=228&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D228&projectId=228&oid=500"
+  ],
+  "logout": {
+    "status": 200,
+    "session_cookie_left": true
+  },
+  "finished_at": "2026-09-30T21:02:42.273Z"
+}

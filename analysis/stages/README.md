@@ -178,7 +178,7 @@ Use only the current canonical stage numbering. Create records under
 Use [the template-to-output naming table](../artifact-naming.md) for exact
 paths. Remove the template marker and fill only its declared placeholders.
 For example, `walkthrough-NNN-template.md` creates
-`analysis/stages/stage-03/walkthrough-001.md`.
+[`analysis/stages/stage-03/walkthrough-001.md`](./stage-03/walkthrough-001.md).
 
 | Stage | Record | Template |
 |---:|---|---|

@@ -1,0 +1,42 @@
+# Environment adaptation (Codex decision under the delegated mandate; not a legacy fix). Applied by PM 2026-09-30T20:04:06Z via pm-adapt-apply.sh after pm-adapt-precheck.sh; rollback pm-adapt-rollback.sh (not run).
+app container: /xplanner2-revision1-xplanner-1 restarts=0 started=2026-09-30T09:21:04.451600795Z
+--- webapps listing:
+total 29048
+drwxr-xr-x  1 root root     4096 Sep 30 09:21 .
+drwxr-xr-x  1 root root     4096 Jul  2 05:43 ..
+drwxr-x--- 11 root root     4096 Sep 30 09:21 xplanner-legacy
+-r--r--r--  1 root root 29727650 Sep 30 09:20 xplanner-legacy.war
+--- target path exists? no ; war-named xplanner.war exists? no
+--- Host autoDeploy / appBase in server.xml:
+<Host name="localhost"  appBase="webapps"             unpackWARs="true" autoDeploy="true">
+--- context descriptors in conf/Catalina/localhost:
+total 8
+drwxr-x--- 2 root root 4096 Sep 30 09:21 .
+drwxr-x--- 3 root root 4096 Sep 30 09:21 ..
+--- CSS candidates in the WAR:
+no unzip or no match
+--- exploded copy:
+-rw-r----- 1 root root 7051 Dec  2  2011 /usr/local/tomcat/webapps/xplanner-legacy/css/email.css
+0e323009e64768fee6bcff6f2dd83b3105c716358ea967c6f5024d45acadf144  /usr/local/tomcat/webapps/xplanner-legacy/css/email.css
+--- WAR sha256: 46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc
+--- HTTP inside the app namespace (the URL the formatter uses):
+/xplanner/css/email.css 404
+/xplanner-legacy/css/email.css 200
+/xplanner/ 404
+--- tools: unzip=none curl=/usr/bin/curl
+--- user in app container: 0
+
+=== apply
+before: restarts=0 WAR=46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc
+before: /xplanner/css/email.css HTTP 404
+added: /usr/local/tomcat/webapps/xplanner /usr/local/tomcat/webapps/xplanner/css /usr/local/tomcat/webapps/xplanner/css/email.css 
+added file sha256: 0e323009e64768fee6bcff6f2dd83b3105c716358ea967c6f5024d45acadf144
+after: /xplanner/css/email.css HTTP 200 (autodeploy wait 2x5s)
+after: served bytes sha256 0e323009e64768fee6bcff6f2dd83b3105c716358ea967c6f5024d45acadf144
+after: restarts=0 WAR=46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc
+after: /xplanner-legacy/do/login HTTP 200
+tomcat deploy log lines for /xplanner:
+30-Sep-2026 20:03:44.874 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/xplanner]
+30-Sep-2026 20:03:44.894 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/xplanner] has finished in [
+
+cp: warning: behavior of -n is non-portable and may change in future; use --update=none instead

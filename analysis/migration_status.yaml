@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-03
+  current_stage: stage-01
   stage_status: in_progress
-  previous_stage: stage-02
-  next_action: 'Stage 3 live walkthrough in the existing isolated environment through the existing tunnel (127.0.0.1:18080 application, 18025 mail sink), without redeploy: the first chain sign-in -> project -> iteration -> task -> time entry, the pass-009 carried live checks and the pass-012 F-003 time-editor locale check; record expected versus observed behavior and the affected rows; stop at Stage 4 entry before business decisions.'
+  previous_stage: stage-03
+  next_action: 'Stage 1 bounded correction from the Stage 3 walkthrough: one BA session applies the 88-item map-correction list (analysis/stages/stage-03/evidence/W001/consolidated/map-corrections.md) to analysis/legacy_user_flows.xlsx and analysis/legacy_reconnaissance.md, each item applied or rejected with a reason; no new inventory and no further SOAP/WAP study. Then one Stage 2 correction-validation of those changes, then Stage 3 re-entry and a short Stage 4 entry list (core / replace / exclude / unknown consumers) as owner proposals.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -274,6 +274,15 @@ transition_history:
       - 'analysis/reviews/stage-02-pass-012.md'
       - 'analysis/stages/stage-02/live-check-carryover-pass-012.md'
       - 'analysis/stages/stage-03/deploy/README.md'
+    owner_approval: null
+  - from: stage-03
+    to: stage-01
+    reason: 'Finding-driven return from the Stage 3 live walkthrough W001 (analysis/stages/stage-03/walkthrough-001.md): 210 business rows observed live in the isolated environment (110 live-verified, 75 difference, 25 partially verified; no simulation, no waiver); 54 findings (4 high, 20 medium, 30 low) and one bounded map-correction list of 88 items (analysis/stages/stage-03/evidence/W001/consolidated/map-corrections.md). Stage 1 applies that list once; a fresh Stage 2 control follows before Stage 3 re-entry. Stage 3 outcome stays pending; WAR unchanged; environment left running.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-10-01T00:30:25Z'
+    gate_evidence:
+      - 'analysis/stages/stage-03/walkthrough-001.md'
+      - 'analysis/stages/stage-03/evidence/W001/consolidated/map-corrections.md'
     owner_approval: null
 review_passes:
   - stage: stage-02
@@ -716,9 +725,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 2 exited to Stage 3 under the live-check carryover of pass 012 (findings F-001..F-003, all low, open); Stage 3 live walkthrough in the existing isolated environment.'
-  completed_percent: 11
-  updated_at: '2026-09-30T19:23:16Z'
+  summary: 'Stage 3 live walkthrough W001 done in the isolated environment (210 business rows: 110 live-verified, 75 difference, 25 partial; 54 findings); finding-driven return to Stage 1 for one bounded map correction.'
+  completed_percent: 0
+  updated_at: '2026-10-01T00:30:25Z'
   agent_reviews:
     total: 12
     valid: 10

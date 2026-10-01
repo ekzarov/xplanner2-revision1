@@ -1,0 +1,75 @@
+{
+  "mode": "not-run in a browser; offline Node vm evaluation of the served script",
+  "served_time_js": {
+    "status": 200,
+    "content_type": "text/javascript",
+    "bytes": 1801,
+    "sha256": "a9c5f90e3d8fd31ed1f9e6794646e2089384d5536cbb3231730c3583b0def80d"
+  },
+  "instant": "2026-09-30 20:14 (browser local time)",
+  "results": {
+    "en": {
+      "pattern": "yyyy-MM-dd HH:mm",
+      "insert_time_value": "\"2026-09-30 20:14\""
+    },
+    "de": {
+      "pattern": "yyyy-MM-dd HH:mm",
+      "insert_time_value": "\"2026-09-30 20:14\""
+    },
+    "es": {
+      "pattern": "dd-MM-yyyy HH:MM ",
+      "insert_time_value": "\"30-09-2026 20:09 \""
+    }
+  },
+  "trace": [
+    {
+      "at": "2026-09-30T20:16:08.386Z",
+      "client": "editor-en",
+      "accept_language": "en-US,en;q=0.9",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+      ],
+      "bytes": 5494
+    },
+    {
+      "at": "2026-09-30T20:16:08.672Z",
+      "client": "editor-en",
+      "accept_language": "en-US,en;q=0.9",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0
+    },
+    {
+      "at": "2026-09-30T20:16:08.950Z",
+      "client": "editor-en",
+      "accept_language": "en-US,en;q=0.9",
+      "method": "GET",
+      "path": "/xplanner-legacy/time.js",
+      "status": 200,
+      "content_type": "text/javascript",
+      "bytes": 1801
+    },
+    {
+      "at": "2026-09-30T20:16:09.236Z",
+      "client": "editor-en",
+      "accept_language": "en-US,en;q=0.9",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid[Max-Age=0] (expired)",
+        "password[Max-Age=0] (expired)",
+        "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+      ],
+      "bytes": 4746
+    }
+  ]
+}

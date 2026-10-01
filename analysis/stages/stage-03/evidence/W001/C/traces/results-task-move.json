@@ -1,0 +1,90 @@
+{
+  "started_at": "2026-09-30T20:19:21.706Z",
+  "steps": [
+    {
+      "step": "task-move",
+      "link": "/xplanner-legacy/do/move/continue/task?returnto=%2Fdo%2Fview%2Fprojects&oid=269",
+      "sent_fields": [
+        "oid=269",
+        "merge=true",
+        "fkey=null",
+        "returnto=/do/view/userstory?oid=254",
+        "targetStoryId=255",
+        "action=Move",
+        "actionBtn=Move"
+      ],
+      "status": 500,
+      "location": null,
+      "cause": "java.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here ",
+      "frames": [
+        "java.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here",
+        "at org.springframework.orm.hibernate3.SessionFactoryUtils.doGetSession(SessionFactoryUtils.java:350)",
+        "at org.springframework.orm.hibernate3.SessionFactoryUtils.getSession(SessionFactoryUtils.java:200)",
+        "at net.sf.xplanner.dao.impl.CommonDao.getSession(CommonDao.java:22)",
+        "at net.sf.xplanner.dao.impl.CommonDao.getById(CommonDao.java:18)",
+        "at com.technoetic.xplanner.domain.RelationshipConvertor.findObjectById(RelationshipConvertor.java:50)",
+        "at com.technoetic.xplanner.domain.RelationshipConvertor.populateDomainObject(RelationshipConvertor.java:43)",
+        "at com.technoetic.xplanner.actions.MoveContinueTaskAction.saveForm(MoveContinueTaskAction.java:138)",
+        "at com.technoetic.xplanner.actions.MoveContinueTaskAction.execute(MoveContinueTaskAction.java:62)",
+        "at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)",
+        "at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)",
+        "at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)",
+        "at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)",
+        "at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)"
+      ]
+    },
+    {
+      "step": "task-continue",
+      "link": "/xplanner-legacy/do/move/continue/task?returnto=%2Fdo%2Fview%2Fprojects&oid=269",
+      "sent_fields": [
+        "oid=269",
+        "merge=true",
+        "fkey=null",
+        "returnto=/do/view/userstory?oid=254",
+        "targetStoryId=255",
+        "action=Continue",
+        "actionBtn=Continue"
+      ],
+      "status": 500,
+      "location": null,
+      "cause": "java.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here ",
+      "frames": [
+        "java.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here",
+        "at org.springframework.orm.hibernate3.SessionFactoryUtils.doGetSession(SessionFactoryUtils.java:350)",
+        "at org.springframework.orm.hibernate3.SessionFactoryUtils.getSession(SessionFactoryUtils.java:200)",
+        "at net.sf.xplanner.dao.impl.CommonDao.getSession(CommonDao.java:22)",
+        "at net.sf.xplanner.dao.impl.CommonDao.getById(CommonDao.java:18)",
+        "at com.technoetic.xplanner.actions.MoveContinueTaskAction.saveForm(MoveContinueTaskAction.java:104)",
+        "at com.technoetic.xplanner.actions.MoveContinueTaskAction.execute(MoveContinueTaskAction.java:62)",
+        "at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)",
+        "at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)",
+        "at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)",
+        "at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)",
+        "at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)",
+        "at net.sf.xplanner.struts.XPlannerActionServlet.service(XPlannerActionServlet.java:28)",
+        "at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)"
+      ]
+    },
+    {
+      "step": "story1-tasks-after",
+      "task_names": [
+        "266",
+        "S3-C Task DE",
+        "265",
+        "S3-C Task EN",
+        "267",
+        "S3-C Task ES",
+        "269",
+        "S3-C Task H",
+        "268",
+        "S3-C Task V"
+      ]
+    },
+    {
+      "step": "task-history",
+      "status": 200,
+      "has_events_table": false
+    }
+  ],
+  "finished_at": "2026-09-30T20:19:25.115Z"
+}

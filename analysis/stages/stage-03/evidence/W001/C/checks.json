@@ -1,0 +1,1620 @@
+{
+  "part": "C",
+  "performed_by": "BA (responsible-agent verification), Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, task W001-C",
+  "started_at": "2026-09-30T20:08:58.979Z",
+  "finished_at": "2026-09-30T20:37:27.086Z",
+  "environment": {
+    "app": "http://127.0.0.1:18080/xplanner-legacy/ (tunnel)",
+    "baseline_war_sha256": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+    "deployment_operator": "Codex (PM handoff verified 2026-09-30T19:31Z)",
+    "mail_adaptation": "static email.css added by PM at 20:03:44Z; no part C check depends on mail",
+    "project": "S3-C Time (223)",
+    "accounts_used": [
+      "editor",
+      "viewer"
+    ],
+    "accounts_not_used": [
+      "admin (only chosen as pair person 2)",
+      "sysadmin",
+      "factory account"
+    ],
+    "restart": "none"
+  },
+  "data_created": {
+    "iterations": [
+      232,
+      314,
+      316,
+      317
+    ],
+    "stories": [
+      254,
+      255
+    ],
+    "tasks": [
+      265,
+      266,
+      267,
+      268,
+      269
+    ],
+    "notes": [
+      499
+    ],
+    "names_prefix": "S3-C"
+  },
+  "summary": {
+    "rows_by_verdict": {
+      "partially verified": 8,
+      "unverified": 6,
+      "difference": 13,
+      "live-verified": 22
+    },
+    "checks_by_verdict": {
+      "match": 38,
+      "finding": 12,
+      "not-checked": 4,
+      "blocked": 3
+    },
+    "checks_by_mode": {
+      "live": 51,
+      "not-run": 6
+    },
+    "findings": 10
+  },
+  "carried_checks": [
+    {
+      "name": "carried pass-009 F-002 (history dates in two sessions)",
+      "check": "C-C-001",
+      "verdict": "match"
+    },
+    {
+      "name": "carried pass-009 F-001 (limited locale switch)",
+      "check": "C-C-002",
+      "verdict": "match"
+    },
+    {
+      "name": "carried pass-012 F-003 (time editor dates per session locale)",
+      "check": "C-C-003",
+      "verdict": "finding",
+      "finding": "C-F-01"
+    }
+  ],
+  "rows": [
+    {
+      "row": 69,
+      "use_case": "Operational path: date formats (live question)",
+      "verdict": "partially verified",
+      "checks": [
+        "C-C-004",
+        "C-C-001",
+        "C-C-002",
+        "C-C-003"
+      ],
+      "note": "en/de/es/fr exercised; da, ja, ru and \"--\" bundles not exercised; no fresh restart for the history exception."
+    },
+    {
+      "row": 71,
+      "use_case": "Conflict between two date pickers (live question)",
+      "verdict": "partially verified",
+      "checks": [
+        "C-C-005"
+      ],
+      "note": "Stored dates observed live; the picker and calendar JavaScript insertion read from the served script only."
+    },
+    {
+      "row": 148,
+      "use_case": "UF-009 Time Tracking & Timesheets (epic heading)",
+      "verdict": "unverified",
+      "checks": [],
+      "note": "Epic heading row with target-side status only; no legacy behavior claim. Its scenarios are rows 149-167."
+    },
+    {
+      "row": 149,
+      "use_case": "Record time on a task",
+      "verdict": "difference",
+      "checks": [
+        "C-C-006",
+        "C-C-007",
+        "C-C-008",
+        "C-C-003"
+      ]
+    },
+    {
+      "row": 150,
+      "use_case": "Record time on a task: edit/delete entries",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-009"
+      ]
+    },
+    {
+      "row": 151,
+      "use_case": "Record time on a task: remaining hours",
+      "verdict": "partially verified",
+      "checks": [
+        "C-C-010"
+      ],
+      "note": "Server-side estimate update observed; the in-browser recalculation not run."
+    },
+    {
+      "row": 152,
+      "use_case": "Record time on a task: unparsable input",
+      "verdict": "difference",
+      "checks": [
+        "C-C-011",
+        "C-C-012",
+        "C-C-003"
+      ]
+    },
+    {
+      "row": 153,
+      "use_case": "Record time on a task: incomplete intervals",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-013"
+      ]
+    },
+    {
+      "row": 154,
+      "use_case": "Record time on a task: missing person",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-014"
+      ]
+    },
+    {
+      "row": 155,
+      "use_case": "Record time on a task: same people",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-015"
+      ]
+    },
+    {
+      "row": 156,
+      "use_case": "Record time on a task: negative interval",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-016"
+      ]
+    },
+    {
+      "row": 157,
+      "use_case": "Record time on a task: overlapping intervals",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-017"
+      ]
+    },
+    {
+      "row": 158,
+      "use_case": "Record time on a task: interval and duration",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-018"
+      ]
+    },
+    {
+      "row": 159,
+      "use_case": "Record time on a task: missing report date",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-019"
+      ]
+    },
+    {
+      "row": 160,
+      "use_case": "Record time on a task: long description",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-020"
+      ]
+    },
+    {
+      "row": 161,
+      "use_case": "Re-estimate task (legacy page)",
+      "verdict": "difference",
+      "checks": [
+        "C-C-021"
+      ]
+    },
+    {
+      "row": 162,
+      "use_case": "Personal timesheet",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-022"
+      ]
+    },
+    {
+      "row": 163,
+      "use_case": "Personal timesheet: unparsable date",
+      "verdict": "difference",
+      "checks": [
+        "C-C-023"
+      ]
+    },
+    {
+      "row": 164,
+      "use_case": "Personal timesheet: no permission filter",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-024"
+      ]
+    },
+    {
+      "row": 165,
+      "use_case": "Aggregate timesheet",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-025"
+      ]
+    },
+    {
+      "row": 166,
+      "use_case": "Aggregate timesheet: unparsable date",
+      "verdict": "difference",
+      "checks": [
+        "C-C-026"
+      ]
+    },
+    {
+      "row": 167,
+      "use_case": "Aggregate timesheet: readable projects only",
+      "verdict": "unverified",
+      "checks": [
+        "C-C-027"
+      ],
+      "note": "No unreadable project for the viewing account."
+    },
+    {
+      "row": 168,
+      "use_case": "UF-010 Notes, Attachments & Files (epic heading)",
+      "verdict": "unverified",
+      "checks": [],
+      "note": "Epic heading row; scenarios are rows 169-176."
+    },
+    {
+      "row": 169,
+      "use_case": "Add note to an object",
+      "verdict": "difference",
+      "checks": [
+        "C-C-028",
+        "C-C-029",
+        "C-C-030"
+      ]
+    },
+    {
+      "row": 170,
+      "use_case": "Add note: validation",
+      "verdict": "difference",
+      "checks": [
+        "C-C-031",
+        "C-C-032"
+      ]
+    },
+    {
+      "row": 171,
+      "use_case": "Add note: attachment references",
+      "verdict": "unverified",
+      "checks": [
+        "C-C-033"
+      ],
+      "note": "Blocked by C-F-04 (no attachment can be stored)."
+    },
+    {
+      "row": 172,
+      "use_case": "Add note: attachment storage",
+      "verdict": "difference",
+      "checks": [
+        "C-C-034"
+      ]
+    },
+    {
+      "row": 173,
+      "use_case": "Edit and delete note: edit",
+      "verdict": "difference",
+      "checks": [
+        "C-C-035"
+      ]
+    },
+    {
+      "row": 174,
+      "use_case": "Edit and delete note: delete",
+      "verdict": "difference",
+      "checks": [
+        "C-C-036"
+      ]
+    },
+    {
+      "row": 175,
+      "use_case": "Download attachment",
+      "verdict": "unverified",
+      "checks": [
+        "C-C-037"
+      ],
+      "note": "Blocked by C-F-04."
+    },
+    {
+      "row": 176,
+      "use_case": "File manager (directories)",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-038"
+      ]
+    },
+    {
+      "row": 177,
+      "use_case": "UF-011 Search, Navigation & History (epic heading)",
+      "verdict": "unverified",
+      "checks": [],
+      "note": "Epic heading row; scenarios are rows 178-194."
+    },
+    {
+      "row": 178,
+      "use_case": "Search content",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-039"
+      ]
+    },
+    {
+      "row": 179,
+      "use_case": "Search content: no results",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-040"
+      ]
+    },
+    {
+      "row": 180,
+      "use_case": "Search content: permission filter and id",
+      "verdict": "partially verified",
+      "checks": [
+        "C-C-041",
+        "C-C-042"
+      ],
+      "note": "Id placement observed; read filtering not observable."
+    },
+    {
+      "row": 181,
+      "use_case": "Search content: empty search",
+      "verdict": "difference",
+      "checks": [
+        "C-C-043"
+      ]
+    },
+    {
+      "row": 182,
+      "use_case": "Jump to object by ID",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-044"
+      ]
+    },
+    {
+      "row": 183,
+      "use_case": "Jump to object by ID: errors",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-045"
+      ]
+    },
+    {
+      "row": 184,
+      "use_case": "Jump to object by ID: no read check",
+      "verdict": "partially verified",
+      "checks": [
+        "C-C-046"
+      ],
+      "note": "Jump works; missing read check not observable without an unreadable object."
+    },
+    {
+      "row": 185,
+      "use_case": "Breadcrumb navigation",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-047"
+      ]
+    },
+    {
+      "row": 186,
+      "use_case": "Object and project history",
+      "verdict": "difference",
+      "checks": [
+        "C-C-048",
+        "C-C-049",
+        "C-C-001",
+        "C-C-002"
+      ]
+    },
+    {
+      "row": 187,
+      "use_case": "History entry points",
+      "verdict": "difference",
+      "checks": [
+        "C-C-050"
+      ]
+    },
+    {
+      "row": 188,
+      "use_case": "My status page",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-051"
+      ]
+    },
+    {
+      "row": 189,
+      "use_case": "Wiki-style formatting of descriptions",
+      "verdict": "partially verified",
+      "checks": [
+        "C-C-052"
+      ],
+      "note": "Rendering observed; the server-side wiki lookup and per-project bracket escaping not observed."
+    },
+    {
+      "row": 190,
+      "use_case": "Formatting help link",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-053"
+      ]
+    },
+    {
+      "row": 191,
+      "use_case": "Switch page width",
+      "verdict": "partially verified",
+      "checks": [
+        "C-C-054"
+      ],
+      "note": "Markup and served script observed; the toggle JavaScript not run."
+    },
+    {
+      "row": 192,
+      "use_case": "Print layout",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-055"
+      ]
+    },
+    {
+      "row": 193,
+      "use_case": "Share on social networks",
+      "verdict": "partially verified",
+      "checks": [
+        "C-C-056"
+      ],
+      "note": "Links present; external sites not opened (network boundary)."
+    },
+    {
+      "row": 194,
+      "use_case": "Features (story features)",
+      "verdict": "live-verified",
+      "checks": [
+        "C-C-057"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "C-C-001",
+      "row": 186,
+      "role": "editor (de, then en session); viewer (de session)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Carried pass-009 F-002: history dates use the built-in pattern \"EEE MMM dd k:mm:ss z\" in the locale of the first requester that renders a history date, for every later session, whatever its Accept-Language.",
+      "source": "analysis/stages/stage-02/live-check-carryover-pass-009.md (F-002); workbook rows 69, 70, 186 (F186, H186)",
+      "action": "Without a restart (the app has been running since about 09:21Z; no fresh restart was done), signed in with Accept-Language de-DE and opened the history view of iteration 231 (event \"started\"), then signed in again with Accept-Language en-US and opened the same view (20:08:59Z-20:09:02Z). Later created history in the own project (iteration 232 start, story 255 move, task 269 re-estimate) and opened those history views in en, de and es sessions, including the task history in an editor en session and a viewer de session.",
+      "mode": "live",
+      "observed": "Both first sessions show the \"when\" value \"Mi Sep 30 19:45:16 UTC\" (German day abbreviation \"Mi\"). Every later history view in en, de and es sessions shows the same German-abbreviated form (for example task 269 \"reestimated\": \"Mi Sep 30 20:23:26 UTC\" in the en editor session and in the de viewer session). This matches the first-requester pinning. Limits: no fresh restart was done, so the first history render since start-up is not proven to be the de request of this part; the result shows it was a de-locale request.",
+      "evidence": "traces/results-f002-history-first.json; traces/results-misc1.json#f002_task_history_en, #f002_task_history_de; traces/results-history2b.json; traces/results-f001-locale-switch.json",
+      "verdict": "match",
+      "finding": null,
+      "name": "carried pass-009 F-002 (history dates in two sessions)",
+      "affected_rows": [
+        69,
+        70,
+        186
+      ],
+      "per_locale": [
+        {
+          "locale": "de-DE (first request)",
+          "expected": "textual date in the first requester locale",
+          "observed": "Mi Sep 30 19:45:16 UTC"
+        },
+        {
+          "locale": "en-US (second session)",
+          "expected": "same pinned locale as the first requester, not English",
+          "observed": "Mi Sep 30 19:45:16 UTC"
+        },
+        {
+          "locale": "es-ES (later session)",
+          "expected": "same pinned locale",
+          "observed": "Mi Sep 30 20:14:30 UTC (iteration 232)"
+        }
+      ],
+      "restart": "not done; environment running since about 09:21Z (no redeploy or restart permitted)"
+    },
+    {
+      "id": "C-C-002",
+      "row": 186,
+      "role": "editor and viewer (en, de, es, fr sessions)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Carried pass-009 F-001 (limited): record the texts and formats per locale when the locale is switched with the language parameter of /do/changeLocale and with Accept-Language, on a list page with dt:table and on the history view. No load or growth test. Writer-class identity and unbounded growth stay static, accepted risk.",
+      "source": "analysis/stages/stage-02/live-check-carryover-pass-009.md (F-001); analysis/legacy_reconnaissance.md Q3 cache fact",
+      "action": "Session S1 (Accept-Language en) opened story 254 (dt:table task list), the project 223 page (dt:table iteration list with banner) and the history of iteration 232; then GET /do/changeLocale?language=de, then es (story/history) or fr (project page), reopening the pages each time. Separate sessions with Accept-Language de, es and fr only. Eight distinct locale values in total; no loop.",
+      "mode": "live",
+      "observed": "/do/changeLocale?language=<x>&returnto=/do/view/projects answers 302 to the returnto. Session-bundle texts follow the session locale (history h1 \"Historie\"/\"Ereignis\" after language=de and with Accept-Language de; story h1 \"Petición\" in es; es falls back to English \"History\"/\"Events\" because the es bundle lacks those keys). formatKey dates follow the session locale (project iteration list 28-09-2026 after language=fr or with Accept-Language fr, 2026-09-28 otherwise). Decimal numbers follow Accept-Language, not the session locale (0,0 with Accept-Language de or fr; 0.0 after language=de with Accept-Language en). dt:table column titles stay English in every session (story list \"Actions, ID, Task Name, ...\"; project list \"ID, Iteration, Start Date, ...\"; history \"Action, By, When, Description\"). The displaytag banner reads \"4 items found, displaying all items.\" in en, de, fr and es sessions. The history date stays pinned (see the F-002 check). html lang is \"en\" on every page.",
+      "evidence": "traces/results-f001-locale-switch.json; traces/results-f001b-project-list.json; traces/results-r71-iteration-es.json#project-es",
+      "verdict": "match",
+      "finding": null,
+      "name": "carried pass-009 F-001 (limited locale switch)",
+      "affected_rows": [
+        69,
+        70,
+        186
+      ],
+      "per_locale": [
+        {
+          "locale": "en (Accept-Language)",
+          "expected": "record texts/formats",
+          "observed": "English texts; dates yyyy-MM-dd; decimals 0.0; banner English"
+        },
+        {
+          "locale": "de (language parameter, Accept-Language en)",
+          "expected": "record texts/formats",
+          "observed": "history h1 German; dt:table titles English; dates yyyy-MM-dd; decimals 0.0; banner English"
+        },
+        {
+          "locale": "de (Accept-Language)",
+          "expected": "record texts/formats",
+          "observed": "history h1 German; dt:table titles English; dates yyyy-MM-dd; decimals 0,0; banner English"
+        },
+        {
+          "locale": "es (language parameter and Accept-Language)",
+          "expected": "record texts/formats",
+          "observed": "story h1 Spanish; history h1 English fallback; dt:table titles English; dates dd-MM-yyyy (es Accept-Language session); banner English"
+        },
+        {
+          "locale": "fr (language parameter, Accept-Language en)",
+          "expected": "record texts/formats",
+          "observed": "dates dd-MM-yyyy; decimals 0.0; dt:table titles and banner English"
+        },
+        {
+          "locale": "fr (Accept-Language)",
+          "expected": "record texts/formats",
+          "observed": "dates dd-MM-yyyy; decimals 0,0; dt:table titles and banner English"
+        }
+      ],
+      "accepted_risk_unchanged": "writer-class identity and unbounded registry growth not tested (no load or growth test)"
+    },
+    {
+      "id": "C-C-003",
+      "row": 149,
+      "role": "editor (en, de and es sessions, one task each)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Carried pass-012 F-003: the time editor shows existing dates in the session locale, Insert Time uses the session bundle format.datetime, and only TimeEditorForm#valideRow validates with the server-default converters; a date whose day and month swap between the patterns may be misread or rejected.",
+      "source": "analysis/stages/stage-02/live-check-carryover-pass-012.md (F-003); workbook rows 69, 70, 71 (note), 89 (note), 149-160",
+      "action": "Per session locale (Accept-Language en-US, de-DE, es-ES; three separate sessions): opened the task page, followed Edit Time, read the new-row report date, the format hint and the Insert Time script pattern; saved a new entry typed in the displayed format; reopened the editor (existing start, end, report date); resubmitted it unchanged; read the task time log. In es, a second save used a value shaped as the served Insert Time pattern produces it. The Insert Time JavaScript was not run in a browser; its output was computed by evaluating the served /time.js offline with the served pattern.",
+      "mode": "live",
+      "observed": "en and de: hint \"YYYY-MM-DD HH:MM\", Insert Time pattern \"yyyy-MM-dd HH:mm\" (offline value \"2026-09-30 20:14\"), new-row report date 2026-09-30; saved 08:00-09:30 and 10:00-11:30 kept the same dates and 1.5 h, and an unchanged resubmit kept them (de shows the duration as \"1,5\"). es: hint \"DD-MM-YYYY HH:MM\", report date prefilled 30-09-2026, Insert Time pattern \"dd-MM-yyyy HH:MM \" (month letters in the minutes position and a trailing space; offline value \"30-09-2026 20:09 \"). An entry typed as the hint reads (\"30-09-2026 12:00\" to \"30-09-2026 13:30\") passed validation (no message) and then failed with HTTP 500, java.text.ParseException Unparseable date \"30-09-2026 12:00\" at UpdateTimeAction.doUpdateTimeAction(UpdateTimeAction.java:145); nothing was saved. A value shaped like the Insert Time output (\"30-09-2026 12:09 \" to \"30-09-2026 13:09 \") was saved as 2026-09-30 12:00-13:00 (minutes discarded; the \"09\" was read as the month), 1.0 h; the es time log and editor then show \"30-09-2026 12:09\" (the month in the minutes position), and an en session shows 2026-09-30 12:00-13:00. An unchanged es resubmit kept the entry.",
+      "evidence": "traces/results-f003-time-editor.json; traces/results-f003-es-followup.json; traces/f003-insert-time-offline.json",
+      "verdict": "finding",
+      "finding": "C-F-01",
+      "name": "carried pass-012 F-003 (time editor dates per session locale)",
+      "affected_rows": [
+        69,
+        70,
+        71,
+        89,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160
+      ],
+      "per_locale": [
+        {
+          "locale": "en-US",
+          "expected": "display and Insert Time in session locale; server-default validation; round trip keeps date and duration",
+          "observed": "display yyyy-MM-dd HH:mm; Insert Time pattern yyyy-MM-dd HH:mm; saved and resaved unchanged (2026-09-30 08:00-09:30, 1.5 h)"
+        },
+        {
+          "locale": "de-DE",
+          "expected": "as en (same bundle pattern)",
+          "observed": "display yyyy-MM-dd HH:mm, duration 1,5; Insert Time pattern yyyy-MM-dd HH:mm; saved and resaved unchanged (10:00-11:30, 1.5 h)"
+        },
+        {
+          "locale": "es-ES",
+          "expected": "display and Insert Time dd-MM-yyyy; server-default validation; day/month swap may be misread or rejected",
+          "observed": "display dd-MM-yyyy and dd-MM-yyyy HH:MM (month in minutes); hint-shaped input passes validation, then HTTP 500 ParseException at save; Insert-Time-shaped input saved with minutes lost (12:09 -> 12:00)"
+        }
+      ],
+      "javascript": "Insert Time not run in a browser (mode not-run for the JavaScript); offline evaluation of the served time.js recorded separately",
+      "server_default_locale": "English bundle (validation accepted the es value leniently; editor converters and dt:table titles resolve to the default bundle)"
+    },
+    {
+      "id": "C-C-004",
+      "row": 69,
+      "role": "editor (en, de, es, fr)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "formatKey displays, calendar buttons and saving time entries follow the session bundle (yyyy-MM-dd in en/de); editor validation and iteration editor dates use the server default pattern; history is an exception.",
+      "source": "analysis/legacy_user_flows.xlsx row 69, columns D and F",
+      "action": "Compared task created date, time log, project iteration list and time editor across en, de, es and fr sessions; es iteration editor (row 71 check); history views.",
+      "mode": "live",
+      "observed": "en/de show yyyy-MM-dd and yyyy-MM-dd HH:mm; es/fr sessions show dd-MM-yyyy on formatKey displays (task \"Created: 30-09-2026\", project iteration list); the es calendar buttons call showCalendar(..., \"dd-MM-yyyy\"); time-entry saving parses with the session pattern (stack at UpdateTimeAction:145); the es value passed the server-default validation; the iteration editor stored an es calendar-format date with the server pattern (row 71 check). History exception as the F-002 check. The da, ja, ru and \"--\" bundles were not exercised.",
+      "evidence": "traces/results-f003-time-editor.json; traces/results-f001b-project-list.json; traces/results-r71-iteration-es.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-005",
+      "row": 71,
+      "role": "editor (es session)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Live question: with a known server default locale, which start date does the iteration editor store for a jQuery-picker date (yyyy-MM-dd) and for a calendar-button date (session format.date) in an es session? Map: the picker date parses; a dd-MM-yyyy date is read with the server pattern as a different date (lenient), not rejected.",
+      "source": "analysis/legacy_user_flows.xlsx row 71, columns D, F and H",
+      "action": "es session: read the iteration editor (calendar calls and dateField inputs), then created \"S3-C Iteration es-picker\" with 2026-11-02/2026-11-15 and \"S3-C Iteration es-calendar\" with 02-11-2026/15-11-2026 (the shapes the picker and the calendar button insert; the JavaScript itself was not run). Read the stored dates in an en session.",
+      "mode": "live",
+      "observed": "The es editor calls showCalendar('startDate', 'dd-MM-yyyy') and has 2 dateField inputs (served js/global.js: datepicker dateFormat yy-mm-dd). Both creates answered 302 without a message. es-picker stored 2026-11-02 to 2026-11-15; es-calendar stored 0008-05-18 to 0021-05-18 (a different date, not rejected). Server default: English bundle (yyyy-MM-dd).",
+      "evidence": "traces/results-r71-iteration-es.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-006",
+      "row": 149,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Time grid with an empty new row; Insert Time; Update saves; redirect to the task page.",
+      "source": "analysis/legacy_user_flows.xlsx row 149, columns D and F",
+      "action": "Edit Time from tasks 265/266 (en/de), saved entries (setup-C-055 covers the first run on task 264).",
+      "mode": "live",
+      "observed": "Grid with one empty row, Insert Time button (\"Insert Time\"/\"aktuelle Zeit einfügen\"), Update submits; 302 to /do/view/task?oid=<task>; time log shows the entry. Insert Time not executed.",
+      "evidence": "traces/results-f003-time-editor.json; setup evidence setup-C-055",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-007",
+      "row": 149,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Optional pair person 2 is recorded.",
+      "source": "analysis/legacy_user_flows.xlsx row 149, columns D",
+      "action": "Added a 0.5 h row on task 268 with person 1 editor and person 2 admin.",
+      "mode": "live",
+      "observed": "302; the time log pair column shows both people. A new row pre-selects person 2 from the previous entry.",
+      "evidence": "traces/results-final.json#r149_pair",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-008",
+      "row": 149,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Display-level only: the Edit Time link is hidden from users without edit permission, but UpdateTimeAction has no server-side check, so a direct request succeeds for any signed-in user (CHK-002 note).",
+      "source": "analysis/legacy_user_flows.xlsx row 149, columns H",
+      "action": "As viewer, opened task 268 (no Edit Time link expected), then requested the time editor by URL and posted a 0.25 h row for the viewer.",
+      "mode": "live",
+      "observed": "No Edit Time link and no edit/delete/move actions on the viewer task page; the editor opened by URL and the POST answered 302; the time log lists \"S3-C viewer direct time entry\" (shown as 0.2).",
+      "evidence": "traces/results-final.json#r149_viewer_controls, #r149_viewer_direct",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-009",
+      "row": 150,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Existing entries can be edited or ticked for deletion in the grid; saved on Update.",
+      "source": "analysis/legacy_user_flows.xlsx row 150, columns D and F",
+      "action": "Task 268: edited the description of entry B, later ticked deleted[] on entry C.",
+      "mode": "live",
+      "observed": "Description changed to \"S3-C V entry B edited\"; entry C removed after the delete tick; other rows unchanged.",
+      "evidence": "traces/results-validation.json#r150-edit-delete; traces/results-validation2.json#r150-delete-b",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-010",
+      "row": 151,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "On save, when remaining hours are given and not negative, the task estimate becomes the entries' effort plus remaining hours; the field recalculates in the browser.",
+      "source": "analysis/legacy_user_flows.xlsx row 151, columns D and F",
+      "action": "Saved entries with remaining hours as the page script would leave them (not executed): task 265 remaining 2.5 with 1.5 h; task 268 remaining 4.0 with 1.0 h.",
+      "mode": "live",
+      "observed": "Task 265 estimate 4.0 (4.0) = 1.5 + 2.5; task 268 estimate 5.0 (4.0) = 1.0 + 4.0, later 5.5 with 1.5 h. The client-side recalculation was not run (setup-C-056 same).",
+      "evidence": "traces/results-f003-time-editor.json; traces/results-validation.json#base",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-011",
+      "row": 152,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Unparsable date/time: editor redisplayed with \"Can't parse the supplied date/time value.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 152, columns D and F",
+      "action": "Last row start \"not-a-date\".",
+      "mode": "live",
+      "observed": "200, editor redisplayed with the message; nothing saved.",
+      "evidence": "traces/results-validation.json#r152-time",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-012",
+      "row": 152,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Unparsable number: \"Can't parse the supplied number.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 152, columns D and F",
+      "action": "Last row duration \"abc\".",
+      "mode": "live",
+      "observed": "200, message shown; nothing saved.",
+      "evidence": "traces/results-validation.json#r152-number",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-013",
+      "row": 153,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A non-last row without start or end and without duration is rejected; a row with end and duration but no start is rejected; a last row with a start time only is accepted and saved without end.",
+      "source": "analysis/legacy_user_flows.xlsx row 153, columns D, F and H",
+      "action": "Cleared end and duration of existing entry A; last row with end 16:00 and duration 1.0 but no start; last row with start 18:00 only.",
+      "mode": "live",
+      "observed": "\"Missing start or end time.\" for the first two; the start-only row was saved (18:00, no end). Neutral note: clearing only the end of an existing interval row (its hidden duration still posted) was accepted and the stored end stayed unchanged.",
+      "evidence": "traces/results-validation2.json; traces/results-validation.json#r153-end-duration-no-start, #r153-nonlast-missing-end",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-014",
+      "row": 154,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "\"No person is specified in a time entry.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 154, columns D and F",
+      "action": "Interval row with both persons 0.",
+      "mode": "live",
+      "observed": "Message shown; nothing saved.",
+      "evidence": "traces/results-validation.json#r154-no-person",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-015",
+      "row": 155,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A row with a start time and the same person twice is rejected; a duration-only row is not checked.",
+      "source": "analysis/legacy_user_flows.xlsx row 155, columns D, F and H",
+      "action": "Interval row with editor as both persons; duration-only 0.5 h row with editor twice.",
+      "mode": "live",
+      "observed": "\"Must specify different people for time entry.\" for the interval row; the duration-only row was saved with the pair shown twice.",
+      "evidence": "traces/results-validation.json#r155-same-people, #r155-duration-same-people",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-016",
+      "row": 156,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "\"Negative or zero-length intervals are not allowed.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 156, columns D and F",
+      "action": "Start 17:00, end 16:00.",
+      "mode": "live",
+      "observed": "Message shown; nothing saved.",
+      "evidence": "traces/results-validation.json#r156-negative",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-017",
+      "row": 157,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "\"Overlapping intervals are not allowed.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 157, columns D and F",
+      "action": "14:30-15:30 against entry A 14:00-15:00.",
+      "mode": "live",
+      "observed": "Message shown; nothing saved.",
+      "evidence": "traces/results-validation.json#r157-overlap",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-018",
+      "row": 158,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The last row with an interval and a duration is rejected; other rows are not checked.",
+      "source": "analysis/legacy_user_flows.xlsx row 158, columns D, F and H",
+      "action": "Last row 16:00-17:00 plus duration 1.0; existing row A given duration 2.0.",
+      "mode": "live",
+      "observed": "\"Cannot specify both an interval and duration.\" for the last row; the existing row was accepted (302) and still shows 1.0 h.",
+      "evidence": "traces/results-validation.json#r158-last-both, #r158-nonlast-both",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-019",
+      "row": 159,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "\"Missing reported date.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 159, columns D and F",
+      "action": "Interval row with an empty report date.",
+      "mode": "live",
+      "observed": "Message shown; nothing saved.",
+      "evidence": "traces/results-validation.json#r159-no-report-date",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-020",
+      "row": 160,
+      "role": "editor (en)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Description longer than MAX_DESCRIPTION_LENGTH is rejected; the input carries maxlength.",
+      "source": "analysis/legacy_user_flows.xlsx row 160, columns D, F and H",
+      "action": "Read maxlength; posted a 520-character description.",
+      "mode": "live",
+      "observed": "maxlength=\"500\"; the 520-character value (sent without the browser limit) was rejected with \"The time entry description is too long.\"",
+      "evidence": "traces/results-validation.json#r160-long-description",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-021",
+      "row": 161,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A re-estimate page shows actual and estimated hours and submits a new estimate, recording \"Estimate changed from x to y\"; reachable only by URL; the mapped action is a plain Struts Action.",
+      "source": "analysis/legacy_user_flows.xlsx row 161, columns D and F",
+      "action": "GET /do/edit/task/estimate?oid=269&fkey=254&returnto=...; then posted the fields of editTaskEstimate.jsp (estimate 6.0, action UPDATE_ESTIMATE) to /do/edit/time directly.",
+      "mode": "live",
+      "observed": "The GET answers 200 with an empty body (0 bytes, no page). The direct POST answered 302 to the task; the estimate became 6.0 (4.0) and the task history shows \"reestimated\" / \"Estimate changed from 4.0 to 6.0\".",
+      "evidence": "traces/results-misc1.json#r161_page, #r161_post, #f002_task_history_en",
+      "verdict": "finding",
+      "finding": "C-F-02"
+    },
+    {
+      "id": "C-C-022",
+      "row": 162,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "From a person page, a period timesheet with summary by project/iteration/story, daily totals and three pie charts.",
+      "source": "analysis/legacy_user_flows.xlsx row 162, columns D and F",
+      "action": "Viewer person page 209, followed Timesheet, submitted the period 2026-09-27 to 2026-10-03 (setup-C-057 covers the editor with data).",
+      "mode": "live",
+      "observed": "Link present; page with startDateString/endDateString and calendar buttons, summary and daily tables, 3 chart images. With data (editor, row 164 check): summary total 8.0 while the daily Wednesday cell and daily total read 8.2 (recorded neutrally; cause not determined).",
+      "evidence": "traces/results-misc1.json#r162_person_page, #r162_open, #r162_period; traces/results-timesheet2.json#r164_get",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-023",
+      "row": 163,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An unparsable period date is rejected with \"Can't parse the supplied date value.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 163, columns D and F",
+      "action": "Posted the personal timesheet form with startDateString \"not-a-date\", and once empty.",
+      "mode": "live",
+      "observed": "200, no message anywhere in the page (0 matches for \"parse\"), no error markup; the form comes back with the default period 2026-09-27 to 2026-10-03.",
+      "evidence": "traces/results-timesheet2.json#r163; traces/results-timesheet3.json#personal",
+      "verdict": "finding",
+      "finding": "C-F-03"
+    },
+    {
+      "id": "C-C-024",
+      "row": 164,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Any signed-in user can open any person's timesheet by oid.",
+      "source": "analysis/legacy_user_flows.xlsx row 164, columns D and F",
+      "action": "Fresh viewer session: GET /do/view/timesheet?oid=210&fkey=210&projectId=0; POST the period form with oid=210.",
+      "mode": "live",
+      "observed": "Both show the editor's timesheet (name, 8.0 h across S3 Shared, S3-C Time, S3-D Integrations). Neutral note: in a session that had already opened its own timesheet, a GET for oid=210 showed the earlier person (empty, 0.0).",
+      "evidence": "traces/results-timesheet2.json#r164_get, #r164_post; traces/results-misc1.json#r164",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-025",
+      "row": 165,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Aggregate timesheet: multi-select of people, period, summary tables and three pie charts.",
+      "source": "analysis/legacy_user_flows.xlsx row 165, columns D and F",
+      "action": "GET /do/view/aggregateTimesheet; posted editor only; viewer only; editor + admin for one day.",
+      "mode": "live",
+      "observed": "Multi-select of 10 visible people, date fields; editor-only summary per project/iteration/story, total 8.0 and 3 charts; viewer-only \"Nothing found to display.\" and 0.0.",
+      "evidence": "traces/results-misc1.json#r165_open, #r165_editor; traces/results-timesheet2.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-026",
+      "row": 166,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An unparsable period date is rejected with \"Can't parse the supplied date value.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 166, columns D and F",
+      "action": "Posted the aggregate form with startDateString \"not-a-date\" and once \"2026/13/45x\".",
+      "mode": "live",
+      "observed": "200, no message, no error markup; the form returns the default period and \"Nothing found to display.\"",
+      "evidence": "traces/results-timesheet2.json#r166; traces/results-timesheet3.json#aggregate; traces/results-misc1.json#r166",
+      "verdict": "finding",
+      "finding": "C-F-03"
+    },
+    {
+      "id": "C-C-027",
+      "row": 167,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The aggregate timesheet includes only hours on projects the viewing user may read.",
+      "source": "analysis/legacy_user_flows.xlsx row 167, columns D and F",
+      "action": "Not run.",
+      "mode": "not-run",
+      "observed": "Not observed: every role account can read every S3 project, so no hours exist on a project the viewing account cannot read. Creating such a project or changing roles is outside the part C boundary.",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "C-C-028",
+      "row": 169,
+      "role": "editor, viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Project, iteration, story and task pages offer Add Note to users with note edit permission.",
+      "source": "analysis/legacy_user_flows.xlsx row 169, columns D and F",
+      "action": "Read the four page types as editor and the task page as viewer.",
+      "mode": "live",
+      "observed": "Editor: \"Add Note/Attachment\" link on project 223, iteration 232, story 254 and task 265 (/do/edit/note?...&attachedToId=<oid>). Viewer: no add, edit or delete note links.",
+      "evidence": "traces/results-notes2.json#r169-add-note-links; traces/results-notes.json#r169-viewer-controls",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-029",
+      "row": 169,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The note editor is display-level only; a direct request succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 169, columns H",
+      "action": "Viewer requested the note editor by URL and posted a note (subject, author, body, empty file part) on task 265.",
+      "mode": "live",
+      "observed": "Editor page 200; POST 302; the note (id 499) is listed on the task with the viewer as author. Neutral note: its \"Date:\" value is empty.",
+      "evidence": "traces/results-notes.json#r169-viewer-editor-by-url, #r169-viewer-direct-create, #r169-viewer-direct-result",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-030",
+      "row": 169,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A note with an optional file attachment is saved and appears in the Notes section.",
+      "source": "analysis/legacy_user_flows.xlsx row 169, columns D and F",
+      "action": "Posted the multipart note editor with a 49-byte synthetic text file (s3c-note1.txt), and a second note with a 31-byte file and no body.",
+      "mode": "live",
+      "observed": "Both answered HTTP 500: ConstraintViolationException, caused by \"Cannot add or update a child row: a foreign key constraint fails (note, CONSTRAINT noteAttachments FOREIGN KEY (attachment_id) REFERENCES xfile (id))\". No note was listed.",
+      "evidence": "traces/results-notes.json#r169-create-with-file, #r170-no-body-with-file",
+      "verdict": "finding",
+      "finding": "C-F-04"
+    },
+    {
+      "id": "C-C-031",
+      "row": 170,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Missing subject, missing author, or missing body without a file are rejected with \"Missing subject.\" / \"Missing author.\" / \"Missing body.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 170, columns D and F",
+      "action": "Posted the note editor three times (empty subject; authorId 0; empty body and empty file part).",
+      "mode": "live",
+      "observed": "All three answered HTTP 500 java.lang.AbstractMethodError: MultipartRequestWrapper.getServletContext() is abstract (from XPlannerActionServlet.service); no message is shown and nothing is saved.",
+      "evidence": "traces/results-notes.json#r170-no-subject, #r170-no-author, #r170-no-body-no-file",
+      "verdict": "finding",
+      "finding": "C-F-05"
+    },
+    {
+      "id": "C-C-032",
+      "row": 170,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A note without body is accepted when a file is attached.",
+      "source": "analysis/legacy_user_flows.xlsx row 170, columns D and F",
+      "action": "Posted a note with a file and no body.",
+      "mode": "live",
+      "observed": "Blocked: the attachment save fails (C-F-04), so the rule cannot be observed.",
+      "evidence": "traces/results-notes.json#r170-no-body-with-file",
+      "verdict": "blocked",
+      "finding": "C-F-04"
+    },
+    {
+      "id": "C-C-033",
+      "row": 171,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A note with an attachment shows the file name and \"References: <n>\".",
+      "source": "analysis/legacy_user_flows.xlsx row 171, columns D and F",
+      "action": "Depends on a stored attachment.",
+      "mode": "not-run",
+      "observed": "Not observable: no attachment can be stored (C-F-04).",
+      "evidence": "traces/results-notes.json",
+      "verdict": "blocked",
+      "finding": "C-F-04"
+    },
+    {
+      "id": "C-C-034",
+      "row": 172,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An uploaded attachment is stored as a BLOB under /attachments/project/<projectId> and is readable via the download link.",
+      "source": "analysis/legacy_user_flows.xlsx row 172, columns D and F",
+      "action": "Uploads as in the add-note check.",
+      "mode": "live",
+      "observed": "The upload fails at the note insert with the note->xfile foreign key violation; no downloadable attachment exists. Database rows were not inspected (no database access).",
+      "evidence": "traces/results-notes.json#r169-create-with-file",
+      "verdict": "finding",
+      "finding": "C-F-04"
+    },
+    {
+      "id": "C-C-035",
+      "row": 173,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "An authorized user can edit a note; editor pre-filled; changes saved.",
+      "source": "analysis/legacy_user_flows.xlsx row 173, columns D and F",
+      "action": "Opened the edit link of note 499 (author: viewer) and changed its subject.",
+      "mode": "live",
+      "observed": "Editor pre-filled (subject, body) but the hidden authorId carries the editing user (editor), not the stored author; after the save (302) the subject changed and the author became the editor.",
+      "evidence": "traces/results-notes2.json#r173-editor-prefill, #r173-edit-submit, #r173-after",
+      "verdict": "finding",
+      "finding": "C-F-06"
+    },
+    {
+      "id": "C-C-036",
+      "row": 174,
+      "role": "editor, viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Delete after confirming \"Do you want to delete note <subject>\"; the note is removed (its file too unless referenced).",
+      "source": "analysis/legacy_user_flows.xlsx row 174, columns D and F",
+      "action": "Read the delete link and its onclick; requested it as editor (link from the page) and earlier as viewer (direct URL); reopened the task page and the note editor.",
+      "mode": "live",
+      "observed": "onclick \"return confirm('Do you want to delete note S3-C viewer direct note (edited by editor)?')\". Both requests answered 302 to the task, but the note stays listed and its editor still opens with the subject.",
+      "evidence": "traces/results-notes2.json#r174-delete-link; traces/results-notes.json#r174-viewer-direct-delete; traces/results-r71-iteration-es.json#r174_note_editor_after_delete",
+      "verdict": "finding",
+      "finding": "C-F-07"
+    },
+    {
+      "id": "C-C-037",
+      "row": 175,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The attachment downloads with a Content-disposition filename.",
+      "source": "analysis/legacy_user_flows.xlsx row 175, columns D and F",
+      "action": "Depends on a stored attachment.",
+      "mode": "not-run",
+      "observed": "Not observable: no attachment can be stored (C-F-04).",
+      "evidence": "traces/results-notes.json",
+      "verdict": "blocked",
+      "finding": "C-F-04"
+    },
+    {
+      "id": "C-C-038",
+      "row": 176,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Live question: does /do/view/directory fail on the default listing? Expected a null reference because the file system is never injected.",
+      "source": "analysis/legacy_user_flows.xlsx row 176, columns F and H",
+      "action": "GET /do/view/directory.",
+      "mode": "live",
+      "observed": "HTTP 500 java.lang.NullPointerException at FileManagerAction.doExecute(FileManagerAction.java:40).",
+      "evidence": "traces/results-misc1.json#r176",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-039",
+      "row": 178,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Header search across objects with global scope; results \"Search results - <text>\" with type, ID, title (note titles link to the attached object) and match.",
+      "source": "analysis/legacy_user_flows.xlsx row 178, columns D and F",
+      "action": "GET /do/search/content from project 223 context (restrictToProjectId=223) for \"S3-C Story\", \"viewer direct note\" and \"S3-D Story\".",
+      "mode": "live",
+      "observed": "\"Search Results - S3-C Story\" with columns Type, ID, Title, Match (stories 254, 255); the note result (type note, id 499) links to /do/view/task?oid=265; \"S3-D Story\" found story 256 of another project despite restrictToProjectId=223 (global scope).",
+      "evidence": "traces/results-search.json#r178_text, #r178_note, #r178_global_scope_other_project",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-040",
+      "row": 179,
+      "role": "viewer (en, de)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "No results: empty.search.results message.",
+      "source": "analysis/legacy_user_flows.xlsx row 179, columns D and F",
+      "action": "Searched \"zzqqNoSuchText\" in en and de sessions.",
+      "mode": "live",
+      "observed": "en \"No Matching Objects Found\"; de \"Keine passenden Ergebnisse gefunden.\"",
+      "evidence": "traces/results-search.json#r179_none, #r179_none_de",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-041",
+      "row": 180,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "A numeric search text puts the object with that id at the top (for a note id, the note's parent).",
+      "source": "analysis/legacy_user_flows.xlsx row 180, columns D and F",
+      "action": "Searched \"265\" (task) and \"499\" (note).",
+      "mode": "live",
+      "observed": "\"265\": task 265 first, then story 255 (text match \"task: 265\"); \"499\": task 265 (the note's parent) only; the note itself is not listed.",
+      "evidence": "traces/results-search.json#r180_numeric_task, #r182_numeric_note",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-042",
+      "row": 180,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Text matches are filtered to objects the searching user may read; the id object is added without a read check.",
+      "source": "analysis/legacy_user_flows.xlsx row 180, columns D and F",
+      "action": "Not run.",
+      "mode": "not-run",
+      "observed": "Not observable: no object exists that the viewing account cannot read.",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "C-C-043",
+      "row": 181,
+      "role": "viewer (en, de)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Empty search: general error page \"Invalid content specified for search.: missing content\".",
+      "source": "analysis/legacy_user_flows.xlsx row 181, columns D and F",
+      "action": "Submitted the header search with an empty text (en and de sessions).",
+      "mode": "live",
+      "observed": "200 general error page \"An error has occurred.\" without any message text (0 matches for \"Invalid content specified\" and for \"missing content\"), in both sessions.",
+      "evidence": "traces/results-search.json#r181_empty, #r181_empty_de; traces/results-r71-iteration-es.json#r181_raw",
+      "verdict": "finding",
+      "finding": "C-F-08"
+    },
+    {
+      "id": "C-C-044",
+      "row": 182,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Header numeric search lists the object first; /do/search/id?searchedId=<id> redirects to /do/view/<type>?oid=<id>, for a note id to its parent.",
+      "source": "analysis/legacy_user_flows.xlsx row 182, columns D and F",
+      "action": "Numeric header searches (see row 180); GET /do/search/id for task 265, story 254 and note 499.",
+      "mode": "live",
+      "observed": "302 to /do/view/task?oid=265, /do/view/userstory?oid=254, and for note 499 to /do/view/task?oid=265.",
+      "evidence": "traces/results-search.json#r182_jump_task, #r182_jump_story, #r182_jump_note",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-045",
+      "row": 183,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Missing, malformed or unknown id: idsearch.error.missingId, badId, idNotFound.",
+      "source": "analysis/legacy_user_flows.xlsx row 183, columns D and F",
+      "action": "GET /do/search/id with searchedId empty, \"abc\", \"999999\".",
+      "mode": "live",
+      "observed": "General error page (200) with \"ID is missing\", \"ID must be a number\", \"ID 999999 not found\".",
+      "evidence": "traces/results-search.json#r183_missing, #r183_bad, #r183_unknown",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-046",
+      "row": 184,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The ID jump applies no read check; the target view page does not check either.",
+      "source": "analysis/legacy_user_flows.xlsx row 184, columns D and F",
+      "action": "ID jumps to readable objects (row 182 check).",
+      "mode": "not-run",
+      "observed": "The jumps work for readable objects; the absence of a read check is not observable without an unreadable object.",
+      "evidence": "traces/results-search.json",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "C-C-047",
+      "row": 185,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Breadcrumb from \"top\" through project, iteration, story and task.",
+      "source": "analysis/legacy_user_flows.xlsx row 185, columns D and F",
+      "action": "Read the breadcrumb of task 265.",
+      "mode": "live",
+      "observed": "Top -> S3-C Time -> S3-C Iteration 1 -> S3-C Story 1 -> S3-C Task EN, each a /do/view link.",
+      "evidence": "traces/results-misc1.json#r185",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-048",
+      "row": 186,
+      "role": "editor, viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Project, iteration, story and task pages link to a sortable history table (action, by, when, description); the project view offers a container view listing only \"created\"/\"deleted\" events of contained objects.",
+      "source": "analysis/legacy_user_flows.xlsx row 186, columns D and F",
+      "action": "Followed the History links of task 269, stories 254/255, iterations 232/314 and project 223 (container=true).",
+      "mode": "live",
+      "observed": "History table historyEvents with sort links (d-148316-o=2...); rows \"started\", \"moved\"/\"moved in\"/\"moved out\", \"reestimated\" with by, when and description; the project container view of web-created objects shows no events.",
+      "evidence": "traces/results-history.json; traces/results-history2b.json; traces/results-misc1.json#f002_task_history_en",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-049",
+      "row": 186,
+      "role": "editor, viewer (en, de, es)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Locale behavior of the history view as recorded (only the date format is described).",
+      "source": "analysis/legacy_user_flows.xlsx row 186, columns F and H",
+      "action": "Opened history views in en, de and es sessions.",
+      "mode": "live",
+      "observed": "Page title and h1 follow the session bundle (\"Historie\"/\"Ereignis\" in de; English fallback in es), but the column headings (history.jsp messages.getMessage without locale) are English in every session, while the de bundle defines \"Aktion, Von, Wann, Beschreibung\". The same holds for other dt:table column titles (story task list, project iteration list).",
+      "evidence": "traces/results-f002-history-first.json; traces/results-f001-locale-switch.json",
+      "verdict": "finding",
+      "finding": "C-F-09"
+    },
+    {
+      "id": "C-C-050",
+      "row": 187,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "History is written only by iteration start/close, story move/continue, task move/continue, task re-estimate and SOAP add/update/remove; web create/edit/delete write none.",
+      "source": "analysis/legacy_user_flows.xlsx row 187, columns D and F",
+      "action": "Web-created project data; started iteration 232; web-edited task 269; moved story 255 to iteration 314; re-estimated task 269; submitted Move and Continue for task 269.",
+      "mode": "live",
+      "observed": "No history for web creates and the task edit; \"started\" on iteration 232; \"moved\" on story 255 with \"moved out\"/\"moved in\" on the iterations; \"reestimated\" on task 269. Task Move and Continue both answer HTTP 500 IllegalStateException \"No Hibernate Session bound to thread\" (MoveContinueTaskAction.saveForm:138 and :104); the task stays in story 254 and no history is written. SOAP writers are part D scope.",
+      "evidence": "traces/results-history.json; traces/results-history2b.json; traces/results-task-move.json; traces/results-misc1.json#f002_task_history_en",
+      "verdict": "finding",
+      "finding": "C-F-10"
+    },
+    {
+      "id": "C-C-051",
+      "row": 188,
+      "role": "viewer",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The header \"me\" link opens /setting/me/status/<personId> with the person sections; the link base comes from the configured application URL.",
+      "source": "analysis/legacy_user_flows.xlsx row 188, columns D and F",
+      "action": "Read the header link (not followed); requested /xplanner-legacy/setting/me/status/209 directly.",
+      "mode": "live",
+      "observed": "Header link http://localhost:8080/xplanner/setting/me/status/209?returnto=... (configured URL, not this context). The page on this context shows name and the sections (no tasks in progress, planned, completed; no stories as customer or tracker; no future tasks).",
+      "evidence": "traces/results-misc1.json#r188",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-052",
+      "row": 189,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Live question: how are TWiki markup, a WikiWord and object links rendered?",
+      "source": "analysis/legacy_user_flows.xlsx row 189, columns F and H",
+      "action": "Story 255 description \"*bold text* _italic text_ =fixed text= SthreeCeeTopic story:254 task:265 [[S3-C bracket link]]\"; read the rendered HTML.",
+      "mode": "live",
+      "observed": "<strong>bold text</strong> <em>italic text</em> <code>fixed text</code>; the WikiWord is followed by a \"?\" link to http://localhost:9090/vqw/jsp/Wiki?topic=SthreeCeeTopic&action=action_edit (new-topic form); story:254 and task:265 become links \"story: S3-C Story 1\" and \"task: S3-C Task EN\"; [[...]] stays literal. The server-side topic lookup is not observable from outside; per-project bracket escaping not exercised.",
+      "evidence": "traces/results-misc1.json#r189",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-053",
+      "row": 190,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Editors show a formatting-help link hard-coded to /xplanner/do/view/twikiformat (wrong context); the help page exists.",
+      "source": "analysis/legacy_user_flows.xlsx row 190, columns D and F",
+      "action": "Read the story editor links; opened /xplanner-legacy/do/view/twikiformat directly (the hard-coded link was not followed).",
+      "mode": "live",
+      "observed": "\"Formatting Help -> /xplanner/do/view/twikiformat\"; the page on this context returns 200 \"TextFormattingRules\".",
+      "evidence": "traces/results-misc1.json#r190_editor_help_links, #r190_help_page",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-054",
+      "row": 191,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Clicking the footer toggles a wide layout remembered in localStorage.",
+      "source": "analysis/legacy_user_flows.xlsx row 191, columns D and F",
+      "action": "Read the footer markup and the served /js/global.js; the click was not executed.",
+      "mode": "not-run",
+      "observed": "Footer div.page_footer \"switch width of Xplanner+ page\"; served global.js toggles class \"wide\" on .page_footer click and stores localStorage.widescreen. JavaScript not run.",
+      "evidence": "traces/results-misc1.json#r191",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "C-C-055",
+      "row": 192,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "?print=true renders the page without header and footer.",
+      "source": "analysis/legacy_user_flows.xlsx row 192, columns D and F",
+      "action": "Task 265 with and without print=true.",
+      "mode": "live",
+      "observed": "Normal page has the search form, logout link and footer; with print=true all three are absent and the task content remains (8769 vs 12057 bytes).",
+      "evidence": "traces/results-misc1.json#r192",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-056",
+      "row": 193,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Twitter and Facebook share links; LinkedIn and fb:like inside an HTML comment.",
+      "source": "analysis/legacy_user_flows.xlsx row 193, columns D and F",
+      "action": "Read the project 223 page HTML; external links not followed.",
+      "mode": "live",
+      "observed": "twitter.com/home?status=Working on Project: S3-C Time; facebook.com/dialog/feed with app_id and the page URL built from the configured application URL; LinkedIn and fb:like only inside a comment.",
+      "evidence": "traces/results-misc1.json#r193",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "C-C-057",
+      "row": 194,
+      "role": "editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Feature pages reachable only by URL; runtime expected to fail (Feature not mapped, net.sf.xplanner.domain.Feature absent).",
+      "source": "analysis/legacy_user_flows.xlsx row 194, columns D and F",
+      "action": "GET /do/view/project/features?oid=223, /do/view/iteration/features?oid=232, /do/view/feature?oid=1, /do/edit/feature?fkey=254...; posted the feature editor.",
+      "mode": "live",
+      "observed": "Project and iteration feature pages 500 JasperException (JSP attribute quoting, projectFeatures.jsp:61, iterationFeatures.jsp:57); feature view 500 ClassNotFoundException net.sf.xplanner.domain.Feature; the feature editor renders (\"Create Feature\") but its POST fails with the same ClassNotFoundException.",
+      "evidence": "traces/results-misc1.json#r194; traces/results-final.json#r194_feature_create",
+      "verdict": "match",
+      "finding": null
+    }
+  ],
+  "findings": [
+    {
+      "id": "C-F-01",
+      "rows": [
+        70,
+        149,
+        152
+      ],
+      "cells": [
+        "D70",
+        "F70",
+        "F149",
+        "H149",
+        "F152",
+        "H152",
+        "legacy_reconnaissance.md Q3 cache fact (time editor sentence)"
+      ],
+      "observed": "In an es session the time editor displays and saves with format.datetime \"dd-MM-yyyy HH:MM \" (month letters in the minutes position, trailing space). Input typed as the hint \"DD-MM-YYYY HH:MM\" reads passes validation and then fails with HTTP 500 (ParseException at UpdateTimeAction.java:145); nothing is saved. Input in the Insert Time shape is saved with the minutes replaced (12:09 -> 12:00). en and de round trips are unchanged.",
+      "expected": "Carried pass-012 F-003: display and Insert Time follow the session locale, validation the server default; a day/month swap may be misread or rejected. Rows 149/152 describe a redirect or a \"Can't parse\" message.",
+      "minimal_correction": "Row 70 D/F: add that the es time editor save parses with the session pattern including its trailing space, so hint-shaped input ends in an HTTP 500 general error page and Insert-Time-shaped input loses its minutes. Rows 149 and 152 H: note that in es sessions an unparsable-by-session-pattern value passes TimeEditorForm validation and fails in UpdateTimeAction (500) instead of the message. Q3 time-editor sentence: name the time editor display and Insert Time as session-locale consumers.",
+      "severity": "medium"
+    },
+    {
+      "id": "C-F-02",
+      "rows": [
+        161
+      ],
+      "cells": [
+        "D161",
+        "F161"
+      ],
+      "observed": "GET /do/edit/task/estimate answers 200 with an empty body; no page is shown. The estimate change and its history entry work only through a direct POST to /do/edit/time with action=UPDATE_ESTIMATE.",
+      "expected": "A page that shows actual and estimated hours and submits a new estimate.",
+      "minimal_correction": "Row 161 D/F: the URL returns an empty 200 response (plain Struts Action, no forward); the estimate update and \"reestimated\" history are reachable only by a direct POST of the editTaskEstimate.jsp fields to /do/edit/time.",
+      "severity": "low"
+    },
+    {
+      "id": "C-F-03",
+      "rows": [
+        163,
+        166
+      ],
+      "cells": [
+        "F163",
+        "F166"
+      ],
+      "observed": "An unparsable period date on the personal and aggregate timesheets shows no message; the page returns with the default week 2026-09-27 to 2026-10-03.",
+      "expected": "\"Can't parse the supplied date value.\"",
+      "minimal_correction": "Rows 163 and 166 F: no message is displayed; the form falls back to the default period (the timesheet pages have no html:errors output). Keep the validate() fact in H as static.",
+      "severity": "low"
+    },
+    {
+      "id": "C-F-04",
+      "rows": [
+        169,
+        170,
+        171,
+        172,
+        175
+      ],
+      "cells": [
+        "F169",
+        "F172",
+        "G172"
+      ],
+      "observed": "Every note save with a file attachment fails with HTTP 500: foreign key noteAttachments (note.attachment_id -> xfile.id) violated during the batch insert; no note or downloadable file is stored. Observed on this deployment (Tomcat 9 / JRE 8, MySQL 5.7); the original runtime is not established.",
+      "expected": "The note with its attachment is saved and downloadable.",
+      "minimal_correction": "Rows 169 and 172 F: record that attachment upload fails in the reference deployment with the note->xfile foreign key violation (runtime observed); rows 170 (file case), 171 and 175 stay unverified until an attachment can be stored.",
+      "severity": "medium"
+    },
+    {
+      "id": "C-F-05",
+      "rows": [
+        170
+      ],
+      "cells": [
+        "F170"
+      ],
+      "observed": "A note editor submission that fails validation (missing subject, author, or body without a file) answers HTTP 500 java.lang.AbstractMethodError MultipartRequestWrapper.getServletContext(); no message is shown. Container-dependent (Servlet 3+ container with the bundled Struts 1.2 multipart wrapper).",
+      "expected": "Messages \"Missing subject.\", \"Missing author.\", \"Missing body.\"",
+      "minimal_correction": "Row 170 F: on the reference deployment the validation messages are never shown; the multipart editor fails with HTTP 500 (AbstractMethodError) when validation fails.",
+      "severity": "medium"
+    },
+    {
+      "id": "C-F-06",
+      "rows": [
+        173
+      ],
+      "cells": [
+        "D173",
+        "F173"
+      ],
+      "observed": "Editing a note as a non-administrator posts the editing user as authorId (hidden field) and reassigns the note's author on save.",
+      "expected": "Editor pre-filled; changes saved.",
+      "minimal_correction": "Row 173 F: the author of an edited note becomes the editing user for editors without the author select (editNote.jsp hidden authorId).",
+      "severity": "low"
+    },
+    {
+      "id": "C-F-07",
+      "rows": [
+        174
+      ],
+      "cells": [
+        "F174"
+      ],
+      "observed": "The delete link (after the confirm prompt) answers 302 to returnto, but the note is not removed (editor and viewer requests).",
+      "expected": "Note removed; its file removed unless referenced.",
+      "minimal_correction": "Row 174 F: record that /do/delete/note redirects without deleting the note on the reference deployment (runtime observed); the file-cascade claim stays static.",
+      "severity": "medium"
+    },
+    {
+      "id": "C-F-08",
+      "rows": [
+        181
+      ],
+      "cells": [
+        "F181"
+      ],
+      "observed": "An empty header search shows the general error page \"An error has occurred.\" without the message text in en and de sessions.",
+      "expected": "\"Invalid content specified for search.: missing content\".",
+      "minimal_correction": "Row 181 F: the general error page is shown without the contentsearch.invalid_id text (only \"An error has occurred.\").",
+      "severity": "low"
+    },
+    {
+      "id": "C-F-09",
+      "rows": [
+        186
+      ],
+      "cells": [
+        "F186",
+        "H186"
+      ],
+      "observed": "History column headings (and other dt:table column titles built with messages.getMessage) are always in the server default locale (English), while the page title and h1 follow the session locale; es has no history keys and falls back to English.",
+      "expected": "Row 186 records only the date format as locale-dependent.",
+      "minimal_correction": "Row 186 F/H: add that the column headings use MessageResources#getMessage(String) and therefore the server default locale for every user (history.jsp:52-63, 97-111), while the heading texts follow the session bundle.",
+      "severity": "low"
+    },
+    {
+      "id": "C-F-10",
+      "rows": [
+        187
+      ],
+      "cells": [
+        "D187",
+        "F187"
+      ],
+      "observed": "Task Move and Continue fail with HTTP 500 \"No Hibernate Session bound to thread\" (MoveContinueTaskAction.saveForm), so these entry points write no history on the reference deployment; the other listed web entry points write history as recorded.",
+      "expected": "Task move/continue write history.",
+      "minimal_correction": "Row 187 F: note that the task move/continue entry points fail before saving (runtime observed), so no task history is written by them; cross-reference rows 144-145 (part B scope).",
+      "severity": "low"
+    }
+  ],
+  "not_checked": [
+    {
+      "row": 167,
+      "reason": "No project exists that the viewing account cannot read; creating one or changing roles is outside the part C boundary.",
+      "retry_condition": "PM provides or authorizes an S3-C object unreadable for one role account."
+    },
+    {
+      "row": 180,
+      "reason": "Read filtering of text matches needs an unreadable object.",
+      "retry_condition": "As for row 167."
+    },
+    {
+      "row": 184,
+      "reason": "The missing read check needs an unreadable object.",
+      "retry_condition": "As for row 167."
+    },
+    {
+      "row": 171,
+      "reason": "Blocked by C-F-04: no attachment can be stored.",
+      "retry_condition": "After attachment storage works (environment adaptation or owner decision), rerun the note checks."
+    },
+    {
+      "row": 172,
+      "reason": "Directory and BLOB rows not inspected (no database access); upload fails (C-F-04).",
+      "retry_condition": "PM database extract after a successful upload."
+    },
+    {
+      "row": 175,
+      "reason": "Blocked by C-F-04.",
+      "retry_condition": "As for row 171."
+    },
+    {
+      "row": 170,
+      "reason": "Body-optional-with-file case blocked by C-F-04.",
+      "retry_condition": "As for row 171."
+    },
+    {
+      "row": 191,
+      "reason": "JavaScript toggle not executed: the built-in browser cannot be signed in without typing a password.",
+      "retry_condition": "A browser session signed in without Claude typing a password (for example owner-provided)."
+    },
+    {
+      "row": 149,
+      "reason": "Insert Time JavaScript not executed in a browser (carried F-003); served script evaluated offline only.",
+      "retry_condition": "As for row 191."
+    },
+    {
+      "row": 151,
+      "reason": "Client-side remaining-hours recalculation not executed.",
+      "retry_condition": "As for row 191."
+    },
+    {
+      "row": 187,
+      "reason": "SOAP add/update/remove history writers belong to part D.",
+      "retry_condition": "Part D SOAP evidence."
+    },
+    {
+      "row": 189,
+      "reason": "Server-side wiki topic request (localhost:9090) not observable; per-project bracket escaping not exercised.",
+      "retry_condition": "PM app log extract; a project-setting change on project 223 if PM authorizes it."
+    },
+    {
+      "row": 69,
+      "reason": "No fresh restart before the first history render; da, ja, ru and \"--\" bundles not exercised.",
+      "retry_condition": "A restart authorized by the owner/Codex; additional locale sessions."
+    }
+  ]
+}

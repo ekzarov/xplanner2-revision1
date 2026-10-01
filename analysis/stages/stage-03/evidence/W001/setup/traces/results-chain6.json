@@ -1,0 +1,77 @@
+{
+  "started_at": "2026-09-30T19:48:36.033Z",
+  "steps": [
+    {
+      "at": "2026-09-30T19:48:36.975Z",
+      "step": "sign-in",
+      "post_status": 302
+    },
+    {
+      "at": "2026-09-30T19:48:37.963Z",
+      "step": "enter-time",
+      "rowcount": 1,
+      "report_date": "2026-09-30",
+      "duration": "1.5",
+      "person1": "editor",
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=264"
+    },
+    {
+      "at": "2026-09-30T19:48:38.293Z",
+      "step": "task-after-time",
+      "existing_rows_before": 0,
+      "text": "Top S3 Shared S3-setup Iteration 1 S3-setup Story 1 S3-setup Task 1 Export History Task: S3-setup Task 1 Task: S3-setup Task 1 [id=264] Synthetic task for the W001 setup chain. Acceptor: <editor.name> Estimated Hours: 1.5 (2.0) Created: 2026-09-30 Actual Hours: 1.5 Edit Delete Move/Continue Edit Time Time Log: Start Time End Time Reported Date Dur. Pair Description 2026-09-30 1.5 <editor.name> S3-setup time entry Notes: Add Note/Attachment",
+      "time_log_headers": [
+        "Start Time",
+        "End Time",
+        "Reported Date",
+        "Dur.",
+        "Pair",
+        "Description"
+      ],
+      "time_log_rows": [
+        [
+          "",
+          "",
+          "2026-09-30",
+          "1.5",
+          "<editor.name>",
+          "S3-setup time entry"
+        ]
+      ]
+    },
+    {
+      "at": "2026-09-30T19:48:38.968Z",
+      "step": "open-timesheet",
+      "person_page": "Top .sectionTitle { font-size: 14px; font-weight: bold; margin: 0 0 10px 10px; } .warning { background-color: lightcoral; border: 1 #bbb solid; font-weight: bold; text-align:center; } An error has occurred. javax.el.ELException: Error reading Please create an issue following these instructions.In order to expedite the analysis of your problem, provide the following information:Describe in details your problem and the steps leading to it. Copy the error and system information found belowAttach the application server log file (if possible).Please do not submit an issue for a deployment problem. As you are testing your recent xplanner install/upgrade the best way to get support is to first post",
+      "href": "",
+      "status": 404,
+      "title": "HTTP Status 404 – Not Found",
+      "text": "HTTP Status 404 – Not FoundType Status ReportMessage Invalid path was requestedDescription The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.Apache Tomcat/9.0.119",
+      "forms": [],
+      "images": [],
+      "tables": []
+    },
+    {
+      "at": "2026-09-30T19:48:39.572Z",
+      "step": "sign-out",
+      "status": 200,
+      "login_form": true,
+      "cleared": [
+        "userid(cleared)[Max-Age=0]",
+        "password(cleared)[Max-Age=0]",
+        "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+      ],
+      "after_status": 302,
+      "after_location": "/xplanner-legacy/do/login"
+    },
+    {
+      "at": "2026-09-30T19:48:39.621Z",
+      "step": "mail-sink",
+      "status": 200,
+      "total": 0,
+      "messages": []
+    }
+  ],
+  "finished_at": "2026-09-30T19:48:39.621Z"
+}

@@ -1,0 +1,168 @@
+{
+  "started_at": "2026-09-30T20:17:43.668Z",
+  "steps": [
+    {
+      "step": "move-form",
+      "link": "/xplanner-legacy/do/move/continue/task?returnto=%2Fdo%2Fview%2Fprojects&oid=269",
+      "status": 200,
+      "fields": [
+        [
+          "input",
+          "hidden",
+          "oid",
+          "269",
+          null
+        ],
+        [
+          "input",
+          "hidden",
+          "merge",
+          "true",
+          null
+        ],
+        [
+          "input",
+          "hidden",
+          "fkey",
+          "null",
+          null
+        ],
+        [
+          "input",
+          "hidden",
+          "action",
+          "Move",
+          null
+        ],
+        [
+          "input",
+          "hidden",
+          "returnto",
+          "/do/view/userstory?oid=254",
+          null
+        ],
+        [
+          "select",
+          null,
+          "targetStoryId",
+          "253",
+          "253=S3 Shared :: S3-setup Iteration 1 :: S3-setup Story 1|255=S3-C Time :: S3-C Iteration 1 :: S3-C Story 2|256=S3-D Integrations :: S3-D Iteration 1 :: S3-D Story 1"
+        ],
+        [
+          "input",
+          "submit",
+          "actionBtn",
+          "Move",
+          null
+        ],
+        [
+          "input",
+          "submit",
+          "actionBtn",
+          "Continue",
+          null
+        ]
+      ]
+    },
+    {
+      "step": "move-submit",
+      "status": 500,
+      "location": null,
+      "title": null,
+      "text": "An error has occurred. user <editor.userId> M e Logout T op S3-C Time S3-C Iteration 1 S3-C Story 1 An error has occurred. No Hibernate Session Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment pro [...]"
+    },
+    {
+      "step": "task-after-move",
+      "status": 200,
+      "breadcrumb_story": "S3-C Story 1"
+    },
+    {
+      "step": "web-edit-task",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=269"
+    },
+    {
+      "step": "history-en-task",
+      "status": 200,
+      "h1": [
+        "History: S3-C Task H"
+      ],
+      "tables": []
+    },
+    {
+      "step": "history-en-story2",
+      "status": 200,
+      "h1": [
+        "History: S3-C Story 2"
+      ],
+      "tables": []
+    },
+    {
+      "step": "history-en-story1",
+      "status": 200,
+      "h1": [
+        "History: S3-C Story 1"
+      ],
+      "tables": []
+    },
+    {
+      "step": "history-en-project_container",
+      "status": 200,
+      "h1": [
+        "History: S3-C Time"
+      ],
+      "tables": []
+    },
+    {
+      "step": "history-en-iteration",
+      "status": 200,
+      "h1": [
+        "History: S3-C Iteration 1",
+        "Events"
+      ],
+      "tables": [
+        {
+          "id": "historyEvents",
+          "head": [
+            "Action",
+            "By",
+            "When",
+            "Description"
+          ],
+          "rows": [
+            [
+              "started",
+              "<editor.name>",
+              "Mi Sep 30 20:14:30 UTC",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "step": "history-de-viewer-task",
+      "status": 200,
+      "h1": [
+        "Historie: S3-C Task H"
+      ],
+      "tables": []
+    },
+    {
+      "step": "history-de-viewer-project_container",
+      "status": 200,
+      "h1": [
+        "Historie: S3-C Time"
+      ],
+      "tables": []
+    }
+  ],
+  "links": {
+    "task": "/xplanner-legacy/do/view/history?fkey=269&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D269&projectId=223&oid=269&@type=net.sf.xplanner.domain.Task",
+    "story2": "/xplanner-legacy/do/view/history?fkey=255&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D255&projectId=223&oid=255&@type=net.sf.xplanner.domain.UserStory",
+    "story1": "/xplanner-legacy/do/view/history?fkey=254&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D254&projectId=223&oid=254&@type=net.sf.xplanner.domain.UserStory",
+    "project_container": "/xplanner-legacy/do/view/history?fkey=223&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D223&projectId=223&oid=223&@type=net.sf.xplanner.domain.Project&container=true",
+    "iteration": "/do/view/history?fkey=232&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D232&projectId=223&oid=232&@type=net.sf.xplanner.domain.Iteration"
+  },
+  "finished_at": "2026-09-30T20:17:50.651Z"
+}

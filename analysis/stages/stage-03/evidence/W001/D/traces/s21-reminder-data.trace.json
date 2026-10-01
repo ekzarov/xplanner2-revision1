@@ -1,0 +1,103 @@
+{
+  "at": "2026-09-30T20:29:55.780Z",
+  "trace": [
+    {
+      "at": "2026-09-30T20:29:53.223Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:29:53.533Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:29:53.838Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/edit/task?fkey=256&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D256&projectId=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 7801
+    },
+    {
+      "at": "2026-09-30T20:29:54.169Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/task",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=256",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "create reminder task (web)"
+    },
+    {
+      "at": "2026-09-30T20:29:54.497Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/userstory?oid=256",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 19015
+    },
+    {
+      "at": "2026-09-30T20:29:54.816Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/edit/time?fkey=256&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D438&oid=438&projectId=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 9836
+    },
+    {
+      "at": "2026-09-30T20:29:55.128Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/time",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=438",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "time entry 2026-09-29 on reminder task (web)"
+    },
+    {
+      "at": "2026-09-30T20:29:55.473Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/task?oid=438",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 12149,
+      "label": "reminder task page"
+    },
+    {
+      "at": "2026-09-30T20:29:55.780Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    }
+  ]
+}

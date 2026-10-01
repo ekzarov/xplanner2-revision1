@@ -1,0 +1,130 @@
+{
+  "phase": "p3a-platform",
+  "started_at": "2026-09-30T20:23:03.394Z",
+  "obs": {
+    "r9": {
+      "status": 200,
+      "external_link_hosts": [
+        "xplanner-plus.sourceforge.net",
+        "sourceforge.net",
+        "localhost:8080"
+      ]
+    },
+    "r17": {
+      "setting_list_no_session": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/login",
+        "ct": null,
+        "bytes": 0
+      }
+    },
+    "r38_hidden_stored": "true",
+    "r55": {
+      "status": 200,
+      "location": null,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 14287,
+      "title": "System Information",
+      "has_version_1_1a4": true,
+      "has_mysql_driver": true,
+      "has_db_url_from_custom_properties": true,
+      "has_masked_password": true,
+      "mentions_memory": true,
+      "mentions_servlet": true
+    },
+    "r56": {
+      "status": 500,
+      "location": null,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 23925,
+      "title": "An error has occurred.",
+      "exception_classes": [
+        "javax.servlet.jsp.JspException",
+        "javax.servlet.ServletException"
+      ],
+      "has_cause": true,
+      "has_stack_trace": true,
+      "has_unknown_error_text": false,
+      "has_support_link": true
+    },
+    "r57": {
+      "status": 500,
+      "location": null,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 3108,
+      "title": "An error has occurred.",
+      "object_not_found_text": false
+    },
+    "r59": {
+      "viewer": {
+        "status": 200,
+        "location": null,
+        "ct": "text/html;charset=UTF-8",
+        "bytes": 5090,
+        "title": "XPlanner Projects",
+        "heading": "Settings XPlanner Projects",
+        "add_setting_link": true
+      },
+      "sysadmin": {
+        "status": 200,
+        "location": null,
+        "ct": "text/html;charset=UTF-8",
+        "bytes": 5092,
+        "title": "XPlanner Projects",
+        "heading": "Settings XPlanner Projects",
+        "add_setting_link": true
+      },
+      "editor": {
+        "status": 404,
+        "location": null,
+        "ct": "text/html;charset=utf-8",
+        "bytes": 775,
+        "title": "HTTP Status 404 – Not Found",
+        "exception_classes": [],
+        "has_cause": false,
+        "has_stack_trace": false,
+        "has_unknown_error_text": false,
+        "has_support_link": false
+      }
+    },
+    "r60_plain": {
+      "status": 404,
+      "location": null,
+      "ct": "text/html;charset=utf-8",
+      "bytes": 762,
+      "title": "HTTP Status 404 – Not Found"
+    },
+    "r61": {
+      "invalidate_cache_sysadmin": {
+        "status": 200,
+        "location": null,
+        "ct": "text/html",
+        "bytes": 0,
+        "title": null
+      },
+      "invalidate_hibernate_cache_no_session": {
+        "status": 200,
+        "location": null,
+        "ct": "text/html",
+        "bytes": 0,
+        "title": null
+      }
+    },
+    "r63": {
+      "status": 200,
+      "location": null,
+      "ct": "text/plain;charset=ISO-8859-1",
+      "bytes": 3,
+      "text_excerpt": "OK"
+    },
+    "r73": {
+      "status": 200,
+      "location": null,
+      "ct": "text/plain",
+      "bytes": 315265,
+      "contains_today": false,
+      "contains_2011": false
+    }
+  },
+  "finished_at": "2026-09-30T20:23:10.548Z"
+}

@@ -1,0 +1,222 @@
+{
+  "started_at": "2026-09-30T19:45:44.296Z",
+  "steps": [
+    {
+      "at": "2026-09-30T19:45:45.232Z",
+      "step": "sign-in",
+      "post_status": 302
+    },
+    {
+      "at": "2026-09-30T19:45:46.204Z",
+      "step": "create-story",
+      "defaults": {
+        "priority": "4",
+        "disposition": "added",
+        "status": "(none selected)"
+      },
+      "customer_options": 5,
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=231"
+    },
+    {
+      "at": "2026-09-30T19:45:46.552Z",
+      "step": "iteration-story-table",
+      "storyOid": 253,
+      "headers": [
+        "Sel.",
+        "Actions",
+        "ID",
+        "Order",
+        "User Story",
+        "!",
+        "Cust.",
+        "Progress",
+        "Act.",
+        "Rem.",
+        "Cur. Est.",
+        "Orig. Est.",
+        "Tasks",
+        "Tracker",
+        "Disp.",
+        "Status"
+      ],
+      "rows": [
+        [
+          "",
+          "",
+          "253",
+          "",
+          "S3-setup Story 1",
+          "4",
+          "",
+          "",
+          "",
+          "0.0",
+          "4.0",
+          "4.0",
+          "0.0",
+          "0",
+          "S3E",
+          "Planned",
+          "Draft"
+        ],
+        [
+          ""
+        ]
+      ],
+      "row_action_imgs": [
+        "edit",
+        "delete",
+        "movecontinue"
+      ]
+    },
+    {
+      "at": "2026-09-30T19:45:46.966Z",
+      "step": "open-story",
+      "status": 200,
+      "title": "XPlanner Story: S3-setup Story 1",
+      "text": "Top S3 Shared S3-setup Iteration 1 S3-setup Story 1 Export History Story: S3-setup Story 1 Story: S3-setup Story 1 [id=253] Synthetic story for the W001 setup chain. Priority: 4 Estimated Hours: 4.0 (0.0) Actual Hours: 0.0 Tracker: <editor.name> Remaining Hours: 4.0 Last Update: Disposition: Planned Status: Draft Edit Delete Move/Continue Create Task No tasks have been defined. Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null",
+      "links": [
+        {
+          "href": "/xplanner-legacy/do/view/history?fkey=253&projectId=220&oid=253&@type=net.sf.xplanner.domain.UserStory",
+          "text": "History"
+        },
+        {
+          "href": "/xplanner-legacy/do/edit/userstory?fkey=231&oid=253&projectId=220",
+          "text": "Edit"
+        },
+        {
+          "href": "/xplanner-legacy/do/delete/userstory?oid=253",
+          "text": "Delete"
+        },
+        {
+          "href": "/xplanner-legacy/do/move/continue/userstory?oid=253",
+          "text": "Move/Continue"
+        },
+        {
+          "href": "/xplanner-legacy/do/edit/task?fkey=253&projectId=220",
+          "text": "Create Task"
+        },
+        {
+          "href": "/xplanner-legacy/do/edit/note?fkey=253&projectId=220&attachedToId=253",
+          "text": "Add Note/Attachment"
+        }
+      ]
+    },
+    {
+      "at": "2026-09-30T19:45:47.325Z",
+      "step": "task-editor",
+      "href": "/xplanner-legacy/do/edit/task?fkey=253&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D253&projectId=220",
+      "status": 200,
+      "title": "XPlanner - Define Task:",
+      "forms": [
+        {
+          "index": 1,
+          "name": "taskEditor",
+          "action": "/xplanner-legacy/do/edit/task",
+          "method": "POST",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "returnto",
+              "value": "/do/view/userstory?oid=253"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "fkey",
+              "value": "253"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "userStoryId",
+              "value": "253"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "id",
+              "value": "0"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "completed",
+              "value": "false"
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "name",
+              "value": ""
+            },
+            {
+              "tag": "select",
+              "name": "type",
+              "options": [
+                "Feature=Feature",
+                "Debt=Debt",
+                "Defect=Defect",
+                "FTest=FTest",
+                "ATest=ATest",
+                "Overhead=Overhead"
+              ]
+            },
+            {
+              "tag": "select",
+              "name": "dispositionName",
+              "options": [
+                "planned=Planned",
+                "discovered*=Discovered",
+                "added=Added",
+                "carriedOver=Carried Over"
+              ]
+            },
+            {
+              "tag": "select",
+              "name": "acceptorId",
+              "options": [
+                "0*=--Unassigned--",
+                "211=<admin.name>",
+                "210=<editor.name>",
+                "212=<sysadmin.name>",
+                "1=[factory-user]"
+              ]
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "estimatedHours",
+              "value": "0.0"
+            },
+            {
+              "tag": "textarea",
+              "name": "description",
+              "value": ""
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "action",
+              "value": "Create"
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "value": "Create"
+            },
+            {
+              "tag": "input",
+              "type": "reset",
+              "value": "Reset"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "storyOid": 253,
+  "finished_at": "2026-09-30T19:45:47.629Z"
+}

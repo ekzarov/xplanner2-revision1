@@ -1,0 +1,81 @@
+[
+  {
+    "at": "2026-09-30T21:02:22.274Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T21:02:22.585Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T21:02:22.909Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=228",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8987
+  },
+  {
+    "at": "2026-09-30T21:02:23.232Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/note?fkey=228&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D228&projectId=228&attachedToId=228",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6547
+  },
+  {
+    "at": "2026-09-30T21:02:23.598Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/note",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 21754
+  },
+  {
+    "at": "2026-09-30T21:02:23.917Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=228",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8987
+  },
+  {
+    "at": "2026-09-30T21:02:24.226Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid[Max-Age=0]",
+      "password[Max-Age=0]",
+      "JSESSIONID"
+    ],
+    "bytes": 4746
+  }
+]

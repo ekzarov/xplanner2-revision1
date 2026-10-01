@@ -1,0 +1,7 @@
+# PM-collected redirect facts (collected 2026-09-30T20:23:12.247Z by PM via pm-redirect-facts-2.js; isolated tunnel-only app; one request each; redirects not followed; session ids withheld; no credential recorded)
+[safe-run: line 2 withheld (credential pattern)]
+settings plain value (no /do)	GET /setting/general/list	404	-
+settings redirect: external target (no /do)	GET /setting/redirect:http://example.invalid/list	404	-
+settings redirect: internal target (no /do)	GET /setting/redirect:/do/view/projects/list	404	-
+settings forward: internal path (no /do)	GET /setting/forward:/do/view/projects/list	404	-
+sign out	GET /do/logout	200	-

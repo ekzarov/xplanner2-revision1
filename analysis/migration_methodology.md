@@ -46,7 +46,7 @@ historical reports are never rewritten as new verification.
 For new artifact filenames, use [Artifact Naming](artifact-naming.md).
 Remove the template marker and fill only declared placeholders; keep the
 remaining filename stem. For example, `walkthrough-NNN-template.md` creates
-`analysis/stages/stage-03/walkthrough-001.md`, and
+[`analysis/stages/stage-03/walkthrough-001.md`](./stages/stage-03/walkthrough-001.md), and
 `delivery-NNN-template.md` creates `analysis/stages/stage-18/delivery-001.md`.
 Existing XPlanner examples retain their recorded names and are not naming
 templates for new projects.

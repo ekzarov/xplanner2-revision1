@@ -1,0 +1,224 @@
+{
+  "phase": "p1-auth",
+  "started_at": "2026-09-30T20:13:57.818Z",
+  "persons": {
+    "member": {
+      "oid": 213,
+      "existed": true,
+      "password_reset": 302
+    },
+    "hide": {
+      "oid": 214,
+      "existed": true
+    },
+    "nopw": {
+      "oid": 215,
+      "existed": true
+    },
+    "del1": {
+      "oid": 216,
+      "existed": true
+    },
+    "del2": {
+      "oid": 217,
+      "existed": true
+    },
+    "del3": {
+      "oid": 218,
+      "existed": true
+    },
+    "sys": {
+      "oid": 219,
+      "existed": true
+    }
+  },
+  "obs": {
+    "r72": {
+      "name_roundtrip": true,
+      "content_type": "text/html;charset=UTF-8"
+    },
+    "r44_empty": {
+      "status": 200,
+      "location": null,
+      "msgs": [
+        "Missing name.",
+        "Missing user Id.",
+        "Missing email.",
+        "Missing initials."
+      ]
+    },
+    "r44_mismatch": {
+      "status": 200,
+      "location": null,
+      "passwords_do_not_match_shown": true,
+      "created": false
+    },
+    "r45": {
+      "status": 500,
+      "location": null,
+      "user_id_exists_shown": false,
+      "title": "An error has occurred."
+    },
+    "r10_query": {
+      "before": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/login"
+      },
+      "after_login": {
+        "status": 302,
+        "location": "http://127.0.0.1:18080/xplanner-legacy/do/view/project?oid=221"
+      }
+    },
+    "r27": {
+      "status": 200,
+      "project_oids": []
+    },
+    "r10_noquery": {
+      "before": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/login"
+      },
+      "after_login": {
+        "status": 302,
+        "location": "http://127.0.0.1:18080/xplanner-legacy/do/view/projects?null"
+      }
+    },
+    "r11": {
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "msgs": null,
+      "header_user": null,
+      "header_has_lower": true,
+      "header_has_upper": false
+    },
+    "r12": {
+      "status": 200,
+      "location": null,
+      "login_form": true,
+      "msgs": {
+        "failed": true,
+        "wrong": true,
+        "notRegistered": false,
+        "notSet": false
+      }
+    },
+    "r13_unknown": {
+      "status": 200,
+      "login_form": true,
+      "msgs": {
+        "failed": true,
+        "wrong": false,
+        "notRegistered": true,
+        "notSet": false
+      }
+    },
+    "r13_nopw": {
+      "status": 200,
+      "login_form": true,
+      "msgs": {
+        "failed": true,
+        "wrong": false,
+        "notRegistered": false,
+        "notSet": true
+      }
+    },
+    "r14_noaction": {
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "login_form": false,
+      "msgs": {
+        "failed": false,
+        "wrong": false,
+        "notRegistered": false,
+        "notSet": false
+      },
+      "then_protected": {
+        "status": 200,
+        "location": null
+      }
+    },
+    "r14_blank": {
+      "status": 200,
+      "login_form": true,
+      "msgs": {
+        "failed": true,
+        "wrong": false,
+        "notRegistered": true,
+        "notSet": false
+      }
+    },
+    "r15": {
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "set_cookies": [
+        {
+          "name": "userid",
+          "attrs": "Max-Age=2147483647; Expires=Mon, 18 Oct 2094 23:28:17 GMT",
+          "value_empty": false
+        },
+        {
+          "name": "password",
+          "attrs": "Max-Age=2147483647; Expires=Mon, 18 Oct 2094 23:28:17 GMT",
+          "value_empty": false
+        }
+      ]
+    },
+    "r16_ok": {
+      "cookies_sent": [
+        "userid",
+        "password"
+      ],
+      "status": 200,
+      "location": null,
+      "title": "XPlanner Project: S3-A Access"
+    },
+    "r47_change": {
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/people"
+    },
+    "r16_fail": {
+      "status": 302,
+      "location": "/xplanner-legacy/do/login",
+      "set_cookies": [
+        {
+          "name": "JSESSIONID",
+          "attrs": "Path=/xplanner-legacy; HttpOnly"
+        },
+        {
+          "name": "userid",
+          "attrs": "Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT"
+        },
+        {
+          "name": "password",
+          "attrs": "Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT"
+        }
+      ]
+    },
+    "r47_old": {
+      "status": 200,
+      "location": null
+    },
+    "r47_new": {
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects"
+    },
+    "r19_remember_logout": {
+      "status": 200,
+      "set_cookies": [
+        {
+          "name": "userid",
+          "attrs": "Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT"
+        },
+        {
+          "name": "password",
+          "attrs": "Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT"
+        },
+        {
+          "name": "JSESSIONID",
+          "attrs": "Path=/xplanner-legacy; HttpOnly"
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-09-30T20:14:13.679Z"
+}

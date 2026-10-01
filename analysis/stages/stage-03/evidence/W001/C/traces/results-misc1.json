@@ -1,0 +1,266 @@
+{
+  "started_at": "2026-09-30T20:23:25.110Z",
+  "r161_page": {
+    "status": 200,
+    "location": null,
+    "content_type": "text/html",
+    "bytes": 0,
+    "title": null
+  },
+  "r161_post": {
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/task?oid=269",
+    "content_type": "text/html",
+    "bytes": 0,
+    "title": null
+  },
+  "r161_task_after": "Estimated Hours: 6.0 (4.0) Created: 2026-09-30 Actual Hours: 0.0 E dit D elete M ove/",
+  "f002_task_history_en": {
+    "status": 200,
+    "h1": [
+      "History: S3-C Task H",
+      "Events"
+    ],
+    "table": {
+      "head": [
+        "Action",
+        "By",
+        "When",
+        "Description"
+      ],
+      "rows": [
+        [
+          "reestimated",
+          "<editor.name>",
+          "Mi Sep 30 20:23:26 UTC",
+          "Estimate changed from 4.0 to 6.0"
+        ]
+      ]
+    }
+  },
+  "r185": {
+    "container_found": true,
+    "links": [
+      "T op -> /xplanner-legacy/do/view/projects",
+      "S3-C Time -> /xplanner-legacy/do/view/project?oid=223",
+      "S3-C Iteration 1 -> /xplanner-legacy/do/view/iteration?oid=232",
+      "S3-C Story 1 -> /xplanner-legacy/do/view/userstory?oid=254",
+      "S3-C Task EN -> /xplanner-legacy/do/view/task?oid=265"
+    ]
+  },
+  "r192": {
+    "normal": {
+      "search_form": true,
+      "footer_switch_width": true,
+      "logout_link": true,
+      "task_title": true,
+      "bytes": 12057
+    },
+    "print_true": {
+      "status": 200,
+      "search_form": false,
+      "footer_switch_width": false,
+      "logout_link": false,
+      "task_title": true,
+      "bytes": 8769
+    }
+  },
+  "r193": {
+    "twitter_links": [
+      "http://twitter.com/home?status=Working on Project: S3-C Time"
+    ],
+    "facebook_links": [
+      "http://www.facebook.com/dialog/feed?app_id=198634833492606&link=http%3a%2f%2flocalhost%3a8080%2fxplanner%2fxplanner-legacy%2fdo%2fview%2fproject%3foid%3d223&pic [...]"
+    ],
+    "linkedin_in_comment": true,
+    "linkedin_outside_comment": false,
+    "fb_like_in_comment": true,
+    "fb_like_outside_comment": false,
+    "followed": false
+  },
+  "r189": {
+    "stored": "Part C story with TWiki markup: *bold text* _italic text_ =fixed text= SthreeCeeTopic story:254 task:265 [[S3-C bracket link]]",
+    "rendered_html": "Part C story with TWiki markup: <strong>bold text</strong> <em>italic text</em> <code>fixed text</code> SthreeCeeTopic<a href='http://localhost:9090/vqw/jsp/Wiki?topic=SthreeCeeTopic&action=action_edit'>?</a> <a href='/xplanner-legacy/do/view/userstory?oid=254'>story: S3-C Story 1</a> <a href='/xplanner-legacy/do/view/task?oid=265'>task: S3-C Task EN</a> [[S3-C bracket link]]",
+    "response_ms_note": "see trace timestamps"
+  },
+  "r190_editor_help_links": [
+    "Formatting Help -> /xplanner/do/view/twikiformat"
+  ],
+  "r190_help_page": {
+    "status": 200,
+    "location": null,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12789,
+    "title": "TextFormattingRules",
+    "text": "TextFormattingRules TWiki-style Text Formatting Working with TWiki-style formatting is as easy as typing in text. You don't need to know HTML, though you can use it if you prefer. TWiki shorthand gives you all the power of HTML with a simple coding system that takes no time to learn. TWiki Editing S [...]"
+  },
+  "r191": {
+    "footer": "<div class=\"page_footer\"> <span><img src=\"/xplanner-legacy/images/wider.png\" class=\"right deleteImg\"> switch width of Xplanner+ page </span> <a href=\"http://xplanner-plus.sourceforge.net/\" target=\"xplanner_home\"> Version 1.1a4 built 04/12/2011 (rev 426) </a> </div> <div class=\"below_page",
+    "global_js": {
+      "status": 200,
+      "bytes": 1045,
+      "first_lines": "if(window.localStorage){\n\tif(window.localStorage.widescreen==\"true\"){$(\".page\").addClass(\"wide\");}\n\t$(document).ready(function(){\n\t\t$(\".page_footer\").click(function(){\n\t\t\t$(\".page\").addClass(\"animated\");\n\t\t\t$(\".page\").toggleClass(\"wide\");\n\t\t\twindow.localStorage.widescreen = (window.localStorage.widescreen==\"true\"?\"false\":\"true\");\n\t\t})\n\t})\n}\n"
+    },
+    "js_execution": "not-run"
+  },
+  "r194": {
+    "project_features": {
+      "status": 500,
+      "location": null,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 27311,
+      "title": "An error has occurred.",
+      "cause": "org.apache.jasper.JasperException: /WEB-INF/jsp/view/projectFeatures.jsp (line: ",
+      "frames": [
+        "org.apache.jasper.JasperException: /WEB-INF/jsp/view/projectFeatures.jsp (line: [61], column: [83]) Attribute value [\"return confirm('Do you want to delete feature \\\\\\\\'\" + StringU [...]",
+        "at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:29)",
+        "at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:265)",
+        "at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:88)",
+        "at org.apache.jasper.compiler.Parser.parseAttributeValue(Parser.java:283)",
+        "at org.apache.jasper.compiler.Parser.parseAttribute(Parser.java:234)"
+      ]
+    },
+    "iteration_features": {
+      "status": 500,
+      "location": null,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 27151,
+      "title": "An error has occurred.",
+      "cause": "org.apache.jasper.JasperException: /WEB-INF/jsp/view/iterationFeatures.jsp (line: ",
+      "frames": [
+        "org.apache.jasper.JasperException: /WEB-INF/jsp/view/iterationFeatures.jsp (line: [57], column: [79]) Attribute value [\"return confirm('Do you want to delete feature \\\\\\\\'\" + Strin [...]",
+        "at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:29)",
+        "at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:265)",
+        "at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:88)",
+        "at org.apache.jasper.compiler.Parser.parseAttributeValue(Parser.java:283)",
+        "at org.apache.jasper.compiler.Parser.parseAttribute(Parser.java:234)"
+      ]
+    },
+    "feature_view": {
+      "status": 500,
+      "location": null,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 22260,
+      "title": "An error has occurred.",
+      "cause": "java.lang.ClassNotFoundException: net.sf.xplanner.domain.Feature ",
+      "frames": [
+        "java.lang.ClassNotFoundException: net.sf.xplanner.domain.Feature",
+        "at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1437)",
+        "at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1246)",
+        "at java.lang.Class.forName0(Native Method)",
+        "at java.lang.Class.forName(Class.java:264)",
+        "at com.technoetic.xplanner.actions.AbstractAction.getObjectType(AbstractAction.java:130)"
+      ]
+    },
+    "feature_edit": {
+      "status": 200,
+      "location": null,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 5943,
+      "title": "XPlanner - Create Feature:"
+    }
+  },
+  "r176": {
+    "listing": {
+      "status": 500,
+      "location": null,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21636,
+      "title": "An error has occurred.",
+      "cause": "java.lang.NullPointerException ",
+      "frames": [
+        "java.lang.NullPointerException",
+        "at com.technoetic.xplanner.actions.FileManagerAction.doExecute(FileManagerAction.java:40)",
+        "at com.technoetic.xplanner.actions.AbstractAction$1.run(AbstractAction.java:82)",
+        "at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate$1.doInTransaction(CheckedExceptionHandlingTransactionTemplate.java:31)",
+        "at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:130)",
+        "at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate.execute(CheckedExceptionHandlingTransactionTemplate.java:28)"
+      ]
+    }
+  },
+  "r162_person_page": {
+    "status": 200,
+    "timesheet_link": "/xplanner-legacy/do/view/timesheet?fkey=209&returnto=%2Fdo%2Fview%2Fperson%3Foid%3D209&oid=209&projectId=0"
+  },
+  "r162_open": {
+    "status": 200,
+    "form_fields": [
+      "hidden:oid=209",
+      "text:startDateString=2026-09-27",
+      "image:setStartDate=Calendar",
+      "text:endDateString=2026-10-03",
+      "image:setEndDate=Calendar",
+      "submit:null=Submit"
+    ],
+    "tables": "Project Iteration User Story Hours Total Hours 0.0 || Sun 27-Sep-26 Mon 28-Sep-26 Tue 29-Sep-26 Wed 30-Sep-26 Thu 1-Oct-26 Fri 2-Oct-26 Sat 3-Oct-26 Total Hours -- -- -- -- -- -- -- 0.0 || Actual Hours by Project ( : 2026-09-27 to 2026-10-03 ) Actual Hours by Iteration ( : 2026-09-27 to 2026-10-03 ) Actual Hours by User Story ( : 2026-09-27 to 2026-10-03 )",
+    "charts": 3
+  },
+  "r162_period": {
+    "status": 200,
+    "fields": [
+      "startDateString",
+      "endDateString"
+    ],
+    "tables": "Project Iteration User Story Hours Total Hours 0.0 || Sun 27-Sep-26 Mon 28-Sep-26 Tue 29-Sep-26 Wed 30-Sep-26 Thu 1-Oct-26 Fri 2-Oct-26 Sat 3-Oct-26 Total Hours -- -- -- -- -- -- -- 0.0 || Actual Hours by Project ( : 2026-09-27 to 2026-10-03 ) Actual Hours by Iteration ( : 2026-09-27 to 2026-10-03 ) Actual Hours by User Story ( : 2026-09-27 to 2026-10-03 )"
+  },
+  "r163": {
+    "status": 200,
+    "message_present": false,
+    "excerpt": ""
+  },
+  "r164": {
+    "status": 200,
+    "title": "XPlanner Timesheet: Person Name:",
+    "shows_editor_name": false,
+    "tables": "Project Iteration User Story Hours Total Hours 0.0 || Sun 27-Sep-26 Mon 28-Sep-26 Tue 29-Sep-26 Wed 30-Sep-26 Thu 1-Oct-26 Fri 2-Oct-26 Sat 3-Oct-26 Total Hours -- -- -- -- -- -- -- 0.0 || Actual Hours by Project ( : 2026-09-27 to 2026-10-03 ) Actual Hours by Iteration ( : 2026-09-27 to 2026-10-03 ) Actual Hours by User Story ( : 2026-09-27 to 2026-10-03 )"
+  },
+  "r165_open": {
+    "status": 200,
+    "tables": "Project Iteration User Story Hours S3 Shared S3-setup Iteration 1 S3-setup Story 1 1.5 S3-C Time S3-C Iteration 1 S3-C Story 1 5.5 S3-D Integrations S3-D Iteration 1 S3-D Story 1 1.0 || Actual Hours by Project ( 2026-09-27 to 2026-10-03 ) Actual Hours by Iteration ( 2026-09-27 to 2026-10-03 ) Actual Hours by User Story ( 2026-09-27 to 2026-10-03 )",
+    "charts": 3
+  },
+  "r165_editor": {
+    "status": 200,
+    "tables": "Project Iteration User Story Hours S3 Shared S3-setup Iteration 1 S3-setup Story 1 1.5 S3-C Time S3-C Iteration 1 S3-C Story 1 5.5 S3-D Integrations S3-D Iteration 1 S3-D Story 1 1.0 || Actual Hours by Project ( 2026-09-27 to 2026-10-03 ) Actual Hours by Iteration ( 2026-09-27 to 2026-10-03 ) Actual Hours by User Story ( 2026-09-27 to 2026-10-03 )",
+    "charts": 3
+  },
+  "r166": {
+    "status": 200,
+    "message_present": false
+  },
+  "r188": {
+    "status": 200,
+    "location": null,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6262,
+    "title": null,
+    "sections": " T op <viewer.name> Name: <viewer.name> No tasks in progress. No planned tasks. No completed tasks. No stories where you are the customer. No stories where you are the tracker. No future tasks. switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null",
+    "header_me_link": [
+      "http://localhost:8080/xplanner/setting/me/status/209?returnto=%2Fdo%2Fview%2Fprojects"
+    ]
+  },
+  "f002_task_history_de": {
+    "status": 200,
+    "h1": [
+      "Historie: S3-C Task H",
+      "Ereignis"
+    ],
+    "table": {
+      "head": [
+        "Action",
+        "By",
+        "When",
+        "Description"
+      ],
+      "rows": [
+        [
+          "reestimated",
+          "<editor.name>",
+          "Mi Sep 30 20:23:26 UTC",
+          "Estimate changed from 4.0 to 6.0"
+        ]
+      ]
+    }
+  },
+  "finished_at": "2026-09-30T20:23:35.678Z"
+}

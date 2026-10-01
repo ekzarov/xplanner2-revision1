@@ -1,0 +1,36 @@
+{
+  "phase": "p9b",
+  "started_at": "2026-09-30T20:38:32.574Z",
+  "finished_at": "2026-09-30T20:38:39.868Z",
+  "trace": "p9-delete-iteration.trace.json",
+  "checks": [
+    {
+      "phase": "p9b",
+      "at": "2026-09-30T20:38:38.797Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 91,
+      "role": "admin",
+      "expected": "An iteration can be deleted after confirmation; the delete link is shown to users with delete permission (not editors); the delete cascades to stories, tasks and time entries; notes and history rows are not deleted.",
+      "source": "analysis/legacy_user_flows.xlsx row 91; setup-C-025",
+      "action": "Created \"S3-B I4 Delete me\" with story S10, task T8 (0.5 h) and a note on S10; read the delete link per role on S3-B Planning; followed it as s3admin; re-read the pages and searched for the note word.",
+      "observed": "Setup: time POST 200, note {\"status\":500,\"shown\":false}; delete link per role {\"viewer\":\"none\",\"editor\":\"none\",\"admin\":\"return confirm('Do you want to delete iteration \\\\'S3-B I4 Delete me\\\\'?')\",\"sysadmin\":\"return confirm('Do you want to delete iteration \\\\'S3-B I4 Delete me\\\\'?')\"}; GET delete 302 /xplanner-legacy/do/view/project?oid=222; afterwards iteration 500, story 500, task 500, listed true; search {\"status\":200,\"hit\":true,\"excerpt\":\"\"}.",
+      "evidence": "p9-delete-iteration.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p9b",
+      "at": "2026-09-30T20:38:39.159Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 91,
+      "role": "viewer",
+      "expected": "Display-level only: DeleteObjectAction performs no server-side check; a direct request succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 91 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested /do/delete/iteration for \"S3-B bad end\" directly.",
+      "observed": "GET delete 302 /xplanner-legacy/do/view/project?oid=222; iteration page afterwards 500.",
+      "evidence": "p9-delete-iteration.trace.json",
+      "verdict": "pending"
+    }
+  ]
+}

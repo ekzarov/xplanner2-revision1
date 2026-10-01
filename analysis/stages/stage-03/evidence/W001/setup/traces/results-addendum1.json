@@ -1,0 +1,108 @@
+{
+  "started_at": "2026-09-30T19:59:25.913Z",
+  "steps": [
+    {
+      "at": "2026-09-30T19:59:26.892Z",
+      "step": "sign-in",
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/projects"
+    },
+    {
+      "at": "2026-09-30T19:59:27.223Z",
+      "step": "create S3-A Access",
+      "skipped": "exists",
+      "id": 221
+    },
+    {
+      "at": "2026-09-30T19:59:27.224Z",
+      "step": "create S3-B Planning",
+      "skipped": "exists",
+      "id": 222
+    },
+    {
+      "at": "2026-09-30T19:59:27.224Z",
+      "step": "create S3-C Time",
+      "skipped": "exists",
+      "id": 223
+    },
+    {
+      "at": "2026-09-30T19:59:27.224Z",
+      "step": "create S3-D Integrations",
+      "skipped": "exists",
+      "id": 224
+    },
+    {
+      "at": "2026-09-30T19:59:28.217Z",
+      "step": "roles viewer",
+      "oid": 209,
+      "before": {
+        "220": "viewer",
+        "221": "none",
+        "222": "none",
+        "223": "none",
+        "224": "none"
+      },
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/people",
+      "after": {
+        "220": "viewer",
+        "221": "viewer",
+        "222": "viewer",
+        "223": "viewer",
+        "224": "viewer"
+      },
+      "sysadmin_checked_after": false
+    },
+    {
+      "at": "2026-09-30T19:59:29.201Z",
+      "step": "roles editor",
+      "oid": 210,
+      "before": {
+        "220": "editor",
+        "221": "none",
+        "222": "none",
+        "223": "none",
+        "224": "none"
+      },
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/people",
+      "after": {
+        "220": "editor",
+        "221": "editor",
+        "222": "editor",
+        "223": "editor",
+        "224": "editor"
+      },
+      "sysadmin_checked_after": false
+    },
+    {
+      "at": "2026-09-30T19:59:30.181Z",
+      "step": "roles admin",
+      "oid": 211,
+      "before": {
+        "220": "admin",
+        "221": "none",
+        "222": "none",
+        "223": "none",
+        "224": "none"
+      },
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/people",
+      "after": {
+        "220": "admin",
+        "221": "admin",
+        "222": "admin",
+        "223": "admin",
+        "224": "admin"
+      },
+      "sysadmin_checked_after": false
+    }
+  ],
+  "projects": {
+    "S3-A Access": 221,
+    "S3-B Planning": 222,
+    "S3-C Time": 223,
+    "S3-D Integrations": 224
+  },
+  "finished_at": "2026-09-30T19:59:30.480Z"
+}

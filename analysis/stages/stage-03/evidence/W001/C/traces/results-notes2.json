@@ -1,0 +1,55 @@
+{
+  "started_at": "2026-09-30T20:27:51.647Z",
+  "steps": [
+    {
+      "step": "r169-add-note-links",
+      "links": {
+        "project": "/xplanner-legacy/do/edit/note?fkey=223&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D223&projectId=223&attachedToId=223",
+        "iteration": "/xplanner-legacy/do/edit/note?fkey=232&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D232&projectId=223&attachedToId=232",
+        "story": "/xplanner-legacy/do/edit/note?fkey=254&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D254&projectId=223&attachedToId=254",
+        "task": "/xplanner-legacy/do/edit/note?fkey=265&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D265&projectId=223&attachedToId=265"
+      }
+    },
+    {
+      "step": "task-notes-editor-view",
+      "notes": [
+        {
+          "text": "Subject: S3-C viewer direct note Author: <viewer.name> Date: Created by a direct request of the viewer account.",
+          "edit_link": "/xplanner-legacy/do/edit/note?fkey=265&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D265&projectId=223&oid=499&attachedToId=265",
+          "delete_link": "/xplanner-legacy/do/delete/note?fkey=265&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D265&projectId=223&oid=499",
+          "delete_onclick": "return confirm('Do you want to delete note S3-C viewer direct note?')",
+          "note_id": 499
+        }
+      ]
+    },
+    {
+      "step": "r173-editor-prefill",
+      "fields": [
+        "id=499",
+        "subject=S3-C viewer direct note",
+        "authorId=210",
+        "body=Created by a direct request of the viewer account.",
+        "action=Update"
+      ]
+    },
+    {
+      "step": "r173-edit-submit",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=265",
+      "messages": []
+    },
+    {
+      "step": "r173-after",
+      "text": "Subject: S3-C viewer direct note (edited by editor) Author: <editor.name> Date: Created by a direct request of the viewer account."
+    },
+    {
+      "step": "r174-delete-link",
+      "link": "/xplanner-legacy/do/delete/note?fkey=265&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D265&projectId=223&oid=499",
+      "onclick": "return confirm('Do you want to delete note S3-C viewer direct note (edited by editor)?')",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=265",
+      "still_listed": true
+    }
+  ],
+  "finished_at": "2026-09-30T20:27:55.613Z"
+}

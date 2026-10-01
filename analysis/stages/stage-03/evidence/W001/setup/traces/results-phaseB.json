@@ -1,0 +1,532 @@
+{
+  "started_at": "2026-09-30T19:42:31.455Z",
+  "accounts": {
+    "viewer": {
+      "login": {
+        "post_status": 302,
+        "post_location": "/xplanner-legacy/do/view/projects",
+        "landing": "/xplanner-legacy/do/view/projects",
+        "landing_title": "XPlanner Projects",
+        "header_user": "user <viewer.userId>",
+        "session_cookie": [
+          "JSESSIONID"
+        ],
+        "remember_cookies_set": false
+      },
+      "projects": {
+        "headers": [
+          "ID",
+          "Project Name",
+          "Iteration"
+        ],
+        "rows": [
+          [
+            "220",
+            "S3 Shared",
+            ""
+          ]
+        ],
+        "links": [
+          {
+            "href": "/xplanner-legacy/do/view/projects",
+            "text": "Top"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/aggregateTimesheet",
+            "text": "Team Timesheet"
+          }
+        ]
+      },
+      "project": {
+        "status": 200,
+        "title": "XPlanner Project: S3 Shared",
+        "text": "Top S3 Shared People Export History Project: S3 Shared Synthetic Stage 3 shared project (created by W001 part S3-setup). switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null",
+        "links": [
+          {
+            "href": "/xplanner-legacy/",
+            "text": ""
+          },
+          {
+            "href": "/xplanner-legacy/do/view/project?oid=220",
+            "text": "S3 Shared"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people?fkey=220&projectId=220",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/history?fkey=220&projectId=220&oid=220&@type=net.sf.xplanner.domain.Project&container=true",
+            "text": "History"
+          }
+        ],
+        "imgs": []
+      },
+      "people": {
+        "status": 200,
+        "add_person": true,
+        "import_people": true,
+        "edit_icons": 1,
+        "people_links": 10
+      },
+      "project_people": {
+        "status": 200,
+        "title": "People",
+        "text": "Top People on project: S3 Shared Actions User Id Name Initials Phone Email <admin.userId> <admin.name> S3A <admin.email> <editor.userId> <editor.name> S3E <editor.email> <sysadmin.userId> <sysadmin.name> S3S <sysadmin.email> <viewer.userId> <viewer.name> S3V <viewer.email> sy",
+        "person_links": 5
+      },
+      "own_person": {
+        "status": 200,
+        "title": "XPlanner Person: <viewer.name>",
+        "links": [
+          {
+            "href": "/xplanner-legacy/do/edit/person?fkey=209&oid=209",
+            "text": "Edit"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people?fkey=209&projectId=0",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/timesheet?fkey=209&oid=209&projectId=0",
+            "text": "Timesheet"
+          }
+        ]
+      },
+      "other_person": {
+        "oid": 210,
+        "status": 200,
+        "edit_link": false
+      },
+      "logout": {
+        "status": 200,
+        "location": "",
+        "final_path": "/xplanner-legacy/do/logout",
+        "final_title": "XPlanner Login",
+        "has_login_form": true,
+        "set_cookie_names": [
+          "userid(cleared)[Max-Age=0]",
+          "password(cleared)[Max-Age=0]",
+          "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+        ]
+      },
+      "after_logout": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/login"
+      }
+    },
+    "editor": {
+      "login": {
+        "post_status": 302,
+        "post_location": "/xplanner-legacy/do/view/projects",
+        "landing": "/xplanner-legacy/do/view/projects",
+        "landing_title": "XPlanner Projects",
+        "header_user": "user <editor.userId>",
+        "session_cookie": [
+          "JSESSIONID"
+        ],
+        "remember_cookies_set": false
+      },
+      "projects": {
+        "headers": [
+          "ID",
+          "Project Name",
+          "Iteration"
+        ],
+        "rows": [
+          [
+            "220",
+            "S3 Shared",
+            ""
+          ]
+        ],
+        "links": [
+          {
+            "href": "/xplanner-legacy/do/view/projects",
+            "text": "Top"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/aggregateTimesheet",
+            "text": "Team Timesheet"
+          }
+        ]
+      },
+      "project": {
+        "status": 200,
+        "title": "XPlanner Project: S3 Shared",
+        "text": "Top S3 Shared People Export History Project: S3 Shared Create Iteration Synthetic Stage 3 shared project (created by W001 part S3-setup). Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null",
+        "links": [
+          {
+            "href": "/xplanner-legacy/",
+            "text": ""
+          },
+          {
+            "href": "/xplanner-legacy/do/view/project?oid=220",
+            "text": "S3 Shared"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people?fkey=220&projectId=220",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/history?fkey=220&projectId=220&oid=220&@type=net.sf.xplanner.domain.Project&container=true",
+            "text": "History"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/iteration?fkey=220&projectId=220",
+            "text": "Create Iteration"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/note?fkey=220&projectId=220&attachedToId=220",
+            "text": "Add Note/Attachment"
+          }
+        ],
+        "imgs": []
+      },
+      "people": {
+        "status": 200,
+        "add_person": true,
+        "import_people": true,
+        "edit_icons": 1,
+        "people_links": 10
+      },
+      "project_people": {
+        "status": 200,
+        "title": "People",
+        "text": "Top People on project: S3 Shared Actions User Id Name Initials Phone Email <admin.userId> <admin.name> S3A <admin.email> <editor.userId> <editor.name> S3E <editor.email> <sysadmin.userId> <sysadmin.name> S3S <sysadmin.email> <viewer.userId> <viewer.name> S3V <viewer.email> sy",
+        "person_links": 5
+      },
+      "own_person": {
+        "status": 200,
+        "title": "XPlanner Person: <editor.name>",
+        "links": [
+          {
+            "href": "/xplanner-legacy/do/edit/person?fkey=210&oid=210",
+            "text": "Edit"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people?fkey=210&projectId=0",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/timesheet?fkey=210&oid=210&projectId=0",
+            "text": "Timesheet"
+          }
+        ]
+      },
+      "other_person": {
+        "oid": 209,
+        "status": 200,
+        "edit_link": false
+      },
+      "logout": {
+        "status": 200,
+        "location": "",
+        "final_path": "/xplanner-legacy/do/logout",
+        "final_title": "XPlanner Login",
+        "has_login_form": true,
+        "set_cookie_names": [
+          "userid(cleared)[Max-Age=0]",
+          "password(cleared)[Max-Age=0]",
+          "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+        ]
+      },
+      "after_logout": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/login"
+      }
+    },
+    "admin": {
+      "login": {
+        "post_status": 302,
+        "post_location": "/xplanner-legacy/do/view/projects",
+        "landing": "/xplanner-legacy/do/view/projects",
+        "landing_title": "XPlanner Projects",
+        "header_user": "user <admin.userId>",
+        "session_cookie": [
+          "JSESSIONID"
+        ],
+        "remember_cookies_set": false
+      },
+      "projects": {
+        "headers": [
+          "Actions",
+          "ID",
+          "Project Name",
+          "Iteration"
+        ],
+        "rows": [
+          [
+            "",
+            "220",
+            "S3 Shared",
+            ""
+          ]
+        ],
+        "links": [
+          {
+            "href": "/xplanner-legacy/do/view/projects",
+            "text": "Top"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/aggregateTimesheet",
+            "text": "Team Timesheet"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/project?oid=220",
+            "text": ""
+          }
+        ]
+      },
+      "project": {
+        "status": 200,
+        "title": "XPlanner Project: S3 Shared",
+        "text": "Top S3 Shared People Export History Project: S3 Shared Edit Create Iteration Synthetic Stage 3 shared project (created by W001 part S3-setup). Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null",
+        "links": [
+          {
+            "href": "/xplanner-legacy/",
+            "text": ""
+          },
+          {
+            "href": "/xplanner-legacy/do/view/project?oid=220",
+            "text": "S3 Shared"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people?fkey=220&projectId=220",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/history?fkey=220&projectId=220&oid=220&@type=net.sf.xplanner.domain.Project&container=true",
+            "text": "History"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/project?fkey=220&oid=220&projectId=220",
+            "text": "Edit"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/iteration?fkey=220&projectId=220",
+            "text": "Create Iteration"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/note?fkey=220&projectId=220&attachedToId=220",
+            "text": "Add Note/Attachment"
+          }
+        ],
+        "imgs": []
+      },
+      "people": {
+        "status": 200,
+        "add_person": true,
+        "import_people": true,
+        "edit_icons": 5,
+        "people_links": 10
+      },
+      "project_people": {
+        "status": 200,
+        "title": "People",
+        "text": "Top People on project: S3 Shared Actions User Id Name Initials Phone Email <admin.userId> <admin.name> S3A <admin.email> <editor.userId> <editor.name> S3E <editor.email> <sysadmin.userId> <sysadmin.name> S3S <sysadmin.email> <viewer.userId> <viewer.name> S3V <viewer.email> sy",
+        "person_links": 5
+      },
+      "own_person": {
+        "status": 200,
+        "title": "XPlanner Person: <admin.name>",
+        "links": [
+          {
+            "href": "/xplanner-legacy/do/edit/person?fkey=211&oid=211",
+            "text": "Edit"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people?fkey=211&projectId=0",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/timesheet?fkey=211&oid=211&projectId=0",
+            "text": "Timesheet"
+          }
+        ]
+      },
+      "other_person": {
+        "oid": 210,
+        "status": 200,
+        "edit_link": true
+      },
+      "logout": {
+        "status": 200,
+        "location": "",
+        "final_path": "/xplanner-legacy/do/logout",
+        "final_title": "XPlanner Login",
+        "has_login_form": true,
+        "set_cookie_names": [
+          "userid(cleared)[Max-Age=0]",
+          "password(cleared)[Max-Age=0]",
+          "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+        ]
+      },
+      "after_logout": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/login"
+      }
+    },
+    "sysadmin": {
+      "login": {
+        "post_status": 302,
+        "post_location": "/xplanner-legacy/do/view/projects",
+        "landing": "/xplanner-legacy/do/view/projects",
+        "landing_title": "XPlanner Projects",
+        "header_user": "user <sysadmin.userId>",
+        "session_cookie": [
+          "JSESSIONID"
+        ],
+        "remember_cookies_set": false
+      },
+      "projects": {
+        "headers": [
+          "Actions",
+          "ID",
+          "Project Name",
+          "Iteration",
+          "Hidden?"
+        ],
+        "rows": [
+          [
+            "",
+            "220",
+            "S3 Shared",
+            "",
+            "N"
+          ]
+        ],
+        "links": [
+          {
+            "href": "/xplanner-legacy/do/view/projects",
+            "text": "Top"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/aggregateTimesheet",
+            "text": "Team Timesheet"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/project?oid=220",
+            "text": ""
+          },
+          {
+            "href": "/xplanner-legacy/do/delete/project?oid=220",
+            "text": ""
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/project",
+            "text": "Add Project"
+          }
+        ]
+      },
+      "project": {
+        "status": 200,
+        "title": "XPlanner Project: S3 Shared",
+        "text": "Top S3 Shared People Export History Project: S3 Shared Edit Delete Create Iteration Synthetic Stage 3 shared project (created by W001 part S3-setup). Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null",
+        "links": [
+          {
+            "href": "/xplanner-legacy/",
+            "text": ""
+          },
+          {
+            "href": "/xplanner-legacy/do/view/project?oid=220",
+            "text": "S3 Shared"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people?fkey=220&projectId=220",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/history?fkey=220&projectId=220&oid=220&@type=net.sf.xplanner.domain.Project&container=true",
+            "text": "History"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/project?fkey=220&oid=220&projectId=220",
+            "text": "Edit"
+          },
+          {
+            "href": "/xplanner-legacy/do/delete/project?oid=220",
+            "text": "Delete"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/iteration?fkey=220&projectId=220",
+            "text": "Create Iteration"
+          },
+          {
+            "href": "/xplanner-legacy/do/edit/note?fkey=220&projectId=220&attachedToId=220",
+            "text": "Add Note/Attachment"
+          }
+        ],
+        "imgs": []
+      },
+      "people": {
+        "status": 200,
+        "add_person": true,
+        "import_people": true,
+        "edit_icons": 5,
+        "people_links": 10
+      },
+      "project_people": {
+        "status": 200,
+        "title": "People",
+        "text": "Top People on project: S3 Shared Actions User Id Name Initials Phone Email <admin.userId> <admin.name> S3A <admin.email> <editor.userId> <editor.name> S3E <editor.email> <sysadmin.userId> <sysadmin.name> S3S <sysadmin.email> <viewer.userId> <viewer.name> S3V <viewer.email> sy",
+        "person_links": 5
+      },
+      "own_person": {
+        "status": 200,
+        "title": "XPlanner Person: <sysadmin.name>",
+        "links": [
+          {
+            "href": "/xplanner-legacy/do/edit/person?fkey=212&oid=212",
+            "text": "Edit"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/people?fkey=212&projectId=0",
+            "text": "People"
+          },
+          {
+            "href": "/xplanner-legacy/do/view/timesheet?fkey=212&oid=212&projectId=0",
+            "text": "Timesheet"
+          }
+        ]
+      },
+      "other_person": {
+        "oid": 210,
+        "status": 200,
+        "edit_link": true
+      },
+      "logout": {
+        "status": 200,
+        "location": "",
+        "final_path": "/xplanner-legacy/do/logout",
+        "final_title": "XPlanner Login",
+        "has_login_form": true,
+        "set_cookie_names": [
+          "userid(cleared)[Max-Age=0]",
+          "password(cleared)[Max-Age=0]",
+          "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+        ]
+      },
+      "after_logout": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/login"
+      }
+    }
+  },
+  "finished_at": "2026-09-30T19:42:44.452Z"
+}

@@ -1,0 +1,131 @@
+[
+  {
+    "at": "2026-09-30T20:58:28.116Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T20:58:28.424Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T20:58:28.764Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10338
+  },
+  {
+    "at": "2026-09-30T20:58:29.071Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/project?returnto=%2Fdo%2Fview%2Fprojects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7071
+  },
+  {
+    "at": "2026-09-30T20:58:29.378Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/search/content",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 4614
+  },
+  {
+    "at": "2026-09-30T20:58:29.701Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10338
+  },
+  {
+    "at": "2026-09-30T20:58:30.034Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=null",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 22079
+  },
+  {
+    "at": "2026-09-30T20:58:30.363Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/iteration?fkey=null&returnto=%2Fdo%2Fview%2Fproject%3Foid%3Dnull&projectId=null",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6681
+  },
+  {
+    "at": "2026-09-30T20:58:30.664Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/search/content",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 4614
+  },
+  {
+    "at": "2026-09-30T20:58:30.989Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=null",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 22078
+  },
+  {
+    "at": "2026-09-30T20:58:31.343Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=null",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 22089
+  },
+  {
+    "at": "2026-09-30T20:58:31.661Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid[Max-Age=0]",
+      "password[Max-Age=0]",
+      "JSESSIONID"
+    ],
+    "bytes": 4746
+  }
+]

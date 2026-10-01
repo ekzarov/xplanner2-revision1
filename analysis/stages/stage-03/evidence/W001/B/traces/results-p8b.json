@@ -1,0 +1,22 @@
+{
+  "phase": "p8b",
+  "started_at": "2026-09-30T20:36:01.107Z",
+  "finished_at": "2026-09-30T20:36:02.495Z",
+  "trace": "p8b-cause.trace.json",
+  "checks": [
+    {
+      "phase": "p8b",
+      "at": "2026-09-30T20:36:02.305Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 115,
+      "role": "editor",
+      "expected": "Diagnostic only: cause of the import HTTP 500.",
+      "source": "analysis/legacy_user_flows.xlsx rows 115-119",
+      "action": "Posted a valid synthetic import twice (served form action; action URL with fkey/projectId) and read a bounded excerpt of the error page.",
+      "observed": "[{\"label\":\"form action as served, valid file\",\"enctype\":\"multipart/form-data\",\"action\":\"/xplanner-legacy/do/import/stories\",\"status\":500,\"location\":\"\",\"cause\":\"Causejava.lang.NullPointerException [hide] Stack Tracejava.lang.NullPointerException at org.hibernate.impl.SessionImpl.get(SessionImpl.java:998) at net.sf.xplanner.dao.impl.CommonDao.getById(CommonDao.java:18) at com.technoetic.xplanner.actions.EditObjectAction.upd\"},{\"label\":\"action URL + fkey/projectId, valid file\",\"enctype\":\"multipart/form-data\",\"action\":\"/xplanner-legacy/do/import/stories?fkey=222&projectId=222&oid=237&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D237\",\"status\":500,\"location\":\"\",\"cause\":\"Causejava.lang.NullPointerException [hide] Stack Tracejava.lang.NullPointerException at org.hibernate.impl.SessionImpl.get(SessionImpl.java:998) at net.sf.xplanner.dao.impl.CommonDao.getById(CommonDao.java:18) at com.technoetic.xplanner.actions.EditObjectAction.upd\"}]",
+      "evidence": "p8b-cause.trace.json",
+      "verdict": "pending"
+    }
+  ]
+}

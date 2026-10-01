@@ -1,0 +1,211 @@
+{
+  "started_at": "2026-09-30T21:01:37.596Z",
+  "login": {
+    "ok": true,
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects"
+  },
+  "task_after_time": [
+    "S3-E time D1 Notes: Add Note/Attachment switch width of Xplanner+ page V"
+  ],
+  "notes": {
+    "iteration": null,
+    "story": null,
+    "task": null
+  },
+  "before": {
+    "timesheet": {
+      "status": 200,
+      "title": "XPlanner Timesheet: Person Name:",
+      "s3e_rows": [
+        "S3-E Private | S3-E Iteration D | S3-E Story D1 | 1.0",
+        "Total Hours | 1.0"
+      ]
+    },
+    "aggregate": {
+      "get_status": 200,
+      "fields": [
+        "selectedPeople(select)",
+        "startDateString(text)",
+        "setStartDate(image)",
+        "endDateString(text)",
+        "setEndDate(image)"
+      ],
+      "people_options": [
+        "211",
+        "210",
+        "212",
+        "209",
+        "288",
+        "217",
+        "213",
+        "215",
+        "219",
+        "1"
+      ],
+      "select_name": "selectedPeople",
+      "status": 200,
+      "s3e_rows": [
+        "S3-E Private | S3-E Iteration D | S3-E Story D1 | 1.0"
+      ],
+      "mentions_s3e": true
+    },
+    "notes": {},
+    "search_note": {
+      "status": 200,
+      "title": "Search Results",
+      "location": "",
+      "rows": []
+    }
+  },
+  "delete_link": {
+    "text": "Delete",
+    "href": "/do/delete/iteration?returnto=%2Fdo%2Fview%2Fprojects&oid=541",
+    "onclick": "return confirm('Do you want to delete iteration \\'S3-E Iteration D\\'?')"
+  },
+  "delete": {
+    "status": 302,
+    "location": "/do/view/projects"
+  },
+  "after": {
+    "iteration": {
+      "status": 500,
+      "location": "",
+      "title": "An error has occurred.",
+      "error": "user <sysadmin.userId> Me Logout Top An error has occurred. An exception occurred Please create an issue following these instructions.In order to expedite the a"
+    },
+    "story": {
+      "status": 500,
+      "location": "",
+      "title": "An error has occurred.",
+      "error": "user <sysadmin.userId> Me Logout Top An error has occurred. No row with Please create an issue following these instructions.In order to expedite the analysis of"
+    },
+    "task": {
+      "status": 500,
+      "location": "",
+      "title": "An error has occurred.",
+      "error": "user <sysadmin.userId> Me Logout Top An error has occurred. javax.el.ELException: Error reading Please create an issue following these instructions.In order to "
+    },
+    "project_lists_iteration": false,
+    "timesheet": {
+      "status": 200,
+      "title": "XPlanner Timesheet: Person Name:",
+      "s3e_rows": [
+        "Total Hours | 0.0"
+      ]
+    },
+    "aggregate": {
+      "get_status": 200,
+      "fields": [
+        "selectedPeople(select)",
+        "startDateString(text)",
+        "setStartDate(image)",
+        "endDateString(text)",
+        "setEndDate(image)"
+      ],
+      "people_options": [
+        "211",
+        "210",
+        "212",
+        "209",
+        "288",
+        "217",
+        "213",
+        "215",
+        "219",
+        "1"
+      ],
+      "select_name": "selectedPeople",
+      "status": 200,
+      "s3e_rows": [],
+      "mentions_s3e": false
+    },
+    "time_editor": {
+      "status": 500,
+      "location": "",
+      "title": "An error has occurred.",
+      "error": "user <sysadmin.userId> Me Logout Top An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug"
+    },
+    "notes": {},
+    "note_id_search": {},
+    "search_note": {
+      "status": 200,
+      "title": "Search Results",
+      "location": "",
+      "rows": []
+    },
+    "search_story": {
+      "status": 200,
+      "title": "Search Results",
+      "location": "",
+      "rows": []
+    }
+  },
+  "log": [
+    {
+      "step": "time D1 1.0h",
+      "editor_status": 200,
+      "status": 302,
+      "location": "/do/view/task?oid=533"
+    },
+    {
+      "step": "note-create iteration 541",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 500,
+      "location": "",
+      "error": "user <sysadmin.userId> Me Logout Top An error has occurred. java.lang.ClassCastException@1e3fbb46 Please create an issue following these instructions.In order to expedite the analysis of your problem, provide the following information:Describe in details your problem and the steps leading to it. Cop"
+    },
+    {
+      "step": "note-create userstory 328",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 500,
+      "location": "",
+      "error": "user <sysadmin.userId> Me Logout Top An error has occurred. java.lang.ClassCastException@760ec9a6 Please create an issue following these instructions.In order to expedite the analysis of your problem, provide the following information:Describe in details your problem and the steps leading to it. Cop"
+    },
+    {
+      "step": "note-create task 533",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 500,
+      "location": "",
+      "error": "user <sysadmin.userId> Me Logout Top An error has occurred. java.lang.ClassCastException@1ce47c6 Please create an issue following these instructions.In order to expedite the analysis of your problem, provide the following information:Describe in details your problem and the steps leading to it. Copy"
+    }
+  ],
+  "logout": {
+    "status": 200,
+    "session_cookie_left": true
+  },
+  "finished_at": "2026-09-30T21:01:48.868Z"
+}

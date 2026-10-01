@@ -1,0 +1,78 @@
+{
+  "phase": "p8",
+  "started_at": "2026-09-30T20:35:35.578Z",
+  "finished_at": "2026-09-30T20:35:41.995Z",
+  "trace": "p8-import.trace.json",
+  "checks": [
+    {
+      "phase": "p8",
+      "at": "2026-09-30T20:35:38.627Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 116,
+      "role": "editor",
+      "expected": "Missing required inputs are rejected before import: messages for missing worksheet name, title, end date or priority header, completed status, or file.",
+      "source": "analysis/legacy_user_flows.xlsx row 116",
+      "action": "Submitted the Import Stories form of S3-B I3 Later (edited) six times, each time leaving one input empty (with a valid synthetic file where a file was needed).",
+      "observed": "[{\"label\":\"no worksheet name\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no title header\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no end date header\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no priority header\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no completed status (only incomplete on)\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no file\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]}]; imported stories afterwards [].",
+      "evidence": "p8-import.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p8",
+      "at": "2026-09-30T20:35:40.343Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 117,
+      "role": "editor",
+      "expected": "Import errors are shown on the import page: \"Could not find worksheet named ...\", \"Could not find a column with ... as the header...\", \"Some stories did not have ... specified.\", \"...appears to be corrupt.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 117",
+      "action": "Submitted the form with worksheet \"NoSuchSheet\"; with title header \"No Such Header\"; with a file whose only row lacks the priority; and with a small text file named .xls.",
+      "observed": "[{\"label\":\"missing worksheet\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"missing header\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"missing required field (no priority)\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"corrupt file (text)\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]}]; imported stories afterwards [].",
+      "evidence": "p8-import.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p8",
+      "at": "2026-09-30T20:35:41.076Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 115,
+      "role": "editor",
+      "expected": "An editor imports stories into an iteration from an Excel worksheet by naming the worksheet and column headers and uploading the file; result \"Imported <n> stories\"; stories created.",
+      "source": "analysis/legacy_user_flows.xlsx row 115",
+      "action": "Uploaded imp-good.xls (worksheet \"S3B Stories\"; 3 rows: IMP1 status D, IMP2 status c, IMP3 with the end date as text) with \"only incomplete\" cleared, as s3editor.",
+      "observed": "POST 500 ; messages [\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]; set-cookie []; stories now []; rows [].",
+      "evidence": "p8-import.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p8",
+      "at": "2026-09-30T20:35:41.656Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 118,
+      "role": "editor",
+      "expected": "With only-incomplete set, rows whose status is \"C\" (ignoring case) are skipped; the completed-status field must be filled in but does not change this value.",
+      "source": "analysis/legacy_user_flows.xlsx row 118",
+      "action": "Uploaded imp-good2.xls (IMP4 status D, IMP5 status C, IMP7 status c) with \"only incomplete\" checked and completed status \"X\".",
+      "observed": "POST 500 ; messages [\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]; set-cookie []; IMP stories now [].",
+      "evidence": "p8-import.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p8",
+      "at": "2026-09-30T20:35:41.830Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 119,
+      "role": "editor",
+      "expected": "After an import the worksheet name, column headers, only-incomplete choice and completed status are saved in browser cookies, and the next import form is pre-filled from them.",
+      "source": "analysis/legacy_user_flows.xlsx row 119",
+      "action": "Re-opened the Import Stories form after the imports and compared the pre-filled values with the last submission; listed the cookie names the client holds (values not recorded).",
+      "observed": "Pre-filled {\"worksheetName\":\"Features\",\"titleColumn\":\"Feature/Story Title\",\"endDateColumn\":\"Iteration End Date\",\"priorityColumn\":\"Priority  (1 thru n)\",\"estimateColumn\":\"Work Unit Estimate\",\"statusColumn\":\"Status\",\"completedStatus\":\"C\",\"onlyIncomplete\":false}; client cookie names besides the session [].",
+      "evidence": "p8-import.trace.json",
+      "verdict": "pending"
+    }
+  ]
+}

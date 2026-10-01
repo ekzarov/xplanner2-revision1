@@ -1,0 +1,93 @@
+{
+  "started_at": "2026-09-30T20:08:58.979Z",
+  "note": "App running since about 09:21Z; no fresh restart was done for this check. Other parts may have rendered a history page before this run; not known.",
+  "steps": [
+    {
+      "at": "2026-09-30T20:09:00.306Z",
+      "session": "editor-de",
+      "accept_language": "de-DE,de;q=0.9",
+      "sign_in": {
+        "ok": true,
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/projects"
+      },
+      "server_date_header": "Wed, 30 Sep 2026 20:09:00 GMT",
+      "iteration_page_history_link": {
+        "text": "H istorie",
+        "href": "/xplanner-legacy/do/view/history?fkey=231&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D231&projectId=220&oid=231&@type=net.sf.xplanner.domain.Iteration"
+      },
+      "history_status": 200,
+      "html_lang": "en",
+      "title": "Historie",
+      "headings": [
+        "Historie: S3-setup Iteration 1",
+        "Ereignis"
+      ],
+      "tables": [
+        {
+          "id": "historyEvents",
+          "cls": "objecttable",
+          "head": [
+            "Action",
+            "By",
+            "When",
+            "Description"
+          ],
+          "rows": [
+            [
+              "started",
+              "<editor.name>",
+              "Mi Sep 30 19:45:16 UTC",
+              ""
+            ]
+          ]
+        }
+      ],
+      "iteration_page_texts": "XPlanner Iteration S3-setup Iteration 1 Benutzer <editor.userId> Ich Abmelden Top S3 Shared S3-setup Iteration 1 Dashboard XML MPX MSPDI PDF JRPDF ', STICKY, CAPTION,'Formate:',WIDTH,120);\" onmouseout=\"return nd();\">Export A l le Tasks Metriken Statistiken G enauigkeit H istorie Iteration S3-setup Iteration 1 (2026-09-30 Zu 2026-10-13) Synthetic iteration for the W001 setup chain. Stunden: Schätzung 4,0, Verbrauchte 1,5, Verbleibend 0,0 B earbeiten Neue User Story Beenden I mport St o ries A l l [...]"
+    },
+    {
+      "at": "2026-09-30T20:09:01.781Z",
+      "session": "editor-en",
+      "accept_language": "en-US,en;q=0.9",
+      "sign_in": {
+        "ok": true,
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/projects"
+      },
+      "server_date_header": "Wed, 30 Sep 2026 20:09:01 GMT",
+      "iteration_page_history_link": {
+        "text": "H istory",
+        "href": "/xplanner-legacy/do/view/history?fkey=231&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D231&projectId=220&oid=231&@type=net.sf.xplanner.domain.Iteration"
+      },
+      "history_status": 200,
+      "html_lang": "en",
+      "title": "History",
+      "headings": [
+        "History: S3-setup Iteration 1",
+        "Events"
+      ],
+      "tables": [
+        {
+          "id": "historyEvents",
+          "cls": "objecttable",
+          "head": [
+            "Action",
+            "By",
+            "When",
+            "Description"
+          ],
+          "rows": [
+            [
+              "started",
+              "<editor.name>",
+              "Mi Sep 30 19:45:16 UTC",
+              ""
+            ]
+          ]
+        }
+      ],
+      "iteration_page_texts": "XPlanner Iteration S3-setup Iteration 1 user <editor.userId> M e Logout T op S3 Shared S3-setup Iteration 1 Dashboard XML MPX MSPDI PDF JRPDF ', STICKY, CAPTION,'Format:',WIDTH,120);\" onmouseout=\"return nd();\">Export A l l Tasks Met r ics Chart s A ccuracy H istory Iteration S3-setup Iteration 1 (2026-09-30 to 2026-10-13) Synthetic iteration for the W001 setup chain. Hours: Estimate 4.0, Actual 1.5, Remaining 0.0 E dit C reate Story Close I mport St o ries A l l Tasks Save order Move Multiple Se [...]"
+    }
+  ],
+  "finished_at": "2026-09-30T20:09:02.068Z"
+}
