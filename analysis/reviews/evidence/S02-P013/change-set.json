@@ -1,0 +1,523 @@
+{
+ "packet": "S02-P013",
+ "generated_by": "reviewer scratch gen.js (read-only)",
+ "from": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+ "to": "6138f37be52504cf6a14f041ef828d46f1bd8944",
+ "command": "git -C <candidate checkout> diff --name-status BASE CAND; diff -U0 BASE CAND -- analysis/legacy_reconnaissance.md; XML cell dump of both workbook checkouts",
+ "totals": {
+  "paths": 248,
+  "by_status": {
+   "M": 11,
+   "A": 237,
+   "D": 0
+  },
+  "by_category": {
+   "process document M": 4,
+   "stage-1 record M": 2,
+   "process document A": 1,
+   "status M": 2,
+   "sealed pass-012 file A": 10,
+   "stage-1 record A": 1,
+   "stage-2 carryover record A": 1,
+   "stage-3 record or evidence A": 222,
+   "tool A": 2,
+   "tool M": 3
+  }
+ },
+ "files": [
+  {
+   "status": "M",
+   "path": "analysis/artifact-naming.md",
+   "category": "process document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/legacy_reconnaissance.md",
+   "category": "stage-1 record"
+  },
+  {
+   "status": "M",
+   "path": "analysis/legacy_user_flows.xlsx",
+   "category": "stage-1 record"
+  },
+  {
+   "status": "A",
+   "path": "analysis/maintenance/process-backlog-2026-10-01.md",
+   "category": "process document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/maintenance/process-departure-2026-09-30-operational-mandate.md",
+   "category": "process document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_methodology.md",
+   "category": "process document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_status.schema.json",
+   "category": "status"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_status.yaml",
+   "category": "status"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P012/access-log.md",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P012/change-set.json",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P012/comparison-results.json",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P012/coverage-reconciliation.json",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P012/incident-assessment.md",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P012/independence-record.md",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P012/packet.json",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P012/pm-incident-verification.json",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P012/pm-report-transcription.json",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/stage-02-pass-012.md",
+   "category": "sealed pass-012 file"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/README.md",
+   "category": "process document"
+  },
+  {
+   "status": "A",
+   "path": "analysis/stages/stage-01/stage-03-walkthrough-001-dispositions.md",
+   "category": "stage-1 record"
+  },
+  {
+   "status": "A",
+   "path": "analysis/stages/stage-02/live-check-carryover-pass-012.md",
+   "category": "stage-2 carryover record"
+  },
+  {
+   "status": "A",
+   "path": "analysis/tools/delegated-authority.js",
+   "category": "tool"
+  },
+  {
+   "status": "A",
+   "path": "analysis/tools/delegated-authority.test.js",
+   "category": "tool"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/review-incidents.js",
+   "category": "tool"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/stage2-live-carryover.js",
+   "category": "tool"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/status-validator.js",
+   "category": "tool"
+  }
+ ],
+ "stage3_files": {
+  "count": 222,
+  "note": "all added; the walkthrough record and the W001 evidence (parts setup, A-F, consolidated, PM facts)"
+ },
+ "reconnaissance": {
+  "hunks": 32,
+  "added": 61,
+  "removed": 41,
+  "by_hunk": [
+   {
+    "base": "37",
+    "cand": "37"
+   },
+   {
+    "base": "39,6",
+    "cand": "39,5"
+   },
+   {
+    "base": "46",
+    "cand": "45"
+   },
+   {
+    "base": "48",
+    "cand": "47"
+   },
+   {
+    "base": "50",
+    "cand": "49"
+   },
+   {
+    "base": "112,4",
+    "cand": "111,4"
+   },
+   {
+    "base": "134",
+    "cand": "133"
+   },
+   {
+    "base": "137",
+    "cand": "136"
+   },
+   {
+    "base": "202",
+    "cand": "201"
+   },
+   {
+    "base": "240",
+    "cand": "239"
+   },
+   {
+    "base": "270",
+    "cand": "269"
+   },
+   {
+    "base": "284",
+    "cand": "283"
+   },
+   {
+    "base": "288",
+    "cand": "287"
+   },
+   {
+    "base": "324,0",
+    "cand": "324"
+   },
+   {
+    "base": "329,7",
+    "cand": "329,7"
+   },
+   {
+    "base": "351,3",
+    "cand": "351,3"
+   },
+   {
+    "base": "356,2",
+    "cand": "356,2"
+   },
+   {
+    "base": "364,2",
+    "cand": "364,2"
+   },
+   {
+    "base": "410",
+    "cand": "410"
+   },
+   {
+    "base": "441",
+    "cand": "441"
+   },
+   {
+    "base": "443,2",
+    "cand": "443,2"
+   },
+   {
+    "base": "446",
+    "cand": "446"
+   },
+   {
+    "base": "458,3",
+    "cand": "458,3"
+   },
+   {
+    "base": "465",
+    "cand": "465"
+   },
+   {
+    "base": "491",
+    "cand": "491"
+   },
+   {
+    "base": "493,0",
+    "cand": "494"
+   },
+   {
+    "base": "601,0",
+    "cand": "603"
+   },
+   {
+    "base": "603",
+    "cand": "605"
+   },
+   {
+    "base": "613",
+    "cand": "615"
+   },
+   {
+    "base": "616",
+    "cand": "618"
+   },
+   {
+    "base": "629",
+    "cand": "631,10"
+   },
+   {
+    "base": "632",
+    "cand": "643"
+   }
+  ]
+ },
+ "workbook": {
+  "changed_cells": 354,
+  "by_column": {
+   "F": 76,
+   "H": 210,
+   "D": 31,
+   "G": 37
+  },
+  "rows_changed": 210,
+  "rows_with_item_edits": 93,
+  "rows_label_only": 117,
+  "status_changes": [
+   {
+    "row": 38,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 40,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 45,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 48,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 52,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 57,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 102,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 115,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 116,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 117,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 118,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 119,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 121,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 124,
+    "before": "Inferred",
+    "after": "Yes"
+   },
+   {
+    "row": 125,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 130,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 134,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 135,
+    "before": "Inferred",
+    "after": "Yes"
+   },
+   {
+    "row": 144,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 145,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 146,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 147,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 169,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 170,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 171,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 172,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 174,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 175,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 197,
+    "before": "Yes",
+    "after": "Partial"
+   },
+   {
+    "row": 198,
+    "before": "Inferred",
+    "after": "Partial"
+   },
+   {
+    "row": 200,
+    "before": "Inferred",
+    "after": "Partial"
+   },
+   {
+    "row": 201,
+    "before": "Inferred",
+    "after": "Partial"
+   },
+   {
+    "row": 202,
+    "before": "Inferred",
+    "after": "Yes"
+   },
+   {
+    "row": 216,
+    "before": "Inferred",
+    "after": "Yes"
+   },
+   {
+    "row": 220,
+    "before": "Inferred",
+    "after": "Partial"
+   },
+   {
+    "row": 221,
+    "before": "Inferred",
+    "after": "Partial"
+   },
+   {
+    "row": 234,
+    "before": "Inferred",
+    "after": "Yes"
+   }
+  ],
+  "status_counts": {
+   "before": {
+    "Yes": 168,
+    "Inferred": 20,
+    "Partial": 21,
+    "No": 1
+   },
+   "after": {
+    "Yes": 146,
+    "Inferred": 10,
+    "Partial": 53,
+    "No": 1
+   }
+  },
+  "package_parts_differing": [
+   "xl/worksheets/sheet1.xml",
+   "xl/sharedStrings.xml"
+  ],
+  "cell_style_differences": 0,
+  "h_prefix_kept": 210
+ },
+ "dispositions_record": {
+  "path": "analysis/stages/stage-01/stage-03-walkthrough-001-dispositions.md",
+  "status": "A",
+  "pm_fix_isolated": "line 69: plain code span `legacy/README.md` turned into a link (reproduces the author-attested section hash 29f41f0d...a955)",
+  "pm_fix_not_isolated": "one further PM formatting fix named by the packet; not isolable from the permitted revisions; the whole CAND record was checked"
+ }
+}

@@ -1,0 +1,15 @@
+{
+  "packet_id": "S02-P013",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-013.md",
+  "producer": "Reviewer subagent a7738da7d84992f93 authored the report and all evidence and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p013/reviewer-scratch/stage-02-pass-013.md",
+  "source_sha256": "73ef74ef7a1a0f306fe0780772a97114ba562f0a91bd4353a7384254edee1ffa",
+  "pm_changes": "Only the literal token CURRENT_SESSION_ID was replaced with a7738da7d84992f93, in the report, in independence-record.md and in incident-assessment.md. No other byte changed.",
+  "final_report_sha256": "d02131d35584a6629117b2519e30095f22c4e52a3d7872a3a32743458c51f2db",
+  "reviewer_disclosures": "D-001..D-008: a direct listing persisted by the client under the user profile (not opened), a symbolic HEAD git show (0 bytes), a here-document, long reads with the client file tool, direct node/grep/sed often without temp variables, one masked shape print of README line 38, node -e edits of own scratch and evidence. Assessed in the companion incident-assessment.md (non-material, all guards verified; decision pending). Packet observations PO-1..PO-3 (mode string mentions recovery; convenience path list incomplete; base rests on delegated decisions).",
+  "pm_acknowledgement": "F-007 concerns PM edits after authoring (a link in the PM section and code spans around 9 date patterns) that the record does not disclose; PM will add a disclosure note in the next correction.",
+  "recorded_at": "2026-10-01T02:10:48Z",
+  "reviewer_revision": "After RESULT the reviewer made one formatting-only link fix (config/ made clickable, line 189) at PM request; first scratch copy 5acf2a584fdc80a2ee99ee9d6f52c849c8f3a9b6a6a4e0dd72bdb2201c7f1e01. The incident companion incident-assessment.md was added; PM replaced only its CURRENT_SESSION_ID token (source copy SHA-256 6cefea2e4ece2b3f08b95df8351f46af7f617c974c046e2c1e66b5dd809cc891). Later the reviewer made formatting-only link fixes in access-log.md (5fd25bd4…) and incident-assessment.md (c76e94b3…, with the PM-replaced id line kept).",
+  "updated_at": "2026-10-01T02:13:31Z"
+}
