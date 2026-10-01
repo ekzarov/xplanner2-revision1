@@ -34,7 +34,7 @@ control:
   current_stage: stage-02
   stage_status: awaiting_owner
   previous_stage: stage-01
-  next_action: 'Decision (Codex under the delegated mandate, or the owner) on pass 013 findings F-001..F-007 (all low): a bounded Stage 1 correction (F-007 by PM) followed by a fresh correction-validation (root 006, previous and base 013), or a low-only live-check carryover under stage-02-live-carryover (findings stay findings). The pass-013 incident assessment (D-001..D-008) is being prepared. No new round starts without that decision.'
+  next_action: 'Exact delegated decision (Codex) on the pass-013 low-only carryover record analysis/stages/stage-02/live-check-carryover-pass-013.md (F-001..F-007 as accepted bounded documentation risks; findings stay findings); then Stage 3 re-entry. No pass 014, no map correction and no live requests are authorized; Stage 3 completion, any waiver and Stage 4 product choices stay with the owner.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -533,6 +533,17 @@ review_passes:
     previous_pass: 12
     coverage_record: 'analysis/reviews/evidence/S02-P013/coverage-reconciliation.json'
     findings_severity_max: low
+    incident_assessment:
+      record: 'analysis/reviews/evidence/S02-P013/incident-assessment.md'
+      report_sha256: 'd02131d35584a6629117b2519e30095f22c4e52a3d7872a3a32743458c51f2db'
+      classification: non-material
+      guards:
+        independence: verified
+        source_scope: verified
+        evidence_integrity: verified
+        permitted_support: verified
+        disclosure: verified
+      owner_decision_id: 'stage-02-pass-013-incident-approval:xplanner2-revision1'
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -720,6 +731,16 @@ owner_decisions:
     residual_risk: 'The reconnaissance keeps the inaccurate method, string and script-output counts (F-001, F-002) until a later correction; F-003 stays a static finding until the live check runs and is then known only for the tested locales; the carried items are not re-verified by another Stage 2 pass; the carryover was decided by a delegated operator.'
     delegated_authority:
       authority_decision_id: 'operational-mandate-expansion-until-stage-04:xplanner2-revision1'
+  - id: 'stage-02-pass-013-incident-approval:xplanner2-revision1'
+    decision: approved
+    decided_by: 'Codex'
+    decided_at: '2026-10-01T02:16:00Z'
+    scope: 'review-incident:["stage-02",13,"a7738da7d84992f93","analysis/reviews/stage-02-pass-013.md","d02131d35584a6629117b2519e30095f22c4e52a3d7872a3a32743458c51f2db","Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved."]'
+    rationale: 'Delegated decision by Codex under operational-mandate-expansion-until-stage-04, not a personal owner approval (PR #38 comment 5923385417, posted 2026-10-01T02:16:21Z from the account ekzarov). Codex read the pass-013 incident assessment (companion SHA-256 c76e94b3c802d8a580a74fef6c9f568f1350036571783c4a0da6d535514fb65c) and pm-incident-verification.json at HEAD dcbc422, checked the report and companion hashes, and accepts the non-material disposition of D-001..D-008. All seven findings remain findings. This approves incident usability only: not clean, not Stage 3 completion, not a waiver, not Stage 4 product choices, not a new control pass.'
+    record: 'analysis/reviews/evidence/S02-P013/incident-assessment.md'
+    residual_risk: 'The client keeps a listing spill (about 32 KB of names, paths and sizes of committed files) and the session transcript with unknown retention; at most one small temp file of the reviewer own script; direct-call timestamps are bracketed only. Prevention: listings and long reads through the runner; scratch scripts via the runner instead of node -e; temp variables exported at the start of every command; literal pinned revisions only.'
+    delegated_authority:
+      authority_decision_id: 'operational-mandate-expansion-until-stage-04:xplanner2-revision1'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -752,7 +773,7 @@ delivery:
 progress:
   summary: 'Stage 2 pass 013 (correction-validation of the W001 map corrections): findings F-001..F-007, all low; coverage 748 = 429 rechecked + 319 retained + 0 uncovered.'
   completed_percent: 5
-  updated_at: '2026-10-01T02:10:48Z'
+  updated_at: '2026-10-01T02:19:07Z'
   agent_reviews:
     total: 13
     valid: 11
