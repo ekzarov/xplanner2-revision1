@@ -1,0 +1,1847 @@
+{
+ "packet": "S02-P013",
+ "pass": 13,
+ "control_mode": "correction-validation",
+ "reviewed_revision": "6138f37be52504cf6a14f041ef828d46f1bd8944",
+ "base_revision": "2c176d4fa6a610b4b18acaaca3cb7e7ece4d1941",
+ "root_revision": "15cb6b26946f73596177eba8cead333383d9f728",
+ "root_pass": 6,
+ "previous_pass": 12,
+ "coverage_base_pass": 12,
+ "excluded_passes": [],
+ "counts": {
+  "total": 174,
+  "matched": 157,
+  "mismatch": 15,
+  "not-checked": 0,
+  "not-applicable": 2
+ },
+ "findings": [
+  "F-001",
+  "F-002",
+  "F-003",
+  "F-004",
+  "F-005",
+  "F-006",
+  "F-007"
+ ],
+ "exclusions": [
+  "E-001",
+  "E-002"
+ ],
+ "blockers": [],
+ "items": [
+  {
+   "item": "Packet integrity, runner and every pin",
+   "expected": "packet SHA-256 3e30435a...5fde; runner 6ac6a4a7...718d, config 3dfb26eb...7cf7, self-test passes; every packet pin equal at CAND in the candidate checkout and the main tree; legacy hashes equal at ROOT, BASE, CAND",
+   "observed": "packet, runner and config hashes match; self-test OK (30 cases); 30 pin comparisons: 25 record/provenance pins equal in both trees, the runner pin equal in the main tree (it is not part of the checkout), the 4 legacy files equal in the three checkouts (demo-seed.sql by LF-normalised checkout bytes: the checkout has CRLF and hashes 2d32f7d5...387e, which is the value the reconnaissance records)",
+   "result": "matched",
+   "evidence": "pins.js, pins-result.json (reviewer scratch)",
+   "link": "none",
+   "covers": [
+    "P10:C-045"
+   ],
+   "id": "C-001"
+  },
+  {
+   "item": "Root pass 006 eligibility",
+   "expected": "full-blind pass with Phase A saved before Phase B; complete ledger; pinned report, ledger and checkpoint hashes",
+   "observed": "report ee71a38f...cff67, ledger a205b9b5...702c, snapshot c8d4f780...74d9 and inventory 8f734d0d...4cbe match the packet; snapshot saved 2026-09-25T13:23:33Z, Phase B released 13:25:05Z, first access 13:25:49Z; ledger 539 = 519 matched + 17 mismatch + 3 not-applicable",
+   "result": "matched",
+   "evidence": "stage-02-pass-006.md lines 152, 177, 183; S02-P006/comparison-results.json counts",
+   "link": "none",
+   "covers": [
+    "P9:C-002"
+   ],
+   "id": "C-002"
+  },
+  {
+   "item": "Coverage base and previous pass 012 usability",
+   "expected": "pass 012 is a valid findings correction-validation under root 006 with complete coverage, a supported non-material incident assessment and an approval within the delegation bounds",
+   "observed": "report 389f18db...53fe, ledger 246309875...cefcd50e (41 = 27/12/0/2), coverage 5a4f7799...a084159 (602 = 76 + 526 + 0, integrity 0/0/0); status entry: control_mode correction-validation, baseline_pass 6, previous_pass 11, recovery from 10 with excluded 11; incident companion 543b0e0e...03e7 (D-1..D-10, five guards verified); I read it and agree that no deviation gave forbidden context or supports a finding. Approval stage-02-pass-012-incident-approval is decided_by Codex under operational-mandate-expansion-until-stage-04 (decided by ekzarov, delegate Codex, ends at stage-04); the decision is at the delegation time, before any Stage 4 transition, not a waiver, and names itself not a personal owner approval. Pass 012 itself is findings, not clean",
+   "result": "matched",
+   "evidence": "migration_status.yaml lines 481-518, 675-705; S02-P012/incident-assessment.md; process-departure-2026-09-30-operational-mandate.md (Attribution)",
+   "link": "none",
+   "covers": [],
+   "id": "C-003"
+  },
+  {
+   "item": "Chain completeness for an ordinary correction-validation",
+   "expected": "no Stage 2 attempt after pass 012; previous pass = coverage base 012; no excluded pass; this pass after the latest Stage 2 entry",
+   "observed": "review ledger ends at pass 12; transitions after it: 2->3 (19:23:16Z), 3->1 (2026-10-01T00:30:25Z), 1->2 (01:26:03Z); this pass began 01:27:48Z; passes 008 and 011 stay invalid and are not used; eligible retention reports 006, 007, 009, 010, 012",
+   "result": "matched",
+   "evidence": "migration_status.yaml lines 218-294, 295-518",
+   "link": "none",
+   "covers": [
+    "P10:C-002",
+    "P10:C-003"
+   ],
+   "id": "C-004"
+  },
+  {
+   "item": "Same legacy source set and governed scope",
+   "expected": "legacy/ identical ROOT, BASE, CAND; nothing under sources/, the constitution or config/ changed BASE..CAND; no row added, removed or renumbered; no new channel or subsystem",
+   "observed": "git diff ROOT..CAND -- legacy is empty; BASE..CAND -- legacy sources .specify config is empty; workbook keeps 3276 cell references and 210 business rows (rows 7-234); the W001 channels (web UI, SOAP, REST, iCal, WAP, jobs, mail) are all mapped rows; A4 was in force at BASE",
+   "result": "matched",
+   "evidence": "git diff --name-status (runner); dispcheck-result.json",
+   "link": "none",
+   "covers": [
+    "P9:C-004",
+    "P10:C-005",
+    "P10:C-006",
+    "P10:C-020"
+   ],
+   "id": "C-005"
+  },
+  {
+   "item": "Complete change set BASE..CAND regenerated",
+   "expected": "every added, changed or deleted path identified and classified",
+   "observed": "248 paths (11 M, 237 A, 0 D): Stage 1 records 3 (reconnaissance M, workbook M, new dispositions record); Stage 3 W001 record and evidence 222 A; carryover record 1 A; sealed pass-012 files 10 A; status and schema 2 M; tools 2 A + 3 M; process documents 1 A + 4 M",
+   "result": "matched",
+   "evidence": "change-set.json; names-base-cand.txt (scratch)",
+   "link": "none",
+   "covers": [
+    "P7:C-065"
+   ],
+   "id": "C-006"
+  },
+  {
+   "item": "Governing and process files changed BASE..CAND",
+   "expected": "no change to the rules this pass applies, or the change is accounted for",
+   "observed": "reviews/README.md, agent_orchestration.md, the template, the checklist, SKILL.md (blob 560391d6), agent-roles.md, MIGRATION.md and AGENTS.md unchanged; artifact-naming.md, migration_methodology.md and stages/README.md only turn one example path into a link; the mandate record adds the 2026-09-30T19:16:33Z expansion and its attribution rule; process-backlog-2026-10-01.md states it changes nothing; the tools add the delegated-authority hook",
+   "result": "matched",
+   "evidence": "proc.diff (scratch)",
+   "link": "none",
+   "covers": [],
+   "id": "C-007"
+  },
+  {
+   "item": "PM formatting-only fixes in the dispositions record",
+   "expected": "PM changes after the author are formatting only and disclosed",
+   "observed": "reverting exactly one link (`legacy/README.md` on line 69 of the PM section) reproduces the author-attested section hash 29f41f0d...a955 (4398 characters); the other PM fix cannot be isolated from the permitted revisions; the whole CAND record was checked as reviewed content (C-153..C-156). The record does not disclose the PM edit, and its attestation of the unchanged section no longer matches the CAND bytes (4428 characters, 4b2f9f55...6aaa)",
+   "result": "mismatch",
+   "evidence": "pmfix.js, pmfix2.js (scratch)",
+   "link": "F-007",
+   "covers": [],
+   "id": "C-008"
+  },
+  {
+   "item": "Stage 3 inputs the correction rests on",
+   "expected": "pins match; 88 items, 54 findings, 27 live questions, 436 checks; every cited check exists",
+   "observed": "walkthrough, map-corrections.md and rows.json pins match; 436 unique checks indexed without duplicates (375 live, 36 not-run, 25 PM or lead live facts); all 148 cited IDs exist; the 54 a/b items map one-to-one to W001-F-01..54 (4 high, 20 medium, 30 low); 27 live questions; residual classes (a) 17, (c) 6, (d) 5, (e) 19",
+   "result": "matched",
+   "evidence": "index.js, checks-index.json (scratch)",
+   "link": "none",
+   "covers": [],
+   "id": "C-009"
+  },
+  {
+   "item": "Live-check carryover of pass 012 and its delegated decision",
+   "expected": "F-003 carried into a concrete live check; F-001 and F-002 accepted residual risks; findings stay findings",
+   "observed": "record 7f045198...e3307 states exactly this; decision stage-02-live-carryover-pass-012 by Codex under the delegation; W001 answered F-003 live (C-C-003, E-C-033, MC-A-16); F-001 and F-002 were not corrected by BA-001-13",
+   "result": "matched",
+   "evidence": "live-check-carryover-pass-012.md; migration_status.yaml lines 696-705",
+   "link": "none",
+   "covers": [],
+   "id": "C-010"
+  },
+  {
+   "item": "Complete workbook cell diff and structure",
+   "expected": "only D, F, G, H cells change; no row added, removed or renumbered; every H keeps its before text as prefix; no style or package change outside the cells",
+   "observed": "354 cells in 210 rows: 31 D, 76 F, 37 G, 210 H; columns A-C, E and I-N unchanged; 210 of 210 H cells keep the before text as a full prefix; 3276 cell references in both; 0 style-attribute differences; row attributes and the sheet outside sheetData identical; of 16 package parts only sheet1.xml and sharedStrings.xml differ; 93 rows carry item edits, 117 only the runtime label",
+   "result": "matched",
+   "evidence": "wbdiff.js, wbstat.js, dispcheck.js (scratch)",
+   "link": "none",
+   "covers": [
+    "P10:C-009",
+    "P10:C-014",
+    "P10:C-035"
+   ],
+   "id": "C-011"
+  },
+  {
+   "item": "Runtime label in all 210 rows (MC-C-01)",
+   "expected": "each H ends with the label naming the walkthrough, the rows.json verdict, the row's check IDs and its open (d)/(e) residual items, with the candidate-outside-the-core mark only on rows 61, 62, 63, 112",
+   "observed": "210 of 210 labels: verdict and check IDs equal rows.json; the R-IDs equal the walkthrough residual table rows for (d) and (e); candidate marks exactly on 61, 62, 63, 112",
+   "result": "matched",
+   "evidence": "index.js, residual label check (scratch)",
+   "link": "none",
+   "covers": [],
+   "id": "C-012"
+  },
+  {
+   "item": "MC-A-01 (correction): rows 8",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F8 and the H note; every applied sentence restates setup-C-013; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-013 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-013"
+  },
+  {
+   "item": "MC-A-02 (correction): rows 8; Runnable Surfaces, bullet \"Request-driven lookup on public pages\" (GAP-007)",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F8 and the H note and the reconnaissance section; every applied sentence restates L-C-001; no extension beyond them",
+   "result": "matched",
+   "evidence": "L-C-001 (live (PM-collected fact, recorded by lead), finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-014"
+  },
+  {
+   "item": "MC-A-03 (correction): rows 18",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "F18/H18 state the observed condition and leave the counting rule open as not re-read (A-C-018, setup-C-035). Status consistency of G18 is checked in the status-rule check.",
+   "result": "matched",
+   "evidence": "A-C-018 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-015"
+  },
+  {
+   "item": "MC-A-04 (correction): rows 24, 43, 50",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D24, F24, F50 and the H note; every applied sentence restates setup-C-021, setup-C-022, setup-C-023; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-021 (live, finding); setup-C-022 (live, finding); setup-C-023 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-016"
+  },
+  {
+   "item": "MC-A-05 (correction): rows 33",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F33 and the H note; every applied sentence restates setup-C-006; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-006 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-017"
+  },
+  {
+   "item": "MC-A-06 (correction): rows 35",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D35, F35 and the H note; every applied sentence restates A-C-040; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-040 (live, blocked)",
+   "link": "none",
+   "covers": [],
+   "id": "C-018"
+  },
+  {
+   "item": "MC-A-07 (correction): rows 38, 48",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F38, G38, F48, G48 and the H note; every applied sentence restates A-C-042, A-C-050; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-042 (live, finding); A-C-050 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-019"
+  },
+  {
+   "item": "MC-A-08 (correction): rows 39",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F39 and the H note; every applied sentence restates setup-C-030; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-030 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-020"
+  },
+  {
+   "item": "MC-A-09 (correction): rows 40, 162",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "D40/F40 state the observed condition only (a person who tracks a story and accepts a completed task with a time entry; setup-C-032), F162/H162 the unavailable entry point (setup-C-058; C-C-022, C-C-024); H41 the dependency. G162 consistency is checked in the status-rule check.",
+   "result": "matched",
+   "evidence": "setup-C-032 (live, finding); setup-C-058 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-021"
+  },
+  {
+   "item": "MC-A-10 (correction): rows 45",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F45, G45 and the H note; every applied sentence restates A-C-047; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-047 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-022"
+  },
+  {
+   "item": "MC-A-11 (correction): rows 50, 51",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F50, F51 and the H note; every applied sentence restates A-C-056, A-C-057; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-056 (live, finding); A-C-057 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-023"
+  },
+  {
+   "item": "MC-A-12 (correction): rows 52",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F52, G52 and the H note; every applied sentence restates A-C-058; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-058 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-024"
+  },
+  {
+   "item": "MC-A-13 (correction): rows 57",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F57, G57 and the H note; every applied sentence restates A-C-062; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-062 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-025"
+  },
+  {
+   "item": "MC-A-14 (correction): rows 59",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D59, F59 and the H note; every applied sentence restates A-C-065; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-065 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-026"
+  },
+  {
+   "item": "MC-A-15 (correction): rows 69, 71",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D69, F69, D71, F71 and the H note; every applied sentence restates E-C-028, E-C-030; no extension beyond them",
+   "result": "matched",
+   "evidence": "E-C-028 (live, finding); E-C-030 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-027"
+  },
+  {
+   "item": "MC-A-16 (correction): rows 70, 149, 152; Owner Decisions And Open Questions, Q3 facts (time-editor sentence of the request-keyed cache fact)",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "D70/F70/F149/H149/F152/H152 and the Q3 time-editor sentence state the es behavior of C-C-003 and E-C-033 with fr, it and pt_br unobserved. G149/G152 consistency is checked in the status-rule check; the Q3 task-editor clause is the pass-012 F-003 remainder.",
+   "result": "matched",
+   "evidence": "C-C-003 (live, finding); E-C-033 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-028"
+  },
+  {
+   "item": "MC-A-17 (correction): rows 83",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D83, F83 and the H note; every applied sentence restates B-C-013, B-C-014, B-C-015; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-013 (live, finding); B-C-014 (live, finding); B-C-015 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-029"
+  },
+  {
+   "item": "MC-A-18 (correction): rows 84",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F84 and the H note; every applied sentence restates setup-C-037, B-C-016; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-037 (live, finding); B-C-016 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-030"
+  },
+  {
+   "item": "MC-A-19 (correction): rows 89",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D89, F89 and the H note; every applied sentence restates B-C-023, B-C-024; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-023 (live, finding); B-C-024 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-031"
+  },
+  {
+   "item": "MC-A-20 (correction): rows 101, 102",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F101, D102, F102, G102 and the H note; every applied sentence restates B-C-044, B-C-045; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-044 (live, finding); B-C-045 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-032"
+  },
+  {
+   "item": "MC-A-21 (correction): rows 102, 130",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "source claim kept and the HTTP 500 recorded (B-C-046, B-C-078, B-C-098); the item's \"G stays source-based\" is not applied and the record says why (R-G2, as for rows 115 and 172).",
+   "result": "matched",
+   "evidence": "B-C-046 (live, finding); B-C-078 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-033"
+  },
+  {
+   "item": "MC-A-22 (correction): rows 106",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D106, F106 and the H note; every applied sentence restates B-C-050; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-050 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-034"
+  },
+  {
+   "item": "MC-A-23 (correction): rows 115, 116, 117, 118, 119",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F115, G115, F116, G116, F117, G117, F118, G118, F119, G119 and the H note; every applied sentence restates B-C-059, B-C-060, B-C-061, B-C-062, B-C-063, B-C-064; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-059 (live, finding); B-C-060 (live, finding); B-C-061 (live, finding); B-C-062 (live, finding); B-C-063 (live, finding); B-C-064 (live, blocked)",
+   "link": "none",
+   "covers": [],
+   "id": "C-035"
+  },
+  {
+   "item": "MC-A-24 (correction): rows 121, 125",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D121, F121, G121, D125, F125, G125 and the H note; every applied sentence restates setup-C-042, setup-C-047, B-C-065, B-C-072; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-042 (live, finding); setup-C-047 (live, finding); B-C-065 (live, finding); B-C-072 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-036"
+  },
+  {
+   "item": "MC-A-25 (correction): rows 124",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D124, F124, G124 and the H note; every applied sentence restates B-C-069, B-C-070; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-069 (live, finding); B-C-070 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-037"
+  },
+  {
+   "item": "MC-A-26 (correction): rows 134",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D134, F134, G134 and the H note; every applied sentence restates setup-C-049, B-C-081; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-049 (live, finding); B-C-081 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-038"
+  },
+  {
+   "item": "MC-A-27 (correction): rows 137",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D137, F137 and the H note; every applied sentence restates B-C-085; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-085 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-039"
+  },
+  {
+   "item": "MC-A-28 (correction): rows 140, 141",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F140, F141 and the H note; every applied sentence restates setup-C-053, setup-C-054, B-C-090, B-C-092; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-053 (live, finding); setup-C-054 (live, finding); B-C-090 (live, finding); B-C-092 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-040"
+  },
+  {
+   "item": "MC-A-29 (correction): rows 144, 145, 146, 147, 187",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D144, F144, G144, F145, G145, F146, G146, F147, G147, D187, F187 and the H note; every applied sentence restates B-C-097, B-C-098, B-C-100, B-C-101, B-C-102, C-C-050; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-097 (live, finding); B-C-098 (live, finding); B-C-100 (live, finding); B-C-101 (live, finding); B-C-102 (live, finding); C-C-050 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-041"
+  },
+  {
+   "item": "MC-A-30 (correction): rows 151",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "F151 states (W001) that the remaining hours are recalculated when \"the start, end or duration of an entry changes or an entry is deleted\". E-C-034 typed durations only; the start, end and delete triggers come from part E reading editTimeEntries.js (E-F-02), not from a live action. The 0 display, the red label and the estimate update (E-C-035) are observed.",
+   "result": "mismatch",
+   "evidence": "E-C-034 (live, finding)",
+   "link": "F-002",
+   "covers": [],
+   "id": "C-042"
+  },
+  {
+   "item": "MC-A-31 (correction): rows 161",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D161, F161 and the H note; every applied sentence restates C-C-021; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-021 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-043"
+  },
+  {
+   "item": "MC-A-32 (correction): rows 163, 166",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F163, F166 and the H note; every applied sentence restates C-C-023, C-C-026; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-023 (live, finding); C-C-026 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-044"
+  },
+  {
+   "item": "MC-A-33 (correction): rows 169, 170, 171, 172, 175",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "rows 169-175 record that no attachment can be stored (C-C-030, C-C-034) with the runtime caveat; C-C-033 and C-C-037 are stated as not executed.",
+   "result": "matched",
+   "evidence": "C-C-030 (live, finding); C-C-032 (live, blocked); C-C-033 (not-run, blocked); C-C-034 (live, finding); C-C-037 (not-run, blocked)",
+   "link": "none",
+   "covers": [],
+   "id": "C-045"
+  },
+  {
+   "item": "MC-A-34 (correction): rows 170",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F170, G170 and the H note; every applied sentence restates C-C-031; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-031 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-046"
+  },
+  {
+   "item": "MC-A-35 (correction): rows 174",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D174, F174, G174 and the H note; every applied sentence restates C-C-036; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-036 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-047"
+  },
+  {
+   "item": "MC-A-36 (correction): rows 181",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F181 and the H note; every applied sentence restates C-C-043; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-043 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-048"
+  },
+  {
+   "item": "MC-A-37 (correction): rows 196; Known Gaps GAP-004",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F196 and the H note and the reconnaissance section; every applied sentence restates D-C-002, D-C-003, D-C-004, D-C-005; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-002 (live, finding); D-C-003 (live, finding); D-C-004 (live, finding); D-C-005 (live, blocked)",
+   "link": "none",
+   "covers": [],
+   "id": "C-049"
+  },
+  {
+   "item": "MC-A-38 (correction): rows 197",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F197, G197 and the H note; every applied sentence restates D-C-006, D-C-007; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-006 (live, finding); D-C-007 (live, blocked)",
+   "link": "none",
+   "covers": [],
+   "id": "C-050"
+  },
+  {
+   "item": "MC-A-39 (correction): rows 198",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D198, F198, G198 and the H note; every applied sentence restates D-C-009, D-C-010; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-009 (live (adapted environment: static email.css), finding); D-C-010 (live (adapted environment: static email.css), blocked)",
+   "link": "none",
+   "covers": [],
+   "id": "C-051"
+  },
+  {
+   "item": "MC-A-40 (correction): rows 200, 201",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D200, F200, G200, D201, F201, G201 and the H note; every applied sentence restates L-C-006, L-C-007; no extension beyond them",
+   "result": "matched",
+   "evidence": "L-C-006 (live (PM read-only log and Mailpit fact; adapted environment: static email.css), finding); L-C-007 (live (PM read-only log and Mailpit fact; adapted environment: static email.css), finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-052"
+  },
+  {
+   "item": "MC-A-41 (correction): rows 208",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F208 and the H note; every applied sentence restates D-C-022; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-022 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-053"
+  },
+  {
+   "item": "MC-A-42 (correction): rows 216, 218",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "F216 says \"the attribute operations run anonymously\" and D218 \"so any caller can use them, including unauthenticated calls through /servlet/AxisServlet\". D-C-036 sent getProjects, getProject, getAttribute and setAttribute anonymously: only setAttribute succeeded (getAttribute faults for every caller, D-C-044); getAttributes was read as the editor; deleteAttribute, getAttributes and getAttributesWithPrefix were not called anonymously. The rest of F216 (GET listing, namespace and SOAPAction, faults, getVersion) and G216 are supported.",
+   "result": "mismatch",
+   "evidence": "D-C-036 (live, finding)",
+   "link": "F-002",
+   "covers": [],
+   "id": "C-054"
+  },
+  {
+   "item": "MC-A-43 (correction): rows 218, 220",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "F218 says (W001) \"attribute calls run for any caller, including unauthenticated calls through /servlet/AxisServlet\"; only one anonymous attribute call (setAttribute) succeeded (D-C-036). The getAttribute fault, the getAttributesWithPrefix prefix removal and the F220 text are supported (D-C-044, D-C-049).",
+   "result": "mismatch",
+   "evidence": "D-C-044 (live, finding); D-C-049 (live, finding)",
+   "link": "F-002",
+   "covers": [],
+   "id": "C-055"
+  },
+  {
+   "item": "MC-A-44 (correction): rows 221",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D221, F221, G221 and the H note; every applied sentence restates D-C-051, D-C-052, D-C-053, D-C-054; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-051 (live, finding); D-C-052 (live, finding); D-C-053 (live, finding); D-C-054 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-056"
+  },
+  {
+   "item": "MC-A-45 (correction): rows 232",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F232 and the H note; every applied sentence restates D-C-069; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-069 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-057"
+  },
+  {
+   "item": "MC-B-01 (missing behavior): rows 14",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D14, F14 and the H note; every applied sentence restates A-C-013; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-013 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-058"
+  },
+  {
+   "item": "MC-B-02 (missing behavior): rows 49",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D49, F49 and the H note; every applied sentence restates A-C-052, A-C-053, A-C-054; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-052 (live, finding); A-C-053 (live, finding); A-C-054 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-059"
+  },
+  {
+   "item": "MC-B-03 (missing behavior): rows 97, 144",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F97, D144, F144, G144 and the H note; every applied sentence restates B-C-036, B-C-099; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-036 (live, finding); B-C-099 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-060"
+  },
+  {
+   "item": "MC-B-04 (missing behavior): rows 138; Data And Integrations, \"Outbound HTTP to the application's own URL\"; Known Gaps GAP-008",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "F138/H138, the outbound-HTTP row and GAP-008 record the original-condition failure (setup-C-059 reclassified, B-C-086). Status consistency of G138 is checked in the status-rule check.",
+   "result": "matched",
+   "evidence": "setup-C-059 (live, blocked); B-C-086 (live (original deployment before 20:03:44Z; PM read-only log extract, cited), finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-061"
+  },
+  {
+   "item": "MC-B-05 (missing behavior): rows 138",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F138 and the H note; every applied sentence restates B-C-087; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-087 (live (adapted environment: static email.css), finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-062"
+  },
+  {
+   "item": "MC-B-06 (missing behavior): rows 173",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D173, F173 and the H note; every applied sentence restates C-C-035; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-035 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-063"
+  },
+  {
+   "item": "MC-B-07 (missing behavior): rows 186",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F186 and the H note; every applied sentence restates C-C-049; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-049 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-064"
+  },
+  {
+   "item": "MC-B-08 (missing behavior): rows 220",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F220, G220 and the H note; every applied sentence restates D-C-046; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-046 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-065"
+  },
+  {
+   "item": "MC-B-09 (missing behavior): rows 226",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F226 and the H note; every applied sentence restates D-C-063; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-063 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-066"
+  },
+  {
+   "item": "MC-C-01 (note): reconnaissance; Workbook column H of every business row; reconnaissance status counts",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note and the reconnaissance section; every applied sentence restates the cited checks; no extension beyond them",
+   "result": "matched",
+   "evidence": "map-corrections.json",
+   "link": "none",
+   "covers": [],
+   "id": "C-067"
+  },
+  {
+   "item": "MC-C-02 (note): reconnaissance; Known Gaps And Blockers, GAP-002",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note and the reconnaissance section; every applied sentence restates the cited checks; no extension beyond them",
+   "result": "matched",
+   "evidence": "map-corrections.json",
+   "link": "none",
+   "covers": [],
+   "id": "C-068"
+  },
+  {
+   "item": "MC-C-03 (note): rows 15, 16, 58, 61, 62, 216, 223, 226; Known Gaps GAP-007 and Owner Decisions And Open Questions, Q3 facts",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "GAP-007 and the Q3 SOAP-mapping fact are marked \"Runtime: live-observed (W001)\" with \"the attribute operations run anonymously\" (D-C-036, D-C-042); only an anonymous setAttribute was observed to succeed. The remember-me, REST, invalidateHibernateCache and returnto marks are supported (A-C-014, A-C-015, D-C-059, D-C-062, A-C-070, L-C-003, E-C-020). The Q3 attribute-operation row states it correctly.",
+   "result": "mismatch",
+   "evidence": "A-C-014 (live, match); A-C-015 (live, match); A-C-070 (live, match); D-C-059 (live, match); D-C-062 (live, match); D-C-042 (live, match); L-C-003 (live (PM-collected fact, recorded by lead), match); E-C-020 (live, match)",
+   "link": "F-002",
+   "covers": [],
+   "id": "C-069"
+  },
+  {
+   "item": "MC-C-04 (note): rows 28, 234; Known Gaps And Blockers, GAP-003",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to G234 and the H note and the reconnaissance section; every applied sentence restates A-C-027, A-C-028, D-C-072; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-027 (live, match); A-C-028 (live, match); D-C-072 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-070"
+  },
+  {
+   "item": "MC-C-05 (note): rows 138, 188, 202; Known Gaps GAP-008",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F138, F202, G202 and the H note and the reconnaissance section; every applied sentence restates B-C-086, D-C-013, C-C-051, D-C-014; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-086 (live (original deployment before 20:03:44Z; PM read-only log extract, cited), finding); D-C-013 (live (PM read-only log extract, original deployment condition before 2026-09-30T20:03:44Z), match); C-C-051 (live, match); D-C-014 (live (adapted environment: static email.css), match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-071"
+  },
+  {
+   "item": "MC-C-06 (note): rows 11",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note; every applied sentence restates A-C-007; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-007 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-072"
+  },
+  {
+   "item": "MC-C-07 (note): rows 49",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D49, F49 and the H note; every applied sentence restates A-C-052, A-C-053; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-052 (live, finding); A-C-053 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-073"
+  },
+  {
+   "item": "MC-C-08 (note): rows 50",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F50 and the H note; every applied sentence restates A-C-056; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-056 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-074"
+  },
+  {
+   "item": "MC-C-09 (note): rows 60",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note; every applied sentence restates A-C-067, A-C-068, L-C-004; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-067 (live, match); A-C-068 (live (PM-collected fact), not-checked); L-C-004 (live (PM-collected fact, recorded by lead), match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-075"
+  },
+  {
+   "item": "MC-C-10 (note): rows 63",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note; every applied sentence restates A-C-072; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-072 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-076"
+  },
+  {
+   "item": "MC-C-11 (note): rows 65",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note; every applied sentence restates A-C-074, L-C-005; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-074 (live (PM-collected fact), match); L-C-005 (live (PM read-only log fact; adapted environment: static email.css), match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-077"
+  },
+  {
+   "item": "MC-C-12 (note): rows 68",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note; every applied sentence restates A-C-077; no extension beyond them",
+   "result": "matched",
+   "evidence": "A-C-077 (live (PM-collected fact), match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-078"
+  },
+  {
+   "item": "MC-C-13 (note): rows 69",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D69, F69 and the H note; every applied sentence restates C-C-001; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-001 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-079"
+  },
+  {
+   "item": "MC-C-14 (note): rows 71",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D71, F71 and the H note; every applied sentence restates C-C-005, E-C-029, E-C-030; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-005 (live, match); E-C-029 (live, match); E-C-030 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-080"
+  },
+  {
+   "item": "MC-C-15 (note): rows 84",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F84 and the H note; every applied sentence restates setup-C-037, B-C-016; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-037 (live, finding); B-C-016 (live, finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-081"
+  },
+  {
+   "item": "MC-C-16 (note): rows 107",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note; every applied sentence restates B-C-051; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-051 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-082"
+  },
+  {
+   "item": "MC-C-17 (note): rows 108",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note; every applied sentence restates B-C-052; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-052 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-083"
+  },
+  {
+   "item": "MC-C-18 (note): rows 124",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D124, F124, G124 and the H note; every applied sentence restates B-C-069, B-C-070, B-C-071; no extension beyond them",
+   "result": "matched",
+   "evidence": "B-C-069 (live, finding); B-C-070 (live, finding); B-C-071 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-084"
+  },
+  {
+   "item": "MC-C-19 (note): rows 135",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "H135 live answer and G135 Inferred -> Yes on B-C-083. F135 keeps \"(runtime unverified)\"; see the qualifier check.",
+   "result": "matched",
+   "evidence": "B-C-083 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-085"
+  },
+  {
+   "item": "MC-C-20 (note): rows 138",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F138 and the H note; every applied sentence restates setup-C-059, B-C-086, B-C-087; no extension beyond them",
+   "result": "matched",
+   "evidence": "setup-C-059 (live, blocked); B-C-086 (live (original deployment before 20:03:44Z; PM read-only log extract, cited), finding); B-C-087 (live (adapted environment: static email.css), finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-086"
+  },
+  {
+   "item": "MC-C-21 (note): rows 176",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "H176 live answer on C-C-038. F176 keeps \"(runtime unverified)\"; see the qualifier check.",
+   "result": "matched",
+   "evidence": "C-C-038 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-087"
+  },
+  {
+   "item": "MC-C-22 (note): rows 186",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F186 and the H note; every applied sentence restates C-C-001, C-C-002; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-001 (live, match); C-C-002 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-088"
+  },
+  {
+   "item": "MC-C-23 (note): rows 189",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note; every applied sentence restates C-C-052; no extension beyond them",
+   "result": "matched",
+   "evidence": "C-C-052 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-089"
+  },
+  {
+   "item": "MC-C-24 (note): rows 198",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D198, F198, G198 and the H note; every applied sentence restates D-C-008, D-C-009, D-C-010; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-008 (live (PM read-only log extract, original deployment condition before 2026-09-30T20:03:44Z), not-checked); D-C-009 (live (adapted environment: static email.css), finding); D-C-010 (live (adapted environment: static email.css), blocked)",
+   "link": "none",
+   "covers": [],
+   "id": "C-090"
+  },
+  {
+   "item": "MC-C-25 (note): rows 112, 204",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to the H note; every applied sentence restates L-C-008, D-C-017; no extension beyond them",
+   "result": "matched",
+   "evidence": "L-C-008 (live (PM read-only database fact), match); D-C-017 (live (PM read-only startup log and database extract, 2026-09-30T19:35:49Z), match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-091"
+  },
+  {
+   "item": "MC-C-26 (note): rows 200",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D200, F200, G200 and the H note; every applied sentence restates L-C-005, L-C-006; no extension beyond them",
+   "result": "matched",
+   "evidence": "L-C-005 (live (PM read-only log fact; adapted environment: static email.css), match); L-C-006 (live (PM read-only log and Mailpit fact; adapted environment: static email.css), finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-092"
+  },
+  {
+   "item": "MC-C-27 (note): rows 201",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D201, F201, G201 and the H note; every applied sentence restates L-C-005, L-C-007; no extension beyond them",
+   "result": "matched",
+   "evidence": "L-C-005 (live (PM read-only log fact; adapted environment: static email.css), match); L-C-007 (live (PM read-only log and Mailpit fact; adapted environment: static email.css), finding)",
+   "link": "none",
+   "covers": [],
+   "id": "C-093"
+  },
+  {
+   "item": "MC-C-28 (note): rows 202",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "H202, F202 and G202 on D-C-013 and D-C-014. Consistency with row 138 is checked in the status-rule check.",
+   "result": "matched",
+   "evidence": "D-C-013 (live (PM read-only log extract, original deployment condition before 2026-09-30T20:03:44Z), match); D-C-014 (live (adapted environment: static email.css), match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-094"
+  },
+  {
+   "item": "MC-C-29 (note): rows 203",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F203 and the H note; every applied sentence restates L-C-009; no extension beyond them",
+   "result": "matched",
+   "evidence": "L-C-009 (live (PM-performed, Codex-decided environment change: mail sink stopped; adapted environment: static email.css), match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-095"
+  },
+  {
+   "item": "MC-C-30 (note): rows 220",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F220, G220 and the H note; every applied sentence restates D-C-047, D-C-048; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-047 (live, match); D-C-048 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-096"
+  },
+  {
+   "item": "MC-C-31 (note): rows 221",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to D221, F221, G221 and the H note; every applied sentence restates D-C-050, D-C-058; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-050 (live, match); D-C-058 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-097"
+  },
+  {
+   "item": "MC-C-32 (note): rows 228",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "H228 live answer on D-C-064 and D-C-065. F228 keeps \"(runtime unverified)\"; see the qualifier check.",
+   "result": "matched",
+   "evidence": "D-C-064 (live, match); D-C-065 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-098"
+  },
+  {
+   "item": "MC-C-33 (note): rows 232",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "applied to F232 and the H note; every applied sentence restates D-C-069, D-C-070; no extension beyond them",
+   "result": "matched",
+   "evidence": "D-C-069 (live, finding); D-C-070 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-099"
+  },
+  {
+   "item": "MC-C-34 (note): rows 234",
+   "expected": "applied as observed in the cited W001 checks; nothing claimed beyond them; partial and unverified not upgraded; the disposition record states the outcome",
+   "observed": "H234 live answer and G234 on D-C-072 and D-C-073. F234 keeps \"(runtime unverified)\"; see the qualifier check.",
+   "result": "matched",
+   "evidence": "D-C-072 (live, match); D-C-073 (live, match)",
+   "link": "none",
+   "covers": [],
+   "id": "C-100"
+  },
+  {
+   "item": "G38: Yes -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: source claim kept, contradicted live (A-C-042)",
+   "result": "matched",
+   "evidence": "H38 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-101"
+  },
+  {
+   "item": "G40: Yes -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: page fails for the observed condition (setup-C-032)",
+   "result": "matched",
+   "evidence": "H40 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-102"
+  },
+  {
+   "item": "G45: Yes -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: D45 \"rejected on the editor\" fails, HTTP 500 (A-C-047)",
+   "result": "matched",
+   "evidence": "H45 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-103"
+  },
+  {
+   "item": "G48: Yes -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: hidden people stay listed (A-C-050)",
+   "result": "matched",
+   "evidence": "H48 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-104"
+  },
+  {
+   "item": "G52: Yes -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "HTTP 500 in place of the rejection (A-C-058), as proposed",
+   "result": "matched",
+   "evidence": "H52 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-105"
+  },
+  {
+   "item": "G57: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: D57 not-found message not shown (A-C-062)",
+   "result": "matched",
+   "evidence": "H57 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-106"
+  },
+  {
+   "item": "G102: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: continue answers HTTP 500 (B-C-046)",
+   "result": "matched",
+   "evidence": "H102 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-107"
+  },
+  {
+   "item": "G115: Yes -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: every import answers HTTP 500 (B-C-059, B-C-060)",
+   "result": "matched",
+   "evidence": "H115 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-108"
+  },
+  {
+   "item": "G116: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: kept message claims cannot occur (B-C-061)",
+   "result": "matched",
+   "evidence": "H116 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-109"
+  },
+  {
+   "item": "G117: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: kept message claims cannot occur (B-C-062)",
+   "result": "matched",
+   "evidence": "H117 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-110"
+  },
+  {
+   "item": "G118: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: import fails (B-C-063)",
+   "result": "matched",
+   "evidence": "H118 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-111"
+  },
+  {
+   "item": "G119: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "kept claim cannot occur: no import completes (B-C-064)",
+   "result": "matched",
+   "evidence": "H119 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-112"
+  },
+  {
+   "item": "G121: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: disposition and status not stored (setup-C-042, B-C-065)",
+   "result": "matched",
+   "evidence": "H121 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-113"
+  },
+  {
+   "item": "G124: Inferred -> Yes (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G3: whole claim observed (B-C-069..B-C-071)",
+   "result": "matched",
+   "evidence": "H124 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-114"
+  },
+  {
+   "item": "G125: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: changes not stored (setup-C-047, B-C-072)",
+   "result": "matched",
+   "evidence": "H125 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-115"
+  },
+  {
+   "item": "G130: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: continue answers HTTP 500 (B-C-078)",
+   "result": "matched",
+   "evidence": "H130 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-116"
+  },
+  {
+   "item": "G134: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: disposition not stored (setup-C-049, B-C-081)",
+   "result": "matched",
+   "evidence": "H134 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-117"
+  },
+  {
+   "item": "G135: Inferred -> Yes (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G3: stored label observed (B-C-083)",
+   "result": "matched",
+   "evidence": "H135 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-118"
+  },
+  {
+   "item": "G144: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: move answers HTTP 500 (B-C-097, B-C-098)",
+   "result": "matched",
+   "evidence": "H144 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-119"
+  },
+  {
+   "item": "G145: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: continue answers HTTP 500 (B-C-100)",
+   "result": "matched",
+   "evidence": "H145 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-120"
+  },
+  {
+   "item": "G146: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: same-story move answers HTTP 500 (B-C-101)",
+   "result": "matched",
+   "evidence": "H146 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-121"
+  },
+  {
+   "item": "G147: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: direct request answers HTTP 500 (B-C-102)",
+   "result": "matched",
+   "evidence": "H147 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-122"
+  },
+  {
+   "item": "G169: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: save with a file fails (C-C-030)",
+   "result": "matched",
+   "evidence": "H169 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-123"
+  },
+  {
+   "item": "G170: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: validation failure answers HTTP 500 (C-C-031)",
+   "result": "matched",
+   "evidence": "H170 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-124"
+  },
+  {
+   "item": "G171: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "kept claim cannot occur: no attachment stored (C-C-030; C-C-033 not executed)",
+   "result": "matched",
+   "evidence": "H171 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-125"
+  },
+  {
+   "item": "G172: Yes -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: upload fails (C-C-034), as proposed",
+   "result": "matched",
+   "evidence": "H172 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-126"
+  },
+  {
+   "item": "G174: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: note not removed (C-C-036)",
+   "result": "matched",
+   "evidence": "H174 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-127"
+  },
+  {
+   "item": "G175: Yes -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "kept claim cannot occur: no attachment stored (C-C-030, C-C-034; C-C-037 not executed)",
+   "result": "matched",
+   "evidence": "H175 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-128"
+  },
+  {
+   "item": "G197: Yes -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: message never shown (D-C-006, D-C-007)",
+   "result": "matched",
+   "evidence": "H197 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-129"
+  },
+  {
+   "item": "G198: Inferred -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: no event, no mail (D-C-009, D-C-010)",
+   "result": "matched",
+   "evidence": "H198 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-130"
+  },
+  {
+   "item": "G200: Inferred -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: every send fails (L-C-006)",
+   "result": "matched",
+   "evidence": "H200 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-131"
+  },
+  {
+   "item": "G201: Inferred -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: every send fails (L-C-007)",
+   "result": "matched",
+   "evidence": "H201 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-132"
+  },
+  {
+   "item": "G202: Inferred -> Yes (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G3: both conditions observed (D-C-013, D-C-014)",
+   "result": "matched",
+   "evidence": "H202 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-133"
+  },
+  {
+   "item": "G216: Inferred -> Yes (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G3: the D216 mapping without filter observed (D-C-036)",
+   "result": "matched",
+   "evidence": "H216 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-134"
+  },
+  {
+   "item": "G220: Inferred -> Partial (not proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: getAttribute faults, parent ids 0 (D-C-044, D-C-046, D-C-049)",
+   "result": "matched",
+   "evidence": "H220 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-135"
+  },
+  {
+   "item": "G221: Inferred -> Partial (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G2: per-operation failures (D-C-051..D-C-054)",
+   "result": "matched",
+   "evidence": "H221 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-136"
+  },
+  {
+   "item": "G234: Inferred -> Yes (proposed by an item)",
+   "expected": "claim fails live -> Partial; Inferred -> Yes only when the whole claim was observed; partial or unexecuted never upgraded",
+   "observed": "R-G3: not-authorized forward without projectId observed (D-C-072, D-C-073)",
+   "result": "matched",
+   "evidence": "H234 note; cited checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-137"
+  },
+  {
+   "item": "One status rule across every row an item names (rows whose G did not change)",
+   "expected": "the same rule decides rows with the same kind of live evidence",
+   "observed": "Not consistent in five rows. G162 stays Yes although its kept entry point fails under the same observed condition that made G40 Partial (setup-C-058, W001-F-10 high). G18 stays Yes although its kept \"exactly one visible project\" claim is contradicted live (A-C-018) and the rule was not re-read, the situation that made G38 and G48 Partial. G149 and G152 stay Yes although their kept claims fail live in es sessions (HTTP 500 in place of the save or the message, C-C-003), by a locale exception that the PM rule does not contain, while an HTTP 500 in place of a message made G52 Partial. G138 stays Inferred while G202 became Yes on the same kind of evidence (original condition: no mail; adapted environment: mails as mapped; B-C-086/B-C-087 versus D-C-013/D-C-014). Related occurrence: row 41 depends on the failing person page (W001 verdict live-verified).",
+   "result": "mismatch",
+   "evidence": "rowview.txt, rows2.txt (scratch); H18, H138, H149, H152, H162",
+   "link": "F-001",
+   "covers": [],
+   "id": "C-138"
+  },
+  {
+   "item": "Runtime qualifiers inside rows agree with the new label and status",
+   "expected": "no D/E/F cell keeps \"(runtime unverified)\" for a claim that the row's own W001 checks now observe",
+   "observed": "22 cells in 21 rows keep \"(runtime unverified)\". In 9 rows the row's cited live checks observe exactly the qualified claim: 11 (A-C-007), 29 (A-C-030..A-C-032), 30 (A-C-033 and others), 135 (B-C-083; G now Yes), 164 (C-C-024), 176 (C-C-038), 225 (D-C-061), 228 (D-C-064), 234 (D-C-072; G now Yes). Rows 132, 142 and 184 need the author's check. Rows 31, 34, 60, 65, 68, 73, 82, 91, 126 and 172 qualify parts W001 did not observe.",
+   "result": "mismatch",
+   "evidence": "unverified.txt, qual.txt (scratch)",
+   "link": "F-003",
+   "covers": [],
+   "id": "C-139"
+  },
+  {
+   "item": "Status counts after the correction (CHK-007)",
+   "expected": "workbook counts reproduce and every stated figure matches",
+   "observed": "workbook G over rows 7-234: 146 Yes, 10 Inferred, 53 Partial, 1 No, 18 summary rows; before 168/20/21/1; moves 27 Yes->Partial, 5 Inferred->Yes, 5 Inferred->Partial; the reading block, Parity-Map Boundary and dispositions record state these; the BA-001-12 counts are labelled earlier values",
+   "result": "matched",
+   "evidence": "wbstat.js (scratch)",
+   "link": "none",
+   "covers": [
+    "P7:C-059"
+   ],
+   "id": "C-140"
+  },
+  {
+   "item": "Reconnaissance: Reading block (CAND 37-49)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "outcome 81/7/0, runtime label, 37 status changes (32 to Partial, 5 to Yes), runtime caveats, counts 146/10/53/1, next pass root 006 / coverage base 012: all reproduce. The removed BA-001-12 bullets (correspondence, ID search, editor dates, row 216, record accuracy) were summaries; their facts stay in the body sections, so no obligation is erased",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [
+    "P6:C-494",
+    "N-05"
+   ],
+   "id": "C-141"
+  },
+  {
+   "item": "Reconnaissance: Scope And Provenance (snapshot, analyst, skill lines)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "BA-001-13 date, analyst identity and skill blob 560391d6 (equal to my computation); legacy hash lines unchanged",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [
+    "P6:C-001",
+    "P6:C-003",
+    "P6:C-007"
+   ],
+   "id": "C-142"
+  },
+  {
+   "item": "Reconnaissance: Evidence legend and static-only note (CAND 133, 136)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "`Partial` extended by R-G2 with a link; static-only note explains the H label",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [],
+   "id": "C-143"
+  },
+  {
+   "item": "Reconnaissance: Runnable Surfaces: observation status paragraph and public-page lookup bullet (CAND 201, 239)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "the paragraph keeps the Stage 1 state and names the W001 channels; the bullet records L-C-001 for project 220 only and keeps Inferred for the rest; the other lines of the section (for example the Settings pages rows, BASE 208 and 416) are byte-identical at CAND",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [],
+   "id": "C-144"
+  },
+  {
+   "item": "Reconnaissance: Data And Integrations outbound HTTP row (CAND 269)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "live result (setup-C-059, B-C-086, D-C-013, D-C-014) and the dependence on the configured URL and context path",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [],
+   "id": "C-145"
+  },
+  {
+   "item": "Reconnaissance: Build, Run, And Test Evidence rows (CAND 283, 287, 324, 329-335)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "the BA-001-13 tool row and the amended rows state 88 items, 354 cells (31/76/37/210), 37 status changes, 210 labels, the in-place edit and the one artifact-links failure; these figures reproduce; the tool runs themselves are author facts (E-001)",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [],
+   "id": "C-146"
+  },
+  {
+   "item": "Reconnaissance: GAP-002, GAP-003, GAP-004 (CAND 351-353)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "GAP-002 status with the residual scope (5 class (d), 19 class (e)); GAP-003 notAuthorized.jsp live 404 (A-C-027, A-C-028, D-C-072); GAP-004 integration queue live HTTP 500 (D-C-002..D-C-005), features not exercised",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [],
+   "id": "C-147"
+  },
+  {
+   "item": "Reconnaissance: GAP-007 and GAP-008 (CAND 356-357)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "GAP-008 live addition supported (B-C-086, D-C-013, C-C-051, D-C-014). GAP-007: the remember-me, REST and cache marks are supported; the SOAP mark \"the attribute operations run anonymously\" goes beyond D-C-036",
+   "result": "mismatch",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "F-002",
+   "covers": [],
+   "id": "C-148"
+  },
+  {
+   "item": "Reconnaissance: GAP-012 and GAP-014 (CAND 364-365)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "GAP-012 live upload result (A-C-056); GAP-014 names the rows W001 observed",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [],
+   "id": "C-149"
+  },
+  {
+   "item": "Reconnaissance: Q2 paragraph and Q3 facts (CAND 410, 441-446, 458-460, 465)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "remember-me, REST, invalidate-cache, returnto, breadcrumb, time-editor consumer and SOAP attribute-operation facts supported; the SOAP-mapping fact says \"the attribute operations run anonymously\" (F-002); the cache fact still says the task editor shows dates with the static converters (pass-012 F-003 remainder, F-004)",
+   "result": "mismatch",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "F-002, F-004",
+   "covers": [
+    "N-09",
+    "P6:C-126",
+    "P6:C-492",
+    "P6:C-534",
+    "P6:C-538",
+    "P9:C-017"
+   ],
+   "id": "C-150"
+  },
+  {
+   "item": "Reconnaissance: Parity-Map Boundary, Return Correction Evidence row and paragraph, Stage 1 Exit Checklist (CAND 491-494, 603-605, 615-618)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "counts, 93 rows, 37 changes (27/5/5), the new return row and checklist wording reproduce",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [
+    "P6:C-501",
+    "P6:C-499",
+    "P6:C-500",
+    "N-11"
+   ],
+   "id": "C-151"
+  },
+  {
+   "item": "Reconnaissance: Error Prevention BA-001-13 entries (CAND 631-643)",
+   "expected": "each changed line restates the cited W001 checks; unchanged lines byte-identical",
+   "observed": "learning update, self-detected items and self-check; BA-001-12 entries kept and relabelled historical",
+   "result": "matched",
+   "evidence": "recon.diff (scratch, 32 hunks, +61 -41)",
+   "link": "none",
+   "covers": [
+    "P6:C-502",
+    "N-12"
+   ],
+   "id": "C-152"
+  },
+  {
+   "item": "Dispositions record: assignment, scope validation, evidence used and boundary",
+   "expected": "inputs and pins as assigned; author identity; evidence and boundary statements true",
+   "observed": "input hashes equal the pins; 436 indexed and 148 cited checks reproduce; the only extra read (history.jsp:52-63,97-111) is cited by MC-B-07 and holds the 9 messages.getMessage lines; 22 statuses not proposed by an item listed exactly",
+   "result": "matched",
+   "evidence": "warlines.js, dispcheck-result.json (scratch)",
+   "link": "none",
+   "covers": [],
+   "id": "C-153"
+  },
+  {
+   "item": "Dispositions record: summary and item table",
+   "expected": "88 rows in list order; outcome counts per kind; reasons for partial application",
+   "observed": "88 rows in the order of map-corrections.json; 81 applied and 7 applied in part (a 40/5, b 7/2, c 34/0); the 7 partial ones name the unapplied requests (new source study or unobserved generalisation)",
+   "result": "matched",
+   "evidence": "dispcheck-result.json (scratch)",
+   "link": "none",
+   "covers": [],
+   "id": "C-154"
+  },
+  {
+   "item": "Dispositions record: changed rows, label-only rows, status counts, retained work",
+   "expected": "tables equal the regenerated diff",
+   "observed": "93 changed rows with their cells and statuses equal the diff; the 117 label-only rows equal the diff (97 live-verified, 20 partially verified, 0 with a finding); status counts equal. The Retained Work claim that the D, F and G claims of the 117 rows \"therefore hold\" misses the stale qualifiers of F-003",
+   "result": "matched",
+   "evidence": "dispcheck-result.json (scratch)",
+   "link": "none",
+   "covers": [],
+   "id": "C-155"
+  },
+  {
+   "item": "Dispositions record: checks performed, self-check and transport disclosure",
+   "expected": "verifiable figures reproduce; author tool facts stated as such",
+   "observed": "3276 cells compared and 2922 unchanged reproduce (3276 - 354); styles.xml identical and 16 parts reproduce; legacy hashes reproduce (checkout values); tool exits and the Excel open are author facts (E-001)",
+   "result": "matched",
+   "evidence": "dispcheck-result.json (scratch)",
+   "link": "none",
+   "covers": [],
+   "id": "C-156"
+  },
+  {
+   "item": "pass-012 F-001 (counting rules M and S)",
+   "expected": "corrected, or still open",
+   "observed": "not corrected: Scope And Provenance CAND lines 92-93, the method-corr and BA-001-12 tool rows (CAND 321, 323) and the related Return Correction and self-check lines keep 4597/4595 and 3386; WAR and source unchanged; accepted as a residual risk by the delegated carryover, which does not close it",
+   "result": "mismatch",
+   "evidence": "grep of CAND lines 92, 93, 321, 323; live-check-carryover-pass-012.md line 52",
+   "link": "F-005",
+   "covers": [
+    "P10:C-015",
+    "P10:C-016",
+    "N-06",
+    "N-07",
+    "N-08",
+    "P6:C-493",
+    "P6:C-521"
+   ],
+   "id": "C-157"
+  },
+  {
+   "item": "pass-012 F-002 (script-context rule: 78 outputs)",
+   "expected": "corrected, or still open",
+   "observed": "not corrected: the script-sinks-09 tool row and the Return Correction rows keep 103 contexts and 78 outputs (CAND 597 and the related rows); the reading-block repetition was removed with the whole bullet; accepted risk only",
+   "result": "mismatch",
+   "evidence": "grep of CAND line 597; carryover record line 53",
+   "link": "F-006",
+   "covers": [
+    "P9:C-020",
+    "P9:C-021",
+    "N-14"
+   ],
+   "id": "C-158"
+  },
+  {
+   "item": "pass-012 F-003 (time editor display) after the W001 live check",
+   "expected": "every required action of pass-012 F-003 done or still open",
+   "observed": "closed: the time editor display, hint and Insert Time are session-locale consumers in D69, F69, D70, F70 and the Q3 cache fact, with the live es behavior (C-C-003, E-C-033). Still open: the Q3 cache fact says \"The iteration and task editors validate and show dates with them\", but the task editor shows no date (B-C-085: no created-date field; pass-012 evidence: TaskEditorForm#setCreatedDate is rendered by no JSP); E69 still reads \"Date formats follow the UI locale bundle.\" without the exceptions; H89 still names \"the accepted date and date-time patterns\" of the active bundle",
+   "result": "mismatch",
+   "evidence": "CAND recon line 460; workbook E69, H89 (unchanged prefix)",
+   "link": "F-004",
+   "covers": [
+    "N-10",
+    "P10:C-023"
+   ],
+   "id": "C-159"
+  },
+  {
+   "item": "The 54 W001 findings as applied",
+   "expected": "each finding reaches the map through at least one item and disposition",
+   "observed": "54 of 54 findings have one a/b item; every item has a disposition row; 4 high (MC-A-09, MC-A-21, MC-A-23, MC-A-29) applied in full or in part with reasons",
+   "result": "matched",
+   "evidence": "map-corrections.json; dispositions record",
+   "link": "none",
+   "covers": [],
+   "id": "C-160"
+  },
+  {
+   "item": "CHK-001 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "every new check, finding, item, residual and row reference resolves (663, 93, 114 and 39 references in the new workbook text; 34 check references in the added reconnaissance lines; 203 in the record); the one new WAR citation history.jsp:52-63,97-111 holds the 9 cited lines",
+   "result": "matched",
+   "evidence": "see the linked checks",
+   "link": "none",
+   "covers": [
+    "P7:C-061",
+    "P10:C-044"
+   ],
+   "id": "C-161"
+  },
+  {
+   "item": "CHK-002 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "the changed permission statements (rows 24, 43, 50, 59, 216, 218) keep displayed links and server-side facts apart",
+   "result": "matched",
+   "evidence": "see the linked checks",
+   "link": "none",
+   "covers": [
+    "P10:C-040"
+   ],
+   "id": "C-162"
+  },
+  {
+   "item": "CHK-003 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "each effect now recorded as absent (task-move history, mail, cookies, attachments, integration events) cites its observed failure on the entry point",
+   "result": "matched",
+   "evidence": "see the linked checks",
+   "link": "none",
+   "covers": [
+    "P9:C-018"
+   ],
+   "id": "C-163"
+  },
+  {
+   "item": "CHK-004 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "locale statements name en, de and es as observed and leave da, ja, ru, \"--\", fr, it and pt_br open; but the editor-display mechanism keeps the pass-012 F-003 remainder (task editor, E69, H89)",
+   "result": "mismatch",
+   "evidence": "see the linked checks",
+   "link": "F-004",
+   "covers": [],
+   "id": "C-164"
+  },
+  {
+   "item": "CHK-005 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "the changed validation rows keep their keys and add the observed outcome",
+   "result": "matched",
+   "evidence": "see the linked checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-165"
+  },
+  {
+   "item": "CHK-006 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "the changed delete rows (49, 174) state the observed page-level effect; database rows stay residual (R-40)",
+   "result": "matched",
+   "evidence": "see the linked checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-166"
+  },
+  {
+   "item": "CHK-007 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "status counts reproduce; the F-001/F-002 figures of pass 012 stay inaccurate; stale \"(runtime unverified)\" qualifiers remain in rows the label now marks live-verified",
+   "result": "mismatch",
+   "evidence": "see the linked checks",
+   "link": "F-003, F-005, F-006",
+   "covers": [],
+   "id": "C-167"
+  },
+  {
+   "item": "CHK-008 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "query outcomes (getCurrentIteration, deleteAttribute, iCal, integration queue) recorded as observed faults",
+   "result": "matched",
+   "evidence": "see the linked checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-168"
+  },
+  {
+   "item": "CHK-009 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "no credential value in the changed Stage 1 records or in this evidence; 30 raw hits in the changed records and the W001 evidence are role-name collisions (masked context); strict pair formatting 0",
+   "result": "matched",
+   "evidence": "see the linked checks",
+   "link": "none",
+   "covers": [
+    "P7:C-062"
+   ],
+   "id": "C-169"
+  },
+  {
+   "item": "CHK-010 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "the changed redirect statements (rows 18, 101, 124) quote observed Location values",
+   "result": "matched",
+   "evidence": "see the linked checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-170"
+  },
+  {
+   "item": "CHK-011 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "the unauthenticated-surface statements of rows 8 and 216 and the GAP-007/Q3 marks: the SOAP anonymous-attribute statement goes beyond the observation",
+   "result": "mismatch",
+   "evidence": "see the linked checks",
+   "link": "F-002",
+   "covers": [
+    "P9:C-039"
+   ],
+   "id": "C-171"
+  },
+  {
+   "item": "CHK-012 over the change set",
+   "expected": "the checklist row holds for the BA-001-13 change set",
+   "observed": "request-derived sinks recorded from W001 (returnto, setting redirect, merge binding of row 124) cite the observed results",
+   "result": "matched",
+   "evidence": "see the linked checks",
+   "link": "none",
+   "covers": [],
+   "id": "C-172"
+  },
+  {
+   "item": "Author tool-execution facts (audits, Excel open, scanners) of BA-001-13",
+   "expected": "not re-executable under this packet",
+   "observed": "not executed here; the verifiable outputs are checked in the dispositions-record checks",
+   "result": "not-applicable",
+   "evidence": "packet permitted_operations",
+   "link": "E-001",
+   "covers": [
+    "P9:C-046"
+   ],
+   "id": "C-173"
+  },
+  {
+   "item": "Release-WAR equality (594 classes equal to v1.1a4)",
+   "expected": "owner-approved source-intake fact outside the permitted inputs",
+   "observed": "no conclusion of this pass depends on it",
+   "result": "not-applicable",
+   "evidence": "source-intake-decision-001.md; war-comparison.json",
+   "link": "E-002",
+   "covers": [
+    "P10:C-021"
+   ],
+   "id": "C-174"
+  }
+ ]
+}

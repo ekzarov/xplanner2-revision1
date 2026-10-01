@@ -1,0 +1,19 @@
+{
+  "packet_id": "S02-P013",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "recorded_at": "2026-10-01T02:14:29Z",
+  "companion": "analysis/reviews/evidence/S02-P013/incident-assessment.md",
+  "companion_sha256": "c76e94b3c802d8a580a74fef6c9f568f1350036571783c4a0da6d535514fb65c",
+  "report": "analysis/reviews/stage-02-pass-013.md",
+  "report_sha256": "d02131d35584a6629117b2519e30095f22c4e52a3d7872a3a32743458c51f2db",
+  "reviewer_classification": "non-material; all five guards declared verified; deviations D-001..D-008",
+  "pm_verification": {
+    "report_binding": "The companion's Incident report SHA-256 equals the committed report bytes.",
+    "evidence": "change-set.json, comparison-results.json and coverage-reconciliation.json are unchanged since RESULT; access-log.md and incident-assessment.md changed only by the reviewer's formatting-only link fixes (recorded in the access log); independence-record.md changed only by the PM token replacement.",
+    "worktrees": "The candidate checkout has no changes (git status empty).",
+    "d001": "The client-persisted listing held names, paths and sizes of committed files only (reviewer rebuilt it in scratch); PM did not open the spill file.",
+    "not_checked": "PM did not open the user profile or temp folders; the unknowns (spill retention, a possible here-document temp file, direct-call times) stay explicit."
+  },
+  "pm_conclusion": "The companion's support is consistent with the checked evidence. PM verification only, not approval.",
+  "owner_decision": "pending (Codex under the delegated mandate, or the owner)"
+}

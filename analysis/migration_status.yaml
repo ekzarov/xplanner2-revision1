@@ -32,9 +32,9 @@ project:
 control:
   state: active
   current_stage: stage-02
-  stage_status: in_progress
+  stage_status: awaiting_owner
   previous_stage: stage-01
-  next_action: 'Stage 2 pass 013 (packet S02-P013, correction-validation): a fresh independent BA checks the BA-001-13 correction and its affected dependencies against the saved W001 evidence, retaining justified prior coverage (root 006, previous and coverage base 012); no new live run, inventory or SOAP/WAP work. Report analysis/reviews/stage-02-pass-013.md.'
+  next_action: 'Decision (Codex under the delegated mandate, or the owner) on pass 013 findings F-001..F-007 (all low): a bounded Stage 1 correction (F-007 by PM) followed by a fresh correction-validation (root 006, previous and base 013), or a low-only live-check carryover under stage-02-live-carryover (findings stay findings). The pass-013 incident assessment (D-001..D-008) is being prepared. No new round starts without that decision.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -516,6 +516,23 @@ review_passes:
       report_sha256: '389f18dbde908896ab9e12dc200c301fdd07c1176d9f54d59d8ab4594d2c53fe'
       owner_decision_id: 'stage-02-live-carryover-pass-012:xplanner2-revision1'
       blocking_class_check: confirmed
+  - stage: stage-02
+    pass: 13
+    result: findings
+    report: 'analysis/reviews/stage-02-pass-013.md'
+    reviewer: 'BA independent reviewer (subagent a7738da7d84992f93 of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-opus-5-5-ba-reviewer-p013'
+    session_id: 'a7738da7d84992f93'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/evidence/S02-P013/independence-record.md'
+    reviewed_at: '2026-10-01T02:08:56Z'
+    scope: 'Full Stage 2 pass 006 at 15cb6b26946f73596177eba8cead333383d9f728: analysis/legacy_reconnaissance.md (0536f24379fabf00f8a47b53ae3089c7b0d0fbc68021c1de7140a76f95c7d332) and analysis/legacy_user_flows.xlsx (a87c838342b94e04cab72c9bd2144d86e40d24ef8da2836adf538ea036f56f99, 210 rows) against legacy/xplanner-plus.war; packet S02-P006; report SHA-256 ee71a38f8fa27b46f7c50b2db7e8840e256a9da597d160d448546f576adcff67; 539 checks (519 matched, 17 mismatch, 0 not-checked, 3 not-applicable); findings F-001..F-004 (1 medium, 3 low); all 33 earlier findings resolved.'
+    waiver_ids: []
+    control_mode: correction-validation
+    baseline_pass: 6
+    previous_pass: 12
+    coverage_record: 'analysis/reviews/evidence/S02-P013/coverage-reconciliation.json'
+    findings_severity_max: low
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -733,12 +750,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 1 corrected from the Stage 3 live walkthrough W001 (146 Yes, 10 Inferred, 53 Partial, 1 No); Stage 2 correction-validation pass 013 in progress.'
+  summary: 'Stage 2 pass 013 (correction-validation of the W001 map corrections): findings F-001..F-007, all low; coverage 748 = 429 rechecked + 319 retained + 0 uncovered.'
   completed_percent: 5
-  updated_at: '2026-10-01T01:26:03Z'
+  updated_at: '2026-10-01T02:10:48Z'
   agent_reviews:
-    total: 12
-    valid: 10
+    total: 13
+    valid: 11
     blocked: 0
     invalid: 2
     active: 0
