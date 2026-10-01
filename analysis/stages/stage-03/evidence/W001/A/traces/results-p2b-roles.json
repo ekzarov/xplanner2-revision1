@@ -1,0 +1,280 @@
+{
+  "phase": "p2b-roles",
+  "started_at": "2026-09-30T20:19:46.382Z",
+  "obs": {
+    "member_pw_reset": 302,
+    "r18_start": {
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=308"
+    },
+    "r18": {
+      "member": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/projects"
+      },
+      "admin": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/projects"
+      },
+      "no_session": {
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/projects;jsessionid=[REDACTED]"
+      }
+    },
+    "r27": {
+      "member": [
+        221
+      ],
+      "admin": [
+        220,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    "r41": {
+      "own": {
+        "status": 200,
+        "time_links": 1,
+        "task_edit_links": 1,
+        "task_273_listed": true
+      },
+      "admin": {
+        "status": 200,
+        "time_links": 1,
+        "task_edit_links": 1,
+        "task_273_listed": true
+      },
+      "viewer": {
+        "status": 200,
+        "time_links": 0,
+        "task_edit_links": 0,
+        "task_273_listed": true
+      }
+    },
+    "r24_editor_delete": {
+      "editor_sees_delete_link": 0,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/project?oid=221",
+      "iteration_309_still_listed": false
+    },
+    "r29_viewer_edit": {
+      "editor_status": 200,
+      "form_offered": true,
+      "post_status": 302,
+      "post_location": "/xplanner-legacy/do/view/iteration?oid=308",
+      "name_now": "S3-A Iteration 1 (viewer edit)"
+    },
+    "r29_viewer_delete": {
+      "url": "/xplanner-legacy/do/delete/userstory?fkey=308&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&oid=258&projectId=221",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=308",
+      "story_258_still_listed": false
+    },
+    "r29_member_view": {
+      "status": 200,
+      "title": "XPlanner Project: S3 Shared"
+    },
+    "r28": {
+      "no_project": {
+        "status": 404,
+        "location": null,
+        "title": "HTTP Status 404 – Not Found",
+        "err": {
+          "title": "HTTP Status 404 – Not Found",
+          "exception_classes": [],
+          "has_cause": false,
+          "has_stack_trace": false,
+          "has_unknown_error_text": false,
+          "has_support_link": false
+        },
+        "ct": "text/html;charset=utf-8"
+      },
+      "readable": {
+        "status": 500,
+        "location": null,
+        "title": "An error has occurred.",
+        "err": {
+          "title": "An error has occurred.",
+          "exception_classes": [
+            "javax.servlet.jsp.JspTagException",
+            "java.lang.IllegalArgumentException",
+            "javax.servlet.ServletException"
+          ],
+          "has_cause": true,
+          "has_stack_trace": true,
+          "has_unknown_error_text": false,
+          "has_support_link": true
+        },
+        "ct": "text/html;charset=UTF-8"
+      },
+      "not_readable": {
+        "status": 404,
+        "location": null,
+        "title": "HTTP Status 404 – Not Found",
+        "err": {
+          "title": "HTTP Status 404 – Not Found",
+          "exception_classes": [],
+          "has_cause": false,
+          "has_stack_trace": false,
+          "has_unknown_error_text": false,
+          "has_support_link": false
+        },
+        "ct": "text/html;charset=utf-8"
+      }
+    },
+    "r30_viewer_close": {
+      "url": "/xplanner-legacy/do/close/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&projectId=221&oid=308",
+      "status": 302,
+      "location": "/xplanner-legacy/do/continue/unfinished/stories?iterationId=308&/do/view/iteration?oid=308?oid=308&fkey=308",
+      "title": null,
+      "start_link_now": 1,
+      "close_link_now": 0
+    },
+    "r48": {
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/people"
+    },
+    "r38": {
+      "viewer": 1,
+      "editor": 1,
+      "admin": 1,
+      "sysadmin": 1,
+      "member": 1
+    },
+    "r31_34": {
+      "grant_status": 302,
+      "after_grant_checked": true,
+      "admin_sees_checkbox": false,
+      "admin_save_status": 302,
+      "after_admin_save": {
+        "sysadmin": true,
+        "role221": "viewer",
+        "phone": "555-0101"
+      },
+      "revoke_save_status": 302,
+      "after_save_without_box_checked": false,
+      "role221_after": "viewer"
+    },
+    "r43_viewer_create": {
+      "form_offered": true,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/people",
+      "created_oid": 288
+    },
+    "r45": {
+      "status": 500,
+      "err": {
+        "title": "An error has occurred.",
+        "exception_classes": [
+          "org.hibernate.exception.ConstraintViolationException",
+          "java.sql.BatchUpdateException"
+        ],
+        "has_cause": true,
+        "has_stack_trace": true,
+        "has_unknown_error_text": false,
+        "has_support_link": true
+      },
+      "user_id_exists_shown": false,
+      "s3a_member_rows": 1
+    },
+    "r49_pre": {
+      "story_customer_del2_shown": true,
+      "task_acceptor_del3_shown": true,
+      "person_page_delete_links": []
+    },
+    "r49": {
+      "no_references": {
+        "oid": 216,
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/people",
+        "still_listed": false
+      },
+      "story_customer": {
+        "oid": 217,
+        "status": 500,
+        "location": null,
+        "err": {
+          "title": "An error has occurred.",
+          "exception_classes": [
+            "org.hibernate.exception.ConstraintViolationException",
+            "java.sql.BatchUpdateException"
+          ],
+          "has_cause": true,
+          "has_stack_trace": true,
+          "has_unknown_error_text": false,
+          "has_support_link": true
+        },
+        "still_listed": true
+      },
+      "task_acceptor": {
+        "oid": 218,
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/people",
+        "still_listed": false
+      }
+    },
+    "r49_after": {
+      "task_page": {
+        "status": 500,
+        "err": {
+          "title": "An error has occurred.",
+          "exception_classes": [
+            "javax.el.ELException",
+            "javax.servlet.ServletException",
+            "org.hibernate.ObjectNotFoundException",
+            "org.hibernate.LazyInitializationException"
+          ],
+          "has_cause": true,
+          "has_stack_trace": true,
+          "has_unknown_error_text": false,
+          "has_support_link": true
+        },
+        "acceptor_text": null
+      },
+      "story_page": {
+        "status": 500,
+        "err": {
+          "title": "An error has occurred.",
+          "exception_classes": [
+            "javax.el.ELException",
+            "javax.servlet.ServletException",
+            "org.hibernate.ObjectNotFoundException",
+            "org.hibernate.LazyInitializationException"
+          ],
+          "has_cause": true,
+          "has_stack_trace": true,
+          "has_unknown_error_text": false,
+          "has_support_link": true
+        }
+      }
+    },
+    "r35_open": {
+      "status": 500,
+      "title": "An error has occurred.",
+      "err": {
+        "title": "An error has occurred.",
+        "exception_classes": [
+          "java.lang.NullPointerException"
+        ],
+        "has_cause": true,
+        "has_stack_trace": true,
+        "has_unknown_error_text": true,
+        "has_support_link": true
+      },
+      "forms": []
+    },
+    "r14_fresh": {
+      "status": 200,
+      "location": null,
+      "login_form": true
+    },
+    "r14_after_failed_login": {
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "login_form": false
+    }
+  },
+  "finished_at": "2026-09-30T20:20:11.916Z"
+}

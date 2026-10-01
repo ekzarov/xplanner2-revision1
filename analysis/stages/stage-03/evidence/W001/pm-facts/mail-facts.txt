@@ -1,0 +1,40 @@
+# PM read-only mail facts for rows 138, 198, 200-202 (collected 2026-09-30T20:02:03Z by PM via pm-mail-facts.sh and pm-mail-sink.sh; credential-like lines excluded at source)
+app log lines total: 1991
+--- mail/smtp-related lines: 26
+[    421]   INFO - org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@363bf9d: defining beans [properties,propertyConfi
+[   1926]   INFO - org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: net.sf.xplanner.domain.NotificationReceivers 
+[   1926]   INFO - org.hibernate.cfg.annotations.EntityBinder - Bind entity net.sf.xplanner.domain.NotificationReceivers on table notification_receivers 
+[   3023]   INFO - org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@124bc9fa: defining beans [/changeLocale,/systemIn
+[   3125]   INFO - org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: net.sf.xplanner.domain.NotificationReceivers 
+[   3125]   INFO - org.hibernate.cfg.annotations.EntityBinder - Bind entity net.sf.xplanner.domain.NotificationReceivers on table notification_receivers 
+[37559926]   INFO - org.apache.velocity.app.VelocityEngine - ResourceManager : found com/technoetic/xplanner/mail/velocity/email_notification_task_created.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader 
+[37559945]  ERROR - com.technoetic.xplanner.mail.EmailNotificationSupport - Error sending email:  
+java.io.FileNotFoundException: http://localhost:8080/xplanner/css/email.css
+	at com.technoetic.xplanner.mail.EmailFormatterImpl.formatEmailEntry(EmailFormatterImpl.java:81)
+	at com.technoetic.xplanner.mail.EmailNotificationSupport.sendNotifications(EmailNotificationSupport.java:57)
+	at com.technoetic.xplanner.actions.EditTaskAction.sendNotification(EditTaskAction.java:122)
+Email was sent to:
+[37583211]   INFO - org.apache.velocity.app.VelocityEngine - ResourceManager : found com/technoetic/xplanner/mail/velocity/email_notification_task_updated.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader 
+[37583213]  ERROR - com.technoetic.xplanner.mail.EmailNotificationSupport - Error sending email:  
+java.io.FileNotFoundException: http://localhost:8080/xplanner/css/email.css
+	at com.technoetic.xplanner.mail.EmailFormatterImpl.formatEmailEntry(EmailFormatterImpl.java:81)
+	at com.technoetic.xplanner.mail.EmailNotificationSupport.sendNotifications(EmailNotificationSupport.java:57)
+	at com.technoetic.xplanner.actions.EditTaskAction.sendNotification(EditTaskAction.java:122)
+Email was sent to:
+--- listening on 25 inside the app namespace:
+0
+
+--- mail sink listener
+listeners in the shared namespace (hex port, state 0A = LISTEN):
+/proc/net/tcp 0B00007F:9ABF
+/proc/net/tcp6 00000000000000000000000000000000:0019
+/proc/net/tcp6 0000000000000000FFFF00000100007F:1F45
+/proc/net/tcp6 00000000000000000000000000000000:1F59
+/proc/net/tcp6 00000000000000000000000000000000:1F90
+mail container user: 
+--- mailpit log (last 20):
+time="2026/09/30 09:21:04" level=info msg="[smtpd] starting on 0.0.0.0:25 (no encryption)"
+time="2026/09/30 09:21:04" level=warning msg="[http] listening on 0.0.0.0:8025 without --ui-auth-file or --allowed-hosts; the API is reachable from any host that can route to this interface"
+time="2026/09/30 09:21:04" level=info msg="[http] starting on 0.0.0.0:8025"
+time="2026/09/30 09:21:04" level=info msg="[http] accessible via http://0.0.0.0:8025/"
+

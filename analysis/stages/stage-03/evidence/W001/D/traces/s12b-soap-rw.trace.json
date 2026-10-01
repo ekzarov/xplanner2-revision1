@@ -1,0 +1,2931 @@
+{
+  "at": "2026-09-30T20:22:42.950Z",
+  "calls": [
+    {
+      "at": "2026-09-30T20:22:21.239Z",
+      "who": "sysadmin",
+      "op": "getProject",
+      "args": [
+        [
+          "id",
+          341
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "description": "Part D synthetic project, updated over SOAP",
+        "id": "341",
+        "lastUpdateTime": null,
+        "name": "S3-D SOAP Project"
+      },
+      "note": "after update(ProjectData) of the first run"
+    },
+    {
+      "at": "2026-09-30T20:22:21.542Z",
+      "who": "sysadmin",
+      "op": "addIteration",
+      "args": [
+        [
+          "iteration",
+          "IterationData"
+        ]
+      ],
+      "status": 500,
+      "fault": "java.lang.RuntimeException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: net.sf.xplanner.domain.Project",
+      "note": "retry into 224"
+    },
+    {
+      "at": "2026-09-30T20:22:21.865Z",
+      "who": "editor",
+      "op": "addIteration",
+      "args": [
+        [
+          "iteration",
+          "IterationData"
+        ]
+      ],
+      "status": 500,
+      "fault": "java.lang.RuntimeException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: net.sf.xplanner.domain.Project",
+      "note": "editor into 224"
+    },
+    {
+      "at": "2026-09-30T20:22:22.198Z",
+      "who": "editor",
+      "op": "addUserStory",
+      "args": [
+        [
+          "story",
+          "UserStoryData"
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "actualHours": "0.0",
+        "adjustedEstimatedHours": "0.0",
+        "completed": "false",
+        "customerId": "0",
+        "description": "soap",
+        "dispositionName": null,
+        "estimatedHours": "0.0",
+        "estimatedOriginalHours": "0.0",
+        "id": "374",
+        "iterationId": "234",
+        "lastUpdateTime": null,
+        "name": "S3-D SOAP Story",
+        "postponedHours": "0.0",
+        "priority": "4",
+        "remainingHours": "0.0",
+        "trackerId": "210"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:22.501Z",
+      "who": "editor",
+      "op": "getUserStory",
+      "args": [
+        [
+          "id",
+          374
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object"
+    },
+    {
+      "at": "2026-09-30T20:22:22.806Z",
+      "who": "editor",
+      "op": "getUserStory",
+      "args": [
+        [
+          "id",
+          374
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object",
+      "note": "after update"
+    },
+    {
+      "at": "2026-09-30T20:22:23.128Z",
+      "who": "editor",
+      "op": "addTask",
+      "args": [
+        [
+          "task",
+          "TaskData"
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to create object"
+    },
+    {
+      "at": "2026-09-30T20:22:23.441Z",
+      "who": "sysadmin",
+      "op": "addNote",
+      "args": [
+        [
+          "note",
+          "NoteData"
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "attachedToId": "341",
+        "attachmentId": "0",
+        "authorId": "212",
+        "body": "note attached to the SOAP project",
+        "id": "385",
+        "lastUpdateTime": null,
+        "subject": "S3-D SOAP note on project",
+        "submissionTime": "2026-09-30T20:22:23.129Z"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:23.760Z",
+      "who": "editor",
+      "op": "addNote",
+      "args": [
+        [
+          "note",
+          "NoteData"
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "attachedToId": "256",
+        "attachmentId": "0",
+        "authorId": "210",
+        "body": "note attached to story 256",
+        "id": "386",
+        "lastUpdateTime": null,
+        "subject": "S3-D SOAP note on story 1",
+        "submissionTime": "2026-09-30T20:22:23.442Z"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:24.069Z",
+      "who": "editor",
+      "op": "getNote",
+      "args": [
+        [
+          "id",
+          386
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "attachedToId": "256",
+        "attachmentId": "0",
+        "authorId": "210",
+        "body": "note attached to story 256",
+        "id": "386",
+        "lastUpdateTime": null,
+        "subject": "S3-D SOAP note on story 1",
+        "submissionTime": "2026-09-30T20:22:23.000Z"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:24.385Z",
+      "who": "editor",
+      "op": "update",
+      "args": [
+        [
+          "note",
+          "NoteData#386"
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "update(NoteData)"
+    },
+    {
+      "at": "2026-09-30T20:22:24.698Z",
+      "who": "editor",
+      "op": "addNote",
+      "args": [
+        [
+          "note",
+          "NoteData"
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "attachedToId": "256",
+        "attachmentId": "0",
+        "authorId": "210",
+        "body": "x",
+        "id": "387",
+        "lastUpdateTime": null,
+        "subject": "S3-D SOAP note to remove",
+        "submissionTime": "2026-09-30T20:22:24.385Z"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:25.013Z",
+      "who": "sysadmin",
+      "op": "addPerson",
+      "args": [
+        [
+          "object",
+          "PersonData"
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "id": "396",
+        "initials": "SDP",
+        "lastUpdateTime": null,
+        "name": "S3-D Soap Person",
+        "userId": "s3dsoap"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:25.323Z",
+      "who": "sysadmin",
+      "op": "getPerson",
+      "args": [
+        [
+          "id",
+          396
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "id": "396",
+        "initials": "SDP",
+        "lastUpdateTime": null,
+        "name": "S3-D Soap Person",
+        "userId": "s3dsoap"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:25.629Z",
+      "who": "sysadmin",
+      "op": "update",
+      "args": [
+        [
+          "object",
+          "PersonData#396"
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "update(PersonData)"
+    },
+    {
+      "at": "2026-09-30T20:22:25.920Z",
+      "who": "sysadmin",
+      "op": "getPerson",
+      "args": [
+        [
+          "id",
+          396
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "id": "396",
+        "initials": "SDP",
+        "lastUpdateTime": null,
+        "name": "S3-D Soap Person (updated)",
+        "userId": "s3dsoap"
+      },
+      "note": "after update"
+    },
+    {
+      "at": "2026-09-30T20:22:26.223Z",
+      "who": "editor",
+      "op": "getProjects",
+      "args": [],
+      "status": 200,
+      "result": {
+        "array_len": 5,
+        "ids": [
+          "220",
+          "221",
+          "222",
+          "223",
+          "224"
+        ],
+        "names": [
+          "S3 Shared",
+          "S3-A Access",
+          "S3-B Planning",
+          "S3-C Time",
+          "S3-D Integrations"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:26.526Z",
+      "who": "editor",
+      "op": "getProject",
+      "args": [
+        [
+          "id",
+          224
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "description": "Synthetic Stage 3 project (created by W001 part S3-setup, addendum).",
+        "id": "224",
+        "lastUpdateTime": null,
+        "name": "S3-D Integrations"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:26.831Z",
+      "who": "editor",
+      "op": "getIterations",
+      "args": [
+        [
+          "projectId",
+          224
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 3,
+        "ids": [
+          "233",
+          "234",
+          "315"
+        ],
+        "names": [
+          "S3-D Past Iteration",
+          "S3-D Iteration 1",
+          "S3-D Iteration to remove"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:27.145Z",
+      "who": "editor",
+      "op": "getIteration",
+      "args": [
+        [
+          "id",
+          234
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "actualHours": "0.0",
+        "addedHours": "0.0",
+        "adjustedEstimatedHours": "5.0",
+        "daysWorked": "0.0",
+        "description": "Part D synthetic current iteration.",
+        "endDate": "2026-10-11T00:00:00.000Z",
+        "estimatedHours": "5.0",
+        "id": "234",
+        "lastUpdateTime": null,
+        "name": "S3-D Iteration 1",
+        "overestimatedHours": "0.0",
+        "postponedHours": "0.0",
+        "projectId": "0",
+        "remainingHours": "4.0",
+        "startDate": "2026-09-28T00:00:00.000Z",
+        "statusKey": "active",
+        "underestimatedHours": "0.0"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:27.460Z",
+      "who": "editor",
+      "op": "getCurrentIteration",
+      "args": [
+        [
+          "projectId",
+          224
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.hql.ast.QuerySyntaxException: unexpected token: object near line 1, column 45 [from net.sf.xplanner.domain.Iteration where object.startDate <= ? and object.endDate >= ? and object.projectId = ?]",
+      "note": "live question"
+    },
+    {
+      "at": "2026-09-30T20:22:27.779Z",
+      "who": "editor",
+      "op": "getUserStories",
+      "args": [
+        [
+          "containerId",
+          234
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 1,
+        "ids": [
+          "256"
+        ],
+        "names": [
+          "S3-D Story 1"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:28.086Z",
+      "who": "editor",
+      "op": "getUserStory",
+      "args": [
+        [
+          "id",
+          256
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "actualHours": "1.0",
+        "adjustedEstimatedHours": "5.0",
+        "completed": "false",
+        "customerId": "0",
+        "description": "Part D synthetic story.",
+        "dispositionName": null,
+        "estimatedHours": "5.0",
+        "estimatedOriginalHours": "5.0",
+        "id": "256",
+        "iterationId": "0",
+        "lastUpdateTime": null,
+        "name": "S3-D Story 1",
+        "postponedHours": "0.0",
+        "priority": "4",
+        "remainingHours": "5.0",
+        "trackerId": "210"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:28.402Z",
+      "who": "editor",
+      "op": "getTasks",
+      "args": [
+        [
+          "containerId",
+          256
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 2,
+        "ids": [
+          "270",
+          "271"
+        ],
+        "names": [
+          "S3-D Task 1",
+          "S3-D Task 2"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:28.717Z",
+      "who": "editor",
+      "op": "getTask",
+      "args": [
+        [
+          "id",
+          270
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "acceptorId": "210",
+        "actualHours": "1.0",
+        "adjustedEstimatedHours": "3.0",
+        "completed": "false",
+        "createdDate": "2026-09-30T00:00:00.000Z",
+        "description": "Part D synthetic task.",
+        "dispositionName": "planned",
+        "estimatedHours": "3.0",
+        "estimatedOriginalHours": "3.0",
+        "id": "270",
+        "lastUpdateTime": null,
+        "name": "S3-D Task 1",
+        "remainingHours": "2.0",
+        "storyId": "0",
+        "type": "Feature"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:29.064Z",
+      "who": "editor",
+      "op": "getCurrentTasksForPerson",
+      "args": [
+        [
+          "personId",
+          210
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 5,
+        "ids": [
+          "265",
+          "266",
+          "267",
+          "268",
+          "270"
+        ],
+        "names": [
+          "S3-C Task EN",
+          "S3-C Task DE",
+          "S3-C Task ES",
+          "S3-C Task V",
+          "S3-D Task 1"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:29.374Z",
+      "who": "editor",
+      "op": "getPlannedTasksForPerson",
+      "args": [
+        [
+          "personId",
+          210
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 2,
+        "ids": [
+          "269",
+          "271"
+        ],
+        "names": [
+          "S3-C Task H",
+          "S3-D Task 2"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:29.687Z",
+      "who": "editor",
+      "op": "getTimeEntries",
+      "args": [
+        [
+          "containerId",
+          270
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 1,
+        "ids": [
+          "276"
+        ],
+        "names": []
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:30.002Z",
+      "who": "editor",
+      "op": "getTimeEntry",
+      "args": [
+        [
+          "id",
+          276
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "description": "S3-D time entry",
+        "duration": "1.0",
+        "endTime": null,
+        "id": "276",
+        "lastUpdateTime": null,
+        "person1Id": "210",
+        "person2Id": "0",
+        "reportDate": "2026-09-30T00:00:00.000Z",
+        "startTime": null,
+        "taskId": "0"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:30.309Z",
+      "who": "editor",
+      "op": "getNote",
+      "args": [
+        [
+          "id",
+          386
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "attachedToId": "256",
+        "attachmentId": "0",
+        "authorId": "210",
+        "body": "note attached to story 256 (updated)",
+        "id": "386",
+        "lastUpdateTime": null,
+        "subject": "S3-D SOAP note on story 1",
+        "submissionTime": "2026-09-30T20:22:23.000Z"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:30.613Z",
+      "who": "editor",
+      "op": "getNotesForObject",
+      "args": [
+        [
+          "attachedToId",
+          256
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 2,
+        "ids": [
+          "386",
+          "387"
+        ],
+        "names": [
+          "S3-D SOAP note on story 1",
+          "S3-D SOAP note to remove"
+        ]
+      },
+      "note": "live question"
+    },
+    {
+      "at": "2026-09-30T20:22:30.918Z",
+      "who": "editor",
+      "op": "getPerson",
+      "args": [
+        [
+          "id",
+          210
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "id": "210",
+        "initials": "S3E",
+        "lastUpdateTime": null,
+        "name": "S3 Editor",
+        "userId": "s3editor"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:31.221Z",
+      "who": "editor",
+      "op": "getPeople",
+      "args": [],
+      "status": 200,
+      "result": {
+        "array_len": 12,
+        "ids": [
+          "1",
+          "209",
+          "210",
+          "211",
+          "212",
+          "213",
+          "214",
+          "215",
+          "217",
+          "219",
+          "288",
+          "396"
+        ],
+        "names": [
+          "sysadmin",
+          "S3 Viewer",
+          "S3 Editor",
+          "S3 Admin",
+          "S3 Sysadmin",
+          "S3A Mémber Žofia Ünïcode",
+          "S3A Hide",
+          "S3A NoPassword",
+          "S3A Delete Two",
+          "S3A Sys Candidate",
+          "S3A By Viewer",
+          "S3-D Soap Person (updated)"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:31.534Z",
+      "who": "editor",
+      "op": "setAttribute",
+      "args": [
+        [
+          "objectId",
+          256
+        ],
+        [
+          "key",
+          "s3d.key"
+        ],
+        [
+          "value",
+          "v1"
+        ]
+      ],
+      "status": 200,
+      "result": "(void)"
+    },
+    {
+      "at": "2026-09-30T20:22:31.839Z",
+      "who": "editor",
+      "op": "getAttribute",
+      "args": [
+        [
+          "objectId",
+          256
+        ],
+        [
+          "key",
+          "s3d.key"
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.TypeMismatchException: Provided id of the wrong type for class net.sf.xplanner.domain.Attribute. Expected: class net.sf.xplanner.domain.AttributeId, got class net.sf.xplanner.domain.Attribute"
+    },
+    {
+      "at": "2026-09-30T20:22:32.147Z",
+      "who": "editor",
+      "op": "getAttributes",
+      "args": [
+        [
+          "objectId",
+          256
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 1,
+        "ids": [
+          null
+        ],
+        "names": [
+          "s3d.key"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:32.451Z",
+      "who": "editor",
+      "op": "getAttributesWithPrefix",
+      "args": [
+        [
+          "objectId",
+          256
+        ],
+        [
+          "prefix",
+          "s3d."
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 1,
+        "ids": [
+          null
+        ],
+        "names": [
+          "key"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:32.748Z",
+      "who": "editor",
+      "op": "getProject",
+      "args": [
+        [
+          "id",
+          341
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object",
+      "note": "no role on project 341"
+    },
+    {
+      "at": "2026-09-30T20:22:33.057Z",
+      "who": "editor",
+      "op": "getIterations",
+      "args": [
+        [
+          "projectId",
+          341
+        ]
+      ],
+      "status": 200,
+      "result": "",
+      "note": "no role on project 341"
+    },
+    {
+      "at": "2026-09-30T20:22:33.365Z",
+      "who": "editor",
+      "op": "getUserStory",
+      "args": [
+        [
+          "id",
+          256
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "actualHours": "1.0",
+        "adjustedEstimatedHours": "5.0",
+        "completed": "false",
+        "customerId": "0",
+        "description": "Part D synthetic story.",
+        "dispositionName": null,
+        "estimatedHours": "5.0",
+        "estimatedOriginalHours": "5.0",
+        "id": "256",
+        "iterationId": "0",
+        "lastUpdateTime": null,
+        "name": "S3-D Story 1",
+        "postponedHours": "0.0",
+        "priority": "4",
+        "remainingHours": "5.0",
+        "trackerId": "210"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:33.675Z",
+      "who": "editor",
+      "op": "update",
+      "args": [
+        [
+          "object",
+          "UserStoryData#256"
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "update(UserStoryData) by editor on story 256"
+    },
+    {
+      "at": "2026-09-30T20:22:33.982Z",
+      "who": "viewer",
+      "op": "getProjects",
+      "args": [],
+      "status": 200,
+      "result": {
+        "array_len": 5,
+        "ids": [
+          "220",
+          "221",
+          "222",
+          "223",
+          "224"
+        ],
+        "names": [
+          "S3 Shared",
+          "S3-A Access",
+          "S3-B Planning",
+          "S3-C Time",
+          "S3-D Integrations"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:34.283Z",
+      "who": "viewer",
+      "op": "getProject",
+      "args": [
+        [
+          "id",
+          224
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "description": "Synthetic Stage 3 project (created by W001 part S3-setup, addendum).",
+        "id": "224",
+        "lastUpdateTime": null,
+        "name": "S3-D Integrations"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:34.592Z",
+      "who": "viewer",
+      "op": "update",
+      "args": [
+        [
+          "object",
+          "ProjectData#224"
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to update object",
+      "note": "viewer update with unchanged values"
+    },
+    {
+      "at": "2026-09-30T20:22:34.895Z",
+      "who": "viewer",
+      "op": "addUserStory",
+      "args": [
+        [
+          "story",
+          "UserStoryData"
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to create object",
+      "note": "viewer create"
+    },
+    {
+      "at": "2026-09-30T20:22:35.217Z",
+      "who": "editor",
+      "op": "addTask",
+      "args": [
+        [
+          "task",
+          "TaskData"
+        ]
+      ],
+      "status": 500,
+      "fault": "java.lang.RuntimeException: org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update"
+    },
+    {
+      "at": "2026-09-30T20:22:35.535Z",
+      "who": "viewer",
+      "op": "getProject",
+      "args": [
+        [
+          "id",
+          341
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object",
+      "note": "viewer, no role on project 341"
+    },
+    {
+      "at": "2026-09-30T20:22:35.849Z",
+      "who": "viewer",
+      "op": "setAttribute",
+      "args": [
+        [
+          "objectId",
+          256
+        ],
+        [
+          "key",
+          "s3d.viewer"
+        ],
+        [
+          "value",
+          "set-by-viewer"
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "attribute op, viewer"
+    },
+    {
+      "at": "2026-09-30T20:22:36.153Z",
+      "who": "viewer",
+      "op": "getAttribute",
+      "args": [
+        [
+          "objectId",
+          256
+        ],
+        [
+          "key",
+          "s3d.viewer"
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.TypeMismatchException: Provided id of the wrong type for class net.sf.xplanner.domain.Attribute. Expected: class net.sf.xplanner.domain.AttributeId, got class net.sf.xplanner.domain.Attribute"
+    },
+    {
+      "at": "2026-09-30T20:22:36.457Z",
+      "who": "viewer",
+      "op": "getAttributes",
+      "args": [
+        [
+          "objectId",
+          341
+        ]
+      ],
+      "status": 200,
+      "result": "",
+      "note": "attributes of an object on a project without a viewer role"
+    },
+    {
+      "at": "2026-09-30T20:22:36.769Z",
+      "who": "anon",
+      "op": "getProject",
+      "args": [
+        [
+          "id",
+          224
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no user principal in session",
+      "note": "alternate path, no credentials"
+    },
+    {
+      "at": "2026-09-30T20:22:37.086Z",
+      "who": "anon",
+      "op": "getAttribute",
+      "args": [
+        [
+          "objectId",
+          256
+        ],
+        [
+          "key",
+          "s3d.key"
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.TypeMismatchException: Provided id of the wrong type for class net.sf.xplanner.domain.Attribute. Expected: class net.sf.xplanner.domain.AttributeId, got class net.sf.xplanner.domain.Attribute",
+      "note": "alternate path, no credentials"
+    },
+    {
+      "at": "2026-09-30T20:22:37.397Z",
+      "who": "anon",
+      "op": "setAttribute",
+      "args": [
+        [
+          "objectId",
+          256
+        ],
+        [
+          "key",
+          "s3d.anon"
+        ],
+        [
+          "value",
+          "set-anonymously"
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "alternate path, no credentials"
+    },
+    {
+      "at": "2026-09-30T20:22:37.702Z",
+      "who": "editor",
+      "op": "getAttributes",
+      "args": [
+        [
+          "objectId",
+          256
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 3,
+        "ids": [
+          null,
+          null,
+          null
+        ],
+        "names": [
+          "s3d.anon",
+          "s3d.viewer",
+          "s3d.key"
+        ]
+      },
+      "note": "after anonymous setAttribute"
+    },
+    {
+      "at": "2026-09-30T20:22:38.011Z",
+      "who": "editor",
+      "op": "deleteAttribute",
+      "args": [
+        [
+          "objectId",
+          256
+        ],
+        [
+          "key",
+          "s3d.key"
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.QueryException: could not resolve property: targetId of: net.sf.xplanner.domain.Attribute [from a in class net.sf.xplanner.domain.Attribute where a.targetId = ? and a.name = ?]",
+      "note": "live question"
+    },
+    {
+      "at": "2026-09-30T20:22:38.325Z",
+      "who": "editor",
+      "op": "getAttributes",
+      "args": [
+        [
+          "objectId",
+          256
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 3,
+        "ids": [
+          null,
+          null,
+          null
+        ],
+        "names": [
+          "s3d.anon",
+          "s3d.viewer",
+          "s3d.key"
+        ]
+      },
+      "note": "after deleteAttribute"
+    },
+    {
+      "at": "2026-09-30T20:22:38.636Z",
+      "who": "editor",
+      "op": "removeNote",
+      "args": [
+        [
+          "id",
+          387
+        ]
+      ],
+      "status": 200,
+      "result": "(void)"
+    },
+    {
+      "at": "2026-09-30T20:22:38.943Z",
+      "who": "editor",
+      "op": "getNote",
+      "args": [
+        [
+          "id",
+          387
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Note#387]",
+      "note": "after remove"
+    },
+    {
+      "at": "2026-09-30T20:22:39.246Z",
+      "who": "editor",
+      "op": "removeUserStory",
+      "args": [
+        [
+          "id",
+          374
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object"
+    },
+    {
+      "at": "2026-09-30T20:22:39.561Z",
+      "who": "editor",
+      "op": "getUserStory",
+      "args": [
+        [
+          "id",
+          374
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object",
+      "note": "after remove"
+    },
+    {
+      "at": "2026-09-30T20:22:39.875Z",
+      "who": "editor",
+      "op": "removeIteration",
+      "args": [
+        [
+          "id",
+          315
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object",
+      "note": "editor delete of an iteration"
+    },
+    {
+      "at": "2026-09-30T20:22:40.194Z",
+      "who": "sysadmin",
+      "op": "removeIteration",
+      "args": [
+        [
+          "id",
+          315
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "sysadmin delete of an iteration"
+    },
+    {
+      "at": "2026-09-30T20:22:40.496Z",
+      "who": "editor",
+      "op": "getIteration",
+      "args": [
+        [
+          "id",
+          315
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Iteration#315]",
+      "note": "after remove"
+    },
+    {
+      "at": "2026-09-30T20:22:40.801Z",
+      "who": "sysadmin",
+      "op": "removePerson",
+      "args": [
+        [
+          "id",
+          396
+        ]
+      ],
+      "status": 200,
+      "result": "(void)"
+    },
+    {
+      "at": "2026-09-30T20:22:41.105Z",
+      "who": "sysadmin",
+      "op": "getPerson",
+      "args": [
+        [
+          "id",
+          396
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Person#396]",
+      "note": "after remove"
+    },
+    {
+      "at": "2026-09-30T20:22:41.411Z",
+      "who": "sysadmin",
+      "op": "getNote",
+      "args": [
+        [
+          "id",
+          385
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "attachedToId": "341",
+        "attachmentId": "0",
+        "authorId": "212",
+        "body": "note attached to the SOAP project",
+        "id": "385",
+        "lastUpdateTime": null,
+        "subject": "S3-D SOAP note on project",
+        "submissionTime": "2026-09-30T20:22:23.000Z"
+      },
+      "note": "project note before removeProject"
+    },
+    {
+      "at": "2026-09-30T20:22:41.720Z",
+      "who": "sysadmin",
+      "op": "getNotesForObject",
+      "args": [
+        [
+          "attachedToId",
+          341
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 1,
+        "ids": [
+          "385"
+        ],
+        "names": [
+          "S3-D SOAP note on project"
+        ]
+      },
+      "note": "before removeProject"
+    },
+    {
+      "at": "2026-09-30T20:22:42.022Z",
+      "who": "sysadmin",
+      "op": "removeProject",
+      "args": [
+        [
+          "id",
+          341
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "live question"
+    },
+    {
+      "at": "2026-09-30T20:22:42.331Z",
+      "who": "sysadmin",
+      "op": "getProject",
+      "args": [
+        [
+          "id",
+          341
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Project#341]",
+      "note": "after removeProject"
+    },
+    {
+      "at": "2026-09-30T20:22:42.642Z",
+      "who": "sysadmin",
+      "op": "getNote",
+      "args": [
+        [
+          "id",
+          385
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "attachedToId": "341",
+        "attachmentId": "0",
+        "authorId": "212",
+        "body": "note attached to the SOAP project",
+        "id": "385",
+        "lastUpdateTime": null,
+        "subject": "S3-D SOAP note on project",
+        "submissionTime": "2026-09-30T20:22:23.000Z"
+      },
+      "note": "project note after removeProject (live question)"
+    },
+    {
+      "at": "2026-09-30T20:22:42.950Z",
+      "who": "sysadmin",
+      "op": "getNotesForObject",
+      "args": [
+        [
+          "attachedToId",
+          341
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 1,
+        "ids": [
+          "385"
+        ],
+        "names": [
+          "S3-D SOAP note on project"
+        ]
+      },
+      "note": "after removeProject"
+    }
+  ],
+  "trace": [
+    {
+      "at": "2026-09-30T20:22:19.394Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:22:19.693Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:22:19.996Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/edit/iteration?fkey=224&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D224&projectId=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 6782
+    },
+    {
+      "at": "2026-09-30T20:22:20.309Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/iteration",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/project?oid=224",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "create iteration X (web)"
+    },
+    {
+      "at": "2026-09-30T20:22:20.635Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/project?oid=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 11792
+    },
+    {
+      "at": "2026-09-30T20:22:20.934Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    },
+    {
+      "at": "2026-09-30T20:22:21.238Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "auth": "basic (sysadmin)",
+      "bytes": 1125,
+      "label": "soap getProject",
+      "soap": {
+        "op": "getProject",
+        "params": [
+          [
+            "id",
+            341
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:21.542Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 661,
+      "label": "soap addIteration",
+      "soap": {
+        "op": "addIteration",
+        "params": [
+          [
+            "iteration",
+            "IterationData"
+          ]
+        ],
+        "fault": "java.lang.RuntimeException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: net.sf.xplanner.domain.Project"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:21.865Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "auth": "basic (editor)",
+      "bytes": 661,
+      "label": "soap addIteration",
+      "soap": {
+        "op": "addIteration",
+        "params": [
+          [
+            "iteration",
+            "IterationData"
+          ]
+        ],
+        "fault": "java.lang.RuntimeException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: net.sf.xplanner.domain.Project"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:22.197Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 3609,
+      "label": "soap addUserStory",
+      "soap": {
+        "op": "addUserStory",
+        "params": [
+          [
+            "story",
+            "UserStoryData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:22.501Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 554,
+      "label": "soap getUserStory",
+      "soap": {
+        "op": "getUserStory",
+        "params": [
+          [
+            "id",
+            374
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:22.805Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 554,
+      "label": "soap getUserStory",
+      "soap": {
+        "op": "getUserStory",
+        "params": [
+          [
+            "id",
+            374
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:23.128Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 556,
+      "label": "soap addTask",
+      "soap": {
+        "op": "addTask",
+        "params": [
+          [
+            "task",
+            "TaskData"
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to create object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:23.441Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 1838,
+      "label": "soap addNote",
+      "soap": {
+        "op": "addNote",
+        "params": [
+          [
+            "note",
+            "NoteData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:23.760Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 1831,
+      "label": "soap addNote",
+      "soap": {
+        "op": "addNote",
+        "params": [
+          [
+            "note",
+            "NoteData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:24.069Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 1831,
+      "label": "soap getNote",
+      "soap": {
+        "op": "getNote",
+        "params": [
+          [
+            "id",
+            386
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:24.385Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 413,
+      "label": "soap update",
+      "soap": {
+        "op": "update",
+        "params": [
+          [
+            "note",
+            "NoteData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:24.697Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 1805,
+      "label": "soap addNote",
+      "soap": {
+        "op": "addNote",
+        "params": [
+          [
+            "note",
+            "NoteData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:25.013Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 1232,
+      "label": "soap addPerson",
+      "soap": {
+        "op": "addPerson",
+        "params": [
+          [
+            "object",
+            "PersonData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:25.322Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 1232,
+      "label": "soap getPerson",
+      "soap": {
+        "op": "getPerson",
+        "params": [
+          [
+            "id",
+            396
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:25.629Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 413,
+      "label": "soap update",
+      "soap": {
+        "op": "update",
+        "params": [
+          [
+            "object",
+            "PersonData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:25.919Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 1242,
+      "label": "soap getPerson",
+      "soap": {
+        "op": "getPerson",
+        "params": [
+          [
+            "id",
+            396
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:26.222Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 4162,
+      "label": "soap getProjects",
+      "soap": {
+        "op": "getProjects",
+        "params": []
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:26.526Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 1150,
+      "label": "soap getProject",
+      "soap": {
+        "op": "getProject",
+        "params": [
+          [
+            "id",
+            224
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:26.830Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 10059,
+      "label": "soap getIterations",
+      "soap": {
+        "op": "getIterations",
+        "params": [
+          [
+            "projectId",
+            224
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:27.144Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 3567,
+      "label": "soap getIteration",
+      "soap": {
+        "op": "getIteration",
+        "params": [
+          [
+            "id",
+            234
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:27.460Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 682,
+      "label": "soap getCurrentIteration",
+      "soap": {
+        "op": "getCurrentIteration",
+        "params": [
+          [
+            "projectId",
+            224
+          ]
+        ],
+        "fault": "org.hibernate.hql.ast.QuerySyntaxException: unexpected token: object near line 1, column 45 [from net.sf.xplanner.domain.Iteration where object.startDate <= ? and object.endDate >= ? and object.projectId = ?]"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:27.778Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 3835,
+      "label": "soap getUserStories",
+      "soap": {
+        "op": "getUserStories",
+        "params": [
+          [
+            "containerId",
+            234
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:28.084Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 3623,
+      "label": "soap getUserStory",
+      "soap": {
+        "op": "getUserStory",
+        "params": [
+          [
+            "id",
+            256
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:28.401Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 5912,
+      "label": "soap getTasks",
+      "soap": {
+        "op": "getTasks",
+        "params": [
+          [
+            "containerId",
+            256
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:28.717Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 3067,
+      "label": "soap getTask",
+      "soap": {
+        "op": "getTask",
+        "params": [
+          [
+            "id",
+            270
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:29.063Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 14053,
+      "label": "soap getCurrentTasksForPerson",
+      "soap": {
+        "op": "getCurrentTasksForPerson",
+        "params": [
+          [
+            "personId",
+            210
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:29.373Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 6035,
+      "label": "soap getPlannedTasksForPerson",
+      "soap": {
+        "op": "getPlannedTasksForPerson",
+        "params": [
+          [
+            "personId",
+            210
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:29.686Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 2297,
+      "label": "soap getTimeEntries",
+      "soap": {
+        "op": "getTimeEntries",
+        "params": [
+          [
+            "containerId",
+            270
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:30.001Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 2085,
+      "label": "soap getTimeEntry",
+      "soap": {
+        "op": "getTimeEntry",
+        "params": [
+          [
+            "id",
+            276
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:30.309Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 1841,
+      "label": "soap getNote",
+      "soap": {
+        "op": "getNote",
+        "params": [
+          [
+            "id",
+            386
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:30.612Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 3458,
+      "label": "soap getNotesForObject",
+      "soap": {
+        "op": "getNotesForObject",
+        "params": [
+          [
+            "attachedToId",
+            256
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:30.918Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 1221,
+      "label": "soap getPerson",
+      "soap": {
+        "op": "getPerson",
+        "params": [
+          [
+            "id",
+            210
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:31.220Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 10221,
+      "label": "soap getPeople",
+      "soap": {
+        "op": "getPeople",
+        "params": []
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:31.534Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 419,
+      "label": "soap setAttribute",
+      "soap": {
+        "op": "setAttribute",
+        "params": [
+          [
+            "objectId",
+            256
+          ],
+          [
+            "key",
+            "s3d.key"
+          ],
+          [
+            "value",
+            "v1"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:31.839Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 673,
+      "label": "soap getAttribute",
+      "soap": {
+        "op": "getAttribute",
+        "params": [
+          [
+            "objectId",
+            256
+          ],
+          [
+            "key",
+            "s3d.key"
+          ]
+        ],
+        "fault": "org.hibernate.TypeMismatchException: Provided id of the wrong type for class net.sf.xplanner.domain.Attribute. Expected: class net.sf.xplanner.domain.AttributeId, got class net.sf.xplanner.domain.Attribute"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:32.146Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 814,
+      "label": "soap getAttributes",
+      "soap": {
+        "op": "getAttributes",
+        "params": [
+          [
+            "objectId",
+            256
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:32.451Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 840,
+      "label": "soap getAttributesWithPrefix",
+      "soap": {
+        "op": "getAttributesWithPrefix",
+        "params": [
+          [
+            "objectId",
+            256
+          ],
+          [
+            "prefix",
+            "s3d."
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:32.748Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 554,
+      "label": "soap getProject",
+      "soap": {
+        "op": "getProject",
+        "params": [
+          [
+            "id",
+            341
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:33.057Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 630,
+      "label": "soap getIterations",
+      "soap": {
+        "op": "getIterations",
+        "params": [
+          [
+            "projectId",
+            341
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:33.365Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 3623,
+      "label": "soap getUserStory",
+      "soap": {
+        "op": "getUserStory",
+        "params": [
+          [
+            "id",
+            256
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:33.674Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 413,
+      "label": "soap update",
+      "soap": {
+        "op": "update",
+        "params": [
+          [
+            "object",
+            "UserStoryData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:33.981Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "auth": "basic (viewer)",
+      "bytes": 4162,
+      "label": "soap getProjects",
+      "soap": {
+        "op": "getProjects",
+        "params": []
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:34.283Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (viewer)",
+      "bytes": 1150,
+      "label": "soap getProject",
+      "soap": {
+        "op": "getProject",
+        "params": [
+          [
+            "id",
+            224
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:34.592Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (viewer)",
+      "bytes": 556,
+      "label": "soap update",
+      "soap": {
+        "op": "update",
+        "params": [
+          [
+            "object",
+            "ProjectData"
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to update object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:34.895Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (viewer)",
+      "bytes": 556,
+      "label": "soap addUserStory",
+      "soap": {
+        "op": "addUserStory",
+        "params": [
+          [
+            "story",
+            "UserStoryData"
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to create object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:35.217Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 585,
+      "label": "soap addTask",
+      "soap": {
+        "op": "addTask",
+        "params": [
+          [
+            "task",
+            "TaskData"
+          ]
+        ],
+        "fault": "java.lang.RuntimeException: org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:35.535Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (viewer)",
+      "bytes": 554,
+      "label": "soap getProject",
+      "soap": {
+        "op": "getProject",
+        "params": [
+          [
+            "id",
+            341
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:35.848Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (viewer)",
+      "bytes": 419,
+      "label": "soap setAttribute",
+      "soap": {
+        "op": "setAttribute",
+        "params": [
+          [
+            "objectId",
+            256
+          ],
+          [
+            "key",
+            "s3d.viewer"
+          ],
+          [
+            "value",
+            "set-by-viewer"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:36.153Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (viewer)",
+      "bytes": 673,
+      "label": "soap getAttribute",
+      "soap": {
+        "op": "getAttribute",
+        "params": [
+          [
+            "objectId",
+            256
+          ],
+          [
+            "key",
+            "s3d.viewer"
+          ]
+        ],
+        "fault": "org.hibernate.TypeMismatchException: Provided id of the wrong type for class net.sf.xplanner.domain.Attribute. Expected: class net.sf.xplanner.domain.AttributeId, got class net.sf.xplanner.domain.Attribute"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:36.457Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (viewer)",
+      "bytes": 704,
+      "label": "soap getAttributes",
+      "soap": {
+        "op": "getAttributes",
+        "params": [
+          [
+            "objectId",
+            341
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:36.769Z",
+      "client": "anon",
+      "method": "POST",
+      "path": "/xplanner-legacy/servlet/AxisServlet",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 554,
+      "label": "soap getProject",
+      "soap": {
+        "op": "getProject",
+        "params": [
+          [
+            "id",
+            224
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no user principal in session"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:37.086Z",
+      "client": "anon",
+      "method": "POST",
+      "path": "/xplanner-legacy/servlet/AxisServlet",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "bytes": 673,
+      "label": "soap getAttribute",
+      "soap": {
+        "op": "getAttribute",
+        "params": [
+          [
+            "objectId",
+            256
+          ],
+          [
+            "key",
+            "s3d.key"
+          ]
+        ],
+        "fault": "org.hibernate.TypeMismatchException: Provided id of the wrong type for class net.sf.xplanner.domain.Attribute. Expected: class net.sf.xplanner.domain.AttributeId, got class net.sf.xplanner.domain.Attribute"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:37.397Z",
+      "client": "anon",
+      "method": "POST",
+      "path": "/xplanner-legacy/servlet/AxisServlet",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "bytes": 375,
+      "label": "soap setAttribute",
+      "soap": {
+        "op": "setAttribute",
+        "params": [
+          [
+            "objectId",
+            256
+          ],
+          [
+            "key",
+            "s3d.anon"
+          ],
+          [
+            "value",
+            "set-anonymously"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:37.701Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 1042,
+      "label": "soap getAttributes",
+      "soap": {
+        "op": "getAttributes",
+        "params": [
+          [
+            "objectId",
+            256
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:38.011Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 658,
+      "label": "soap deleteAttribute",
+      "soap": {
+        "op": "deleteAttribute",
+        "params": [
+          [
+            "objectId",
+            256
+          ],
+          [
+            "key",
+            "s3d.key"
+          ]
+        ],
+        "fault": "org.hibernate.QueryException: could not resolve property: targetId of: net.sf.xplanner.domain.Attribute [from a in class net.sf.xplanner.domain.Attribute where a.targetId = ? and a.name = ?]"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:38.325Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 1042,
+      "label": "soap getAttributes",
+      "soap": {
+        "op": "getAttributes",
+        "params": [
+          [
+            "objectId",
+            256
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:38.636Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 417,
+      "label": "soap removeNote",
+      "soap": {
+        "op": "removeNote",
+        "params": [
+          [
+            "id",
+            387
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:38.943Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 581,
+      "label": "soap getNote",
+      "soap": {
+        "op": "getNote",
+        "params": [
+          [
+            "id",
+            387
+          ]
+        ],
+        "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Note#387]"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:39.245Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 556,
+      "label": "soap removeUserStory",
+      "soap": {
+        "op": "removeUserStory",
+        "params": [
+          [
+            "id",
+            374
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:39.561Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 554,
+      "label": "soap getUserStory",
+      "soap": {
+        "op": "getUserStory",
+        "params": [
+          [
+            "id",
+            374
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to read object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:39.874Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 556,
+      "label": "soap removeIteration",
+      "soap": {
+        "op": "removeIteration",
+        "params": [
+          [
+            "id",
+            315
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:40.194Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 422,
+      "label": "soap removeIteration",
+      "soap": {
+        "op": "removeIteration",
+        "params": [
+          [
+            "id",
+            315
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:40.496Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 586,
+      "label": "soap getIteration",
+      "soap": {
+        "op": "getIteration",
+        "params": [
+          [
+            "id",
+            315
+          ]
+        ],
+        "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Iteration#315]"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:40.801Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 419,
+      "label": "soap removePerson",
+      "soap": {
+        "op": "removePerson",
+        "params": [
+          [
+            "id",
+            396
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:41.105Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 583,
+      "label": "soap getPerson",
+      "soap": {
+        "op": "getPerson",
+        "params": [
+          [
+            "id",
+            396
+          ]
+        ],
+        "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Person#396]"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:41.410Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 1838,
+      "label": "soap getNote",
+      "soap": {
+        "op": "getNote",
+        "params": [
+          [
+            "id",
+            385
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:41.720Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 2075,
+      "label": "soap getNotesForObject",
+      "soap": {
+        "op": "getNotesForObject",
+        "params": [
+          [
+            "attachedToId",
+            341
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:42.022Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 420,
+      "label": "soap removeProject",
+      "soap": {
+        "op": "removeProject",
+        "params": [
+          [
+            "id",
+            341
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:42.331Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 584,
+      "label": "soap getProject",
+      "soap": {
+        "op": "getProject",
+        "params": [
+          [
+            "id",
+            341
+          ]
+        ],
+        "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Project#341]"
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:42.641Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 1838,
+      "label": "soap getNote",
+      "soap": {
+        "op": "getNote",
+        "params": [
+          [
+            "id",
+            385
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:22:42.949Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 2075,
+      "label": "soap getNotesForObject",
+      "soap": {
+        "op": "getNotesForObject",
+        "params": [
+          [
+            "attachedToId",
+            341
+          ]
+        ]
+      }
+    }
+  ]
+}

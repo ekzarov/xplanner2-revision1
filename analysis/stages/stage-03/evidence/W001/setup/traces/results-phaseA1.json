@@ -1,0 +1,187 @@
+{
+  "started_at": "2026-09-30T19:40:50.620Z",
+  "steps": [
+    {
+      "step": "factory-login",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "landing": "/xplanner-legacy/do/view/projects"
+    },
+    {
+      "step": "projects-empty",
+      "excerpt": "XPlanner Projects No projects defined yet. Add Project switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report sho",
+      "hasAddProject": true
+    },
+    {
+      "step": "create-viewer",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/people",
+      "after": "/xplanner-legacy/do/view/people"
+    },
+    {
+      "step": "create-editor",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/people",
+      "after": "/xplanner-legacy/do/view/people"
+    },
+    {
+      "step": "create-admin",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/people",
+      "after": "/xplanner-legacy/do/view/people"
+    },
+    {
+      "step": "create-sysadmin",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/people",
+      "after": "/xplanner-legacy/do/view/people"
+    },
+    {
+      "step": "people-list",
+      "count_rows": 5,
+      "headers": [
+        "Actions",
+        "User Id",
+        "Name",
+        "Initials",
+        "Phone",
+        "Email"
+      ],
+      "mine": {
+        "viewer": {
+          "userId": "<viewer.userId>",
+          "oid": 209,
+          "listed_row": [
+            "",
+            "<viewer.userId>",
+            "<viewer.name>",
+            "S3V",
+            "",
+            "<viewer.email>"
+          ]
+        },
+        "editor": {
+          "userId": "<editor.userId>",
+          "oid": 210,
+          "listed_row": [
+            "",
+            "<editor.userId>",
+            "<editor.name>",
+            "S3E",
+            "",
+            "<editor.email>"
+          ]
+        },
+        "admin": {
+          "userId": "<admin.userId>",
+          "oid": 211,
+          "listed_row": [
+            "",
+            "<admin.userId>",
+            "<admin.name>",
+            "S3A",
+            "",
+            "<admin.email>"
+          ]
+        },
+        "sysadmin": {
+          "userId": "<sysadmin.userId>",
+          "oid": 212,
+          "listed_row": [
+            "",
+            "<sysadmin.userId>",
+            "<sysadmin.name>",
+            "S3S",
+            "",
+            "<sysadmin.email>"
+          ]
+        }
+      },
+      "mailto": 5
+    },
+    {
+      "step": "create-project",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "after": "/xplanner-legacy/do/view/projects"
+    },
+    {
+      "step": "projects-list",
+      "projectOid": null,
+      "headers": [
+        "Actions",
+        "ID",
+        "Project Name",
+        "Iteration",
+        "Hidden?"
+      ],
+      "rows": [
+        [
+          "",
+          "220",
+          "S3 Shared",
+          "",
+          "N"
+        ]
+      ]
+    }
+  ],
+  "people": {
+    "viewer": {
+      "userId": "<viewer.userId>",
+      "oid": 209,
+      "listed_row": [
+        "",
+        "<viewer.userId>",
+        "<viewer.name>",
+        "S3V",
+        "",
+        "<viewer.email>"
+      ]
+    },
+    "editor": {
+      "userId": "<editor.userId>",
+      "oid": 210,
+      "listed_row": [
+        "",
+        "<editor.userId>",
+        "<editor.name>",
+        "S3E",
+        "",
+        "<editor.email>"
+      ]
+    },
+    "admin": {
+      "userId": "<admin.userId>",
+      "oid": 211,
+      "listed_row": [
+        "",
+        "<admin.userId>",
+        "<admin.name>",
+        "S3A",
+        "",
+        "<admin.email>"
+      ]
+    },
+    "sysadmin": {
+      "userId": "<sysadmin.userId>",
+      "oid": 212,
+      "listed_row": [
+        "",
+        "<sysadmin.userId>",
+        "<sysadmin.name>",
+        "S3S",
+        "",
+        "<sysadmin.email>"
+      ]
+    }
+  },
+  "projectOid": null,
+  "initials": {
+    "viewer": "S3V",
+    "editor": "S3E",
+    "admin": "S3A",
+    "sysadmin": "S3S"
+  },
+  "finished_at": "2026-09-30T19:40:57.592Z"
+}

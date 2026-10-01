@@ -1,0 +1,1695 @@
+{
+  "part": "D",
+  "performed_by": "BA (responsible-agent verification), Claude Code subagent of PM session d0ec1166-ffc9-446a-ba86-d768242e6de8; deployment operator: Codex",
+  "started_at": "2026-09-30T20:11:16.868Z",
+  "finished_at": "2026-09-30T20:39:08.442Z",
+  "environment": {
+    "app": "http://127.0.0.1:18080/xplanner-legacy/",
+    "mail_sink": "http://127.0.0.1:18025/",
+    "war_sha256": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+    "deployed_commit": "eb7720f",
+    "mail_condition": "original failure recorded by PM before 2026-09-30T20:03:44Z; all part D live mail observations were made after it, under the adapted environment (static /xplanner/css/email.css, SHA-256 0e323009e64768fee6bcff6f2dd83b3105c716358ea967c6f5024d45acadf144)",
+    "accept_language": "en-US",
+    "project": "S3-D Integrations (224)"
+  },
+  "summary": {
+    "checks": 73,
+    "by_verdict": {
+      "match": 48,
+      "finding": 16,
+      "blocked": 3,
+      "not-checked": 6
+    },
+    "by_mode": {
+      "live": 60,
+      "live (PM read-only log extract, original deployment condition before 2026-09-30T20:03:44Z)": 2,
+      "live (adapted environment: static email.css)": 5,
+      "not-run": 5,
+      "live (PM read-only startup log and database extract, 2026-09-30T19:35:49Z)": 1
+    },
+    "rows": 40,
+    "rows_by_verdict": {
+      "unverified": 9,
+      "difference": 10,
+      "live-verified": 18,
+      "partially verified": 3
+    },
+    "findings": 10
+  },
+  "data_created": {
+    "project_224": [
+      "iteration 233 S3-D Past Iteration (closed)",
+      "iteration 234 S3-D Iteration 1 (active; created as a duplicate of 233 and renamed)",
+      "story 256 S3-D Story 1",
+      "tasks 270 S3-D Task 1, 271 S3-D Task 2 (completed over REST), 438 S3-D Reminder Task",
+      "time entries 276 (1.0 h, 2026-09-30, task 270) and 2026-09-29 1.0 h on task 438",
+      "notes 386 on story 256",
+      "story 256 attributes s3d.key, s3d.viewer, s3d.anon",
+      "project option: reminder checked; recipient s3admin"
+    ],
+    "soap_created_and_removed": [
+      "project 341 S3-D SOAP Project",
+      "iteration 315 (web-created, removed over SOAP)",
+      "story 374 (orphan, removed by sysadmin)",
+      "task 437 and time entry 283 (web-created, removed over SOAP)",
+      "notes 387, 388",
+      "person 396 S3-D Soap Person (s3dsoap)"
+    ],
+    "left_behind": [
+      "note 385 attached to the removed project 341 (the observed behavior)",
+      "orphan time entry 440 (SOAP addTimeEntry; cannot be read or removed over SOAP)"
+    ]
+  },
+  "rows": [
+    {
+      "row": 195,
+      "use_case": "UF-012 Continuous Integration Queue (header)",
+      "verdict": "unverified",
+      "note": "Use-case header row (progress text only); it carries no behavior claim of its own. Its behavior rows are verified separately.",
+      "checks": []
+    },
+    {
+      "row": 196,
+      "use_case": "Integration queue",
+      "verdict": "difference",
+      "note": "D-F-01",
+      "checks": [
+        "D-C-001",
+        "D-C-002",
+        "D-C-003",
+        "D-C-004",
+        "D-C-005"
+      ]
+    },
+    {
+      "row": 197,
+      "use_case": "Integration queue (errors)",
+      "verdict": "difference",
+      "note": "D-F-02; already-active case blocked",
+      "checks": [
+        "D-C-006",
+        "D-C-007"
+      ]
+    },
+    {
+      "row": 198,
+      "use_case": "Integration queue (e-mail)",
+      "verdict": "difference",
+      "note": "D-F-03; nonotify blocked",
+      "checks": [
+        "D-C-008",
+        "D-C-009",
+        "D-C-010"
+      ]
+    },
+    {
+      "row": 199,
+      "use_case": "UF-013 Notifications & Scheduled Jobs (header)",
+      "verdict": "unverified",
+      "note": "Use-case header row (progress text only); it carries no behavior claim of its own. Its behavior rows are verified separately.",
+      "checks": []
+    },
+    {
+      "row": 200,
+      "use_case": "Daily missing time entry reminder",
+      "verdict": "unverified",
+      "note": "00:05 job not reached; PM retries at 2026-10-01T00:05:00Z by reading Mailpit",
+      "checks": [
+        "D-C-011"
+      ]
+    },
+    {
+      "row": 201,
+      "use_case": "Daily missing time entry reminder (project report)",
+      "verdict": "unverified",
+      "note": "00:05 job not reached; PM retries at 2026-10-01T00:05:00Z by reading Mailpit",
+      "checks": [
+        "D-C-012"
+      ]
+    },
+    {
+      "row": 202,
+      "use_case": "Notification stylesheet fetch",
+      "verdict": "live-verified",
+      "note": "original failure (PM facts) and adapted styled mail",
+      "checks": [
+        "D-C-013",
+        "D-C-014"
+      ]
+    },
+    {
+      "row": 203,
+      "use_case": "SMTP dependency",
+      "verdict": "partially verified",
+      "note": "not observed: behavior without a reachable SMTP server",
+      "checks": [
+        "D-C-015",
+        "D-C-016"
+      ]
+    },
+    {
+      "row": 204,
+      "use_case": "Data sampling for burn-down",
+      "verdict": "partially verified",
+      "note": "not observed: absence of nightly samples and the sample rows",
+      "checks": [
+        "D-C-017",
+        "D-C-018"
+      ]
+    },
+    {
+      "row": 205,
+      "use_case": "Data sampling (end-date extension)",
+      "verdict": "partially verified",
+      "note": "not observed: behavior with the flag enabled",
+      "checks": [
+        "D-C-019",
+        "D-C-020"
+      ]
+    },
+    {
+      "row": 206,
+      "use_case": "Per-change e-mail listener",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-021"
+      ]
+    },
+    {
+      "row": 207,
+      "use_case": "UF-014 Export & Reports (header)",
+      "verdict": "unverified",
+      "note": "Use-case header row (progress text only); it carries no behavior claim of its own. Its behavior rows are verified separately.",
+      "checks": []
+    },
+    {
+      "row": 208,
+      "use_case": "Export menu",
+      "verdict": "difference",
+      "note": "D-F-04",
+      "checks": [
+        "D-C-022",
+        "D-C-023"
+      ]
+    },
+    {
+      "row": 209,
+      "use_case": "Export project",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-024",
+        "D-C-025",
+        "D-C-026"
+      ]
+    },
+    {
+      "row": 210,
+      "use_case": "Export iteration",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-027",
+        "D-C-028"
+      ]
+    },
+    {
+      "row": 211,
+      "use_case": "Export iteration (jrpdf)",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-029"
+      ]
+    },
+    {
+      "row": 212,
+      "use_case": "Export story, task and person",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-030"
+      ]
+    },
+    {
+      "row": 213,
+      "use_case": "Export story, task and person (jrpdf)",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-031",
+        "D-C-032",
+        "D-C-033"
+      ]
+    },
+    {
+      "row": 214,
+      "use_case": "UF-015 SOAP Web Service API (header)",
+      "verdict": "unverified",
+      "note": "Use-case header row (progress text only); it carries no behavior claim of its own. Its behavior rows are verified separately.",
+      "checks": []
+    },
+    {
+      "row": 215,
+      "use_case": "SOAP service access",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-034",
+        "D-C-035"
+      ]
+    },
+    {
+      "row": 216,
+      "use_case": "SOAP alternate endpoint",
+      "verdict": "difference",
+      "note": "D-F-05",
+      "checks": [
+        "D-C-036",
+        "D-C-037"
+      ]
+    },
+    {
+      "row": 217,
+      "use_case": "SOAP Version service",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-038"
+      ]
+    },
+    {
+      "row": 218,
+      "use_case": "SOAP permissions",
+      "verdict": "difference",
+      "note": "D-F-05, D-F-06",
+      "checks": [
+        "D-C-039",
+        "D-C-040",
+        "D-C-041",
+        "D-C-042",
+        "D-C-043",
+        "D-C-044"
+      ]
+    },
+    {
+      "row": 219,
+      "use_case": "JAX-WS endpoint",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-045"
+      ]
+    },
+    {
+      "row": 220,
+      "use_case": "SOAP read operations",
+      "verdict": "difference",
+      "note": "D-F-06, D-F-07",
+      "checks": [
+        "D-C-046",
+        "D-C-047",
+        "D-C-048",
+        "D-C-049"
+      ]
+    },
+    {
+      "row": 221,
+      "use_case": "SOAP write operations",
+      "verdict": "difference",
+      "note": "D-F-08",
+      "checks": [
+        "D-C-050",
+        "D-C-051",
+        "D-C-052",
+        "D-C-053",
+        "D-C-054",
+        "D-C-055",
+        "D-C-056",
+        "D-C-057",
+        "D-C-058"
+      ]
+    },
+    {
+      "row": 222,
+      "use_case": "UF-016 REST/JSON API (header)",
+      "verdict": "unverified",
+      "note": "Use-case header row (progress text only); it carries no behavior claim of its own. Its behavior rows are verified separately.",
+      "checks": []
+    },
+    {
+      "row": 223,
+      "use_case": "REST read endpoints",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-059"
+      ]
+    },
+    {
+      "row": 224,
+      "use_case": "REST connectivity check",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-060"
+      ]
+    },
+    {
+      "row": 225,
+      "use_case": "REST without security filter",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-061"
+      ]
+    },
+    {
+      "row": 226,
+      "use_case": "REST task status update",
+      "verdict": "difference",
+      "note": "D-F-09",
+      "checks": [
+        "D-C-062",
+        "D-C-063"
+      ]
+    },
+    {
+      "row": 227,
+      "use_case": "UF-017 iCalendar Feed (header)",
+      "verdict": "unverified",
+      "note": "Use-case header row (progress text only); it carries no behavior claim of its own. Its behavior rows are verified separately.",
+      "checks": []
+    },
+    {
+      "row": 228,
+      "use_case": "Personal iCal feed",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-064",
+        "D-C-065"
+      ]
+    },
+    {
+      "row": 229,
+      "use_case": "iCal input validation",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-066"
+      ]
+    },
+    {
+      "row": 230,
+      "use_case": "iCal privacy",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-067",
+        "D-C-068"
+      ]
+    },
+    {
+      "row": 231,
+      "use_case": "UF-018 Mobile (WAP) Access (header)",
+      "verdict": "unverified",
+      "note": "Use-case header row (progress text only); it carries no behavior claim of its own. Its behavior rows are verified separately.",
+      "checks": []
+    },
+    {
+      "row": 232,
+      "use_case": "WAP login and browsing",
+      "verdict": "difference",
+      "note": "D-F-10",
+      "checks": [
+        "D-C-069",
+        "D-C-070"
+      ]
+    },
+    {
+      "row": 233,
+      "use_case": "WAP filter conflict",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-071"
+      ]
+    },
+    {
+      "row": 234,
+      "use_case": "WAP views without projectId",
+      "verdict": "live-verified",
+      "note": "",
+      "checks": [
+        "D-C-072",
+        "D-C-073"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "D-C-001",
+      "row": 196,
+      "role": "s3editor (editor on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The integration view is a DispatchForward with authorization required: without a projectId it forwards to the not-authorized page (absent JSP).",
+      "source": "analysis/legacy_user_flows.xlsx row 196, columns H; analysis/legacy_reconnaissance.md Runnable Surfaces, DispatchForward row",
+      "action": "GET /do/view/integrations without parameters.",
+      "mode": "live",
+      "observed": "404 \"JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found\".",
+      "evidence": "traces/s07-integ.trace.json#editor view-noproject",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-002",
+      "row": 196,
+      "role": "s3editor (editor on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Per-project integration page with the current integrator, waiting line, recent integrations, Start/Finished/Cancel buttons and a join form.",
+      "source": "analysis/legacy_user_flows.xlsx row 196, columns D, F",
+      "action": "GET /do/view/integrations?projectId=224.",
+      "mode": "live",
+      "observed": "HTTP 500 error page: JspTagException, java.lang.IllegalArgumentException \"No positional parameters in query: from com.technoetic.xplanner.domain.Integration where state = ? and projectId = ?\" (UseBeansTag.doEndTag, integrations.jsp). No queue content, buttons or join form are rendered.",
+      "evidence": "traces/s07-integ.trace.json#editor view-224",
+      "verdict": "finding",
+      "finding": "D-F-01"
+    },
+    {
+      "id": "D-C-003",
+      "row": 196,
+      "role": "s3viewer (viewer on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Same page for a viewer (read access on the project; buttons hidden without integrate).",
+      "source": "analysis/legacy_user_flows.xlsx row 196, columns D, F, H",
+      "action": "GET /do/view/integrations?projectId=224 as viewer.",
+      "mode": "live",
+      "observed": "Same HTTP 500 with the same exception.",
+      "evidence": "traces/s07-integ.trace.json#viewer view-224",
+      "verdict": "finding",
+      "finding": "D-F-01"
+    },
+    {
+      "id": "D-C-004",
+      "row": 196,
+      "role": "s3editor (editor on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Join, start, finish, cancel and leave requests change the queue and return to the page.",
+      "source": "analysis/legacy_user_flows.xlsx row 196, columns D, H",
+      "action": "POST /do/edit/integrations with projectId=224 and action.join (personId 210, then 211), action.start, action.finish, action.cancel (with nonotify=true), action.leave.1.",
+      "mode": "live",
+      "observed": "Every request answered HTTP 500 with the same \"No positional parameters in query ... Integration\" page; the page after the sequence is still HTTP 500. No queue state is visible anywhere.",
+      "evidence": "traces/s07-integ.trace.json",
+      "verdict": "finding",
+      "finding": "D-F-01"
+    },
+    {
+      "id": "D-C-005",
+      "row": 196,
+      "role": "s3viewer (viewer on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "No server-side permission check gates the join/start/finish/cancel/leave requests; the integrate condition only hides buttons.",
+      "source": "analysis/legacy_user_flows.xlsx row 196, columns H",
+      "action": "Direct POST /do/edit/integrations action.join as viewer.",
+      "mode": "live",
+      "observed": "HTTP 500, identical to the editor. Because the queue fails for every role, a permission gate (or its absence) cannot be observed.",
+      "evidence": "traces/s07-integ.trace.json#viewer join-viewer-direct-post",
+      "verdict": "blocked",
+      "finding": null
+    },
+    {
+      "id": "D-C-006",
+      "row": 197,
+      "role": "s3editor (editor on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Joining without a person shows integrations.error.noperson (\"No person specified in requested integration.\").",
+      "source": "analysis/legacy_user_flows.xlsx row 197, columns D, F",
+      "action": "POST /do/edit/integrations projectId=224, personId=0, action.join.",
+      "mode": "live",
+      "observed": "HTTP 500 with the Integration query error; the message text does not appear. The error forward renders the failing integrations page.",
+      "evidence": "traces/s07-integ.trace.json#editor join-noperson",
+      "verdict": "finding",
+      "finding": "D-F-02"
+    },
+    {
+      "id": "D-C-007",
+      "row": 197,
+      "role": "s3editor (editor on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Starting while another integration is active shows integrations.error.alreadyactive.",
+      "source": "analysis/legacy_user_flows.xlsx row 197, columns D, F",
+      "action": "POST action.start after the join attempts.",
+      "mode": "live",
+      "observed": "HTTP 500; no integration can be created or become active, so the precondition cannot be reached.",
+      "evidence": "traces/s07-integ.trace.json#editor start",
+      "verdict": "blocked",
+      "finding": null
+    },
+    {
+      "id": "D-C-008",
+      "row": 198,
+      "role": "PM (read-only app log); no part D action",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "Integration events notify listeners; the configured listener sends e-mail. Record the original-failure observation.",
+      "source": "analysis/legacy_user_flows.xlsx row 198, columns D, F, H; assign-addendum-mail.md",
+      "action": "Read the PM mail facts collected at 2026-09-30T20:02:03Z (before the adaptation).",
+      "mode": "live (PM read-only log extract, original deployment condition before 2026-09-30T20:03:44Z)",
+      "observed": "The 26 mail-related log lines show two notification sends, both from EditTaskAction.sendNotification, each failing with FileNotFoundException for http://localhost:8080/xplanner/css/email.css; no line from IntegrationAction or IntegrationEmailNotifier; the sink held no message. No integration event occurred under the original condition. Source note (SRC IntegrationEmailNotifier#onEvent): the integration notifier builds its message with EmailMessage directly and does not call EmailFormatterImpl, so the email.css failure is not expected to apply to it.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/mail-facts.txt",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "D-C-009",
+      "row": 198,
+      "role": "s3editor (editor on 224)",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "E-mail on integration events (join/start per the live question), suppressed with nonotify.",
+      "source": "analysis/legacy_user_flows.xlsx row 198, columns D, F, H",
+      "action": "After the adaptation (20:14-20:15Z) ran the full join/start/finish/cancel/leave sequence of D-C-004, then read Mailpit at 20:27:50Z and 20:33:19Z for the subject \"[XPlanner] You may now start your integration.\".",
+      "mode": "live (adapted environment: static email.css)",
+      "observed": "No integration message in Mailpit (37 messages in total at 20:33:19Z, none with that subject or a link to /do/view/integrations). Every queue request failed with HTTP 500 before any state change, so no event could fire. Source note: IntegrationAction fires only INTEGRATION_READY, from finish, cancel or leave when another integration is waiting, never on join or start.",
+      "evidence": "traces/s23-mail-final.trace.json, traces/s19-mail.trace.json",
+      "verdict": "finding",
+      "finding": "D-F-03"
+    },
+    {
+      "id": "D-C-010",
+      "row": 198,
+      "role": "s3editor (editor on 224)",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "The nonotify parameter suppresses the integration e-mail.",
+      "source": "analysis/legacy_user_flows.xlsx row 198, columns D",
+      "action": "action.cancel with nonotify=true (D-C-004).",
+      "mode": "live (adapted environment: static email.css)",
+      "observed": "No mail with or without nonotify; suppression is indistinguishable because no event fires.",
+      "evidence": "traces/s07-integ.trace.json#editor cancel-nonotify",
+      "verdict": "blocked",
+      "finding": null
+    },
+    {
+      "id": "D-C-011",
+      "row": 200,
+      "role": "job (server), acceptors",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "At 00:05 acceptors of tasks without a time entry after the cut-off receive \"XPlanner time entry reminder.\"; possibly twice (two Spring contexts).",
+      "source": "analysis/legacy_user_flows.xlsx row 200, columns D, F, H",
+      "action": "Not run: the job first fires at 2026-10-01T00:05:00Z. Prepared data in project 224: open task \"S3-D Reminder Task\" (438, acceptor s3editor) whose only time entry is dated 2026-09-29; iteration 234 is active.",
+      "mode": "not-run",
+      "observed": "Not observed. Supporting startup fact (PM): two ThreadPoolTaskScheduler \"scheduler\" executors are initialized, one per Spring context.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/startup-facts.txt",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "D-C-012",
+      "row": 201,
+      "role": "job (server), project notification receivers",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "The same job sends \"XPlanner project time entry status.\" to the project notification receivers; possibly twice.",
+      "source": "analysis/legacy_user_flows.xlsx row 201, columns D, F, H",
+      "action": "Not run (00:05 job). Prepared: project 224 \"Remind developers to enter time\" checked and s3admin added as recipient of the Missing Time Entries Report.",
+      "mode": "not-run",
+      "observed": "Not observed.",
+      "evidence": "traces/s20-project-notify.trace.json",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "D-C-013",
+      "row": 202,
+      "role": "PM (read-only app log); s3setup/part activity before 20:03:44Z",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "Before composing each notification the app fetches xplanner.application.url + \"/css/email.css\"; with the URL not serving it, the style is missing or the e-mail fails (runtime unverified).",
+      "source": "analysis/legacy_user_flows.xlsx row 202, columns D, E, F, H",
+      "action": "Read the PM mail facts (collected 20:02:03Z) and the adaptation pre-check.",
+      "mode": "live (PM read-only log extract, original deployment condition before 2026-09-30T20:03:44Z)",
+      "observed": "Each send logged ERROR \"Error sending email:\" with java.io.FileNotFoundException: http://localhost:8080/xplanner/css/email.css at EmailFormatterImpl.formatEmailEntry(EmailFormatterImpl.java:81) from EmailNotificationSupport.sendNotifications, followed by an \"Email was sent to:\" line; no message reached the sink. Inside the app namespace /xplanner/css/email.css answered 404 and /xplanner-legacy/css/email.css 200. Outcome: the e-mail is not sent.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/mail-facts.txt; .migration-tmp/stage-03/ba-scratch/pm-facts/mail-adaptation.txt",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-014",
+      "row": 202,
+      "role": "s3editor (task acceptor and creator)",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "With the stylesheet URL reachable the e-mail is styled with the embedded stylesheet.",
+      "source": "analysis/legacy_user_flows.xlsx row 202, columns F",
+      "action": "Created S3-D Task 1 and 2 (20:13Z) and \"S3-D Task to remove\" (20:24Z) in project 224; read the three messages in Mailpit.",
+      "mode": "live (adapted environment: static email.css)",
+      "observed": "Three \"Task was created.\" messages to s3editor; HTML body 7525-7541 characters with a <style> element of 7064 characters (the served email.css is 7051 bytes); text lists the task, acceptor and creator and a link http://localhost:8080/xplanner/do/view/task?oid=<id>.",
+      "evidence": "traces/s19-mail.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-015",
+      "row": 203,
+      "role": "s3editor",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "Mail goes through SMTP localhost:25 from xplanner@xplannerplus.org.",
+      "source": "analysis/legacy_user_flows.xlsx row 203, columns D, H",
+      "action": "Read the From and To of the part D messages in Mailpit.",
+      "mode": "live (adapted environment: static email.css)",
+      "observed": "From xplanner@xplannerplus.org, To s3editor; delivered to the sink listening on port 25 in the app namespace (PM listener fact).",
+      "evidence": "traces/s19-mail.trace.json; .migration-tmp/stage-03/ba-scratch/pm-facts/mail-facts.txt",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-016",
+      "row": 203,
+      "role": "n/a",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "No e-mail without a reachable SMTP server.",
+      "source": "analysis/legacy_user_flows.xlsx row 203, columns F",
+      "action": "Not run: it needs the SMTP sink stopped or the mail host reconfigured.",
+      "mode": "not-run",
+      "observed": "Not observed.",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "D-C-017",
+      "row": 204,
+      "role": "PM (read-only startup log and database)",
+      "channel": "batch (server scheduling)",
+      "expected": "The 23:55 data-sampling Quartz trigger is not registered with a scheduler (SchedulerFactoryBean commented out).",
+      "source": "analysis/legacy_user_flows.xlsx row 204, columns D, H",
+      "action": "Read the PM startup facts.",
+      "mode": "live (PM read-only startup log and database extract, 2026-09-30T19:35:49Z)",
+      "observed": "The scheduler lines show only ThreadPoolTaskScheduler \"scheduler\" initialized twice (task:scheduled, one per context); no Quartz scheduler start line; 0 qrtz tables in the database.",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/startup-facts.txt",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-018",
+      "row": 204,
+      "role": "n/a",
+      "channel": "batch (server scheduling)",
+      "expected": "No nightly samples; sampling happens at iteration start/close and through the manual test action.",
+      "source": "analysis/legacy_user_flows.xlsx row 204, columns D, F",
+      "action": "Not run: the 23:55 time was not reached and data-sample rows are not shown on any page read. Iteration 233 was started and closed without error (D-C-019), but its samples were not read.",
+      "mode": "not-run",
+      "observed": "Not observed.",
+      "evidence": "traces/s03-iters.trace.json",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "D-C-019",
+      "row": 205,
+      "role": "s3editor (editor on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "With iteration.automatically.extend.endDate=false (shipped) sampling does not extend the end date of an active iteration whose end date has passed.",
+      "source": "analysis/legacy_user_flows.xlsx row 205, columns D, F, H",
+      "action": "Created iteration 233 (2026-09-14 to 2026-09-27), started it (GET start link, 302; opening samples use today's midnight) and closed it (302 to continue/unfinished/stories); re-read the project list after each step.",
+      "mode": "live",
+      "observed": "End date stayed 2026-09-27 after start and after close; start and close raised no error.",
+      "evidence": "traces/s02-iter-a.trace.json, traces/s03-iters.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-020",
+      "row": 205,
+      "role": "n/a",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "With the flag enabled, sampling is expected to fail with a null reference (hibernateOperations not injected).",
+      "source": "analysis/legacy_user_flows.xlsx row 205, columns H",
+      "action": "Not run: enabling the flag is a global property change.",
+      "mode": "not-run",
+      "observed": "Not observed.",
+      "evidence": "none",
+      "verdict": "not-checked",
+      "finding": null
+    },
+    {
+      "id": "D-C-021",
+      "row": 206,
+      "role": "s3editor, s3viewer, s3sysadmin, anonymous REST",
+      "channel": "e-mail via the Mailpit API (read only)",
+      "expected": "Create/update/delete events do not produce per-change e-mail (listener not registered).",
+      "source": "analysis/legacy_user_flows.xlsx row 206, columns D, F, H",
+      "action": "Changed part D objects on every channel (iteration create/rename/start/close/SOAP update and remove, story create and SOAP update, notes created, updated and removed over SOAP, SOAP project/person add/update/remove, REST task status changes, web time entries) and read Mailpit at 20:27:50Z and 20:33:19Z.",
+      "mode": "live (adapted environment: static email.css)",
+      "observed": "The only messages for part D objects are the four \"Task was created.\" messages from the web task editor (Task 1, Task 2, Task to remove, Reminder Task); none for any other change.",
+      "evidence": "traces/s23-mail-final.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-022",
+      "row": 208,
+      "role": "s3editor (editor on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "Project, iteration, story, task and person pages show an \"export\" pop-up with the configured formats that have an export action, such as XML, MPX, MSPDI, PDF, Report.",
+      "source": "analysis/legacy_user_flows.xlsx row 208, columns D, F, H",
+      "action": "Opened the project 224, iteration 234, story 256, task 270 and person 209 pages and read the overlib export links.",
+      "mode": "live",
+      "observed": "Link text \"Export\", caption \"Format:\". Project: XML, MPX, MSPDI; iteration: XML, MPX, MSPDI, PDF, JRPDF; story: PDF, JRPDF; task: PDF, JRPDF; person: JRPDF. The jrpdf link label is \"JRPDF\" (export.jrpdf), not \"Report\". (The s3editor person page, oid 210, answers 500 as in setup-F-05.)",
+      "evidence": "traces/s08-export.trace.json#menu",
+      "verdict": "finding",
+      "finding": "D-F-04"
+    },
+    {
+      "id": "D-C-023",
+      "row": 208,
+      "role": "s3viewer (viewer on 224)",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript)",
+      "expected": "The export pop-up is shown by format availability, not by role.",
+      "source": "analysis/legacy_user_flows.xlsx row 208, columns D; rows 29-30 (part A)",
+      "action": "Opened project 224 as viewer and requested /do/export/project/xml?oid=224.",
+      "mode": "live",
+      "observed": "Same three project formats offered; the export answered 200 text/xml (18158 bytes).",
+      "evidence": "traces/s08-export.trace.json#viewer",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-024",
+      "row": 209,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "Project XML export: export.xml (text/xml) with the project and every person of the system (password and lastUpdateTime hidden).",
+      "source": "analysis/legacy_user_flows.xlsx row 209, columns D, F, H; analysis/legacy_reconnaissance.md Data And Integrations, export consumers",
+      "action": "GET /do/export/project/xml?oid=224; counted the <person> entries against the people list; recorded element names only.",
+      "mode": "live",
+      "observed": "200 text/xml, Content-Disposition inline; filename=export.xml, 18158 bytes; root <xplanner> with <projects> and <people>; 12 <person> entries = 12 people on /do/view/people; person elements: attributes, description, email, hidden, id, initials, name, phone, userId; no <password> element.",
+      "evidence": "traces/s09-xmlpeople.trace.json, traces/s08-export.trace.json#project/xml",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-025",
+      "row": 209,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "Project MPX export: export.mpx (application/mpx), every person as a resource by name.",
+      "source": "analysis/legacy_user_flows.xlsx row 209, columns D, F, H",
+      "action": "GET /do/export/project/mpx?oid=224.",
+      "mode": "live",
+      "observed": "200 application/mpx, filename=export.mpx, 1536 bytes; first line \"MPX,Microsoft Project for Windows,4.0,AN\"; 12 resource records (record type 50).",
+      "evidence": "traces/s08-export.trace.json#project/mpx",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-026",
+      "row": 209,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "Project MSPDI export: export.xml (application/mspdi), every person as a resource.",
+      "source": "analysis/legacy_user_flows.xlsx row 209, columns D, F, H",
+      "action": "GET /do/export/project/mspdi?oid=224.",
+      "mode": "live",
+      "observed": "200 application/mspdi, filename=export.xml, 153462 bytes; root <Project>; 6 <Task>, 12 <Resource>, 2 <Assignment>.",
+      "evidence": "traces/s08-export.trace.json#project/mspdi",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-027",
+      "row": 210,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "Iteration XML, MPX and MSPDI exports as for the project, with every person.",
+      "source": "analysis/legacy_user_flows.xlsx row 210, columns D, F, H",
+      "action": "GET /do/export/iteration/{xml,mpx,mspdi}?oid=234.",
+      "mode": "live",
+      "observed": "xml: 200 text/xml export.xml 14222 bytes, 12 <person>; mpx: 200 application/mpx export.mpx 1233 bytes, 12 resource records; mspdi: 200 application/mspdi export.xml 143975 bytes, 12 <Resource>.",
+      "evidence": "traces/s08-export.trace.json#iteration",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-028",
+      "row": 210,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "Iteration PDF story/task listing: export.pdf.",
+      "source": "analysis/legacy_user_flows.xlsx row 210, columns D, F",
+      "action": "GET /do/export/iteration/pdf?oid=234.",
+      "mode": "live",
+      "observed": "200 application/pdf, filename=export.pdf, 2205 bytes, %PDF-1.4 with %%EOF (content not rendered).",
+      "evidence": "traces/s08-export.trace.json#iteration/pdf",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-029",
+      "row": 211,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "The iteration jrpdf report is offered but its template is missing; generation expected to fail.",
+      "source": "analysis/legacy_user_flows.xlsx row 211, columns D, F, H",
+      "action": "GET /do/export/iteration/jrpdf?oid=234.",
+      "mode": "live",
+      "observed": "HTTP 500 error page: ExportException \"Could not open compiled report\" (PdfReportExporter.export:104); no PDF.",
+      "evidence": "traces/s08-export.trace.json#iteration/jrpdf",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-030",
+      "row": 212,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "Story and task PDF listings: export.pdf.",
+      "source": "analysis/legacy_user_flows.xlsx row 212, columns D, F",
+      "action": "GET /do/export/userstory/pdf?oid=256 and /do/export/task/pdf?oid=270.",
+      "mode": "live",
+      "observed": "Both 200 application/pdf, filename=export.pdf (2205 and 1218 bytes), %PDF-1.4.",
+      "evidence": "traces/s08-export.trace.json#userstory/pdf",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-031",
+      "row": 213,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "Story jrpdf fails (template missing; data source queries task.story).",
+      "source": "analysis/legacy_user_flows.xlsx row 213, columns D, F, H",
+      "action": "GET /do/export/userstory/jrpdf?oid=256.",
+      "mode": "live",
+      "observed": "HTTP 500: ExportException wrapping QueryException \"could not resolve property: story of: net.sf.xplanner.domain.Task [select task from net.sf.xplanner.domain.Task task where task.story = ? order by task.name]\" (PdfReportExporter.export:59): the query fails before the template is read.",
+      "evidence": "traces/s08-export.trace.json#userstory/jrpdf",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-032",
+      "row": 213,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "Task jrpdf fails (template missing).",
+      "source": "analysis/legacy_user_flows.xlsx row 213, columns D, F, H",
+      "action": "GET /do/export/task/jrpdf?oid=270.",
+      "mode": "live",
+      "observed": "HTTP 500: ExportException \"Could not open compiled report\" (PdfReportExporter.export:104).",
+      "evidence": "traces/s08-export.trace.json#task/jrpdf",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-033",
+      "row": 213,
+      "role": "s3editor",
+      "channel": "web export actions /do/export/* over HTTP",
+      "expected": "Person jrpdf fails (template missing; data source queries task.story).",
+      "source": "analysis/legacy_user_flows.xlsx row 213, columns D, F, H",
+      "action": "GET /do/export/person/jrpdf?oid=209.",
+      "mode": "live",
+      "observed": "HTTP 500: QueryException \"could not resolve property: story of: net.sf.xplanner.domain.Task\" in the person query (PdfReportExporter.export:92).",
+      "evidence": "traces/s08-export.trace.json#person/jrpdf",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-034",
+      "row": 215,
+      "role": "anonymous",
+      "channel": "SOAP over HTTP, /soap/XPlanner without credentials",
+      "expected": "Without credentials a 401 challenge \"Basic realm=XPlanner\".",
+      "source": "analysis/legacy_user_flows.xlsx row 215, columns D, F, H",
+      "action": "GET /soap/XPlanner?wsdl and POST getProjects without Authorization; GET /soap/Version?wsdl.",
+      "mode": "live",
+      "observed": "All three answered 401 with WWW-Authenticate: Basic realm=\"XPlanner\".",
+      "evidence": "traces/s10-wsdl.trace.json, traces/s11-soap-access.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-035",
+      "row": 215,
+      "role": "s3editor",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "Authenticated clients receive SOAP responses with the Data beans.",
+      "source": "analysis/legacy_user_flows.xlsx row 215, columns D, F",
+      "action": "GET the WSDL with Basic, then the SOAP calls of D-C-039 to D-C-058.",
+      "mode": "live",
+      "observed": "WSDL 200 text/xml, style rpc, use encoded, target namespace http://127.0.0.1:18080/xplanner-legacy/soap/XPlanner, 37 operation names (43 methods; update is overloaded seven times); responses carried ProjectData, IterationData, UserStoryData, TaskData, TimeEntryData, NoteData and PersonData.",
+      "evidence": "traces/s10-wsdl.trace.json, traces/s12b-soap-rw.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-036",
+      "row": 216,
+      "role": "anonymous",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /servlet/AxisServlet without credentials",
+      "expected": "The Axis servlet is also mapped at /servlet/AxisServlet without the Basic filter; SOAP reachable there (runtime unverified).",
+      "source": "analysis/legacy_user_flows.xlsx row 216, columns D, F, H; analysis/legacy_reconnaissance.md Runnable Surfaces, unfiltered entry points",
+      "action": "GET /servlet/AxisServlet; POST getProjects, getProject(224), getAttribute and setAttribute(256, \"s3d.anon\") without credentials, with body namespace and SOAPAction \"XPlanner\"; then read the attributes of story 256 as editor.",
+      "mode": "live",
+      "observed": "GET lists the XPlanner and Version services with all operation names (200). Without a namespace or SOAPAction the call faults \"could not find a target service\"; with them the service runs: getProjects returns null, getProject faults \"no user principal in session\", but setAttribute succeeded and the attribute s3d.anon appears in getAttributes of story 256.",
+      "evidence": "traces/s11-soap-access.trace.json, traces/s12b-soap-rw.trace.json#anon",
+      "verdict": "finding",
+      "finding": "D-F-05"
+    },
+    {
+      "id": "D-C-037",
+      "row": 216,
+      "role": "s3editor",
+      "channel": "SOAP over HTTP, /servlet/AxisServlet with HTTP Basic",
+      "expected": "Same service at the alternate path.",
+      "source": "analysis/legacy_user_flows.xlsx row 216, columns D",
+      "action": "POST getProjects with Basic and SOAPAction \"XPlanner\" to /servlet/AxisServlet.",
+      "mode": "live",
+      "observed": "Returns the editor's five projects: the Basic header is honored even without the filter.",
+      "evidence": "traces/s11-soap-access.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-038",
+      "row": 217,
+      "role": "s3editor; anonymous",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "An Axis \"Version\" service reports the Axis version.",
+      "source": "analysis/legacy_user_flows.xlsx row 217, columns D, F",
+      "action": "getVersion on /soap/Version with Basic, and on /servlet/AxisServlet without credentials.",
+      "mode": "live",
+      "observed": "Both return \"Apache Axis version: 1.4 Built on Apr 22, 2006 (06:55:48 PDT)\".",
+      "evidence": "traces/s11-soap-access.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-039",
+      "row": 218,
+      "role": "s3viewer (viewer on 224)",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "Changes need the edit permission: \"no permission to update object\".",
+      "source": "analysis/legacy_user_flows.xlsx row 218, columns D, F, H",
+      "action": "update(ProjectData 224) with unchanged values as viewer.",
+      "mode": "live",
+      "observed": "Fault com.technoetic.xplanner.security.AuthenticationException: no permission to update object.",
+      "evidence": "traces/s12b-soap-rw.trace.json#viewer update",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-040",
+      "row": 218,
+      "role": "s3viewer (viewer on 224)",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "Creation needs the create permission.",
+      "source": "analysis/legacy_user_flows.xlsx row 218, columns D, F, H",
+      "action": "addUserStory into iteration 234 as viewer.",
+      "mode": "live",
+      "observed": "Fault \"no permission to create object\"; no story created.",
+      "evidence": "traces/s12b-soap-rw.trace.json#viewer create",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-041",
+      "row": 218,
+      "role": "s3viewer (viewer on 224)",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "Deletion needs the delete permission.",
+      "source": "analysis/legacy_user_flows.xlsx row 218, columns D, F, H",
+      "action": "removeTimeEntry(283), removeTask(437) and removeNote(388) as viewer, then re-read as editor.",
+      "mode": "live",
+      "observed": "Each faulted \"no permission to delete object\"; the objects remained until the editor removed them.",
+      "evidence": "traces/s13-soap-extra.trace.json#viewer delete",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-042",
+      "row": 218,
+      "role": "s3editor, s3viewer, s3sysadmin",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "Reads check read permission and lists contain only accessible objects.",
+      "source": "analysis/legacy_user_flows.xlsx row 218, columns D, F, H",
+      "action": "getProjects as editor, viewer and sysadmin; getProject(341) and getIterations(341) as editor and viewer (no role on the SOAP-created project 341).",
+      "mode": "live",
+      "observed": "Editor and viewer: 220-224; sysadmin: 220-225. getProject(341) faults \"no permission to read object\"; getIterations(341) returns an empty result.",
+      "evidence": "traces/s12b-soap-rw.trace.json, traces/s14-soap-cleanup.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-043",
+      "row": 218,
+      "role": "s3editor, s3sysadmin",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "Delete of an iteration needs the delete permission (editors may not delete iterations).",
+      "source": "analysis/legacy_user_flows.xlsx row 218, columns D, H; setup-C-024",
+      "action": "removeIteration(315) as editor, then as sysadmin.",
+      "mode": "live",
+      "observed": "Editor: fault \"no permission to delete object\"; sysadmin: removed (later get: ObjectNotFoundException).",
+      "evidence": "traces/s12b-soap-rw.trace.json#removeIteration",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-044",
+      "row": 218,
+      "role": "s3viewer, s3editor",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "The five attribute operations have no permission check and succeed for any authenticated caller.",
+      "source": "analysis/legacy_user_flows.xlsx row 218, columns D, F, H",
+      "action": "setAttribute(256, \"s3d.viewer\") and getAttribute as viewer; getAttributes(341) as viewer; getAttribute, getAttributes, getAttributesWithPrefix(256, \"s3d.\") as editor.",
+      "mode": "live",
+      "observed": "setAttribute succeeded for the viewer; getAttributes(341) returned an empty map without a permission fault; getAttributes and getAttributesWithPrefix return maps (the prefixed call returns the key \"key\" for \"s3d.key\", prefix removed). getAttribute faults for every caller: org.hibernate.TypeMismatchException \"Provided id of the wrong type for class net.sf.xplanner.domain.Attribute. Expected: class net.sf.xplanner.domain.AttributeId, got class net.sf.xplanner.domain.Attribute\".",
+      "evidence": "traces/s12b-soap-rw.trace.json#attributes",
+      "verdict": "finding",
+      "finding": "D-F-06"
+    },
+    {
+      "id": "D-C-045",
+      "row": 219,
+      "role": "s3editor; anonymous",
+      "channel": "HTTP",
+      "expected": "No /service/xplanner JAX-WS endpoint.",
+      "source": "analysis/legacy_user_flows.xlsx row 219, columns D, F, H",
+      "action": "GET /service/xplanner with Basic and /service/xplanner?wsdl without credentials.",
+      "mode": "live",
+      "observed": "Both 404.",
+      "evidence": "traces/s10-wsdl.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-046",
+      "row": 220,
+      "role": "s3editor (editor on 224)",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "Read operations return projects, iterations, stories, tasks, current and planned tasks, time entries, notes, people.",
+      "source": "analysis/legacy_user_flows.xlsx row 220, columns D, F",
+      "action": "getProjects, getProject(224), getIterations(224), getIteration(234), getUserStories(234), getUserStory(256), getTasks(256), getTask(270), getCurrentTasksForPerson(210), getPlannedTasksForPerson(210), getTimeEntries(270), getTimeEntry(276), getNote(386), getPerson(210), getPeople.",
+      "mode": "live",
+      "observed": "All answered with data (for example 3 iterations of 224, tasks 270/271 of story 256, 5 current and 2 planned tasks of s3editor across S3-C and S3-D, 12 people). The parent references read back as 0: IterationData.projectId, UserStoryData.iterationId, TaskData.storyId and TimeEntryData.taskId are 0 for objects that belong to a parent.",
+      "evidence": "traces/s12b-soap-rw.trace.json#reads",
+      "verdict": "finding",
+      "finding": "D-F-07"
+    },
+    {
+      "id": "D-C-047",
+      "row": 220,
+      "role": "s3editor (editor on 224)",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "getCurrentIteration is expected to return a SOAP fault (undeclared alias \"object\", unmapped projectId).",
+      "source": "analysis/legacy_user_flows.xlsx row 220, columns D, F, H",
+      "action": "getCurrentIteration(224) while iteration 234 is active.",
+      "mode": "live",
+      "observed": "Fault org.hibernate.hql.ast.QuerySyntaxException: unexpected token: object near line 1, column 45 [from net.sf.xplanner.domain.Iteration where object.startDate <= ? and object.endDate >= ? and object.projectId = ?].",
+      "evidence": "traces/s12b-soap-rw.trace.json#getCurrentIteration",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-048",
+      "row": 220,
+      "role": "s3editor (editor on 224)",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "getNotesForObject returns the notes of an object (unqualified attachedTo_Id, framework behavior).",
+      "source": "analysis/legacy_user_flows.xlsx row 220, columns D, F, H",
+      "action": "getNotesForObject(256) after two notes were attached over SOAP.",
+      "mode": "live",
+      "observed": "Returns notes 386 and 387 (subjects \"S3-D SOAP note on story 1\", \"S3-D SOAP note to remove\").",
+      "evidence": "traces/s12b-soap-rw.trace.json#getNotesForObject",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-049",
+      "row": 220,
+      "role": "s3editor (editor on 224)",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "getAttribute, getAttributes and getAttributesWithPrefix read object attributes.",
+      "source": "analysis/legacy_user_flows.xlsx row 220, columns D, F",
+      "action": "After setAttribute(256, \"s3d.key\", \"v1\"): getAttribute, getAttributes, getAttributesWithPrefix(\"s3d.\").",
+      "mode": "live",
+      "observed": "getAttribute faults TypeMismatchException (see D-C-044); getAttributes returns the map; getAttributesWithPrefix returns the keys with the prefix removed.",
+      "evidence": "traces/s12b-soap-rw.trace.json#attributes",
+      "verdict": "finding",
+      "finding": "D-F-06"
+    },
+    {
+      "id": "D-C-050",
+      "row": 221,
+      "role": "s3sysadmin",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "addProject, update(ProjectData), removeProject; removeProject is expected to leave the project notes (the live question).",
+      "source": "analysis/legacy_user_flows.xlsx row 221, columns D, F, H",
+      "action": "addProject \"S3-D SOAP Project\" (341), update of its description, addNote attached to 341 (385), removeProject(341), then getProject(341), getNote(385) and getNotesForObject(341).",
+      "mode": "live",
+      "observed": "Project created and updated; after removeProject getProject faults ObjectNotFoundException, but note 385 is still returned by getNote and by getNotesForObject(341).",
+      "evidence": "traces/s12b-soap-rw.trace.json#removeProject, traces/s12-soap-rw.partial.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-051",
+      "row": 221,
+      "role": "s3sysadmin, s3editor",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "addIteration creates an iteration subject to permissions.",
+      "source": "analysis/legacy_user_flows.xlsx row 221, columns D, F",
+      "action": "addIteration into 341 (sysadmin) and into 224 (sysadmin, editor).",
+      "mode": "live",
+      "observed": "All three fault java.lang.RuntimeException: org.hibernate.TransientObjectException \"object references an unsaved transient instance - save the transient instance before flushing: net.sf.xplanner.domain.Project\"; no iteration created.",
+      "evidence": "traces/s12b-soap-rw.trace.json#addIteration, traces/s12-soap-rw.partial.json",
+      "verdict": "finding",
+      "finding": "D-F-08"
+    },
+    {
+      "id": "D-C-052",
+      "row": 221,
+      "role": "s3editor, s3sysadmin",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "addUserStory creates a story in the given iteration.",
+      "source": "analysis/legacy_user_flows.xlsx row 221, columns D, F",
+      "action": "addUserStory \"S3-D SOAP Story\" with iterationId 234 as editor; getUserStory, addTask into it and removeUserStory as editor; getUserStory and removeUserStory as sysadmin.",
+      "mode": "live",
+      "observed": "The call returns id 374 (echoing iterationId 234), but the story is not in iteration 234: the editor gets \"no permission to read object\", \"no permission to create object\" and \"no permission to delete object\"; sysadmin reads iterationId 0 and removed it.",
+      "evidence": "traces/s12b-soap-rw.trace.json#addUserStory, traces/s13-soap-extra.trace.json#orphan",
+      "verdict": "finding",
+      "finding": "D-F-08"
+    },
+    {
+      "id": "D-C-053",
+      "row": 221,
+      "role": "s3editor, s3sysadmin",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "addTask creates a task in the given story.",
+      "source": "analysis/legacy_user_flows.xlsx row 221, columns D, F",
+      "action": "addTask with storyId 256 as editor and as sysadmin.",
+      "mode": "live",
+      "observed": "Both fault java.lang.RuntimeException: org.hibernate.exception.ConstraintViolationException \"Could not execute JDBC batch update\"; no task created.",
+      "evidence": "traces/s12b-soap-rw.trace.json#addTask, traces/s13-soap-extra.trace.json#addTask",
+      "verdict": "finding",
+      "finding": "D-F-08"
+    },
+    {
+      "id": "D-C-054",
+      "row": 221,
+      "role": "s3editor, s3sysadmin",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "addTimeEntry creates a time entry on the given task.",
+      "source": "analysis/legacy_user_flows.xlsx row 221, columns D, F",
+      "action": "addTimeEntry 0.25 h with taskId 270 as editor; getTimeEntries(270), task 270 page, getTimeEntry(440) and removeTimeEntry(440).",
+      "mode": "live",
+      "observed": "Returns id 440 echoing taskId 270, but the entry is not attached: getTimeEntries(270) lists only 276, the task page still shows 1.0 actual hours, and getTimeEntry/removeTimeEntry(440) fault java.lang.NullPointerException (editor and sysadmin). Entry 440 remains in the database.",
+      "evidence": "traces/s13-soap-extra.trace.json#addTimeEntry, traces/s14-soap-cleanup.trace.json",
+      "verdict": "finding",
+      "finding": "D-F-08"
+    },
+    {
+      "id": "D-C-055",
+      "row": 221,
+      "role": "s3editor, s3sysadmin",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "addNote, update(NoteData), removeNote, addPerson, update(PersonData), removePerson.",
+      "source": "analysis/legacy_user_flows.xlsx row 221, columns D, F",
+      "action": "addNote on story 256 (386, 387, 388) and project 341 (385); update(NoteData 386); removeNote(387, 388); addPerson \"S3-D Soap Person\" (396), update, removePerson(396).",
+      "mode": "live",
+      "observed": "All succeeded; updates visible on re-read and on the story page; removed objects fault ObjectNotFoundException on re-read.",
+      "evidence": "traces/s12b-soap-rw.trace.json, traces/s13-soap-extra.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-056",
+      "row": 221,
+      "role": "s3editor, s3sysadmin",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "update of iterations, stories, tasks and time entries; remove of time entries, tasks, stories and iterations.",
+      "source": "analysis/legacy_user_flows.xlsx row 221, columns D, F",
+      "action": "update(IterationData 233), update(UserStoryData 256), update(TaskData 437), update(TimeEntryData 283); removeTimeEntry(283), removeTask(437), removeIteration(315, sysadmin), removeUserStory(374, sysadmin).",
+      "mode": "live",
+      "observed": "Updates stored (descriptions and the 0.75 h duration changed) and the objects kept their parents (233 still listed under 224, 256 still under 234); removed objects fault ObjectNotFoundException on re-read.",
+      "evidence": "traces/s22-soap-iter-update.trace.json, traces/s13-soap-extra.trace.json, traces/s12b-soap-rw.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-057",
+      "row": 221,
+      "role": "s3editor",
+      "channel": "web UI over HTTP (page forms and links replayed without JavaScript) and SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "History is recorded for SOAP changes.",
+      "source": "analysis/legacy_user_flows.xlsx row 221, columns D, H",
+      "action": "Opened the history of story 256 after the SOAP update and note operations.",
+      "mode": "live",
+      "observed": "History rows \"updated <s3editor name>\" at 20:22:33 UTC (the SOAP story update) and \"created ... note\" for the three SOAP notes.",
+      "evidence": "traces/s13-soap-extra.trace.json#history_rows",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-058",
+      "row": 221,
+      "role": "s3editor",
+      "channel": "SOAP 1.1 RPC/encoded over HTTP, /soap/XPlanner with HTTP Basic",
+      "expected": "deleteAttribute is expected to fail (a.targetId and a.name are not mapped paths; the live question).",
+      "source": "analysis/legacy_user_flows.xlsx row 221, columns D, F, H",
+      "action": "deleteAttribute(256, \"s3d.key\"), then getAttributes(256).",
+      "mode": "live",
+      "observed": "Fault org.hibernate.QueryException: could not resolve property: targetId of: net.sf.xplanner.domain.Attribute [from a in class net.sf.xplanner.domain.Attribute where a.targetId = ? and a.name = ?]; the attribute is still present.",
+      "evidence": "traces/s12b-soap-rw.trace.json#deleteAttribute",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-059",
+      "row": 223,
+      "role": "anonymous",
+      "channel": "REST over HTTP, /rest/*, no credentials and no session",
+      "expected": "GET /rest/view/project/{id} and /rest/view/iteration/{id}/userstories return XML or JSON.",
+      "source": "analysis/legacy_user_flows.xlsx row 223, columns D, F, H",
+      "action": "GET /rest/view/project/224 with Accept application/xml, application/json and none; GET /rest/view/iteration/234/userstories with XML and JSON.",
+      "mode": "live",
+      "observed": "Project: 200 application/xml <projectView><id>224</id><name>S3-D Integrations</name> (also the default), or application/json with id, name and null-valued fields. Stories: 200 <userStoryViews> / JSON array with story 256 and its tasks (ids, names, hours, acceptorId).",
+      "evidence": "traces/s15-rest.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-060",
+      "row": 224,
+      "role": "anonymous",
+      "channel": "REST over HTTP, /rest/*, no credentials and no session",
+      "expected": "GET /rest/view returns a text/plain response.",
+      "source": "analysis/legacy_user_flows.xlsx row 224, columns D, F",
+      "action": "GET /rest/view.",
+      "mode": "live",
+      "observed": "200 text/plain \"Hi there!\".",
+      "evidence": "traces/s15-rest.trace.json#GET /rest/view",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-061",
+      "row": 225,
+      "role": "anonymous",
+      "channel": "REST over HTTP, /rest/*, no credentials and no session",
+      "expected": "No security filter on /rest/*: endpoints reachable without authentication.",
+      "source": "analysis/legacy_user_flows.xlsx row 225, columns D, F, H",
+      "action": "All REST requests of D-C-059 to D-C-063 were sent without credentials or cookies.",
+      "mode": "live",
+      "observed": "Every request answered 200 with data or a result, including the task status updates (no redirect, no challenge).",
+      "evidence": "traces/s15-rest.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-062",
+      "row": 226,
+      "role": "anonymous",
+      "channel": "REST over HTTP, /rest/*, no credentials and no session",
+      "expected": "POST /rest/update/task/{id}/status changes the status and returns \"Task updated\", \"Task not found\", \"Task status not changed\" or \"Moving Task to not started not implemented\".",
+      "source": "analysis/legacy_user_flows.xlsx row 226, columns D, F, H",
+      "action": "On task 271: started with originalEstimate 2.5, started again, notStarted, completed; on id 999999: started. Checked task 271 on the web after started and after completed.",
+      "mode": "live",
+      "observed": "JSON {\"code\":0,\"decription\":\"Task updated\",\"error\":false}; then 401 \"Task status not changed\"; 402 \"Moving Task to not started not implemented\"; 404 \"Task not found\"; completed: code 0. The web shows the original estimate 2.5 after started and the \"Reopen Task\" button after completed.",
+      "evidence": "traces/s15-rest.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-063",
+      "row": 226,
+      "role": "anonymous",
+      "channel": "REST over HTTP, /rest/*, no credentials and no session",
+      "expected": "Only the four recorded results.",
+      "source": "analysis/legacy_user_flows.xlsx row 226, columns D, F",
+      "action": "status=bogus on task 271.",
+      "mode": "live",
+      "observed": "Answered code 402 \"Moving Task to not started not implemented\" (an unrecognized status is treated as not started).",
+      "evidence": "traces/s15-rest.trace.json#POST 271 unknown status",
+      "verdict": "finding",
+      "finding": "D-F-09"
+    },
+    {
+      "id": "D-C-064",
+      "row": 228,
+      "role": "s3editor, s3viewer, s3admin, s3sysadmin (own calendar)",
+      "channel": "iCalendar over HTTP, /ical/*, HTTP Basic",
+      "expected": "GET /ical/<own userId>.ics is expected to fail on task.story: \"ical error\" logged, sendError with the exception message, no VCALENDAR.",
+      "source": "analysis/legacy_user_flows.xlsx row 228, columns D, F, H",
+      "action": "GET /ical/<own userId>.ics for each of the four roles.",
+      "mode": "live",
+      "observed": "Each 500 text/html (charset ISO-8859-1) with message \"could not resolve property: story of: net.sf.xplanner.domain.Task [select entry.id, entry.startTime, entry.endTime, entry.duration, task.id, task.name, story.name from entry in class ...]\" (the time-entry query runs first); no VCALENDAR; the Content-Disposition inline; filename=<userId>.ics header is still sent.",
+      "evidence": "traces/s16-ical.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-065",
+      "row": 228,
+      "role": "anonymous",
+      "channel": "iCalendar over HTTP, /ical/* without credentials",
+      "expected": "The feed is behind HTTP Basic.",
+      "source": "analysis/legacy_user_flows.xlsx row 228, columns D; analysis/legacy_user_flows.xlsx row 215, columns H",
+      "action": "GET /ical/<s3editor>.ics without credentials.",
+      "mode": "live",
+      "observed": "401 with WWW-Authenticate: Basic realm=\"XPlanner\".",
+      "evidence": "traces/s16-ical.trace.json#anon",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-066",
+      "row": 229,
+      "role": "s3editor",
+      "channel": "iCalendar over HTTP, /ical/*, HTTP Basic",
+      "expected": "Requests without a file name or without the .ics suffix are rejected with the two messages.",
+      "source": "analysis/legacy_user_flows.xlsx row 229, columns D, F, H",
+      "action": "GET /ical/ and GET /ical/<own userId>.txt.",
+      "mode": "live",
+      "observed": "400 \"No iCal file requested.\" and 400 \"No .ics suffix for requested iCal file.\"",
+      "evidence": "traces/s16-ical.trace.json#editor no file",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-067",
+      "row": 230,
+      "role": "s3viewer",
+      "channel": "iCalendar over HTTP, /ical/*, HTTP Basic",
+      "expected": "Another person's calendar needs admin.edit on system.person: \"No authorization for accessing calendar for <user>\".",
+      "source": "analysis/legacy_user_flows.xlsx row 230, columns D, F, H",
+      "action": "GET /ical/<s3editor>.ics as viewer.",
+      "mode": "live",
+      "observed": "403 \"No authorization for accessing calendar for s3editor\".",
+      "evidence": "traces/s16-ical.trace.json#viewer other(editor)",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-068",
+      "row": 230,
+      "role": "s3admin, s3sysadmin",
+      "channel": "iCalendar over HTTP, /ical/*, HTTP Basic",
+      "expected": "Users holding admin.edit on system.person for some project may read another calendar.",
+      "source": "analysis/legacy_user_flows.xlsx row 230, columns H",
+      "action": "GET /ical/<s3editor>.ics as admin and as sysadmin.",
+      "mode": "live",
+      "observed": "Both pass the authorization check and then fail with the same 500 query error as D-C-064.",
+      "evidence": "traces/s16-ical.trace.json#admin other(editor)",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-069",
+      "row": 232,
+      "role": "s3editor (signed-in web session)",
+      "channel": "WAP/WML over HTTP, /do/mobile/*",
+      "expected": "The WAP login card (WML) is served; submitting it is expected to fail with a null reference.",
+      "source": "analysis/legacy_user_flows.xlsx row 232, columns D, F, H",
+      "action": "Inside a signed-in web session: GET /do/mobile/login (twice, and with ?action=authenticate).",
+      "mode": "live",
+      "observed": "Each 500 HTML error page: java.lang.NullPointerException at com.technoetic.xplanner.actions.AuthenticationAction.execute(AuthenticationAction.java:47). No WML card is served for the login display either.",
+      "evidence": "traces/s18-wap-login.trace.json, traces/s17-wap.trace.json",
+      "verdict": "finding",
+      "finding": "D-F-10"
+    },
+    {
+      "id": "D-C-070",
+      "row": 232,
+      "role": "s3editor (signed-in web session)",
+      "channel": "WAP/WML over HTTP, /do/mobile/*",
+      "expected": "Submitting the WAP login fails with a null reference (live question).",
+      "source": "analysis/legacy_user_flows.xlsx row 232, columns D, F, H",
+      "action": "POST /do/mobile/login with action=authenticate, userId and password (credentials not recorded), and without action.",
+      "mode": "live",
+      "observed": "Both 500 NullPointerException at AuthenticationAction.execute:47.",
+      "evidence": "traces/s18-wap-login.trace.json",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-071",
+      "row": 233,
+      "role": "anonymous",
+      "channel": "WAP/WML over HTTP, /do/mobile/*",
+      "expected": "The web security filter also covers /do/mobile/* without a /do/mobile/login bypass, so an unauthenticated mobile login request is redirected to /do/login.",
+      "source": "analysis/legacy_user_flows.xlsx row 233, columns D, F, H",
+      "action": "GET /do/mobile/login and /do/mobile/view/projects without a session.",
+      "mode": "live",
+      "observed": "/do/mobile/login: 302 Location /xplanner-legacy/do/login; /do/mobile/view/projects: 302 Location /xplanner-legacy/do/mobile/login (mobile filter first, then the web filter).",
+      "evidence": "traces/s17-wap.trace.json#anon",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-072",
+      "row": 234,
+      "role": "s3editor (signed-in web session)",
+      "channel": "WAP/WML over HTTP, /do/mobile/*",
+      "expected": "Without projectId each WAP view forwards to the not-authorized page (absent) instead of the WML card.",
+      "source": "analysis/legacy_user_flows.xlsx row 234, columns D, F, H",
+      "action": "GET /do/mobile/view/{projects, project?oid=224, iteration?oid=234, story?oid=256, task?oid=270, person?oid=209}.",
+      "mode": "live",
+      "observed": "Each 404 \"JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found\"; no WML.",
+      "evidence": "traces/s17-wap.trace.json#session GET mobile/view",
+      "verdict": "match",
+      "finding": null
+    },
+    {
+      "id": "D-C-073",
+      "row": 234,
+      "role": "s3editor (signed-in web session)",
+      "channel": "WAP/WML over HTTP, /do/mobile/*",
+      "expected": "With a non-zero projectId the view fails with a null reference (no authorizer).",
+      "source": "analysis/legacy_user_flows.xlsx row 234, columns H",
+      "action": "GET /do/mobile/view/project?oid=224&projectId=224 and /do/mobile/view/projects?projectId=224.",
+      "mode": "live",
+      "observed": "Both 500 java.lang.NullPointerException at com.technoetic.xplanner.actions.DispatchForward.execute(DispatchForward.java:55).",
+      "evidence": "traces/s17-wap.trace.json#with projectId",
+      "verdict": "match",
+      "finding": null
+    }
+  ],
+  "findings": [
+    {
+      "id": "D-F-01",
+      "rows": [
+        196
+      ],
+      "cells": [
+        "F196",
+        "H196"
+      ],
+      "observed": "For viewer and editor, /do/view/integrations?projectId=224 and every /do/edit/integrations request (join, start, finish, cancel, leave) answer HTTP 500: JspTagException, IllegalArgumentException \"No positional parameters in query: from com.technoetic.xplanner.domain.Integration where state = ? and projectId = ?\". No page, button or join form is rendered.",
+      "expected": "Integration page with Start/Finished/Cancel buttons and a join form.",
+      "minimal_correction": "Row 196, column F: \"HTTP 500 error page (No positional parameters in query ... Integration); the queue page never renders in this baseline\"; column H: add the live observation (Stage 3 W001-D, D-C-002 to D-C-004) confirming GAP-004.",
+      "severity": "medium"
+    },
+    {
+      "id": "D-F-02",
+      "rows": [
+        197
+      ],
+      "cells": [
+        "F197",
+        "G197"
+      ],
+      "observed": "A join without a person answers HTTP 500 (the error forward renders the failing integrations page); the message text is never shown. The already-active case cannot be reached.",
+      "expected": "Messages integrations.error.noperson / integrations.error.alreadyactive.",
+      "minimal_correction": "Row 197, column F: \"The message key is set, but the error forward renders the failing integrations page (HTTP 500, row 196), so no message is shown\"; column G: Partial.",
+      "severity": "low"
+    },
+    {
+      "id": "D-F-03",
+      "rows": [
+        198
+      ],
+      "cells": [
+        "D198",
+        "F198",
+        "H198"
+      ],
+      "observed": "Under the adapted mail environment the full queue sequence produced no integration e-mail; every request failed with HTTP 500 first. Under the original condition no integration event occurred; the logged email.css failure came from task notifications only. Source: IntegrationAction fires only INTEGRATION_READY (finish, cancel or leave with a waiting successor), and IntegrationEmailNotifier does not use the stylesheet formatter.",
+      "expected": "E-mail on integration events; live question: sent when joined and started, suppressed with nonotify?",
+      "minimal_correction": "Row 198, column F: \"No integration e-mail in this baseline: the queue actions fail (row 196) before any event\"; column D: the listener is notified only of the ready event after finish/cancel/leave, not of join or start; column H: answer the live question with D-C-008/D-C-009.",
+      "severity": "low"
+    },
+    {
+      "id": "D-F-04",
+      "rows": [
+        208
+      ],
+      "cells": [
+        "F208"
+      ],
+      "observed": "Link \"Export\", caption \"Format:\"; the jrpdf entry is labeled \"JRPDF\". Formats offered: project XML/MPX/MSPDI; iteration XML/MPX/MSPDI/PDF/JRPDF; story and task PDF/JRPDF; person JRPDF.",
+      "expected": "Overlib pop-up with format links such as XML, MPX, MSPDI, PDF, Report.",
+      "minimal_correction": "Row 208, column F: replace \"Report\" with \"JRPDF\" and list the per-object formats observed.",
+      "severity": "low"
+    },
+    {
+      "id": "D-F-05",
+      "rows": [
+        216,
+        218
+      ],
+      "cells": [
+        "F216",
+        "D218",
+        "F218"
+      ],
+      "observed": "At /servlet/AxisServlet without credentials (SOAPAction or body namespace \"XPlanner\"): the service executes; object operations fault \"no user principal in session\" and getProjects returns null, but setAttribute succeeded and was persisted on story 256; getVersion works; a GET lists all services and operations.",
+      "expected": "SOAP reachable without the filter at the alternate path (runtime unverified); attribute calls succeed for any authenticated caller.",
+      "minimal_correction": "Row 216, column F: \"Reachable without credentials: object operations fault (no user principal), the attribute operations run anonymously (setAttribute persisted), and GET lists the services\"; row 218, columns D/F: extend \"any authenticated caller\" to \"any caller, including unauthenticated calls through /servlet/AxisServlet\".",
+      "severity": "medium"
+    },
+    {
+      "id": "D-F-06",
+      "rows": [
+        218,
+        220
+      ],
+      "cells": [
+        "F218",
+        "F220"
+      ],
+      "observed": "getAttribute faults for every caller with org.hibernate.TypeMismatchException (expected AttributeId, got Attribute); getAttributes works; getAttributesWithPrefix returns the keys with the prefix removed.",
+      "expected": "getAttribute among the working read operations; attribute calls succeed.",
+      "minimal_correction": "Rows 218 and 220, column F: \"getAttribute always returns a SOAP fault (TypeMismatchException); getAttributesWithPrefix returns keys without the prefix\".",
+      "severity": "low"
+    },
+    {
+      "id": "D-F-07",
+      "rows": [
+        220
+      ],
+      "cells": [
+        "F220"
+      ],
+      "observed": "The Data beans returned by the read operations carry 0 in their parent reference: IterationData.projectId, UserStoryData.iterationId, TaskData.storyId and TimeEntryData.taskId.",
+      "expected": "Read access to planning data (parent references not described).",
+      "minimal_correction": "Row 220, column F: add \"parent id fields (projectId, iterationId, storyId, taskId) are returned as 0\".",
+      "severity": "low"
+    },
+    {
+      "id": "D-F-08",
+      "rows": [
+        221
+      ],
+      "cells": [
+        "D221",
+        "F221",
+        "G221"
+      ],
+      "observed": "addIteration faults TransientObjectException (Project) for sysadmin and editor; addTask faults ConstraintViolationException for editor and sysadmin; addUserStory returns an id but the story has no iteration (the creator can no longer read, extend or delete it; only sysadmin can); addTimeEntry returns an id but the entry is not attached to the task (not listed, get/remove fault NullPointerException). addProject, addNote, addPerson, all update operations and all remove operations work; removeProject leaves the project notes; deleteAttribute fails.",
+      "expected": "Clients can add, update and remove projects, iterations, stories, tasks, time entries, notes and people, subject to permissions, with history recorded.",
+      "minimal_correction": "Row 221, columns D/F: state per operation that addIteration and addTask fail, and addUserStory and addTimeEntry create objects without their parent; keep project/note/person adds, all updates and removes, notes left by removeProject and the deleteAttribute failure; column G: Partial.",
+      "severity": "medium"
+    },
+    {
+      "id": "D-F-09",
+      "rows": [
+        226
+      ],
+      "cells": [
+        "F226"
+      ],
+      "observed": "An unrecognized status value returns code 402 \"Moving Task to not started not implemented\"; results are JSON objects {\"code\",\"decription\",\"error\"} (field name spelled \"decription\") with codes 0, 401, 402 and 404.",
+      "expected": "Result \"Task updated\", \"Task not found\", \"Task status not changed\" or \"Moving Task to not started not implemented\".",
+      "minimal_correction": "Row 226, column F: add \"an unknown status is answered like notStarted (402); results carry code 0/401/402/404 in a JSON or XML Result object\".",
+      "severity": "low"
+    },
+    {
+      "id": "D-F-10",
+      "rows": [
+        232
+      ],
+      "cells": [
+        "F232"
+      ],
+      "observed": "Inside a signed-in web session even GET /do/mobile/login (the login card) answers HTTP 500 NullPointerException at AuthenticationAction.execute:47; no WML page is served by any WAP action.",
+      "expected": "WML cards with links; submitting the WAP login is expected to fail with a null reference.",
+      "minimal_correction": "Row 232, column F: \"Every WAP login request, including the display of the login card, fails with a NullPointerException (HTTP 500); views without projectId answer 404 (row 234)\".",
+      "severity": "low"
+    }
+  ],
+  "not_checked": [
+    {
+      "row": 195,
+      "reason": "Use-case header row: progress text only, no behavior claim to observe.",
+      "retry_condition": "none (PM/Stage 1 progress field)"
+    },
+    {
+      "row": 199,
+      "reason": "Use-case header row: progress text only, no behavior claim to observe.",
+      "retry_condition": "none (PM/Stage 1 progress field)"
+    },
+    {
+      "row": 207,
+      "reason": "Use-case header row: progress text only, no behavior claim to observe.",
+      "retry_condition": "none (PM/Stage 1 progress field)"
+    },
+    {
+      "row": 214,
+      "reason": "Use-case header row: progress text only, no behavior claim to observe.",
+      "retry_condition": "none (PM/Stage 1 progress field)"
+    },
+    {
+      "row": 222,
+      "reason": "Use-case header row: progress text only, no behavior claim to observe.",
+      "retry_condition": "none (PM/Stage 1 progress field)"
+    },
+    {
+      "row": 227,
+      "reason": "Use-case header row: progress text only, no behavior claim to observe.",
+      "retry_condition": "none (PM/Stage 1 progress field)"
+    },
+    {
+      "row": 231,
+      "reason": "Use-case header row: progress text only, no behavior claim to observe.",
+      "retry_condition": "none (PM/Stage 1 progress field)"
+    },
+    {
+      "row": 196,
+      "reason": "D-C-005 blocked: the queue fails for every role, so a server-side permission gate cannot be observed.",
+      "retry_condition": "none in this baseline (queue non-functional); Stage 4 disposition of GAP-004"
+    },
+    {
+      "row": 197,
+      "reason": "D-C-007 blocked: no integration can become active.",
+      "retry_condition": "none in this baseline"
+    },
+    {
+      "row": 198,
+      "reason": "D-C-008: no integration event occurred under the original mail condition; D-C-010 blocked: nonotify is indistinguishable without events.",
+      "retry_condition": "none in this baseline (queue non-functional)"
+    },
+    {
+      "row": 200,
+      "reason": "The 00:05 server-time job had not run (first run 2026-10-01T00:05:00Z). Prepared: open task 438 \"S3-D Reminder Task\" (acceptor s3editor) with its only time entry on 2026-09-29, in active iteration 234.",
+      "retry_condition": "After 2026-10-01T00:05:00Z, PM reads Mailpit: messages \"XPlanner time entry reminder.\" to s3editor naming S3-D Reminder Task, and their count (one or two)."
+    },
+    {
+      "row": 201,
+      "reason": "The 00:05 server-time job had not run. Prepared: project 224 has the reminder option checked and s3admin as recipient of the Missing Time Entries Report.",
+      "retry_condition": "After 2026-10-01T00:05:00Z, PM reads Mailpit: messages \"XPlanner project time entry status.\" to s3admin naming s3editor and S3-D Reminder Task, and their count."
+    },
+    {
+      "row": 203,
+      "reason": "Behavior without a reachable SMTP server would need the sink stopped or the mail host changed (not permitted).",
+      "retry_condition": "An owner/Codex-decided environment change, or a separate isolated environment"
+    },
+    {
+      "row": 204,
+      "reason": "The 23:55 time was not reached, and data-sample rows are not shown by the pages read.",
+      "retry_condition": "After 2026-09-30T23:55Z, a PM read-only query counting data samples of iteration 234 by date (none expected at 23:55)"
+    },
+    {
+      "row": 205,
+      "reason": "Enabling iteration.automatically.extend.endDate is a global property change.",
+      "retry_condition": "A separate isolated environment with an owner-approved property change"
+    }
+  ]
+}

@@ -1,0 +1,477 @@
+{
+  "started_at": "2026-09-30T20:20:26.094Z",
+  "attempts": [
+    {
+      "id": "base",
+      "desc": "valid entry A 14:00-15:00",
+      "sent": {
+        "person1Id[0]": "210",
+        "startTime[0]": "2026-09-30 14:00",
+        "endTime[0]": "2026-09-30 15:00",
+        "description[0]": "S3-C V entry A"
+      },
+      "rowcount_before": 1,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=268",
+      "messages": [],
+      "redisplayed_editor": false,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r152-time",
+      "desc": "unparsable start time",
+      "sent": {
+        "person1Id[1]": "210",
+        "startTime[1]": "not-a-date",
+        "endTime[1]": "2026-09-30 16:00"
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Can't parse the supplied date/time value."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r152-number",
+      "desc": "unparsable duration",
+      "sent": {
+        "person1Id[1]": "210",
+        "duration[1]": "abc"
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Can't parse the supplied number."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r153-nonlast-missing-end",
+      "desc": "existing row 0 end cleared, no duration",
+      "sent": {
+        "endTime[0]": ""
+      },
+      "rowcount_before": 2,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=268",
+      "messages": [],
+      "redisplayed_editor": false,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r153-end-duration-no-start",
+      "desc": "last row end + duration, no start",
+      "sent": {
+        "person1Id[1]": "210",
+        "endTime[1]": "2026-09-30 16:00",
+        "duration[1]": "1.0"
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Missing start or end time."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r154-no-person",
+      "desc": "last row interval, no person",
+      "sent": {
+        "startTime[1]": "2026-09-30 16:00",
+        "endTime[1]": "2026-09-30 17:00",
+        "person1Id[1]": "0",
+        "person2Id[1]": "0"
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "No person is specified in a time entry."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r155-same-people",
+      "desc": "interval, same person twice",
+      "sent": {
+        "person1Id[1]": "210",
+        "startTime[1]": "2026-09-30 16:00",
+        "endTime[1]": "2026-09-30 17:00",
+        "person2Id[1]": "210"
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Must specify different people for time entry."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r156-negative",
+      "desc": "end before start",
+      "sent": {
+        "person1Id[1]": "210",
+        "startTime[1]": "2026-09-30 17:00",
+        "endTime[1]": "2026-09-30 16:00"
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Negative or zero-length intervals are not allowed."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r157-overlap",
+      "desc": "overlaps entry A",
+      "sent": {
+        "person1Id[1]": "210",
+        "startTime[1]": "2026-09-30 14:30",
+        "endTime[1]": "2026-09-30 15:30"
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Overlapping intervals are not allowed."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r158-last-both",
+      "desc": "last row interval and duration",
+      "sent": {
+        "person1Id[1]": "210",
+        "startTime[1]": "2026-09-30 16:00",
+        "endTime[1]": "2026-09-30 17:00",
+        "duration[1]": "1.0"
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Cannot specify both an interval and duration."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r159-no-report-date",
+      "desc": "last row interval, report date empty",
+      "sent": {
+        "person1Id[1]": "210",
+        "startTime[1]": "2026-09-30 16:00",
+        "endTime[1]": "2026-09-30 17:00",
+        "reportDate[1]": ""
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Missing reported date."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r160-long-description",
+      "desc": "description of maxlength+20 characters",
+      "sent": {
+        "person1Id[1]": "210",
+        "startTime[1]": "2026-09-30 16:00",
+        "endTime[1]": "2026-09-30 17:00",
+        "description[1]": "<520 chars>"
+      },
+      "rowcount_before": 2,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "The time entry description is too long."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r155-duration-same-people",
+      "desc": "duration-only row, same person twice",
+      "sent": {
+        "person1Id[1]": "210",
+        "duration[1]": "0.5",
+        "person2Id[1]": "210",
+        "description[1]": "S3-C V entry B"
+      },
+      "rowcount_before": 2,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=268",
+      "messages": [],
+      "redisplayed_editor": false,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "",
+          "",
+          "2026-09-30",
+          "0.5",
+          "<editor.name> <editor.name>",
+          "S3-C V entry B"
+        ],
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.5 (4.0) Created: 2026-09-30 Actual Hours: 1.5 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r153-last-start-only",
+      "desc": "last row start time only",
+      "sent": {
+        "person1Id[2]": "210",
+        "startTime[2]": "2026-09-30 18:00",
+        "description[2]": "S3-C V entry C"
+      },
+      "rowcount_before": 3,
+      "status": 200,
+      "location": null,
+      "messages": [
+        "Must specify different people for time entry."
+      ],
+      "redisplayed_editor": true,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "",
+          "",
+          "2026-09-30",
+          "0.5",
+          "<editor.name> <editor.name>",
+          "S3-C V entry B"
+        ],
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.5 (4.0) Created: 2026-09-30 Actual Hours: 1.5 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r158-nonlast-both",
+      "desc": "existing row 0 (interval) plus a duration",
+      "sent": {
+        "duration[0]": "2.0"
+      },
+      "rowcount_before": 3,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=268",
+      "messages": [],
+      "redisplayed_editor": false,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "",
+          "",
+          "2026-09-30",
+          "0.5",
+          "<editor.name> <editor.name>",
+          "S3-C V entry B"
+        ],
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.5 (4.0) Created: 2026-09-30 Actual Hours: 1.5 E dit D elete M ove/Continue E"
+    },
+    {
+      "id": "r150-edit-delete",
+      "desc": "edit entry B description, tick delete on entry C",
+      "sent": {
+        "description[1]": "S3-C V entry B edited"
+      },
+      "rowcount_before": 3,
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=268",
+      "messages": [],
+      "redisplayed_editor": false,
+      "error_page": null,
+      "timelog_after": [
+        [
+          "",
+          "",
+          "2026-09-30",
+          "0.5",
+          "<editor.name> <editor.name>",
+          "S3-C V entry B edited"
+        ],
+        [
+          "2026-09-30 14:00",
+          "2026-09-30 15:00",
+          "2026-09-30",
+          "1.0",
+          "<editor.name>",
+          "S3-C V entry A"
+        ]
+      ],
+      "task_hours": "Estimated Hours: 5.5 (4.0) Created: 2026-09-30 Actual Hours: 1.5 E dit D elete M ove/Continue E"
+    }
+  ],
+  "description_maxlength": 500,
+  "finished_at": "2026-09-30T20:20:41.904Z"
+}

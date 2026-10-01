@@ -1,0 +1,149 @@
+[
+  {
+    "at": "2026-09-30T19:41:56.412Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T19:41:56.717Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;jsessionid=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:41:57.025Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6557
+  },
+  {
+    "at": "2026-09-30T19:41:57.358Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=209",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8323
+  },
+  {
+    "at": "2026-09-30T19:41:57.677Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:41:57.998Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=209",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8323
+  },
+  {
+    "at": "2026-09-30T19:41:58.329Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=210",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8323
+  },
+  {
+    "at": "2026-09-30T19:41:58.639Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:41:58.963Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=210",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8323
+  },
+  {
+    "at": "2026-09-30T19:41:59.290Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=211",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8319
+  },
+  {
+    "at": "2026-09-30T19:41:59.594Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:41:59.918Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=211",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8319
+  },
+  {
+    "at": "2026-09-30T19:42:00.244Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=212",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8348
+  },
+  {
+    "at": "2026-09-30T19:42:00.578Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people?projectId=220",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9054
+  },
+  {
+    "at": "2026-09-30T19:42:00.890Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)[Max-Age=0]",
+      "password(cleared)[Max-Age=0]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746
+  }
+]

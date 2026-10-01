@@ -1,0 +1,12 @@
+# PM-collected facts for rows 8, 9, 58, 60 (collected 2026-09-30T20:51:35.859Z by PM via pm-redirect-facts-3.js; isolated tunnel-only app; one request each; redirects not followed; only status, Location and presence flags; no credential, session id or page text recorded)
+row 9 login page: factory user id present / factory password present (flags only)	GET /do/login	200	-	userIdPresent=true passwordPresent=true
+row 8 login?oid=220 unauthenticated: object name present	GET /do/login?oid=220	200	-	nameS3SharedPresent=false
+sign in as the editor role account (no remember)	POST /do/login	302	/xplanner-legacy/do/view/projects	
+row 58 changeLocale with external returnto	GET /do/changeLocale?language=de&returnto=http://example.invalid/	302	http://example.invalid/	
+row 58 changeLocale with internal returnto	GET /do/changeLocale?language=en&returnto=/do/view/projects	302	/xplanner-legacy/do/view/projects	
+row 60 setting single-segment redirect:projects	GET /setting/redirect:projects/list	302	projects	
+row 60 setting single-segment forward:projects	GET /setting/forward:projects/list	404	-	
+row 60 setting single-segment redirect:login	GET /setting/redirect:login/list	302	login	
+row 60 setting single-segment forward:login	GET /setting/forward:login/list	404	-	
+row 60 setting me status (personal page)	GET /setting/me/status/210	200	-	
+sign out	GET /do/logout	200	-	

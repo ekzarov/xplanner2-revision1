@@ -1,0 +1,77 @@
+{
+  "part": "E",
+  "tool": "built-in browser pane (mcp__Claude_Browser__*), origin http://127.0.0.1:18080 only",
+  "session_form": "URL session form ;jsessionid=<redacted> on the first path; links served by the application carried the same form (encodeURL). No cookie, no password typed, login page never opened in the browser.",
+  "sessions": [
+    { "label": "editor-en", "account": "s3editor", "signed_in_by": "node script, no remember (traces/browser-session-login-en.trace.json)", "page_language": "English", "signed_out": "2026-09-30T21:15:17Z by node GET /do/logout; next request 302 /do/login (traces/browser-session-logout-en.trace.json)" },
+    { "label": "editor-es", "account": "s3editor", "signed_in_by": "node script with Accept-Language es-ES, no remember (traces/browser-session-login-es.trace.json)", "page_language": "Spanish (titles 'Definir iteracion', 'Modificar diario'); browser navigator.language en-US", "signed_out": "2026-09-30T21:15:18Z by node GET /do/logout; next request 302 /do/login (traces/browser-session-logout-es.trace.json)" }
+  ],
+  "viewport": "emulated 1600x900 during rows 191, 71, 114, 149 and 151 (the pane is 1024 px wide); reset to the pane size afterwards",
+  "observations": [
+    {
+      "row": 191, "session": "editor-en", "at": "2026-09-30T21:08Z",
+      "steps": [
+        "/do/view/projects: served /js/global.js toggles class 'wide' on .page on a click on .page_footer and flips localStorage.widescreen; state before: class 'page', width 1020 px, localStorage.widescreen null",
+        "real click on 'switch width of Xplanner+ page': class 'page animated wide', width 1584 px at a 1600 px viewport, localStorage.widescreen 'true'",
+        "real click on the People link (/do/view/people?returnto=%2Fdo%2Fview%2Fprojects): new page loads with class 'page wide', width 1584 px",
+        "second click on the footer there: class 'page animated', width 1020 px, localStorage.widescreen 'false'",
+        "reload of /do/view/projects: class 'page', width 1020 px"
+      ]
+    },
+    {
+      "row": 71, "session": "editor-en", "at": "2026-09-30T21:09Z-21:10Z", "page": "/do/edit/iteration?fkey=228&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D228&projectId=228",
+      "steps": [
+        "startDateString and endDateString carry class 'dateField hasDatepicker'; the Calendar buttons are input type=image name=setStartDate / setEndDate inside the editor form with onclick \"return showCalendar('startDate', 'yyyy-MM-dd');\" / endDate",
+        "typeof showCalendar === 'undefined'; scripts loaded: jquery-1.5.1, jquery-ui-1.8.11, global.js, tooltip.js (no calendar script)",
+        "jQuery picker: click in the start field, Next month, day 5 -> '2026-10-05'; end field, Next, day 16 -> '2026-10-16'",
+        "click on the end-date Calendar button (name empty): console 'Uncaught ReferenceError: showCalendar is not defined'; the form was submitted (page is now POST /do/edit/iteration) and redisplayed with 'Errors: Missing iteration name.'; the two picked dates stay in the fields",
+        "name 'S3-E Iteration JS en' typed, Create clicked: 302 to /do/view/project?oid=228; row '544 S3-E Iteration JS en 2026-10-05 2026-10-16 0.0 0'"
+      ]
+    },
+    {
+      "row": 71, "session": "editor-es", "at": "2026-09-30T21:13Z-21:14Z", "page": "/do/edit/iteration?fkey=228&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D228&projectId=228",
+      "steps": [
+        "Calendar buttons ('Calendario') carry onclick \"return showCalendar('startDate', 'dd-MM-yyyy');\" / endDate; typeof showCalendar === 'undefined'",
+        "jQuery picker: start Next month day 7 -> '2026-10-07'; end Next month day 21 -> '2026-10-21' (yyyy-MM-dd in the es session)",
+        "click on the start-date Calendar button (name empty): console 'Uncaught ReferenceError: showCalendar is not defined'; the form was submitted and redisplayed with 'Errores: Falta el nombre de la iteracion.'; fields still '2026-10-07' / '2026-10-21'",
+        "name 'S3-E Iteration JS es' typed, 'Crear' clicked: 302 to /do/view/project?oid=228; es project page row '545 S3-E Iteration JS es 07-10-2026 21-10-2026 0.0 0' (en-session row 544 shown as 05-10-2026 16-10-2026)"
+      ]
+    },
+    {
+      "row": 114, "session": "editor-en", "at": "2026-09-30T21:11Z", "page": "/do/view/dashboard?fkey=543&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D543&iterationId=543&projectId=228",
+      "steps": [
+        "page loads GET /rest/view/iteration/543/userstories -> 200; column titles ' not started', ' in progress', ' done'; story header 'S3-E Story 1 ID=561'; task card 'S3-E Task 1 ID=535' in .leftColumn (not started)",
+        "the card (.ticket) has a jQuery mousedown handler; no jQuery UI draggable/sortable classes",
+        "real mouse drag of the card header to the 'done' column: card now in .rightColumn (style left/top set); no request was made after the page-load requests (network list ends with the page assets and the REST call)",
+        "reload: card back in .leftColumn (not started)"
+      ],
+      "neutral": "the breadcrumb on this board shows 'Top > S3-B Planning' linking /do/view/project?oid=222, although iteration 543 belongs to project 228"
+    },
+    {
+      "row": 149, "session": "editor-en", "at": "2026-09-30T21:12Z", "page": "/do/edit/time?fkey=561&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D535&oid=535&projectId=228",
+      "steps": [
+        "existing row 0 '2026-09-30 13:00' - '2026-09-30 14:30', new row 1 empty, report date 2026-09-30, remainingHours 1.5; button 'Insert Time' onclick setTime(2); scripts /time.js and /editTimeEntries.js",
+        "first click on Insert Time: startTime[1] = '2026-09-30 23:12' (browser local time 23:12, UTC 21:12); second click: endTime[1] = '2026-09-30 23:12'; duration and remainingHours unchanged",
+        "reloaded; duration[1] typed 1, person 1 preselected S3 Sysadmin (212), Update clicked: redirect to /do/view/task?oid=535; 'Estimated Hours: 3.0 (3.0)', 'Actual Hours: 2.5', time log shows the new 1.0 h row"
+      ]
+    },
+    {
+      "row": 151, "session": "editor-en", "at": "2026-09-30T21:12Z-21:13Z",
+      "steps": [
+        "inputs carry onchange entryChanged() (start, end, duration, deleted) and changeRemainingHours() (remainingHours)",
+        "duration[1] typed 1 then Tab: remainingHours 1.5 -> 0.5, label #remainingHoursLabel black",
+        "duration[1] changed to 3 then Tab: remainingHours shows '0' (not -1.5), label #remainingHoursLabel red",
+        "duration[1] back to 1 then Tab: remainingHours 0.5, label black; saved (see row 149): estimate 3.0 = 2.5 actual + 0.5 remaining"
+      ]
+    },
+    {
+      "row": 149, "session": "editor-es", "at": "2026-09-30T21:14Z", "page": "/do/edit/time?fkey=561&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D535&oid=535&projectId=228",
+      "steps": [
+        "stored entry 13:00-14:30 shown as '30-09-2026 13:09 ' / '30-09-2026 14:09 ' (month in the minutes position, trailing space); button 'Insertar fecha' setTime(3)",
+        "two clicks: startTime[2] = '30-09-2026 23:09 ' and endTime[2] = '30-09-2026 23:09 ' at browser time 23:14 (minutes replaced by the month, trailing space); not saved"
+      ]
+    }
+  ],
+  "screenshots": "3 viewport screenshots (en iteration editor with the date picker open, the task board, es iteration editor with the picker open); none shows a secret; not stored in evidence",
+  "left_in_browser": "localStorage.widescreen = 'false' for origin 127.0.0.1:18080; the pane was moved to /xplanner-legacy/images/logo.png before sign-out"
+}

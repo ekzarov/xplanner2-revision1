@@ -1,0 +1,194 @@
+{
+  "started_at": "2026-09-30T19:45:14.826Z",
+  "steps": [
+    {
+      "at": "2026-09-30T19:45:15.763Z",
+      "step": "sign-in",
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/projects"
+    },
+    {
+      "at": "2026-09-30T19:45:16.792Z",
+      "step": "start-iteration",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=231",
+      "final": "/xplanner-legacy/do/view/iteration?oid=231",
+      "final_title": "XPlanner Iteration S3-setup Iteration 1",
+      "confirmation_page": false,
+      "forms": [],
+      "text": "Top S3 Shared S3-setup Iteration 1 Dashboard Export All Tasks Metrics Charts Accuracy History Iteration S3-setup Iteration 1 (2026-09-30 to 2026-10-13) Synthetic iteration for the W001 setup chain. Edit Create Story Close Import Stories All Tasks No stories have been defined. Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null"
+    },
+    {
+      "at": "2026-09-30T19:45:17.138Z",
+      "step": "iteration-after-start",
+      "text": "Top S3 Shared S3-setup Iteration 1 Dashboard Export All Tasks Metrics Charts Accuracy History Iteration S3-setup Iteration 1 (2026-09-30 to 2026-10-13) Synthetic iteration for the W001 setup chain. Edit Create Story Close Import Stories All Tasks No stories have been defined. Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null",
+      "has_start": 0,
+      "has_close": 1,
+      "control_links": [
+        {
+          "href": "/xplanner-legacy/do/edit/iteration?fkey=220&projectId=220&oid=231",
+          "text": "Edit"
+        },
+        {
+          "href": "/xplanner-legacy/do/edit/userstory?fkey=231&projectId=220",
+          "text": "Create Story"
+        },
+        {
+          "href": "/xplanner-legacy/do/close/iteration?fkey=220&projectId=220&oid=231",
+          "text": "Close"
+        },
+        {
+          "href": "/xplanner-legacy/do/edit/note?fkey=231&projectId=220&attachedToId=231",
+          "text": "Add Note/Attachment"
+        }
+      ]
+    },
+    {
+      "at": "2026-09-30T19:45:17.445Z",
+      "step": "projects-current-iteration",
+      "rows": [
+        [
+          "220",
+          "S3 Shared",
+          "S3-setup Iteration 1"
+        ]
+      ]
+    },
+    {
+      "at": "2026-09-30T19:45:17.799Z",
+      "step": "root-url",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/iteration?oid=231"
+    },
+    {
+      "at": "2026-09-30T19:45:18.179Z",
+      "step": "story-editor",
+      "status": 200,
+      "title": "XPlanner - Define Story:",
+      "forms": [
+        {
+          "index": 1,
+          "name": "storyEditor",
+          "action": "/xplanner-legacy/do/edit/userstory",
+          "method": "post",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "iterationId",
+              "value": "231"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "id",
+              "value": "0"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "returnto",
+              "value": "/do/view/iteration?oid=231"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "fkey",
+              "value": "231"
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "name",
+              "value": ""
+            },
+            {
+              "tag": "select",
+              "name": "dispositionName",
+              "options": [
+                "planned=Planned",
+                "carriedOver=Carried Over",
+                "added*=Added"
+              ]
+            },
+            {
+              "tag": "select",
+              "name": "customerId",
+              "options": [
+                "0*=--Unassigned--",
+                "211=<admin.name>",
+                "210=<editor.name>",
+                "212=<sysadmin.name>",
+                "1=[factory-user]"
+              ]
+            },
+            {
+              "tag": "select",
+              "name": "trackerId",
+              "options": [
+                "0*=--Unassigned--",
+                "211=<admin.name>",
+                "210=<editor.name>",
+                "212=<sysadmin.name>",
+                "1=[factory-user]"
+              ]
+            },
+            {
+              "tag": "select",
+              "name": "statusName",
+              "options": [
+                "draft=Draft",
+                "defined=Defined",
+                "estimated=Estimated",
+                "planned=Planned",
+                "implemented=Implemented",
+                "verified=Verified",
+                "accepted=Accepted"
+              ]
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "priority",
+              "value": "4"
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "orderNo",
+              "value": "1"
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "estimatedHoursField",
+              "value": "0.0"
+            },
+            {
+              "tag": "textarea",
+              "name": "description",
+              "value": ""
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "action",
+              "value": "Create"
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "value": "Create"
+            },
+            {
+              "tag": "input",
+              "type": "reset",
+              "value": "Reset"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "finished_at": "2026-09-30T19:45:18.477Z"
+}

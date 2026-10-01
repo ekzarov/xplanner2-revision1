@@ -1,0 +1,295 @@
+[
+  {
+    "at": "2026-09-30T20:18:05.175Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:18:05.464Z",
+    "client": "admin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:18:05.761Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11701,
+    "note": "project 221"
+  },
+  {
+    "at": "2026-09-30T20:18:06.054Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11701,
+    "note": "project 221"
+  },
+  {
+    "at": "2026-09-30T20:18:06.360Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11596,
+    "note": "iteration 308"
+  },
+  {
+    "at": "2026-09-30T20:18:06.649Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/userstory?fkey=308&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&projectId=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8709,
+    "note": "story editor (new)"
+  },
+  {
+    "at": "2026-09-30T20:18:06.950Z",
+    "client": "admin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/userstory",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/iteration?oid=308",
+    "content_type": "text/html",
+    "form_fields": [
+      "iterationId",
+      "id",
+      "returnto",
+      "fkey",
+      "name",
+      "priority",
+      "orderNo",
+      "estimatedHoursField",
+      "action",
+      "dispositionName",
+      "customerId",
+      "trackerId",
+      "statusName",
+      "description"
+    ],
+    "bytes": 0,
+    "note": "create story S3-A Story 1"
+  },
+  {
+    "at": "2026-09-30T20:18:07.256Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 16296,
+    "note": "iteration 308 after create"
+  },
+  {
+    "at": "2026-09-30T20:18:07.544Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 16296,
+    "note": "iteration 308"
+  },
+  {
+    "at": "2026-09-30T20:18:07.840Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/userstory?fkey=308&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&projectId=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8729,
+    "note": "story editor (new)"
+  },
+  {
+    "at": "2026-09-30T20:18:08.137Z",
+    "client": "admin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/userstory",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/iteration?oid=308",
+    "content_type": "text/html",
+    "form_fields": [
+      "iterationId",
+      "id",
+      "returnto",
+      "fkey",
+      "name",
+      "priority",
+      "orderNo",
+      "estimatedHoursField",
+      "action",
+      "dispositionName",
+      "customerId",
+      "trackerId",
+      "statusName",
+      "description"
+    ],
+    "bytes": 0,
+    "note": "create story S3-A Story ViewerDel"
+  },
+  {
+    "at": "2026-09-30T20:18:08.455Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 18712,
+    "note": "iteration 308 after create"
+  },
+  {
+    "at": "2026-09-30T20:18:08.747Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/userstory?oid=257",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10163,
+    "note": "story 257"
+  },
+  {
+    "at": "2026-09-30T20:18:09.045Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/task?fkey=257&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D257&projectId=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7945,
+    "note": "task editor (new)"
+  },
+  {
+    "at": "2026-09-30T20:18:09.365Z",
+    "client": "admin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/task",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/userstory?oid=257",
+    "content_type": "text/html",
+    "form_fields": [
+      "returnto",
+      "fkey",
+      "userStoryId",
+      "id",
+      "completed",
+      "name",
+      "estimatedHours",
+      "action",
+      "type",
+      "dispositionName",
+      "acceptorId",
+      "description"
+    ],
+    "bytes": 0,
+    "note": "create task S3-A Task Del3"
+  },
+  {
+    "at": "2026-09-30T20:18:09.677Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/userstory?oid=257",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13217,
+    "note": "story 257 after create"
+  },
+  {
+    "at": "2026-09-30T20:18:09.991Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/userstory?oid=257",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13217,
+    "note": "story 257"
+  },
+  {
+    "at": "2026-09-30T20:18:10.284Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/task?fkey=257&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D257&projectId=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7945,
+    "note": "task editor (new)"
+  },
+  {
+    "at": "2026-09-30T20:18:10.674Z",
+    "client": "admin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/task",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/userstory?oid=257",
+    "content_type": "text/html",
+    "form_fields": [
+      "returnto",
+      "fkey",
+      "userStoryId",
+      "id",
+      "completed",
+      "name",
+      "estimatedHours",
+      "action",
+      "type",
+      "dispositionName",
+      "acceptorId",
+      "description"
+    ],
+    "bytes": 0,
+    "note": "create task S3-A Task Member"
+  },
+  {
+    "at": "2026-09-30T20:18:10.984Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/userstory?oid=257",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 15263,
+    "note": "story 257 after create"
+  },
+  {
+    "at": "2026-09-30T20:18:11.303Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 18655,
+    "note": "iteration 1 controls"
+  },
+  {
+    "at": "2026-09-30T20:18:11.597Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11701,
+    "note": "project 221 controls"
+  }
+]

@@ -1,0 +1,96 @@
+[
+  {
+    "at": "2026-09-30T20:24:36.832Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:24:37.115Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:24:37.400Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/import/people?returnto=%2Fdo%2Fview%2Fpeople",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5829,
+    "note": "import people page (link as offered)"
+  },
+  {
+    "at": "2026-09-30T20:24:37.682Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/files/peopleImportTemplate.xls",
+    "status": 200,
+    "content_type": "application/vnd.ms-excel",
+    "bytes": 13824,
+    "note": "import template download"
+  },
+  {
+    "at": "2026-09-30T20:24:38.004Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/import/people",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 22445,
+    "note": "import without a file"
+  },
+  {
+    "at": "2026-09-30T20:24:38.341Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/import/people",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 21249,
+    "note": "import small synthetic file (3 lines)"
+  },
+  {
+    "at": "2026-09-30T20:24:38.648Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13183,
+    "note": "people list after import"
+  },
+  {
+    "at": "2026-09-30T20:24:38.935Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "userid[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "password[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746,
+    "note": "logout (body not recorded)"
+  }
+]

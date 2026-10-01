@@ -1,0 +1,79 @@
+{
+  "part": "F",
+  "performed_by": "BA (responsible-agent verification) for PM session d0ec1166-ffc9-446a-ba86-d768242e6de8, task W001-F; deployment operator: Codex",
+  "started_at": "2026-10-01T00:08:39Z",
+  "finished_at": "2026-10-01T00:15:54Z",
+  "live_requests": 0,
+  "state_changes": [],
+  "restores": [],
+  "stops": [
+    {
+      "id": "STOP-1",
+      "at": "2026-10-01T00:10Z (approximate; between the runner self-test at 00:08:39Z and the blob computation at 00:13:22Z)",
+      "what": "Agent safety classifier stopped the BA response while it prepared items 5 (row 34) and 6 (row 76 person-editor step).",
+      "handling": "Not retried, rephrased or split. PM then dropped items 5 and the row 76 person-editor step, and dropped items 1-3 under the owner's scope-reduction direction."
+    },
+    {
+      "id": "STOP-2",
+      "at": "2026-10-01T00:14Z (approximate; between 00:13:22Z and 00:15:54Z)",
+      "what": "Agent safety classifier stopped the BA response while it wrote the live HTTP client for the reduced scope (rows 94, 205, 101, 69, 70, 71, 149, 189, 37).",
+      "handling": "Not retried, rephrased or split. Every remaining live item is recorded as not-checked. The interrupted write left an incomplete scratch file (.migration-tmp/stage-03/ba-scratch/F/lib.js), which was not run, completed or changed."
+    }
+  ],
+  "rows": [
+    { "row": 34, "use_case": "UF-002 Assign project roles to a person (Alternative path)", "verdict": "unverified", "checks": ["F-C-001"], "reason": "Item 5 dropped after STOP-1 (PM decision)." },
+    { "row": 37, "use_case": "UF-003 List people (Happy path)", "verdict": "unverified", "checks": ["F-C-015"], "reason": "STOP-2; no live read." },
+    { "row": 62, "use_case": "UF-004 Administrative and test actions (Operational path)", "verdict": "unverified", "checks": ["F-C-003", "F-C-005", "F-C-006"], "reason": "Items 1-3 dropped under the owner's scope-reduction direction (PM decision)." },
+    { "row": 69, "use_case": "UF-004 Configuration layering and request encoding (Operational path)", "verdict": "unverified", "checks": ["F-C-010"], "reason": "STOP-2; no live read." },
+    { "row": 70, "use_case": "UF-004 Configuration layering and request encoding (Operational path)", "verdict": "unverified", "checks": ["F-C-011"], "reason": "STOP-2; no live read." },
+    { "row": 71, "use_case": "UF-004 Configuration layering and request encoding (Alternative path)", "verdict": "unverified", "checks": ["F-C-012"], "reason": "STOP-2; no live read." },
+    { "row": 76, "use_case": "UF-005 List projects (Alternative path)", "verdict": "unverified", "checks": ["F-C-002"], "reason": "Person-editor role step dropped after STOP-1 (PM decision)." },
+    { "row": 94, "use_case": "UF-006 View iteration stories (Alternative path)", "verdict": "unverified", "checks": ["F-C-007"], "reason": "STOP-2; property not read or changed." },
+    { "row": 101, "use_case": "UF-006 Close iteration and continue unfinished stories (Happy path)", "verdict": "unverified", "checks": ["F-C-009"], "reason": "STOP-2; no iteration created or closed." },
+    { "row": 112, "use_case": "UF-006 Iteration statistics charts (Alternative path)", "verdict": "unverified", "checks": ["F-C-004"], "reason": "Item 1 dropped under the owner's scope-reduction direction (PM decision)." },
+    { "row": 149, "use_case": "UF-009 Record time on a task (Happy path)", "verdict": "unverified", "checks": ["F-C-013"], "reason": "STOP-2; no live read." },
+    { "row": 189, "use_case": "UF-011 Wiki-style formatting of descriptions (Happy path)", "verdict": "unverified", "checks": ["F-C-014"], "reason": "STOP-2; no project created or changed." },
+    { "row": 205, "use_case": "UF-013 Data sampling for burn-down (Operational path)", "verdict": "unverified", "checks": ["F-C-008"], "reason": "STOP-2; property not read or changed." }
+  ],
+  "checks": [
+    { "id": "F-C-001", "row": 34, "role": "admin (not run)", "channel": "web UI over HTTP", "expected": "A direct request by a project-0 administrator grants the system-administrator role (runtime unverified in the map).", "source": "analysis/legacy_user_flows.xlsx row 34, columns D and F; assign-F.md item 5", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-002", "row": 76, "role": "viewer with a role on a hidden project (not run)", "channel": "web UI over HTTP", "expected": "Behavior of the projects list for a reader who holds a role on a hidden project but no hide permission.", "source": "analysis/legacy_user_flows.xlsx row 76, columns D and F; walkthrough-001 R-23; assign-F.md item 6", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-003", "row": 62, "role": "sysadmin (not run)", "channel": "web UI over HTTP", "expected": "/do/edit/dataSample runs the data-sampling command and redirects to returnto or the projects list.", "source": "analysis/legacy_user_flows.xlsx row 62, columns D-F; assign-F.md item 1", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-004", "row": 112, "role": "sysadmin (not run)", "channel": "web UI over HTTP", "expected": "The manual sampling action writes samples for active iterations; the nightly trigger is not scheduled.", "source": "analysis/legacy_user_flows.xlsx row 112, columns D-F; assign-F.md item 1", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-005", "row": 62, "role": "sysadmin (not run)", "channel": "web UI over HTTP", "expected": "/do/edit/missingTimeEntryNotification runs the reminder notifier once (manual run, separate from the 00:05 schedule).", "source": "analysis/legacy_user_flows.xlsx row 62, columns D-F; assign-F.md item 2", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-006", "row": 62, "role": "sysadmin (not run)", "channel": "web UI over HTTP", "expected": "/do/edit/putTheClockForward moves the internal clock by a positive dayOffset; any other value resets it.", "source": "analysis/legacy_user_flows.xlsx row 62, columns D-F; assign-F.md item 3", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-007", "row": 94, "role": "sysadmin (not run)", "channel": "web UI over HTTP", "expected": "With xplanner.progressbar.impl=image the actual-hours column is hidden; shipped value html.", "source": "analysis/legacy_user_flows.xlsx row 94, columns D-F; WAR WEB-INF/classes/xplanner.properties:133; WAR WEB-INF/jsp/view/iteration.jsp:115-121", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-008", "row": 205, "role": "sysadmin (not run)", "channel": "web UI over HTTP", "expected": "With iteration.automatically.extend.endDate=true, sampling extends the end date of an active iteration whose end date has passed; shipped value false.", "source": "analysis/legacy_user_flows.xlsx row 205, columns D-F; WAR WEB-INF/classes/xplanner.properties:314", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-009", "row": 101, "role": "sysadmin (not run)", "channel": "web UI over HTTP", "expected": "Closing an active iteration takes a data sample.", "source": "analysis/legacy_user_flows.xlsx row 101, column F; walkthrough-001 R-24", "action": "Not run; no iteration was created, so there is no iteration id for a PM count.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-010", "row": 69, "role": "own session (not run)", "channel": "web UI over HTTP", "expected": "Session locales da, ja, ru and -- use yyyy-MM-dd on the session-locale consumers.", "source": "analysis/legacy_user_flows.xlsx row 69, columns D and F; walkthrough-001 R-25", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-011", "row": 70, "role": "own session (not run)", "channel": "web UI over HTTP", "expected": "Session locales fr, it and pt_br use dd-MM-yyyy on the session-locale consumers.", "source": "analysis/legacy_user_flows.xlsx row 70, columns D and F; walkthrough-001 R-25", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-012", "row": 71, "role": "own session (not run)", "channel": "web UI over HTTP", "expected": "In fr, it and pt_br sessions the iteration editor parses dates with the server default locale's pattern.", "source": "analysis/legacy_user_flows.xlsx row 71, columns D and F; walkthrough-001 R-25", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-013", "row": 149, "role": "own session (not run)", "channel": "web UI over HTTP", "expected": "Time editor hint, Insert Time pattern and saved entry in fr, it and pt_br sessions.", "source": "analysis/legacy_user_flows.xlsx row 149, columns D and F; walkthrough-001 R-25", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-014", "row": 189, "role": "sysadmin (not run)", "channel": "web UI over HTTP", "expected": "Bracket escaping can be enabled per project.", "source": "analysis/legacy_user_flows.xlsx row 189, column F; walkthrough-001 R-26", "action": "Not run; project S3-F Checks was not created.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null },
+    { "id": "F-C-015", "row": 37, "role": "sysadmin (not run)", "channel": "web UI over HTTP", "expected": "The people list is paged at the bottom.", "source": "analysis/legacy_user_flows.xlsx row 37, column D; walkthrough-001 R-27", "action": "Not run.", "mode": "not-run", "observed": "Not observed.", "evidence": "none", "verdict": "not-checked", "finding": null }
+  ],
+  "findings": [],
+  "static_leads": [
+    { "rows": [37], "note": "WAR WEB-INF/jsp/view/people.jsp:55 gives the writableTable no pagesize attribute; displaytag TableTag uses pagesize 0 as no paging, so D37 'paged at the bottom' may not hold. Static only; not a finding." },
+    { "rows": [205], "note": "DataSamplerImpl#getHibernateOperations falls back to getHibernateTemplate() when hibernateOperations is null, so the H205 inference that enabling the flag fails with a null reference is doubtful. Static only; not a finding." },
+    { "rows": [205], "note": "Sampling at iteration start (StartIterationAction#beforeObjectCommit) calls iteration.start() before generateOpeningDataSamples, so the extension rule can apply there; at close the status is set inactive first, so it cannot." },
+    { "rows": [62], "note": "No WAR JSP reads the TimeGenerator; only iteration start/close (history time, samples), sampling and the reminder job use it, so the clock shift is not expected to show on a read-only page." },
+    { "rows": [62, 112], "note": "The manual sampling command samples iterations with status 0 whose dates span today (Metrics.xml IterationToSample) and writes 3 samples per iteration dated tomorrow at midnight." },
+    { "rows": [94, 205, 189], "note": "EditPropertiesAction sets the value in the shared static XPlannerProperties object, read by iteration.jsp:116 and DataSamplerImpl; /do/systemInfo does not list these keys. The per-project option is optEscapeBrackets (attribute xplanner.escape.brackets, source default true); it escapes < and >, not [[...]]." }
+  ],
+  "not_checked": [
+    { "row": 34, "reason": "agent safety classifier stop at 2026-10-01 ~00:10Z; not retried, per Codex condition", "retry_condition": "none planned; owner/Codex decision" },
+    { "row": 76, "reason": "agent safety classifier stop at 2026-10-01 ~00:10Z; not retried, per Codex condition (person-editor role step)", "retry_condition": "none planned; owner/Codex decision" },
+    { "row": 62, "reason": "test-support utilities, not a business flow; dropped under the owner's scope-reduction direction; candidate outside the core", "retry_condition": "owner decision" },
+    { "row": 112, "reason": "test-support utilities, not a business flow; dropped under the owner's scope-reduction direction; candidate outside the core", "retry_condition": "owner decision" },
+    { "row": 94, "reason": "agent safety classifier stop at 2026-10-01 ~00:14Z while preparing the live HTTP client; not retried", "retry_condition": "PM/owner decision; another session or operator" },
+    { "row": 205, "reason": "agent safety classifier stop at 2026-10-01 ~00:14Z while preparing the live HTTP client; not retried", "retry_condition": "PM/owner decision; another session or operator" },
+    { "row": 101, "reason": "agent safety classifier stop at 2026-10-01 ~00:14Z while preparing the live HTTP client; not retried", "retry_condition": "PM/owner decision; another session or operator" },
+    { "row": 69, "reason": "agent safety classifier stop at 2026-10-01 ~00:14Z while preparing the live HTTP client; not retried", "retry_condition": "PM/owner decision; another session or operator" },
+    { "row": 70, "reason": "agent safety classifier stop at 2026-10-01 ~00:14Z while preparing the live HTTP client; not retried", "retry_condition": "PM/owner decision; another session or operator" },
+    { "row": 71, "reason": "agent safety classifier stop at 2026-10-01 ~00:14Z while preparing the live HTTP client; not retried", "retry_condition": "PM/owner decision; another session or operator" },
+    { "row": 149, "reason": "agent safety classifier stop at 2026-10-01 ~00:14Z while preparing the live HTTP client; not retried", "retry_condition": "PM/owner decision; another session or operator" },
+    { "row": 189, "reason": "agent safety classifier stop at 2026-10-01 ~00:14Z while preparing the live HTTP client; not retried", "retry_condition": "PM/owner decision; another session or operator" },
+    { "row": 37, "reason": "agent safety classifier stop at 2026-10-01 ~00:14Z while preparing the live HTTP client; not retried", "retry_condition": "PM/owner decision; another session or operator" }
+  ]
+}

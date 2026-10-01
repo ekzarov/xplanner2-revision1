@@ -1,0 +1,22 @@
+{
+  "phase": "p9a",
+  "started_at": "2026-09-30T20:38:14.166Z",
+  "finished_at": "2026-09-30T20:38:19.520Z",
+  "trace": "p9-delete-story.trace.json",
+  "checks": [
+    {
+      "phase": "p9a",
+      "at": "2026-09-30T20:38:18.820Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 126,
+      "role": "editor",
+      "expected": "A story can be deleted after confirmation; delete link shown with delete permission; the delete cascades to its tasks and their time entries; notes and history rows are not deleted.",
+      "source": "analysis/legacy_user_flows.xlsx row 126",
+      "action": "Created \"S3-B S12 Delete me\" in S3-B I1 Current with a task T9 with 0.5 h and a note, then followed the story's delete link on S3-B I1 Current as s3editor (confirm() is browser-side and was not executed); re-read the story and task pages and searched for the note word.",
+      "observed": "Setup: task 530, time POST 200, note {\"status\":500,\"shown\":false}; delete link onclick \"return confirm('Do you want to delete story \\'S3-B S12 Delete me\\'?')\"; GET delete 302 /xplanner-legacy/do/view/iteration?oid=235; afterwards story page 500, task page 500, listed in iteration false; content search for the note word {\"status\":200,\"hit\":true,\"excerpt\":\"\"}.",
+      "evidence": "p9-delete-story.trace.json",
+      "verdict": "pending"
+    }
+  ]
+}

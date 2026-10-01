@@ -1,0 +1,203 @@
+[
+  {
+    "at": "2026-09-30T20:24:09.614Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:24:09.893Z",
+    "client": "admin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:24:10.744Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10559,
+    "note": "project 221, default session locale"
+  },
+  {
+    "at": "2026-09-30T20:24:11.027Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/changeLocale?language=de&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/project?oid=221",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "change own session locale to de"
+  },
+  {
+    "at": "2026-09-30T20:24:11.318Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10341,
+    "note": "project 221 in de"
+  },
+  {
+    "at": "2026-09-30T20:24:11.606Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/changeLocale?language=es&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/project?oid=221",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "change own session locale to es"
+  },
+  {
+    "at": "2026-09-30T20:24:11.900Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10320,
+    "note": "project 221 in es"
+  },
+  {
+    "at": "2026-09-30T20:24:12.189Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/changeLocale?language=en&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/project?oid=221",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "change own session locale to en"
+  },
+  {
+    "at": "2026-09-30T20:24:12.480Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10559,
+    "note": "project 221 in en"
+  },
+  {
+    "at": "2026-09-30T20:24:13.372Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=999999",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 3108,
+    "note": "project that does not exist (recheck)"
+  },
+  {
+    "at": "2026-09-30T20:24:14.035Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "userid[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "password[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746,
+    "note": "logout (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:24:10.171Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:24:10.452Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:24:12.763Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13183,
+    "note": "people list (import link)"
+  },
+  {
+    "at": "2026-09-30T20:24:13.057Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/import/people?returnto=%2Fdo%2Fview%2Fpeople",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5829,
+    "note": "Import People link as offered"
+  },
+  {
+    "at": "2026-09-30T20:24:14.324Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "userid[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "password[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746,
+    "note": "logout (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:24:13.741Z",
+    "client": "nosession",
+    "method": "GET",
+    "path": "/xplanner-legacy/xplanner-plus-activity.log",
+    "status": 200,
+    "content_type": "text/plain",
+    "bytes": 350720,
+    "note": "activity log, no session (recheck)"
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "facts": {
+    "read_at": "2026-09-30T20:27:50.170Z",
+    "total": 35,
+    "messages": [
+      {
+        "created": "2026-09-30T20:24:03.922Z",
+        "from": "xplanner@xplannerplus.org",
+        "to_roles": [
+          "editor"
+        ],
+        "cc_roles": [],
+        "subject": "Task was created.",
+        "has_html": true,
+        "html_bytes": 7541,
+        "has_style_element": true,
+        "style_bytes": 7064,
+        "body_text_excerpt": "Task was created. S3-D Task to remove acceptorName: <editor.name> creator: <editor.name> S3-D Task to remove ( http://localhost:8080/xplanner/do/view/task?oid=437 )",
+        "mentions_match": true
+      },
+      {
+        "created": "2026-09-30T20:13:45.084Z",
+        "from": "xplanner@xplannerplus.org",
+        "to_roles": [
+          "editor"
+        ],
+        "cc_roles": [],
+        "subject": "Task was created.",
+        "has_html": true,
+        "html_bytes": 7525,
+        "has_style_element": true,
+        "style_bytes": 7064,
+        "body_text_excerpt": "Task was created. S3-D Task 2 acceptorName: <editor.name> creator: <editor.name> S3-D Task 2 ( http://localhost:8080/xplanner/do/view/task?oid=271 )",
+        "mentions_match": true
+      },
+      {
+        "created": "2026-09-30T20:13:44.125Z",
+        "from": "xplanner@xplannerplus.org",
+        "to_roles": [
+          "editor"
+        ],
+        "cc_roles": [],
+        "subject": "Task was created.",
+        "has_html": true,
+        "html_bytes": 7525,
+        "has_style_element": true,
+        "style_bytes": 7064,
+        "body_text_excerpt": "Task was created. S3-D Task 1 acceptorName: <editor.name> creator: <editor.name> S3-D Task 1 ( http://localhost:8080/xplanner/do/view/task?oid=270 )",
+        "mentions_match": true
+      }
+    ]
+  },
+  "trace": [
+    {
+      "at": "2026-09-30T20:27:50.168Z",
+      "client": "mailpit",
+      "method": "GET",
+      "path": "[mailpit]/api/v1/messages?limit=500",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 18320,
+      "label": "mailpit list"
+    },
+    {
+      "at": "2026-09-30T20:27:50.453Z",
+      "client": "mailpit",
+      "method": "GET",
+      "path": "[mailpit]/api/v1/message/<id>",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 9544,
+      "label": "mailpit message"
+    },
+    {
+      "at": "2026-09-30T20:27:50.739Z",
+      "client": "mailpit",
+      "method": "GET",
+      "path": "[mailpit]/api/v1/message/<id>",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 9512,
+      "label": "mailpit message"
+    },
+    {
+      "at": "2026-09-30T20:27:51.016Z",
+      "client": "mailpit",
+      "method": "GET",
+      "path": "[mailpit]/api/v1/message/<id>",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 9512,
+      "label": "mailpit message"
+    }
+  ]
+}

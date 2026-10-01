@@ -1,0 +1,61 @@
+[
+  {
+    "at": "2026-09-30T20:14:18.444Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID"
+    ],
+    "bytes": 5494,
+    "label": "login form"
+  },
+  {
+    "at": "2026-09-30T20:14:18.738Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0,
+    "label": "login submit (credentials not recorded, remember omitted)"
+  },
+  {
+    "at": "2026-09-30T20:14:19.033Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/time?fkey=256&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D270&oid=270&projectId=224",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9822
+  },
+  {
+    "at": "2026-09-30T20:14:19.437Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/time",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/task?oid=270",
+    "content_type": "text/html",
+    "bytes": 0,
+    "label": "add time entry"
+  },
+  {
+    "at": "2026-09-30T20:14:19.727Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)",
+      "password(cleared)",
+      "JSESSIONID"
+    ],
+    "bytes": 4746,
+    "label": "logout"
+  }
+]

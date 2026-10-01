@@ -1,0 +1,67 @@
+[
+  {
+    "at": "2026-09-30T20:11:28.322Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:11:28.609Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:11:28.914Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8967
+  },
+  {
+    "at": "2026-09-30T20:11:29.234Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11689
+  },
+  {
+    "at": "2026-09-30T20:11:29.535Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8977
+  },
+  {
+    "at": "2026-09-30T20:11:29.875Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/settings",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5092
+  }
+]

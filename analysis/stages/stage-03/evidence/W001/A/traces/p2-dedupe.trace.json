@@ -1,0 +1,95 @@
+[
+  {
+    "at": "2026-09-30T20:17:57.060Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:17:57.346Z",
+    "client": "admin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:17:57.669Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 16289,
+    "note": "project 221 before cleanup"
+  },
+  {
+    "at": "2026-09-30T20:17:57.980Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/delete/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221&oid=311",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/project?oid=221",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "delete duplicate own iteration 311"
+  },
+  {
+    "at": "2026-09-30T20:17:58.276Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/delete/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221&oid=313",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/project?oid=221",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "delete duplicate own iteration 313"
+  },
+  {
+    "at": "2026-09-30T20:17:58.560Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/delete/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221&oid=310",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/project?oid=221",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "delete duplicate own iteration 310"
+  },
+  {
+    "at": "2026-09-30T20:17:58.842Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/delete/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221&oid=312",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/project?oid=221",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "delete duplicate own iteration 312"
+  },
+  {
+    "at": "2026-09-30T20:17:59.150Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11701,
+    "note": "project 221 after cleanup"
+  }
+]

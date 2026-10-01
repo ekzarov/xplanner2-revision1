@@ -1,0 +1,86 @@
+{
+  "at": "2026-09-30T20:29:58.096Z",
+  "trace": [
+    {
+      "at": "2026-09-30T20:29:56.212Z",
+      "client": "admin",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:29:56.512Z",
+      "client": "admin",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:29:56.810Z",
+      "client": "admin",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/edit/project?returnto=%2Fdo%2Fview%2Fproject%3Foid%3D224&oid=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 8844,
+      "label": "project 224 editor (admin)"
+    },
+    {
+      "at": "2026-09-30T20:29:57.214Z",
+      "client": "admin",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/project",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/project?oid=224",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "enable sendemail on 224"
+    },
+    {
+      "at": "2026-09-30T20:29:57.502Z",
+      "client": "admin",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/edit/project?returnto=%2Fdo%2Fview%2Fproject%3Foid%3D224&oid=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 8881,
+      "label": "project 224 editor after save"
+    },
+    {
+      "at": "2026-09-30T20:29:57.807Z",
+      "client": "admin",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/project",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 8881,
+      "label": "add notification receiver on 224",
+      "excerpt": "user s3admin M e Logout T op S3-D Integrations Edit Project: Name: Description: Formatting Help Synthetic Stage 3 project (created by W001 part S3-setup, addendum). Hidden Escape < > Remind developers to enter time (reminder will be sent via email) Project Wiki link: Missing Time Entries Report: Xpl [... 860 chars]"
+    },
+    {
+      "at": "2026-09-30T20:29:58.095Z",
+      "client": "admin",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    }
+  ]
+}

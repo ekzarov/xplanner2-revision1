@@ -1,0 +1,2577 @@
+{
+  "part": "B",
+  "performed_by": "BA (Claude Code subagent, responsible-agent verification), task W001-B, for PM session d0ec1166-ffc9-446a-ba86-d768242e6de8; deployment operator Codex (PM handoff 2026-09-30T19:31Z)",
+  "started_at": "2026-09-30T20:14:00.857Z",
+  "finished_at": "2026-09-30T20:47:02.848Z",
+  "environment": {
+    "app": "http://127.0.0.1:18080/xplanner-legacy/",
+    "mail_sink": "http://127.0.0.1:18025/",
+    "war_sha256": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+    "deployed_commit": "eb7720f",
+    "mail_condition": "mail checks after 2026-09-30T20:03:44Z run under the adapted environment (static /xplanner/css/email.css, Codex decision); the original failure is cited from PM facts"
+  },
+  "summary": {
+    "rows": 74,
+    "rows_by_verdict": {
+      "unverified": 5,
+      "live-verified": 37,
+      "partially verified": 9,
+      "difference": 23
+    },
+    "checks": 102,
+    "checks_by_verdict": {
+      "match": 68,
+      "finding": 33,
+      "blocked": 1
+    },
+    "checks_by_mode": {
+      "live": 100,
+      "live (original deployment before 20:03:44Z; PM read-only log extract, cited)": 1,
+      "live (adapted environment: static email.css)": 1
+    },
+    "findings": 12,
+    "excluded_attempts": [
+      {
+        "ref": "p3#11",
+        "row": 92,
+        "reason": "superseded by p3b#2 (the first count matched link text and missed the icon links)"
+      },
+      {
+        "ref": "p3#12",
+        "row": 94,
+        "reason": "superseded by p3b#1 (the first markup heuristic did not locate the Progress cell)"
+      },
+      {
+        "ref": "p6#1",
+        "row": 106,
+        "reason": "superseded by p6b#0 (the first extraction read only part of the table)"
+      },
+      {
+        "ref": "p6#6",
+        "row": 114,
+        "reason": "superseded by p6b#1 (the first read found no headings; the second read the title elements and the REST load)"
+      },
+      {
+        "ref": "p7#3",
+        "row": 104,
+        "reason": "not performed: the continue page reached by the redirect had no form (see B-F-06); row 104 is checked in p7c#1"
+      },
+      {
+        "ref": "p7b#0",
+        "row": 102,
+        "reason": "superseded by p7c: the p7b run sent action=OK instead of the button value \"Ok\" a browser sends"
+      },
+      {
+        "ref": "p7b#1",
+        "row": 104,
+        "reason": "superseded by p7c#1 (wrong button value; the request was answered 302 without effect)"
+      },
+      {
+        "ref": "p7b#2",
+        "row": 102,
+        "reason": "superseded by p7c#2 (wrong button value; the request was answered 302 without effect)"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "row": 74,
+      "use_case": "UF-005 Projects (0%) / Not Passed - Open",
+      "verdict": "unverified",
+      "note": "Use-case status row (UF-005 \"Projects\", Not Passed - Open); it states the migration status, not a legacy behavior, so there is nothing to observe live. Child rows 75-86 carry the live verdicts.",
+      "checks": []
+    },
+    {
+      "row": 75,
+      "use_case": "List projects / Happy path",
+      "verdict": "live-verified",
+      "note": "Also setup-C-034.",
+      "checks": [
+        "B-C-001",
+        "B-C-002",
+        "setup-C-034"
+      ]
+    },
+    {
+      "row": 76,
+      "use_case": "List projects / Alternative path",
+      "verdict": "partially verified",
+      "note": "Observed for s3sysadmin (column, order, styling). Not observed: whether users without hide permission see hidden projects, because the role accounts have no role on the probe project and the shared projects must not be hidden. Also setup-C-019.",
+      "checks": [
+        "B-C-003",
+        "setup-C-019"
+      ]
+    },
+    {
+      "row": 77,
+      "use_case": "List projects / Alternative path",
+      "verdict": "live-verified",
+      "note": "Cited from setup-C-001 (no readable project on the new database); not repeated.",
+      "checks": [
+        "setup-C-001"
+      ]
+    },
+    {
+      "row": 78,
+      "use_case": "Create project / Happy path",
+      "verdict": "live-verified",
+      "note": "Also setup-C-005, setup-C-060.",
+      "checks": [
+        "B-C-004",
+        "B-C-005",
+        "B-C-006",
+        "setup-C-005",
+        "setup-C-060"
+      ]
+    },
+    {
+      "row": 79,
+      "use_case": "Create project / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-007"
+      ]
+    },
+    {
+      "row": 80,
+      "use_case": "Create project / Alternative path",
+      "verdict": "partially verified",
+      "note": "Options persist and are re-shown. Not observed: whether a value equal to the global default is stored as an attribute row (database only).",
+      "checks": [
+        "B-C-008"
+      ]
+    },
+    {
+      "row": 81,
+      "use_case": "Edit project / Happy path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-009",
+        "B-C-010"
+      ]
+    },
+    {
+      "row": 82,
+      "use_case": "Delete project / Happy path",
+      "verdict": "partially verified",
+      "note": "Confirm text (markup), cascade to iterations, stories and tasks, and direct delete observed. Not observed: time-entry cascade and orphan notes, attachments, history and person-role rows.",
+      "checks": [
+        "B-C-011",
+        "B-C-012"
+      ]
+    },
+    {
+      "row": 83,
+      "use_case": "View project / Happy path",
+      "verdict": "difference",
+      "note": "B-F-02. Also setup-C-036.",
+      "checks": [
+        "B-C-013",
+        "B-C-014",
+        "B-C-015",
+        "setup-C-036"
+      ]
+    },
+    {
+      "row": 84,
+      "use_case": "View project / Alternative path",
+      "verdict": "difference",
+      "note": "Confirms setup-F-06 on a second empty project; no new finding. Live question answered: the page shows only the heading, the description and the links (People, Export, History; plus Create Iteration and Edit by role), no message.",
+      "checks": [
+        "B-C-016",
+        "setup-C-037"
+      ]
+    },
+    {
+      "row": 85,
+      "use_case": "Missing time entry notification receivers / Happy path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-017",
+        "B-C-018"
+      ]
+    },
+    {
+      "row": 86,
+      "use_case": "Missing time entry notification receivers / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-019",
+        "B-C-020"
+      ]
+    },
+    {
+      "row": 87,
+      "use_case": "UF-006 Iterations (0%) / Not Passed - Open",
+      "verdict": "unverified",
+      "note": "Use-case status row (UF-006 \"Iterations\"); no behavior claim to observe. Child rows 88-119 carry the live verdicts.",
+      "checks": []
+    },
+    {
+      "row": 88,
+      "use_case": "Create iteration / Happy path",
+      "verdict": "live-verified",
+      "note": "Also setup-C-038.",
+      "checks": [
+        "B-C-021",
+        "B-C-022",
+        "setup-C-038"
+      ]
+    },
+    {
+      "row": 89,
+      "use_case": "Create iteration / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-01.",
+      "checks": [
+        "B-C-023",
+        "B-C-024"
+      ]
+    },
+    {
+      "row": 90,
+      "use_case": "Edit iteration / Happy path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-025",
+        "B-C-026"
+      ]
+    },
+    {
+      "row": 91,
+      "use_case": "Delete iteration / Happy path",
+      "verdict": "partially verified",
+      "note": "Delete link per role, cascade to stories and tasks, and direct delete observed. Not observed: time-entry cascade and orphan notes/history. Also setup-C-025.",
+      "checks": [
+        "B-C-027",
+        "B-C-028",
+        "setup-C-025"
+      ]
+    },
+    {
+      "row": 92,
+      "use_case": "View iteration stories / Happy path",
+      "verdict": "live-verified",
+      "note": "Also setup-C-044.",
+      "checks": [
+        "B-C-029",
+        "B-C-030",
+        "setup-C-044"
+      ]
+    },
+    {
+      "row": 93,
+      "use_case": "View iteration stories / Alternative path",
+      "verdict": "live-verified",
+      "note": "Also setup-C-039.",
+      "checks": [
+        "B-C-031",
+        "setup-C-039"
+      ]
+    },
+    {
+      "row": 94,
+      "use_case": "View iteration stories / Alternative path",
+      "verdict": "partially verified",
+      "note": "HTML bars and the Act. column observed in the shipped configuration. Not observed: the image implementation branch (needs a global configuration change).",
+      "checks": [
+        "B-C-032"
+      ]
+    },
+    {
+      "row": 95,
+      "use_case": "Reorder stories / Happy path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-033",
+        "B-C-034"
+      ]
+    },
+    {
+      "row": 96,
+      "use_case": "Reorder stories / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-035"
+      ]
+    },
+    {
+      "row": 97,
+      "use_case": "Move multiple stories / Happy path",
+      "verdict": "difference",
+      "note": "B-F-12 (unmapped cross-project targets); the mapped move behavior matches.",
+      "checks": [
+        "B-C-036",
+        "B-C-037"
+      ]
+    },
+    {
+      "row": 98,
+      "use_case": "Start iteration / Happy path",
+      "verdict": "live-verified",
+      "note": "Opening sample visible as the single chart point of row 112. Also setup-C-040.",
+      "checks": [
+        "B-C-038",
+        "B-C-039",
+        "setup-C-040"
+      ]
+    },
+    {
+      "row": 99,
+      "use_case": "Start iteration / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-040"
+      ]
+    },
+    {
+      "row": 100,
+      "use_case": "Start iteration / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-041"
+      ]
+    },
+    {
+      "row": 101,
+      "use_case": "Close iteration and continue unfinished stories / Happy path",
+      "verdict": "partially verified",
+      "note": "Close, inactive state and redirect observed. Not observed: the data sample taken at close. The content of the page reached is B-F-06 (row 102).",
+      "checks": [
+        "B-C-042",
+        "B-C-043"
+      ]
+    },
+    {
+      "row": 102,
+      "use_case": "Close iteration and continue unfinished stories / Happy path",
+      "verdict": "difference",
+      "note": "B-F-06, B-F-04.",
+      "checks": [
+        "B-C-044",
+        "B-C-045",
+        "B-C-046"
+      ]
+    },
+    {
+      "row": 103,
+      "use_case": "Close iteration and continue unfinished stories / Alternative path",
+      "verdict": "live-verified",
+      "note": "The message is also shown when later iterations exist (B-F-06).",
+      "checks": [
+        "B-C-047"
+      ]
+    },
+    {
+      "row": 104,
+      "use_case": "Close iteration and continue unfinished stories / Alternative path",
+      "verdict": "live-verified",
+      "note": "Reachable only by a direct request: the select never offers the same iteration, and the redirected page has no form (B-F-06).",
+      "checks": [
+        "B-C-048"
+      ]
+    },
+    {
+      "row": 105,
+      "use_case": "Tabbed iteration view / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-049"
+      ]
+    },
+    {
+      "row": 106,
+      "use_case": "View all tasks of an iteration / Happy path",
+      "verdict": "difference",
+      "note": "B-F-03.",
+      "checks": [
+        "B-C-050"
+      ]
+    },
+    {
+      "row": 107,
+      "use_case": "Iteration metrics / Happy path",
+      "verdict": "live-verified",
+      "note": "Live question answered: yes.",
+      "checks": [
+        "B-C-051"
+      ]
+    },
+    {
+      "row": 108,
+      "use_case": "Iteration metrics / Alternative path",
+      "verdict": "live-verified",
+      "note": "Live question answered: yes.",
+      "checks": [
+        "B-C-052"
+      ]
+    },
+    {
+      "row": 109,
+      "use_case": "Iteration statistics charts / Happy path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-053"
+      ]
+    },
+    {
+      "row": 110,
+      "use_case": "Iteration statistics charts / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-054"
+      ]
+    },
+    {
+      "row": 111,
+      "use_case": "Iteration statistics charts / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-055"
+      ]
+    },
+    {
+      "row": 112,
+      "use_case": "Iteration statistics charts / Alternative path",
+      "verdict": "partially verified",
+      "note": "Sample at start observed. Not observed: the manual sampling action /do/edit/dataSample (test utility with global effect) and the unscheduled nightly trigger.",
+      "checks": [
+        "B-C-056"
+      ]
+    },
+    {
+      "row": 113,
+      "use_case": "Iteration accuracy / Happy path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-057"
+      ]
+    },
+    {
+      "row": 114,
+      "use_case": "Iteration task board (dashboard) / Happy path",
+      "verdict": "partially verified",
+      "note": "Served columns, script data source and REST data observed. Not observed: card rendering and dragging (JavaScript; no browser session without typing a password).",
+      "checks": [
+        "B-C-058"
+      ]
+    },
+    {
+      "row": 115,
+      "use_case": "Import stories from a spreadsheet / Happy path",
+      "verdict": "difference",
+      "note": "B-F-07.",
+      "checks": [
+        "B-C-059",
+        "B-C-060"
+      ]
+    },
+    {
+      "row": 116,
+      "use_case": "Import stories from a spreadsheet / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-07.",
+      "checks": [
+        "B-C-061"
+      ]
+    },
+    {
+      "row": 117,
+      "use_case": "Import stories from a spreadsheet / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-07.",
+      "checks": [
+        "B-C-062"
+      ]
+    },
+    {
+      "row": 118,
+      "use_case": "Import stories from a spreadsheet / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-07.",
+      "checks": [
+        "B-C-063"
+      ]
+    },
+    {
+      "row": 119,
+      "use_case": "Import stories from a spreadsheet / Alternative path",
+      "verdict": "unverified",
+      "note": "Blocked by B-F-07: no import completes, so the cookie save and pre-fill cannot occur.",
+      "checks": [
+        "B-C-064"
+      ]
+    },
+    {
+      "row": 120,
+      "use_case": "UF-007 User Stories (0%) / Not Passed - Open",
+      "verdict": "unverified",
+      "note": "Use-case status row (UF-007 \"User Stories\"); no behavior claim to observe. Child rows 121-132 carry the live verdicts.",
+      "checks": []
+    },
+    {
+      "row": 121,
+      "use_case": "Create user story / Happy path",
+      "verdict": "difference",
+      "note": "Confirms setup-F-07; no new finding. Also setup-C-041.",
+      "checks": [
+        "B-C-065",
+        "B-C-066",
+        "setup-C-041",
+        "setup-C-042"
+      ]
+    },
+    {
+      "row": 122,
+      "use_case": "Create user story / Alternative path",
+      "verdict": "live-verified",
+      "note": "Also setup-C-043.",
+      "checks": [
+        "B-C-067",
+        "setup-C-043"
+      ]
+    },
+    {
+      "row": 123,
+      "use_case": "Create user story / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-068"
+      ]
+    },
+    {
+      "row": 124,
+      "use_case": "Create user story / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-08. Live question answered: yes, with targetIterationId different from the current iteration the named properties are set (priority 9, estimate -5.0, description) without validation.",
+      "checks": [
+        "B-C-069",
+        "B-C-070",
+        "B-C-071"
+      ]
+    },
+    {
+      "row": 125,
+      "use_case": "Edit user story / Happy path",
+      "verdict": "difference",
+      "note": "Confirms setup-F-07; no new finding.",
+      "checks": [
+        "B-C-072",
+        "B-C-073",
+        "setup-C-047"
+      ]
+    },
+    {
+      "row": 126,
+      "use_case": "Delete user story / Happy path",
+      "verdict": "partially verified",
+      "note": "Delete link, cascade to the task and removal observed. Not observed: time-entry cascade and orphan notes/history.",
+      "checks": [
+        "B-C-074"
+      ]
+    },
+    {
+      "row": 127,
+      "use_case": "View user story / Happy path",
+      "verdict": "live-verified",
+      "note": "Also setup-C-045 (story without customer).",
+      "checks": [
+        "B-C-075",
+        "setup-C-045"
+      ]
+    },
+    {
+      "row": 128,
+      "use_case": "View user story / Alternative path",
+      "verdict": "live-verified",
+      "note": "Cited from setup-C-046; the S1 Alpha page read for row 127 also showed \"No tasks have been defined.\" before tasks existed.",
+      "checks": [
+        "setup-C-046"
+      ]
+    },
+    {
+      "row": 129,
+      "use_case": "Move or continue a story / Happy path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-076",
+        "B-C-077"
+      ]
+    },
+    {
+      "row": 130,
+      "use_case": "Move or continue a story / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-04.",
+      "checks": [
+        "B-C-078"
+      ]
+    },
+    {
+      "row": 131,
+      "use_case": "Move or continue a story / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-079"
+      ]
+    },
+    {
+      "row": 132,
+      "use_case": "Move or continue a story / Alternative path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-080"
+      ]
+    },
+    {
+      "row": 133,
+      "use_case": "UF-008 Tasks (0%) / Not Passed - Open",
+      "verdict": "unverified",
+      "note": "Use-case status row (UF-008 \"Tasks\"); no behavior claim to observe. Child rows 134-147 carry the live verdicts.",
+      "checks": []
+    },
+    {
+      "row": 134,
+      "use_case": "Create task / Happy path",
+      "verdict": "difference",
+      "note": "Confirms setup-F-08; no new finding. Also setup-C-048.",
+      "checks": [
+        "B-C-081",
+        "B-C-082",
+        "setup-C-048",
+        "setup-C-049"
+      ]
+    },
+    {
+      "row": 135,
+      "use_case": "Create task / Alternative path",
+      "verdict": "live-verified",
+      "note": "Live question answered: \"Debt\" (the English label) is stored for an option shown as \"Rückstand\". Also setup-C-050.",
+      "checks": [
+        "B-C-083",
+        "setup-C-050"
+      ]
+    },
+    {
+      "row": 136,
+      "use_case": "Create task / Alternative path",
+      "verdict": "live-verified",
+      "note": "Both branches observed. Also setup-C-051.",
+      "checks": [
+        "B-C-084",
+        "setup-C-051"
+      ]
+    },
+    {
+      "row": 137,
+      "use_case": "Create task / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-11.",
+      "checks": [
+        "B-C-085"
+      ]
+    },
+    {
+      "row": 138,
+      "use_case": "Task e-mail notification / Operational path",
+      "verdict": "difference",
+      "note": "Checked twice: original deployment (B-F-09) and adapted environment (claim matches; unmapped details B-F-10). Also setup-C-059.",
+      "checks": [
+        "B-C-086",
+        "B-C-087",
+        "setup-C-059"
+      ]
+    },
+    {
+      "row": 139,
+      "use_case": "Edit task / Happy path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-088",
+        "B-C-089"
+      ]
+    },
+    {
+      "row": 140,
+      "use_case": "Complete or reopen task / Happy path",
+      "verdict": "difference",
+      "note": "Confirms setup-F-09; no new finding.",
+      "checks": [
+        "B-C-090",
+        "B-C-091",
+        "setup-C-053"
+      ]
+    },
+    {
+      "row": 141,
+      "use_case": "Complete or reopen task / Alternative path",
+      "verdict": "difference",
+      "note": "Confirms setup-F-09; no new finding.",
+      "checks": [
+        "B-C-092",
+        "B-C-093",
+        "setup-C-054"
+      ]
+    },
+    {
+      "row": 142,
+      "use_case": "Delete task / Happy path",
+      "verdict": "live-verified",
+      "note": null,
+      "checks": [
+        "B-C-094",
+        "B-C-095"
+      ]
+    },
+    {
+      "row": 143,
+      "use_case": "View task / Happy path",
+      "verdict": "live-verified",
+      "note": "Also setup-C-052.",
+      "checks": [
+        "B-C-096",
+        "setup-C-052"
+      ]
+    },
+    {
+      "row": 144,
+      "use_case": "Move or continue a task / Happy path",
+      "verdict": "difference",
+      "note": "B-F-05, B-F-12.",
+      "checks": [
+        "B-C-097",
+        "B-C-098",
+        "B-C-099"
+      ]
+    },
+    {
+      "row": 145,
+      "use_case": "Move or continue a task / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-05.",
+      "checks": [
+        "B-C-100"
+      ]
+    },
+    {
+      "row": 146,
+      "use_case": "Move or continue a task / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-05.",
+      "checks": [
+        "B-C-101"
+      ]
+    },
+    {
+      "row": 147,
+      "use_case": "Move or continue a task / Alternative path",
+      "verdict": "difference",
+      "note": "B-F-05.",
+      "checks": [
+        "B-C-102"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "ref": "p1#4",
+      "row": 75,
+      "role": "viewer, editor, admin, sysadmin",
+      "channel": "web",
+      "expected": "The projects page lists readable projects with ID, name and current iteration, sorted hidden-last then by name; People and aggregate timesheet links.",
+      "source": "analysis/legacy_user_flows.xlsx row 75; setup-C-034",
+      "action": "Read the projects list as each role before and after creating \"S3-B 0 Probe\" (id higher than 224, name sorting before \"S3-B Planning\").",
+      "mode": "live",
+      "observed": "Headers {\"viewer\":\"ID|Project Name|Iteration\",\"editor\":\"ID|Project Name|Iteration\",\"admin\":\"Actions|ID|Project Name|Iteration\",\"sysadmin\":\"Actions|ID|Project Name|Iteration|Hidden?\"}; links People/Team Timesheet. sysadmin order: S3 Shared ; S3-A Access ; S3-B 0 Probe ; S3-B Planning ; S3-C Time ; S3-D Integrations (sorted by name: true). Role accounts without a role on the probe: listed for viewer false, editor false, admin false.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-001"
+    },
+    {
+      "ref": "p2#2",
+      "row": 75,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "The Iteration column shows the iteration currently in progress (today between start and end date).",
+      "source": "analysis/legacy_user_flows.xlsx row 75 (projects.jsp query \"? between startDate and endDate\")",
+      "action": "Read the projects list as s3viewer while \"S3-B I1 Current\" (2026-09-28..2026-10-09, server date 2026-09-30) exists but is not started.",
+      "mode": "live",
+      "observed": "S3-B Planning row: \"222 S3-B Planning S3-B I1 Current\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2-iterations.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-002"
+    },
+    {
+      "ref": "p1#6",
+      "row": 76,
+      "role": "sysadmin",
+      "channel": "web",
+      "expected": "Users who may hide projects see a \"hidden\" column; hidden projects are sorted after visible ones and not styled differently.",
+      "source": "analysis/legacy_user_flows.xlsx row 76; setup-C-019 (column per role)",
+      "action": "Set Hidden on \"S3-B 0 Probe\" (Update) and re-read the projects list as s3sysadmin.",
+      "mode": "live",
+      "observed": "POST 302; rows in order: 220 / S3 Shared / S3-setup Iteration 1 / N ; 221 / S3-A Access / N ; 222 / S3-B Planning / N ; 223 / S3-C Time / S3-C Iteration 1 / N ; 224 / S3-D Integrations / S3-D Iteration 1 / N ; 225 / S3-B 0 Probe / Y; probe row class \"even\" vs S3-A row class \"even\" (odd/even striping only if equal pattern).",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-003"
+    },
+    {
+      "ref": "p1#1",
+      "row": 78,
+      "role": "sysadmin",
+      "channel": "web",
+      "expected": "A user with create.project creates a project with name, description, escape-brackets option, missing-time reminder option and wiki URL; saved and returned to the projects list.",
+      "source": "analysis/legacy_user_flows.xlsx row 78; setup-C-005, setup-C-060",
+      "action": "As s3sysadmin opened Add Project and submitted projectEditorForm \"S3-B 0 Probe\" with action=Create.",
+      "mode": "live",
+      "observed": "Editor \"XPlanner - Create Project:\" with fields action,personToDelete,id,returnto,name,description,wikiUrl and checkboxes hidden,optEscapeBrackets,sendemail; POST -> 302 /xplanner-legacy/do/view/projects; listed with id 225.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-004"
+    },
+    {
+      "ref": "p1#2",
+      "row": 78,
+      "role": "viewer, editor, admin, sysadmin",
+      "channel": "web",
+      "expected": "The Add Project link is shown only with create.project (display level).",
+      "source": "analysis/legacy_user_flows.xlsx row 78 (WAR projects.jsp:153-158)",
+      "action": "Read the projects list as each role account.",
+      "mode": "live",
+      "observed": "Add Project link: {\"viewer\":false,\"editor\":false,\"admin\":false,\"sysadmin\":true}.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-005"
+    },
+    {
+      "ref": "p11#0",
+      "row": 78,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 78 (evidence cell, CHK-002)",
+      "action": "As s3viewer opened the Add Project URL directly and posted \"S3-B VC Viewer-created project\" (action=Create); then s3sysadmin deleted it.",
+      "mode": "live",
+      "observed": "GET editor 200, form true; POST 302 /xplanner-legacy/do/view/projects; listed for s3sysadmin with id 227.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-006"
+    },
+    {
+      "ref": "p1#3",
+      "row": 79,
+      "role": "sysadmin",
+      "channel": "web",
+      "expected": "A project without a name is rejected; editor redisplayed with \"Missing project name.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 79",
+      "action": "Submitted the Add Project form with an empty name (action=Create).",
+      "mode": "live",
+      "observed": "POST -> 200; message \"Missing project name.\" shown: true; editor redisplayed: true; a project was created: false.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-007"
+    },
+    {
+      "ref": "p1#5",
+      "row": 80,
+      "role": "sysadmin",
+      "channel": "web",
+      "expected": "Project options (wiki URL, send missing-time notification, escape brackets) persist and are re-shown when editing; a value equal to the global default is not stored.",
+      "source": "analysis/legacy_user_flows.xlsx row 80",
+      "action": "On \"S3-B 0 Probe\": set both checkboxes and a custom wiki URL (Update), re-opened the editor; then cleared both checkboxes (omitted, as a browser does) and restored the default wiki URL, re-opened again.",
+      "mode": "live",
+      "observed": "Before {\"cb\":[\"hidden=false\",\"optEscapeBrackets=false\",\"sendemail=false\"],\"wiki\":\"http://c2.com/cgi/wiki?$1\"}; after set (POST 302) {\"cb\":[\"hidden=false\",\"optEscapeBrackets=true\",\"sendemail=true\"],\"wiki\":\"http://wiki.s3b.invalid/$1\"}; after clear (POST 302) {\"cb\":[\"hidden=false\",\"optEscapeBrackets=false\",\"sendemail=false\"],\"wiki\":\"http://c2.com/cgi/wiki?$1\"}. Whether a default-equal value is stored as an attribute row is not visible in the UI.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-008"
+    },
+    {
+      "ref": "p1#7",
+      "row": 81,
+      "role": "admin",
+      "channel": "web",
+      "expected": "A user with admin.edit edits a project; editor titled \"Edit project: <name>\" with Update/Reset; changes saved; hide permission shows the hidden option.",
+      "source": "analysis/legacy_user_flows.xlsx row 81",
+      "action": "As s3admin followed Edit on S3-B Planning and updated the description.",
+      "mode": "live",
+      "observed": "Edit link per role {\"viewer\":false,\"editor\":false,\"admin\":true,\"sysadmin\":true}; title \"XPlanner - Edit Project: S3-B Planning\"; buttons Update/Reset/Add; Hidden checkbox offered to admin: false; POST 302 /xplanner-legacy/do/view/project?oid=222; description saved: true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-009"
+    },
+    {
+      "ref": "p1#8",
+      "row": 81,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Server-side enforcement: display-level only; a direct request to EditProjectAction succeeds for any signed-in user (rows 29-30).",
+      "source": "analysis/legacy_user_flows.xlsx row 81 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested the project editor URL of S3-B Planning directly and posted an Update of the description.",
+      "mode": "live",
+      "observed": "GET editor -> 200, form present true; POST -> 302 /xplanner-legacy/do/view/project?oid=222; description changed by the viewer: true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-010"
+    },
+    {
+      "ref": "p9c#0",
+      "row": 82,
+      "role": "sysadmin",
+      "channel": "web",
+      "expected": "A sysadmin deletes a project after the confirm \"Do you want to delete project '<name>'?\"; the delete cascades to iterations, stories, tasks and time entries; notes, attachments, history and person-role rows are not deleted.",
+      "source": "analysis/legacy_user_flows.xlsx row 82",
+      "action": "Gave \"S3-B 0 Probe\" (11 iterations) a story S11, task T10 (0.5 h) and a project note; followed its delete link in the projects list as s3sysadmin (confirm() not executed); re-read the pages and searched all projects for the note word.",
+      "mode": "live",
+      "observed": "Setup: time POST 200, note {\"status\":500,\"shown\":false}; delete link onclick \"return confirm('Do you want to delete project \\'S3-B 0 Probe\\'?')\"; GET delete 302 /xplanner-legacy/do/view/projects; afterwards {\"project\":500,\"iteration\":500,\"story\":500,\"task\":500,\"listed\":false}; search {\"status\":200,\"hit\":true,\"excerpt\":\"\"}. Note: Time entry and note were not created (the probe iteration was not started; note creation HTTP 500), so their cascade/orphan behavior is not observed.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p9-delete-project.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p9c.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-011"
+    },
+    {
+      "ref": "p9c#1",
+      "row": 82,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: a direct delete request succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 82 (evidence cell, CHK-002)",
+      "action": "As s3sysadmin created the empty project \"S3-B V Delete probe\"; as s3viewer (no role on it) requested /do/delete/project for it directly.",
+      "mode": "live",
+      "observed": "Project id 226; viewer GET delete 302 /xplanner-legacy/do/view/projects; still listed for s3sysadmin afterwards false.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p9-delete-project.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p9c.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-012"
+    },
+    {
+      "ref": "p2#5",
+      "row": 83,
+      "role": "viewer, editor, admin, sysadmin",
+      "channel": "web",
+      "expected": "Project page: description and a sortable iteration table (ID, name, start/end, days worked, story count), newest first; edit/delete icons by permission; create iteration, people, export and history links.",
+      "source": "analysis/legacy_user_flows.xlsx row 83; setup-C-036",
+      "action": "Opened S3-B Planning with its three iterations as each role.",
+      "mode": "live",
+      "observed": "{\"viewer\":{\"hdr\":\"ID|Iteration|Start Date|End Date|Days Wrk.|Stories\",\"order\":[\"S3-B I3 Later (edited)\",\"S3-B I1 Current\",\"S3-B I2 Next\",\"S3-B bad end\"],\"links\":\"People/Export/History\",\"editIcons\":0,\"deleteIcons\":0},\"editor\":{\"hdr\":\"Actions|ID|Iteration|Start Date|End Date|Days Wrk.|Stories\",\"order\":[\"S3-B bad end\",\"S3-B I3 Later (edited)\",\"S3-B I2 Next\",\"S3-B I1 Current\"],\"links\":\"People/Export/History/Create Iteration\",\"editIcons\":0,\"deleteIcons\":0},\"admin\":{\"hdr\":\"Actions|ID|Iteration|Start Date|End Date|Days Wrk.|Stories\",\"order\":[\"S3-B bad end\",\"S3-B I3 Later (edited)\",\"S3-B I2 Next\",\"S3-B I1 Current\"],\"links\":\"People/Export/History/Create Iteration\",\"editIcons\":0,\"deleteIcons\":0},\"sysadmin\":{\"hdr\":\"Actions|ID|Iteration|Start Date|End Date|Days Wrk.|Stories\",\"order\":[\"S3-B bad end\",\"S3-B I3 Later (edited)\",\"S3-B I2 Next\",\"S3-B I1 Current\"],\"links\":\"People/Export/History/Create Iteration\",\"editIcons\":0,\"deleteIcons\":0}}",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2-iterations.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2.json",
+      "verdict": "finding",
+      "finding": "B-F-02",
+      "id": "B-C-013"
+    },
+    {
+      "ref": "p2#6",
+      "row": 83,
+      "role": "sysadmin",
+      "channel": "web",
+      "expected": "The iteration table is paged 10 per page, newest first.",
+      "source": "analysis/legacy_user_flows.xlsx row 83 (project.jsp writableTable pagesize 10, defaultsort 5 descending)",
+      "action": "As s3sysadmin created 11 iterations \"S3-B P01\"..\"S3-B P11\" (two-week steps from 2027-01-04) in \"S3-B 0 Probe\" and opened the project page and its second page.",
+      "mode": "live",
+      "observed": "Page 1: S3-B P10,S3-B P09,S3-B P08,S3-B P07,S3-B P06,S3-B P05,S3-B P04,S3-B P03,S3-B P02,S3-B P01 (10 rows); pager [\"11 items found, displaying 1 to 10.\",\"[First/Prev] 1, 2 [Next/Last/All]\"]; page 2: S3-B P11.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2-iterations.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2.json",
+      "verdict": "finding",
+      "finding": "B-F-02",
+      "id": "B-C-014"
+    },
+    {
+      "ref": "p2b#1",
+      "row": 83,
+      "role": "viewer, editor",
+      "channel": "web",
+      "expected": "The iteration table is sorted newest first by default (project.jsp defaultsort 5 descending).",
+      "source": "analysis/legacy_user_flows.xlsx row 83",
+      "action": "Compared the default row order and sort links of S3-B Planning for s3viewer (no Actions column) and s3editor (Actions column).",
+      "mode": "live",
+      "observed": "viewer sort links [\"Iteration=>?oid=222&d-7698137-s=1&d-7698137-o=2\",\"Start Date=>?oid=222&d-7698137-s=2&d-7698137-o=2\",\"End Date=>?oid=222&d-7698137-s=3&d-7698137-o=2\",\"Days Wrk.=>?oid=222&d-7698137-s=4&d-7698137-o=2\"]; viewer rows [\"237 | S3-B I3 Later (edited) | 2026-10-27 | 2026-11-07 | 2.5 | 0\",\"235 | S3-B I1 Current | 2026-09-28 | 2026-10-09 | 0.0 | 0\",\"236 | S3-B I2 Next | 2026-10-12 | 2026-10-23 | 0.0 | 0\",\"238 | S3-B bad end | 2026-11-09 | 2034-06-07 | 0.0 | 0\",\"305 | S3-B date start 2026-99-99 | 2034-06-07 | 2035-01-01 | 0.0 | 0\",\"306 | S3-B date end 2026-11-31 | 2026-11-09 | 2026-12-01 | 0.0 | 0\",\"307 | S3-B date start with trailing text | 2026-11-09 | 2026-11-20 | 0.0 | 0\"]; editor rows [\"305 | S3-B date start 2026-99-99 | 2034-06-07 | 2035-01-01 | 0.0 | 0\",\"238 | S3-B bad end | 2026-11-09 | 2034-06-07 | 0.0 | 0\",\"306 | S3-B date end 2026-11-31 | 2026-11-09 | 2026-12-01 | 0.0 | 0\",\"307 | S3-B date start with trailing text | 2026-11-09 | 2026-11-20 | 0.0 | 0\",\"237 | S3-B I3 Later (edited) | 2026-10-27 | 2026-11-07 | 2.5 | 0\",\"236 | S3-B I2 Next | 2026-10-12 | 2026-10-23 | 0.0 | 0\",\"235 | S3-B I1 Current | 2026-09-28 | 2026-10-09 | 0.0 | 0\",\"Add Note/Attachment\"].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2b-dates.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2b.json",
+      "verdict": "finding",
+      "finding": "B-F-02",
+      "id": "B-C-015"
+    },
+    {
+      "ref": "p1#0",
+      "row": 84,
+      "role": "viewer, editor, admin, sysadmin",
+      "channel": "web",
+      "expected": "A project without iterations shows the iterations.none message (\"No iterations for this project.\").",
+      "source": "analysis/legacy_user_flows.xlsx row 84 (Live question); setup-C-037",
+      "action": "Opened S3-B Planning (222, no iterations) as each role account.",
+      "mode": "live",
+      "observed": "All roles: HTTP 200; no-iterations message present: {\"viewer\":false,\"editor\":false,\"admin\":false,\"sysadmin\":false}; no iteration table (th count {\"viewer\":0,\"editor\":0,\"admin\":0,\"sysadmin\":0}); the content shows the heading, the description and the links {\"viewer\":\"People/Export/History\",\"editor\":\"People/Export/History/Create Iteration\",\"admin\":\"People/Export/History/Edit/Create Iteration\",\"sysadmin\":\"People/Export/History/Edit/Create Iteration\"}.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "finding",
+      "finding": "setup-F-06 (confirmed)",
+      "id": "B-C-016"
+    },
+    {
+      "ref": "p1#9",
+      "row": 85,
+      "role": "admin",
+      "channel": "web",
+      "expected": "On the project editor an authorized user adds a person as missing-time-entry report receiver; the person appears in the receivers list.",
+      "source": "analysis/legacy_user_flows.xlsx row 85",
+      "action": "On the S3-B Planning editor selected s3editor (person 210) and pressed Add (action=addTimeNotification).",
+      "mode": "live",
+      "observed": "POST -> 200 ; receivers list after re-open: [\"<s3editor.name>\"]; delete links [\"return deleteNotifiedPerson('210')\"]. Note: Corrected after the run: the script compared the list with the userId, but the list shows the person name (<s3editor.name>), which is the added receiver.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-017"
+    },
+    {
+      "ref": "p11#1",
+      "row": 85,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 85 (evidence cell, CHK-002)",
+      "action": "As s3viewer posted the S3-B Planning editor with action=addTimeNotification and personToAddId=211 (s3admin).",
+      "mode": "live",
+      "observed": "POST 200; receivers seen by s3admin afterwards [\"<s3admin.name>\"].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-018"
+    },
+    {
+      "ref": "p1#10",
+      "row": 86,
+      "role": "admin",
+      "channel": "web",
+      "expected": "A receiver is removed with the delete icon; the person disappears from the list.",
+      "source": "analysis/legacy_user_flows.xlsx row 86",
+      "action": "Submitted the editor as the delete icon script does (action=delTimeNotification, personToDelete=210).",
+      "mode": "live",
+      "observed": "POST -> 200 ; receivers after re-open: [].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p1-projects.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p1.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-019"
+    },
+    {
+      "ref": "p11#2",
+      "row": 86,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 86 (with row 85 evidence cell)",
+      "action": "As s3viewer posted the editor with action=delTimeNotification and personToDelete=211.",
+      "mode": "live",
+      "observed": "POST 200; receivers afterwards [].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-020"
+    },
+    {
+      "ref": "p2#0",
+      "row": 88,
+      "role": "editor",
+      "channel": "web",
+      "expected": "A user with create permission creates an iteration with name, start and end date (calendar pickers) and description; saved under the project; user returned.",
+      "source": "analysis/legacy_user_flows.xlsx row 88; setup-C-038",
+      "action": "As s3editor created \"S3-B I1 Current\" (2026-09-28..2026-10-09), \"S3-B I2 Next\" (2026-10-12..2026-10-23) and \"S3-B I3 Later\" (2026-10-26..2026-11-06) in S3-B Planning.",
+      "mode": "live",
+      "observed": "Editor fields returnto,fkey,projectId,id,name,startDateString,endDateString,description,action; pickers setStartDate:return showCalendar('startDate', 'yyyy-MM-dd'); ; setEndDate:return showCalendar('endDate', 'yyyy-MM-dd');; POSTs -> 302 /xplanner-legacy/do/view/project?oid=222 | 302 /xplanner-legacy/do/view/project?oid=222 | 302 /xplanner-legacy/do/view/project?oid=222; ids {\"I1\":235,\"I2\":236,\"I3\":237}.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2-iterations.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-021"
+    },
+    {
+      "ref": "p11#3",
+      "row": 88,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 88 (evidence cell, CHK-002)",
+      "action": "As s3viewer opened the Create Iteration URL of S3-B Planning directly and posted \"S3-B IV Viewer-created\".",
+      "mode": "live",
+      "observed": "GET 200; POST 302 /xplanner-legacy/do/view/project?oid=222; listed true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-022"
+    },
+    {
+      "ref": "p2#1",
+      "row": 89,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Missing name, unparsable dates or an end date not after the start are rejected with \"Missing iteration name.\", \"Start date is invalid.\", \"End date is invalid.\", \"Iteration must be a positive time interval.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 89",
+      "action": "Submitted the Create Iteration form five times: empty name; start \"not-a-date\"; end \"2026-99-99x\"; end before start; end equal to start.",
+      "mode": "live",
+      "observed": "[{\"label\":\"missing name\",\"status\":200,\"expectedShown\":true,\"errors\":[]},{\"label\":\"bad start\",\"status\":200,\"expectedShown\":true,\"errors\":[]},{\"label\":\"bad end\",\"status\":302,\"expectedShown\":false,\"errors\":[]},{\"label\":\"end before start\",\"status\":200,\"expectedShown\":true,\"errors\":[]},{\"label\":\"end equals start\",\"status\":200,\"expectedShown\":true,\"errors\":[]}]; iterations created by these submits: [\"S3-B bad end\"].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2-iterations.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2.json",
+      "verdict": "finding",
+      "finding": "B-F-01",
+      "id": "B-C-023"
+    },
+    {
+      "ref": "p2b#0",
+      "row": 89,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Unparsable start or end dates are rejected with \"Start date is invalid.\" / \"End date is invalid.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 89",
+      "action": "Read the stored dates of \"S3-B bad end\" (end submitted as \"2026-99-99x\"), then submitted four more Create forms: end \"not-a-date\"; start \"2026-99-99\"; end \"2026-11-31\"; start \"2026-11-09abc\".",
+      "mode": "live",
+      "observed": "\"S3-B bad end\" row: \"238 S3-B bad end 2026-11-09 2034-06-07 0.0 0\". Submits: [{\"label\":\"end not-a-date\",\"start\":\"2026-11-09\",\"end\":\"not-a-date\",\"status\":200,\"msg\":\"End date is invalid.\"},{\"label\":\"start 2026-99-99\",\"start\":\"2026-99-99\",\"end\":\"2035-01-01\",\"status\":302,\"msg\":\"\"},{\"label\":\"end 2026-11-31\",\"start\":\"2026-11-09\",\"end\":\"2026-11-31\",\"status\":302,\"msg\":\"\"},{\"label\":\"start with trailing text\",\"start\":\"2026-11-09abc\",\"end\":\"2026-11-20\",\"status\":302,\"msg\":\"\"}]. Iterations created: [\"305 S3-B date start 2026-99-99 2034-06-07 2035-01-01 0.0 0\",\"306 S3-B date end 2026-11-31 2026-11-09 2026-12-01 0.0 0\",\"307 S3-B date start with trailing text 2026-11-09 2026-11-20 0.0 0\"].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2b-dates.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2b.json",
+      "verdict": "finding",
+      "finding": "B-F-01",
+      "id": "B-C-024"
+    },
+    {
+      "ref": "p2#3",
+      "row": 90,
+      "role": "editor",
+      "channel": "web",
+      "expected": "An editor edits name, dates, days worked and description; the current status (active/inactive) is shown read-only; Update/Reset; changes saved.",
+      "source": "analysis/legacy_user_flows.xlsx row 90",
+      "action": "As s3editor opened Edit on \"S3-B I3 Later\" and updated name, dates, days worked 2.5 and description.",
+      "mode": "live",
+      "observed": "Editor fields oid,returnto,fkey,projectId,id,name,startDateString,endDateString,daysWorked,description,action; buttons Calendar/Calendar/Update/Reset; status text \"Status: Inactive Start\"; POST 302 /xplanner-legacy/do/view/iteration?oid=237; project row now \"237 S3-B I3 Later (edited) 2026-10-27 2026-11-07 2.5 0\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2-iterations.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-025"
+    },
+    {
+      "ref": "p2#4",
+      "row": 90,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: EditIterationAction performs no server-side check; a direct request succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 90 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested the iteration editor of \"S3-B I3 Later\" by URL and posted an Update of the description.",
+      "mode": "live",
+      "observed": "GET -> 200, form true; POST -> 302 /xplanner-legacy/do/view/iteration?oid=237; description changed: true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2-iterations.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-026"
+    },
+    {
+      "ref": "p9b#0",
+      "row": 91,
+      "role": "admin",
+      "channel": "web",
+      "expected": "An iteration can be deleted after confirmation; the delete link is shown to users with delete permission (not editors); the delete cascades to stories, tasks and time entries; notes and history rows are not deleted.",
+      "source": "analysis/legacy_user_flows.xlsx row 91; setup-C-025",
+      "action": "Created \"S3-B I4 Delete me\" with story S10, task T8 (0.5 h) and a note on S10; read the delete link per role on S3-B Planning; followed it as s3admin; re-read the pages and searched for the note word.",
+      "mode": "live",
+      "observed": "Setup: time POST 200, note {\"status\":500,\"shown\":false}; delete link per role {\"viewer\":\"none\",\"editor\":\"none\",\"admin\":\"return confirm('Do you want to delete iteration \\\\'S3-B I4 Delete me\\\\'?')\",\"sysadmin\":\"return confirm('Do you want to delete iteration \\\\'S3-B I4 Delete me\\\\'?')\"}; GET delete 302 /xplanner-legacy/do/view/project?oid=222; afterwards iteration 500, story 500, task 500, listed true; search {\"status\":200,\"hit\":true,\"excerpt\":\"\"}. Note: \"listed true\" matched iteration 318, a leftover \"S3-B I4 Delete me\" from the first, crashed run of this step; the deleted iteration (539), its story (326) and task (531) answer HTTP 500. Time entry and note were not created (time editor showed the start page; note creation HTTP 500).",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p9-delete-iteration.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p9b.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-027"
+    },
+    {
+      "ref": "p9b#1",
+      "row": 91,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: DeleteObjectAction performs no server-side check; a direct request succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 91 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested /do/delete/iteration for \"S3-B bad end\" directly.",
+      "mode": "live",
+      "observed": "GET delete 302 /xplanner-legacy/do/view/project?oid=222; iteration page afterwards 500.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p9-delete-iteration.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p9b.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-028"
+    },
+    {
+      "ref": "p3b#2",
+      "row": 92,
+      "role": "viewer, editor, admin, sysadmin",
+      "channel": "web",
+      "expected": "Per-story action icons are shown by permission.",
+      "source": "analysis/legacy_user_flows.xlsx row 92; setup-C-044",
+      "action": "Counted story edit/delete/move-continue links and iteration actions on S3-B I1 Current per role.",
+      "mode": "live",
+      "observed": "{\"viewer\":{\"edit\":0,\"delete\":0,\"moveContinue\":0,\"createStory\":0,\"import\":0,\"close\":0,\"editIteration\":0},\"editor\":{\"edit\":7,\"delete\":7,\"moveContinue\":7,\"createStory\":1,\"import\":1,\"close\":1,\"editIteration\":1},\"admin\":{\"edit\":7,\"delete\":7,\"moveContinue\":7,\"createStory\":1,\"import\":1,\"close\":1,\"editIteration\":1},\"sysadmin\":{\"edit\":7,\"delete\":7,\"moveContinue\":7,\"createStory\":1,\"import\":1,\"close\":1,\"editIteration\":1}}",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3b-probe.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3b.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-029"
+    },
+    {
+      "ref": "p10#0",
+      "row": 92,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Zero values are highlighted in the story table.",
+      "source": "analysis/legacy_user_flows.xlsx row 92",
+      "action": "Read the highlighted cells of the S3-B I1 Current story table as s3viewer.",
+      "mode": "live",
+      "observed": "Highlighted (span.highlighted_message) [\"S3-B S2 Beta (edited): 0.0\",\"S3-B S2 Beta (edited): 0\",\"S3-B SV Viewer-created: 0.0\",\"S3-B SV Viewer-created: 0\"]; rows [\"260 | 1 | S3-B S2 Beta (edited) | 1 | S3S |  |  | 0.0 | 6.5 | 6.5 | 0.0 | 0 | S3A | Planned | Draft\",\"261 | 2 | S3-B S3 Gamma | 4 |  |  |  | 0.0 | 1.0 | 1.0 | 1.0 | 1 | S3E | Planned | Draft\",\"259 | 3 | S3-B S1 Alpha | 2 | S3A |  |  |  | 1.0 | 9.5 | 10.5 | 9.5 | 4 | S3E | Planned | Draft\",\"321 | 4 | S3-B S8 Continue | 4 |  |  |  |  | 2.0 | 5.0 | 7.0 | 5.0 | 1 | S3E | Planned | Draft\",\"322 | 5 | S3-B SV Viewer-created | 4 |  |  |  | 0.0 | 1.0 | 1.0 | 0.0 | 0 |  | Planned | Draft\",\"323 | 6 | S3-B S9 Mail story | 4 |  |  |  | 0.0 | 2.5 | 2.5 | 2.5 | 1 |  | Planned | Draft\"].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p10-final.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p10.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-030"
+    },
+    {
+      "ref": "p3#13",
+      "row": 93,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "An iteration without stories shows the stories.none message.",
+      "source": "analysis/legacy_user_flows.xlsx row 93; setup-C-039",
+      "action": "Opened S3-B I3 Later (no stories) as s3viewer.",
+      "mode": "live",
+      "observed": "\"No stories have been defined.\" shown: true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-031"
+    },
+    {
+      "ref": "p3b#1",
+      "row": 94,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Progress bars are rendered as HTML (xplanner.progressbar.impl=html); the actual-hours column is shown.",
+      "source": "analysis/legacy_user_flows.xlsx row 94",
+      "action": "Read the Progress column cell and progress-related elements of S3-B I1 Current as s3viewer.",
+      "mode": "live",
+      "observed": "Headers ID|Order|User Story|!|Cust.|Progress|Act.|Rem.|Cur. Est.|Orig. Est.|Tasks|Tracker|Disp.|Status; first-row Progress cell \"<table cellspacing=\"0\" cellpadding=\"0\" class=\"progressbar\" width=\"100%\"> <tbody><tr> <td class=\"progressbar_unworked\" width=\"100%\">&nbsp;</td> </tr> </tbody></table>\"; progress elements [\"table.progressbar#\",\"td.progressbar_unworked#\",\"table.progressbar#\",\"td.progressbar_unworked#\",\"table.progressbar#\",\"td.progressbar_unworked#\"]; img progress bars 0.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3b-probe.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3b.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-032"
+    },
+    {
+      "ref": "p3#8",
+      "row": 95,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Users with edit permission type order numbers and save; the page reloads with stories in the new order.",
+      "source": "analysis/legacy_user_flows.xlsx row 95",
+      "action": "On S3-B I1 Current set order S2=1, S3=2, S1=3 (others 4..) and submitted the reordering form (\"Save order\").",
+      "mode": "live",
+      "observed": "POST 302 /xplanner-legacy/do/view/iteration?oid=235; order afterwards [\"1:S3-B S2 Beta (edited)\",\"2:S3-B S3 Gamma\",\"3:S3-B S1 Alpha\",\"4:S3-B S4 Delta\",\"5:S3-B S5 Epsilon\",\"6:S3-B S6 Zeta\",\"7:S3-B S7 Merge probe\",\"8:S3-B S8 Continue\",\"9:S3-B SV Viewer-created\"].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-033"
+    },
+    {
+      "ref": "p11#4",
+      "row": 95,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 95 (evidence cell, CHK-002)",
+      "action": "As s3viewer posted /do/edit/reorderstories for S3-B I1 Current putting the last story (\"S3-B S9 Mail story\") first.",
+      "mode": "live",
+      "observed": "POST 302 /xplanner-legacy/do/view/iteration?oid=235; first story afterwards \"\". Note: Corrected after the run: the script read an empty first-row name; a separate read (traces/p11b-order.trace.json) shows order 1 = \"S3-B S9 Mail story\" (the previous last story), then S2, S3, S1, S8, SV.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-034"
+    },
+    {
+      "ref": "p3#9",
+      "row": 96,
+      "role": "editor",
+      "channel": "web",
+      "expected": "A non-numeric order number is rejected with \"Invalid order number <n> entered\" on the iteration page.",
+      "source": "analysis/legacy_user_flows.xlsx row 96",
+      "action": "Submitted the reordering form with orderNo[0]=\"x1\".",
+      "mode": "live",
+      "observed": "POST 200 ; message: \"Invalid order number x1 enteredPlease correct these problems\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-035"
+    },
+    {
+      "ref": "p3#10",
+      "row": 97,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Tick several stories and move them together: move page with target iteration select; stories moved; redirect to /do/view/iteration?oid=<source>.",
+      "source": "analysis/legacy_user_flows.xlsx row 97",
+      "action": "Ticked S4 and S5 on S3-B I1 Current, posted the reordering form to /do/move/userstories (as submitMoveMultiple does), then submitted the Move page with target S3-B I2 Next exactly as a browser does (the onclick assigns this.form.action.value, but the form has no \"action\" field).",
+      "mode": "live",
+      "observed": "Move page -> 200, title \"XPlanner - Move Stories\", fields selected[0]=263,selected[1]=262,iterationId=235,targetIterationId=231, submit id \"Move\", options [\"231:S3 Shared :: S3-setup Iteration 1\",\"308:S3-A Access :: S3-A Iteration 1\",\"309:S3-A Access :: S3-A Iteration Del\",\"235:S3-B Planning :: S3-B I1 Current\",\"236:S3-B Planning :: S3-B I2 Next\",\"237:S3-B Planning :: S3-B I3 Later (edited)\",\"238:S3-B Planning :: S3-B bad end\",\"306:S3-B Planning :: S3-B date end 2026-11-31\",\"307:S3-B Planning :: S3-B date start with trailing text\",\"305:S3-B Planning :: S3-B date start 2026-99-99\",\"232:S3-C Time :: S3-C Iteration 1\",\"314:S3-C Time :: S3-C Iteration 2\",\"233:S3-D Integrations :: S3-D Past Iteration\",\"234:S3-D Integrations :: S3-D Iteration 1\"]; Move POST -> 302 /xplanner-legacy/do/view/iteration?oid=235; stories in S3-B I2 Next afterwards: [\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"]. Note: The mapped move behavior matches (stories moved, redirect to the source iteration); the finding records the unmapped cross-project target list.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "finding",
+      "finding": "B-F-12",
+      "id": "B-C-036"
+    },
+    {
+      "ref": "p11#5",
+      "row": 97,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 97 (evidence cell, CHK-002)",
+      "action": "As s3viewer posted /do/move/userstories with \"S3-B SV Viewer-created\" selected, then the Move page with target S3-B I3 Later (edited).",
+      "mode": "live",
+      "observed": "Move page 200, form true; Move POST 302 /xplanner-legacy/do/view/iteration?oid=235; story in I3 afterwards true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-037"
+    },
+    {
+      "ref": "p2#7",
+      "row": 98,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Without another active iteration (and not from time entry) the iteration is started at once, no confirmation page.",
+      "source": "analysis/legacy_user_flows.xlsx row 98; setup-C-040",
+      "action": "As s3editor followed Start on \"S3-B I1 Current\" (no other active iteration in S3-B Planning).",
+      "mode": "live",
+      "observed": "GET start -> 302 /xplanner-legacy/do/view/iteration?oid=235; iteration page offers Close true and Dashboard true; projects list row \"222 S3-B Planning S3-B I1 Current\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p2-iterations.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p2.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-038"
+    },
+    {
+      "ref": "p11#7",
+      "row": 98,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 98 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested /do/start/iteration for S3-B I3 Later (edited) (S3-B I2 Next is started, so the confirmation page appears) and pressed OK with the close checkbox cleared.",
+      "mode": "live",
+      "observed": "GET 302 /xplanner-legacy/do/view/iteration?oid=237, confirmation form false; OK n/a; I3 started afterwards true. Note: At that time no other iteration of S3-B Planning was started (S3-B I2 Next had been closed in p7), so the start was immediate and no confirmation page appeared.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-039"
+    },
+    {
+      "ref": "p7#0",
+      "row": 99,
+      "role": "editor",
+      "channel": "web",
+      "expected": "If other iterations are still started, the start page proposes closing them (checked by default): \"...{n} started iteration(s) need(s) to be closed.\" with a \"Close started iterations?\" checkbox.",
+      "source": "analysis/legacy_user_flows.xlsx rows 98-99",
+      "action": "As s3editor followed Start on \"S3-B I3 Later (edited)\" while S3-B I1 Current was started; then pressed OK with the checkbox cleared.",
+      "mode": "live",
+      "observed": "States before {\"I1\":\"started\",\"I2\":\"not started\",\"I3\":\"not started\"}; start GET {\"status\":200,\"location\":\"\",\"title\":\"XPlanner - Start Iteration: S3-B I3 Later (edited)\",\"text\":\"1 started iteration(s) need(s) to be closed. Close started iterations? Do you want to start the iteration? switch width of Xplanner+ page V\",\"close\":\"checked=true\"}; form fields oid=237,fkey=222,returnto=/do/view/iteration?oid=237,operation=start,iterationStartConfirmed=true,saveTime=null,closeIterations=on; OK (closeIterations omitted) -> 302 /xplanner-legacy/do/view/iteration?oid=237; states after {\"I1\":\"started\",\"I2\":\"not started\",\"I3\":\"started\"}.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p7-lifecycle.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p7.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-040"
+    },
+    {
+      "ref": "p7#1",
+      "row": 100,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Entering time on a task of a not-yet-started iteration first shows the start page with \"The iteration has not been started yet\"; after OK the saved time form is processed.",
+      "source": "analysis/legacy_user_flows.xlsx rows 98, 100",
+      "action": "As s3editor created \"S3-B T7 Time before start\" in S4 Delta (S3-B I2 Next, not started), submitted a 1.0 h time entry, then pressed OK on the start page with \"Close started iterations?\" left checked.",
+      "mode": "live",
+      "observed": "Time POST -> {\"status\":200,\"location\":\"\",\"title\":\"XPlanner - Start Iteration: S3-B I2 Next\",\"text\":\"The iteration has not been started yet.Starting an iteration baselines the cur || 2 started iteration(s) need(s) to be closed. Close started iterations? Do you want to start the iteration? switch width of Xplanner+ page V\",\"close\":\"checked=true\"}; start form fields oid=236,fkey=262,returnto=/do/view/task?oid=43,operation=start,iterationStartConfirmed=true,saveTime=true,closeIterations=on; OK -> 302 /xplanner-legacy/do/view/task?oid=439; T7 actual hours afterwards 1.0; states after {\"I1\":\"not started\",\"I2\":\"started\",\"I3\":\"not started\"}.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p7-lifecycle.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p7.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-041"
+    },
+    {
+      "ref": "p7#2",
+      "row": 101,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Closing an iteration sets it inactive, takes a data sample and redirects to the continue-unfinished-stories page.",
+      "source": "analysis/legacy_user_flows.xlsx row 101",
+      "action": "As s3editor followed Close on S3-B I2 Next (started).",
+      "mode": "live",
+      "observed": "GET close -> 302 /xplanner-legacy/do/continue/unfinished/stories?iterationId=236&/do/view/iteration?oid=236?oid=236&fkey=236; I2 state not started; continue page 200 \"XPlanner - Continue Unfinished Stories\", fields none, target options [], buttons . Note: Data sample at close not observable in the UI.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p7-lifecycle.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p7.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-042"
+    },
+    {
+      "ref": "p11#8",
+      "row": 101,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 101 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested /do/close/iteration for S3-B I3 Later (edited).",
+      "mode": "live",
+      "observed": "GET 302 /xplanner-legacy/do/continue/unfinished/stories?iterationId=237&/do/view/iteration?oid=237?oid=237&fkey=237; I3 not started afterwards true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-043"
+    },
+    {
+      "ref": "p7#4",
+      "row": 102,
+      "role": "editor",
+      "channel": "web",
+      "expected": "On the continue page the user selects a future iteration and confirms; unfinished stories are continued there.",
+      "source": "analysis/legacy_user_flows.xlsx row 102",
+      "action": "On the continue page of S3-B I2 Next selected S3-B I3 Later (edited) and pressed OK.",
+      "mode": "live",
+      "observed": "Stories in I2 before [\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"]; POST -> n/a; I3 stories after []; I2 stories after [\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p7-lifecycle.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p7.json",
+      "verdict": "finding",
+      "finding": "B-F-06",
+      "id": "B-C-044"
+    },
+    {
+      "ref": "p7c#0",
+      "row": 102,
+      "role": "editor",
+      "channel": "web",
+      "expected": "After closing, the continue page offers the future iterations of the project (diagnostic of the redirect).",
+      "source": "analysis/legacy_user_flows.xlsx rows 101-103",
+      "action": "Requested the continue page of S3-B I2 Next without projectId (as the close redirect does) and with projectId=222 added.",
+      "mode": "live",
+      "observed": "Without projectId: \"No Future Iteration Available.\" true; with projectId: form true, options [\"237:S3-B Planning :: S3-B I3 Later (edited)\",\"238:S3-B Planning :: S3-B bad end\",\"306:S3-B Planning :: S3-B date end 2026-11-31\",\"307:S3-B Planning :: S3-B date start with trailing text\",\"305:S3-B Planning :: S3-B date start 2026-99-99\"], buttons action=Ok/action=Cancel.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p7c-continue.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p7c.json",
+      "verdict": "finding",
+      "finding": "B-F-06",
+      "id": "B-C-045"
+    },
+    {
+      "ref": "p7c#2",
+      "row": 102,
+      "role": "editor",
+      "channel": "web",
+      "expected": "On the continue page the user selects a future iteration and confirms; unfinished stories are continued there.",
+      "source": "analysis/legacy_user_flows.xlsx row 102",
+      "action": "Posted the continue form (reached with projectId added) with target S3-B I3 Later (edited) and action=Ok (the button value a browser sends).",
+      "mode": "live",
+      "observed": "I2 stories before [\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"]; POST 500  error \"Causeorg.hibernate.HibernateException: Illegal attempt to associate a collection with two open sessions [hide] Stack Traceorg.hibernate.HibernateException: Illegal a\"; I3 stories after []; I2 stories after [\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"]; first I3 story \"\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p7c-continue.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p7c.json",
+      "verdict": "finding",
+      "finding": "B-F-04",
+      "id": "B-C-046"
+    },
+    {
+      "ref": "p7#5",
+      "row": 103,
+      "role": "sysadmin",
+      "channel": "web",
+      "expected": "If no future iteration exists, the continue page says \"No Future Iteration Available.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 103",
+      "action": "As s3sysadmin started and closed \"S3-B P11\" (the latest iteration of \"S3-B 0 Probe\") and read the continue page.",
+      "mode": "live",
+      "observed": "Start -> 302 /xplanner-legacy/do/view/iteration?oid=304; close -> 302 /xplanner-legacy/do/continue/unfinished/stories?iterationId=304&/do/view/iteration?oid=304?oid=304&fkey=304; continue page 200: message shown true; form present false. Note: The message is also shown when later iterations exist (B-F-06), so this check alone does not discriminate.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p7-lifecycle.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p7.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-047"
+    },
+    {
+      "ref": "p7c#1",
+      "row": 104,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Choosing the same iteration is rejected: \"You cannot continue in the same iteration. Please choose a different one.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 104",
+      "action": "Posted the continue form (reached with projectId added) with targetIterationId = S3-B I2 Next itself (not offered in the select) and action=Ok (the button value a browser sends).",
+      "mode": "live",
+      "observed": "POST 200 ; message shown true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p7c-continue.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p7c.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-048"
+    },
+    {
+      "ref": "p6#0",
+      "row": 105,
+      "role": "editor",
+      "channel": "web",
+      "expected": "The tabbed iteration view /do/view/iterationTabs is mapped but its JSP is missing; the request is expected to fail.",
+      "source": "analysis/legacy_user_flows.xlsx row 105; GAP-003",
+      "action": "Requested /do/view/iterationTabs for S3-B I1 Current.",
+      "mode": "live",
+      "observed": "HTTP 404 text/html;charset=utf-8; title \"HTTP Status 404 – Not Found\"; excerpt \"404 – Not FoundType Status ReportMessage JSP file [/WEB-INF/jsp/view/iterationTabs.jsp] not foundDescription The origin server did not find a current representation for the target resource or is not will\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6-views.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p6.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-049"
+    },
+    {
+      "ref": "p6b#0",
+      "row": 106,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "The iteration task view lists all tasks grouped by story with order, story, task, ID, acceptor, status icon, estimates, actual, remaining, disposition and type, plus a legend (started, completed, unassigned, unestimated).",
+      "source": "analysis/legacy_user_flows.xlsx row 106",
+      "action": "Read every S3-B row of All Tasks for S3-B I1 Current, its status-cell images and text after the table, and compared with the tasks listed on each story page.",
+      "mode": "live",
+      "observed": "Rows [\"3 | S3-B S1 Alpha | S3-B T3 Move me | 430 | S3E |  | 1.0 | 1.0 | 0.0 | 1.0 | Planned | Debt\",\"2 | S3-B S3 Gamma | S3-B T5 de Debt | 433 | S3E |  | 1.0 | 1.0 | 0.0 | 1.0 | Planned | Debt\",\"3 | S3-B S1 Alpha | S3-B TN No acceptor | 436 |  |  | 1.0 | 1.0 | 0.0 | 1.0 | Planned | Feature\",\"7 | S3-B S9 Mail story | S3-B TM Mail task | 435 | S3S |  | 2.5 | 2.5 | 0.0 | 2.5 | Planned | Feature\",\"3 | S3-B S1 Alpha | S3-B T2 Test (edited) | 429 | S3S |  | 3.5 | 3.5 | 0.0 | 3.5 | Planned | ATest\",\"3 |  | S3-B T1 Build | 274 | S3A |  | 4.0 | 5.0 | 1.0 | 4.0 | Planned | Feature\",\"5 | S3-B S8 Continue | S3-B T4 Continue me | 431 | S3E |  | 5.0 | 7.0 | 2.0 | 5.0 | Planned | Feature\"]; status images [\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/started.png|\",\"/xplanner-legacy/images/started.png|\",\"/xplanner-legacy/images/started.png|\",\"/xplanner-legacy/images/money.png|\"]; text after the table \"Type 3 S3-B S1 Alpha S3-B T3 Move me 430 S3E 1.0 1.0 0.0 1.0 Planned Debt 2 S3-B S3 Gamma S3-B T5 de Debt 433 S3E 1.0 1.0 0.0 1.0 Planned Debt 3 S3-B S1 Alpha S3-B TN No acceptor 436 1.0 1.0 0.0 1.0 Planned Feature 7 S3-B S9 Mail story S3-B TM Mail task 435 S3S 2.5 2.5 0.0 2.5 Planned Feature 3 S3-B S1 Alpha S3-B T2 Test (edited) 429 S3S 3.5 3.5 0.0 3.5 Planned ATest 3 S3-B T1 Build 274 S3A 4.0 5.\"; tasks per story page {\"S1\":{\"iteration\":\"S3-B I1 Current\",\"tasks\":[\"S3-B T2 Test (edited)\",\"S3-B T3 Move me\",\"S3-B T1 Build\",\"S3-B TN No acceptor\"]},\"S3\":{\"iteration\":\"S3-B I1 Current\",\"tasks\":[\"S3-B T5 de Debt\"]},\"S8\":{\"iteration\":\"S3-B I1 Current\",\"tasks\":[\"S3-B T4 Continue me\"]},\"S9\":{\"iteration\":\"S3-B I1 Current\",\"tasks\":[\"S3-B TM Mail task\"]}}. Note: Legend read separately: \"Started Completed Not assigned Not estimated\" follows the table.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6b-views.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p6b.json",
+      "verdict": "finding",
+      "finding": "B-F-03",
+      "id": "B-C-050"
+    },
+    {
+      "ref": "p6#2",
+      "row": 107,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Metrics page layout with total hours, average pairing and a developer table; in this baseline the figures are expected to be empty or zero (AF-01).",
+      "source": "analysis/legacy_user_flows.xlsx row 107 (Live question); recon AF-01",
+      "action": "Opened Metrics of S3-B I1 Current (time recorded: 1.0 h on T1 and 2.0 h on T4 by s3editor, plus 0.5 h on the deleted T6) as s3viewer.",
+      "mode": "live",
+      "observed": "HTTP 200; text \"Metrics Charts Accuracy History Iteration Metrics: S3-B I1 Current (2026-09-28 to 2026-10-09) S3-B I1 Current (part B) Hours: Estimate 13.5, Actual 3.0, Remaining 20.5 Stories All Tasks Total Person Hours Worked: 0.0 Total Paired Hours Percentage: 0.0% Nothing found to display. Paired Hours Unpaired Hours Hours Accepted Per Developer: Nothing found to display. Worked Hours Accepted Hours switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should \"; tables []. Note: Live question answered: yes, zero totals and \"Nothing found to display.\" although 3.0 h were recorded in the iteration.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6-views.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p6.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-051"
+    },
+    {
+      "ref": "p6#3",
+      "row": 108,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "A second table shows accepted hours per developer; expected empty in this baseline.",
+      "source": "analysis/legacy_user_flows.xlsx row 108 (Live question); recon AF-01",
+      "action": "Same page as the previous check; read the accepted-hours table.",
+      "mode": "live",
+      "observed": "Tables []; rows per table []. Note: Live question answered: yes, the accepted-hours table is empty (\"Nothing found to display.\").",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6-views.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p6.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-052"
+    },
+    {
+      "ref": "p6#4",
+      "row": 109,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "With xplanner.statistics=on the statistics page shows six pie charts (task counts, estimated/actual hours by type and by disposition), plus progress and burn-down charts while their flags are \"displayed\".",
+      "source": "analysis/legacy_user_flows.xlsx row 109",
+      "action": "Opened Charts of S3-B I1 Current as s3viewer and requested the first chart image once.",
+      "mode": "live",
+      "observed": "HTTP 200; 8 chart images: [\"/xplanner-legacy/cewolf;jsessionid=[REDACTED]?img=<id>&width=810&hei\",\"/xplanner-legacy/cewolf;jsessionid=[REDACTED]?img=<id>&width=810&hei\",\"../../../cewolf;jsessionid=[REDACTED]?img=<id>&width=405&height=205&\",\"../../../cewolf;jsessionid=[REDACTED]?img=<id>&width=405&height=205&\",\"../../../cewolf;jsessionid=[REDACTED]?img=<id>&width=405&height=205&\",\"../../../cewolf;jsessionid=[REDACTED]?img=<id>&width=405&height=205&\",\"../../../cewolf;jsessionid=[REDACTED]?img=<id>&width=405&height=205&\",\"../../../cewolf;jsessionid=[REDACTED]?img=<id>&width=405&height=205&\"]; headings [\"Iteration S3-B I1 Current\",\"Iteration S3-B I1 Current\",\"Iteration Progress\",\"Iteration Burn Down\",\"All Tasks by Type\",\"All Tasks by Disposition\",\"Completed Estimated Hours by Type\",\"Completed Estimated Hours by Disposition\",\"Completed Actual Hours by Type\",\"Completed Actual Hours by Disposition\"]; first image {\"status\":200,\"ct\":\"image/png\",\"bytes\":7590}; text \"user s3viewer Me Logout Top S3-B Planning S3-B I1 Current Dashboard Export All Tasks Metrics Charts Accuracy History Iteration S3-B I1 Current (2026-09-28 to 2026-10-09) S3-B I1 Current (part B) Hours: Estimate 13.5, Actual 3.0, Remaining 20.5 Stories All Tasks Iteration Progress Iteration Burn Down\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6-views.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p6.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-053"
+    },
+    {
+      "ref": "p6b-charts#110",
+      "row": 110,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "A progress line chart plots estimated and actual hours from the stored data samples while xplanner.effort.chart.progress is \"displayed\"; weekends included.",
+      "source": "analysis/legacy_user_flows.xlsx row 110",
+      "action": "Viewed the \"Iteration Progress\" chart image of S3-B I1 Current (saved as a PNG).",
+      "mode": "live",
+      "observed": "Heading \"Iteration Progress\"; line chart with the series \"Estimated Hours\" and \"Actual Hours\", one sample on 2026-09-30 at 0; the date axis runs 2026-09-28 to 2026-10-10 including the weekend days 3 and 4 October.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6-views.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/p6b-chart-progress.png",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-054"
+    },
+    {
+      "ref": "p6-charts#111",
+      "row": 111,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "No velocity chart in the shipped configuration (xplanner.effort.chart.velocity notDisplayed).",
+      "source": "analysis/legacy_user_flows.xlsx row 111",
+      "action": "Counted the chart images and headings on the Charts page of S3-B I1 Current.",
+      "mode": "live",
+      "observed": "8 chart images: \"Iteration Progress\", \"Iteration Burn Down\" and six pie charts; no velocity heading or image.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6-views.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p6.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-055"
+    },
+    {
+      "ref": "p6b-charts#112",
+      "row": 112,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Burn-down and progress charts depend on stored data samples written at start/close (and by the manual sampling action); they may be sparse between start and close.",
+      "source": "analysis/legacy_user_flows.xlsx row 112",
+      "action": "Viewed the burn-down and progress images of S3-B I1 Current, which was started before any story existed and then received stories, tasks and time.",
+      "mode": "live",
+      "observed": "Each chart holds a single point on 2026-09-30 with value 0 (the opening sample taken at the start); the later estimates and 3.0 h of time are not plotted.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6b-chart-burndown.png; analysis/stages/stage-03/evidence/W001/B/traces/p6b-chart-progress.png",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-056"
+    },
+    {
+      "ref": "p6#5",
+      "row": 113,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Accuracy page: two summary tables (original, current, completed, remaining, over/under-estimated, added and postponed hours for tasks and stories) with tooltips and a per-story table.",
+      "source": "analysis/legacy_user_flows.xlsx row 113",
+      "action": "Opened Accuracy of S3-B I1 Current as s3viewer.",
+      "mode": "live",
+      "observed": "HTTP 200; tables [{\"headers\":\"Current Status|Task\",\"rows\":[\"Estimated (original) | 18.0\",\"Estimated (current) | 13.5\",\"Completed | 3.0\"]},{\"headers\":\"Iteration Status|Story|Task\",\"rows\":[\"Original | 13.5 | 18.0\",\"Added | 0.0 | 0.0\",\"Postponed | 0.0 | 0.0\"]},{\"headers\":\"Order|User Story|!|Story Est.|Cur. Est.|Act.|%|Disp.|Orig. vs Current Est.|Actual vs. Orig. Est.|Actual vs. Current Est.\",\"rows\":[\"1 | S3-B S2 Beta (edited) | 1 | 0.0 | 6.5 | 0.0 |  | P |  |  |  |  |  | \",\"2 | S3-B S3 Gamma | 4 | 1.0 | 1.0 | 0.0 |  | P |  |  |  |  |  | \",\"3 | S3-B S1 Alpha | 2 | 9.5 | 10.5 | 1.0 | -89% | P |  |  |  |  |  |  |  |  | \"]}]; elements with title/onmouseover 44.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6-views.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p6.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-057"
+    },
+    {
+      "ref": "p6b#1",
+      "row": 114,
+      "role": "editor",
+      "channel": "web",
+      "expected": "For an active iteration the dashboard shows stories with task cards in \"not started\", \"in progress\" and \"done\" columns, loaded from the REST API with the iteration id; dragging saves nothing.",
+      "source": "analysis/legacy_user_flows.xlsx row 114",
+      "action": "Read the served Dashboard markup and scripts for S3-B I1 Current, and requested the REST URL that the page script loads (GET, as the page would).",
+      "mode": "live",
+      "observed": "Dashboard HTTP 200; content \"user s3editor Me Logout Top S3-B Planning not started in progress done switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null\"; title elements [\"leftColumnTitle:not started\",\"title:not started\",\"midColumnTitle:in progress\",\"title:in progress\",\"rightColumnTitle:done\",\"title:done\"]; ajax calls in the page script [\"$.getJSON( \\\"http://127.0.0.1:18080/xplanner-legacy/rest/view/iteration/235/userstories\\\", function(userStories\"]; REST GET 200 application/xml: {\"excerpt\":\"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?><userStoryViews><userStoryView><id>320</id><description>Merge probe: set by a merge=true request.</description><name>S3-B S7 Merge probe</name><a\"}. Rendering of cards and the drag behaviour need JavaScript and were not run (no browser session: signing in would require typing a password into the browser, which is forbidden). Note: Served markup and data source only; card rendering and dragging are not-checked.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p6b-views.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p6b.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-058"
+    },
+    {
+      "ref": "p8#2",
+      "row": 115,
+      "role": "editor",
+      "channel": "web",
+      "expected": "An editor imports stories into an iteration from an Excel worksheet by naming the worksheet and column headers and uploading the file; result \"Imported <n> stories\"; stories created.",
+      "source": "analysis/legacy_user_flows.xlsx row 115",
+      "action": "Uploaded imp-good.xls (worksheet \"S3B Stories\"; 3 rows: IMP1 status D, IMP2 status c, IMP3 with the end date as text) with \"only incomplete\" cleared, as s3editor.",
+      "mode": "live",
+      "observed": "POST 500 ; messages [\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]; set-cookie []; stories now []; rows [].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p8-import.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p8.json",
+      "verdict": "finding",
+      "finding": "B-F-07",
+      "id": "B-C-059"
+    },
+    {
+      "ref": "p8b#0",
+      "row": 115,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Diagnostic only: cause of the import HTTP 500.",
+      "source": "analysis/legacy_user_flows.xlsx rows 115-119",
+      "action": "Posted a valid synthetic import twice (served form action; action URL with fkey/projectId) and read a bounded excerpt of the error page.",
+      "mode": "live",
+      "observed": "[{\"label\":\"form action as served, valid file\",\"enctype\":\"multipart/form-data\",\"action\":\"/xplanner-legacy/do/import/stories\",\"status\":500,\"location\":\"\",\"cause\":\"Causejava.lang.NullPointerException [hide] Stack Tracejava.lang.NullPointerException at org.hibernate.impl.SessionImpl.get(SessionImpl.java:998) at net.sf.xplanner.dao.impl.CommonDao.getById(CommonDao.java:18) at com.technoetic.xplanner.actions.EditObjectAction.upd\"},{\"label\":\"action URL + fkey/projectId, valid file\",\"enctype\":\"multipart/form-data\",\"action\":\"/xplanner-legacy/do/import/stories?fkey=222&projectId=222&oid=237&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D237\",\"status\":500,\"location\":\"\",\"cause\":\"Causejava.lang.NullPointerException [hide] Stack Tracejava.lang.NullPointerException at org.hibernate.impl.SessionImpl.get(SessionImpl.java:998) at net.sf.xplanner.dao.impl.CommonDao.getById(CommonDao.java:18) at com.technoetic.xplanner.actions.EditObjectAction.upd\"}]",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p8b-cause.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p8b.json",
+      "verdict": "finding",
+      "finding": "B-F-07",
+      "id": "B-C-060"
+    },
+    {
+      "ref": "p8#0",
+      "row": 116,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Missing required inputs are rejected before import: messages for missing worksheet name, title, end date or priority header, completed status, or file.",
+      "source": "analysis/legacy_user_flows.xlsx row 116",
+      "action": "Submitted the Import Stories form of S3-B I3 Later (edited) six times, each time leaving one input empty (with a valid synthetic file where a file was needed).",
+      "mode": "live",
+      "observed": "[{\"label\":\"no worksheet name\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no title header\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no end date header\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no priority header\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no completed status (only incomplete on)\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"no file\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]}]; imported stories afterwards [].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p8-import.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p8.json",
+      "verdict": "finding",
+      "finding": "B-F-07",
+      "id": "B-C-061"
+    },
+    {
+      "ref": "p8#1",
+      "row": 117,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Import errors are shown on the import page: \"Could not find worksheet named ...\", \"Could not find a column with ... as the header...\", \"Some stories did not have ... specified.\", \"...appears to be corrupt.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 117",
+      "action": "Submitted the form with worksheet \"NoSuchSheet\"; with title header \"No Such Header\"; with a file whose only row lacks the priority; and with a small text file named .xls.",
+      "mode": "live",
+      "observed": "[{\"label\":\"missing worksheet\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"missing header\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"missing required field (no priority)\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]},{\"label\":\"corrupt file (text)\",\"status\":500,\"msgs\":[\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]}]; imported stories afterwards [].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p8-import.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p8.json",
+      "verdict": "finding",
+      "finding": "B-F-07",
+      "id": "B-C-062"
+    },
+    {
+      "ref": "p8#3",
+      "row": 118,
+      "role": "editor",
+      "channel": "web",
+      "expected": "With only-incomplete set, rows whose status is \"C\" (ignoring case) are skipped; the completed-status field must be filled in but does not change this value.",
+      "source": "analysis/legacy_user_flows.xlsx row 118",
+      "action": "Uploaded imp-good2.xls (IMP4 status D, IMP5 status C, IMP7 status c) with \"only incomplete\" checked and completed status \"X\".",
+      "mode": "live",
+      "observed": "POST 500 ; messages [\"Please create an issue following these instructions.\",\"Please do not submit an issue for a deployment problem.\"]; set-cookie []; IMP stories now [].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p8-import.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p8.json",
+      "verdict": "finding",
+      "finding": "B-F-07",
+      "id": "B-C-063"
+    },
+    {
+      "ref": "p8#4",
+      "row": 119,
+      "role": "editor",
+      "channel": "web",
+      "expected": "After an import the worksheet name, column headers, only-incomplete choice and completed status are saved in browser cookies, and the next import form is pre-filled from them.",
+      "source": "analysis/legacy_user_flows.xlsx row 119",
+      "action": "Re-opened the Import Stories form after the imports and compared the pre-filled values with the last submission; listed the cookie names the client holds (values not recorded).",
+      "mode": "live",
+      "observed": "Pre-filled {\"worksheetName\":\"Features\",\"titleColumn\":\"Feature/Story Title\",\"endDateColumn\":\"Iteration End Date\",\"priorityColumn\":\"Priority  (1 thru n)\",\"estimateColumn\":\"Work Unit Estimate\",\"statusColumn\":\"Status\",\"completedStatus\":\"C\",\"onlyIncomplete\":false}; client cookie names besides the session []. Note: No import completes (B-F-07), so no settings cookie is written; the form shows the property defaults.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p8-import.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p8.json",
+      "verdict": "blocked",
+      "finding": "B-F-07",
+      "id": "B-C-064"
+    },
+    {
+      "ref": "p3#0",
+      "row": 121,
+      "role": "editor",
+      "channel": "web",
+      "expected": "An editor creates a story with name, disposition, customer, tracker, status, priority, order, estimate and description; saved; returned to the iteration page.",
+      "source": "analysis/legacy_user_flows.xlsx row 121; setup-C-041, setup-C-042 (setup-F-07)",
+      "action": "As s3editor created \"S3-B S1 Alpha\" in the active iteration S3-B I1 Current with disposition carriedOver, customer s3admin, tracker s3editor, status estimated, priority 2, order 1, estimate 3.0; then seven more stories S2..S8.",
+      "mode": "live",
+      "observed": "POST 302 /xplanner-legacy/do/view/iteration?oid=235; story ids {\"S1\":259,\"S2\":260,\"S3\":261,\"S4\":262,\"S5\":263,\"S6\":319,\"S7\":320,\"S8\":321}; story page: \"S3-B S1 Alpha Export History Story: S3-B S1 Alpha Story: S3-B S1 Alpha [id=259] Story S1, part B. Priority: 2 Estimated Hours: 3.0 (0.0) Customer: <s3admin.name> Actual Hours: 0.0 Tracker: <s3editor.name> Remaining Hours: 3.0 Last Update: Disposition: Planned Status: Draft Edit Delete Move/Continue Create Task No tasks have been defined. Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (re\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "finding",
+      "finding": "setup-F-07 (confirmed)",
+      "id": "B-C-065"
+    },
+    {
+      "ref": "p3#3",
+      "row": 121,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: a direct create request succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 121 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested the Define Story URL of S3-B I1 Current and posted \"S3-B SV Viewer-created\".",
+      "mode": "live",
+      "observed": "GET -> 200, form true; POST -> 302 /xplanner-legacy/do/view/iteration?oid=235; story listed: true (id 322).",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-066"
+    },
+    {
+      "ref": "p3#1",
+      "row": 122,
+      "role": "editor",
+      "channel": "web",
+      "expected": "A new story defaults to priority 4.",
+      "source": "analysis/legacy_user_flows.xlsx row 122; setup-C-043",
+      "action": "Read the Define Story form of the active iteration S3-B I1 Current.",
+      "mode": "live",
+      "observed": "Pre-filled priority 4; pre-selected disposition added; first/selected status draft.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-067"
+    },
+    {
+      "ref": "p3#2",
+      "row": 123,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Missing name, negative estimate or non-numeric priority are rejected (\"Missing story name.\", \"Please provide an estimate greater than or equal to zero.\", \"Please provide a numeric priority.\").",
+      "source": "analysis/legacy_user_flows.xlsx row 123",
+      "action": "Submitted Define Story with an empty name; estimate -1; priority \"high\".",
+      "mode": "live",
+      "observed": "[{\"label\":\"missing name\",\"status\":200,\"shown\":true},{\"label\":\"negative estimate\",\"status\":200,\"shown\":true},{\"label\":\"non-numeric priority\",\"status\":200,\"shown\":true}]; stories created: [].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-068"
+    },
+    {
+      "ref": "p3#4",
+      "row": 124,
+      "role": "editor",
+      "channel": "web",
+      "expected": "merge=true skips the name/estimate/priority checks, is rejected only for the same iteration (\"Cannot move or continue story in same iteration.\"), and otherwise binds request parameters directly onto the story.",
+      "source": "analysis/legacy_user_flows.xlsx row 124 (Live question)",
+      "action": "As s3editor posted to /do/edit/userstory: (1) oid=S7, merge=true, action=Update, iterationId=<current>; (2) oid=S7, merge=true, action=Update, iterationId=S3-B I2 Next, priority=9, description=<probe text>, estimatedHoursField=-5, no name.",
+      "mode": "live",
+      "observed": "(1) -> 500 , same-iteration message shown: false; (2) -> 500 , validation message shown: false; story afterwards: iteration link(s) \"S3-B I1 Current\", card \"S3-B S7 Merge probe Export History Story: S3-B S7 Merge probe Story: S3-B S7 Merge probe [id=320] S3-B S7 Merge probe, part B. Priority: 5 Estimated Hours: 1.0 (0.0) Actual Hours: 0.0 Tracker: <s3editor.name> Remaining Hours: 1.0 Last Update: Disposition: Planned Status: Draft Edit Delete Move/Continue Create Task No tasks have been defined. Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/1\". Note: Requests without fkey/projectId answer HTTP 500.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "finding",
+      "finding": "B-F-08",
+      "id": "B-C-069"
+    },
+    {
+      "ref": "p3b#0",
+      "row": 124,
+      "role": "editor",
+      "channel": "web",
+      "expected": "A direct story-editor request with merge=true skips validation, is rejected only for the same iteration (\"Cannot move or continue story in same iteration.\"), otherwise binds request parameters onto the story.",
+      "source": "analysis/legacy_user_flows.xlsx row 124 (Live question)",
+      "action": "As s3editor posted three merge=true requests to /do/edit/userstory for \"S3-B S7 Merge probe\" (with fkey and projectId): same iterationId; other iterationId plus priority 9 and a description; no iterationId plus priority 8 and a description. After each, the story page was read.",
+      "mode": "live",
+      "observed": "[{\"label\":\"same iteration, with fkey/projectId\",\"status\":200,\"location\":\"\",\"sameIterMsg\":true,\"error\":\"\",\"after\":{\"iteration\":\"S3-B I1 Current\",\"priority\":\"5\",\"description\":\"S3-B S7 Merge probe, part B. Priority: 5 Estimated Hours: 1.\"}},{\"label\":\"other iteration + priority/description, with fkey/projectId\",\"status\":200,\"location\":\"\",\"sameIterMsg\":true,\"error\":\"\",\"after\":{\"iteration\":\"S3-B I1 Current\",\"priority\":\"5\",\"description\":\"S3-B S7 Merge probe, part B. Priority: 5 Estimated Hours: 1.\"}},{\"label\":\"no iterationId, priority/description only\",\"status\":200,\"location\":\"\",\"sameIterMsg\":true,\"error\":\"\",\"after\":{\"iteration\":\"S3-B I1 Current\",\"priority\":\"5\",\"description\":\"S3-B S7 Merge probe, part B. Priority: 5 Estimated Hours: 1.\"}}]",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3b-probe.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3b.json",
+      "verdict": "finding",
+      "finding": "B-F-08",
+      "id": "B-C-070"
+    },
+    {
+      "ref": "p3c#0",
+      "row": 124,
+      "role": "editor",
+      "channel": "web",
+      "expected": "merge=true skips the name, estimate and priority checks, is rejected only when the target iteration equals the current one, otherwise binds request parameters directly onto the story.",
+      "source": "analysis/legacy_user_flows.xlsx row 124 (Live question)",
+      "action": "As s3editor posted merge=true requests to /do/edit/userstory for \"S3-B S7 Merge probe\" with the targetIterationId parameter the move/continue page uses: (1) target = current iteration; (2) target = S3-B I2 Next plus priority 9, a description and estimate -5, without a name.",
+      "mode": "live",
+      "observed": "[{\"label\":\"targetIterationId = current (I1), iterationId = I1\",\"status\":200,\"location\":\"\",\"sameIterMsg\":true,\"validationMsg\":false,\"error500\":false,\"after\":{\"iteration\":\"S3-B I1 Current\",\"name\":\"S3-B S7 Merge probe Story: S3-B S7 Merge probe \",\"priority\":\"5\",\"estimate\":\"1.0\",\"description\":\"S3-B S7 Merge probe, part B. Priority: 5 Estimated\"}},{\"label\":\"targetIterationId = I2, iterationId = I1, priority 9, description, estimate -5, no name\",\"status\":302,\"location\":\"/xplanner-legacy/do/view/userstory?oid=320\",\"sameIterMsg\":false,\"validationMsg\":false,\"error500\":false,\"after\":{\"iteration\":\"S3-B I1 Current\",\"name\":\"S3-B S7 Merge probe Story: S3-B S7 Merge probe \",\"priority\":\"9\",\"estimate\":\"-5.0\",\"description\":\"Merge probe: set by a merge=true request. Priority\"}}] Note: Live question answered: yes, the named properties are bound without validation (priority 9, estimate -5.0, description); the story is not moved.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3c-merge.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3c.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-071"
+    },
+    {
+      "ref": "p3#5",
+      "row": 125,
+      "role": "editor",
+      "channel": "web",
+      "expected": "An editor updates a story's fields; editor titled for the story with Update/Reset; changes saved.",
+      "source": "analysis/legacy_user_flows.xlsx row 125; setup-C-047 (setup-F-07)",
+      "action": "As s3editor opened Edit on \"S3-B S2 Beta\" and updated name, priority 1, estimate 6.5, customer s3sysadmin, tracker s3admin, description, status implemented, disposition planned.",
+      "mode": "live",
+      "observed": "Title \"XPlanner - Edit Story: S3-B S2 Beta\"; buttons Update/Reset; pre-selected {\"disposition\":\"added\",\"status\":\"estimated\",\"tracker\":\"210\"}; POST 302 /xplanner-legacy/do/view/userstory?oid=260; story page \"S3-B S2 Beta (edited) Export History Story: S3-B S2 Beta (edited) Story: S3-B S2 Beta (edited) [id=260] Edited by editor, part B. Priority: 1 Estimated Hours: 6.5 (0.0) Customer: <s3sysadmin.name> Actual Hours: 0.0 Tracker: <s3admin.name> Remaining Hours: 6.5 Last Update: Disposition: Planned Status: Draft Edit Delete Move/Continue Create Task No tasks have been defined. Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426)\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "finding",
+      "finding": "setup-F-07 (confirmed)",
+      "id": "B-C-072"
+    },
+    {
+      "ref": "p3#6",
+      "row": 125,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: a direct update succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 125 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested the story editor of \"S3-B S3 Gamma\" by URL and posted an Update of the description.",
+      "mode": "live",
+      "observed": "GET -> 200, form true; POST -> 302 /xplanner-legacy/do/view/userstory?oid=261; description changed: true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-073"
+    },
+    {
+      "ref": "p9a#0",
+      "row": 126,
+      "role": "editor",
+      "channel": "web",
+      "expected": "A story can be deleted after confirmation; delete link shown with delete permission; the delete cascades to its tasks and their time entries; notes and history rows are not deleted.",
+      "source": "analysis/legacy_user_flows.xlsx row 126",
+      "action": "Created \"S3-B S12 Delete me\" in S3-B I1 Current with a task T9 with 0.5 h and a note, then followed the story's delete link on S3-B I1 Current as s3editor (confirm() is browser-side and was not executed); re-read the story and task pages and searched for the note word.",
+      "mode": "live",
+      "observed": "Setup: task 530, time POST 200, note {\"status\":500,\"shown\":false}; delete link onclick \"return confirm('Do you want to delete story \\'S3-B S12 Delete me\\'?')\"; GET delete 302 /xplanner-legacy/do/view/iteration?oid=235; afterwards story page 500, task page 500, listed in iteration false; content search for the note word {\"status\":200,\"hit\":true,\"excerpt\":\"\"}. Note: Story and task removed (pages answer HTTP 500). Not observed: the time-entry cascade (the entry was not saved because S3-B I1 Current was no longer started, so the time editor showed the start page) and orphan notes (note creation answers HTTP 500 in this deployment; the content search echoes the searched word, so its hit is not evidence).",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p9-delete-story.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p9a.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-074"
+    },
+    {
+      "ref": "p3#7",
+      "row": 127,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Story page shows estimated/actual/remaining hours, customer, tracker, last update, disposition, status, description and a task table; create task, export and history links.",
+      "source": "analysis/legacy_user_flows.xlsx row 127; setup-C-045 (no customer case)",
+      "action": "Opened \"S3-B S1 Alpha\" (customer s3admin) as s3editor.",
+      "mode": "live",
+      "observed": "Card \"S3-B S1 Alpha Export History Story: S3-B S1 Alpha Story: S3-B S1 Alpha [id=259] Story S1, part B. Priority: 2 Estimated Hours: 3.0 (0.0) Customer: <s3admin.name> Actual Hours: 0.0 Tracker: <s3editor.name> Remaining Hours: 3.0 Last Update: Disposition: Planned Status: Draft Edit Delete Move/Continue Create Task No tasks have been defined. Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (re\"; links Export/History/Edit/Delete/Move/Continue/Create Task.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p3-stories.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p3.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-075"
+    },
+    {
+      "ref": "p5#0",
+      "row": 129,
+      "role": "editor",
+      "channel": "web",
+      "expected": "An editor moves a story to another iteration via the Move/Continue page with a target iteration.",
+      "source": "analysis/legacy_user_flows.xlsx row 129",
+      "action": "As s3editor opened Move/Continue on \"S3-B S6 Zeta\" (S3-B I1 Current) and pressed Move with target S3-B I2 Next.",
+      "mode": "live",
+      "observed": "Page \"XPlanner - Move/Continue Story: S3-B S6 Zeta\", fields oid=319,iterationId=235,merge=true,fkey=235,action=Move,returnto=/do/view/iteration?oid=235,targetIterationId=235, buttons Move/Continue; POST 302 /xplanner-legacy/do/view/iteration?oid=235; story now in \"S3-B I2 Next\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-076"
+    },
+    {
+      "ref": "p11#6",
+      "row": 129,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 129 (evidence cell, CHK-002)",
+      "action": "As s3viewer posted /do/move/continue/userstory for \"S3-B SV Viewer-created\" with merge=true, action=Move and target S3-B I1 Current.",
+      "mode": "live",
+      "observed": "POST 302 /xplanner-legacy/do/view/iteration?oid=237; story iteration afterwards \"S3-B I1 Current\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-077"
+    },
+    {
+      "ref": "p5#3",
+      "row": 130,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Continue creates a continuation of the story in the target iteration for the unfinished work, with cross-references in the descriptions.",
+      "source": "analysis/legacy_user_flows.xlsx row 130",
+      "action": "As s3editor opened Move/Continue on \"S3-B S8 Continue\" (task T4 5.0 h, 2.0 h recorded) in the active S3-B I1 Current and pressed Continue with target S3-B I2 Next. The page of a story in a future iteration was also read.",
+      "mode": "live",
+      "observed": "Buttons active-iteration page Move/Continue, future-iteration page Move; POST 500 ; stories in I2 [\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"]; original before \"[id=321] S3-B S8 Continue, part B. Priority: 4 Estimated Hours: 7.0 (5.0) Actual Hours: 2.0 Tracker: <s3editor.name> Remaining Hours: 5.0 Last Update: Disposition: Planned Status: Draft Edit Delete Move/Con\"; original after \"[id=321] S3-B S8 Continue, part B. Priority: 4 Estimated Hours: 7.0 (5.0) Actual Hours: 2.0 Tracker: <s3editor.name> Remaining Hours: 5.0 Last Update: Disposition: Planned Status: Draft Edit Delete Move/Continue Create Task Actions ID Task Name Type Progress Acc. Or\"; I1 row \" |  | 321 |  | S3-B S8 Continue | 4 |  |  |  |  | 2.0 | 5.0 | 7.0 | 5.0 | 1 | S3E | Planned | Draft\"; continuation \"\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "finding",
+      "finding": "B-F-04",
+      "id": "B-C-078"
+    },
+    {
+      "ref": "p5#1",
+      "row": 131,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Moving or continuing into the same iteration is rejected: \"Cannot move or continue story in same iteration.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 131",
+      "action": "Submitted the Move/Continue page of \"S3-B S3 Gamma\" with target = its own iteration S3-B I1 Current (Move).",
+      "mode": "live",
+      "observed": "POST 200 ; message shown: true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-079"
+    },
+    {
+      "ref": "p5#2",
+      "row": 132,
+      "role": "editor",
+      "channel": "web",
+      "expected": "A move/continue story request without merge=true and without a name is rejected with \"Missing story name.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 132",
+      "action": "Posted /do/move/continue/userstory for S3 Gamma with target S3-B I2 Next, action=Move, no merge and no name.",
+      "mode": "live",
+      "observed": "POST 200 ; \"Missing story name.\" shown: true; story iteration afterwards \"S3-B I1 Current\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-080"
+    },
+    {
+      "ref": "p4#0",
+      "row": 134,
+      "role": "editor",
+      "channel": "web",
+      "expected": "An editor creates a task under a story with name, type (feature, debt, defect, functional test, acceptance test, overhead), disposition, acceptor, estimate and description; saved; returned to the story.",
+      "source": "analysis/legacy_user_flows.xlsx row 134; setup-C-048, setup-C-049 (setup-F-08)",
+      "action": "As s3editor created \"S3-B T1 Build\" (Feature, acceptor s3admin, 4.0, pre-selected disposition) and four more tasks in stories of S3-B I1 Current.",
+      "mode": "live",
+      "observed": "POST 302 /xplanner-legacy/do/view/userstory?oid=259; type options Feature:Feature, Debt:Debt, Defect:Defect, FTest:FTest, ATest:ATest, Overhead:Overhead; ids {\"T1\":274,\"T2\":429,\"T3\":430,\"T4\":431,\"T6\":432}; story task table Priority:|Estimated Hours:|Customer:|Actual Hours:|Tracker:|Remaining Hours:|Last Update:|Disposition:||Status:|Actions|ID|Task Name|Type|Progress|Acc.|Ori.|Est.|Act.|Rem.|Disp.; T1 row \" | 274 | S3-B T1 Build | Feature |  |  | S3A | 4.0 | 4.0 | 0.0 | 4.0 | Planned\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "finding",
+      "finding": "setup-F-08 (confirmed)",
+      "id": "B-C-081"
+    },
+    {
+      "ref": "p4#4",
+      "row": 134,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: a direct create request succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 134 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested the Define Task URL of S1 Alpha and posted \"S3-B TV Viewer-created\".",
+      "mode": "live",
+      "observed": "GET -> 200, form true; POST -> 302 /xplanner-legacy/do/view/userstory?oid=259; task listed: true (id 434).",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-082"
+    },
+    {
+      "ref": "p4#3",
+      "row": 135,
+      "role": "editor (de session)",
+      "channel": "web",
+      "expected": "Type options carry label text as values, resolved without the user's locale: the select shows the user's language; the stored value is the server-default-locale label.",
+      "source": "analysis/legacy_user_flows.xlsx row 135 (Live question); setup-C-050 (en)",
+      "action": "In a session with Accept-Language de, s3editor opened Define Task on S3 Gamma and created \"S3-B T5 de Debt\" with the option shown as \"Rückstand\"; then read the story task table and the task editor in an en-US and in the de session.",
+      "mode": "live",
+      "observed": "de page title \"XPlanner - Neuen Task:\", html lang \"en\"; de options Feature:Feature, Debt:Rückstand, Defect:Fehler, FTest:FTest, ATest:ATest, Overhead:Overhead; POST 302; task table en \" | 433 | S3-B T5 de Debt | Debt |  |  | S3E | 1.0 | 1.0 | 0.0 | 1.0 | Planned\", de \" | 433 | S3-B T5 de Debt | Debt |  |  | S3E | 1,0 | 1,0 | 0,0 | 1,0 | Planned\"; editor pre-selection en Debt:Debt, de Debt:Rückstand. Note: Live question answered: the stored value is the English (server-default) label \"Debt\"; the de session shows \"Rückstand\" only as option text.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-083"
+    },
+    {
+      "ref": "p4#1",
+      "row": 136,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Default disposition of a new task: \"discovered\" when its story is started or its iteration is active, \"planned\" otherwise.",
+      "source": "analysis/legacy_user_flows.xlsx row 136; setup-C-051",
+      "action": "Read the Define Task form for a story of the active S3-B I1 Current (S1) and for a story of the not-started S3-B I2 Next (S4 Delta).",
+      "mode": "live",
+      "observed": "Pre-selected: active iteration \"discovered\", inactive iteration \"planned\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-084"
+    },
+    {
+      "ref": "p4#2",
+      "row": 137,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Missing name, negative estimate or invalid created date are rejected (\"Missing task name.\", \"Please provide an estimate greater than or equal to zero.\", \"Created date is invalid.\").",
+      "source": "analysis/legacy_user_flows.xlsx row 137",
+      "action": "Submitted Define Task with an empty name; estimate -1; and createdDateString=not-a-date (the task editor has no created-date field; the parameter was added directly).",
+      "mode": "live",
+      "observed": "[{\"label\":\"missing name\",\"status\":200,\"shown\":true},{\"label\":\"negative estimate\",\"status\":200,\"shown\":true},{\"label\":\"invalid created date (createdDateString, not in the form)\",\"status\":200,\"shown\":true}]; tasks created: []; created-date field in the form: false. Note: The three messages match; the created-date check is reachable only through a request parameter because the editor has no such field.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "finding",
+      "finding": "B-F-11",
+      "id": "B-C-085"
+    },
+    {
+      "ref": "pm-mail-facts#138",
+      "row": 138,
+      "role": "editor (setup chain), PM log read",
+      "channel": "e-mail (application log and Mailpit)",
+      "expected": "Creating or updating a task sends \"Task was created.\" / \"Task was updated.\" to the editor and the acceptor.",
+      "source": "analysis/legacy_user_flows.xlsx row 138; .migration-tmp/stage-03/ba-scratch/pm-facts/mail-facts.txt; setup-C-059",
+      "action": "Cited, not repeated: the setup chain created and updated task 264 (setup-C-048, setup-C-053) and read Mailpit (setup-C-059); PM read the application log read-only (collected 2026-09-30T20:02:03Z) and checked the stylesheet URL inside the app namespace (mail-adaptation.txt precheck).",
+      "mode": "live (original deployment before 20:03:44Z; PM read-only log extract, cited)",
+      "observed": "Mailpit held 0 messages (setup-C-059). The log shows the task_created and task_updated templates loaded, then \"Error sending email\" with java.io.FileNotFoundException: http://localhost:8080/xplanner/css/email.css at EmailFormatterImpl.formatEmailEntry <- EmailNotificationSupport.sendNotifications <- EditTaskAction.sendNotification, followed by an empty \"Email was sent to:\" line. Inside the app namespace /xplanner/css/email.css answered 404 and /xplanner-legacy/css/email.css 200. The task saves themselves answered 302 (setup-C-048, setup-C-053).",
+      "evidence": ".migration-tmp/stage-03/ba-scratch/pm-facts/mail-facts.txt; .migration-tmp/stage-03/ba-scratch/pm-facts/mail-adaptation.txt; analysis/stages/stage-03/evidence/W001/setup/checks.json (setup-C-059)",
+      "verdict": "finding",
+      "finding": "B-F-09",
+      "id": "B-C-086"
+    },
+    {
+      "ref": "p4#10",
+      "row": 138,
+      "role": "editor, admin (mail sink)",
+      "channel": "e-mail (Mailpit API)",
+      "expected": "Creating or updating a task sends \"Task was created.\" / \"Task was updated.\" to the editor and, when the task has an acceptor, to the acceptor, with task and assignee details; after a reassignment the old-assignee value shows the new assignee.",
+      "source": "analysis/legacy_user_flows.xlsx row 138 (Live question); .migration-tmp/stage-03/ba-scratch/pm-facts/mail-adaptation.txt",
+      "action": "Mailpit baseline 12 messages (not deleted). Four task actions (M1-M4), each followed by a 4 s wait and a read of /api/v1/messages and /api/v1/message/<id>; only messages new since the previous read are attributed.",
+      "mode": "live (adapted environment: static email.css)",
+      "observed": "[{\"step\":\"M1 s3editor creates \\\"S3-B TM Mail task\\\" (acceptor s3admin; story without tracker)\",\"http\":302,\"mails\":[{\"subject\":\"Task was created.\",\"from\":\"unmapped-address\",\"to\":[\"s3admin\"],\"cc\":[],\"bcc\":[],\"excerpt\":\"Task was created. S3-B TM Mail task acceptorName: <s3admin.name> creator: <s3editor.name> S3-B TM Mail task ( http://localhost:8080/xplanner/do/view/task?oid=435 )\",\"assigned_row\":null},{\"subject\":\"Task was created.\",\"from\":\"unmapped-address\",\"to\":[\"s3editor\"],\"cc\":[],\"bcc\":[],\"excerpt\":\"Task was created. S3-B TM Mail task acceptorName: <s3admin.name> creator: <s3editor.name> S3-B TM Mail task ( http://localhost:8080/xplanner/do/view/task?oid=435 )\",\"assigned_row\":null}]},{\"step\":\"M2 s3admin updates the estimate to 2.5 (acceptor unchanged)\",\"http\":302,\"mails\":[{\"subject\":\"Task was updated.\",\"from\":\"unmapped-address\",\"to\":[\"s3admin\"],\"cc\":[],\"bcc\":[],\"excerpt\":\"Task was updated. S3-B TM Mail task acceptorName: <s3admin.name> creator: <s3admin.name> S3-B TM Mail task ( http://localhost:8080/xplanner/do/view/task?oid=435 ) Field name Original task Updated task Task name: S3-B TM Mail task S3-B TM Mail task Task description: Mail probe, part B. Mail probe, part B. Estimated hours: 2.0 2.5 Assigned to: <s3admin.name> <s3admin.name>\",\"assigned_row\":\"<s3admin.name> <s3admin.name>\"}]},{\"step\":\"M3 s3editor reassigns the acceptor from s3admin to s3sysadmin\",\"http\":302,\"mails\":[{\"subject\":\"Task was updated.\",\"from\":\"unmapped-address\",\"to\":[\"s3sysadmin\"],\"cc\":[],\"bcc\":[],\"excerpt\":\"Task was updated. S3-B TM Mail task acceptorName: <s3sysadmin.name> creator: <s3editor.name> S3-B TM Mail task ( http://localhost:8080/xplanner/do/view/task?oid=435 ) Field name Original task Updated task Task name: S3-B TM Mail task S3-B TM Mail task Task description: Mail probe, part B. Mail probe, part B. Estimated hours: 2.5 2.5 Assigned to: <s3sysadmin.name> <s3sysadmin.name>\",\"assigned_row\":\"<s3sysadmin.name> <s3sysadmin.name>\"},{\"subject\":\"Task was updated.\",\"from\":\"unmapped-address\",\"to\":[\"s3editor\"],\"cc\":[],\"bcc\":[],\"excerpt\":\"Task was updated. S3-B TM Mail task acceptorName: <s3sysadmin.name> creator: <s3editor.name> S3-B TM Mail task ( http://localhost:8080/xplanner/do/view/task?oid=435 ) Field name Original task Updated task Task name: S3-B TM Mail task S3-B TM Mail task Task description: Mail probe, part B. Mail probe, part B. Estimated hours: 2.5 2.5 Assigned to: <s3sysadmin.name> <s3sysadmin.name>\",\"assigned_row\":\"<s3sysadmin.name> <s3sysadmin.name>\"}]},{\"step\":\"M4 s3admin creates \\\"S3-B TN No acceptor\\\" in S1 (tracker s3editor), no acceptor\",\"http\":302,\"mails\":[{\"subject\":\"Task was created.\",\"from\":\"unmapped-address\",\"to\":[\"s3admin\"],\"cc\":[],\"bcc\":[],\"excerpt\":\"Task was created. S3-B TN No acceptor acceptorName: Unassigned creator: <s3admin.name> S3-B TN No acceptor ( http://localhost:8080/xplanner/do/view/task?oid=436 )\",\"assigned_row\":null}]}] Note: The mapped claim matches (created/updated mails to the saving user and the acceptor; the updated mail shows the new assignee in both \"Assigned to\" columns). The finding records unmapped details.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "finding",
+      "finding": "B-F-10",
+      "id": "B-C-087"
+    },
+    {
+      "ref": "p4#5",
+      "row": 139,
+      "role": "editor",
+      "channel": "web",
+      "expected": "An editor updates a task's fields; editor with Update/Reset; changes saved.",
+      "source": "analysis/legacy_user_flows.xlsx row 139",
+      "action": "As s3editor edited T2: name, type ATest, acceptor s3sysadmin, estimate 3.5, description.",
+      "mode": "live",
+      "observed": "Title \"XPlanner - Edit Task: S3-B T2 Test\"; buttons Update/Reset; POST 302 /xplanner-legacy/do/view/task?oid=429; task page \"Task: S3-B T2 Test (edited) Task: S3-B T2 Test (edited) [id=429] Edited by editor, part B. Acceptor: <s3sysadmin.name> Estimated Hours: 3.5 (3.5) Created: 2026-09-30 Actual Hours: 0.0 Edit Delete Move/Continue Edit Time Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-088"
+    },
+    {
+      "ref": "p4#6",
+      "row": 139,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: a direct update succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 139 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested the task editor of T3 by URL and posted an Update of the description.",
+      "mode": "live",
+      "observed": "GET -> 200, form true; POST -> 302 /xplanner-legacy/do/view/task?oid=430; description changed: true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-089"
+    },
+    {
+      "ref": "p4#7",
+      "row": 140,
+      "role": "editor",
+      "channel": "web",
+      "expected": "On the task page an editor marks an open task complete (\"Complete\" button); task completed; page reloads.",
+      "source": "analysis/legacy_user_flows.xlsx row 140; setup-C-053 (setup-F-09)",
+      "action": "As s3editor submitted the completion form on T2.",
+      "mode": "live",
+      "observed": "Button \"Complete Task\", fields oid=429,action=Update,merge=true,returnto=/do/view/task?oid=429,completed=true; POST 302 /xplanner-legacy/do/view/task?oid=429; page then offers \"Reopen Task\"; story row \" | 429 | S3-B T2 Test (edited) | ATest |  |  | S3S | 3.5 | 3.5 | 0.0 | 0.0 | Planned\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "finding",
+      "finding": "setup-F-09 (confirmed)",
+      "id": "B-C-090"
+    },
+    {
+      "ref": "p11#9",
+      "row": 140,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 140 (evidence cell, CHK-002)",
+      "action": "As s3viewer posted the completion form fields for \"S3-B T5 de Debt\" (oid, action=Update, merge=true, completed=true) to /do/edit/task.",
+      "mode": "live",
+      "observed": "POST 302 /xplanner-legacy/do/view/task?oid=433; task shows \"Reopen Task\" afterwards (completed) true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-091"
+    },
+    {
+      "ref": "p4#8",
+      "row": 141,
+      "role": "editor",
+      "channel": "web",
+      "expected": "A completed task can be reopened (\"Reopen\" button); task open again.",
+      "source": "analysis/legacy_user_flows.xlsx row 141; setup-C-054 (setup-F-09)",
+      "action": "As s3editor submitted the reopen form on the completed T2, then read the button per role.",
+      "mode": "live",
+      "observed": "Button \"Reopen Task\", fields oid=429,action=Update,merge=true,returnto=/do/view/task?oid=429,completed=false; POST 302 /xplanner-legacy/do/view/task?oid=429; page then offers \"Complete Task\"; completion button per role {\"viewer\":\"none\",\"editor\":\"Complete Task\",\"admin\":\"Complete Task\",\"sysadmin\":\"Complete Task\"}.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "finding",
+      "finding": "setup-F-09 (confirmed)",
+      "id": "B-C-092"
+    },
+    {
+      "ref": "p11#10",
+      "row": 141,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: the action performs no server-side permission check, so a direct request by a signed-in viewer succeeds.",
+      "source": "analysis/legacy_user_flows.xlsx row 141 (evidence cell, CHK-002)",
+      "action": "As s3viewer posted the same fields with completed=false.",
+      "mode": "live",
+      "observed": "POST 302 /xplanner-legacy/do/view/task?oid=433; task shows \"Complete Task\" afterwards (open) true.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p11-viewer.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p11.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-093"
+    },
+    {
+      "ref": "p5#8",
+      "row": 142,
+      "role": "editor",
+      "channel": "web",
+      "expected": "A task can be deleted after confirmation; delete link shown with delete permission; the delete cascades to the task's time entries.",
+      "source": "analysis/legacy_user_flows.xlsx row 142",
+      "action": "Read the Delete link of \"S3-B T6 Delete me\" (0.5 h recorded) per role, then followed it as s3editor (the confirm() dialog is browser-side and was not executed) and re-read the task and its story.",
+      "mode": "live",
+      "observed": "Delete link onclick per role {\"viewer\":\"none\",\"editor\":\"return confirm('Do you want to delete task \\\\'S3-B T6 Delete me\\\\'?')\",\"admin\":\"return confirm('Do you want to delete task \\\\'S3-B T6 Delete me\\\\'?')\",\"sysadmin\":\"return confirm('Do you want to delete task \\\\'S3-B T6 Delete me\\\\'?')\"}; GET delete 302 /xplanner-legacy/do/view/projects; task page afterwards 500; story actual hours before \"1.5\", after \"1.0\". Note: The delete redirect went to /do/view/projects; the deleted task page answers HTTP 500 (\"No row with ...\"). Story actual hours fell from 1.5 to 1.0, so the task's 0.5 h entry no longer counts.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-094"
+    },
+    {
+      "ref": "p5#9",
+      "row": 142,
+      "role": "viewer",
+      "channel": "web",
+      "expected": "Display-level only: DeleteObjectAction performs no server-side check; a direct request succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 142 (evidence cell, CHK-002)",
+      "action": "As s3viewer requested /do/delete/task for \"S3-B TV Viewer-created\" directly.",
+      "mode": "live",
+      "observed": "GET delete -> 302 /xplanner-legacy/do/view/userstory?oid=259; task page afterwards (editor) 500.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-095"
+    },
+    {
+      "ref": "p4#9",
+      "row": 143,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Task page: acceptor, estimated hours, created date, actual hours, description and the time log; action links by permission; export and history.",
+      "source": "analysis/legacy_user_flows.xlsx row 143; setup-C-052",
+      "action": "Opened T1 as s3editor.",
+      "mode": "live",
+      "observed": "Card \"Task: S3-B T1 Build Task: S3-B T1 Build [id=274] Task T1, part B. Acceptor: <s3admin.name> Estimated Hours: 4.0 (4.0) Created: 2026-09-30 Actual Hours: 0.0 Edit Delete Move/Continue Edit Time Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement\"; links Export/History/Edit/Delete/Move/Continue/Edit Time.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p4-tasks.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p4.json",
+      "verdict": "match",
+      "finding": null,
+      "id": "B-C-096"
+    },
+    {
+      "ref": "p5#4",
+      "row": 144,
+      "role": "editor",
+      "channel": "web",
+      "expected": "An editor moves a task to another story via the Move/Continue page; history records \"moved\".",
+      "source": "analysis/legacy_user_flows.xlsx row 144",
+      "action": "As s3editor opened Move/Continue on T3 and pressed Move with target story S3 Gamma; then opened the task history.",
+      "mode": "live",
+      "observed": "Page \"XPlanner - Move/Continue Task: S3-B T3 Move me\", fields oid=430,merge=true,fkey=259,action=Move,returnto=/do/view/userstory?oid=259,targetStoryId=253; POST 500 ; task now under \"S3-B S1 Alpha\"; history 200: [].",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "finding",
+      "finding": "B-F-05",
+      "id": "B-C-097"
+    },
+    {
+      "ref": "p5b#0",
+      "row": 144,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Diagnostic only: the error text of the 500 answers.",
+      "source": "analysis/legacy_user_flows.xlsx rows 130, 144-147",
+      "action": "Repeated the task move of T3 (page fields; and with projectId added) and the story continue of S8, reading a bounded excerpt of each error page.",
+      "mode": "live",
+      "observed": "[{\"req\":\"task move T3 -> S3 (page fields)\",\"status\":500,\"error\":\" xplanner install/upgrade the best way to get support is to first post in the Help forumThank you!The XPlanner Team [hide] Causejava.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here [hide] Stack Tracejava.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here at org.springframework.orm.hibernate3.SessionFactoryUtils.doGetSession(SessionFactoryUtils.java:350) at org.springframework.orm.hibernate3.SessionFactoryUtils.getSessio\"},{\"req\":\"task move T3 -> S3 (+projectId)\",\"status\":500,\"error\":\" xplanner install/upgrade the best way to get support is to first post in the Help forumThank you!The XPlanner Team [hide] Causejava.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here [hide] Stack Tracejava.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here at org.springframework.orm.hibernate3.SessionFactoryUtils.doGetSession(SessionFactoryUtils.java:350) at org.springframework.orm.hibernate3.SessionFactoryUtils.getSessio\",\"location\":\"\"},{\"req\":\"story continue S8 -> I2 (page fields)\",\"status\":500,\"error\":\"xplanner install/upgrade the best way to get support is to first post in the Help forumThank you!The XPlanner Team [hide] Causeorg.hibernate.HibernateException: Illegal attempt to associate a collection with two open sessions [hide] Stack Traceorg.hibernate.HibernateException: Illegal attempt to associate a collection with two open sessions at org.hibernate.collection.AbstractPersistentCollection.setCurrentSession(AbstractPersistentCollection.java:435) at org.hibernate.event.def.WrapVisitor.processCollection(WrapVisitor.java:66) at org.hibernate.event.def.AbstractVisitor.processValue(AbstractV\",\"location\":\"\"}] Note: Diagnostic; the same record holds the story-continue cause for B-F-04.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5b-errors.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5b.json",
+      "verdict": "finding",
+      "finding": "B-F-05",
+      "id": "B-C-098"
+    },
+    {
+      "ref": "p12#0",
+      "row": 144,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Move/Continue page with a target story select.",
+      "source": "analysis/legacy_user_flows.xlsx row 144",
+      "action": "Opened Move/Continue on \"S3-B T2 Test (edited)\" as s3editor (GET only) and read the target story options.",
+      "mode": "live",
+      "observed": "Title \"XPlanner - Move/Continue Task: S3-B T2 Test (edited)\"; 14 options from projects [\"S3 Shared\",\"S3-A Access\",\"S3-B Planning\",\"S3-C Time\",\"S3-D Integrations\"]; first options [\"253:S3 Shared :: S3-setup Iteration 1 :: S3-setup Story 1\",\"257:S3-A Access :: S3-A Iteration 1 (viewer edit) :: S3-A Story 1\",\"260:S3-B Planning :: S3-B I1 Current :: S3-B S2 Beta (edited)\",\"261:S3-B Planning :: S3-B I1 Current :: S3-B S3 Gamma\"]; buttons Move/Continue.",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p12-targets.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p12.json",
+      "verdict": "finding",
+      "finding": "B-F-12",
+      "id": "B-C-099"
+    },
+    {
+      "ref": "p5#7",
+      "row": 145,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Continue copies the unfinished task into the target story with cross-referenced descriptions: new task \"Continued from task:<id>\".",
+      "source": "analysis/legacy_user_flows.xlsx row 145",
+      "action": "As s3editor pressed Continue on T1 (4.0 h estimate, 1.0 h recorded) with target story S2 Beta.",
+      "mode": "live",
+      "observed": "POST 500 ; T1-named tasks in S2 {}; original after \"[id=274] Task T1, part B. Acceptor: <s3admin.name> Estimated Hours: 5.0 (4.0) Created: 2026-09-30 Actual Hours: 1.0 Edit Delete Move/Continue Edit Time Time Log: Start Time End Time Reported Date Dur. Pair Description 2026-09-30 1.0 <s3editor.name> Part B time entry Notes\"; new task \"\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "finding",
+      "finding": "B-F-05",
+      "id": "B-C-100"
+    },
+    {
+      "ref": "p5#5",
+      "row": 146,
+      "role": "editor",
+      "channel": "web",
+      "expected": "Moving or continuing a task into the same story is rejected with message task.editor.same_story.",
+      "source": "analysis/legacy_user_flows.xlsx row 146",
+      "action": "Submitted the Move/Continue page of T1 with target = its own story S1 Alpha (Move).",
+      "mode": "live",
+      "observed": "POST 500 ; error elements [\"Version: 1.1a4\",\"Build Date: 04/12/2011\",\"Build Revision: 426\",\"Build Package: War\"]; text around errors \"\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "finding",
+      "finding": "B-F-05",
+      "id": "B-C-101"
+    },
+    {
+      "ref": "p5#6",
+      "row": 147,
+      "role": "editor",
+      "channel": "web",
+      "expected": "A move/continue task request without merge=true and without a name is rejected with \"Missing task name.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 147",
+      "action": "Posted /do/move/continue/task for T1 with target S2, action=Move, no merge and no name.",
+      "mode": "live",
+      "observed": "POST 500 ; \"Missing task name.\" shown: false; task story afterwards \"S3-B S1 Alpha\".",
+      "evidence": "analysis/stages/stage-03/evidence/W001/B/traces/p5-move.trace.json; analysis/stages/stage-03/evidence/W001/B/traces/results-p5.json",
+      "verdict": "finding",
+      "finding": "B-F-05",
+      "id": "B-C-102"
+    }
+  ],
+  "findings": [
+    {
+      "id": "B-F-01",
+      "rows": [
+        89
+      ],
+      "cells": [
+        "D89",
+        "F89"
+      ],
+      "severity": "medium",
+      "observed": "The iteration editor parses dates leniently. Accepted and stored: end \"2026-99-99x\" as 2034-06-07; start \"2026-99-99\" as 2034-06-07; end \"2026-11-31\" as 2026-12-01; start \"2026-11-09abc\" as 2026-11-09. Only text that does not begin with a date (\"not-a-date\") is rejected (\"Start date is invalid.\" / \"End date is invalid.\"). Missing name and non-positive intervals are rejected as mapped. Checks: B-C-023, B-C-024.",
+      "expected": "Unparsable dates are rejected with \"Start date is invalid.\" / \"End date is invalid.\"",
+      "minimal_correction": "Row 89, columns D and F: state that dates are parsed leniently (out-of-range month/day values roll over, trailing characters after a valid yyyy-MM-dd prefix are ignored); only input that does not start with a date gets the invalid-date message."
+    },
+    {
+      "id": "B-F-02",
+      "rows": [
+        83
+      ],
+      "cells": [
+        "D83",
+        "F83"
+      ],
+      "severity": "low",
+      "observed": "The default order follows the 5th rendered column, descending, and is applied to the current page only. Users who see the Actions column (s3editor, s3admin, s3sysadmin) get End Date descending; s3viewer (no Actions column) gets Days Wrk. descending. With 11 iterations, page 1 showed P10..P01 and page 2 P11, so the newest iteration was on page 2. Checks: B-C-013, B-C-014, B-C-015.",
+      "expected": "Iteration table sorted newest first by default, paged 10 per page.",
+      "minimal_correction": "Row 83, columns D and F: \"paged 10 per page; the default order is the 5th rendered column descending within the page: End Date for users who see the Actions column, Days Worked for viewers\"."
+    },
+    {
+      "id": "B-F-03",
+      "rows": [
+        106
+      ],
+      "cells": [
+        "D106",
+        "F106"
+      ],
+      "severity": "low",
+      "observed": "All Tasks is sorted by its 7th column by default (for s3viewer: Ori. ascending), so tasks of one story are interleaved with other stories; the story cell is blank only when the preceding row has the same story. The columns and the legend (\"Started, Completed, Not assigned, Not estimated\") match. Checks: B-C-050.",
+      "expected": "Tasks grouped by story.",
+      "minimal_correction": "Row 106, columns D and F: replace \"grouped by story\" with \"sorted by the 7th column by default (original estimate for viewers); the story name is omitted for consecutive rows of the same story\"."
+    },
+    {
+      "id": "B-F-04",
+      "rows": [
+        130,
+        102
+      ],
+      "cells": [
+        "D130",
+        "F130",
+        "G130",
+        "D102",
+        "F102",
+        "G102"
+      ],
+      "severity": "high",
+      "observed": "Continue fails in the running baseline. The story Move/Continue page with Continue (as a browser posts it) and the Continue Unfinished Stories form (reached with projectId added) both answer HTTP 500 with org.hibernate.HibernateException \"Illegal attempt to associate a collection with two open sessions\"; no continuation story is created and the original stories stay unchanged. Story Move works. Checks: B-C-046, B-C-078.",
+      "expected": "Continue creates a continuation of unfinished stories in the target iteration with cross-referenced descriptions.",
+      "minimal_correction": "Rows 130 and 102: keep the source claim, and add that in the running baseline Continue answers HTTP 500 (HibernateException, two open sessions) and continues nothing; mark the runtime behavior as failing (column G stays source-based, with a runtime note)."
+    },
+    {
+      "id": "B-F-05",
+      "rows": [
+        144,
+        145,
+        146,
+        147
+      ],
+      "cells": [
+        "D144",
+        "F144",
+        "F145",
+        "F146",
+        "F147",
+        "G144",
+        "G145",
+        "G146",
+        "G147"
+      ],
+      "severity": "high",
+      "observed": "Every POST to /do/move/continue/task answers HTTP 500 with java.lang.IllegalStateException \"No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here\": Move (T3 to another story, with and without projectId), Continue (T1), same-story Move and the direct request without merge and name. The task stays in its story, no history row is written, and neither \"Missing task name.\" nor the same-story message is shown. The GET page renders (title \"Move/Continue Task\"). Static note: the key task.editor.same_story has no text in the default bundle. Checks: B-C-097, B-C-098, B-C-100, B-C-101, B-C-102.",
+      "expected": "Move and continue a task; same-story and missing-name requests rejected with messages.",
+      "minimal_correction": "Rows 144-147: add that in the running baseline every move/continue task submission answers HTTP 500 (no Hibernate session bound) before validation, so nothing is moved or continued and no message is shown; row 146 also: task.editor.same_story has no default-bundle text."
+    },
+    {
+      "id": "B-F-06",
+      "rows": [
+        101,
+        102
+      ],
+      "cells": [
+        "F101",
+        "F102"
+      ],
+      "severity": "medium",
+      "observed": "After Close the redirect Location is \"/do/continue/unfinished/stories?iterationId=<id>&/do/view/iteration?oid=<id>?oid=<id>&fkey=<id>\" (no projectId). The page it leads to shows \"No Future Iteration Available.\" although S3-B Planning has later iterations; the same URL with projectId=222 added shows the target select (5 later iterations of the project) with Ok/Cancel. So through the UI the user cannot choose a target after closing. Checks: B-C-044, B-C-045.",
+      "expected": "Redirect to the continue page, where the user selects a future iteration.",
+      "minimal_correction": "Rows 101-102, column F: \"after Close the continue page shows No Future Iteration Available. regardless of later iterations, because the redirect carries no projectId; the target select appears only when projectId is in the URL\"."
+    },
+    {
+      "id": "B-F-07",
+      "rows": [
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "cells": [
+        "F115",
+        "F116",
+        "F117",
+        "F118",
+        "F119",
+        "G115"
+      ],
+      "severity": "high",
+      "observed": "Every Import Stories submission (multipart, as the served form posts it) answers HTTP 500 with java.lang.NullPointerException at org.hibernate.impl.SessionImpl.get <- net.sf.xplanner.dao.impl.CommonDao.getById <- com.technoetic.xplanner.actions.EditObjectAction.update...: valid synthetic files, missing worksheet name/headers/completed status, no file, missing worksheet, missing header, missing field and a corrupt file alike; also with fkey/projectId/oid in the URL. No story is imported, no message is shown and no settings cookie is set. The files were synthetic BIFF8 workbooks built from the WAR template; the failure occurs even without a file. Checks: B-C-059, B-C-060, B-C-061, B-C-062, B-C-063, B-C-064.",
+      "expected": "Imported <n> stories; validation and import-error messages; settings cookies.",
+      "minimal_correction": "Rows 115-119: add that in the running baseline every import submission answers HTTP 500 (NullPointerException in CommonDao.getById via EditObjectAction) before any validation or file reading, so no story is imported and no cookie is written."
+    },
+    {
+      "id": "B-F-08",
+      "rows": [
+        124
+      ],
+      "cells": [
+        "D124",
+        "F124"
+      ],
+      "severity": "low",
+      "observed": "The target parameter is targetIterationId. A merge=true request to /do/edit/userstory without fkey/projectId answers HTTP 500; with them but without targetIterationId (even with iterationId set to another iteration) it is rejected with \"Cannot move or continue story in same iteration.\"; with targetIterationId = current it is rejected the same way; with a different targetIterationId it answers 302, skips validation and binds priority 9, estimate -5.0 and the description, while the story stays in its iteration. Checks: B-C-069, B-C-070.",
+      "expected": "Rejected only when the target equals the current iteration; otherwise bound without validation.",
+      "minimal_correction": "Row 124, columns D and F: name the parameter targetIterationId; a missing target counts as the same iteration; the request needs fkey (else HTTP 500); the bound story is not moved; a negative estimate is stored."
+    },
+    {
+      "id": "B-F-09",
+      "rows": [
+        138
+      ],
+      "cells": [
+        "F138",
+        "H138"
+      ],
+      "severity": "medium",
+      "observed": "Original deployment (context /xplanner-legacy, application URL http://localhost:8080/xplanner): each task notification fails while fetching the stylesheet http://localhost:8080/xplanner/css/email.css (FileNotFoundException, logged as \"Error sending email\"); no mail reaches the sink, while the task create/update itself succeeds (302). Checks: B-C-086.",
+      "expected": "Created/updated mails are delivered.",
+      "minimal_correction": "Row 138, columns F and H: state that sending depends on fetching xplanner.application.url + /css/email.css (link recon Data And Integrations, row 202, GAP-008); when the fetch fails no mail is sent, the error is logged and the task change is still saved."
+    },
+    {
+      "id": "B-F-10",
+      "rows": [
+        138
+      ],
+      "cells": [
+        "F138"
+      ],
+      "severity": "low",
+      "observed": "Adapted environment (static email.css): one mail per recipient, subject \"Task was created.\" / \"Task was updated.\". Recipients are the user who saves and the current acceptor (one mail only when they are the same person); the story tracker and the previous acceptor get nothing (reassignment s3admin -> s3sysadmin by s3editor: mails to s3sysadmin and s3editor). Without an acceptor only the saving user gets mail (\"acceptorName: Unassigned\"). The body header \"creator:\" shows the saving user, also on updates; the task link uses http://localhost:8080/xplanner/do/view/task?oid=<id>; \"Assigned to\" shows the new assignee in both columns after a reassignment (as mapped). The sender address is not a role account. Checks: B-C-087.",
+      "expected": "Mail to the editor and the acceptor; old-assignee value equals the new assignee.",
+      "minimal_correction": "Row 138, column F: add that the previous acceptor and the tracker are not notified, the \"creator\" line shows the saving user, and the task link is built from xplanner.application.url."
+    },
+    {
+      "id": "B-F-11",
+      "rows": [
+        137
+      ],
+      "cells": [
+        "D137",
+        "F137"
+      ],
+      "severity": "low",
+      "observed": "The Define/Edit Task form has no created-date field. \"Created date is invalid.\" appears only when the request parameter createdDateString is added directly; missing name and negative estimate are rejected as mapped. Checks: B-C-085.",
+      "expected": "An invalid created date entered by the user is rejected.",
+      "minimal_correction": "Row 137, columns D and F: note that the task editor has no created-date field; the created-date check applies only to a direct createdDateString parameter."
+    },
+    {
+      "id": "B-F-12",
+      "rows": [
+        97,
+        144
+      ],
+      "cells": [
+        "F97",
+        "F144"
+      ],
+      "severity": "low",
+      "observed": "The Move Stories target select lists iterations of every project the user can see (14 options across S3 Shared, S3-A, S3-B, S3-C and S3-D for s3editor, who has a role on each; default selection an iteration of S3 Shared). The Move/Continue Task page likewise lists stories of all these projects. Whether a user without a role on a project also sees its iterations was not tested. Checks: B-C-036, B-C-099.",
+      "expected": "Move page with a target iteration select.",
+      "minimal_correction": "Rows 97 and 144, column F: state that the target list spans all projects (iterations resp. stories of other projects), with the first option pre-selected."
+    }
+  ],
+  "not_checked": [
+    {
+      "row": 76,
+      "reason": "Visibility of hidden projects for users without hide permission: the role accounts have no role on the S3-B probe project and the shared projects must not be hidden.",
+      "retry_condition": "PM grants a role account a role on an S3-B project that may be hidden"
+    },
+    {
+      "row": 80,
+      "reason": "Whether a default-equal option is stored as an attribute row is visible only in the database.",
+      "retry_condition": "PM database read of table attribute for an S3-B project"
+    },
+    {
+      "row": 82,
+      "reason": "Time-entry cascade and orphan notes/attachments/history/person-role rows: time was not saved (iteration not started) and note creation answers HTTP 500 in this deployment; database rows are not visible.",
+      "retry_condition": "Part C note behavior known and a PM database read after a repeated delete"
+    },
+    {
+      "row": 91,
+      "reason": "Time-entry cascade and orphan notes/history (same reasons as row 82).",
+      "retry_condition": "Same as row 82"
+    },
+    {
+      "row": 94,
+      "reason": "Image progress-bar implementation needs a global configuration change (xplanner.progressbar.impl), which parts must not make.",
+      "retry_condition": "Owner/PM decides a configuration variant"
+    },
+    {
+      "row": 101,
+      "reason": "The data sample taken at close is not visible in the UI (charts of a closed iteration were not read).",
+      "retry_condition": "Read the charts of a closed S3-B iteration or a PM database read of data samples"
+    },
+    {
+      "row": 112,
+      "reason": "The manual sampling action /do/edit/dataSample is a test utility with global effect; the unscheduled nightly trigger cannot be observed.",
+      "retry_condition": "PM authorizes the manual sampling action"
+    },
+    {
+      "row": 114,
+      "reason": "Card rendering and dragging need JavaScript; a browser session would require typing a password into the browser, which is forbidden.",
+      "retry_condition": "PM provides a signed-in browser session without typing a password, or an owner decision"
+    },
+    {
+      "row": 119,
+      "reason": "Blocked by B-F-07: no import completes, so the cookies are never written.",
+      "retry_condition": "None in this baseline (legacy failure); re-check only if the deployment changes"
+    },
+    {
+      "row": 126,
+      "reason": "Time-entry cascade and orphan notes/history (time not saved because the iteration was closed; note creation HTTP 500).",
+      "retry_condition": "Same as row 82"
+    },
+    {
+      "row": 146,
+      "reason": "The same-story message text was not reached (B-F-05); its key has no default-bundle text (static).",
+      "retry_condition": "None in this baseline (legacy failure)"
+    }
+  ]
+}

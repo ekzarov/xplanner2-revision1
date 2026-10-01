@@ -1,0 +1,164 @@
+{
+  "started_at": "2026-09-30T19:47:29.403Z",
+  "steps": [
+    {
+      "at": "2026-09-30T19:47:30.339Z",
+      "step": "sign-in",
+      "post_status": 302
+    },
+    {
+      "at": "2026-09-30T19:47:31.354Z",
+      "step": "complete-task",
+      "button": "Complete Task",
+      "post_status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=264",
+      "final": "/xplanner-legacy/do/view/task?oid=264",
+      "after_button": "Reopen Task",
+      "after_completed_field": "false",
+      "text": "Top S3 Shared S3-setup Iteration 1 S3-setup Story 1 S3-setup Task 1 Export History Task: S3-setup Task 1 Task: S3-setup Task 1 [id=264] Synthetic task for the W001 setup chain. Acceptor: <editor.name> Estimated Hours: 2.0 (2.0) Created: 2026-09-30 Actual Hours: 0.0 Edit Delete Move/Continue Edit Time Notes: Add Note/Attachment switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. "
+    },
+    {
+      "at": "2026-09-30T19:47:32.062Z",
+      "step": "time-editor",
+      "href": "/xplanner-legacy/do/edit/time?fkey=253&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D264&oid=264&projectId=220",
+      "status": 200,
+      "title": "XPlanner - Edit Task Time: S3-setup Task 1",
+      "text": "Top S3 Shared S3-setup Iteration 1 S3-setup Story 1 S3-setup Task 1 Edit Task Time: Start Time End Time Reported Date Dur. Left to do Person 1 Person 2 Description ?? <admin.name> <editor.name> <sysadmin.name> [factory-user] ?? <admin.name> <editor.name> <sysadmin.name> [factory-user] Time Format: YYYY-MM-DD HH:MM switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null",
+      "forms": [
+        {
+          "index": 1,
+          "name": "timelog",
+          "action": "/xplanner-legacy/do/edit/time",
+          "method": "post",
+          "fields": [
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "oid",
+              "value": "264"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "returnto",
+              "value": "/do/view/task?oid=264"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "fkey",
+              "value": "253"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "taskId",
+              "value": "253"
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "startTime[0]",
+              "value": ""
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "endTime[0]",
+              "value": ""
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "reportDate[0]",
+              "value": "2026-09-30"
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "duration[0]",
+              "value": ""
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "remainingHours",
+              "value": "0.0"
+            },
+            {
+              "tag": "select",
+              "name": "person1Id[0]",
+              "options": [
+                "0=??",
+                "211=<admin.name>",
+                "210*=<editor.name>",
+                "212=<sysadmin.name>",
+                "1=[factory-user]"
+              ]
+            },
+            {
+              "tag": "select",
+              "name": "person2Id[0]",
+              "options": [
+                "0=??",
+                "211=<admin.name>",
+                "210=<editor.name>",
+                "212=<sysadmin.name>",
+                "1=[factory-user]"
+              ]
+            },
+            {
+              "tag": "input",
+              "type": "text",
+              "name": "description[0]",
+              "value": ""
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "entryId[0]",
+              "value": "0"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "emptyRow[0]",
+              "value": "true"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "action",
+              "value": "UPDATE_TIME"
+            },
+            {
+              "tag": "input",
+              "type": "submit",
+              "name": "submit",
+              "value": "Update"
+            },
+            {
+              "tag": "input",
+              "type": "button",
+              "name": "reset",
+              "value": "Reset"
+            },
+            {
+              "tag": "input",
+              "type": "button",
+              "name": "action",
+              "value": "Insert Time"
+            },
+            {
+              "tag": "input",
+              "type": "hidden",
+              "name": "rowcount",
+              "value": "1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "finished_at": "2026-09-30T19:47:32.345Z"
+}

@@ -1,0 +1,120 @@
+{
+  "started_at": "2026-09-30T20:27:03.478Z",
+  "steps": [
+    {
+      "step": "note-editor",
+      "link": {
+        "text": "Add N ote/Attachment",
+        "href": "/xplanner-legacy/do/edit/note?fkey=265&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D265&projectId=223&attachedToId=265"
+      },
+      "status": 200,
+      "enctype": "multipart/form-data",
+      "fields": [
+        "hidden:id=0",
+        "hidden:returnto=/do/view/task?oid=265",
+        "hidden:projectId=223",
+        "hidden:attachedToId=265",
+        "text:subject=",
+        "hidden:authorId=210",
+        "textarea:body=",
+        "file:formFile=",
+        "hidden:action=Create",
+        "submit:null=Create",
+        "reset:reset=Reset"
+      ]
+    },
+    {
+      "step": "r170-no-subject",
+      "status": 500,
+      "location": null,
+      "messages": [],
+      "cause": "java.lang.AbstractMethodError: Method org/apache/struts/upload/MultipartRequestWrapper.getServletContext()Ljavax/servlet/ServletContext; is abstract ",
+      "frames": "at net.sf.xplanner.struts.XPlannerActionServlet.service(XPlannerActionServlet.java:28) | at com.technoetic.xplanner.filters.RequestCharacterEncodingFilter.doFilter(RequestCharacterEncodingFilter.java:38) | at com.technoetic.xplanner.security.filter.AbstractSecurityFilter.doFilter(AbstractSecurityFilter.java:52) | at com.technoetic.xplanner.db.hibernate.HibernateSessionFilter.doFilter(HibernateSessionFilter.java:45) | at com.technoetic.xplanner.filters.ServletRequestFilter.doFilter(ServletRequestFilter.java:36) | at com.technoetic.xplanner.filters.ActivityLogFilter.doFilter(ActivityLogFilter.java:37) | at java.lang.Thread.run(Thread.java:750) System Environment [hide] Build Version : 1.1a4 Build Date : 04/12/2011 Build Revision : 426 Build Package : War [hide] Database Dialect : com.technoetic.xplanner.db.hibernate.XPlannerMySQLDialect Driver : com.mysql.jdbc.Driver Driver Version : mysql [...]",
+      "caused_by": []
+    },
+    {
+      "step": "r170-no-author",
+      "status": 500,
+      "location": null,
+      "messages": [],
+      "cause": "java.lang.AbstractMethodError: Method org/apache/struts/upload/MultipartRequestWrapper.getServletContext()Ljavax/servlet/ServletContext; is abstract ",
+      "frames": "at net.sf.xplanner.struts.XPlannerActionServlet.service(XPlannerActionServlet.java:28) | at com.technoetic.xplanner.filters.RequestCharacterEncodingFilter.doFilter(RequestCharacterEncodingFilter.java:38) | at com.technoetic.xplanner.security.filter.AbstractSecurityFilter.doFilter(AbstractSecurityFilter.java:52) | at com.technoetic.xplanner.db.hibernate.HibernateSessionFilter.doFilter(HibernateSessionFilter.java:45) | at com.technoetic.xplanner.filters.ServletRequestFilter.doFilter(ServletRequestFilter.java:36) | at com.technoetic.xplanner.filters.ActivityLogFilter.doFilter(ActivityLogFilter.java:37) | at java.lang.Thread.run(Thread.java:750) System Environment [hide] Build Version : 1.1a4 Build Date : 04/12/2011 Build Revision : 426 Build Package : War [hide] Database Dialect : com.technoetic.xplanner.db.hibernate.XPlannerMySQLDialect Driver : com.mysql.jdbc.Driver Driver Version : mysql [...]",
+      "caused_by": []
+    },
+    {
+      "step": "r170-no-body-no-file",
+      "status": 500,
+      "location": null,
+      "messages": [],
+      "cause": "java.lang.AbstractMethodError: Method org/apache/struts/upload/MultipartRequestWrapper.getServletContext()Ljavax/servlet/ServletContext; is abstract ",
+      "frames": "at net.sf.xplanner.struts.XPlannerActionServlet.service(XPlannerActionServlet.java:28) | at com.technoetic.xplanner.filters.RequestCharacterEncodingFilter.doFilter(RequestCharacterEncodingFilter.java:38) | at com.technoetic.xplanner.security.filter.AbstractSecurityFilter.doFilter(AbstractSecurityFilter.java:52) | at com.technoetic.xplanner.db.hibernate.HibernateSessionFilter.doFilter(HibernateSessionFilter.java:45) | at com.technoetic.xplanner.filters.ServletRequestFilter.doFilter(ServletRequestFilter.java:36) | at com.technoetic.xplanner.filters.ActivityLogFilter.doFilter(ActivityLogFilter.java:37) | at java.lang.Thread.run(Thread.java:750) System Environment [hide] Build Version : 1.1a4 Build Date : 04/12/2011 Build Revision : 426 Build Package : War [hide] Database Dialect : com.technoetic.xplanner.db.hibernate.XPlannerMySQLDialect Driver : com.mysql.jdbc.Driver Driver Version : mysql [...]",
+      "caused_by": []
+    },
+    {
+      "step": "r169-create-with-file",
+      "file": {
+        "name": "s3c-note1.txt",
+        "bytes": 49,
+        "sha256": "44981e0758566f7ef86419892ba26991d922be14682d11e0c7325d6dbfe79c6e"
+      },
+      "status": 500,
+      "location": null,
+      "messages": [],
+      "cause": "org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update ",
+      "frames": "org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update | at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66) | at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate.execute(CheckedExceptionHandlingTransactionTemplate.java:28) | at com.technoetic.xplanner.actions.AbstractAction.execute(AbstractAction.java:80) | at net.sf.xplanner.struts.XPlannerActionServlet.service(XPlannerActionServlet.java:28) | at com.technoetic.xplanner.filters.RequestCharacterEncodingFilter.doFilter(RequestCharacterEncodingFilter.java:38) | at com.technoetic.xplanner.security.filter.AbstractSecurityFilter.doFilter(AbstractSecurityFilter.java:52) | at com.technoetic.xplanner.db.hibernate.HibernateSessionFilter.doFilter(HibernateSessionFilter.java:45)",
+      "caused_by": [
+        "java.sql.BatchUpdateException: Cannot add or update a child row: a foreign key constraint fails (`xplanner`.`note`, CONSTRAINT `noteAttachments` FOREIGN KEY (`attachment_id`) REFERENCES `xfile` (`id`) ON DELETE NO ACTION"
+      ]
+    },
+    {
+      "step": "r170-no-body-with-file",
+      "file": {
+        "name": "s3c-note2.txt",
+        "bytes": 31
+      },
+      "status": 500,
+      "location": null,
+      "messages": [],
+      "cause": "org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update ",
+      "frames": "org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update | at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66) | at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate.execute(CheckedExceptionHandlingTransactionTemplate.java:28) | at com.technoetic.xplanner.actions.AbstractAction.execute(AbstractAction.java:80) | at net.sf.xplanner.struts.XPlannerActionServlet.service(XPlannerActionServlet.java:28) | at com.technoetic.xplanner.filters.RequestCharacterEncodingFilter.doFilter(RequestCharacterEncodingFilter.java:38) | at com.technoetic.xplanner.security.filter.AbstractSecurityFilter.doFilter(AbstractSecurityFilter.java:52) | at com.technoetic.xplanner.db.hibernate.HibernateSessionFilter.doFilter(HibernateSessionFilter.java:45)",
+      "caused_by": [
+        "java.sql.BatchUpdateException: Cannot add or update a child row: a foreign key constraint fails (`xplanner`.`note`, CONSTRAINT `noteAttachments` FOREIGN KEY (`attachment_id`) REFERENCES `xfile` (`id`) ON DELETE NO ACTION"
+      ]
+    },
+    {
+      "step": "task-notes-editor",
+      "notes": []
+    },
+    {
+      "step": "r169-viewer-controls",
+      "add_note_link": false,
+      "note_edit_links": 0,
+      "note_delete_links": 0,
+      "notes_visible": 0
+    },
+    {
+      "step": "r169-viewer-editor-by-url",
+      "status": 200,
+      "form_present": true
+    },
+    {
+      "step": "r169-viewer-direct-create",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=265",
+      "messages": []
+    },
+    {
+      "step": "r169-viewer-direct-result",
+      "listed": true,
+      "text": "Subject: S3-C viewer direct note Author: <viewer.name> Date: Created by a direct request of the viewer account.",
+      "note_id": 499
+    },
+    {
+      "step": "r174-viewer-direct-delete",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=265",
+      "still_listed": true
+    }
+  ],
+  "finished_at": "2026-09-30T20:27:09.942Z"
+}

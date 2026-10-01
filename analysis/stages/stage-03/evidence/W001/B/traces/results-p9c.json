@@ -1,0 +1,36 @@
+{
+  "phase": "p9c",
+  "started_at": "2026-09-30T20:39:07.082Z",
+  "finished_at": "2026-09-30T20:39:13.811Z",
+  "trace": "p9-delete-project.trace.json",
+  "checks": [
+    {
+      "phase": "p9c",
+      "at": "2026-09-30T20:39:12.262Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 82,
+      "role": "sysadmin",
+      "expected": "A sysadmin deletes a project after the confirm \"Do you want to delete project '<name>'?\"; the delete cascades to iterations, stories, tasks and time entries; notes, attachments, history and person-role rows are not deleted.",
+      "source": "analysis/legacy_user_flows.xlsx row 82",
+      "action": "Gave \"S3-B 0 Probe\" (11 iterations) a story S11, task T10 (0.5 h) and a project note; followed its delete link in the projects list as s3sysadmin (confirm() not executed); re-read the pages and searched all projects for the note word.",
+      "observed": "Setup: time POST 200, note {\"status\":500,\"shown\":false}; delete link onclick \"return confirm('Do you want to delete project \\'S3-B 0 Probe\\'?')\"; GET delete 302 /xplanner-legacy/do/view/projects; afterwards {\"project\":500,\"iteration\":500,\"story\":500,\"task\":500,\"listed\":false}; search {\"status\":200,\"hit\":true,\"excerpt\":\"\"}.",
+      "evidence": "p9-delete-project.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p9c",
+      "at": "2026-09-30T20:39:13.112Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 82,
+      "role": "viewer",
+      "expected": "Display-level only: a direct delete request succeeds for any signed-in user.",
+      "source": "analysis/legacy_user_flows.xlsx row 82 (evidence cell, CHK-002)",
+      "action": "As s3sysadmin created the empty project \"S3-B V Delete probe\"; as s3viewer (no role on it) requested /do/delete/project for it directly.",
+      "observed": "Project id 226; viewer GET delete 302 /xplanner-legacy/do/view/projects; still listed for s3sysadmin afterwards false.",
+      "evidence": "p9-delete-project.trace.json",
+      "verdict": "pending"
+    }
+  ]
+}

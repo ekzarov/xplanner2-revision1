@@ -1,0 +1,408 @@
+{
+  "started_at": "2026-09-30T20:14:36.831Z",
+  "cases": [
+    {
+      "key": "en",
+      "accept_language": "en-US,en;q=0.9",
+      "task": 265,
+      "steps": [
+        {
+          "step": "sign-in",
+          "ok": true,
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/projects"
+        },
+        {
+          "step": "task-page",
+          "status": 200,
+          "edit_time_link": {
+            "text": "Edit Time",
+            "href": "/xplanner-legacy/do/edit/time?fkey=254&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D265&oid=265&projectId=223"
+          },
+          "created_date_display": "Created: 2026-09-30"
+        },
+        {
+          "step": "editor-empty",
+          "status": 200,
+          "server_date": "Wed, 30 Sep 2026 20:14:38 GMT",
+          "form_found": true,
+          "rowcount": 1,
+          "remainingHours": "4.0",
+          "rows": [
+            {
+              "startTime": "",
+              "endTime": "",
+              "reportDate": "2026-09-30",
+              "duration": "",
+              "person1Id": "210",
+              "entryId": "0",
+              "description": ""
+            }
+          ],
+          "insert_time_pattern": [
+            "yyyy-MM-dd HH:mm",
+            "yyyy-MM-dd HH:mm"
+          ],
+          "insert_time_label": "Insert Time",
+          "update_label": "Update",
+          "time_format_hint": "Time Format: YYYY-MM-DD HH:MM ",
+          "errors": [],
+          "text_excerpt": "XPlanner - Edit Task Time: S3-C Task EN user <editor.userId> M e Logout T op S3-C Time S3-C Iteration 1 S3-C Story 1 S3-C Task EN Edit Task Time: Start Time End Time Reported Date Dur. Left to do Person 1 Person 2 Description ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin Time Format: YYYY-MM-DD HH:MM switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null"
+        },
+        {
+          "step": "save-new",
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/task?oid=265",
+          "typed": {
+            "start": "2026-09-30 08:00",
+            "end": "2026-09-30 09:30",
+            "report_date": "2026-09-30",
+            "remaining": "2.5"
+          }
+        },
+        {
+          "step": "task-after-save",
+          "status": 200,
+          "timelog": [
+            [
+              "Start Time",
+              "End Time",
+              "Reported Date",
+              "Dur.",
+              "Pair",
+              "Description"
+            ],
+            [
+              "2026-09-30 08:00",
+              "2026-09-30 09:30",
+              "2026-09-30",
+              "1.5",
+              "<editor.name>",
+              "S3-C F-003 en entry"
+            ]
+          ],
+          "task_info": "id=265] Part C task taskEN (synthetic). Acceptor: <editor.name> Estimated Hours: 4.0 (4.0) Created: 2026-09-30 Actual Hours: 1.5 E dit D elete M ove/Continue Edit Time Time Log: Start Time End Time Reported Date Dur. Pair Description 2026-09-30 08:00 2026-09-30 09:30 2026-09-30 1.5 S"
+        },
+        {
+          "step": "editor-existing",
+          "status": 200,
+          "form_found": true,
+          "rowcount": 2,
+          "remainingHours": "2.5",
+          "rows": [
+            {
+              "startTime": "2026-09-30 08:00",
+              "endTime": "2026-09-30 09:30",
+              "reportDate": "2026-09-30",
+              "duration": "1.5",
+              "person1Id": "210",
+              "entryId": "277",
+              "description": "S3-C F-003 en entry"
+            },
+            {
+              "startTime": "",
+              "endTime": "",
+              "reportDate": "2026-09-30",
+              "duration": "",
+              "person1Id": "210",
+              "entryId": "0",
+              "description": ""
+            }
+          ],
+          "insert_time_pattern": [
+            "yyyy-MM-dd HH:mm",
+            "yyyy-MM-dd HH:mm"
+          ],
+          "insert_time_label": "Insert Time",
+          "update_label": "Update",
+          "time_format_hint": "Time Format: YYYY-MM-DD HH:MM ",
+          "errors": [],
+          "text_excerpt": "XPlanner - Edit Task Time: S3-C Task EN user <editor.userId> M e Logout T op S3-C Time S3-C Iteration 1 S3-C Story 1 S3-C Task EN Edit Task Time: Start Time End Time Reported Date Dur. Left to do Person 1 Person 2 Description 1.5 ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin Time Format: YYYY-MM-DD HH:MM switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null"
+        },
+        {
+          "step": "resave-unchanged",
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/task?oid=265"
+        },
+        {
+          "step": "task-after-resave",
+          "status": 200,
+          "timelog": [
+            [
+              "Start Time",
+              "End Time",
+              "Reported Date",
+              "Dur.",
+              "Pair",
+              "Description"
+            ],
+            [
+              "2026-09-30 08:00",
+              "2026-09-30 09:30",
+              "2026-09-30",
+              "1.5",
+              "<editor.name>",
+              "S3-C F-003 en entry"
+            ]
+          ],
+          "task_info": "id=265] Part C task taskEN (synthetic). Acceptor: <editor.name> Estimated Hours: 4.0 (4.0) Created: 2026-09-30 Actual Hours: 1.5 E dit D elete M ove/Continue Edit Time Time Log: Start Time End Time Reported Date Dur. Pair Description 2026-09-30 08:00 2026-09-30 09:30 2026-09-30 1.5 S"
+        }
+      ]
+    },
+    {
+      "key": "de",
+      "accept_language": "de-DE,de;q=0.9",
+      "task": 266,
+      "steps": [
+        {
+          "step": "sign-in",
+          "ok": true,
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/projects"
+        },
+        {
+          "step": "task-page",
+          "status": 200,
+          "edit_time_link": {
+            "text": "Zeit bearbeiten",
+            "href": "/xplanner-legacy/do/edit/time?fkey=254&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D266&oid=266&projectId=223"
+          },
+          "created_date_display": "Erstellt: 2026-09-30"
+        },
+        {
+          "step": "editor-empty",
+          "status": 200,
+          "server_date": "Wed, 30 Sep 2026 20:14:41 GMT",
+          "form_found": true,
+          "rowcount": 1,
+          "remainingHours": "4.0",
+          "rows": [
+            {
+              "startTime": "",
+              "endTime": "",
+              "reportDate": "2026-09-30",
+              "duration": "",
+              "person1Id": "210",
+              "entryId": "0",
+              "description": ""
+            }
+          ],
+          "insert_time_pattern": [
+            "yyyy-MM-dd HH:mm",
+            "yyyy-MM-dd HH:mm"
+          ],
+          "insert_time_label": "aktuelle Zeit einfügen",
+          "update_label": "Abschicken",
+          "time_format_hint": "Datums-Format: YYYY-MM-DD HH:MM ",
+          "errors": [],
+          "text_excerpt": "Top S3-C Time S3-C Iteration 1 S3-C Story 1 S3-C Task DE Task-Zeit bearbeiten: Startzeit Endzeit Erstellungsdatum Dauer Restschätzung Person 1 Person 2 Beschreibung ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin Datums-Format: YYYY-MM-DD HH:MM switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Kontaktieren Sie Ihren Administrator bei Problemen mit der Anwendung. Jeder Verbesserungsvorschlag oder Fehlerbericht sollte unter Berücksichtigung der folgenden Anleitung erstellt werden. null"
+        },
+        {
+          "step": "save-new",
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/task?oid=266",
+          "typed": {
+            "start": "2026-09-30 10:00",
+            "end": "2026-09-30 11:30",
+            "report_date": "2026-09-30",
+            "remaining": "2.5"
+          }
+        },
+        {
+          "step": "task-after-save",
+          "status": 200,
+          "timelog": [
+            [
+              "Startzeit",
+              "Endzeit",
+              "Eingabedatum",
+              "Dauer",
+              "Paar",
+              "Beschreibung"
+            ],
+            [
+              "2026-09-30 10:00",
+              "2026-09-30 11:30",
+              "2026-09-30",
+              "1,5",
+              "<editor.name>",
+              "S3-C F-003 de entry"
+            ]
+          ],
+          "task_info": "d=266] Part C task taskDE (synthetic). Empfänger: <editor.name> Geschätzte Stunden: 4,0 (4,0) Erstellt: 2026-09-30 Verbrauchte Stunden: 1,5 B earbeiten L öschen V erschieben/Fortführen Zeit bearbeiten Time Log: Startzeit Endzeit Eingabedatum Dauer Paar Beschreibung 2026-09-30 10:00 2"
+        },
+        {
+          "step": "editor-existing",
+          "status": 200,
+          "form_found": true,
+          "rowcount": 2,
+          "remainingHours": "2.5",
+          "rows": [
+            {
+              "startTime": "2026-09-30 10:00",
+              "endTime": "2026-09-30 11:30",
+              "reportDate": "2026-09-30",
+              "duration": "1,5",
+              "person1Id": "210",
+              "entryId": "278",
+              "description": "S3-C F-003 de entry"
+            },
+            {
+              "startTime": "",
+              "endTime": "",
+              "reportDate": "2026-09-30",
+              "duration": "",
+              "person1Id": "210",
+              "entryId": "0",
+              "description": ""
+            }
+          ],
+          "insert_time_pattern": [
+            "yyyy-MM-dd HH:mm",
+            "yyyy-MM-dd HH:mm"
+          ],
+          "insert_time_label": "aktuelle Zeit einfügen",
+          "update_label": "Abschicken",
+          "time_format_hint": "Datums-Format: YYYY-MM-DD HH:MM ",
+          "errors": [],
+          "text_excerpt": "Top S3-C Time S3-C Iteration 1 S3-C Story 1 S3-C Task DE Task-Zeit bearbeiten: Startzeit Endzeit Erstellungsdatum Dauer Restschätzung Person 1 Person 2 Beschreibung 1,5 ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin Datums-Format: YYYY-MM-DD HH:MM switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Kontaktieren Sie Ihren Administrator bei Problemen mit der Anwendung. Jeder Verbesserungsvorschlag oder Fehlerbericht sollte unter Berücksichtigung der folgenden Anleitung erstellt werden. null"
+        },
+        {
+          "step": "resave-unchanged",
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/task?oid=266"
+        },
+        {
+          "step": "task-after-resave",
+          "status": 200,
+          "timelog": [
+            [
+              "Startzeit",
+              "Endzeit",
+              "Eingabedatum",
+              "Dauer",
+              "Paar",
+              "Beschreibung"
+            ],
+            [
+              "2026-09-30 10:00",
+              "2026-09-30 11:30",
+              "2026-09-30",
+              "1,5",
+              "<editor.name>",
+              "S3-C F-003 de entry"
+            ]
+          ],
+          "task_info": "d=266] Part C task taskDE (synthetic). Empfänger: <editor.name> Geschätzte Stunden: 4,0 (4,0) Erstellt: 2026-09-30 Verbrauchte Stunden: 1,5 B earbeiten L öschen V erschieben/Fortführen Zeit bearbeiten Time Log: Startzeit Endzeit Eingabedatum Dauer Paar Beschreibung 2026-09-30 10:00 2"
+        }
+      ]
+    },
+    {
+      "key": "es",
+      "accept_language": "es-ES,es;q=0.9",
+      "task": 267,
+      "steps": [
+        {
+          "step": "sign-in",
+          "ok": true,
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/projects"
+        },
+        {
+          "step": "task-page",
+          "status": 200,
+          "edit_time_link": {
+            "text": "Edit Time",
+            "href": "/xplanner-legacy/do/edit/time?fkey=254&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D267&oid=267&projectId=223"
+          },
+          "created_date_display": "Created: 30-09-2026"
+        },
+        {
+          "step": "editor-empty",
+          "status": 200,
+          "server_date": "Wed, 30 Sep 2026 20:14:44 GMT",
+          "form_found": true,
+          "rowcount": 1,
+          "remainingHours": "4.0",
+          "rows": [
+            {
+              "startTime": "",
+              "endTime": "",
+              "reportDate": "30-09-2026",
+              "duration": "",
+              "person1Id": "210",
+              "entryId": "0",
+              "description": ""
+            }
+          ],
+          "insert_time_pattern": [
+            "dd-MM-yyyy HH:MM ",
+            "dd-MM-yyyy HH:MM "
+          ],
+          "insert_time_label": "Insertar fecha",
+          "update_label": "Modificar",
+          "time_format_hint": "Formato de fecha: DD-MM-YYYY HH:MM ",
+          "errors": [],
+          "text_excerpt": "XPlanner - Modificar diario: S3-C Task ES Usuario <editor.userId> M e Logout/Salir Principal S3-C Time S3-C Iteration 1 S3-C Story 1 S3-C Task ES Modificar diario: Fecha de inicio Fecha de finalizaci�n Reported Date Dur. Left to do Persona 1 Persona 2 Descripci ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin Formato de fecha: DD-MM-YYYY HH:MM switch width of Xplanner+ page Versi�n Any enhancement or bug report should be created on sf.net . Click here to get your system information. null"
+        },
+        {
+          "step": "save-new",
+          "status": 500,
+          "location": null,
+          "typed": {
+            "start": "30-09-2026 12:00",
+            "end": "30-09-2026 13:30",
+            "report_date": "30-09-2026",
+            "remaining": "4.0"
+          },
+          "error_excerpt": "An error has occurred. Usuario <editor.userId> M e Logout/Salir Principal S3-C Time S3-C Iteration 1 S3-C Story 1 An error has occurred. Unparseable date: \"30-09-2026 Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you are testing your recent xplanner install/upgrade the best way to get support is to first post in the Help forum Thank you! The XPlanner Team [hide] Cause java.text.ParseException: Unparseable date: \"30-09-2026 12:00\" [hide] Stack Trace java.text.ParseException: Unparseable date: \"30-09-2026 12:00\" at java.text.DateFormat.parse(DateFormat.java:366) at com.technoe [...]"
+        },
+        {
+          "step": "task-after-save",
+          "status": 200,
+          "timelog": null,
+          "task_info": "XPlanner Tarea: S3-C Task ES Usuario <editor.userId> M e Logout/Salir Principal S3-C Time S3-C Iteration 1 S3-C Story 1 S3-C Task ES PDF JRPDF ', STICKY, CAPTION,'Format:',WIDTH,120);\" onmouseout=\"return nd();\">Export H istory"
+        },
+        {
+          "step": "editor-existing",
+          "status": 200,
+          "form_found": true,
+          "rowcount": 1,
+          "remainingHours": "4.0",
+          "rows": [
+            {
+              "startTime": "",
+              "endTime": "",
+              "reportDate": "30-09-2026",
+              "duration": "",
+              "person1Id": "210",
+              "entryId": "0",
+              "description": ""
+            }
+          ],
+          "insert_time_pattern": [
+            "dd-MM-yyyy HH:MM ",
+            "dd-MM-yyyy HH:MM "
+          ],
+          "insert_time_label": "Insertar fecha",
+          "update_label": "Modificar",
+          "time_format_hint": "Formato de fecha: DD-MM-YYYY HH:MM ",
+          "errors": [],
+          "text_excerpt": "XPlanner - Modificar diario: S3-C Task ES Usuario <editor.userId> M e Logout/Salir Principal S3-C Time S3-C Iteration 1 S3-C Story 1 S3-C Task ES Modificar diario: Fecha de inicio Fecha de finalizaci�n Reported Date Dur. Left to do Persona 1 Persona 2 Descripci ?? <admin.name> <editor.name> <sysadmin.name> sysadmin ?? <admin.name> <editor.name> <sysadmin.name> sysadmin Formato de fecha: DD-MM-YYYY HH:MM switch width of Xplanner+ page Versi�n Any enhancement or bug report should be created on sf.net . Click here to get your system information. null"
+        },
+        {
+          "step": "resave-unchanged",
+          "status": 302,
+          "location": "/xplanner-legacy/do/view/task?oid=267"
+        },
+        {
+          "step": "task-after-resave",
+          "status": 200,
+          "timelog": null,
+          "task_info": "XPlanner Tarea: S3-C Task ES Usuario <editor.userId> M e Logout/Salir Principal S3-C Time S3-C Iteration 1 S3-C Story 1 S3-C Task ES PDF JRPDF ', STICKY, CAPTION,'Format:',WIDTH,120);\" onmouseout=\"return nd();\">Export H istory"
+        }
+      ]
+    }
+  ],
+  "finished_at": "2026-09-30T20:14:45.883Z"
+}

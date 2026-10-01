@@ -1,0 +1,52 @@
+{
+  "phase": "p7c",
+  "started_at": "2026-09-30T20:31:25.079Z",
+  "finished_at": "2026-09-30T20:31:28.289Z",
+  "trace": "p7c-continue.trace.json",
+  "checks": [
+    {
+      "phase": "p7c",
+      "at": "2026-09-30T20:31:26.807Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 102,
+      "role": "editor",
+      "expected": "After closing, the continue page offers the future iterations of the project (diagnostic of the redirect).",
+      "source": "analysis/legacy_user_flows.xlsx rows 101-103",
+      "action": "Requested the continue page of S3-B I2 Next without projectId (as the close redirect does) and with projectId=222 added.",
+      "observed": "Without projectId: \"No Future Iteration Available.\" true; with projectId: form true, options [\"237:S3-B Planning :: S3-B I3 Later (edited)\",\"238:S3-B Planning :: S3-B bad end\",\"306:S3-B Planning :: S3-B date end 2026-11-31\",\"307:S3-B Planning :: S3-B date start with trailing text\",\"305:S3-B Planning :: S3-B date start 2026-99-99\"], buttons action=Ok/action=Cancel.",
+      "evidence": "p7c-continue.trace.json",
+      "verdict": "pending",
+      "key": "diag"
+    },
+    {
+      "phase": "p7c",
+      "at": "2026-09-30T20:31:26.978Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 104,
+      "role": "editor",
+      "expected": "Choosing the same iteration is rejected: \"You cannot continue in the same iteration. Please choose a different one.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 104",
+      "action": "Posted the continue form (reached with projectId added) with targetIterationId = S3-B I2 Next itself (not offered in the select) and action=Ok (the button value a browser sends).",
+      "observed": "POST 200 ; message shown true.",
+      "evidence": "p7c-continue.trace.json",
+      "verdict": "match"
+    },
+    {
+      "phase": "p7c",
+      "at": "2026-09-30T20:31:28.127Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 102,
+      "role": "editor",
+      "expected": "On the continue page the user selects a future iteration and confirms; unfinished stories are continued there.",
+      "source": "analysis/legacy_user_flows.xlsx row 102",
+      "action": "Posted the continue form (reached with projectId added) with target S3-B I3 Later (edited) and action=Ok (the button value a browser sends).",
+      "observed": "I2 stories before [\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"]; POST 500  error \"Causeorg.hibernate.HibernateException: Illegal attempt to associate a collection with two open sessions [hide] Stack Traceorg.hibernate.HibernateException: Illegal a\"; I3 stories after []; I2 stories after [\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"]; first I3 story \"\".",
+      "evidence": "p7c-continue.trace.json",
+      "verdict": "pending",
+      "key": "direct"
+    }
+  ]
+}

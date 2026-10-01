@@ -1,0 +1,607 @@
+{
+  "started_at": "2026-09-30T21:05:20.599Z",
+  "phase": "visible",
+  "roles": {
+    "viewer": {
+      "login": {
+        "ok": true,
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/projects"
+      },
+      "projects": {
+        "status": 200,
+        "head": [
+          "ID",
+          "Project Name",
+          "Iteration"
+        ],
+        "rows": [
+          "S3 Shared | S3-setup Iteration 1",
+          "S3-A Access | S3-A Iteration 1 (viewer edit)",
+          "S3-B Planning | S3-B I1 Current",
+          "S3-C Time | S3-C Iteration 1",
+          "S3-D Integrations | S3-D Iteration 1"
+        ],
+        "lists_s3e": false
+      },
+      "search_text": {
+        "story": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": []
+        },
+        "note": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": []
+        },
+        "project_scoped": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": []
+        }
+      },
+      "search_numeric": {
+        "story_id": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "userstory | 561 | S3-E Story 1 | S3-E Story 1 (part E) -> /do/view/userstory?oid=561"
+          ]
+        },
+        "note_id": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "task | 535 | S3-E Task 1 | S3-E Task 1 (part E) -> /do/view/task?oid=535"
+          ]
+        }
+      },
+      "id_search": {
+        "project": {
+          "status": 302,
+          "location": "/do/view/project?oid=228"
+        },
+        "iteration": {
+          "status": 302,
+          "location": "/do/view/iteration?oid=543"
+        },
+        "story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=561"
+        },
+        "task": {
+          "status": 302,
+          "location": "/do/view/task?oid=535"
+        },
+        "note_on_story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=561"
+        }
+      },
+      "direct": {
+        "project": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Project: S3-E Private",
+          "shows_name": true
+        },
+        "iteration": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Iteration S3-E Iteration 1",
+          "shows_name": true
+        },
+        "story": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Story: S3-E Story 1",
+          "shows_name": true
+        },
+        "task": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Task: S3-E Task 1",
+          "shows_name": true
+        }
+      },
+      "timesheet_of_sysadmin": {
+        "status": 200,
+        "title": "XPlanner Timesheet: Person Name:",
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5",
+          "Total Hours | 1.5"
+        ]
+      },
+      "aggregate_sysadmin": {
+        "get_status": 200,
+        "fields": [
+          "selectedPeople(select)",
+          "startDateString(text)",
+          "setStartDate(image)",
+          "endDateString(text)",
+          "setEndDate(image)"
+        ],
+        "people_options": [
+          "211",
+          "210",
+          "212",
+          "209",
+          "288",
+          "217",
+          "213",
+          "215",
+          "219",
+          "1"
+        ],
+        "select_name": "selectedPeople",
+        "status": 200,
+        "s3e_rows": [],
+        "mentions_s3e": false
+      },
+      "logout": {
+        "status": 200,
+        "session_cookie_left": true
+      }
+    },
+    "editor": {
+      "login": {
+        "ok": true,
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/projects"
+      },
+      "projects": {
+        "status": 200,
+        "head": [
+          "ID",
+          "Project Name",
+          "Iteration"
+        ],
+        "rows": [
+          "S3 Shared | S3-setup Iteration 1",
+          "S3-A Access | S3-A Iteration 1 (viewer edit)",
+          "S3-B Planning | S3-B I1 Current",
+          "S3-C Time | S3-C Iteration 1",
+          "S3-D Integrations | S3-D Iteration 1"
+        ],
+        "lists_s3e": false
+      },
+      "search_text": {
+        "story": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": []
+        },
+        "note": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": []
+        },
+        "project_scoped": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": []
+        }
+      },
+      "search_numeric": {
+        "story_id": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "userstory | 561 | S3-E Story 1 | S3-E Story 1 (part E) -> /do/view/userstory?oid=561"
+          ]
+        },
+        "note_id": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "task | 535 | S3-E Task 1 | S3-E Task 1 (part E) -> /do/view/task?oid=535"
+          ]
+        }
+      },
+      "id_search": {
+        "project": {
+          "status": 302,
+          "location": "/do/view/project?oid=228"
+        },
+        "iteration": {
+          "status": 302,
+          "location": "/do/view/iteration?oid=543"
+        },
+        "story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=561"
+        },
+        "task": {
+          "status": 302,
+          "location": "/do/view/task?oid=535"
+        },
+        "note_on_story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=561"
+        }
+      },
+      "direct": {
+        "project": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Project: S3-E Private",
+          "shows_name": true
+        },
+        "iteration": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Iteration S3-E Iteration 1",
+          "shows_name": true
+        },
+        "story": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Story: S3-E Story 1",
+          "shows_name": true
+        },
+        "task": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Task: S3-E Task 1",
+          "shows_name": true
+        }
+      },
+      "timesheet_of_sysadmin": {
+        "status": 200,
+        "title": "XPlanner Timesheet: Person Name:",
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5",
+          "Total Hours | 1.5"
+        ]
+      },
+      "aggregate_sysadmin": {
+        "get_status": 200,
+        "fields": [
+          "selectedPeople(select)",
+          "startDateString(text)",
+          "setStartDate(image)",
+          "endDateString(text)",
+          "setEndDate(image)"
+        ],
+        "people_options": [
+          "211",
+          "210",
+          "212",
+          "209",
+          "288",
+          "217",
+          "213",
+          "215",
+          "219",
+          "1"
+        ],
+        "select_name": "selectedPeople",
+        "status": 200,
+        "s3e_rows": [],
+        "mentions_s3e": false
+      },
+      "logout": {
+        "status": 200,
+        "session_cookie_left": true
+      }
+    },
+    "admin": {
+      "login": {
+        "ok": true,
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/projects"
+      },
+      "projects": {
+        "status": 200,
+        "head": [
+          "Actions",
+          "ID",
+          "Project Name",
+          "Iteration"
+        ],
+        "rows": [
+          "220 | S3 Shared | S3-setup Iteration 1",
+          "221 | S3-A Access | S3-A Iteration 1 (viewer edit)",
+          "222 | S3-B Planning | S3-B I1 Current",
+          "223 | S3-C Time | S3-C Iteration 1",
+          "224 | S3-D Integrations | S3-D Iteration 1"
+        ],
+        "lists_s3e": false
+      },
+      "search_text": {
+        "story": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": []
+        },
+        "note": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": []
+        },
+        "project_scoped": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": []
+        }
+      },
+      "search_numeric": {
+        "story_id": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "userstory | 561 | S3-E Story 1 | S3-E Story 1 (part E) -> /do/view/userstory?oid=561"
+          ]
+        },
+        "note_id": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "task | 535 | S3-E Task 1 | S3-E Task 1 (part E) -> /do/view/task?oid=535"
+          ]
+        }
+      },
+      "id_search": {
+        "project": {
+          "status": 302,
+          "location": "/do/view/project?oid=228"
+        },
+        "iteration": {
+          "status": 302,
+          "location": "/do/view/iteration?oid=543"
+        },
+        "story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=561"
+        },
+        "task": {
+          "status": 302,
+          "location": "/do/view/task?oid=535"
+        },
+        "note_on_story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=561"
+        }
+      },
+      "direct": {
+        "project": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Project: S3-E Private",
+          "shows_name": true
+        },
+        "iteration": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Iteration S3-E Iteration 1",
+          "shows_name": true
+        },
+        "story": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Story: S3-E Story 1",
+          "shows_name": true
+        },
+        "task": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Task: S3-E Task 1",
+          "shows_name": true
+        }
+      },
+      "timesheet_of_sysadmin": {
+        "status": 200,
+        "title": "XPlanner Timesheet: Person Name:",
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5",
+          "Total Hours | 1.5"
+        ]
+      },
+      "aggregate_sysadmin": {
+        "get_status": 200,
+        "fields": [
+          "selectedPeople(select)",
+          "startDateString(text)",
+          "setStartDate(image)",
+          "endDateString(text)",
+          "setEndDate(image)"
+        ],
+        "people_options": [
+          "211",
+          "210",
+          "212",
+          "209",
+          "288",
+          "217",
+          "213",
+          "215",
+          "219",
+          "1"
+        ],
+        "select_name": "selectedPeople",
+        "status": 200,
+        "s3e_rows": [],
+        "mentions_s3e": false
+      },
+      "logout": {
+        "status": 200,
+        "session_cookie_left": true
+      }
+    },
+    "sysadmin": {
+      "login": {
+        "ok": true,
+        "status": 302,
+        "location": "/xplanner-legacy/do/view/projects"
+      },
+      "projects": {
+        "status": 200,
+        "head": [
+          "Actions",
+          "ID",
+          "Project Name",
+          "Iteration",
+          "Hidden?"
+        ],
+        "rows": [
+          "220 | S3 Shared | S3-setup Iteration 1 | N",
+          "221 | S3-A Access | S3-A Iteration 1 (viewer edit) | N",
+          "222 | S3-B Planning | S3-B I1 Current | N",
+          "223 | S3-C Time | S3-C Iteration 1 | N",
+          "224 | S3-D Integrations | S3-D Iteration 1 | N",
+          "228 | S3-E Private | S3-E Iteration 1 | N"
+        ],
+        "lists_s3e": true
+      },
+      "search_text": {
+        "story": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "userstory | 561 | S3-E Story 1 | S3-E Story 1 (part E) -> /do/view/userstory?oid=561"
+          ]
+        },
+        "note": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "note | 572 | S3-E note on Task 1 | S3-E note on Task 1 body (part E) -> /do/view/task?oid=535"
+          ]
+        },
+        "project_scoped": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "userstory | 561 | S3-E Story 1 | S3-E Story 1 (part E) -> /do/view/userstory?oid=561"
+          ]
+        }
+      },
+      "search_numeric": {
+        "story_id": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "userstory | 561 | S3-E Story 1 | S3-E Story 1 (part E) -> /do/view/userstory?oid=561"
+          ]
+        },
+        "note_id": {
+          "status": 200,
+          "title": "Search Results",
+          "location": "",
+          "rows": [
+            "task | 535 | S3-E Task 1 | S3-E Task 1 (part E) -> /do/view/task?oid=535"
+          ]
+        }
+      },
+      "id_search": {
+        "project": {
+          "status": 302,
+          "location": "/do/view/project?oid=228"
+        },
+        "iteration": {
+          "status": 302,
+          "location": "/do/view/iteration?oid=543"
+        },
+        "story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=561"
+        },
+        "task": {
+          "status": 302,
+          "location": "/do/view/task?oid=535"
+        },
+        "note_on_story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=561"
+        }
+      },
+      "direct": {
+        "project": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Project: S3-E Private",
+          "shows_name": true
+        },
+        "iteration": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Iteration S3-E Iteration 1",
+          "shows_name": true
+        },
+        "story": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Story: S3-E Story 1",
+          "shows_name": true
+        },
+        "task": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Task: S3-E Task 1",
+          "shows_name": true
+        }
+      },
+      "timesheet_of_sysadmin": {
+        "status": 200,
+        "title": "XPlanner Timesheet: Person Name:",
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5",
+          "Total Hours | 1.5"
+        ]
+      },
+      "aggregate_sysadmin": {
+        "get_status": 200,
+        "fields": [
+          "selectedPeople(select)",
+          "startDateString(text)",
+          "setStartDate(image)",
+          "endDateString(text)",
+          "setEndDate(image)"
+        ],
+        "people_options": [
+          "211",
+          "210",
+          "212",
+          "209",
+          "288",
+          "217",
+          "213",
+          "215",
+          "219",
+          "1"
+        ],
+        "select_name": "selectedPeople",
+        "status": 200,
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5"
+        ],
+        "mentions_s3e": true
+      },
+      "logout": {
+        "status": 200,
+        "session_cookie_left": true
+      }
+    }
+  },
+  "finished_at": "2026-09-30T21:05:47.281Z"
+}

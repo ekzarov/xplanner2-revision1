@@ -1,0 +1,191 @@
+{
+  "started_at": "2026-09-30T20:28:35.185Z",
+  "r178_text": {
+    "query": "S3-C Story",
+    "status": 200,
+    "title": "Search Results",
+    "heading": "Search Results - S3-C Story",
+    "head": [
+      "Type",
+      "ID",
+      "Title",
+      "Match"
+    ],
+    "rows": [
+      [
+        "userstory",
+        "254",
+        "S3-C Story 1",
+        "/xplanner-legacy/do/view/userstory?oid=254",
+        "Part C story (synthetic)."
+      ],
+      [
+        "userstory",
+        "255",
+        "S3-C Story 2",
+        "/xplanner-legacy/do/view/userstory?oid=255",
+        "Part C story with TWiki markup: *bold text* _italic text_ =fixed text= SthreeCee [...]"
+      ]
+    ],
+    "empty_message": false
+  },
+  "r178_note": {
+    "query": "viewer direct note",
+    "status": 200,
+    "title": "Search Results",
+    "heading": "Search Results - viewer direct note",
+    "head": [
+      "Type",
+      "ID",
+      "Title",
+      "Match"
+    ],
+    "rows": [
+      [
+        "note",
+        "499",
+        "S3-C viewer direct note (edited by editor)",
+        "/xplanner-legacy/do/view/task?oid=265",
+        "Created by a direct request of the viewer account."
+      ]
+    ],
+    "empty_message": false
+  },
+  "r178_global_scope_other_project": {
+    "query": "S3-D Story",
+    "status": 200,
+    "title": "Search Results",
+    "heading": "Search Results - S3-D Story",
+    "head": [
+      "Type",
+      "ID",
+      "Title",
+      "Match"
+    ],
+    "rows": [
+      [
+        "userstory",
+        "256",
+        "S3-D Story 1",
+        "/xplanner-legacy/do/view/userstory?oid=256",
+        "Part D synthetic story (updated over SOAP)"
+      ]
+    ],
+    "empty_message": false
+  },
+  "r179_none": {
+    "query": "zzqqNoSuchText",
+    "status": 200,
+    "title": "Search Results",
+    "heading": "Search Results - zzqqNoSuchText",
+    "head": null,
+    "rows": null,
+    "empty_message": true
+  },
+  "r180_numeric_task": {
+    "query": "265",
+    "status": 200,
+    "title": "Search Results",
+    "heading": "Search Results - 265",
+    "head": [
+      "Type",
+      "ID",
+      "Title",
+      "Match"
+    ],
+    "rows": [
+      [
+        "task",
+        "265",
+        "S3-C Task EN",
+        "/xplanner-legacy/do/view/task?oid=265",
+        "Part C task taskEN (synthetic)."
+      ],
+      [
+        "userstory",
+        "255",
+        "S3-C Story 2",
+        "/xplanner-legacy/do/view/userstory?oid=255",
+        "...eTopic story:254 task: 265 [[S3-C bracket link]]"
+      ]
+    ],
+    "empty_message": false
+  },
+  "r182_numeric_note": {
+    "query": "499",
+    "status": 200,
+    "title": "Search Results",
+    "heading": "Search Results - 499",
+    "head": [
+      "Type",
+      "ID",
+      "Title",
+      "Match"
+    ],
+    "rows": [
+      [
+        "task",
+        "265",
+        "S3-C Task EN",
+        "/xplanner-legacy/do/view/task?oid=265",
+        "Part C task taskEN (synthetic)."
+      ]
+    ],
+    "empty_message": false
+  },
+  "r181_empty": {
+    "status": 200,
+    "error": "An error has occurred. user <viewer.userId> M e Logout T op An error has occurred. switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. nu [...]"
+  },
+  "r182_jump_task": {
+    "searchedId": "265",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/task?oid=265",
+    "error": null,
+    "text": null
+  },
+  "r182_jump_note": {
+    "searchedId": "499",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/task?oid=265",
+    "error": null,
+    "text": null
+  },
+  "r182_jump_story": {
+    "searchedId": "254",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/userstory?oid=254",
+    "error": null,
+    "text": null
+  },
+  "r183_missing": {
+    "searchedId": "",
+    "status": 200,
+    "location": null,
+    "error": "An error has occurred. user <viewer.userId> M e Logout T op An error has occurred. ID is missing switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system i [...]",
+    "text": null
+  },
+  "r183_bad": {
+    "searchedId": "abc",
+    "status": 200,
+    "location": null,
+    "error": "An error has occurred. user <viewer.userId> M e Logout T op An error has occurred. ID must be a number switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your sy [...]",
+    "text": null
+  },
+  "r183_unknown": {
+    "searchedId": "999999",
+    "status": 200,
+    "location": null,
+    "error": "An error has occurred. user <viewer.userId> M e Logout T op An error has occurred. ID 999999 not found switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your sy [...]",
+    "text": null
+  },
+  "r181_empty_de": {
+    "status": 200,
+    "error": "An error has occurred. Benutzer <viewer.userId> Ich Abmelden Top An error has occurred. switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Kontaktieren Sie Ihren Administrator bei Problemen mit der Anwendung. Jeder Verbesserungsvorschlag o [...]"
+  },
+  "r179_none_de": {
+    "status": 200,
+    "text": "Suchergebnisse Benutzer <viewer.userId> Ich Abmelden Top Suchergebnisse - zzqqNoSuchText Keine passenden Ergebnisse gefunden. switch width of Xplanner+ page Version 1.1a4 built 04"
+  },
+  "finished_at": "2026-09-30T20:28:41.329Z"
+}

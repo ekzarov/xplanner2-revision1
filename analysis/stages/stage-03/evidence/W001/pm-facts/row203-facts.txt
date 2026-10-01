@@ -1,0 +1,77 @@
+# PM facts for row 203 (Codex-decided check; collected 2026-10-01T00:20:55Z). Only container c4791713f254 (label project=xplanner2-revision1, service=mail) was stopped and started; app and DB not restarted (restarts=0).
+## Attempt 1 (invalid): 00:18:51Z stop; my probe form had an empty numeric field, so the task POST answered 500 NumberFormatException with the sink down AND with the sink up (00:19:17Z). Not a mail observation; superseded.
+=== pm-sink-stop-2026-10-01T00-18-51-583Z.log
+mail container: c4791713f254ce765583bc00ec4a826704456b081f7563b6bd88835c32708911 project=xplanner2-revision1 service=mail image=axllent/mailpit
+before: app restarts=0 mail state=running
+stop at 2026-10-01T00:18:51Z
+after stop: mail state=exited; app state=running restarts=0
+
+=== pm-sink-start-2026-10-01T00-19-14-992Z.log
+--- app log (last 10 min) mail-related and error lines while the sink was down:
+[53872732]  ERROR - com.technoetic.xplanner.actions.AbstractAction - java.lang.NumberFormatException: For input string: "" 
+[53872732]   WARN - org.apache.struts.action.RequestProcessor - Unhandled Exception thrown: class java.lang.NumberFormatException 
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate$1.doInTransaction(CheckedExceptionHandlingTransactionTemplate.java:31)
+	at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate.execute(CheckedExceptionHandlingTransactionTemplate.java:28)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:350)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1344)
+start at 2026-10-01T00:19:11Z
+after start: mail state=running startedAt=2026-10-01T00:19:11.686230887Z; app restarts=0
+listeners on port 25: 1
+[db] got terminated signal, shutting down
+time="2026/10/01 00:19:11" level=info msg="[smtpd] starting on 0.0.0.0:25 (no encryption)"
+time="2026/10/01 00:19:11" level=warning msg="[http] listening on 0.0.0.0:8025 without --ui-auth-file or --allowed-hosts; the API is reachable from any host that can route to this interface"
+time="2026/10/01 00:19:11" level=info msg="[http] starting on 0.0.0.0:8025"
+time="2026/10/01 00:19:11" level=info msg="[http] accessible via http://0.0.0.0:8025/"
+
+=== pm-sink-stop-2026-10-01T00-20-28-239Z.log
+mail container: c4791713f254ce765583bc00ec4a826704456b081f7563b6bd88835c32708911 project=xplanner2-revision1 service=mail image=axllent/mailpit
+before: app restarts=0 mail state=running
+stop at 2026-10-01T00:20:27Z
+after stop: mail state=exited; app state=running restarts=0
+
+=== pm-sink-start-2026-10-01T00-20-37-859Z.log
+--- app log (last 10 min) mail-related and error lines while the sink was down:
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1706)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:525)
+	at javax.mail.Service.connect(Service.java:291)
+	at javax.mail.Service.connect(Service.java:172)
+	at javax.mail.Service.connect(Service.java:121)
+	at javax.mail.Transport.send0(Transport.java:190)
+	at javax.mail.Transport.send(Transport.java:120)
+	at com.technoetic.xplanner.mail.EmailMessageImpl.send(EmailMessageImpl.java:178)
+	at com.technoetic.xplanner.mail.EmailNotificationSupport.sendNotifications(EmailNotificationSupport.java:59)
+	at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate$1.doInTransaction(CheckedExceptionHandlingTransactionTemplate.java:31)
+	at com.technoetic.xplanner.tx.CheckedExceptionHandlingTransactionTemplate.execute(CheckedExceptionHandlingTransactionTemplate.java:28)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:350)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1344)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at java.net.Socket.connect(Socket.java:556)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:284)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:227)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1672)
+Email was sent to:
+start at 2026-10-01T00:20:34Z
+after start: mail state=running startedAt=2026-10-01T00:20:34.584668308Z; app restarts=0
+listeners on port 25: 1
+[db] got terminated signal, shutting down
+time="2026/10/01 00:20:34" level=info msg="[smtpd] starting on 0.0.0.0:25 (no encryption)"
+time="2026/10/01 00:20:34" level=warning msg="[http] listening on 0.0.0.0:8025 without --ui-auth-file or --allowed-hosts; the API is reachable from any host that can route to this interface"
+time="2026/10/01 00:20:34" level=info msg="[http] starting on 0.0.0.0:8025"
+time="2026/10/01 00:20:34" level=info msg="[http] accessible via http://0.0.0.0:8025/"
+
+## Archives before each stop (outside Git, ACL-restricted): 51 messages, combined sha256 3c73f15f6593cc56b2a0a1f7f5625d5523e2c6ae123462c891f7ef28dab70854; 1 message, combined sha256 74e85d411d35a0a8050eec8b4250c9b5406afdb4fb880b006a5929f96a617fa8.
+## Attempt 2 (valid), task creation through part B's verified form handling (pm-203-task2.js), editor role account, story 256 / project 224
+- 00:20:11Z control, sink up: POST 302, task listed, 1 mail "Task was created." to role:editor.
+- 00:20:25Z archive (1 message), 00:20:27Z stop.
+- 00:20:29Z sink down: POST 302, task "S3-PM row203 sink-down-2" saved and listed; app log: EmailNotificationSupport.sendNotifications -> javax.mail ConnectException "Connection refused"; no error shown to the user.
+- 00:20:34Z start of the same container; port 25 listening.
+- 00:20:50Z control after restore: POST 302, task listed, 1 mail "Task was created." to role:editor. App and Mailpit UI answer HTTP 200.
+Mail captured during the down window: none (the message was never accepted). Mailpit keeps no messages across restarts; earlier messages are in the archives above.

@@ -1,0 +1,136 @@
+{
+  "at": "2026-09-30T20:27:18.773Z",
+  "results": [
+    {
+      "id": "GET login 1",
+      "status": 500,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 21477,
+      "cause": "java.lang.NullPointerException "
+    },
+    {
+      "id": "GET login 2",
+      "status": 500,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 21478,
+      "cause": "java.lang.NullPointerException "
+    },
+    {
+      "id": "POST login without action",
+      "status": 500,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 21683,
+      "cause": "java.lang.NullPointerException "
+    },
+    {
+      "id": "POST login action=authenticate",
+      "status": 500,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 21781,
+      "cause": "java.lang.NullPointerException "
+    },
+    {
+      "id": "GET login?action=authenticate",
+      "status": 500,
+      "ct": "text/html;charset=UTF-8",
+      "bytes": 21748,
+      "cause": "java.lang.NullPointerException "
+    }
+  ],
+  "trace": [
+    {
+      "at": "2026-09-30T20:27:16.577Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:27:16.860Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:27:17.164Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/login",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21477,
+      "label": "mobile login GET login 1 (credentials not recorded)",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the  [... 8677 chars]"
+    },
+    {
+      "at": "2026-09-30T20:27:17.499Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/login",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21478,
+      "label": "mobile login GET login 2 (credentials not recorded)",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the  [... 8678 chars]"
+    },
+    {
+      "at": "2026-09-30T20:27:17.830Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/mobile/login",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21683,
+      "label": "mobile login POST login without action (credentials not recorded)",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the  [... 8719 chars]"
+    },
+    {
+      "at": "2026-09-30T20:27:18.135Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/mobile/login",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21781,
+      "label": "mobile login POST login action=authenticate (credentials not recorded)",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the  [... 8741 chars]"
+    },
+    {
+      "at": "2026-09-30T20:27:18.467Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/mobile/login?action=authenticate",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 21748,
+      "label": "mobile login GET login?action=authenticate (credentials not recorded)",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. Unfortunately this is an internal system error. This is most likely due to a misconfiguration, a bug or some data corruption. Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the  [... 8797 chars]"
+    },
+    {
+      "at": "2026-09-30T20:27:18.772Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    }
+  ]
+}

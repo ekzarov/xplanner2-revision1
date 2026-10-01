@@ -1,0 +1,1003 @@
+{
+  "at": "2026-09-30T20:24:12.882Z",
+  "calls": [
+    {
+      "at": "2026-09-30T20:24:05.123Z",
+      "who": "editor",
+      "op": "getTask",
+      "args": [
+        [
+          "id",
+          437
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "acceptorId": "210",
+        "actualHours": "0.5",
+        "adjustedEstimatedHours": "1.5",
+        "completed": "false",
+        "createdDate": "2026-09-30T00:00:00.000Z",
+        "description": "target of SOAP update/remove",
+        "dispositionName": "planned",
+        "estimatedHours": "1.5",
+        "estimatedOriginalHours": "1.0",
+        "id": "437",
+        "lastUpdateTime": null,
+        "name": "S3-D Task to remove",
+        "remainingHours": "1.0",
+        "storyId": "0",
+        "type": "Feature"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:05.436Z",
+      "who": "editor",
+      "op": "update",
+      "args": [
+        [
+          "object",
+          "TaskData#437"
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "update(TaskData)"
+    },
+    {
+      "at": "2026-09-30T20:24:05.751Z",
+      "who": "editor",
+      "op": "getTask",
+      "args": [
+        [
+          "id",
+          437
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "acceptorId": "210",
+        "actualHours": "0.5",
+        "adjustedEstimatedHours": "1.5",
+        "completed": "false",
+        "createdDate": "2026-09-30T00:00:00.000Z",
+        "description": "target of SOAP update/remove (updated over SOAP)",
+        "dispositionName": "planned",
+        "estimatedHours": "1.5",
+        "estimatedOriginalHours": "1.5",
+        "id": "437",
+        "lastUpdateTime": null,
+        "name": "S3-D Task to remove",
+        "remainingHours": "1.0",
+        "storyId": "0",
+        "type": "Feature"
+      },
+      "note": "after update"
+    },
+    {
+      "at": "2026-09-30T20:24:06.062Z",
+      "who": "editor",
+      "op": "getTimeEntries",
+      "args": [
+        [
+          "containerId",
+          437
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "array_len": 1,
+        "ids": [
+          "283"
+        ],
+        "names": [
+          "S3-D time to remove"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:06.364Z",
+      "who": "editor",
+      "op": "getTimeEntry",
+      "args": [
+        [
+          "id",
+          283
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "description": "S3-D time to remove",
+        "duration": "0.5",
+        "endTime": null,
+        "id": "283",
+        "lastUpdateTime": null,
+        "person1Id": "210",
+        "person2Id": "0",
+        "reportDate": "2026-09-30T00:00:00.000Z",
+        "startTime": null,
+        "taskId": "0"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:06.666Z",
+      "who": "editor",
+      "op": "update",
+      "args": [
+        [
+          "object",
+          "TimeEntryData#283"
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "update(TimeEntryData)"
+    },
+    {
+      "at": "2026-09-30T20:24:06.978Z",
+      "who": "editor",
+      "op": "getTimeEntry",
+      "args": [
+        [
+          "id",
+          283
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "description": "S3-D time to remove (updated over SOAP)",
+        "duration": "0.75",
+        "endTime": null,
+        "id": "283",
+        "lastUpdateTime": null,
+        "person1Id": "210",
+        "person2Id": "0",
+        "reportDate": "2026-09-30T00:00:00.000Z",
+        "startTime": null,
+        "taskId": "0"
+      },
+      "note": "after update"
+    },
+    {
+      "at": "2026-09-30T20:24:07.284Z",
+      "who": "editor",
+      "op": "addTimeEntry",
+      "args": [
+        [
+          "timeEntry",
+          "TimeEntryData"
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "description": "S3-D soap time on task 1",
+        "duration": "0.25",
+        "endTime": null,
+        "id": "440",
+        "lastUpdateTime": null,
+        "person1Id": "210",
+        "person2Id": "0",
+        "reportDate": "2026-09-30T20:24:06.978Z",
+        "startTime": null,
+        "taskId": "270"
+      },
+      "note": "addTimeEntry on task 270"
+    },
+    {
+      "at": "2026-09-30T20:24:07.597Z",
+      "who": "sysadmin",
+      "op": "addTask",
+      "args": [
+        [
+          "task",
+          "TaskData"
+        ]
+      ],
+      "status": 500,
+      "fault": "java.lang.RuntimeException: org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update",
+      "note": "addTask by sysadmin into story 256"
+    },
+    {
+      "at": "2026-09-30T20:24:07.907Z",
+      "who": "viewer",
+      "op": "removeTimeEntry",
+      "args": [
+        [
+          "id",
+          283
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object",
+      "note": "viewer delete"
+    },
+    {
+      "at": "2026-09-30T20:24:08.220Z",
+      "who": "viewer",
+      "op": "removeTask",
+      "args": [
+        [
+          "id",
+          437
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object",
+      "note": "viewer delete"
+    },
+    {
+      "at": "2026-09-30T20:24:08.545Z",
+      "who": "editor",
+      "op": "addNote",
+      "args": [
+        [
+          "note",
+          "NoteData"
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "attachedToId": "256",
+        "attachmentId": "0",
+        "authorId": "210",
+        "body": "x",
+        "id": "388",
+        "lastUpdateTime": null,
+        "subject": "S3-D SOAP viewer target note",
+        "submissionTime": "2026-09-30T20:24:08.220Z"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:08.844Z",
+      "who": "viewer",
+      "op": "removeNote",
+      "args": [
+        [
+          "id",
+          388
+        ]
+      ],
+      "status": 500,
+      "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object",
+      "note": "viewer delete"
+    },
+    {
+      "at": "2026-09-30T20:24:09.174Z",
+      "who": "editor",
+      "op": "getTask",
+      "args": [
+        [
+          "id",
+          437
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "acceptorId": "210",
+        "actualHours": "0.75",
+        "adjustedEstimatedHours": "1.5",
+        "completed": "false",
+        "createdDate": "2026-09-30T00:00:00.000Z",
+        "description": "target of SOAP update/remove (updated over SOAP)",
+        "dispositionName": "planned",
+        "estimatedHours": "1.5",
+        "estimatedOriginalHours": "1.5",
+        "id": "437",
+        "lastUpdateTime": null,
+        "name": "S3-D Task to remove",
+        "remainingHours": "0.75",
+        "storyId": "0",
+        "type": "Feature"
+      },
+      "note": "after viewer delete"
+    },
+    {
+      "at": "2026-09-30T20:24:09.489Z",
+      "who": "editor",
+      "op": "removeTimeEntry",
+      "args": [
+        [
+          "id",
+          283
+        ]
+      ],
+      "status": 200,
+      "result": "(void)"
+    },
+    {
+      "at": "2026-09-30T20:24:09.798Z",
+      "who": "editor",
+      "op": "getTimeEntry",
+      "args": [
+        [
+          "id",
+          283
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.TimeEntry#283]",
+      "note": "after remove"
+    },
+    {
+      "at": "2026-09-30T20:24:10.107Z",
+      "who": "editor",
+      "op": "removeTask",
+      "args": [
+        [
+          "id",
+          437
+        ]
+      ],
+      "status": 200,
+      "result": "(void)"
+    },
+    {
+      "at": "2026-09-30T20:24:10.406Z",
+      "who": "editor",
+      "op": "getTask",
+      "args": [
+        [
+          "id",
+          437
+        ]
+      ],
+      "status": 500,
+      "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Task#437]",
+      "note": "after remove"
+    },
+    {
+      "at": "2026-09-30T20:24:10.731Z",
+      "who": "editor",
+      "op": "removeNote",
+      "args": [
+        [
+          "id",
+          388
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "cleanup"
+    },
+    {
+      "at": "2026-09-30T20:24:11.030Z",
+      "who": "editor",
+      "op": "getTimeEntry",
+      "args": [
+        [
+          "id",
+          440
+        ]
+      ],
+      "status": 500,
+      "fault": "java.lang.NullPointerException",
+      "note": "SOAP-added time entry"
+    },
+    {
+      "at": "2026-09-30T20:24:11.336Z",
+      "who": "sysadmin",
+      "op": "getUserStory",
+      "args": [
+        [
+          "id",
+          374
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "actualHours": "0.0",
+        "adjustedEstimatedHours": "0.0",
+        "completed": "false",
+        "customerId": "0",
+        "description": "soap",
+        "dispositionName": null,
+        "estimatedHours": "0.0",
+        "estimatedOriginalHours": "0.0",
+        "id": "374",
+        "iterationId": "0",
+        "lastUpdateTime": null,
+        "name": "S3-D SOAP Story",
+        "postponedHours": "0.0",
+        "priority": "4",
+        "remainingHours": "0.0",
+        "trackerId": "210"
+      },
+      "note": "orphan SOAP story"
+    },
+    {
+      "at": "2026-09-30T20:24:11.644Z",
+      "who": "sysadmin",
+      "op": "removeUserStory",
+      "args": [
+        [
+          "id",
+          374
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "cleanup orphan SOAP story"
+    }
+  ],
+  "history_rows": [
+    "updated <editor.name> Mi Sep 30 20:22:33 UTC",
+    "created <editor.name> Mi Sep 30 20:24:08 UTC note S3-D SOAP viewer target note",
+    "created <editor.name> Mi Sep 30 20:22:24 UTC note S3-D SOAP note to remove",
+    "created <editor.name> Mi Sep 30 20:22:23 UTC note S3-D SOAP note on story 1"
+  ],
+  "trace": [
+    {
+      "at": "2026-09-30T20:24:02.939Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:24:03.245Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:24:03.552Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/edit/task?fkey=256&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D256&projectId=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 7801
+    },
+    {
+      "at": "2026-09-30T20:24:03.870Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/task",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/userstory?oid=256",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "create task R (web)"
+    },
+    {
+      "at": "2026-09-30T20:24:04.199Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/userstory?oid=256",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 19016
+    },
+    {
+      "at": "2026-09-30T20:24:04.494Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/edit/time?fkey=256&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D437&oid=437&projectId=224",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 9838
+    },
+    {
+      "at": "2026-09-30T20:24:04.807Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/time",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/task?oid=437",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "add time entry on task R (web)"
+    },
+    {
+      "at": "2026-09-30T20:24:05.121Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "auth": "basic (editor)",
+      "bytes": 3081,
+      "label": "soap getTask",
+      "soap": {
+        "op": "getTask",
+        "params": [
+          [
+            "id",
+            437
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:05.436Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 413,
+      "label": "soap update",
+      "soap": {
+        "op": "update",
+        "params": [
+          [
+            "object",
+            "TaskData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:05.751Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 3101,
+      "label": "soap getTask",
+      "soap": {
+        "op": "getTask",
+        "params": [
+          [
+            "id",
+            437
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:06.061Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 2301,
+      "label": "soap getTimeEntries",
+      "soap": {
+        "op": "getTimeEntries",
+        "params": [
+          [
+            "containerId",
+            437
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:06.364Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 2089,
+      "label": "soap getTimeEntry",
+      "soap": {
+        "op": "getTimeEntry",
+        "params": [
+          [
+            "id",
+            283
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:06.666Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 413,
+      "label": "soap update",
+      "soap": {
+        "op": "update",
+        "params": [
+          [
+            "object",
+            "TimeEntryData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:06.978Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 2110,
+      "label": "soap getTimeEntry",
+      "soap": {
+        "op": "getTimeEntry",
+        "params": [
+          [
+            "id",
+            283
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:07.284Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 2097,
+      "label": "soap addTimeEntry",
+      "soap": {
+        "op": "addTimeEntry",
+        "params": [
+          [
+            "timeEntry",
+            "TimeEntryData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:07.596Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "auth": "basic (sysadmin)",
+      "bytes": 585,
+      "label": "soap addTask",
+      "soap": {
+        "op": "addTask",
+        "params": [
+          [
+            "task",
+            "TaskData"
+          ]
+        ],
+        "fault": "java.lang.RuntimeException: org.hibernate.exception.ConstraintViolationException: Could not execute JDBC batch update"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:07.907Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "auth": "basic (viewer)",
+      "bytes": 556,
+      "label": "soap removeTimeEntry",
+      "soap": {
+        "op": "removeTimeEntry",
+        "params": [
+          [
+            "id",
+            283
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:08.219Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (viewer)",
+      "bytes": 556,
+      "label": "soap removeTask",
+      "soap": {
+        "op": "removeTask",
+        "params": [
+          [
+            "id",
+            437
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:08.545Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 1809,
+      "label": "soap addNote",
+      "soap": {
+        "op": "addNote",
+        "params": [
+          [
+            "note",
+            "NoteData"
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:08.844Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (viewer)",
+      "bytes": 556,
+      "label": "soap removeNote",
+      "soap": {
+        "op": "removeNote",
+        "params": [
+          [
+            "id",
+            388
+          ]
+        ],
+        "fault": "com.technoetic.xplanner.security.AuthenticationException: no permission to delete object"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:09.174Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 3103,
+      "label": "soap getTask",
+      "soap": {
+        "op": "getTask",
+        "params": [
+          [
+            "id",
+            437
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:09.489Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 422,
+      "label": "soap removeTimeEntry",
+      "soap": {
+        "op": "removeTimeEntry",
+        "params": [
+          [
+            "id",
+            283
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:09.797Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 586,
+      "label": "soap getTimeEntry",
+      "soap": {
+        "op": "getTimeEntry",
+        "params": [
+          [
+            "id",
+            283
+          ]
+        ],
+        "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.TimeEntry#283]"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:10.106Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 417,
+      "label": "soap removeTask",
+      "soap": {
+        "op": "removeTask",
+        "params": [
+          [
+            "id",
+            437
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:10.406Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 581,
+      "label": "soap getTask",
+      "soap": {
+        "op": "getTask",
+        "params": [
+          [
+            "id",
+            437
+          ]
+        ],
+        "fault": "org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [net.sf.xplanner.domain.Task#437]"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:10.730Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 417,
+      "label": "soap removeNote",
+      "soap": {
+        "op": "removeNote",
+        "params": [
+          [
+            "id",
+            388
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:11.029Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 500,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (editor)",
+      "bytes": 498,
+      "label": "soap getTimeEntry",
+      "soap": {
+        "op": "getTimeEntry",
+        "params": [
+          [
+            "id",
+            440
+          ]
+        ],
+        "fault": "java.lang.NullPointerException"
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:11.335Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 3607,
+      "label": "soap getUserStory",
+      "soap": {
+        "op": "getUserStory",
+        "params": [
+          [
+            "id",
+            374
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:11.643Z",
+      "client": "sysadmin",
+      "method": "POST",
+      "path": "/xplanner-legacy/soap/XPlanner",
+      "status": 200,
+      "content_type": "text/xml;charset=utf-8",
+      "auth": "basic (sysadmin)",
+      "bytes": 422,
+      "label": "soap removeUserStory",
+      "soap": {
+        "op": "removeUserStory",
+        "params": [
+          [
+            "id",
+            374
+          ]
+        ]
+      }
+    },
+    {
+      "at": "2026-09-30T20:24:11.950Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/userstory?oid=256",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 16966
+    },
+    {
+      "at": "2026-09-30T20:24:12.267Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/history?fkey=256&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D256&projectId=224&oid=256&@type=net.sf.xplanner.domain.UserStory",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 9697,
+      "label": "history of story 256"
+    },
+    {
+      "at": "2026-09-30T20:24:12.578Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/task?oid=270",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 12043,
+      "label": "task 1 page after SOAP addTimeEntry"
+    },
+    {
+      "at": "2026-09-30T20:24:12.882Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    }
+  ]
+}

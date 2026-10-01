@@ -1,0 +1,61 @@
+[
+  {
+    "at": "2026-09-30T20:11:16.868Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID"
+    ],
+    "bytes": 5494,
+    "label": "login form"
+  },
+  {
+    "at": "2026-09-30T20:11:17.166Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0,
+    "label": "login submit (credentials not recorded, remember omitted)"
+  },
+  {
+    "at": "2026-09-30T20:11:17.479Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=224",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8549,
+    "excerpt": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> <title>XPlanner [... 7264 chars]"
+  },
+  {
+    "at": "2026-09-30T20:11:17.797Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/iteration?fkey=224&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D224&projectId=224",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6782,
+    "excerpt": "<!DOCTYPE html> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> <title>XP [... 5651 chars]"
+  },
+  {
+    "at": "2026-09-30T20:11:18.104Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)",
+      "password(cleared)",
+      "JSESSIONID"
+    ],
+    "bytes": 4746,
+    "label": "logout"
+  }
+]

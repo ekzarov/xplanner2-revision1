@@ -1,0 +1,36 @@
+{
+  "phase": "p6b",
+  "started_at": "2026-09-30T20:28:33.349Z",
+  "finished_at": "2026-09-30T20:28:37.337Z",
+  "trace": "p6b-views.trace.json",
+  "checks": [
+    {
+      "phase": "p6b",
+      "at": "2026-09-30T20:28:36.010Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 106,
+      "role": "viewer",
+      "expected": "The iteration task view lists all tasks grouped by story with order, story, task, ID, acceptor, status icon, estimates, actual, remaining, disposition and type, plus a legend (started, completed, unassigned, unestimated).",
+      "source": "analysis/legacy_user_flows.xlsx row 106",
+      "action": "Read every S3-B row of All Tasks for S3-B I1 Current, its status-cell images and text after the table, and compared with the tasks listed on each story page.",
+      "observed": "Rows [\"3 | S3-B S1 Alpha | S3-B T3 Move me | 430 | S3E |  | 1.0 | 1.0 | 0.0 | 1.0 | Planned | Debt\",\"2 | S3-B S3 Gamma | S3-B T5 de Debt | 433 | S3E |  | 1.0 | 1.0 | 0.0 | 1.0 | Planned | Debt\",\"3 | S3-B S1 Alpha | S3-B TN No acceptor | 436 |  |  | 1.0 | 1.0 | 0.0 | 1.0 | Planned | Feature\",\"7 | S3-B S9 Mail story | S3-B TM Mail task | 435 | S3S |  | 2.5 | 2.5 | 0.0 | 2.5 | Planned | Feature\",\"3 | S3-B S1 Alpha | S3-B T2 Test (edited) | 429 | S3S |  | 3.5 | 3.5 | 0.0 | 3.5 | Planned | ATest\",\"3 |  | S3-B T1 Build | 274 | S3A |  | 4.0 | 5.0 | 1.0 | 4.0 | Planned | Feature\",\"5 | S3-B S8 Continue | S3-B T4 Continue me | 431 | S3E |  | 5.0 | 7.0 | 2.0 | 5.0 | Planned | Feature\"]; status images [\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/spacer.gif|\",\"/xplanner-legacy/images/started.png|\",\"/xplanner-legacy/images/started.png|\",\"/xplanner-legacy/images/started.png|\",\"/xplanner-legacy/images/money.png|\"]; text after the table \"Type 3 S3-B S1 Alpha S3-B T3 Move me 430 S3E 1.0 1.0 0.0 1.0 Planned Debt 2 S3-B S3 Gamma S3-B T5 de Debt 433 S3E 1.0 1.0 0.0 1.0 Planned Debt 3 S3-B S1 Alpha S3-B TN No acceptor 436 1.0 1.0 0.0 1.0 Planned Feature 7 S3-B S9 Mail story S3-B TM Mail task 435 S3S 2.5 2.5 0.0 2.5 Planned Feature 3 S3-B S1 Alpha S3-B T2 Test (edited) 429 S3S 3.5 3.5 0.0 3.5 Planned ATest 3 S3-B T1 Build 274 S3A 4.0 5.\"; tasks per story page {\"S1\":{\"iteration\":\"S3-B I1 Current\",\"tasks\":[\"S3-B T2 Test (edited)\",\"S3-B T3 Move me\",\"S3-B T1 Build\",\"S3-B TN No acceptor\"]},\"S3\":{\"iteration\":\"S3-B I1 Current\",\"tasks\":[\"S3-B T5 de Debt\"]},\"S8\":{\"iteration\":\"S3-B I1 Current\",\"tasks\":[\"S3-B T4 Continue me\"]},\"S9\":{\"iteration\":\"S3-B I1 Current\",\"tasks\":[\"S3-B TM Mail task\"]}}.",
+      "evidence": "p6b-views.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p6b",
+      "at": "2026-09-30T20:28:36.985Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 114,
+      "role": "editor",
+      "expected": "For an active iteration the dashboard shows stories with task cards in \"not started\", \"in progress\" and \"done\" columns, loaded from the REST API with the iteration id; dragging saves nothing.",
+      "source": "analysis/legacy_user_flows.xlsx row 114",
+      "action": "Read the served Dashboard markup and scripts for S3-B I1 Current, and requested the REST URL that the page script loads (GET, as the page would).",
+      "observed": "Dashboard HTTP 200; content \"user s3editor Me Logout Top S3-B Planning not started in progress done switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on sf.net . Click here to get your system information. null\"; title elements [\"leftColumnTitle:not started\",\"title:not started\",\"midColumnTitle:in progress\",\"title:in progress\",\"rightColumnTitle:done\",\"title:done\"]; ajax calls in the page script [\"$.getJSON( \\\"http://127.0.0.1:18080/xplanner-legacy/rest/view/iteration/235/userstories\\\", function(userStories\"]; REST GET 200 application/xml: {\"excerpt\":\"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?><userStoryViews><userStoryView><id>320</id><description>Merge probe: set by a merge=true request.</description><name>S3-B S7 Merge probe</name><a\"}. Rendering of cards and the drag behaviour need JavaScript and were not run (no browser session: signing in would require typing a password into the browser, which is forbidden).",
+      "evidence": "p6b-views.trace.json",
+      "verdict": "pending"
+    }
+  ]
+}

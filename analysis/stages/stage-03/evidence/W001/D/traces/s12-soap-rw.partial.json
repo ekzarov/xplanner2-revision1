@@ -1,0 +1,76 @@
+{
+  "at": "2026-09-30T20:20:52.105Z",
+  "calls": [
+    {
+      "who": "sysadmin",
+      "op": "addProject",
+      "args": [
+        [
+          "project",
+          "ProjectData"
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "description": "Part D synthetic project created over SOAP",
+        "id": "341",
+        "lastUpdateTime": null,
+        "name": "S3-D SOAP Project"
+      }
+    },
+    {
+      "who": "sysadmin",
+      "op": "getProject",
+      "args": [
+        [
+          "id",
+          341
+        ]
+      ],
+      "status": 200,
+      "result": {
+        "description": "Part D synthetic project created over SOAP",
+        "id": "341",
+        "lastUpdateTime": null,
+        "name": "S3-D SOAP Project"
+      }
+    },
+    {
+      "who": "sysadmin",
+      "op": "update",
+      "args": [
+        [
+          "object",
+          "ProjectData#341"
+        ]
+      ],
+      "status": 200,
+      "result": "(void)",
+      "note": "update(ProjectData)"
+    },
+    {
+      "who": "sysadmin",
+      "op": "addIteration",
+      "args": [
+        [
+          "iteration",
+          "IterationData"
+        ]
+      ],
+      "status": 500,
+      "fault": "java.lang.RuntimeException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: net.sf.xplanner.domain.Project"
+    },
+    {
+      "who": "sysadmin",
+      "op": "getIteration",
+      "args": [
+        [
+          "id",
+          null
+        ]
+      ],
+      "status": 500,
+      "fault": "java.lang.NumberFormatException: For input string: \"NaN\""
+    }
+  ]
+}

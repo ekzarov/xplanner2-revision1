@@ -1,0 +1,5366 @@
+{
+ "record": "Stage 3 walkthrough W001, consolidated per-row verdicts",
+ "walkthrough": "analysis/stages/stage-03/walkthrough-001.md",
+ "generated_at": "2026-10-01T00:28:46.524Z",
+ "author": "W001-lead (BA, consolidation author; not an independent review)",
+ "legacy_war_sha256": "46ff9dc090c1a5cf4cebba0d813f1c9a75204528a782acfcff864928ee3d4edc",
+ "workbook": "analysis/legacy_user_flows.xlsx",
+ "header_row": 6,
+ "counting_rule": "Totals count the 210 business rows only; the 18 use-case summary rows are listed separately as not applicable.",
+ "business_rows": 210,
+ "summary_rows": [
+  7,
+  22,
+  36,
+  54,
+  74,
+  87,
+  120,
+  133,
+  148,
+  168,
+  177,
+  195,
+  199,
+  207,
+  214,
+  222,
+  227,
+  231
+ ],
+ "totals_by_verdict": {
+  "live-verified": 110,
+  "difference": 75,
+  "partially verified": 25,
+  "unverified": 0,
+  "pending PM job facts": 0
+ },
+ "verdict_rule": "A function exercised live that failed is an observed behavior (match if the map says it fails, difference if the map says it works); only a check that was not executed is not-checked.",
+ "check_totals": {
+  "unique_check_ids": 436,
+  "part_checks": 427,
+  "lead_recorded_pm_fact_checks": 9,
+  "by_mode_consolidated": {
+   "live": {
+    "match": 294,
+    "finding": 102,
+    "not-checked": 4
+   },
+   "simulated": {},
+   "not-run": {
+    "not-checked": 36
+   }
+  }
+ },
+ "reclassified_checks": [
+  {
+   "id": "setup-C-059",
+   "row": 138,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "finding",
+   "reason": "The sink held no message after task changes: an observed failure (no mail), explained by the PM mail facts (lead finding for B-F-09)."
+  },
+  {
+   "id": "A-C-040",
+   "row": 35,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "finding",
+   "reason": "The role editor was requested and answered HTTP 500: an observed failure (lead-F-02)."
+  },
+  {
+   "id": "B-C-064",
+   "row": 119,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "finding",
+   "reason": "The import was exercised and failed; no cookie was written: observed (B-F-07)."
+  },
+  {
+   "id": "C-C-032",
+   "row": 170,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "finding",
+   "reason": "A note with a file and no body was posted and failed (C-F-04): observed."
+  },
+  {
+   "id": "D-C-005",
+   "row": 196,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "finding",
+   "reason": "The viewer join was posted and failed like every role (D-F-01): observed."
+  },
+  {
+   "id": "D-C-007",
+   "row": 197,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "finding",
+   "reason": "The start was posted and failed; no integration can become active (D-F-02): observed."
+  },
+  {
+   "id": "D-C-010",
+   "row": 198,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "finding",
+   "reason": "The cancel with nonotify was posted and failed; no event can fire (D-F-03): observed."
+  },
+  {
+   "id": "setup-C-033",
+   "row": 41,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "not-checked",
+   "reason": "Not executed (mode not-run); superseded by A-C-043."
+  },
+  {
+   "id": "C-C-033",
+   "row": 171,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "not-checked",
+   "reason": "Not executed (mode not-run); the behavior is unavailable because no attachment can be stored (C-F-04)."
+  },
+  {
+   "id": "C-C-037",
+   "row": 175,
+   "part_verdict": "blocked",
+   "consolidated_verdict": "not-checked",
+   "reason": "Not executed (mode not-run); the behavior is unavailable because no attachment can be stored (C-F-04)."
+  }
+ ],
+ "lead_checks": [
+  {
+   "id": "L-C-001",
+   "row": 8,
+   "mode": "live (PM-collected fact, recorded by lead)",
+   "verdict": "finding",
+   "finding": "W001-F-02",
+   "evidence": "analysis/stages/stage-03/evidence/W001/pm-facts/redirect-facts-3.txt line 3",
+   "supersedes": "A-C-002"
+  },
+  {
+   "id": "L-C-002",
+   "row": 9,
+   "mode": "live (PM-collected fact, recorded by lead)",
+   "verdict": "match",
+   "finding": null,
+   "evidence": "analysis/stages/stage-03/evidence/W001/pm-facts/redirect-facts-3.txt line 2",
+   "supersedes": "A-C-004"
+  },
+  {
+   "id": "L-C-003",
+   "row": 58,
+   "mode": "live (PM-collected fact, recorded by lead)",
+   "verdict": "match",
+   "finding": null,
+   "evidence": "analysis/stages/stage-03/evidence/W001/pm-facts/redirect-facts-3.txt lines 5-6",
+   "supersedes": "A-C-064"
+  },
+  {
+   "id": "L-C-004",
+   "row": 60,
+   "mode": "live (PM-collected fact, recorded by lead)",
+   "verdict": "match",
+   "finding": null,
+   "evidence": "analysis/stages/stage-03/evidence/W001/pm-facts/redirect-facts-3.txt lines 7-10; analysis/stages/stage-03/evidence/W001/pm-facts/redirect-facts.txt lines 5-8; analysis/stages/stage-03/evidence/W001/pm-facts/redirect-facts-2.txt lines 3-6",
+   "supersedes": "A-C-068"
+  },
+  {
+   "id": "L-C-005",
+   "row": 65,
+   "mode": "live (PM read-only log fact; adapted environment: static email.css)",
+   "verdict": "match",
+   "finding": null,
+   "evidence": "analysis/stages/stage-03/evidence/W001/pm-facts/job-facts.txt lines 75-87",
+   "supersedes": "none (adds to A-C-074)"
+  },
+  {
+   "id": "L-C-006",
+   "row": 200,
+   "mode": "live (PM read-only log and Mailpit fact; adapted environment: static email.css)",
+   "verdict": "finding",
+   "finding": "W001-F-47",
+   "evidence": "analysis/stages/stage-03/evidence/W001/pm-facts/job-facts.txt lines 2-70",
+   "supersedes": "D-C-011"
+  },
+  {
+   "id": "L-C-007",
+   "row": 201,
+   "mode": "live (PM read-only log and Mailpit fact; adapted environment: static email.css)",
+   "verdict": "finding",
+   "finding": "W001-F-47",
+   "evidence": "analysis/stages/stage-03/evidence/W001/pm-facts/job-facts.txt lines 42-70",
+   "supersedes": "D-C-012"
+  },
+  {
+   "id": "L-C-008",
+   "row": 204,
+   "mode": "live (PM read-only database fact)",
+   "verdict": "match",
+   "finding": null,
+   "evidence": "analysis/stages/stage-03/evidence/W001/pm-facts/job-facts.txt lines 71-73",
+   "supersedes": "D-C-018"
+  },
+  {
+   "id": "L-C-009",
+   "row": 203,
+   "mode": "live (PM-performed, Codex-decided environment change: mail sink stopped; adapted environment: static email.css)",
+   "verdict": "match",
+   "finding": null,
+   "evidence": "analysis/stages/stage-03/evidence/W001/pm-facts/row203-facts.txt lines 28-77",
+   "supersedes": "D-C-016"
+  }
+ ],
+ "rows": [
+  {
+   "row": 7,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "A": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 8,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Log in with valid credentials",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "A": "difference"
+   },
+   "checks": [
+    "setup-C-009",
+    "setup-C-010",
+    "setup-C-011",
+    "setup-C-012",
+    "setup-C-013",
+    "A-C-001",
+    "A-C-002",
+    "L-C-001"
+   ],
+   "findings": [
+    "W001-F-01",
+    "W001-F-02"
+   ],
+   "resolution": null,
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 9,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Log in with valid credentials",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-003",
+    "A-C-004",
+    "L-C-002"
+   ],
+   "findings": [],
+   "resolution": "A left the credential part not checked; the PM presence flags (L-C-002) show the factory pair in the help text as mapped.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 10,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Log in with valid credentials",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-005",
+    "A-C-006"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 11,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Log in with valid credentials",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-007"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 12,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Login rejected",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-008"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 13,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Login rejected",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-009",
+    "A-C-010"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 14,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Login rejected",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "difference"
+   },
+   "checks": [
+    "A-C-011",
+    "A-C-012",
+    "A-C-013"
+   ],
+   "findings": [
+    "W001-F-03"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 15,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Remember me",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-014"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 16,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Remember me",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-015",
+    "A-C-016"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 17,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Access protected pages without a session",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "A": "live-verified"
+   },
+   "checks": [
+    "setup-C-018",
+    "A-C-017"
+   ],
+   "findings": [],
+   "resolution": "Setup did not request /setting/*; A-C-017 shows the login redirect for /setting/project/list.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 18,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Access protected pages without a session",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "A": "difference"
+   },
+   "checks": [
+    "setup-C-035",
+    "A-C-018",
+    "A-C-019",
+    "A-C-020"
+   ],
+   "findings": [
+    "W001-F-04"
+   ],
+   "resolution": "Setup saw only the one-project branch; A-F-02 stands.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 19,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Log out",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "A": "live-verified"
+   },
+   "checks": [
+    "setup-C-014",
+    "setup-C-015",
+    "setup-C-016",
+    "setup-C-017",
+    "A-C-021"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 20,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Session expiry",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-022"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 21,
+   "use_case_id": "UF-001",
+   "use_case": "Authentication & Session",
+   "flow": "Alternative login modules (LDAP/JNDI, NTLM, JAAS)",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-023"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 22,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "A": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 23,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Role hierarchy and default permissions",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "A": "partially verified"
+   },
+   "checks": [
+    "setup-C-028",
+    "A-C-030",
+    "A-C-033"
+   ],
+   "findings": [],
+   "resolution": "Lead resolution from existing checks: the hierarchy was observed for all four roles at display level (setup-C-028, rows 24-26), and rows 29-30 show that no server-side check exists to observe beyond it (A-C-030..A-C-033).",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 24,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Role hierarchy and default permissions",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "A": "difference"
+   },
+   "checks": [
+    "setup-C-020",
+    "setup-C-021",
+    "setup-C-024",
+    "A-C-024",
+    "A-C-025"
+   ],
+   "findings": [
+    "W001-F-05"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 25,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Role hierarchy and default permissions",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "A": "live-verified"
+   },
+   "checks": [
+    "setup-C-026",
+    "setup-C-062"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 26,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Permission-driven UI actions",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "A": "live-verified"
+   },
+   "checks": [
+    "setup-C-027",
+    "setup-C-063"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 27,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Permission-driven UI actions",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-026"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 28,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Permission-driven UI actions",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-027",
+    "A-C-028",
+    "A-C-029",
+    "D-C-072",
+    "D-C-073"
+   ],
+   "findings": [],
+   "resolution": "Lead resolution from existing checks: A left the WAP views to part D; D-C-072 (notAuthorized.jsp missing, 404) and D-C-073 (NullPointerException with projectId) observe them.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 29,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Server-side permission enforcement",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-030",
+    "A-C-031",
+    "A-C-032"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 30,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Server-side permission enforcement",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-033",
+    "A-C-070",
+    "B-C-018",
+    "B-C-020",
+    "B-C-034",
+    "B-C-037",
+    "B-C-077",
+    "C-C-008",
+    "C-C-024",
+    "C-C-029",
+    "C-C-051",
+    "D-C-023",
+    "E-C-009",
+    "E-C-020"
+   ],
+   "findings": [],
+   "resolution": "Lead resolution from existing checks: the listed actions that work were requested directly by roles without the permission (A-C-033, A-C-070, B-C-018, B-C-020, B-C-034, B-C-037, B-C-077, C-C-008, C-C-024, C-C-029, C-C-051, D-C-023, E-C-009, E-C-020) and succeeded. The listed actions that fail for every role are observed failures recorded on their own rows (35, 50-51, 102, 115-118, 130, 144-147, 175, 176, 196).",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 31,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Server-side permission enforcement",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-034"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 32,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Server-side permission enforcement",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-035"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 33,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Assign project roles to a person",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "A": "difference"
+   },
+   "checks": [
+    "setup-C-006",
+    "setup-C-061"
+   ],
+   "findings": [
+    "W001-F-06"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 34,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Assign project roles to a person",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "A": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "setup-C-003",
+    "A-C-036",
+    "A-C-037",
+    "A-C-038",
+    "A-C-039",
+    "F-C-001"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 35,
+   "use_case_id": "UF-002",
+   "use_case": "Authorization & Roles",
+   "flow": "Edit project roles (project role editor)",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "unverified"
+   },
+   "checks": [
+    "A-C-040"
+   ],
+   "findings": [
+    "W001-F-07"
+   ],
+   "resolution": "Part A recorded the role editor as unverified (blocked). It was requested and answered HTTP 500, an observed failure (PM rule 2): lead-F-02.",
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 36,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "A": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 37,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "List people",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "A": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "setup-C-004",
+    "F-C-015"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "d"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 38,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "List people",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "difference"
+   },
+   "checks": [
+    "A-C-041",
+    "A-C-042"
+   ],
+   "findings": [
+    "W001-F-08"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 39,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "List people",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "A": "difference"
+   },
+   "checks": [
+    "setup-C-030"
+   ],
+   "findings": [
+    "W001-F-09"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 40,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "View person page",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "A": "difference"
+   },
+   "checks": [
+    "setup-C-031",
+    "setup-C-032"
+   ],
+   "findings": [
+    "W001-F-10"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 41,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "View person page",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "unverified",
+    "A": "live-verified"
+   },
+   "checks": [
+    "setup-C-033",
+    "A-C-043"
+   ],
+   "findings": [],
+   "resolution": "Setup was blocked by the failing person page; A-C-043 observed the links on the page of a person without time entries.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 42,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "View person page",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "A": "live-verified"
+   },
+   "checks": [
+    "setup-C-029"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 43,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Create person",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "A": "difference"
+   },
+   "checks": [
+    "setup-C-002",
+    "setup-C-022",
+    "A-C-025",
+    "A-C-044"
+   ],
+   "findings": [
+    "W001-F-05"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 44,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Create person",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-045",
+    "A-C-046"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 45,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Create person",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "difference"
+   },
+   "checks": [
+    "A-C-047"
+   ],
+   "findings": [
+    "W001-F-11"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 46,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Edit person and password",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "A": "live-verified"
+   },
+   "checks": [
+    "setup-C-007",
+    "A-C-048"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 47,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Edit person and password",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "A": "partially verified"
+   },
+   "checks": [
+    "setup-C-008",
+    "A-C-049"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 48,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Edit person and password",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "difference"
+   },
+   "checks": [
+    "A-C-050"
+   ],
+   "findings": [
+    "W001-F-08"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 49,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Delete person",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "difference"
+   },
+   "checks": [
+    "A-C-051",
+    "A-C-052",
+    "A-C-053",
+    "A-C-054"
+   ],
+   "findings": [
+    "W001-F-12"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 50,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Import people from a file",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "A": "difference"
+   },
+   "checks": [
+    "setup-C-023",
+    "A-C-055",
+    "A-C-056"
+   ],
+   "findings": [
+    "W001-F-05",
+    "W001-F-13"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 51,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Import people from a file",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "difference"
+   },
+   "checks": [
+    "A-C-057"
+   ],
+   "findings": [
+    "W001-F-13"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 52,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Import people from a file",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "difference"
+   },
+   "checks": [
+    "A-C-058"
+   ],
+   "findings": [
+    "W001-F-14"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 53,
+   "use_case_id": "UF-003",
+   "use_case": "People Management",
+   "flow": "Import people from a file",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-059"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 54,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "A": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 55,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "System information page",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-060"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 56,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Error pages",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-061"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 57,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Error pages",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "difference"
+   },
+   "checks": [
+    "A-C-062"
+   ],
+   "findings": [
+    "W001-F-15"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 58,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Change display language",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-063",
+    "A-C-064",
+    "L-C-003"
+   ],
+   "findings": [],
+   "resolution": "A left the external returnto open; L-C-003 shows the unchanged redirect.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 59,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Settings pages (work in progress)",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "difference"
+   },
+   "checks": [
+    "A-C-065",
+    "A-C-066"
+   ],
+   "findings": [
+    "W001-F-16"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 60,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Settings pages (work in progress)",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-067",
+    "A-C-068",
+    "L-C-004"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "a",
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 61,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Administrative and test actions",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-069",
+    "A-C-070"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 62,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Administrative and test actions",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "unverified",
+    "E": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "A-C-071",
+    "E-C-020",
+    "E-C-021",
+    "E-C-022",
+    "E-C-023",
+    "E-C-024",
+    "F-C-003",
+    "F-C-005",
+    "F-C-006"
+   ],
+   "findings": [],
+   "resolution": "A did not run the row; E ran the no-op property request only (E-C-020); part F dropped the state-changing actions under the owner's scope-reduction direction.",
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 63,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Administrative and test actions",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-072"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 64,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Startup schema creation and seed data",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-073"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 65,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Startup schema creation and seed data",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-074",
+    "L-C-005"
+   ],
+   "findings": [],
+   "resolution": "A observed the doubled Liquibase run and two schedulers (A-C-074); the PM job facts show two send attempts per recipient at 00:05, consistent with two runs (L-C-005). The double run is inferred from the counts; the contexts cannot be told apart in the log.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 66,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Startup schema creation and seed data",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-075"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 67,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Configuration layering and request encoding",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-076"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 68,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Configuration layering and request encoding",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-077"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 69,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Configuration layering and request encoding",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "partially verified",
+    "C": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "A-C-078",
+    "C-C-001",
+    "C-C-002",
+    "C-C-003",
+    "C-C-004",
+    "F-C-010"
+   ],
+   "findings": [
+    "W001-F-17"
+   ],
+   "resolution": "A and C left locales and the calendar buttons open; E-F-01 corrects the calendar-button claim of D69/F69.",
+   "residual_classes": [
+    "d",
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 70,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Configuration layering and request encoding",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "A-C-079",
+    "F-C-011"
+   ],
+   "findings": [
+    "W001-F-18"
+   ],
+   "resolution": "A observed part of the row; C-F-01 corrects D70/F70.",
+   "residual_classes": [
+    "d"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 71,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Configuration layering and request encoding",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "A": "unverified",
+    "C": "partially verified",
+    "E": "difference",
+    "F": "unverified"
+   },
+   "checks": [
+    "A-C-080",
+    "C-C-005",
+    "E-C-027",
+    "E-C-028",
+    "E-C-029",
+    "E-C-030",
+    "F-C-012"
+   ],
+   "findings": [
+    "W001-F-17"
+   ],
+   "resolution": "A did not run it, C observed stored dates only; E ran the controls in a browser (E-F-01).",
+   "residual_classes": [
+    "a",
+    "d"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 72,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Configuration layering and request encoding",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "A": "live-verified"
+   },
+   "checks": [
+    "A-C-081"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 73,
+   "use_case_id": "UF-004",
+   "use_case": "Platform, Administration & Errors",
+   "flow": "Activity logging",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "A": "partially verified"
+   },
+   "checks": [
+    "A-C-082"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 74,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "B": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 75,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "List projects",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-034",
+    "B-C-001",
+    "B-C-002"
+   ],
+   "findings": [],
+   "resolution": "Setup could not sort one project; B observed the order.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 76,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "List projects",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "B": "partially verified",
+    "E": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "setup-C-019",
+    "B-C-003",
+    "E-C-012",
+    "E-C-013",
+    "E-C-014",
+    "E-C-015",
+    "F-C-002"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "d"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 77,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "List projects",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-001"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 78,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "Create project",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-005",
+    "setup-C-060",
+    "B-C-004",
+    "B-C-005",
+    "B-C-006"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 79,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "Create project",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-007"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 80,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "Create project",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "B": "partially verified"
+   },
+   "checks": [
+    "B-C-008"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 81,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "Edit project",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-009",
+    "B-C-010"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 82,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "Delete project",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "B": "partially verified",
+    "E": "partially verified"
+   },
+   "checks": [
+    "B-C-011",
+    "B-C-012",
+    "E-C-019"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "a",
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 83,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "View project",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "B": "difference"
+   },
+   "checks": [
+    "setup-C-036",
+    "B-C-013",
+    "B-C-014",
+    "B-C-015"
+   ],
+   "findings": [
+    "W001-F-19"
+   ],
+   "resolution": "Setup could not page one iteration; B-F-02 stands.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 84,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "View project",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "B": "difference"
+   },
+   "checks": [
+    "setup-C-037",
+    "B-C-016"
+   ],
+   "findings": [
+    "W001-F-20"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 85,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "Missing time entry notification receivers",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-017",
+    "B-C-018"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 86,
+   "use_case_id": "UF-005",
+   "use_case": "Projects",
+   "flow": "Missing time entry notification receivers",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-019",
+    "B-C-020"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 87,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "B": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 88,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Create iteration",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-038",
+    "B-C-021",
+    "B-C-022"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 89,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Create iteration",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-023",
+    "B-C-024"
+   ],
+   "findings": [
+    "W001-F-21"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 90,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Edit iteration",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-025",
+    "B-C-026"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 91,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Delete iteration",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "B": "partially verified",
+    "E": "partially verified"
+   },
+   "checks": [
+    "setup-C-025",
+    "B-C-027",
+    "B-C-028",
+    "E-C-016",
+    "E-C-017"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "a",
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 92,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "View iteration stories",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-044",
+    "B-C-029",
+    "B-C-030"
+   ],
+   "findings": [],
+   "resolution": "Setup did not inspect the bars; B-C-029/B-C-030 did.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 93,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "View iteration stories",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-039",
+    "B-C-031"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 94,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "View iteration stories",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "B": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "B-C-032",
+    "F-C-007"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 95,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Reorder stories",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-033",
+    "B-C-034"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 96,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Reorder stories",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-035"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 97,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Move multiple stories",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-036",
+    "B-C-037"
+   ],
+   "findings": [
+    "W001-F-22"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 98,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Start iteration",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-040",
+    "B-C-038",
+    "B-C-039"
+   ],
+   "findings": [],
+   "resolution": "Setup could not see the opening sample; B saw it as the single chart point (B-C-038, B-C-039).",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 99,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Start iteration",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-040"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 100,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Start iteration",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-041"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 101,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Close iteration and continue unfinished stories",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "B-C-042",
+    "B-C-043",
+    "F-C-009"
+   ],
+   "findings": [
+    "W001-F-23"
+   ],
+   "resolution": "B left the close sample open (partially verified); B-F-06 names F101 (the redirect lacks projectId), so the row is a difference. The close sample stays residual.",
+   "residual_classes": [
+    "d"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 102,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Close iteration and continue unfinished stories",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-044",
+    "B-C-045",
+    "B-C-046"
+   ],
+   "findings": [
+    "W001-F-23",
+    "W001-F-24"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 103,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Close iteration and continue unfinished stories",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-047"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 104,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Close iteration and continue unfinished stories",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-048"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 105,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Tabbed iteration view",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-049"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 106,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "View all tasks of an iteration",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-050"
+   ],
+   "findings": [
+    "W001-F-25"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 107,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Iteration metrics",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-051"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 108,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Iteration metrics",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-052"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 109,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Iteration statistics charts",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-053"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 110,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Iteration statistics charts",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-054"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 111,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Iteration statistics charts",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-055"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 112,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Iteration statistics charts",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "B": "partially verified",
+    "E": "unverified",
+    "F": "unverified"
+   },
+   "checks": [
+    "B-C-056",
+    "E-C-025",
+    "F-C-004",
+    "L-C-008"
+   ],
+   "findings": [],
+   "resolution": "B observed the start sample (B-C-056); the PM fact that no sample appeared at 23:55 (L-C-008) shows the nightly trigger is not scheduled. The manual sampling action was not run (E-C-025; part F dropped it, F-C-004).",
+   "residual_classes": [
+    "a",
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 113,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Iteration accuracy",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-057"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 114,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Iteration task board (dashboard)",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "partially verified",
+    "E": "live-verified"
+   },
+   "checks": [
+    "B-C-058",
+    "E-C-031"
+   ],
+   "findings": [],
+   "resolution": "B could not run JavaScript; E-C-031 dragged a card in a browser.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 115,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Import stories from a spreadsheet",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-059",
+    "B-C-060"
+   ],
+   "findings": [
+    "W001-F-26"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 116,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Import stories from a spreadsheet",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-061"
+   ],
+   "findings": [
+    "W001-F-26"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 117,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Import stories from a spreadsheet",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-062"
+   ],
+   "findings": [
+    "W001-F-26"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 118,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Import stories from a spreadsheet",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-063"
+   ],
+   "findings": [
+    "W001-F-26"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 119,
+   "use_case_id": "UF-006",
+   "use_case": "Iterations",
+   "flow": "Import stories from a spreadsheet",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "unverified"
+   },
+   "checks": [
+    "B-C-064"
+   ],
+   "findings": [
+    "W001-F-26"
+   ],
+   "resolution": "Part B recorded the row as unverified (blocked). The import was exercised and failed, so the missing cookie is observed (PM rule 2): B-F-07.",
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 120,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "B": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 121,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Create user story",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "B": "difference"
+   },
+   "checks": [
+    "setup-C-041",
+    "setup-C-042",
+    "B-C-065",
+    "B-C-066"
+   ],
+   "findings": [
+    "W001-F-27"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 122,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Create user story",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-043",
+    "B-C-067"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 123,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Create user story",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-068"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 124,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Create user story",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-069",
+    "B-C-070",
+    "B-C-071"
+   ],
+   "findings": [
+    "W001-F-28"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 125,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Edit user story",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "B": "difference"
+   },
+   "checks": [
+    "setup-C-047",
+    "B-C-072",
+    "B-C-073"
+   ],
+   "findings": [
+    "W001-F-27"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 126,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Delete user story",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "B": "partially verified",
+    "E": "partially verified"
+   },
+   "checks": [
+    "B-C-074",
+    "E-C-018"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "a",
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 127,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "View user story",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-045",
+    "B-C-075"
+   ],
+   "findings": [],
+   "resolution": "Setup had no customer; B-C-075 observed the display.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 128,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "View user story",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-046"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 129,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Move or continue a story",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-076",
+    "B-C-077"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 130,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Move or continue a story",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-078"
+   ],
+   "findings": [
+    "W001-F-24"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 131,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Move or continue a story",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-079"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 132,
+   "use_case_id": "UF-007",
+   "use_case": "User Stories",
+   "flow": "Move or continue a story",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-080"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 133,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "B": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 134,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Create task",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "B": "difference"
+   },
+   "checks": [
+    "setup-C-048",
+    "setup-C-049",
+    "B-C-081",
+    "B-C-082"
+   ],
+   "findings": [
+    "W001-F-29"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 135,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Create task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-050",
+    "B-C-083"
+   ],
+   "findings": [],
+   "resolution": "Setup did not test the server-default branch; B-C-083 did.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 136,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Create task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-051",
+    "B-C-084"
+   ],
+   "findings": [],
+   "resolution": "Setup saw one branch; B-C-084 saw both.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 137,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Create task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-085"
+   ],
+   "findings": [
+    "W001-F-30"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 138,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Task e-mail notification",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "unverified",
+    "B": "difference"
+   },
+   "checks": [
+    "setup-C-059",
+    "B-C-086",
+    "B-C-087"
+   ],
+   "findings": [
+    "W001-F-31",
+    "W001-F-32"
+   ],
+   "resolution": "Setup could not see the log (its sink check is an observed failure, PM rule 2); B-F-09 and B-F-10 stand.",
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 139,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Edit task",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-088",
+    "B-C-089"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 140,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Complete or reopen task",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "B": "difference"
+   },
+   "checks": [
+    "setup-C-053",
+    "B-C-090",
+    "B-C-091"
+   ],
+   "findings": [
+    "W001-F-33"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 141,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Complete or reopen task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "B": "difference"
+   },
+   "checks": [
+    "setup-C-054",
+    "B-C-092",
+    "B-C-093"
+   ],
+   "findings": [
+    "W001-F-33"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 142,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Delete task",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "B": "live-verified"
+   },
+   "checks": [
+    "B-C-094",
+    "B-C-095"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 143,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "View task",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "setup": "live-verified",
+    "B": "live-verified"
+   },
+   "checks": [
+    "setup-C-052",
+    "B-C-096"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 144,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Move or continue a task",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-097",
+    "B-C-098",
+    "B-C-099"
+   ],
+   "findings": [
+    "W001-F-22",
+    "W001-F-34"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 145,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Move or continue a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-100"
+   ],
+   "findings": [
+    "W001-F-34"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 146,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Move or continue a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-101"
+   ],
+   "findings": [
+    "W001-F-34"
+   ],
+   "resolution": null,
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 147,
+   "use_case_id": "UF-008",
+   "use_case": "Tasks",
+   "flow": "Move or continue a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "B": "difference"
+   },
+   "checks": [
+    "B-C-102"
+   ],
+   "findings": [
+    "W001-F-34"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 148,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "C": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 149,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "C": "difference",
+    "E": "difference",
+    "F": "unverified"
+   },
+   "checks": [
+    "setup-C-055",
+    "C-C-003",
+    "C-C-006",
+    "C-C-007",
+    "C-C-008",
+    "E-C-032",
+    "E-C-033",
+    "F-C-013"
+   ],
+   "findings": [
+    "W001-F-18"
+   ],
+   "resolution": "Setup and C did not run the script; C-F-01 stands and E-C-033 confirmed it in a browser.",
+   "residual_classes": [
+    "a",
+    "d"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 150,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-009"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 151,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "partially verified",
+    "C": "partially verified",
+    "E": "difference"
+   },
+   "checks": [
+    "setup-C-056",
+    "C-C-010",
+    "E-C-034",
+    "E-C-035"
+   ],
+   "findings": [
+    "W001-F-35"
+   ],
+   "resolution": "Setup and C did not run the script; E-F-02 corrects F151.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 152,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-003",
+    "C-C-011",
+    "C-C-012"
+   ],
+   "findings": [
+    "W001-F-18"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 153,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-013"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 154,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-014"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 155,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-015"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 156,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-016"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 157,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-017"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 158,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-018"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 159,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-019"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 160,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Record time on a task",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-020"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 161,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Re-estimate task (legacy page)",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-021"
+   ],
+   "findings": [
+    "W001-F-36"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 162,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Personal timesheet",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "setup": "difference",
+    "C": "live-verified"
+   },
+   "checks": [
+    "setup-C-057",
+    "setup-C-058",
+    "C-C-022"
+   ],
+   "findings": [
+    "W001-F-10"
+   ],
+   "resolution": "C verified the timesheet by URL; setup-F-05 corrects the entry point in F162.",
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 163,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Personal timesheet",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-023"
+   ],
+   "findings": [
+    "W001-F-37"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 164,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Personal timesheet",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-024"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 165,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Aggregate timesheet",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-025"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 166,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Aggregate timesheet",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-026"
+   ],
+   "findings": [
+    "W001-F-37"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 167,
+   "use_case_id": "UF-009",
+   "use_case": "Time Tracking & Timesheets",
+   "flow": "Aggregate timesheet",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "unverified",
+    "E": "live-verified"
+   },
+   "checks": [
+    "C-C-027",
+    "E-C-001",
+    "E-C-002",
+    "E-C-003",
+    "E-C-004"
+   ],
+   "findings": [],
+   "resolution": "C had no unreadable project; E-C-001..E-C-004 used one.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 168,
+   "use_case_id": "UF-010",
+   "use_case": "Notes, Attachments & Files",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "C": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 169,
+   "use_case_id": "UF-010",
+   "use_case": "Notes, Attachments & Files",
+   "flow": "Add note to an object",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-028",
+    "C-C-029",
+    "C-C-030"
+   ],
+   "findings": [
+    "W001-F-38"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 170,
+   "use_case_id": "UF-010",
+   "use_case": "Notes, Attachments & Files",
+   "flow": "Add note to an object",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-031",
+    "C-C-032"
+   ],
+   "findings": [
+    "W001-F-38",
+    "W001-F-39"
+   ],
+   "resolution": null,
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 171,
+   "use_case_id": "UF-010",
+   "use_case": "Notes, Attachments & Files",
+   "flow": "Add note to an object",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "unverified"
+   },
+   "checks": [
+    "C-C-030",
+    "C-C-033",
+    "C-C-034"
+   ],
+   "findings": [
+    "W001-F-38"
+   ],
+   "resolution": "Part C recorded the row as unverified (blocked). The attach function was exercised and failed (C-F-04; C-C-030, C-C-034), so the reference count cannot occur: observed unavailability (PM rule 2). C-C-033 itself stays not-checked.",
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 172,
+   "use_case_id": "UF-010",
+   "use_case": "Notes, Attachments & Files",
+   "flow": "Add note to an object",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-034"
+   ],
+   "findings": [
+    "W001-F-38"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 173,
+   "use_case_id": "UF-010",
+   "use_case": "Notes, Attachments & Files",
+   "flow": "Edit and delete note",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-035"
+   ],
+   "findings": [
+    "W001-F-40"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 174,
+   "use_case_id": "UF-010",
+   "use_case": "Notes, Attachments & Files",
+   "flow": "Edit and delete note",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-036"
+   ],
+   "findings": [
+    "W001-F-41"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 175,
+   "use_case_id": "UF-010",
+   "use_case": "Notes, Attachments & Files",
+   "flow": "Download attachment",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "unverified"
+   },
+   "checks": [
+    "C-C-030",
+    "C-C-034",
+    "C-C-037"
+   ],
+   "findings": [
+    "W001-F-38"
+   ],
+   "resolution": "Part C recorded the row as unverified (blocked). The attach function was exercised and failed (C-F-04; C-C-030, C-C-034), so no download exists: observed unavailability (PM rule 2). C-C-037 itself stays not-checked.",
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 176,
+   "use_case_id": "UF-010",
+   "use_case": "Notes, Attachments & Files",
+   "flow": "File manager (directories)",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-038"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 177,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "C": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 178,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Search content",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-039"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 179,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Search content",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-040"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 180,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Search content",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "partially verified",
+    "E": "live-verified"
+   },
+   "checks": [
+    "C-C-041",
+    "C-C-042",
+    "E-C-005",
+    "E-C-006",
+    "E-C-007",
+    "E-C-008"
+   ],
+   "findings": [],
+   "resolution": "C had no unreadable object; E-C-005..E-C-008 used one.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 181,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Search content",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-043"
+   ],
+   "findings": [
+    "W001-F-42"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 182,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Jump to object by ID",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-044"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 183,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Jump to object by ID",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-045"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 184,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Jump to object by ID",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "partially verified",
+    "E": "live-verified"
+   },
+   "checks": [
+    "C-C-046",
+    "E-C-009",
+    "E-C-010",
+    "E-C-011"
+   ],
+   "findings": [],
+   "resolution": "C had no unreadable object; E-C-009..E-C-011 used one.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 185,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Breadcrumb navigation",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-047"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 186,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Object and project history",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-001",
+    "C-C-002",
+    "C-C-048",
+    "C-C-049"
+   ],
+   "findings": [
+    "W001-F-43"
+   ],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 187,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Object and project history",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "C": "difference"
+   },
+   "checks": [
+    "C-C-050"
+   ],
+   "findings": [
+    "W001-F-34"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 188,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "My status page",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-051"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 189,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Wiki-style formatting of descriptions",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "C": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "C-C-052",
+    "F-C-014"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "d",
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 190,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Wiki-style formatting of descriptions",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-053"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 191,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Switch page width",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "partially verified",
+    "E": "live-verified"
+   },
+   "checks": [
+    "C-C-054",
+    "E-C-026"
+   ],
+   "findings": [],
+   "resolution": "C did not run the toggle; E-C-026 did in a browser.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 192,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Switch page width",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-055"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 193,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Share on social networks",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "C": "partially verified"
+   },
+   "checks": [
+    "C-C-056"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 194,
+   "use_case_id": "UF-011",
+   "use_case": "Search, Navigation & History",
+   "flow": "Features (story features)",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "C": "live-verified"
+   },
+   "checks": [
+    "C-C-057"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 195,
+   "use_case_id": "UF-012",
+   "use_case": "Continuous Integration Queue",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "D": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 196,
+   "use_case_id": "UF-012",
+   "use_case": "Continuous Integration Queue",
+   "flow": "Integration queue",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-001",
+    "D-C-002",
+    "D-C-003",
+    "D-C-004",
+    "D-C-005"
+   ],
+   "findings": [
+    "W001-F-44"
+   ],
+   "resolution": null,
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 197,
+   "use_case_id": "UF-012",
+   "use_case": "Continuous Integration Queue",
+   "flow": "Integration queue",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-006",
+    "D-C-007"
+   ],
+   "findings": [
+    "W001-F-45"
+   ],
+   "resolution": null,
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 198,
+   "use_case_id": "UF-012",
+   "use_case": "Continuous Integration Queue",
+   "flow": "Integration queue",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-008",
+    "D-C-009",
+    "D-C-010"
+   ],
+   "findings": [
+    "W001-F-46"
+   ],
+   "resolution": null,
+   "residual_classes": [
+    "c"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 199,
+   "use_case_id": "UF-013",
+   "use_case": "Notifications & Scheduled Jobs",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "D": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 200,
+   "use_case_id": "UF-013",
+   "use_case": "Notifications & Scheduled Jobs",
+   "flow": "Daily missing time entry reminder",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "unverified"
+   },
+   "checks": [
+    "D-C-011",
+    "L-C-006"
+   ],
+   "findings": [
+    "W001-F-47"
+   ],
+   "resolution": "Part D prepared the data and could not wait for 00:05 (D-C-011). The job ran and every reminder send failed (L-C-006): a failing job is an observed behavior (PM rule 2).",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 201,
+   "use_case_id": "UF-013",
+   "use_case": "Notifications & Scheduled Jobs",
+   "flow": "Daily missing time entry reminder",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "unverified"
+   },
+   "checks": [
+    "D-C-012",
+    "L-C-007"
+   ],
+   "findings": [
+    "W001-F-47"
+   ],
+   "resolution": "Part D prepared the recipient (D-C-012). The job ran and every report send failed (L-C-007): observed behavior.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 202,
+   "use_case_id": "UF-013",
+   "use_case": "Notifications & Scheduled Jobs",
+   "flow": "Daily missing time entry reminder",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-013",
+    "D-C-014"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 203,
+   "use_case_id": "UF-013",
+   "use_case": "Notifications & Scheduled Jobs",
+   "flow": "Daily missing time entry reminder",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "partially verified"
+   },
+   "checks": [
+    "D-C-015",
+    "D-C-016",
+    "L-C-009"
+   ],
+   "findings": [],
+   "resolution": "D observed delivery with the sink up (D-C-015); the Codex-decided check with the sink stopped (L-C-009, attempt 2) shows no mail, a saved task and no user-visible error.",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 204,
+   "use_case_id": "UF-013",
+   "use_case": "Notifications & Scheduled Jobs",
+   "flow": "Data sampling for burn-down",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "partially verified"
+   },
+   "checks": [
+    "D-C-017",
+    "D-C-018",
+    "L-C-008"
+   ],
+   "findings": [],
+   "resolution": "D observed no Quartz scheduler and no qrtz tables (D-C-017); the PM count shows no sample at 23:55 (L-C-008).",
+   "residual_classes": [
+    "a"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 205,
+   "use_case_id": "UF-013",
+   "use_case": "Notifications & Scheduled Jobs",
+   "flow": "Data sampling for burn-down",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "partially verified",
+   "part_verdicts": {
+    "D": "partially verified",
+    "F": "unverified"
+   },
+   "checks": [
+    "D-C-019",
+    "D-C-020",
+    "F-C-008"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [
+    "e"
+   ],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 206,
+   "use_case_id": "UF-013",
+   "use_case": "Notifications & Scheduled Jobs",
+   "flow": "Per-change e-mail listener",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-021"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 207,
+   "use_case_id": "UF-014",
+   "use_case": "Export & Reports",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "D": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 208,
+   "use_case_id": "UF-014",
+   "use_case": "Export & Reports",
+   "flow": "Export menu",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-022",
+    "D-C-023"
+   ],
+   "findings": [
+    "W001-F-48"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 209,
+   "use_case_id": "UF-014",
+   "use_case": "Export & Reports",
+   "flow": "Export project",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-024",
+    "D-C-025",
+    "D-C-026"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 210,
+   "use_case_id": "UF-014",
+   "use_case": "Export & Reports",
+   "flow": "Export iteration",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-027",
+    "D-C-028"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 211,
+   "use_case_id": "UF-014",
+   "use_case": "Export & Reports",
+   "flow": "Export iteration",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-029"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 212,
+   "use_case_id": "UF-014",
+   "use_case": "Export & Reports",
+   "flow": "Export story, task and person",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-030"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 213,
+   "use_case_id": "UF-014",
+   "use_case": "Export & Reports",
+   "flow": "Export story, task and person",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-031",
+    "D-C-032",
+    "D-C-033"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 214,
+   "use_case_id": "UF-015",
+   "use_case": "SOAP Web Service API",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "D": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 215,
+   "use_case_id": "UF-015",
+   "use_case": "SOAP Web Service API",
+   "flow": "SOAP service access",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-034",
+    "D-C-035"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 216,
+   "use_case_id": "UF-015",
+   "use_case": "SOAP Web Service API",
+   "flow": "SOAP service access",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-036",
+    "D-C-037"
+   ],
+   "findings": [
+    "W001-F-49"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 217,
+   "use_case_id": "UF-015",
+   "use_case": "SOAP Web Service API",
+   "flow": "SOAP service access",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-038"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 218,
+   "use_case_id": "UF-015",
+   "use_case": "SOAP Web Service API",
+   "flow": "SOAP service access",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-039",
+    "D-C-040",
+    "D-C-041",
+    "D-C-042",
+    "D-C-043",
+    "D-C-044"
+   ],
+   "findings": [
+    "W001-F-49",
+    "W001-F-50"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 219,
+   "use_case_id": "UF-015",
+   "use_case": "SOAP Web Service API",
+   "flow": "SOAP service access",
+   "scenario": "Operational path",
+   "is_summary_row": false,
+   "source_implemented_G": "No",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-045"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 220,
+   "use_case_id": "UF-015",
+   "use_case": "SOAP Web Service API",
+   "flow": "SOAP read operations",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-046",
+    "D-C-047",
+    "D-C-048",
+    "D-C-049"
+   ],
+   "findings": [
+    "W001-F-50",
+    "W001-F-51"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 221,
+   "use_case_id": "UF-015",
+   "use_case": "SOAP Web Service API",
+   "flow": "SOAP write operations",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-050",
+    "D-C-051",
+    "D-C-052",
+    "D-C-053",
+    "D-C-054",
+    "D-C-055",
+    "D-C-056",
+    "D-C-057",
+    "D-C-058"
+   ],
+   "findings": [
+    "W001-F-52"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 222,
+   "use_case_id": "UF-016",
+   "use_case": "REST/JSON API",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "D": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 223,
+   "use_case_id": "UF-016",
+   "use_case": "REST/JSON API",
+   "flow": "REST read endpoints",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-059"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 224,
+   "use_case_id": "UF-016",
+   "use_case": "REST/JSON API",
+   "flow": "REST read endpoints",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-060"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 225,
+   "use_case_id": "UF-016",
+   "use_case": "REST/JSON API",
+   "flow": "REST read endpoints",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-061"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 226,
+   "use_case_id": "UF-016",
+   "use_case": "REST/JSON API",
+   "flow": "REST task status update",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-062",
+    "D-C-063"
+   ],
+   "findings": [
+    "W001-F-53"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 227,
+   "use_case_id": "UF-017",
+   "use_case": "iCalendar Feed",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "D": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 228,
+   "use_case_id": "UF-017",
+   "use_case": "iCalendar Feed",
+   "flow": "Personal iCal feed",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-064",
+    "D-C-065"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 229,
+   "use_case_id": "UF-017",
+   "use_case": "iCalendar Feed",
+   "flow": "Personal iCal feed",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-066"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 230,
+   "use_case_id": "UF-017",
+   "use_case": "iCalendar Feed",
+   "flow": "Personal iCal feed",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-067",
+    "D-C-068"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 231,
+   "use_case_id": "UF-018",
+   "use_case": "Mobile (WAP) Access",
+   "flow": null,
+   "scenario": null,
+   "is_summary_row": true,
+   "source_implemented_G": null,
+   "final_verdict": "summary row, not a behavior",
+   "part_verdicts": {
+    "D": "unverified"
+   },
+   "checks": [],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": null
+  },
+  {
+   "row": 232,
+   "use_case_id": "UF-018",
+   "use_case": "Mobile (WAP) Access",
+   "flow": "WAP login and browsing",
+   "scenario": "Happy path",
+   "is_summary_row": false,
+   "source_implemented_G": "Partial",
+   "final_verdict": "difference",
+   "part_verdicts": {
+    "D": "difference"
+   },
+   "checks": [
+    "D-C-069",
+    "D-C-070"
+   ],
+   "findings": [
+    "W001-F-54"
+   ],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 233,
+   "use_case_id": "UF-018",
+   "use_case": "Mobile (WAP) Access",
+   "flow": "WAP login and browsing",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Yes",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-071"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  },
+  {
+   "row": 234,
+   "use_case_id": "UF-018",
+   "use_case": "Mobile (WAP) Access",
+   "flow": "WAP login and browsing",
+   "scenario": "Alternative path",
+   "is_summary_row": false,
+   "source_implemented_G": "Inferred",
+   "final_verdict": "live-verified",
+   "part_verdicts": {
+    "D": "live-verified"
+   },
+   "checks": [
+    "D-C-072",
+    "D-C-073"
+   ],
+   "findings": [],
+   "resolution": null,
+   "residual_classes": [],
+   "runtime_label": "Runtime: live-observed"
+  }
+ ]
+}

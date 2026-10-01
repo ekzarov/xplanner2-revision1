@@ -1,0 +1,731 @@
+{
+  "started_at": "2026-09-30T21:03:32.780Z",
+  "login": {
+    "ok": true,
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects"
+  },
+  "d2": {
+    "iid": "542",
+    "started": true,
+    "sid": "329",
+    "tid": "534",
+    "notes": {
+      "iteration": "501",
+      "story": "502",
+      "task": "503"
+    },
+    "before": {
+      "pages": {},
+      "notes": {
+        "iteration": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top S3-E Private An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instructions.In order to expedite the analy"
+        },
+        "story": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top S3-E Private S3-E Iteration D2 An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instructions.In order to "
+        },
+        "task": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top S3-E Private S3-E Iteration D2 S3-E Story D2 An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instruction"
+        }
+      },
+      "note_id_search": {
+        "iteration": {
+          "status": 302,
+          "location": "/do/view/iteration?oid=542"
+        },
+        "story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=329"
+        },
+        "task": {
+          "status": 302,
+          "location": "/do/view/task?oid=534"
+        }
+      },
+      "timesheet": {
+        "status": 200,
+        "title": "XPlanner Timesheet: Person Name:",
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration D2 | S3-E Story D2 | 0.5",
+          "Total Hours | 0.5"
+        ]
+      },
+      "aggregate": {
+        "get_status": 200,
+        "fields": [
+          "selectedPeople(select)",
+          "startDateString(text)",
+          "setStartDate(image)",
+          "endDateString(text)",
+          "setEndDate(image)"
+        ],
+        "people_options": [
+          "211",
+          "210",
+          "212",
+          "209",
+          "288",
+          "217",
+          "213",
+          "215",
+          "219",
+          "1"
+        ],
+        "select_name": "selectedPeople",
+        "status": 200,
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration D2 | S3-E Story D2 | 0.5"
+        ],
+        "mentions_s3e": true
+      },
+      "search_note": {
+        "status": 200,
+        "title": "Search Results",
+        "location": "",
+        "rows": [
+          "note | 502 | S3-E note on Story D2 | S3-E note on Story D2 body (part E) -> /do/view/userstory?oid=329"
+        ]
+      }
+    },
+    "delete_link": {
+      "text": "Delete",
+      "href": "/do/delete/iteration?returnto=%2Fdo%2Fview%2Fprojects&oid=542",
+      "onclick": "return confirm('Do you want to delete iteration \\'S3-E Iteration D2\\'?')"
+    },
+    "delete": {
+      "status": 302,
+      "location": "/do/view/project?oid=228"
+    },
+    "after": {
+      "pages": {
+        "iteration": {
+          "status": 500,
+          "location": "",
+          "title": "An error has occurred.",
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. An exception occurred Please create an issue following these instructions.In order to expedite the a"
+        },
+        "story": {
+          "status": 500,
+          "location": "",
+          "title": "An error has occurred.",
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. No row with Please create an issue following these instructions.In order to expedite the analysis of"
+        },
+        "task": {
+          "status": 500,
+          "location": "",
+          "title": "An error has occurred.",
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. javax.el.ELException: Error reading Please create an issue following these instructions.In order to "
+        }
+      },
+      "notes": {
+        "iteration": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instructions.In order to expedite the analysis of your p"
+        },
+        "story": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instructions.In order to expedite the analysis of your p"
+        },
+        "task": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instructions.In order to expedite the analysis of your p"
+        }
+      },
+      "note_id_search": {
+        "iteration": {
+          "status": 200,
+          "location": "",
+          "text": "user <sysadmin.userId> Me Logout Top An error has occurred. ID 501 not found switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on "
+        },
+        "story": {
+          "status": 200,
+          "location": "",
+          "text": "user <sysadmin.userId> Me Logout Top An error has occurred. ID 502 not found switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on "
+        },
+        "task": {
+          "status": 200,
+          "location": "",
+          "text": "user <sysadmin.userId> Me Logout Top An error has occurred. ID 503 not found switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on "
+        }
+      },
+      "timesheet": {
+        "status": 200,
+        "title": "XPlanner Timesheet: Person Name:",
+        "s3e_rows": [
+          "Total Hours | 0.0"
+        ]
+      },
+      "aggregate": {
+        "get_status": 200,
+        "fields": [
+          "selectedPeople(select)",
+          "startDateString(text)",
+          "setStartDate(image)",
+          "endDateString(text)",
+          "setEndDate(image)"
+        ],
+        "people_options": [
+          "211",
+          "210",
+          "212",
+          "209",
+          "288",
+          "217",
+          "213",
+          "215",
+          "219",
+          "1"
+        ],
+        "select_name": "selectedPeople",
+        "status": 200,
+        "s3e_rows": [],
+        "mentions_s3e": false
+      },
+      "search_note": {
+        "status": 200,
+        "title": "Search Results",
+        "location": "",
+        "rows": []
+      }
+    }
+  },
+  "i1": {
+    "iid": "543",
+    "started": true,
+    "sid": "561",
+    "tid": "535",
+    "notes": {
+      "iteration": "504",
+      "story": "505",
+      "task": "572"
+    }
+  },
+  "sd": {
+    "sid": "562",
+    "tid": "536",
+    "notes": {
+      "story": "573",
+      "task": "574"
+    },
+    "before": {
+      "pages": {},
+      "notes": {
+        "story": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top S3-E Private S3-E Iteration 1 An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instructions.In order to e"
+        },
+        "task": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top S3-E Private S3-E Iteration 1 S3-E Story Del An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instruction"
+        }
+      },
+      "note_id_search": {
+        "story": {
+          "status": 302,
+          "location": "/do/view/userstory?oid=562"
+        },
+        "task": {
+          "status": 302,
+          "location": "/do/view/task?oid=536"
+        }
+      },
+      "timesheet": {
+        "status": 200,
+        "title": "XPlanner Timesheet: Person Name:",
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5",
+          "S3-E Private | S3-E Iteration 1 | S3-E Story Del | 0.5",
+          "Total Hours | 2.0"
+        ]
+      },
+      "aggregate": {
+        "get_status": 200,
+        "fields": [
+          "selectedPeople(select)",
+          "startDateString(text)",
+          "setStartDate(image)",
+          "endDateString(text)",
+          "setEndDate(image)"
+        ],
+        "people_options": [
+          "211",
+          "210",
+          "212",
+          "209",
+          "288",
+          "217",
+          "213",
+          "215",
+          "219",
+          "1"
+        ],
+        "select_name": "selectedPeople",
+        "status": 200,
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5",
+          "S3-E Private | S3-E Iteration 1 | S3-E Story Del | 0.5"
+        ],
+        "mentions_s3e": true
+      },
+      "search_note": {
+        "status": 200,
+        "title": "Search Results",
+        "location": "",
+        "rows": [
+          "note | 573 | S3-E note on Story Del | S3-E note on Story Del body (part E) -> /do/view/userstory?oid=562"
+        ]
+      }
+    },
+    "delete_link": {
+      "text": "",
+      "href": "/do/delete/userstory?fkey=543&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D543&oid=562&projectId=228",
+      "onclick": "return confirm('Do you want to delete story \\'S3-E Story Del\\'?')"
+    },
+    "delete": {
+      "status": 302,
+      "location": "/do/view/iteration?oid=543"
+    },
+    "after": {
+      "pages": {
+        "story": {
+          "status": 500,
+          "location": "",
+          "title": "An error has occurred.",
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. No row with Please create an issue following these instructions.In order to expedite the analysis of"
+        },
+        "task": {
+          "status": 500,
+          "location": "",
+          "title": "An error has occurred.",
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. javax.el.ELException: Error reading Please create an issue following these instructions.In order to "
+        },
+        "kept_story": {
+          "status": 200,
+          "location": "",
+          "title": "XPlanner Story: S3-E Story 1"
+        }
+      },
+      "notes": {
+        "story": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instructions.In order to expedite the analysis of your p"
+        },
+        "task": {
+          "status": 500,
+          "subject": null,
+          "attachedToId": null,
+          "error": "user <sysadmin.userId> Me Logout Top An error has occurred. javax.servlet.jsp.JspException: No parameter Please create an issue following these instructions.In order to expedite the analysis of your p"
+        }
+      },
+      "note_id_search": {
+        "story": {
+          "status": 200,
+          "location": "",
+          "text": "user <sysadmin.userId> Me Logout Top An error has occurred. ID 573 not found switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on "
+        },
+        "task": {
+          "status": 200,
+          "location": "",
+          "text": "user <sysadmin.userId> Me Logout Top An error has occurred. ID 574 not found switch width of Xplanner+ page Version 1.1a4 built 04/12/2011 (rev 426) Any enhancement or bug report should be created on "
+        }
+      },
+      "timesheet": {
+        "status": 200,
+        "title": "XPlanner Timesheet: Person Name:",
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5",
+          "Total Hours | 1.5"
+        ]
+      },
+      "aggregate": {
+        "get_status": 200,
+        "fields": [
+          "selectedPeople(select)",
+          "startDateString(text)",
+          "setStartDate(image)",
+          "endDateString(text)",
+          "setEndDate(image)"
+        ],
+        "people_options": [
+          "211",
+          "210",
+          "212",
+          "209",
+          "288",
+          "217",
+          "213",
+          "215",
+          "219",
+          "1"
+        ],
+        "select_name": "selectedPeople",
+        "status": 200,
+        "s3e_rows": [
+          "S3-E Private | S3-E Iteration 1 | S3-E Story 1 | 1.5"
+        ],
+        "mentions_s3e": true
+      },
+      "search_note": {
+        "status": 200,
+        "title": "Search Results",
+        "location": "",
+        "rows": []
+      }
+    },
+    "iteration_lists_story": false
+  },
+  "log": [
+    {
+      "step": "iteration-create S3-E Iteration D2",
+      "editor_status": 200,
+      "fields": [
+        "returnto",
+        "fkey",
+        "projectId",
+        "id",
+        "name",
+        "startDateString",
+        "endDateString",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/project?oid=228"
+    },
+    {
+      "step": "start 542",
+      "status": 302,
+      "location": "/do/view/iteration?oid=542",
+      "close_link_now": true
+    },
+    {
+      "step": "story-create S3-E Story D2",
+      "editor_status": 200,
+      "fields": [
+        "iterationId",
+        "id",
+        "returnto",
+        "fkey",
+        "name",
+        "dispositionName",
+        "customerId",
+        "trackerId",
+        "statusName",
+        "priority",
+        "orderNo",
+        "estimatedHoursField",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/iteration?oid=542"
+    },
+    {
+      "step": "task-create S3-E Task D2",
+      "editor_status": 200,
+      "fields": [
+        "returnto",
+        "fkey",
+        "userStoryId",
+        "id",
+        "completed",
+        "name",
+        "type",
+        "dispositionName",
+        "acceptorId",
+        "estimatedHours",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/userstory?oid=329"
+    },
+    {
+      "step": "time D2 0.5h",
+      "editor_status": 200,
+      "status": 302,
+      "location": "/do/view/task?oid=534"
+    },
+    {
+      "step": "note-create iteration 542",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/iteration?oid=542"
+    },
+    {
+      "step": "note-create userstory 329",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/userstory?oid=329"
+    },
+    {
+      "step": "note-create task 534",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/task?oid=534"
+    },
+    {
+      "step": "iteration-create S3-E Iteration 1",
+      "editor_status": 200,
+      "fields": [
+        "returnto",
+        "fkey",
+        "projectId",
+        "id",
+        "name",
+        "startDateString",
+        "endDateString",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/project?oid=228"
+    },
+    {
+      "step": "start 543",
+      "status": 302,
+      "location": "/do/view/iteration?oid=543",
+      "close_link_now": true
+    },
+    {
+      "step": "story-create S3-E Story 1",
+      "editor_status": 200,
+      "fields": [
+        "iterationId",
+        "id",
+        "returnto",
+        "fkey",
+        "name",
+        "dispositionName",
+        "customerId",
+        "trackerId",
+        "statusName",
+        "priority",
+        "orderNo",
+        "estimatedHoursField",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/iteration?oid=543"
+    },
+    {
+      "step": "task-create S3-E Task 1",
+      "editor_status": 200,
+      "fields": [
+        "returnto",
+        "fkey",
+        "userStoryId",
+        "id",
+        "completed",
+        "name",
+        "type",
+        "dispositionName",
+        "acceptorId",
+        "estimatedHours",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/userstory?oid=561"
+    },
+    {
+      "step": "time T1 1.5h",
+      "editor_status": 200,
+      "status": 302,
+      "location": "/do/view/task?oid=535"
+    },
+    {
+      "step": "note-create iteration 543",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/iteration?oid=543"
+    },
+    {
+      "step": "note-create userstory 561",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/userstory?oid=561"
+    },
+    {
+      "step": "note-create task 535",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/task?oid=535"
+    },
+    {
+      "step": "story-create S3-E Story Del",
+      "editor_status": 200,
+      "fields": [
+        "iterationId",
+        "id",
+        "returnto",
+        "fkey",
+        "name",
+        "dispositionName",
+        "customerId",
+        "trackerId",
+        "statusName",
+        "priority",
+        "orderNo",
+        "estimatedHoursField",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/iteration?oid=543"
+    },
+    {
+      "step": "task-create S3-E Task Del",
+      "editor_status": 200,
+      "fields": [
+        "returnto",
+        "fkey",
+        "userStoryId",
+        "id",
+        "completed",
+        "name",
+        "type",
+        "dispositionName",
+        "acceptorId",
+        "estimatedHours",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/userstory?oid=562"
+    },
+    {
+      "step": "time TDel 0.5h",
+      "editor_status": 200,
+      "status": 302,
+      "location": "/do/view/task?oid=536"
+    },
+    {
+      "step": "note-create userstory 562",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/userstory?oid=562"
+    },
+    {
+      "step": "note-create task 536",
+      "editor_status": 200,
+      "fields": [
+        "id",
+        "returnto",
+        "projectId",
+        "attachedToId",
+        "subject",
+        "authorId",
+        "body",
+        "formFile",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/task?oid=536"
+    }
+  ],
+  "logout": {
+    "status": 200,
+    "session_cookie_left": true
+  },
+  "finished_at": "2026-09-30T21:04:11.221Z"
+}

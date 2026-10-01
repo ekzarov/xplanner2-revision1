@@ -1,0 +1,144 @@
+[
+  {
+    "at": "2026-09-30T20:58:52.086Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T20:58:52.395Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T20:58:52.721Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10338
+  },
+  {
+    "at": "2026-09-30T20:58:53.044Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/project?returnto=%2Fdo%2Fview%2Fprojects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7071
+  },
+  {
+    "at": "2026-09-30T20:58:53.357Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/project",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T20:58:53.690Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11155
+  },
+  {
+    "at": "2026-09-30T20:58:54.024Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=228",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8987
+  },
+  {
+    "at": "2026-09-30T20:58:54.340Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/iteration?fkey=228&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D228&projectId=228",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6779
+  },
+  {
+    "at": "2026-09-30T20:58:54.646Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/iteration",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/project?oid=228",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T20:58:54.984Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=228",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10800
+  },
+  {
+    "at": "2026-09-30T20:58:55.323Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=541",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11603
+  },
+  {
+    "at": "2026-09-30T20:58:55.642Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/start/iteration?fkey=228&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D541&projectId=228&oid=541",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/iteration?oid=541",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T20:58:55.947Z",
+    "client": "sysadmin",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid[Max-Age=0]",
+      "password[Max-Age=0]",
+      "JSESSIONID"
+    ],
+    "bytes": 4746
+  }
+]

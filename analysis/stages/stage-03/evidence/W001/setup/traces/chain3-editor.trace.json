@@ -1,0 +1,102 @@
+[
+  {
+    "at": "2026-09-30T19:45:44.619Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T19:45:44.927Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;jsessionid=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:45:45.231Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5821
+  },
+  {
+    "at": "2026-09-30T19:45:45.571Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=231",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11538
+  },
+  {
+    "at": "2026-09-30T19:45:45.893Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/userstory?fkey=231&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D231&projectId=220",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8410
+  },
+  {
+    "at": "2026-09-30T19:45:46.203Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/userstory",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/iteration?oid=231",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:45:46.549Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=231",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 16213
+  },
+  {
+    "at": "2026-09-30T19:45:46.965Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/userstory?oid=253",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10370
+  },
+  {
+    "at": "2026-09-30T19:45:47.321Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/task?fkey=253&returnto=%2Fdo%2Fview%2Fuserstory%3Foid%3D253&projectId=220",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7801
+  },
+  {
+    "at": "2026-09-30T19:45:47.629Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)[Max-Age=0]",
+      "password(cleared)[Max-Age=0]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746
+  }
+]

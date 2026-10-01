@@ -1,0 +1,1133 @@
+[
+  {
+    "at": "2026-09-30T20:19:46.450Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:19:46.740Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:19:48.769Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=213",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12760,
+    "note": "open editor of own s3a person 213"
+  },
+  {
+    "at": "2026-09-30T20:19:49.064Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "form_fields": [
+      "oid",
+      "id",
+      "returnto",
+      "name",
+      "userIdentifier",
+      "initials",
+      "email",
+      "phone",
+      "newPassword",
+      "newPasswordConfirm",
+      "projectId[0]",
+      "projectId[1]",
+      "projectId[2]",
+      "projectId[3]",
+      "projectId[4]",
+      "projectId[5]",
+      "action",
+      "hidden",
+      "projectRole[0]",
+      "projectRole[1]",
+      "projectRole[2]",
+      "projectRole[3]",
+      "projectRole[4]",
+      "projectRole[5]"
+    ],
+    "bytes": 0,
+    "note": "reset password of own s3a-member"
+  },
+  {
+    "at": "2026-09-30T20:19:57.736Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=214",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12716,
+    "note": "open editor of own s3a person 214"
+  },
+  {
+    "at": "2026-09-30T20:19:58.025Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "form_fields": [
+      "oid",
+      "id",
+      "returnto",
+      "name",
+      "userIdentifier",
+      "initials",
+      "email",
+      "phone",
+      "newPassword",
+      "newPasswordConfirm",
+      "projectId[0]",
+      "projectId[1]",
+      "projectId[2]",
+      "projectId[3]",
+      "projectId[4]",
+      "projectId[5]",
+      "action",
+      "hidden",
+      "projectRole[0]",
+      "projectRole[1]",
+      "projectRole[2]",
+      "projectRole[3]",
+      "projectRole[4]",
+      "projectRole[5]"
+    ],
+    "bytes": 0,
+    "note": "hide own s3a-hide"
+  },
+  {
+    "at": "2026-09-30T20:19:59.277Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13873,
+    "note": "people list as sysadmin (hidden check)"
+  },
+  {
+    "at": "2026-09-30T20:19:59.862Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=219",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12732,
+    "note": "open editor of own s3a person 219"
+  },
+  {
+    "at": "2026-09-30T20:20:00.159Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "form_fields": [
+      "oid",
+      "id",
+      "returnto",
+      "name",
+      "userIdentifier",
+      "initials",
+      "email",
+      "phone",
+      "newPassword",
+      "newPasswordConfirm",
+      "projectId[0]",
+      "projectId[1]",
+      "projectId[2]",
+      "projectId[3]",
+      "projectId[4]",
+      "projectId[5]",
+      "action",
+      "hidden",
+      "projectRole[0]",
+      "projectRole[1]",
+      "projectRole[2]",
+      "projectRole[3]",
+      "projectRole[4]",
+      "projectRole[5]",
+      "systemAdmin"
+    ],
+    "bytes": 0,
+    "note": "sysadmin grants systemAdmin to own s3a-sys (checkbox)"
+  },
+  {
+    "at": "2026-09-30T20:20:00.488Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=219",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12749,
+    "note": "open editor of own s3a person 219"
+  },
+  {
+    "at": "2026-09-30T20:20:01.748Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=219",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12749,
+    "note": "open editor of own s3a person 219"
+  },
+  {
+    "at": "2026-09-30T20:20:02.076Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=219",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12749,
+    "note": "open editor of own s3a person 219"
+  },
+  {
+    "at": "2026-09-30T20:20:02.375Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "form_fields": [
+      "oid",
+      "id",
+      "returnto",
+      "name",
+      "userIdentifier",
+      "initials",
+      "email",
+      "phone",
+      "newPassword",
+      "newPasswordConfirm",
+      "projectId[0]",
+      "projectId[1]",
+      "projectId[2]",
+      "projectId[3]",
+      "projectId[4]",
+      "projectId[5]",
+      "action",
+      "hidden",
+      "projectRole[0]",
+      "projectRole[1]",
+      "projectRole[2]",
+      "projectRole[3]",
+      "projectRole[4]",
+      "projectRole[5]"
+    ],
+    "bytes": 0,
+    "note": "sysadmin saves own s3a-sys without the checkbox"
+  },
+  {
+    "at": "2026-09-30T20:20:02.707Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=219",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12732,
+    "note": "open editor of own s3a person 219"
+  },
+  {
+    "at": "2026-09-30T20:20:03.583Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 14582,
+    "note": "find s3a-byviewer"
+  },
+  {
+    "at": "2026-09-30T20:20:03.898Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12565,
+    "note": "add person editor"
+  },
+  {
+    "at": "2026-09-30T20:20:04.218Z",
+    "client": "sysadmin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "form_fields": [
+      "id",
+      "returnto",
+      "name",
+      "userIdentifier",
+      "initials",
+      "email",
+      "phone",
+      "newPassword",
+      "newPasswordConfirm",
+      "projectId[0]",
+      "projectId[1]",
+      "projectId[2]",
+      "projectId[3]",
+      "projectId[4]",
+      "projectId[5]",
+      "action",
+      "hidden",
+      "projectRole[0]",
+      "projectRole[1]",
+      "projectRole[2]",
+      "projectRole[3]",
+      "projectRole[4]",
+      "projectRole[5]"
+    ],
+    "bytes": 25752,
+    "note": "create person with duplicate user ID (recheck)"
+  },
+  {
+    "at": "2026-09-30T20:20:04.524Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 14582,
+    "note": "find s3a-member"
+  },
+  {
+    "at": "2026-09-30T20:20:05.426Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/person?oid=216",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6387,
+    "note": "person page of s3a-del1 (delete link?)"
+  },
+  {
+    "at": "2026-09-30T20:20:05.715Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/delete/person?returnto=%2Fdo%2Fview%2Fpeople&oid=216",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "delete own person s3a-del1"
+  },
+  {
+    "at": "2026-09-30T20:20:06.017Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13884,
+    "note": "people list after deleting s3a-del1"
+  },
+  {
+    "at": "2026-09-30T20:20:06.339Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/delete/person?returnto=%2Fdo%2Fview%2Fpeople&oid=217",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 23814,
+    "note": "delete own person s3a-del2"
+  },
+  {
+    "at": "2026-09-30T20:20:06.650Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13884,
+    "note": "people list after deleting s3a-del2"
+  },
+  {
+    "at": "2026-09-30T20:20:06.946Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/delete/person?returnto=%2Fdo%2Fview%2Fpeople&oid=218",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "delete own person s3a-del3"
+  },
+  {
+    "at": "2026-09-30T20:20:07.246Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13183,
+    "note": "people list after deleting s3a-del3"
+  },
+  {
+    "at": "2026-09-30T20:20:09.960Z",
+    "client": "sysadmin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "userid[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "password[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746,
+    "note": "logout (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:19:47.022Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:19:47.308Z",
+    "client": "admin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:19:49.956Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 18655,
+    "note": "iteration 1 (controls)"
+  },
+  {
+    "at": "2026-09-30T20:19:50.255Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/start/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&projectId=221&oid=308",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/iteration?oid=308",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "start own iteration 308"
+  },
+  {
+    "at": "2026-09-30T20:19:50.824Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html;charset=ISO-8859-1",
+    "bytes": 0,
+    "note": "root URL as s3admin (five projects)"
+  },
+  {
+    "at": "2026-09-30T20:19:51.706Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8519,
+    "note": "projects list as s3admin"
+  },
+  {
+    "at": "2026-09-30T20:19:52.297Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/person?oid=213",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7770,
+    "note": "s3a-member person page as s3admin"
+  },
+  {
+    "at": "2026-09-30T20:19:53.500Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10557,
+    "note": "project 221 after editor delete request"
+  },
+  {
+    "at": "2026-09-30T20:19:54.393Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10585,
+    "note": "project 221 after viewer edit"
+  },
+  {
+    "at": "2026-09-30T20:19:54.709Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 18969,
+    "note": "iteration 1 (story delete link)"
+  },
+  {
+    "at": "2026-09-30T20:19:55.316Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 16553,
+    "note": "iteration 1 after viewer delete"
+  },
+  {
+    "at": "2026-09-30T20:19:56.820Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 16553,
+    "note": "iteration 1 (close link)"
+  },
+  {
+    "at": "2026-09-30T20:19:57.432Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 16393,
+    "note": "iteration 1 after viewer close request"
+  },
+  {
+    "at": "2026-09-30T20:19:58.963Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13870,
+    "note": "people list as admin (hidden check)"
+  },
+  {
+    "at": "2026-09-30T20:20:00.805Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=219",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11668,
+    "note": "open editor of own s3a person 219"
+  },
+  {
+    "at": "2026-09-30T20:20:01.119Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople&oid=219",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11668,
+    "note": "open editor of own s3a person 219"
+  },
+  {
+    "at": "2026-09-30T20:20:01.413Z",
+    "client": "admin",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "form_fields": [
+      "oid",
+      "id",
+      "returnto",
+      "name",
+      "userIdentifier",
+      "initials",
+      "email",
+      "phone",
+      "newPassword",
+      "newPasswordConfirm",
+      "projectId[0]",
+      "projectId[1]",
+      "projectId[2]",
+      "projectId[3]",
+      "projectId[4]",
+      "action",
+      "hidden",
+      "projectRole[0]",
+      "projectRole[1]",
+      "projectRole[2]",
+      "projectRole[3]",
+      "projectRole[4]"
+    ],
+    "bytes": 0,
+    "note": "s3admin saves own s3a-sys (phone, role viewer on 221)"
+  },
+  {
+    "at": "2026-09-30T20:20:04.829Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/userstory?oid=257",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 15277,
+    "note": "story 257 (customer check)"
+  },
+  {
+    "at": "2026-09-30T20:20:05.127Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/task?oid=272",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10061,
+    "note": "task 272 (acceptor check)"
+  },
+  {
+    "at": "2026-09-30T20:20:07.568Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/task?oid=272",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 30234,
+    "note": "task 272 after acceptor delete"
+  },
+  {
+    "at": "2026-09-30T20:20:07.915Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/userstory?oid=257",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 29137,
+    "note": "story 257 after deletes"
+  },
+  {
+    "at": "2026-09-30T20:20:08.224Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/roles?oid=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 22370,
+    "note": "project role editor with oid"
+  },
+  {
+    "at": "2026-09-30T20:20:10.244Z",
+    "client": "admin",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "userid[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "password[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746,
+    "note": "logout (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:19:47.588Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:19:47.872Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:19:52.910Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=221",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10884,
+    "note": "project 221 as editor (controls)"
+  },
+  {
+    "at": "2026-09-30T20:19:53.193Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/delete/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fproject%3Foid%3D221&projectId=221&oid=309",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/project?oid=221",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "editor direct request: delete own iteration 309"
+  },
+  {
+    "at": "2026-09-30T20:19:58.652Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11343,
+    "note": "people list as editor (hidden check)"
+  },
+  {
+    "at": "2026-09-30T20:20:10.527Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "userid[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "password[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746,
+    "note": "logout (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:19:48.157Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:19:48.436Z",
+    "client": "viewer",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:19:52.592Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/person?oid=213",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7038,
+    "note": "s3a-member person page as viewer"
+  },
+  {
+    "at": "2026-09-30T20:19:53.794Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&projectId=221&oid=308",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7409,
+    "note": "viewer opens editor of own iteration 308 by URL"
+  },
+  {
+    "at": "2026-09-30T20:19:54.085Z",
+    "client": "viewer",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/iteration",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/iteration?oid=308",
+    "content_type": "text/html",
+    "form_fields": [
+      "oid",
+      "returnto",
+      "fkey",
+      "projectId",
+      "id",
+      "name",
+      "startDateString",
+      "endDateString",
+      "daysWorked",
+      "action",
+      "description"
+    ],
+    "bytes": 0,
+    "note": "viewer direct POST: rename own iteration 308"
+  },
+  {
+    "at": "2026-09-30T20:19:54.996Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/delete/userstory?fkey=308&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&oid=258&projectId=221",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/iteration?oid=308",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "viewer direct request: delete own story 258"
+  },
+  {
+    "at": "2026-09-30T20:19:55.891Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/integrations",
+    "status": 404,
+    "content_type": "text/html;charset=utf-8",
+    "bytes": 781,
+    "note": "integrations without projectId (viewer)"
+  },
+  {
+    "at": "2026-09-30T20:19:56.212Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/integrations?projectId=221",
+    "status": 500,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 24270,
+    "note": "integrations projectId=221 (viewer)"
+  },
+  {
+    "at": "2026-09-30T20:19:57.114Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/close/iteration?fkey=221&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D308&projectId=221&oid=308",
+    "status": 302,
+    "location": "/xplanner-legacy/do/continue/unfinished/stories?iterationId=308&/do/view/iteration?oid=308?oid=308&fkey=308",
+    "content_type": "text/html",
+    "bytes": 0,
+    "note": "viewer direct request: close own iteration 308"
+  },
+  {
+    "at": "2026-09-30T20:19:58.337Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11343,
+    "note": "people list as viewer (hidden check)"
+  },
+  {
+    "at": "2026-09-30T20:20:02.997Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7045,
+    "note": "add person editor"
+  },
+  {
+    "at": "2026-09-30T20:20:03.280Z",
+    "client": "viewer",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "form_fields": [
+      "id",
+      "returnto",
+      "name",
+      "userIdentifier",
+      "initials",
+      "email",
+      "phone",
+      "newPassword",
+      "newPasswordConfirm",
+      "action",
+      "hidden"
+    ],
+    "bytes": 0,
+    "note": "viewer submits the Add Person form it is offered"
+  },
+  {
+    "at": "2026-09-30T20:20:10.807Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "userid[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "password[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746,
+    "note": "logout (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:19:49.348Z",
+    "client": "member",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:19:49.632Z",
+    "client": "member",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 0,
+    "note": "sign-in"
+  },
+  {
+    "at": "2026-09-30T20:19:50.544Z",
+    "client": "member",
+    "method": "GET",
+    "path": "/xplanner-legacy/",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html;charset=ISO-8859-1",
+    "bytes": 0,
+    "note": "root URL as s3a-member (one project, current iteration)"
+  },
+  {
+    "at": "2026-09-30T20:19:51.392Z",
+    "client": "member",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5821,
+    "note": "projects list as s3a-member"
+  },
+  {
+    "at": "2026-09-30T20:19:51.996Z",
+    "client": "member",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/person?oid=213",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7773,
+    "note": "own person page as s3a-member"
+  },
+  {
+    "at": "2026-09-30T20:19:55.611Z",
+    "client": "member",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=220",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8958,
+    "note": "s3a-member (no role on 220) views project 220 by URL"
+  },
+  {
+    "at": "2026-09-30T20:19:56.510Z",
+    "client": "member",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/integrations?projectId=220",
+    "status": 404,
+    "content_type": "text/html;charset=utf-8",
+    "bytes": 781,
+    "note": "integrations projectId=220 (member, no role)"
+  },
+  {
+    "at": "2026-09-30T20:19:59.557Z",
+    "client": "member",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11345,
+    "note": "people list as member (hidden check)"
+  },
+  {
+    "at": "2026-09-30T20:20:11.090Z",
+    "client": "member",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "userid[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "password[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746,
+    "note": "logout (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:20:08.536Z",
+    "client": "clean-noaction",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page"
+  },
+  {
+    "at": "2026-09-30T20:20:08.826Z",
+    "client": "clean-noaction",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "form_fields": [
+      "userId",
+      "password"
+    ],
+    "bytes": 4746,
+    "note": "fresh session: login POST without action field"
+  },
+  {
+    "at": "2026-09-30T20:20:11.377Z",
+    "client": "clean-noaction",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 302,
+    "location": "/xplanner-legacy/do/login",
+    "content_type": null,
+    "bytes": 0,
+    "note": "logout (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:20:09.110Z",
+    "client": "carryover",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494,
+    "note": "login page (body not recorded)"
+  },
+  {
+    "at": "2026-09-30T20:20:09.396Z",
+    "client": "carryover",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "form_fields": [
+      "userId",
+      "password",
+      "action"
+    ],
+    "bytes": 5067,
+    "note": "failed Login in the same session"
+  },
+  {
+    "at": "2026-09-30T20:20:09.676Z",
+    "client": "carryover",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "form_fields": [
+      "userId",
+      "password"
+    ],
+    "bytes": 0,
+    "note": "same session: login POST without action field"
+  },
+  {
+    "at": "2026-09-30T20:20:11.658Z",
+    "client": "carryover",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie": [
+      "userid[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "password[Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746,
+    "note": "logout (body not recorded)"
+  }
+]

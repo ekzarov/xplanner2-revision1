@@ -1,0 +1,11 @@
+# PM-collected redirect facts (collected 2026-09-30T20:22:51.872Z by PM via pm-redirect-facts.js; isolated tunnel-only app; one request each; redirects not followed; session ids withheld; no credential recorded)
+login with oid, unauthenticated	GET /do/login?oid=220	200	-
+[safe-run: line 3 withheld (credential pattern)]
+login with oid, authenticated	GET /do/login?oid=220	302	/xplanner-legacy/do/view/projects
+settings plain value	GET /do/setting/general/list	404	-
+settings redirect: external target	GET /do/setting/redirect:http://example.invalid/list	404	-
+settings redirect: internal target	GET /do/setting/redirect:/do/view/projects/list	404	-
+settings forward: internal path	GET /do/setting/forward:/do/view/projects/list	404	-
+returnto external URL on an editor	GET /do/edit/project?oid=221&returnto=http://example.invalid/	200	-
+returnto=viewLayout	GET /do/view/projects?returnto=viewLayout	200	-
+sign out	GET /do/logout	200	-

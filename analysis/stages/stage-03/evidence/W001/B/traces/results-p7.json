@@ -1,0 +1,92 @@
+{
+  "phase": "p7",
+  "started_at": "2026-09-30T20:30:22.173Z",
+  "finished_at": "2026-09-30T20:30:28.688Z",
+  "trace": "p7-lifecycle.trace.json",
+  "checks": [
+    {
+      "phase": "p7",
+      "at": "2026-09-30T20:30:24.388Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 99,
+      "role": "editor",
+      "expected": "If other iterations are still started, the start page proposes closing them (checked by default): \"...{n} started iteration(s) need(s) to be closed.\" with a \"Close started iterations?\" checkbox.",
+      "source": "analysis/legacy_user_flows.xlsx rows 98-99",
+      "action": "As s3editor followed Start on \"S3-B I3 Later (edited)\" while S3-B I1 Current was started; then pressed OK with the checkbox cleared.",
+      "observed": "States before {\"I1\":\"started\",\"I2\":\"not started\",\"I3\":\"not started\"}; start GET {\"status\":200,\"location\":\"\",\"title\":\"XPlanner - Start Iteration: S3-B I3 Later (edited)\",\"text\":\"1 started iteration(s) need(s) to be closed. Close started iterations? Do you want to start the iteration? switch width of Xplanner+ page V\",\"close\":\"checked=true\"}; form fields oid=237,fkey=222,returnto=/do/view/iteration?oid=237,operation=start,iterationStartConfirmed=true,saveTime=null,closeIterations=on; OK (closeIterations omitted) -> 302 /xplanner-legacy/do/view/iteration?oid=237; states after {\"I1\":\"started\",\"I2\":\"not started\",\"I3\":\"started\"}.",
+      "evidence": "p7-lifecycle.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p7",
+      "at": "2026-09-30T20:30:26.248Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 100,
+      "role": "editor",
+      "expected": "Entering time on a task of a not-yet-started iteration first shows the start page with \"The iteration has not been started yet\"; after OK the saved time form is processed.",
+      "source": "analysis/legacy_user_flows.xlsx rows 98, 100",
+      "action": "As s3editor created \"S3-B T7 Time before start\" in S4 Delta (S3-B I2 Next, not started), submitted a 1.0 h time entry, then pressed OK on the start page with \"Close started iterations?\" left checked.",
+      "observed": "Time POST -> {\"status\":200,\"location\":\"\",\"title\":\"XPlanner - Start Iteration: S3-B I2 Next\",\"text\":\"The iteration has not been started yet.Starting an iteration baselines the cur || 2 started iteration(s) need(s) to be closed. Close started iterations? Do you want to start the iteration? switch width of Xplanner+ page V\",\"close\":\"checked=true\"}; start form fields oid=236,fkey=262,returnto=/do/view/task?oid=43,operation=start,iterationStartConfirmed=true,saveTime=true,closeIterations=on; OK -> 302 /xplanner-legacy/do/view/task?oid=439; T7 actual hours afterwards 1.0; states after {\"I1\":\"not started\",\"I2\":\"started\",\"I3\":\"not started\"}.",
+      "evidence": "p7-lifecycle.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p7",
+      "at": "2026-09-30T20:30:26.828Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 101,
+      "role": "editor",
+      "expected": "Closing an iteration sets it inactive, takes a data sample and redirects to the continue-unfinished-stories page.",
+      "source": "analysis/legacy_user_flows.xlsx row 101",
+      "action": "As s3editor followed Close on S3-B I2 Next (started).",
+      "observed": "GET close -> 302 /xplanner-legacy/do/continue/unfinished/stories?iterationId=236&/do/view/iteration?oid=236?oid=236&fkey=236; I2 state not started; continue page 200 \"XPlanner - Continue Unfinished Stories\", fields none, target options [], buttons .",
+      "evidence": "p7-lifecycle.trace.json",
+      "verdict": "match"
+    },
+    {
+      "phase": "p7",
+      "at": "2026-09-30T20:30:26.829Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 104,
+      "role": "editor",
+      "expected": "Choosing the same iteration is rejected: \"You cannot continue in the same iteration. Please choose a different one.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 104",
+      "action": "Posted the continue form of S3-B I2 Next with targetIterationId = S3-B I2 Next (not offered in the select; sent directly) and action=OK.",
+      "observed": "Offered options exclude the same iteration: true; POST -> n/a; message shown: false.",
+      "evidence": "p7-lifecycle.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p7",
+      "at": "2026-09-30T20:30:27.391Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 102,
+      "role": "editor",
+      "expected": "On the continue page the user selects a future iteration and confirms; unfinished stories are continued there.",
+      "source": "analysis/legacy_user_flows.xlsx row 102",
+      "action": "On the continue page of S3-B I2 Next selected S3-B I3 Later (edited) and pressed OK.",
+      "observed": "Stories in I2 before [\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"]; POST -> n/a; I3 stories after []; I2 stories after [\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"].",
+      "evidence": "p7-lifecycle.trace.json",
+      "verdict": "pending"
+    },
+    {
+      "phase": "p7",
+      "at": "2026-09-30T20:30:28.333Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 103,
+      "role": "sysadmin",
+      "expected": "If no future iteration exists, the continue page says \"No Future Iteration Available.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 103",
+      "action": "As s3sysadmin started and closed \"S3-B P11\" (the latest iteration of \"S3-B 0 Probe\") and read the continue page.",
+      "observed": "Start -> 302 /xplanner-legacy/do/view/iteration?oid=304; close -> 302 /xplanner-legacy/do/continue/unfinished/stories?iterationId=304&/do/view/iteration?oid=304?oid=304&fkey=304; continue page 200: message shown true; form present false.",
+      "evidence": "p7-lifecycle.trace.json",
+      "verdict": "match"
+    }
+  ]
+}

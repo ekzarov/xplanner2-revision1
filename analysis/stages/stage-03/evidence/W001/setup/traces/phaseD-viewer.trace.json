@@ -1,0 +1,83 @@
+[
+  {
+    "at": "2026-09-30T19:51:15.478Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T19:51:15.791Z",
+    "client": "viewer",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;jsessionid=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:51:16.096Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5821
+  },
+  {
+    "at": "2026-09-30T19:51:16.427Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=220",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8956
+  },
+  {
+    "at": "2026-09-30T19:51:16.773Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=231",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 13252
+  },
+  {
+    "at": "2026-09-30T19:51:17.110Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/userstory?oid=253",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 10811
+  },
+  {
+    "at": "2026-09-30T19:51:17.424Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/task?oid=264",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9105
+  },
+  {
+    "at": "2026-09-30T19:51:17.720Z",
+    "client": "viewer",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)[Max-Age=0]",
+      "password(cleared)[Max-Age=0]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746
+  }
+]

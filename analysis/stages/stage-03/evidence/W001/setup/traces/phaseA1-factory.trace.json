@@ -1,0 +1,223 @@
+[
+  {
+    "at": "2026-09-30T19:40:50.949Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T19:40:51.261Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;jsessionid=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:40:51.570Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5420
+  },
+  {
+    "at": "2026-09-30T19:40:51.886Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6221
+  },
+  {
+    "at": "2026-09-30T19:40:52.199Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7043
+  },
+  {
+    "at": "2026-09-30T19:40:52.563Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:40:52.874Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6676
+  },
+  {
+    "at": "2026-09-30T19:40:53.184Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7043
+  },
+  {
+    "at": "2026-09-30T19:40:53.512Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:40:53.821Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7130
+  },
+  {
+    "at": "2026-09-30T19:40:54.123Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7043
+  },
+  {
+    "at": "2026-09-30T19:40:54.434Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:40:54.743Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7581
+  },
+  {
+    "at": "2026-09-30T19:40:55.062Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/person?returnto=%2Fdo%2Fview%2Fpeople",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7043
+  },
+  {
+    "at": "2026-09-30T19:40:55.386Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/person",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/people",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:40:55.703Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8043
+  },
+  {
+    "at": "2026-09-30T19:40:56.017Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/people",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 8043
+  },
+  {
+    "at": "2026-09-30T19:40:56.330Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5420
+  },
+  {
+    "at": "2026-09-30T19:40:56.637Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/project?returnto=%2Fdo%2Fview%2Fprojects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7067
+  },
+  {
+    "at": "2026-09-30T19:40:56.969Z",
+    "client": "factory",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/project",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:40:57.282Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6557
+  },
+  {
+    "at": "2026-09-30T19:40:57.589Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 6557
+  },
+  {
+    "at": "2026-09-30T19:40:57.895Z",
+    "client": "factory",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)[Max-Age=0]",
+      "password(cleared)[Max-Age=0]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746
+  }
+]

@@ -1,0 +1,194 @@
+{
+  "started_at": "2026-09-30T19:59:47.693Z",
+  "accounts": {
+    "viewer": {
+      "landing": "/xplanner-legacy/do/view/projects",
+      "add_project": false,
+      "hidden_column": false,
+      "projects": {
+        "S3 Shared": {
+          "listed": true,
+          "status": 200,
+          "createIteration": false,
+          "edit": false,
+          "delete": false,
+          "observed_level": "viewer (read only)"
+        },
+        "S3-A Access": {
+          "listed": true,
+          "status": 200,
+          "createIteration": false,
+          "edit": false,
+          "delete": false,
+          "observed_level": "viewer (read only)"
+        },
+        "S3-B Planning": {
+          "listed": true,
+          "status": 200,
+          "createIteration": false,
+          "edit": false,
+          "delete": false,
+          "observed_level": "viewer (read only)"
+        },
+        "S3-C Time": {
+          "listed": true,
+          "status": 200,
+          "createIteration": false,
+          "edit": false,
+          "delete": false,
+          "observed_level": "viewer (read only)"
+        },
+        "S3-D Integrations": {
+          "listed": true,
+          "status": 200,
+          "createIteration": false,
+          "edit": false,
+          "delete": false,
+          "observed_level": "viewer (read only)"
+        }
+      }
+    },
+    "editor": {
+      "landing": "/xplanner-legacy/do/view/projects",
+      "add_project": false,
+      "hidden_column": false,
+      "projects": {
+        "S3 Shared": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": false,
+          "delete": false,
+          "observed_level": "editor (Create Iteration, no Edit)"
+        },
+        "S3-A Access": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": false,
+          "delete": false,
+          "observed_level": "editor (Create Iteration, no Edit)"
+        },
+        "S3-B Planning": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": false,
+          "delete": false,
+          "observed_level": "editor (Create Iteration, no Edit)"
+        },
+        "S3-C Time": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": false,
+          "delete": false,
+          "observed_level": "editor (Create Iteration, no Edit)"
+        },
+        "S3-D Integrations": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": false,
+          "delete": false,
+          "observed_level": "editor (Create Iteration, no Edit)"
+        }
+      }
+    },
+    "admin": {
+      "landing": "/xplanner-legacy/do/view/projects",
+      "add_project": false,
+      "hidden_column": false,
+      "projects": {
+        "S3 Shared": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": false,
+          "observed_level": "admin (Edit, no Delete)"
+        },
+        "S3-A Access": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": false,
+          "observed_level": "admin (Edit, no Delete)"
+        },
+        "S3-B Planning": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": false,
+          "observed_level": "admin (Edit, no Delete)"
+        },
+        "S3-C Time": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": false,
+          "observed_level": "admin (Edit, no Delete)"
+        },
+        "S3-D Integrations": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": false,
+          "observed_level": "admin (Edit, no Delete)"
+        }
+      }
+    },
+    "sysadmin": {
+      "landing": "/xplanner-legacy/do/view/projects",
+      "add_project": true,
+      "hidden_column": true,
+      "projects": {
+        "S3 Shared": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": true,
+          "observed_level": "sysadmin-level (Edit+Delete)"
+        },
+        "S3-A Access": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": true,
+          "observed_level": "sysadmin-level (Edit+Delete)"
+        },
+        "S3-B Planning": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": true,
+          "observed_level": "sysadmin-level (Edit+Delete)"
+        },
+        "S3-C Time": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": true,
+          "observed_level": "sysadmin-level (Edit+Delete)"
+        },
+        "S3-D Integrations": {
+          "listed": true,
+          "status": 200,
+          "createIteration": true,
+          "edit": true,
+          "delete": true,
+          "observed_level": "sysadmin-level (Edit+Delete)"
+        }
+      }
+    }
+  },
+  "finished_at": "2026-09-30T19:59:59.068Z"
+}

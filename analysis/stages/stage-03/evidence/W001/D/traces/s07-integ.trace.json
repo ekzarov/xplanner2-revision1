@@ -1,0 +1,229 @@
+{
+  "at": "2026-09-30T20:15:53.577Z",
+  "summary": {
+    "editor view-noproject": "404  X=\"HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119\" title=\"HTTP Status 404 – Not Found\" markers=[\"HTTP Status\",\"notAuthorized\"] exc=\"\"",
+    "editor view-224": "500  X=\"... user <editor.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "editor join-noperson": "500  X=\"... user <editor.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "editor join-editor": "500  X=\"... user <editor.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "editor join-admin-for-queue": "500  X=\"... user <editor.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "editor start": "500  X=\"... user <editor.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "editor finish": "500  X=\"... user <editor.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "editor cancel-nonotify": "500  X=\"... user <editor.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "editor leave": "500  X=\"... user <editor.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "editor view-224-after": "500  X=\"... user <editor.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "viewer view-224": "500  X=\"... user <viewer.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\"",
+    "viewer join-viewer-direct-post": "500  X=\"... user <viewer.userId> M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server \" title=\"An error has occurred.\" markers=[\"Exception\"] exc=\"javax.servlet.jsp.JspTagException:\""
+  },
+  "trace": [
+    {
+      "at": "2026-09-30T20:15:48.211Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:15:48.497Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:15:48.775Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/integrations",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 781,
+      "label": "editor view-noproject",
+      "excerpt": "HTTP Status 404 – Not Found Type Status Report Message JSP file [/WEB-INF/jsp/security/notAuthorized.jsp] not found Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. Apache Tomcat/9.0.119"
+    },
+    {
+      "at": "2026-09-30T20:15:49.087Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/integrations?projectId=224",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 24270,
+      "label": "editor view-224",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 11201 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:49.424Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/integrations",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 26257,
+      "label": "editor join-noperson",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 12940 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:49.753Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/integrations",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 26066,
+      "label": "editor join-editor",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 12825 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:50.083Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/integrations",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 26069,
+      "label": "editor join-admin-for-queue",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 12828 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:50.422Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/integrations",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 25875,
+      "label": "editor start",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 12786 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:50.755Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/integrations",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 25879,
+      "label": "editor finish",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 12790 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:51.082Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/integrations",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 25969,
+      "label": "editor cancel-nonotify",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 12804 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:51.410Z",
+      "client": "editor",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/integrations",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 25877,
+      "label": "editor leave",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 12788 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:51.740Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/integrations?projectId=224",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 24269,
+      "label": "editor view-224-after",
+      "excerpt": "... user s3editor M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 11200 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:52.044Z",
+      "client": "editor",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    },
+    {
+      "at": "2026-09-30T20:15:52.327Z",
+      "client": "viewer",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/login",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "JSESSIONID"
+      ],
+      "bytes": 5494,
+      "label": "login form"
+    },
+    {
+      "at": "2026-09-30T20:15:52.617Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/login;JSESSIONID=[REDACTED]",
+      "status": 302,
+      "location": "/xplanner-legacy/do/view/projects",
+      "content_type": "text/html",
+      "bytes": 0,
+      "label": "login submit (credentials not recorded, remember omitted)"
+    },
+    {
+      "at": "2026-09-30T20:15:52.924Z",
+      "client": "viewer",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/view/integrations?projectId=224",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 24270,
+      "label": "viewer view-224",
+      "excerpt": "... user s3viewer M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 11201 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:53.263Z",
+      "client": "viewer",
+      "method": "POST",
+      "path": "/xplanner-legacy/do/edit/integrations",
+      "status": 500,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 26073,
+      "label": "viewer join-viewer-direct-post",
+      "excerpt": "... user s3viewer M e Logout T op An error has occurred. javax.servlet.jsp.JspTagException: java.lang.IllegalArgumentException: No Please create an issue following these instructions . In order to expedite the analysis of your problem, provide the following information: Describe in details your problem and the steps leading to it. Copy the error and system information found below Attach the application server log file (if possible). Please do not submit an issue for a deployment problem. As you  [... 12832 chars]"
+    },
+    {
+      "at": "2026-09-30T20:15:53.577Z",
+      "client": "viewer",
+      "method": "GET",
+      "path": "/xplanner-legacy/do/logout",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "set_cookie_names": [
+        "userid(cleared)",
+        "password(cleared)",
+        "JSESSIONID"
+      ],
+      "bytes": 4746,
+      "label": "logout"
+    }
+  ]
+}

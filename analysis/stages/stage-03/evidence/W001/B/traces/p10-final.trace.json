@@ -1,0 +1,137 @@
+[
+  {
+    "at": "2026-09-30T20:39:50.201Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5494,
+    "set_cookie_names": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ]
+  },
+  {
+    "at": "2026-09-30T20:39:50.382Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;jsessionid=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T20:39:50.591Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=235",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 20089
+  },
+  {
+    "at": "2026-09-30T20:39:50.784Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/project?oid=222",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12244
+  },
+  {
+    "at": "2026-09-30T20:39:50.967Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=237",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9874
+  },
+  {
+    "at": "2026-09-30T20:39:51.164Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=235",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 20089
+  },
+  {
+    "at": "2026-09-30T20:39:51.343Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=236",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 15854
+  },
+  {
+    "at": "2026-09-30T20:39:51.517Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=305",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9802
+  },
+  {
+    "at": "2026-09-30T20:39:51.705Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=306",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9782
+  },
+  {
+    "at": "2026-09-30T20:39:51.880Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=307",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9882
+  },
+  {
+    "at": "2026-09-30T20:39:52.061Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/iteration?oid=318",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 12763
+  },
+  {
+    "at": "2026-09-30T20:39:52.186Z",
+    "client": "viewer",
+    "note": "final-inventory",
+    "value": "{\"237:S3-B I3 Later (edited)\":[],\"235:S3-B I1 Current\":[\"S3-B S2 Beta (edited)\",\"S3-B S3 Gamma\",\"S3-B S1 Alpha\",\"S3-B S8 Continue\",\"S3-B SV Viewer-created\",\"S3-B S9 Mail story\"],\"236:S3-B I2 Next\":[\"S3-B S6 Zeta\",\"S3-B S4 Delta\",\"S3-B S5 Epsilon\"],\"305:S3-B date start 2026-99-99\":[],\"306:S3-B date end 2026-11-31\":[],\"307:S3-B date start with trailing text\":[],\"318:S3-B I4 Delete me\":[\"S3-B S10 In deleted iteration\"]}"
+  },
+  {
+    "at": "2026-09-30T20:39:52.227Z",
+    "client": "viewer",
+    "lang": "en-US",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 4746,
+    "set_cookie_names": [
+      "userid[Max-Age=0]",
+      "password[Max-Age=0]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ]
+  }
+]

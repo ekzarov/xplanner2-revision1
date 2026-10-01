@@ -1,0 +1,93 @@
+[
+  {
+    "at": "2026-09-30T19:47:29.719Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/login",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 5494
+  },
+  {
+    "at": "2026-09-30T19:47:30.032Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/login;jsessionid=[REDACTED]",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:47:30.338Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 5821
+  },
+  {
+    "at": "2026-09-30T19:47:30.683Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/task?oid=264",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11079
+  },
+  {
+    "at": "2026-09-30T19:47:31.012Z",
+    "client": "editor",
+    "method": "POST",
+    "path": "/xplanner-legacy/do/edit/task",
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/task?oid=264",
+    "content_type": "text/html",
+    "bytes": 0
+  },
+  {
+    "at": "2026-09-30T19:47:31.352Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/task?oid=264",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11077
+  },
+  {
+    "at": "2026-09-30T19:47:31.682Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/task?oid=264",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 11077
+  },
+  {
+    "at": "2026-09-30T19:47:32.059Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/edit/time?fkey=253&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D264&oid=264&projectId=220",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 9830
+  },
+  {
+    "at": "2026-09-30T19:47:32.345Z",
+    "client": "editor",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid(cleared)[Max-Age=0]",
+      "password(cleared)[Max-Age=0]",
+      "JSESSIONID[Path=/xplanner-legacy; HttpOnly]"
+    ],
+    "bytes": 4746
+  }
+]

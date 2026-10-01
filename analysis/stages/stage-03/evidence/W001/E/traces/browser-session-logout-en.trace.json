@@ -1,0 +1,41 @@
+[
+  {
+    "at": "2026-09-30T21:15:17.329Z",
+    "client": "editor-browser-en",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 7242
+  },
+  {
+    "at": "2026-09-30T21:15:17.637Z",
+    "client": "editor-browser-en",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/logout",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "set_cookie_names": [
+      "userid[Max-Age=0]",
+      "password[Max-Age=0]",
+      "JSESSIONID"
+    ],
+    "bytes": 4746
+  },
+  {
+    "at": "2026-09-30T21:15:17.933Z",
+    "client": "editor-browser-en-after",
+    "accept_language": "en-US,en;q=0.9",
+    "method": "GET",
+    "path": "/xplanner-legacy/do/view/projects",
+    "status": 302,
+    "location": "/xplanner-legacy/do/login",
+    "content_type": "",
+    "set_cookie_names": [
+      "JSESSIONID"
+    ],
+    "bytes": 0
+  }
+]

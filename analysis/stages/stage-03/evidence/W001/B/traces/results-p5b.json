@@ -1,0 +1,22 @@
+{
+  "phase": "p5b",
+  "started_at": "2026-09-30T20:26:37.250Z",
+  "finished_at": "2026-09-30T20:26:38.753Z",
+  "trace": "p5b-errors.trace.json",
+  "checks": [
+    {
+      "phase": "p5b",
+      "at": "2026-09-30T20:26:38.577Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 144,
+      "role": "editor",
+      "expected": "Diagnostic only: the error text of the 500 answers.",
+      "source": "analysis/legacy_user_flows.xlsx rows 130, 144-147",
+      "action": "Repeated the task move of T3 (page fields; and with projectId added) and the story continue of S8, reading a bounded excerpt of each error page.",
+      "observed": "[{\"req\":\"task move T3 -> S3 (page fields)\",\"status\":500,\"error\":\" xplanner install/upgrade the best way to get support is to first post in the Help forumThank you!The XPlanner Team [hide] Causejava.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here [hide] Stack Tracejava.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here at org.springframework.orm.hibernate3.SessionFactoryUtils.doGetSession(SessionFactoryUtils.java:350) at org.springframework.orm.hibernate3.SessionFactoryUtils.getSessio\"},{\"req\":\"task move T3 -> S3 (+projectId)\",\"status\":500,\"error\":\" xplanner install/upgrade the best way to get support is to first post in the Help forumThank you!The XPlanner Team [hide] Causejava.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here [hide] Stack Tracejava.lang.IllegalStateException: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here at org.springframework.orm.hibernate3.SessionFactoryUtils.doGetSession(SessionFactoryUtils.java:350) at org.springframework.orm.hibernate3.SessionFactoryUtils.getSessio\",\"location\":\"\"},{\"req\":\"story continue S8 -> I2 (page fields)\",\"status\":500,\"error\":\"xplanner install/upgrade the best way to get support is to first post in the Help forumThank you!The XPlanner Team [hide] Causeorg.hibernate.HibernateException: Illegal attempt to associate a collection with two open sessions [hide] Stack Traceorg.hibernate.HibernateException: Illegal attempt to associate a collection with two open sessions at org.hibernate.collection.AbstractPersistentCollection.setCurrentSession(AbstractPersistentCollection.java:435) at org.hibernate.event.def.WrapVisitor.processCollection(WrapVisitor.java:66) at org.hibernate.event.def.AbstractVisitor.processValue(AbstractV\",\"location\":\"\"}]",
+      "evidence": "p5b-errors.trace.json",
+      "verdict": "pending"
+    }
+  ]
+}

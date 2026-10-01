@@ -1,0 +1,88 @@
+# PM read-only facts for scheduled jobs (collected 2026-10-01T00:07:00Z by PM via pm-job-facts.sh and pm-mailpit-summary.js; credential-like lines excluded)
+=== Mailpit since 2026-09-30T23:50:00Z
+mailpit total 51; since 2026-09-30T23:50:00Z: 0
+--- counts by subject and recipient
+=== server
+legacy-transformation-demo
+Linux
+server UTC now: 2026-10-01T00:07:03Z; app restarts=0
+--- app log since 23:50Z: job-related lines
+	at net.sf.xplanner.domain.Person_$$_javassist_17.getEmail(Person_$$_javassist_17.java)
+	at com.technoetic.xplanner.mail.EmailMessageImpl.setRecipient(EmailMessageImpl.java:84)
+	at com.technoetic.xplanner.mail.EmailNotificationSupport.sendNotifications(EmailNotificationSupport.java:80)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.sendMissingTimeEntryReminderToAcceptors(MissingTimeEntryNotifier.java:90)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.execute(MissingTimeEntryNotifier.java:100)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+[53032161]  ERROR - com.technoetic.xplanner.mail.EmailNotificationSupport - Error sending email:  
+javax.mail.MessagingException: error setting recipient;
+	at com.technoetic.xplanner.mail.EmailMessageImpl.setRecipient(EmailMessageImpl.java:91)
+	at com.technoetic.xplanner.mail.EmailNotificationSupport.sendNotifications(EmailNotificationSupport.java:80)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.sendMissingTimeEntryReminderToAcceptors(MissingTimeEntryNotifier.java:90)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.execute(MissingTimeEntryNotifier.java:100)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at net.sf.xplanner.domain.Person_$$_javassist_17.getEmail(Person_$$_javassist_17.java)
+	at com.technoetic.xplanner.mail.EmailMessageImpl.setRecipient(EmailMessageImpl.java:84)
+	at net.sf.xplanner.domain.Person_$$_javassist_17.getEmail(Person_$$_javassist_17.java)
+	at com.technoetic.xplanner.mail.EmailMessageImpl.setRecipient(EmailMessageImpl.java:84)
+	at com.technoetic.xplanner.mail.EmailNotificationSupport.sendNotifications(EmailNotificationSupport.java:80)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.sendMissingTimeEntryReminderToAcceptors(MissingTimeEntryNotifier.java:90)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.execute(MissingTimeEntryNotifier.java:100)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+[53032161]  ERROR - com.technoetic.xplanner.mail.EmailNotificationSupport - Error sending email:  
+javax.mail.MessagingException: error setting recipient;
+	at com.technoetic.xplanner.mail.EmailMessageImpl.setRecipient(EmailMessageImpl.java:91)
+	at com.technoetic.xplanner.mail.EmailNotificationSupport.sendNotifications(EmailNotificationSupport.java:80)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.sendMissingTimeEntryReminderToAcceptors(MissingTimeEntryNotifier.java:90)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.execute(MissingTimeEntryNotifier.java:100)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at net.sf.xplanner.domain.Person_$$_javassist_17.getEmail(Person_$$_javassist_17.java)
+	at com.technoetic.xplanner.mail.EmailMessageImpl.setRecipient(EmailMessageImpl.java:84)
+	at net.sf.xplanner.domain.Person_$$_javassist_17.getEmail(Person_$$_javassist_17.java)
+	at com.technoetic.xplanner.mail.EmailMessageImpl.setRecipient(EmailMessageImpl.java:84)
+	at com.technoetic.xplanner.mail.EmailNotificationSupport.sendNotifications(EmailNotificationSupport.java:80)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.sendMissingTimeEntryReportToLeads(MissingTimeEntryNotifier.java:67)
+	at com.technoetic.xplanner.mail.MissingTimeEntryNotifier.execute(MissingTimeEntryNotifier.java:101)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+--- app log since 23:50Z: error-like lines
+[53032160]  ERROR - org.hibernate.LazyInitializationException - could not initialize proxy - no Session 
+org.hibernate.LazyInitializationException: could not initialize proxy - no Session
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:51)
+[53032161]  ERROR - com.technoetic.xplanner.mail.EmailNotificationSupport - Error sending email:  
+javax.mail.MessagingException: error setting recipient;
+  nested exception is:
+	org.hibernate.LazyInitializationException: could not initialize proxy - no Session
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:51)
+Caused by: org.hibernate.LazyInitializationException: could not initialize proxy - no Session
+[53032161]  ERROR - org.hibernate.LazyInitializationException - could not initialize proxy - no Session 
+org.hibernate.LazyInitializationException: could not initialize proxy - no Session
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:51)
+[53032161]  ERROR - com.technoetic.xplanner.mail.EmailNotificationSupport - Error sending email:  
+javax.mail.MessagingException: error setting recipient;
+  nested exception is:
+	org.hibernate.LazyInitializationException: could not initialize proxy - no Session
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:51)
+Caused by: org.hibernate.LazyInitializationException: could not initialize proxy - no Session
+[53032166]  ERROR - org.hibernate.LazyInitializationException - could not initialize proxy - no Session 
+org.hibernate.LazyInitializationException: could not initialize proxy - no Session
+--- sample-like tables and recent rows
+datasample rows=48
+datasample total=48 sampleTime referenceId aspect value 
+PM operator log: C:\Work\Legacy\xplanner2-revision1\.migration-tmp\stage-03\pm-job-facts-2026-10-01T00-07-03-728Z.log
+=== job run count (collected 2026-10-01T00:07:48Z via pm-job-runs.sh)
+log lines 00:04-00:07Z: 220
+'Error sending email' lines: 4
+execute frames (acceptors line 100): 4
+execute frames (leads line 101): 4
+wall-clock seconds with 'Error sending email':
+      4 2026-10-01T00:05:00
+relative-ms prefixes of ERROR lines (one value per Spring context start offset):
+      1 53032160
+      3 53032161
+      1 53032166
+      1 53032167
+      2 53032168
+

@@ -1,0 +1,100 @@
+{
+  "started_at": "2026-09-30T20:59:54.695Z",
+  "login": {
+    "ok": true,
+    "status": 302,
+    "location": "/xplanner-legacy/do/view/projects"
+  },
+  "iteration_links": [
+    "Dashboard -> /do/view/dashboard?fkey=541&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D541&iterationId=541&projectId=228",
+    "Close -> /do/close/iteration?fkey=228&returnto=%2Fdo%2Fview%2Fiteration%3Foid%3D541&projectId=228&oid=541"
+  ],
+  "story_d1": "328",
+  "task_d1": "533",
+  "time_link": {
+    "text": "Edit Time",
+    "href": "/do/edit/time?fkey=328&returnto=%2Fdo%2Fview%2Ftask%3Foid%3D533&oid=533&projectId=228",
+    "onclick": ""
+  },
+  "time_editor": {
+    "status": 200,
+    "action": "/do/edit/time",
+    "fields": [
+      "oid(hidden)=533",
+      "returnto(hidden)=/do/view/task?oid=533",
+      "fkey(hidden)=328",
+      "taskId(hidden)=328",
+      "startTime[0](text)=",
+      "endTime[0](text)=",
+      "reportDate[0](text)=2026-09-30",
+      "duration[0](text)=",
+      "remainingHours(text)=2.0",
+      "person1Id[0](select)=0",
+      "person2Id[0](select)=0",
+      "description[0](text)=",
+      "entryId[0](hidden)=0",
+      "emptyRow[0](hidden)=true",
+      "action(hidden)=UPDATE_TIME",
+      "rowcount(hidden)=1"
+    ]
+  },
+  "person_options": [
+    "0:??",
+    "212:S3 Sysadmin",
+    "1:sysadmin"
+  ],
+  "buttons": [
+    "submit=Update|",
+    "reset=Reset|javascript: window.location.reload()",
+    "action=Insert Time|setTime(1)"
+  ],
+  "log": [
+    {
+      "step": "story-create S3-E Story D1",
+      "editor_status": 200,
+      "fields": [
+        "iterationId",
+        "id",
+        "returnto",
+        "fkey",
+        "name",
+        "dispositionName",
+        "customerId",
+        "trackerId",
+        "statusName",
+        "priority",
+        "orderNo",
+        "estimatedHoursField",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/iteration?oid=541"
+    },
+    {
+      "step": "task-create S3-E Task D1",
+      "editor_status": 200,
+      "fields": [
+        "returnto",
+        "fkey",
+        "userStoryId",
+        "id",
+        "completed",
+        "name",
+        "type",
+        "dispositionName",
+        "acceptorId",
+        "estimatedHours",
+        "description",
+        "action"
+      ],
+      "status": 302,
+      "location": "/do/view/userstory?oid=328"
+    }
+  ],
+  "logout": {
+    "status": 200,
+    "session_cookie_left": true
+  },
+  "finished_at": "2026-09-30T20:59:58.542Z"
+}

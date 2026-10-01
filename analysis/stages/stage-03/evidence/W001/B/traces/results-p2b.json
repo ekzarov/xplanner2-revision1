@@ -1,0 +1,38 @@
+{
+  "phase": "p2b",
+  "started_at": "2026-09-30T20:16:45.371Z",
+  "finished_at": "2026-09-30T20:16:48.354Z",
+  "trace": "p2b-dates.trace.json",
+  "checks": [
+    {
+      "phase": "p2b",
+      "at": "2026-09-30T20:16:47.837Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 89,
+      "role": "editor",
+      "expected": "Unparsable start or end dates are rejected with \"Start date is invalid.\" / \"End date is invalid.\"",
+      "source": "analysis/legacy_user_flows.xlsx row 89",
+      "action": "Read the stored dates of \"S3-B bad end\" (end submitted as \"2026-99-99x\"), then submitted four more Create forms: end \"not-a-date\"; start \"2026-99-99\"; end \"2026-11-31\"; start \"2026-11-09abc\".",
+      "observed": "\"S3-B bad end\" row: \"238 S3-B bad end 2026-11-09 2034-06-07 0.0 0\". Submits: [{\"label\":\"end not-a-date\",\"start\":\"2026-11-09\",\"end\":\"not-a-date\",\"status\":200,\"msg\":\"End date is invalid.\"},{\"label\":\"start 2026-99-99\",\"start\":\"2026-99-99\",\"end\":\"2035-01-01\",\"status\":302,\"msg\":\"\"},{\"label\":\"end 2026-11-31\",\"start\":\"2026-11-09\",\"end\":\"2026-11-31\",\"status\":302,\"msg\":\"\"},{\"label\":\"start with trailing text\",\"start\":\"2026-11-09abc\",\"end\":\"2026-11-20\",\"status\":302,\"msg\":\"\"}]. Iterations created: [\"305 S3-B date start 2026-99-99 2034-06-07 2035-01-01 0.0 0\",\"306 S3-B date end 2026-11-31 2026-11-09 2026-12-01 0.0 0\",\"307 S3-B date start with trailing text 2026-11-09 2026-11-20 0.0 0\"].",
+      "evidence": "p2b-dates.trace.json",
+      "verdict": "finding",
+      "key": "lenient-dates"
+    },
+    {
+      "phase": "p2b",
+      "at": "2026-09-30T20:16:48.020Z",
+      "channel": "web",
+      "mode": "live",
+      "row": 83,
+      "role": "viewer, editor",
+      "expected": "The iteration table is sorted newest first by default (project.jsp defaultsort 5 descending).",
+      "source": "analysis/legacy_user_flows.xlsx row 83",
+      "action": "Compared the default row order and sort links of S3-B Planning for s3viewer (no Actions column) and s3editor (Actions column).",
+      "observed": "viewer sort links [\"Iteration=>?oid=222&d-7698137-s=1&d-7698137-o=2\",\"Start Date=>?oid=222&d-7698137-s=2&d-7698137-o=2\",\"End Date=>?oid=222&d-7698137-s=3&d-7698137-o=2\",\"Days Wrk.=>?oid=222&d-7698137-s=4&d-7698137-o=2\"]; viewer rows [\"237 | S3-B I3 Later (edited) | 2026-10-27 | 2026-11-07 | 2.5 | 0\",\"235 | S3-B I1 Current | 2026-09-28 | 2026-10-09 | 0.0 | 0\",\"236 | S3-B I2 Next | 2026-10-12 | 2026-10-23 | 0.0 | 0\",\"238 | S3-B bad end | 2026-11-09 | 2034-06-07 | 0.0 | 0\",\"305 | S3-B date start 2026-99-99 | 2034-06-07 | 2035-01-01 | 0.0 | 0\",\"306 | S3-B date end 2026-11-31 | 2026-11-09 | 2026-12-01 | 0.0 | 0\",\"307 | S3-B date start with trailing text | 2026-11-09 | 2026-11-20 | 0.0 | 0\"]; editor rows [\"305 | S3-B date start 2026-99-99 | 2034-06-07 | 2035-01-01 | 0.0 | 0\",\"238 | S3-B bad end | 2026-11-09 | 2034-06-07 | 0.0 | 0\",\"306 | S3-B date end 2026-11-31 | 2026-11-09 | 2026-12-01 | 0.0 | 0\",\"307 | S3-B date start with trailing text | 2026-11-09 | 2026-11-20 | 0.0 | 0\",\"237 | S3-B I3 Later (edited) | 2026-10-27 | 2026-11-07 | 2.5 | 0\",\"236 | S3-B I2 Next | 2026-10-12 | 2026-10-23 | 0.0 | 0\",\"235 | S3-B I1 Current | 2026-09-28 | 2026-10-09 | 0.0 | 0\",\"Add Note/Attachment\"].",
+      "evidence": "p2b-dates.trace.json",
+      "verdict": "finding",
+      "key": "sort-column"
+    }
+  ]
+}

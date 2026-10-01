@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-09-30T19:41:56.090Z",
+  "steps": [
+    {
+      "step": "role-viewer",
+      "oid": 209,
+      "before": {
+        "220": "none"
+      },
+      "post_status": 302,
+      "post_location": "/xplanner-legacy/do/view/people",
+      "after": {
+        "220": "viewer"
+      },
+      "sysadmin_after": false
+    },
+    {
+      "step": "role-editor",
+      "oid": 210,
+      "before": {
+        "220": "none"
+      },
+      "post_status": 302,
+      "post_location": "/xplanner-legacy/do/view/people",
+      "after": {
+        "220": "editor"
+      },
+      "sysadmin_after": false
+    },
+    {
+      "step": "role-admin",
+      "oid": 211,
+      "before": {
+        "220": "none"
+      },
+      "post_status": 302,
+      "post_location": "/xplanner-legacy/do/view/people",
+      "after": {
+        "220": "admin"
+      },
+      "sysadmin_after": false
+    },
+    {
+      "step": "sysadmin-state",
+      "oid": 212,
+      "roles": {
+        "220": "none"
+      },
+      "sysadminChecked": true
+    },
+    {
+      "step": "project-people",
+      "status": 200,
+      "title": "People",
+      "users": [
+        "<admin.userId>",
+        "<admin.name>",
+        "<editor.userId>",
+        "<editor.name>",
+        "<sysadmin.userId>",
+        "<sysadmin.name>",
+        "<viewer.userId>",
+        "<viewer.name>",
+        "[factory-user]",
+        "[factory-user]"
+      ]
+    }
+  ],
+  "finished_at": "2026-09-30T19:42:00.890Z"
+}
