@@ -1,0 +1,12 @@
+{
+  "packet_id": "S02-P014",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-02-pass-014.md",
+  "producer": "Reviewer subagent aeac87124971a209c authored the report and all evidence and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-02-p014/reviewer-scratch/stage-02-pass-014.md",
+  "source_sha256": "3a23c0ce06538073a7f8498e27db5072ae73fab368a7db07b7d11a33dde9a315",
+  "pm_changes": "Only the literal token CURRENT_SESSION_ID was replaced with aeac87124971a209c, in the report, in independence-record.md and in incident-assessment.md. No other byte changed.",
+  "final_report_sha256": "be869fec1e50fbd4c8b227b9331fe3288c1ca17333cf5ecf45a368de3d033853",
+  "reviewer_disclosures": "D-001: runner source and config read with the client file-read tool after the runner refused its own folder. D-002: short client content searches outside the runner (printed lines checked, no credential; facts re-established through the runner). M-001/M-002: two runner-withheld lines of D-C-047 (parser message false positives), not bypassed. Packet observations PO-1..PO-7. Incident companion incident-assessment.md: non-material, all guards verified (source 713c84f0…, PM replaced only the session token); decision pending.",
+  "recorded_at": "2026-10-02T17:27:46Z"
+}
