@@ -8,11 +8,11 @@
 
 <!-- ARTIFACT_READING_START -->
 > [!WARNING]
-> **Project departure: until Stage 4 entry the owner has delegated operations and the decisions needed to reach Stage 4 to the coordinating operator Codex**
+> **Project departure: until the completion of Stage 4 the owner has delegated operations, the decisions needed to reach and pass Stage 4, the Stage 3 fallback and Stage 4 product decisions to the coordinating operator Codex**
 >
 > The constitution says that owner gates and owner-only merge authority "cannot be delegated to agents". The owner instructed otherwise for a bounded period, first for technical merges and routine operations, then (expansion, 2026-09-30T19:16:33Z) for the decisions needed to reach Stage 4. For that period the project does not claim conformance with this invariant. A decision taken under the delegation names Codex as the decider and cites the delegation; it is never recorded as the owner's personal approval. Independent verdicts, secrets, infrastructure access beyond the existing grant, other stacks, waivers, Stage 4 business decisions and Stage 5 are **not** delegated.
 >
-> **Next:** the delegation ends at entry to Stage 4, or earlier if the owner revokes it.
+> **Next:** the 2026-10-02 delegation ends at the completion of Stage 4 (entry into Stage 5, which it does not permit), or earlier if the owner revokes it. The earlier delegations keep their own end (entry into Stage 4) and are not extended.
 >
 > **Details:** [Owner Words](#read-owner-words) / [Bounds](#read-bounds) / [Attribution](#read-attribution).
 
@@ -33,6 +33,7 @@
 - **Relay 1:** approval of PR #31 at `35d871f`, and of one independent correction-validation pass assessing root 006 / previous 009 after A4. The pass stops on an unsuitable baseline or on blocking findings; after `clean`, Stage 3 resumes in the authorized isolated environment. The owner's answer: «разрешаю».
 - **Relay 2:** «вообще я бы тебе отдал пока полный контроль до 4 шага чтобы ты меня не спрашивал больше и делал все сам».
 - **Relay 3 (expansion):** «передаю тебе упралдвение и иду спать. сделай что можешь с клодом. и не надо меня спрашивать про пождтвержление до 4 фазі. принмай на свой расчет и я тее доверяю до 4 стейджа». Relayed by Codex, recorded at 2026-09-30T19:16:33Z and posted as [PR #35 comment 5918018266](https://github.com/ekzarov/xplanner2-revision1/pull/35#issuecomment-5918018266) from the account `ekzarov` at 2026-09-30T19:17:14Z. The exact owner-chat time is not known to PM. The owner did not personally review the decisions Codex then took.
+- **Relay 4 (2026-10-02, until the completion of Stage 4):** «пока сделаем паузу по изменению процесса. вернись к клоду и продолжайте процесс вместе меня. бери управление. ошибки в процессе записывай и потом к ним вернемся. сейчас самое главнео пройти 4 шаг. я так понимаю тертий уже закончен. если нет - закнчивай. даю тебе полные права по общению с ним и на утверждение. просто потом выдашь мне отчет что было сделано короткой. не заюбудь попросить его стартер обновить себе. начинай вы оба открыты». Relayed by Codex in the Claude Code session on 2026-10-02; Codex stated that it covers exactly the Stage 3 `legacy_walkthrough_fallback` and the Stage 4 product decisions, ending at the completion of Stage 4. The exact owner-chat time is not known to PM; the decision records the relay recording time.
 - **Provenance of relays 1 and 2:** both statements were relayed by Codex from the Codex chat, with a verbatim handoff recorded at 2026-09-30T13:31:30Z. The same text is in PR #31 comment 5912342979, created at 2026-09-30T13:32:12Z from the account `ekzarov`. PR #31 was merged by Codex on relay 1 (merge `90977b1055c17ee4e0aebd629cf3abbe360950d4`, 2026-09-30T13:30:57Z).
 
 <a id="read-bounds"></a>
@@ -42,6 +43,7 @@
 | Delegated, until Stage 4 entry | Not delegated |
 |---|---|
 | Since the expansion: the decisions needed to reach Stage 4, taken by Codex on its own responsibility, for example incident-assessment acceptance and the low-only Stage 2 carryover under the existing project rule and its safeguards | Waivers, Stage 4 business and product decisions, Stage 5, and any decision presented as the owner's personal approval |
+| Since 2026-10-02, until the completion of Stage 4: the Stage 3 fallback waiver `legacy_walkthrough_fallback` with the Stage 3 to Stage 4 transition approval, and Stage 4 product decisions (keep, change, do not port), taken by Codex | Stage 5; any other waiver; independent review verdicts; secrets; access beyond the existing Stage 3 grant; any bypass of a safety-filter stop |
 | Coordination, routine checks and technical PRs, and their merge by the operator Codex once the required local checks, CI and any required independent review have passed on the exact HEAD | Independent review verdicts: only an eligible fresh reviewer decides them, and a failed or unexecuted check is never reported as passed |
 | Stage 3 tests already authorized, in the isolated `xplanner2-revision1` environment, within the existing Stage 3 grant | New infrastructure access, publication of secrets, or any change to other stacks |
 | Recording evidence and status for these steps | New material risks, waivers or owner-reserved decisions: the Stage 2 carryover of new findings, a Stage 3 fallback waiver, Stage 4 requirements and product decisions, Stage 5 |
@@ -63,3 +65,8 @@ The project tool [`delegated-authority.js`](../tools/delegated-authority.js) acc
 - the decision is not a waiver.
 
 The status, incident and carryover validators use this rule instead of requiring `decided_by` to equal the owner. All other checks, including the blocking-class and coverage safeguards of the carryover rule, are unchanged. This is a project hook, not a Starter change; tests are in [`delegated-authority.test.js`](../tools/delegated-authority.test.js).
+
+**Extension 2026-10-02.**
+- **Delegation record.** The new delegation `operational-mandate-stage4-completion:xplanner2-revision1` names the one waiver gate it covers, `delegation.waivers: [legacy_walkthrough_fallback]`, with `ends_at_stage: stage-05`.
+- **What the checker accepts.** [`delegated-authority.js`](../tools/delegated-authority.js) now accepts a delegate's `waiver:` decision only when the cited delegation names that gate; the schema allows only `legacy_walkthrough_fallback`. It accepts a delegate's transition `owner_approval`, with `delegated_authority`, only for the Stage 3 to Stage 4 fallback transition under that named gate.
+- **Unchanged.** Every other waiver stays owner-only, every other transition approval stays with the owner in person, and the earlier delegations are unchanged.

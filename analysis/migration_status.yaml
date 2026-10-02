@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-03
-  stage_status: awaiting_owner
-  previous_stage: stage-02
-  next_action: 'Stage 3 re-entered with the W001 live walkthrough standing; outcome pending for 25 partially verified rows (most observed live, some sub-cases unexecuted). Owner decisions needed: how to treat those rows (a manual owner step for the ones that matter, or the owner''s personal Stage 3 fallback decision) and the Stage 4 entry grouping (core / candidate to replace / candidate to exclude / unknown consumers). No new round, live run, SOAP/WAP study or map correction is authorized.'
+  current_stage: stage-04
+  stage_status: in_progress
+  previous_stage: stage-03
+  next_action: 'Stage 4 requirements revision by the BA: subject-level proposals keep / change / do not port per capability, reduction of obsolete channels, unknown consumers recorded as unknown (not invented); requirements resting on waived W001 sub-checks marked; Codex approves product decisions under operational-mandate-stage4-completion. Stage 5 not permitted. The next applicable independent control must verify the Stage 3 waiver with a clean pass.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -302,6 +302,21 @@ transition_history:
       - 'analysis/stages/stage-02/live-check-carryover-pass-013.md'
       - 'analysis/stages/stage-03/walkthrough-001.md'
     owner_approval: null
+  - from: stage-03
+    to: stage-04
+    reason: 'Stage 3 fallback blocked-waived: the live walkthrough W001 accounts for all 210 business rows (110 live-verified, 75 difference, 25 partially verified); the unexecuted sub-checks R-24..R-47 are waived by Codex under operational-mandate-stage4-completion (waiver:legacy_walkthrough_fallback:xplanner2-revision1, record analysis/stages/stage-03/walkthrough-001-fallback.md); findings stay findings; Stage 4 requirements revision starts; Stage 5 not permitted.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-10-02T16:04:50Z'
+    gate_evidence:
+      - 'analysis/stages/stage-03/walkthrough-001.md'
+      - 'analysis/stages/stage-03/walkthrough-001-fallback.md'
+    owner_approval:
+      approved_by: 'Codex'
+      approved_at: '2026-10-02T16:04:50Z'
+      record: 'analysis/stages/stage-03/walkthrough-001-fallback.md'
+      scope: 'Stage 3 to Stage 4 under waiver:legacy_walkthrough_fallback:xplanner2-revision1 (residual items R-24..R-47 unverified); delegated approval by Codex, not a personal owner approval.'
+      delegated_authority:
+        authority_decision_id: 'operational-mandate-stage4-completion:xplanner2-revision1'
 review_passes:
   - stage: stage-02
     pass: 1
@@ -766,6 +781,30 @@ owner_decisions:
     residual_risk: 'The Stage 1 records keep inconsistent status labels on six rows, overstatements of what was live-tested (SOAP attribute operations, row 151 triggers), stale runtime-unverified qualifiers, the editor-date description, two count inaccuracies and the historical edit-attestation mismatch until a later correction; these items are not re-verified by another Stage 2 pass; the carryover was decided by a delegated operator.'
     delegated_authority:
       authority_decision_id: 'operational-mandate-expansion-until-stage-04:xplanner2-revision1'
+  - id: 'operational-mandate-stage4-completion:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-10-02T16:04:50Z'
+    scope: 'Delegation to the coordinating operator Codex until the completion of Stage 4 (ends at entry into Stage 5, which it does not permit): communication with Claude, project decisions and approvals needed to finish Stage 3 and pass Stage 4, exactly including the Stage 3 legacy_walkthrough_fallback waiver with the Stage 3 to Stage 4 transition approval and the Stage 4 product decisions (keep, change, do not port). Not delegated: independent review verdicts, secrets, access beyond the existing Stage 3 grant, safety-filter bypasses, any other waiver, Stage 5. Delegated decisions name Codex as decider and cite this delegation; none is a personal owner approval.'
+    rationale: 'Owner words relayed by Codex in the Claude Code session on 2026-10-02: «пока сделаем паузу по изменению процесса. вернись к клоду и продолжайте процесс вместе меня. бери управление. ошибки в процессе записывай и потом к ним вернемся. сейчас самое главнео пройти 4 шаг. я так понимаю тертий уже закончен. если нет - закнчивай. даю тебе полные права по общению с ним и на утверждение. просто потом выдашь мне отчет что было сделано короткой. не заюбудь попросить его стартер обновить себе. начинай вы оба открыты». Codex stated that the delegation covers exactly the Stage 3 legacy_walkthrough_fallback and the Stage 4 product decisions until the completion of Stage 4. The exact owner-chat time is not known to PM; decided_at is the relay recording time. The earlier delegations are not extended.'
+    record: 'analysis/maintenance/process-departure-2026-09-30-operational-mandate.md'
+    residual_risk: 'The Stage 3 fallback and Stage 4 product decisions are taken by an agent operator without the owner reading the exact records; the owner receives a short report afterwards and may revoke at any time.'
+    delegation:
+      delegate: 'Codex'
+      ends_at_stage: stage-05
+      waivers:
+        - legacy_walkthrough_fallback
+  - id: 'waiver:legacy_walkthrough_fallback:xplanner2-revision1'
+    decision: approved
+    decided_by: 'Codex'
+    decided_at: '2026-10-02T16:04:50Z'
+    scope: 'xplanner2-revision1'
+    rationale: 'Delegated decision by Codex under operational-mandate-stage4-completion, not a personal owner approval. Admit Stage 4 with the exact remainder of unverified W001 sub-checks (residual items R-24..R-47 of analysis/stages/stage-03/walkthrough-001.md, classes d and e): blocked-waived, not simulate and not live-verified of the whole scope; no retry of actions stopped by the safety filter; unverified items and found errors are not declared fixed; all observations kept; target behavior verified before acceptance.'
+    record: 'analysis/stages/stage-03/walkthrough-001-fallback.md'
+    residual_risk: '24 residual sub-check items of W001 stay unverified live (for example a hidden project seen by a reader with a role, other session locales, global test utilities and some database-level effects); a target requirement that copies a mapped claim wrong in one of these sub-cases surfaces only in target verification; the waiver was decided by a delegated operator.'
+    permitted_next_stage: stage-04
+    delegated_authority:
+      authority_decision_id: 'operational-mandate-stage4-completion:xplanner2-revision1'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -777,11 +816,18 @@ blockers:
       - 'analysis/stages/bootstrap/bootstrap-gate-report.md'
 
 legacy_walkthrough:
-  outcome: pending
+  outcome: blocked-waived
   scope: 'xplanner2-revision1'
-  record: null
-  decision_id: null
-  unresolved_blocked_scopes: []
+  record: 'analysis/stages/stage-03/walkthrough-001.md'
+  decision_id: 'waiver:legacy_walkthrough_fallback:xplanner2-revision1'
+  unresolved_blocked_scopes:
+    - id: 'W001-residual-R24-R47'
+      summary: 'Unexecuted W001 sub-checks of the partially verified rows: residual items R-24..R-47 (classes d and e) of walkthrough-001; not retried; stay unverified until verified on the target or a resumed Stage 3.'
+      status: blocked
+      waiver_id: 'waiver:legacy_walkthrough_fallback:xplanner2-revision1'
+      evidence:
+        - 'analysis/stages/stage-03/walkthrough-001.md'
+        - 'analysis/stages/stage-03/walkthrough-001-fallback.md'
 
 delivery:
   active_slice: null
@@ -796,9 +842,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 3 re-entered after the pass-013 low-only carryover; W001 live walkthrough stands (210 business rows: 110 live-verified, 75 difference, 25 partial); Stage 3 outcome pending; owner decisions on the partial rows and Stage 4 grouping.'
-  completed_percent: 11
-  updated_at: '2026-10-01T02:22:17Z'
+  summary: 'Stage 3 closed as blocked-waived (W001: 210 business rows accounted for; residual sub-checks R-24..R-47 waived by Codex under delegation); Stage 4 requirements revision in progress.'
+  completed_percent: 16
+  updated_at: '2026-10-02T16:04:50Z'
   agent_reviews:
     total: 13
     valid: 11

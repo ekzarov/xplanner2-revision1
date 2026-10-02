@@ -8,7 +8,7 @@
 
 <!-- ARTIFACT_READING_START -->
 > [!NOTE]
-> **Eight short items for the owner's next review; none blocks the current Stage 1 correction**
+> **Nine short items for the owner's next review; none blocks the current Stage 1 correction**
 >
 > The Stage 2 control loop took twelve passes. The Stage 3 walkthrough used six part sessions plus a lead. The items below would cut that cost next time. They are proposals only.
 >
@@ -38,3 +38,4 @@
 | 6 | PM tooling took the factory pair from the first matching README line, not line 38; masking silently missed it. | Configure each secret explicitly by location, and give every masking self-test a positive control on the real value. |
 | 7 | Timestamps were estimated once. | Always generate them programmatically (already in practice). |
 | 8 | Long Russian and English status reports. | One short story per milestone: result, scope, what is left, and the decision needed. |
+| 9 | A delegated Stage 3 fallback needed a project tool change. The waiver and the transition approval were hard-wired to the owner in person, and the delegation could not name a waiver gate. | Let a delegation record state which gates and approvals it covers, from the start, so that a new delegation needs no tool change. |
