@@ -10,7 +10,7 @@
 > [!WARNING]
 > **Project departure: until the completion of Stage 4 the owner has delegated operations, the decisions needed to reach and pass Stage 4, the Stage 3 fallback and Stage 4 product decisions to the coordinating operator Codex**
 >
-> The constitution says that owner gates and owner-only merge authority "cannot be delegated to agents". The owner instructed otherwise for a bounded period, first for technical merges and routine operations, then (expansion, 2026-09-30T19:16:33Z) for the decisions needed to reach Stage 4. For that period the project does not claim conformance with this invariant. A decision taken under the delegation names Codex as the decider and cites the delegation; it is never recorded as the owner's personal approval. Independent verdicts, secrets, infrastructure access beyond the existing grant, other stacks, waivers, Stage 4 business decisions and Stage 5 are **not** delegated.
+> The constitution says that owner gates and owner-only merge authority "cannot be delegated to agents". The owner instructed otherwise for a bounded period, first for technical merges and routine operations, then (expansion, 2026-09-30T19:16:33Z) for the decisions needed to reach Stage 4. For that period the project does not claim conformance with this invariant. A decision taken under the delegation names Codex as the decider and cites the delegation; it is never recorded as the owner's personal approval. Under the earlier mandates (until Stage 4 entry), independent verdicts, secrets, infrastructure access beyond the existing grant, other stacks, waivers, Stage 4 business decisions and Stage 5 are **not** delegated. Since the extension of 2026-10-02, until the completion of Stage 4, the Stage 3 `legacy_walkthrough_fallback` waiver and Stage 4 product decisions are delegated; independent verdicts, secrets, access beyond the existing grant, other stacks, safety-filter bypasses, any other waiver and Stage 5 stay **not** delegated.
 >
 > **Next:** the 2026-10-02 delegation ends at the completion of Stage 4 (entry into Stage 5, which it does not permit), or earlier if the owner revokes it. The earlier delegations keep their own end (entry into Stage 4) and are not extended.
 >
@@ -40,13 +40,13 @@
 
 ## Bounds
 
-| Delegated, until Stage 4 entry | Not delegated |
+| Delegated | Not delegated |
 |---|---|
-| Since the expansion: the decisions needed to reach Stage 4, taken by Codex on its own responsibility, for example incident-assessment acceptance and the low-only Stage 2 carryover under the existing project rule and its safeguards | Waivers, Stage 4 business and product decisions, Stage 5, and any decision presented as the owner's personal approval |
+| Earlier mandate, since the expansion of 2026-09-30, until Stage 4 entry: the decisions needed to reach Stage 4, taken by Codex on its own responsibility, for example incident-assessment acceptance and the low-only Stage 2 carryover under the existing project rule and its safeguards | Under this earlier mandate: waivers, Stage 4 business and product decisions, Stage 5, and any decision presented as the owner's personal approval (bounds before the 2026-10-02 extension) |
 | Since 2026-10-02, until the completion of Stage 4: the Stage 3 fallback waiver `legacy_walkthrough_fallback` with the Stage 3 to Stage 4 transition approval, and Stage 4 product decisions (keep, change, do not port), taken by Codex | Stage 5; any other waiver; independent review verdicts; secrets; access beyond the existing Stage 3 grant; any bypass of a safety-filter stop |
-| Coordination, routine checks and technical PRs, and their merge by the operator Codex once the required local checks, CI and any required independent review have passed on the exact HEAD | Independent review verdicts: only an eligible fresh reviewer decides them, and a failed or unexecuted check is never reported as passed |
+| Earlier mandate (and continued): coordination, routine checks and technical PRs, and their merge by the operator Codex once the required local checks, CI and any required independent review have passed on the exact HEAD | Independent review verdicts: only an eligible fresh reviewer decides them, and a failed or unexecuted check is never reported as passed |
 | Stage 3 tests already authorized, in the isolated `xplanner2-revision1` environment, within the existing Stage 3 grant | New infrastructure access, publication of secrets, or any change to other stacks |
-| Recording evidence and status for these steps | New material risks, waivers or owner-reserved decisions: the Stage 2 carryover of new findings, a Stage 3 fallback waiver, Stage 4 requirements and product decisions, Stage 5 |
+| Recording evidence and status for these steps | Under the first mandate (before the expansions): new material risks, waivers or owner-reserved decisions such as the Stage 2 carryover of new findings, a Stage 3 fallback waiver, Stage 4 requirements and product decisions, and Stage 5. Since 2026-10-02 the Stage 3 fallback waiver and Stage 4 product decisions are delegated (row above); Stage 5 is still not |
 
 Every PR merged under this mandate states in its description that it was merged under this departure. Historical decisions and the constitution text are unchanged.
 
