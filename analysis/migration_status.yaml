@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-04
+  current_stage: stage-01
   stage_status: in_progress
-  previous_stage: stage-03
-  next_action: 'Stage 4 decisions recorded and applied to the map (analysis/stages/stage-04/stage-04-requirements-revision.md; workbook J/M and Rev 1). Next: the narrow finding-driven return to Stage 1 for map hole MH-01 (F220 getAttribute listed among data-returning SOAP operations while it always faults) and directly related wording only, then one fresh correction-validation of that diff, then back to Stage 4 to complete it. Stage 5 not permitted.'
+  previous_stage: stage-04
+  next_action: 'Stage 1 BA-001-14 corrected F220 and the tied H220 (MH-01; analysis/stages/stage-01/stage-04-mh01-dispositions.md). After the correction PR: one fresh independent Stage 2 correction-validation pass 014 (root 006, previous and coverage base 013) of this change and its directly affected obligations; then back to Stage 4 to complete it. Stage 5 not permitted.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -317,6 +317,15 @@ transition_history:
       scope: 'Stage 3 to Stage 4 under waiver:legacy_walkthrough_fallback:xplanner2-revision1 (residual items R-24..R-47 unverified); delegated approval by Codex, not a personal owner approval.'
       delegated_authority:
         authority_decision_id: 'operational-mandate-stage4-completion:xplanner2-revision1'
+  - from: stage-04
+    to: stage-01
+    reason: 'Finding-driven return from Stage 4 for map hole MH-01 (analysis/stages/stage-04/stage-04-requirements-revision.md): cell F220 lists getAttribute among SOAP read operations that return data while also stating that it always faults (W001 D-C-044, W001-F-50). Narrow correction of F220 and directly tied wording only, from existing evidence; target decisions I-N untouched; then a fresh correction-validation; then back to Stage 4. Permitted by Codex under operational-mandate-stage4-completion.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-10-02T16:46:57Z'
+    gate_evidence:
+      - 'analysis/stages/stage-04/stage-04-requirements-revision.md'
+      - 'analysis/stages/stage-01/stage-04-mh01-dispositions.md'
+    owner_approval: null
 review_passes:
   - stage: stage-02
     pass: 1
@@ -852,9 +861,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 4: Codex delegated product decisions D-001..D-025 recorded and applied to the map (keep 65, change 80, do-not-port 34, defer 31 rows); narrow Stage 1 return for MH-01 pending before Stage 4 completes.'
-  completed_percent: 16
-  updated_at: '2026-10-02T16:42:19Z'
+  summary: 'Stage 4 decisions recorded and applied; narrow Stage 1 return for MH-01 (F220) in progress before Stage 4 completes.'
+  completed_percent: 0
+  updated_at: '2026-10-02T16:54:50Z'
   agent_reviews:
     total: 13
     valid: 11
