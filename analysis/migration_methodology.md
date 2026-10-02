@@ -1022,7 +1022,7 @@ discarded just because the earlier source analysis disagrees.
 
 A populated document or green audit is not owner approval. Limited approval does not approve the whole system.
 
-**Execution record:** `analysis/stages/stage-04/stage-04-requirements-revision.md`. [analysis/stages/templates/stage-04-requirements-revision-template.md](../analysis/stages/templates/stage-04-requirements-revision-template.md). The active-stage agent records actual work; this is not independent approval.
+**Execution record:** [`analysis/stages/stage-04/stage-04-requirements-revision.md`](../analysis/stages/stage-04/stage-04-requirements-revision.md). [analysis/stages/templates/stage-04-requirements-revision-template.md](../analysis/stages/templates/stage-04-requirements-revision-template.md). The active-stage agent records actual work; this is not independent approval.
 <!-- RECORD_BOUNDARY_4_END -->
 
 - Before any design, the agent audits the map itself as a set of requirements

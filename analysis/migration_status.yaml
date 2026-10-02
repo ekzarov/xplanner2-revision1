@@ -34,7 +34,7 @@ control:
   current_stage: stage-04
   stage_status: in_progress
   previous_stage: stage-03
-  next_action: 'Stage 4 requirements revision by the BA: subject-level proposals keep / change / do not port per capability, reduction of obsolete channels, unknown consumers recorded as unknown (not invented); requirements resting on waived W001 sub-checks marked; Codex approves product decisions under operational-mandate-stage4-completion. Stage 5 not permitted. The next applicable independent control must verify the Stage 3 waiver with a clean pass.'
+  next_action: 'Stage 4 decisions recorded and applied to the map (analysis/stages/stage-04/stage-04-requirements-revision.md; workbook J/M and Rev 1). Next: the narrow finding-driven return to Stage 1 for map hole MH-01 (F220 getAttribute listed among data-returning SOAP operations while it always faults) and directly related wording only, then one fresh correction-validation of that diff, then back to Stage 4 to complete it. Stage 5 not permitted.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -805,6 +805,16 @@ owner_decisions:
     permitted_next_stage: stage-04
     delegated_authority:
       authority_decision_id: 'operational-mandate-stage4-completion:xplanner2-revision1'
+  - id: 'stage-04-product-decisions:xplanner2-revision1'
+    decision: approved
+    decided_by: 'Codex'
+    decided_at: '2026-10-02T16:42:19Z'
+    scope: 'Stage 4 keep / change / do-not-port / defer decisions D-001..D-025 and clarifications T-01, T-02, T-05, T-06 (T-03, T-04 open for SDD or Stage 9) for the demonstration modernization of XPlanner, as quoted verbatim in the Owner Confirmation of analysis/stages/stage-04/stage-04-requirements-revision.md (BA proposals at SHA-256 e06f3153; Developer assessment); not a replacement of an unknown production installation; Stage 5 not permitted.'
+    rationale: 'Delegated decision by Codex under operational-mandate-stage4-completion, not a personal owner approval. Reduce the demo scope to the business core; fix observed legacy defects and security weaknesses instead of porting them; defer channels and features with unknown consumers (SOAP, external REST, iCal, MPX/MSPDI, imports, attachments, remember-me, directory login, other languages) with a responsible actor and a due condition; do not port obsolete or test mechanisms (WAP, JRPDF, CI queue, test utilities, role editor, file manager). Synthetic data and new accounts only in the demo. Unknown consumers are not declared absent.'
+    record: 'analysis/stages/stage-04/stage-04-requirements-revision.md'
+    residual_risk: 'Deferred channels may have real consumers that the demo does not serve; decisions resting on waived W001 sub-checks (R-24..R-47) and source-only behavior (carry-over, continue, re-estimate) must be verified on the target before acceptance; T-03 and T-04 stay open; decided by a delegated operator, not by the owner in person.'
+    delegated_authority:
+      authority_decision_id: 'operational-mandate-stage4-completion:xplanner2-revision1'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -842,9 +852,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 3 closed as blocked-waived (W001: 210 business rows accounted for; residual sub-checks R-24..R-47 waived by Codex under delegation); Stage 4 requirements revision in progress.'
+  summary: 'Stage 4: Codex delegated product decisions D-001..D-025 recorded and applied to the map (keep 65, change 80, do-not-port 34, defer 31 rows); narrow Stage 1 return for MH-01 pending before Stage 4 completes.'
   completed_percent: 16
-  updated_at: '2026-10-02T16:04:50Z'
+  updated_at: '2026-10-02T16:42:19Z'
   agent_reviews:
     total: 13
     valid: 11

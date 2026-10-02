@@ -131,7 +131,7 @@ PM requests owner-approved environment access, role accounts and permitted data/
 
 - **Role and skill:** Business Analyst (responsible author). PM coordinates; the assigned session reads .agents/skills/migration-ba/SKILL.md and returns ACK before work. Questions and RESULT return to PM with exact artifacts, checks and remaining gaps. Human decisions remain with the owner. [Delegation contract](agent-roles.md).
 - **Reads:** [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx); `stage-03/walkthrough-NNN.md`
-- **Writes result:** `stage-04-requirements-revision.md`
+- **Writes result:** [`stage-04-requirements-revision.md`](stages/stage-04/stage-04-requirements-revision.md)
 - **Updates shared:** [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx)
 - **Error prevention:** Before work, read applicable checks by stage and affected scope. Before handoff and after corrections, check the actual result and record outcomes in the working report or control.prevention_self_check. Generalize confirmed errors; the coordinator admits and deduplicates updates. [Checklist procedure](error-prevention.md).
 
@@ -144,7 +144,7 @@ PM requests owner-approved environment access, role accounts and permitted data/
 **In what form and visual style should the new application work?** *UX Designer (responsible author).*
 
 - **Role and skill:** UX Designer (responsible author). PM coordinates; the assigned session reads .agents/skills/migration-ux/SKILL.md and returns ACK before work. Support on demand: Business Analyst, Developer. Questions and RESULT return to PM with exact artifacts, checks and remaining gaps. Human decisions remain with the owner. [Delegation contract](agent-roles.md).
-- **Reads:** [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx); `stage-04-requirements-revision.md`
+- **Reads:** [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx); [`stage-04-requirements-revision.md`](stages/stage-04/stage-04-requirements-revision.md)
 - **Writes result:** `prototyping/ui-ux-decision.md`; `ui-design-system.md`; `ui-design-tokens.json`; `waivers/GATE-SCOPE.md` (conditional)
 - **Updates shared:** None.
 - **Error prevention:** Before work, read applicable checks by stage and affected scope. Before handoff and after corrections, check the actual result and record outcomes in the working report or control.prevention_self_check. Generalize confirmed errors; the coordinator admits and deduplicates updates. [Checklist procedure](error-prevention.md).
@@ -232,7 +232,7 @@ Create a new immutable closure report; never update the owner verdict. Correctio
 **What knowledge from the approved architecture must we pass to the next agent?** *Architect (responsible author).*
 
 - **Role and skill:** Architect (responsible author). PM coordinates; the assigned session reads .agents/skills/migration-architect/SKILL.md and returns ACK before work. Questions and RESULT return to PM with exact artifacts, checks and remaining gaps. Human decisions remain with the owner. [Delegation contract](agent-roles.md).
-- **Reads:** `architecture-owner-verdict-NNN.md`; `architecture-closure-NNN.md`; `architecture.md`; `architecture/sections/*.md`; `architecture.drawio`; `architecture/adr/NNN-*.md`; `architecture-nfr-manifest.json`; [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx); `prototyping/ui-ux-approval.md`; `screen-manifest.json`; `stage-04-requirements-revision.md`; `ui-design-system.md`; `ui-design-tokens.json`; `feature-dependencies.json`
+- **Reads:** `architecture-owner-verdict-NNN.md`; `architecture-closure-NNN.md`; `architecture.md`; `architecture/sections/*.md`; `architecture.drawio`; `architecture/adr/NNN-*.md`; `architecture-nfr-manifest.json`; [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx); `prototyping/ui-ux-approval.md`; `screen-manifest.json`; [`stage-04-requirements-revision.md`](stages/stage-04/stage-04-requirements-revision.md); `ui-design-system.md`; `ui-design-tokens.json`; `feature-dependencies.json`
 - **Writes result:** `knowledge/bundle/**`; `knowledge-manifest.json`; `stage-13/knowledge-record.md`; `waivers/GATE-SCOPE.md` (conditional)
 - **Updates shared:** None.
 - **Error prevention:** Before work, read applicable checks by stage and affected scope. Before handoff and after corrections, check the actual result and record outcomes in the working report or control.prevention_self_check. Generalize confirmed errors; the coordinator admits and deduplicates updates. [Checklist procedure](error-prevention.md).
