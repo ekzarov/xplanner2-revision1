@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-05
-  stage_status: awaiting_owner
-  previous_stage: stage-04
-  next_action: 'Stage 5 decision material ready (analysis/prototyping/ui-ux-decision.md; drafts ui-design-system.md and ui-design-tokens.json, proposed foundation digest c41526e0…7c21, not selected). Owner to choose: form (responsive web recommended), style (utilitarian or Alternative C), palette (P1/P2/P3), dark mode, density default, icons and fonts; then UX pins the selected foundation. Alternatives A and B are out-of-scope comparisons only. No wireframes, Stage 6, stack choice, code or deploy before the owner decision.'
+  current_stage: stage-06
+  stage_status: in_progress
+  previous_stage: stage-05
+  next_action: 'Stage 6: UX normalizes the agreed map many-to-one (not 210 screens; Stage 4 do-not-port and defer kept), defines in the existing prototype artifacts the minimal set of controls and states the agreed scenarios use, and starts in Google Stitch with a small representative set (a list, an edit form with the needed dates and assignee choice, a dialog), desktop and phone, business content only from approved rows; real exports saved and shown to the owner. Foundation 97e04be7… pinned; a foundation change returns to Stage 5. Uncovered scope stays pending. No stack, code or deploy; Stage 6 not complete after the first screens; Stage 8 not approved.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -371,6 +371,20 @@ transition_history:
       approved_at: '2026-10-02T19:10:13Z'
       record: 'analysis/stages/stage-04/stage-04-requirements-revision.md'
       scope: 'Owner words, relayed by Codex from the conversation with the owner on 2026-10-02: «Отлично. Давай переходим к шагу 5». Authorizes entering and preparing Stage 5 only: UX decision material (form, style, 2-3 palettes, accessibility) and draft ui-design-system.md / ui-design-tokens.json. Not an approval of a concrete design, palette, UI foundation, wireframes or Stage 6. The exact owner-chat time is not known to PM; approved_at is the relay recording time.'
+  - from: stage-05
+    to: stage-06
+    reason: 'Owner-authorized exit from Stage 5 after the explicit owner choice of form, style, palette and accessibility recorded in analysis/prototyping/ui-ux-decision.md (foundation SHA-256 97e04be7b42ba98abd8b7df2afde691c64b80029465d2f763e6ba768801c907b). Stage 6 prepares prototypes: many-to-one normalization of the agreed map, the minimal set of controls and states the agreed scenarios use, and representative screens in Google Stitch. No stack, code or deploy; Stage 8 not approved.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-10-02T20:25:53Z'
+    gate_evidence:
+      - 'analysis/prototyping/ui-ux-decision.md'
+      - 'analysis/prototyping/ui-design-system.md'
+      - 'analysis/prototyping/ui-design-tokens.json'
+    owner_approval:
+      approved_by: 'ekzarov'
+      approved_at: '2026-10-02T20:21:59Z'
+      record: 'analysis/prototyping/ui-ux-decision.md'
+      scope: 'Owner words, relayed by Codex: «Поехали. Мне нравится». The personal choice of the shown foundation and permission to continue preparing prototypes (Stage 6). Not a decision on the old P1/P2/P3, not an approval of style-tile inventions or future component variants, not Stage 8 approval. The exact owner-chat time is not known to PM; approved_at is the relay recording time.'
 review_passes:
   - stage: stage-02
     pass: 1
@@ -922,6 +936,14 @@ owner_decisions:
     residual_risk: 'The Stage 1 records keep six documentation inaccuracies (status labels on six rows, live-tested overstatements for SOAP attribute operations and row 151 triggers, stale qualifiers, the editor-date description, two count inaccuracies) until a later correction; not re-verified by another Stage 2 pass; decided by a delegated operator.'
     delegated_authority:
       authority_decision_id: 'operational-mandate-stage4-completion:xplanner2-revision1'
+  - id: 'stage-05-ui-foundation:xplanner2-revision1'
+    decision: approved
+    decided_by: 'ekzarov'
+    decided_at: '2026-10-02T20:21:59Z'
+    scope: 'Owner words, relayed by Codex from the conversation with the owner on 2026-10-02: «Поехали. Мне нравится», after Codex showed one Material Lean proposal and a large Google Stitch sample. Personal owner choice of the shown foundation: one responsive web application for desktop and phone; light minimalist Material with Jira-like compactness; the 14 foundation colors, action color rules, system font body 16/table 14, Lucide under the icon rule, radius 6, desktop controls 36, rows 40, phone targets 44-48, spacing 4, flat layout, shadows only for overlays, top bar/breadcrumbs/local tabs; no dark mode and no density switch in the first demo; WCAG 2.2 AA kept. UI foundation SHA-256 97e04be7b42ba98abd8b7df2afde691c64b80029465d2f763e6ba768801c907b pinned in analysis/prototyping/ui-ux-decision.md. Google Stitch is the main prototyping tool (owner words «Используйте ститч от Гугла»). Not a decision on the old P1/P2/P3 or Alternative C, not an approval of invented texts, roles, task rows, Fibonacci, sprint sign-off or other functions in the style tile, not an approval of future component variants; Stage 4 scope unchanged. The exact owner-chat time is not known to PM; the recorded time is the relay recording time.'
+    rationale: 'Owner asked for a minimalist Material-like style, grey-white surfaces, blue primary and green for completing actions, possibly Jira-like, and asked Codex to decide and show the palette; Codex showed one proposal (Material Lean) with a Stitch sample and the owner accepted it. Relayed by Codex; a personal owner choice, not a delegated decision and not a continuation of the expired Stage 4 mandate.'
+    record: 'analysis/prototyping/ui-ux-decision.md'
+    residual_risk: 'UX added foundation values not named in the relayed choice (headings 24/20, weights 400/600, line height 1.5, white labels on filled buttons, 2px focus ring with 2px offset where the sample showed 1px); shown to the owner with the first Stage 6 screens; a change returns to Stage 5. Three color pairs fail AA and are handled by usage rules (secondary text on selected rows, control border on table header and selected rows).'
 blockers:
   - id: 'bootstrap-artifact-links-preparation'
     summary: 'audit:artifact-links failed (exit 1): eight plain-text legacy/ path references in pre-existing owner file PREPARATION.md (lines 20, 30, 39, 40, 41, 42, 58, 80) are not clickable links.'
@@ -959,9 +981,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 5 form and style proposal prepared by UX; awaiting the owner choice; no design approved.'
-  completed_percent: 21
-  updated_at: '2026-10-02T19:26:15Z'
+  summary: 'Stage 5 complete: owner chose the Material Lean foundation «Поехали. Мне нравится» (SHA-256 97e04be7…); Stage 6 prototype preparation in progress.'
+  completed_percent: 26
+  updated_at: '2026-10-02T20:25:53Z'
   agent_reviews:
     total: 14
     valid: 12
