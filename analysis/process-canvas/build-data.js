@@ -64,7 +64,7 @@ const stages = [
   {
     id: 'stage-01', number: 1, phase: 'requirements', title: 'Reconnaissance', kind: 'work', actor: 'Primary agent',
     summary: 'Inspect the immutable legacy source and turn observable behavior into an evidence-backed parity map.',
-    actions: ['Inventory channels, roles, routes, jobs and integrations', 'Trace behavior to source/configuration evidence', 'Record unknowns and deployment constraints', 'Create one atomic scenario per parity-map row', 'PM publishes the draft or corrections in their own PR; required CI and owner merge precede fresh Stage 2 control'],
+    actions: ['Inventory channels, roles, routes, jobs and integrations', 'Trace behavior to source/configuration evidence', 'Record unknowns and deployment constraints', 'Create one atomic scenario per parity-map row', 'PM publishes the draft or corrections in their own PR; required CI and owner merge precede fresh Stage 2 control', "Trace actual behavior within the authorized scope; mark missing evidence as unknown rather than inventing requirements or expanding discovery on speculation."],
     input: 'Immutable legacy revision + project contract + assessed source readiness or exact owner-approved fallback',
     exit: 'Initial reconnaissance and parity map pass the workbook audit',
     returns: 'Any later parity-map defect returns here.',
@@ -135,7 +135,7 @@ const stages = [
   {
     id: 'stage-04', number: 4, phase: 'requirements', title: 'Requirements revision', kind: 'owner', actor: 'Agent records; business and engineering advise; owner decides',
     summary: 'Decide whether confirmed legacy behavior should be kept, changed, or deliberately not ported.',
-    actions: ['Hunt for contradictions across channels', 'Flag obsolete or unreasonable behavior', 'Review every flag with business and engineering', 'Record the owner\'s keep, change, or do-not-port decisions'],
+    actions: ['Hunt for contradictions across channels', 'Flag obsolete or unreasonable behavior', 'Review every flag with business and engineering', 'Record the owner\'s keep, change, or do-not-port decisions', "Base keep/change/do-not-port proposals on evidenced findings; separate modernization suggestions from confirmed legacy requirements."],
     input: 'Verified parity map + Stage 3 walkthrough evidence',
     exit: 'Every flagged row has an explicit durable owner decision',
     returns: 'A mapping error returns to Stage 1 with stage-04-requirements-revision.md, finding IDs and evidence cited in status. An owner-approved change to correctly recorded legacy behavior stays at Stage 4.',
@@ -154,7 +154,7 @@ const stages = [
   {
     id: 'stage-06', number: 6, phase: 'prototyping', title: 'Wireframes', kind: 'work', actor: 'Primary agent + design tool',
     summary: 'Normalize map rows into real surfaces, then produce the complete reviewable wireframe catalogue.',
-    actions: ['Classify every row as surface, state, action, overlay, navigation, or non-visual', 'Generate only justified screens and meaningful state variants', 'Export files from the design tool into the repository', 'Record screen-to-row, role, state, action and hash links', "Develop representative screens and the shared component catalogue together, then reuse them. Pin catalogue, tokens and component previews in manifest version 4; each screen declares used ui_variants. Foundation changes return to 5."],
+    actions: ['Classify every row as surface, state, action, overlay, navigation, or non-visual', 'Generate only justified screens and meaningful state variants', 'Export files from the design tool into the repository', 'Record screen-to-row, role, state, action and hash links', "Develop representative screens and the shared component catalogue together, then reuse them. Pin catalogue, tokens and component previews in manifest version 4; each screen declares used ui_variants. Foundation changes return to 5.", "Reuse approved components; add a screen or state only to represent agreed behavior, not merely because another parity-map row exists."],
     input: 'Parity map + Stage 5 design baseline',
     exit: 'Normalization, manifest and exported wireframes pass audit:prototype',
     returns: 'A baseline problem returns to Stage 5; a parity-map defect returns to Stage 1.',
@@ -180,7 +180,7 @@ const stages = [
   {
     id: 'stage-09', number: 9, phase: 'architecture', title: 'Architecture requirements', kind: 'owner', actor: 'Architecture agent writes; client/owner and technical participants answer; owner decides',
     summary: 'Turn legacy facts and residual client answers into measurable NFRs, target choices and the minimum architecture baseline. Name the current layer and enabled slices: foundation approval is not approval of the entire future system; all applicable Grade A decisions in the declared scope must close.',
-    actions: ['Complete Legacy Discovery: code/config, relevant live check, then narrow client question', 'Grade NFRs A/B/C and assign authority', 'Close system-diagram-shaping decisions', 'Create architecture record, sections, ADRs and machine manifest', "Read the approved UI catalogue/tokens through the prototype manifest and verify component-library/platform compatibility. Necessary visual source changes repeat the affected Stage 5-8 controls."],
+    actions: ['Complete Legacy Discovery: code/config, relevant live check, then narrow client question', 'Grade NFRs A/B/C and assign authority', 'Close system-diagram-shaping decisions', 'Create architecture record, sections, ADRs and machine manifest', "Read the approved UI catalogue/tokens through the prototype manifest and verify component-library/platform compatibility. Necessary visual source changes repeat the affected Stage 5-8 controls.", "Choose the simplest structure that meets current requirements; add layers or services for a concrete requirement or evidenced risk, not hypothetical future reuse."],
     input: 'Approved prototype + parity map + legacy evidence + client answers',
     exit: 'Grade A decisions needed now are closed; workbook and architecture audit pass',
     returns: 'Missing architecture evidence keeps Stage 9 open; changed prototype structure returns to Stage 6, a deliberate channel/design-system baseline change to Stage 5, and a parity-map defect to Stage 1. Record the exact decision and repeat Stages 7-8 before resuming Stage 9.',
@@ -225,7 +225,7 @@ const stages = [
   {
     id: 'stage-13', number: 13, phase: 'architecture', title: 'Target knowledge synthesis', kind: 'work', actor: 'Primary agent',
     summary: 'Convert the approved architecture into Open Knowledge Format (OKF) v0.2: Google Cloud-published, vendor-neutral Markdown concepts with YAML frontmatter, stable ids and source provenance.',
-    actions: ['Structure concepts as OKF v0.2 Markdown with YAML frontmatter', 'Assign stable ids and explain boundaries, contracts and operating rules', 'Link every concept to its exact approved source', 'Pin the source set and concept set in knowledge-manifest.json', "Link relevant approved UI catalogue/token sources into knowledge without creating another dictionary of visual values."],
+    actions: ['Structure concepts as OKF v0.2 Markdown with YAML frontmatter', 'Assign stable ids and explain boundaries, contracts and operating rules', 'Link every concept to its exact approved source', 'Pin the source set and concept set in knowledge-manifest.json', "Link relevant approved UI catalogue/token sources into knowledge without creating another dictionary of visual values.", "Carry forward approved knowledge and unresolved questions; do not invent business rules or redesign the architecture while summarizing it."],
     input: 'Approved architecture + parity map + approved prototype + owner decisions; knowledge-manifest pins exact sources' ,
     exit: 'OKF v0.2 bundle and knowledge-manifest.json pass audit:knowledge',
     returns: 'An architecture contradiction returns to Stage 9; a prototype contradiction returns to Stage 6; a parity-map defect returns to Stage 1.',
@@ -242,7 +242,7 @@ const stages = [
   {
     id: 'stage-15', number: 15, phase: 'design', title: 'Design: SDD', kind: 'work', actor: 'Primary agent',
     summary: 'Define one bounded delivery slice in requirement language, with implementation plan, tasks and end-to-end traceability.',
-    actions: ['Select exact parity-map rows or a target-only owner decision', 'Write numbered functional and non-functional requirements', 'Link NFR criteria to requirements/tasks/tests in specs/traceability.md; keep the approved manifest read-only', 'Declare target surfaces, roles, tests, UI impact, Completion dependencies and return triggers', "For UI work, read the pinned catalogue and tokens. Bind each Used UI Control Inventory row to its screen and stable governed variant; plan shared styles/components before consumers. Missing approved variants return to 6, foundation changes to 5."],
+    actions: ['Select exact parity-map rows or a target-only owner decision', 'Write numbered functional and non-functional requirements', 'Link NFR criteria to requirements/tasks/tests in specs/traceability.md; keep the approved manifest read-only', 'Declare target surfaces, roles, tests, UI impact, Completion dependencies and return triggers', "For UI work, read the pinned catalogue and tokens. Bind each Used UI Control Inventory row to its screen and stable governed variant; plan shared styles/components before consumers. Missing approved variants return to 6, foundation changes to 5.", "Plan only the agreed slice; justify new entities, abstractions and discretionary tasks by a requirement or evidenced risk, reusing approved designs where sufficient."],
     input: 'Map + approved prototype + architecture + OKF bundle; read exact sources pinned by the manifests',
     exit: 'Complete spec.md, plan.md, tasks.md, traceability and target inventory',
     returns: 'Missing knowledge returns to Stage 13; architecture changes to Stage 9; UI structure to Stage 6 or Stage 5 for a deliberate baseline change; parity-map defects to Stage 1.',
@@ -259,7 +259,7 @@ const stages = [
   {
     id: 'stage-17', number: 17, phase: 'coding', title: 'Build', kind: 'owner', actor: 'Primary agent; independent reviewer; owner merges',
     summary: 'Implement one approved slice with code, tests, migrations and synchronized evidence in one reviewable candidate.',
-    actions: ['Implement only approved tasks', 'Run formatting, analysis, build, unit/integration/E2E and parity checks', 'Record executed NFR tests in downstream traceability; keep architecture hashes unchanged', 'Obtain clean independent review and owner merge', "Implement shared token-derived styles and reusable components; verify actual computed values, icons and states. Do not invent private screen styles. Missing design returns through Stage 15 to 6 or 5, then affected review/approval."],
+    actions: ['Implement only approved tasks', 'Run formatting, analysis, build, unit/integration/E2E and parity checks', 'Record executed NFR tests in downstream traceability; keep architecture hashes unchanged', 'Obtain clean independent review and owner merge', "Implement shared token-derived styles and reusable components; verify actual computed values, icons and states. Do not invent private screen styles. Missing design returns through Stage 15 to 6 or 5, then affected review/approval.", "Implement approved tasks using existing patterns; do not add speculative entities or abstractions, unrelated refactors or optional features."],
     input: 'Owner-approved SDD scope',
     exit: 'Exact candidate passes all required gates and is merged by the owner',
     returns: 'Implementation findings stay in Stage 17; SDD defects return to Stage 15; architecture defects to Stage 9; parity-map defects to Stage 1.',
@@ -268,7 +268,7 @@ const stages = [
   {
     id: 'stage-18', number: 18, phase: 'delivery', title: 'Delivery and live reconciliation', kind: 'work', actor: 'Deployment agent',
     summary: 'Deploy the exact merged revision, verify useful behavior and recovery readiness, then reconcile live scope with the approved records. Reuse applicable observations from this delivery; investigate uncovered behavior instead of repeating the same suite. One delivery record captures results, coverage and unresolved findings before independent acceptance.',
-    actions: ['PM rechecks owner-authorized access, release/data scope, environment contract and immutable revision', 'PM runs the reviewed configured deploy command and hands exact execution evidence to Developer', 'Developer runs smoke and useful role-based browser journeys', 'Repeat deployed visual parity and verify rollback readiness', 'Discover in-scope live surfaces and reconcile the parity map, SDD, prototype and inventory', 'Reuse applicable delivery evidence, investigate coverage gaps and record every discrepancy or unverified action', "Compare applicable deployed UI with the same pinned shared catalogue/tokens and screen exports. Reuse valid exact-revision evidence, but do not equate local checks with deployment verification."],
+    actions: ['PM rechecks owner-authorized access, release/data scope, environment contract and immutable revision', 'PM runs the reviewed configured deploy command and hands exact execution evidence to Developer', 'Developer runs smoke and useful role-based browser journeys', 'Repeat deployed visual parity and verify rollback readiness', 'Discover in-scope live surfaces and reconcile the parity map, SDD, prototype and inventory', 'Reuse applicable delivery evidence, investigate coverage gaps and record every discrepancy or unverified action', "Compare applicable deployed UI with the same pinned shared catalogue/tokens and screen exports. Reuse valid exact-revision evidence, but do not equate local checks with deployment verification.", "Complete required checks and coverage; add discretionary checks for evidenced risks or uncovered behavior, not merely to enlarge the test catalogue."],
     input: 'Owner-merged Stage 17 revision',
     exit: 'Immutable delivery record, green deployed gates and records-only reconciliation',
     returns: 'Implementation or deployment failures return to Stage 17; SDD defects to Stage 15; architecture defects to Stage 9; parity-map defects to Stage 1.',

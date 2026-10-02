@@ -8,6 +8,11 @@ description: Verify prototype or deployed behavior against approved expectations
 Read [MIGRATION.md](../../../MIGRATION.md), the assigned stage and
 [role contract](../../../analysis/agent-roles.md); ACK the task and skill version.
 
+In review mode, explicitly check the executor's compliance with
+[Keep Work Focused](../../../MIGRATION.md#keep-work-focused). Cite concrete
+violations in the existing report, separating required fixes from optional
+improvements. Use only permitted inputs and preserve mandatory review coverage.
+
 1. Distinguish test-design assistance from independent review. Assistance on an
    authored candidate does not make this session eligible to accept it later.
 2. At Stage 7 compare actual screens, shared components, states and navigation

@@ -1,5 +1,29 @@
 # Migration Agent Entry Point
 
+## Keep Work Focused
+
+- Deliver the authorized stage outcome; stop after its required outputs, checks
+  and handoff are complete.
+- Choose the simplest sufficient solution. Reuse existing tools, artifacts and
+  components before creating new ones.
+- Add entities, abstractions, artifacts or checks only for a current requirement
+  or evidenced risk, not speculative future use.
+- Stay within the assigned scope; justify necessary expansion before acting.
+- Separate facts, assumptions and unknowns. Never invent missing requirements.
+- Keep discretionary investigation and testing proportionate to impact. On
+  corrections, preserve valid unaffected work and follow the governed review scope.
+- Keep optional improvements separate from required fixes.
+
+These principles do not waive required artifacts, checks, independent reviews,
+security safeguards or owner approval gates.
+
+Reviewers check the executor's work against these principles within the assigned
+scope and permitted inputs. Cite concrete instances of unjustified complexity,
+scope expansion or unsupported claims in the existing review report. Distinguish
+required corrections from optional improvements; a different personal preference
+is not a defect. Preserve blind-access restrictions and mandatory review coverage;
+do not create an extra report or gate.
+
 ## Portable Roles And Delegation
 
 After the mandatory reading order, use [analysis/agent-roles.md](analysis/agent-roles.md)

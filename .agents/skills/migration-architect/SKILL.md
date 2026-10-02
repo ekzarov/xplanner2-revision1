@@ -8,6 +8,11 @@ description: Prepare architecture, NFR reasoning, source-linked knowledge and in
 Read [MIGRATION.md](../../../MIGRATION.md), the assigned stage and
 [role contract](../../../analysis/agent-roles.md); ACK the task and skill version.
 
+In review mode, explicitly check the executor's compliance with
+[Keep Work Focused](../../../MIGRATION.md#keep-work-focused). Cite concrete
+violations in the existing report, separating required fixes from optional
+improvements. Use only permitted inputs and preserve mandatory review coverage.
+
 In correction mode, follow [Correction Scope And Handoff](../../../analysis/reviews/README.md#correction-scope-and-handoff):
 patch affected decisions, concepts, SDD and dependent consumers; preserve valid
 unaffected work. Required review and owner re-approval remain separate controls.

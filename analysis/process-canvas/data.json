@@ -163,7 +163,8 @@
         "Trace behavior to source/configuration evidence",
         "Record unknowns and deployment constraints",
         "Create one atomic scenario per parity-map row",
-        "PM publishes the draft or corrections in their own PR; required CI and owner merge precede fresh Stage 2 control"
+        "PM publishes the draft or corrections in their own PR; required CI and owner merge precede fresh Stage 2 control",
+        "Trace actual behavior within the authorized scope; mark missing evidence as unknown rather than inventing requirements or expanding discovery on speculation."
       ],
       "input": "Immutable legacy revision + project contract + assessed source readiness or exact owner-approved fallback",
       "exit": "Initial reconnaissance and parity map pass the workbook audit",
@@ -408,7 +409,8 @@
         "Hunt for contradictions across channels",
         "Flag obsolete or unreasonable behavior",
         "Review every flag with business and engineering",
-        "Record the owner's keep, change, or do-not-port decisions"
+        "Record the owner's keep, change, or do-not-port decisions",
+        "Base keep/change/do-not-port proposals on evidenced findings; separate modernization suggestions from confirmed legacy requirements."
       ],
       "input": "Verified parity map + Stage 3 walkthrough evidence",
       "exit": "Every flagged row has an explicit durable owner decision",
@@ -542,7 +544,8 @@
         "Generate only justified screens and meaningful state variants",
         "Export files from the design tool into the repository",
         "Record screen-to-row, role, state, action and hash links",
-        "Develop representative screens and the shared component catalogue together, then reuse them. Pin catalogue, tokens and component previews in manifest version 4; each screen declares used ui_variants. Foundation changes return to 5."
+        "Develop representative screens and the shared component catalogue together, then reuse them. Pin catalogue, tokens and component previews in manifest version 4; each screen declares used ui_variants. Foundation changes return to 5.",
+        "Reuse approved components; add a screen or state only to represent agreed behavior, not merely because another parity-map row exists."
       ],
       "input": "Parity map + Stage 5 design baseline",
       "exit": "Normalization, manifest and exported wireframes pass audit:prototype",
@@ -769,7 +772,8 @@
         "Grade NFRs A/B/C and assign authority",
         "Close system-diagram-shaping decisions",
         "Create architecture record, sections, ADRs and machine manifest",
-        "Read the approved UI catalogue/tokens through the prototype manifest and verify component-library/platform compatibility. Necessary visual source changes repeat the affected Stage 5-8 controls."
+        "Read the approved UI catalogue/tokens through the prototype manifest and verify component-library/platform compatibility. Necessary visual source changes repeat the affected Stage 5-8 controls.",
+        "Choose the simplest structure that meets current requirements; add layers or services for a concrete requirement or evidenced risk, not hypothetical future reuse."
       ],
       "input": "Approved prototype + parity map + legacy evidence + client answers",
       "exit": "Grade A decisions needed now are closed; workbook and architecture audit pass",
@@ -1210,7 +1214,8 @@
         "Assign stable ids and explain boundaries, contracts and operating rules",
         "Link every concept to its exact approved source",
         "Pin the source set and concept set in knowledge-manifest.json",
-        "Link relevant approved UI catalogue/token sources into knowledge without creating another dictionary of visual values."
+        "Link relevant approved UI catalogue/token sources into knowledge without creating another dictionary of visual values.",
+        "Carry forward approved knowledge and unresolved questions; do not invent business rules or redesign the architecture while summarizing it."
       ],
       "input": "Approved architecture + parity map + approved prototype + owner decisions; knowledge-manifest pins exact sources",
       "exit": "OKF v0.2 bundle and knowledge-manifest.json pass audit:knowledge",
@@ -1394,7 +1399,8 @@
         "Write numbered functional and non-functional requirements",
         "Link NFR criteria to requirements/tasks/tests in specs/traceability.md; keep the approved manifest read-only",
         "Declare target surfaces, roles, tests, UI impact, Completion dependencies and return triggers",
-        "For UI work, read the pinned catalogue and tokens. Bind each Used UI Control Inventory row to its screen and stable governed variant; plan shared styles/components before consumers. Missing approved variants return to 6, foundation changes to 5."
+        "For UI work, read the pinned catalogue and tokens. Bind each Used UI Control Inventory row to its screen and stable governed variant; plan shared styles/components before consumers. Missing approved variants return to 6, foundation changes to 5.",
+        "Plan only the agreed slice; justify new entities, abstractions and discretionary tasks by a requirement or evidenced risk, reusing approved designs where sufficient."
       ],
       "input": "Map + approved prototype + architecture + OKF bundle; read exact sources pinned by the manifests",
       "exit": "Complete spec.md, plan.md, tasks.md, traceability and target inventory",
@@ -1590,7 +1596,8 @@
         "Run formatting, analysis, build, unit/integration/E2E and parity checks",
         "Record executed NFR tests in downstream traceability; keep architecture hashes unchanged",
         "Obtain clean independent review and owner merge",
-        "Implement shared token-derived styles and reusable components; verify actual computed values, icons and states. Do not invent private screen styles. Missing design returns through Stage 15 to 6 or 5, then affected review/approval."
+        "Implement shared token-derived styles and reusable components; verify actual computed values, icons and states. Do not invent private screen styles. Missing design returns through Stage 15 to 6 or 5, then affected review/approval.",
+        "Implement approved tasks using existing patterns; do not add speculative entities or abstractions, unrelated refactors or optional features."
       ],
       "input": "Owner-approved SDD scope",
       "exit": "Exact candidate passes all required gates and is merged by the owner",
@@ -1691,7 +1698,8 @@
         "Repeat deployed visual parity and verify rollback readiness",
         "Discover in-scope live surfaces and reconcile the parity map, SDD, prototype and inventory",
         "Reuse applicable delivery evidence, investigate coverage gaps and record every discrepancy or unverified action",
-        "Compare applicable deployed UI with the same pinned shared catalogue/tokens and screen exports. Reuse valid exact-revision evidence, but do not equate local checks with deployment verification."
+        "Compare applicable deployed UI with the same pinned shared catalogue/tokens and screen exports. Reuse valid exact-revision evidence, but do not equate local checks with deployment verification.",
+        "Complete required checks and coverage; add discretionary checks for evidenced risks or uncovered behavior, not merely to enlarge the test catalogue."
       ],
       "input": "Owner-merged Stage 17 revision",
       "exit": "Immutable delivery record, green deployed gates and records-only reconciliation",

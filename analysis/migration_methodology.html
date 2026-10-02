@@ -1023,6 +1023,8 @@
         <p class="d"><b>What does the legacy system actually do, and what evidence supports it?</b></p>
         <!-- STAGE_QUESTION_1_END -->
 
+        <p class="d"><b>Focus:</b> Trace actual behavior within the authorized scope; mark missing evidence as unknown rather than inventing requirements or expanding discovery on speculation.</p>
+
 <!-- STAGE_REENTRY_1_START -->
 <details class="stage-reentry"><summary><b>On return to Stage 1</b></summary><p class="d">Conditional input on any return: the exact record cited by migration_status.yaml, its finding IDs and linked evidence. The examples below cover Stages 2-4; a later stage supplies its own triggering record. These records are not required on the first entry. File links open the starter templates.</p><ul class="d reentry-sources"><li><a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/reviews/stage-NN-pass-NNN-template.md">reviews/stage-02-pass-NNN.md</a>: Stage 2: independent review findings about missed or misinterpreted legacy behavior.</li><li><a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/stages/templates/walkthrough-NNN-template.md">stages/stage-03/walkthrough-NNN.md</a>: Stage 3: walkthrough findings, observed behavior and runtime evidence that contradict or extend the map.</li><li><a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/stages/templates/stage-04-requirements-revision-template.md">stages/stage-04/stage-04-requirements-revision.md</a>: Stage 4: mapping errors found during requirements revision. An owner decision to change correctly recorded legacy behavior stays at Stage 4.</li></ul><ol class="d"><li>After the owner merges the triggering record PR, PM assigns a separate correction branch with the exact trigger, baseline and impact boundary. Preserve in-flight work. The primary agent verifies the findings and relevant unresolved items against source, configuration and runtime evidence.</li><li>Correct affected map rows and reconnaissance sections, dependent claims and all occurrences of the same failure mechanism across affected roles and channels, not just reported lines. Preserve valid artifacts, decisions and evidence at their existing identities; explain why their inputs and dependencies remain valid. This is not a restart of Stage 1.</li><li>Widen authoring only with recorded evidence of an unreliable baseline, changed inputs, systemic omissions or impact that cannot be bounded. Investigate uncertainty first; record why retained evidence is insufficient. PM revises the boundary within existing authority; changed approved scope or reserved decisions require the owner.</li><li>Record finding IDs, dispositions, changed rows/files, related-occurrence coverage, retained work, actual checks/results, unknowns and the separate next control. PM validates the bounded diff and handoff before accepting RESULT or requesting control, and updates shared status. Publish the correction PR; mandatory gates, including repository-wide gates, CI and owner merge remain required. Original reviews stay immutable; retained checks are not new runs.</li><li>After the correction PR is merged, PM proposes the Stage 2 mode before reviewer access. The reviewer confirms the assignment and access boundary, then verifies baseline eligibility from permitted records. Default/new scope uses full-blind: complete neutral Phase A, saved before two-way Phase B. Only a complete valid full-blind baseline permits bounded correction-validation by a fresh independent read-only BA, never an author or reused reviewer. That mode reads prior evidence immediately, creates no new Phase A and proves whole-scope coverage. Follow reviews/README.md#stage-2-correction-validation; Stage 19 and other controls are unchanged.</li></ol><p class="d"><a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/reviews/README.md#stage-1-re-entry">Return instructions</a> · <a href="https://github.com/olsys-ltd/xplanner2/blob/62a21930d8d7c19017ac9ed9e4a474a614e30842/analysis/stages/stage-01/stage-02-pass-001-dispositions.md">Real XPlanner correction record</a></p></details>
 <!-- STAGE_REENTRY_1_END -->
@@ -1132,6 +1134,8 @@
         <p class="d"><b>Which legacy behavior do we keep, change or deliberately leave behind?</b></p>
         <!-- STAGE_QUESTION_4_END -->
 
+        <p class="d"><b>Focus:</b> Base keep/change/do-not-port proposals on evidenced findings; separate modernization suggestions from confirmed legacy requirements.</p>
+
 <!-- RECORD_BOUNDARY_4_START -->
 <div class="record-boundary"><p class="d"><b>Proposal, decision and remaining work</b></p><ul class="stage-list"><li>Agent proposal or previous value</li><li>Explicit human decision tied to exact scope/version and evidence</li><li>Applied changes versus open questions and unapplied decisions</li><li>Authorized deferrals with responsible actor and deadline</li><li>Dated amendments retain prior decisions</li></ul><p class="d">A populated document or green audit is not owner approval. Limited approval does not approve the whole system.</p></div><p class="d"><b>Execution record:</b> <code>analysis/stages/stage-04/stage-04-requirements-revision.md</code>. The active-stage agent records actual work; this is not independent approval.</p>
 <!-- RECORD_BOUNDARY_4_END -->
@@ -1221,6 +1225,8 @@
 <!-- STAGE_QUESTION_6_START -->
         <p class="d"><b>Which screens, states and transitions will represent the agreed behavior?</b></p>
         <!-- STAGE_QUESTION_6_END -->
+
+        <p class="d"><b>Focus:</b> Reuse approved components; add a screen or state only to represent agreed behavior, not merely because another parity-map row exists.</p>
 
 <!-- RECORD_BOUNDARY_6_START -->
 <div class="record-boundary"><p class="d"><b>Exception without invented verification</b></p><ul class="stage-list"><li>Exact allowed rule, scope, human authority and decision</li><li>Blocked activity and still-unverified items</li><li>Permitted next stage and gates not waived</li><li>Responsible actor, expiry/re-entry condition and later closure evidence</li></ul><p class="d">Only an explicitly permitted exception can authorize progression. An approved waiver never means that the skipped check passed.</p></div>
@@ -1343,6 +1349,8 @@
 <!-- STAGE_QUESTION_9_START -->
         <p class="d"><b>How should the target system be structured to meet its requirements and constraints?</b></p>
         <!-- STAGE_QUESTION_9_END -->
+
+        <p class="d"><b>Focus:</b> Choose the simplest structure that meets current requirements; add layers or services for a concrete requirement or evidenced risk, not hypothetical future reuse.</p>
 
 <!-- STAGE_REENTRY_9_START -->
 <details class="stage-reentry"><summary><b>After a failed closure check</b></summary><p class="d">Conditional input: the exact triggering closure report, linked owner verdict and correction dispositions. Not required on first entry.</p><ul class="d reentry-sources"><li><a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/architecture/templates/architecture-closure-NNN-template.md">stages/stage-12/architecture-closure-NNN.md</a>: Exact negative Stage 12 report selected by the return, not the largest filename.</li></ul><ol class="d"><li>Keep original finding IDs and verify the evidence; record each correction or unresolved item.</li><li>Repeat affected independent controls. Stage 11 presents what failed and changed before a new human decision.</li><li>Create new immutable decision/check records; never erase earlier failed attempts.</li></ol><p class="d"><a href="https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/architecture/review-cycles.md#repeated-work">Return instructions</a> · <a href="https://github.com/olsys-ltd/xplanner2/blob/1ef0436c6753b08dbf7fc82b07650361b27706eb/analysis/stages/stage-12/architecture-closure-001.md">Real XPlanner correction record</a></p></details>
@@ -1514,6 +1522,8 @@
 <!-- STAGE_QUESTION_13_START -->
         <p class="d"><b>What knowledge from the approved architecture must we pass to the next agent?</b></p>
         <!-- STAGE_QUESTION_13_END -->
+
+        <p class="d"><b>Focus:</b> Carry forward approved knowledge and unresolved questions; do not invent business rules or redesign the architecture while summarizing it.</p>
 <p class="d"><b>Source package.</b> Read the approved architecture, parity map, approved prototype and applicable owner decisions. knowledge-manifest.json pins the exact sources; package links do not replace reading those sources.</p>
 
 <!-- RECORD_BOUNDARY_13_START -->
@@ -1613,6 +1623,8 @@
 <!-- STAGE_QUESTION_15_START -->
         <p class="d"><b>What exactly will we implement in the next slice, how, and how will we verify it?</b></p>
         <!-- STAGE_QUESTION_15_END -->
+
+        <p class="d"><b>Focus:</b> Plan only the agreed slice; justify new entities, abstractions and discretionary tasks by a requirement or evidenced risk, reusing approved designs where sufficient.</p>
 
 <!-- RECORD_BOUNDARY_15_START -->
 <div class="record-boundary"><p class="d"><b>Produced coverage and handoff boundary</b></p><ul class="stage-list"><li>Exact approved inputs and declared source/requirement scope</li><li>Source item mapped to the produced concept or SDD section</li><li>Represented / missing / contradictory / explicitly deferred or excluded</li><li>Remaining gaps, responsible actor and blocking prerequisites</li><li>Readiness for the next independent review, not its verdict</li></ul><p class="d">A file hash proves identity, not correctness. Planned tests are not executed tests, and authored coverage is not implemented behavior.</p></div>
@@ -1726,6 +1738,8 @@
         <p class="d"><b>Is the agreed slice implemented and verified in code and tests?</b></p>
         <!-- STAGE_QUESTION_17_END -->
 
+        <p class="d"><b>Focus:</b> Implement approved tasks using existing patterns; do not add speculative entities or abstractions, unrelated refactors or optional features.</p>
+
 <!-- RECORD_BOUNDARY_17_START -->
 
 <!-- TRACEABILITY_DUTY_17_START -->
@@ -1790,6 +1804,8 @@
 <!-- STAGE_QUESTION_18_START -->
         <p class="d"><b>Does the delivered version work, have we missed any behavior, and do its records agree?</b></p>
         <!-- STAGE_QUESTION_18_END -->
+
+        <p class="d"><b>Focus:</b> Complete required checks and coverage; add discretionary checks for evidenced risks or uncovered behavior, not merely to enlarge the test catalogue.</p>
 <p class="d"><b>Post-deployment boundary.</b> Append actual observations to the immutable delivery report and slice-bound links to the existing traceability evidence cells. SDD, inventory and cosmetic decisions stay unchanged during records-only attestation; required corrections return to their owning stage and produce a newly reviewed candidate. Every intermediate commit is checked, including reverted edits.</p>
 
 <!-- RECORD_BOUNDARY_18_START -->
