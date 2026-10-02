@@ -1,0 +1,792 @@
+{
+ "packet": "S02-P014",
+ "pass": 14,
+ "control_mode": "correction-validation",
+ "reviewed_revision": "b860ccd1e9e64ea008f02e6586935723f112b655",
+ "base_revision": "6138f37be52504cf6a14f041ef828d46f1bd8944",
+ "root_revision": "15cb6b26946f73596177eba8cead333383d9f728",
+ "root_pass": 6,
+ "previous_pass": 13,
+ "coverage_base_pass": 13,
+ "excluded_passes": [],
+ "counts": {
+  "total": 43,
+  "matched": 32,
+  "mismatch": 9,
+  "not-checked": 0,
+  "not-applicable": 2
+ },
+ "findings": [
+  {
+   "id": "F-001",
+   "severity": "low",
+   "title": "Pass-013 F-001 (column-G status rule) is still open",
+   "checks": [
+    "C-022"
+   ]
+  },
+  {
+   "id": "F-002",
+   "severity": "low",
+   "title": "Pass-013 F-002 (live statements beyond the checks) is still open",
+   "checks": [
+    "C-023",
+    "C-039"
+   ]
+  },
+  {
+   "id": "F-003",
+   "severity": "low",
+   "title": "Pass-013 F-003 (stale runtime-unverified qualifiers) is still open",
+   "checks": [
+    "C-024",
+    "C-035"
+   ]
+  },
+  {
+   "id": "F-004",
+   "severity": "low",
+   "title": "Pass-013 F-004 (editor-date static remainder) is still open",
+   "checks": [
+    "C-025",
+    "C-032"
+   ]
+  },
+  {
+   "id": "F-005",
+   "severity": "low",
+   "title": "Pass-013 F-005 (rule M and S figures) is still open",
+   "checks": [
+    "C-026",
+    "C-035"
+   ]
+  },
+  {
+   "id": "F-006",
+   "severity": "low",
+   "title": "Pass-013 F-006 (script-context figure) is still open",
+   "checks": [
+    "C-027",
+    "C-035"
+   ]
+  }
+ ],
+ "closed": [
+  {
+   "id": "pass-013 F-007",
+   "by": "C-028",
+   "evidence": "analysis/stages/stage-01/stage-03-walkthrough-001-pm-edit-note.md"
+  }
+ ],
+ "exclusions": [
+  {
+   "id": "E-001",
+   "checks": [
+    "C-041"
+   ]
+  },
+  {
+   "id": "E-002",
+   "checks": [
+    "C-042"
+   ]
+  }
+ ],
+ "blockers": [],
+ "items": [
+  {
+   "id": "C-001",
+   "item": "Packet, runner, configuration and pins",
+   "expected": "packet SHA-256 as assigned; runner and configuration as pinned in the packet; every packet pin equal in the candidate checkout and the main tree; legacy hashes at ROOT, BASE and CAND",
+   "observed": "packet 7fe3aa6b...ac90, runner 6ac6a4a7...718d and configuration 133d3f97...f254 equal; 26 of 26 file pins equal in both trees; legacy README, docker-compose and WAR equal at the three checkouts; demo-seed.sql equals its pin by its committed LF bytes (the CRLF checkout hashes 2d32f7d5...387e); runner self-test 30 cases",
+   "result": "matched",
+   "evidence": "verify-pins.js, seed-eol.js (scratch)",
+   "link": "none",
+   "covers": [
+    "P10:C-045",
+    "N14-C-001"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-002",
+   "item": "Root pass 006 keeps independence, completeness and provenance",
+   "expected": "report, ledger and blind-checkpoint hashes as pinned; unchanged since sealing; full-blind root with 539 checks",
+   "observed": "report ee71a38f...cff67, ledger a205b9b5...702c, snapshot c8d4f780...74d9 and inventory 8f734d0d...4cbe equal; none of the S02-P006 files is in the BASE..CAND change set; pass-013 C-002 recorded the Phase A save before the Phase B release, and these bytes are unchanged",
+   "result": "matched",
+   "evidence": "pins; change set",
+   "link": "none",
+   "covers": [
+    "P9:C-002"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-003",
+   "item": "Coverage base and previous pass 013 is usable",
+   "expected": "valid findings correction-validation under root 006 with complete coverage, a supported non-material incident assessment and an approval within the delegation bounds",
+   "observed": "report d02131d3...f2db, ledger 259eab11...0e63, coverage 96ce7bee...7cd4 and companion c76e94b3...fb65c equal; coverage 748 = 429 + 319 + 0 with no duplicate and no pass-008/011 ID; the companion classifies D-001..D-008 non-material; the approval stage-02-pass-013-incident-approval (Codex, 2026-10-01T02:16:00Z) and the carryover stage-02-live-carryover-pass-013 (02:20:48Z) cite operational-mandate-expansion-until-stage-04 and precede the Stage 4 entry (2026-10-02T16:04:50Z); neither is recorded as a personal owner approval. One base check is now known to be wrong: pass-013 C-055 called the F220 text supported while F220 listed getAttribute as returning data (MH-01); that obligation is rechecked here (C-014), and nothing shows a systemic omission",
+   "result": "matched",
+   "evidence": "pins; migration_status.yaml; incident-assessment.md; coverage-reconciliation.json of pass 013",
+   "link": "none",
+   "covers": [
+    "N13-C-003",
+    "N14-C-003"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-004",
+   "item": "Chain completeness and timing",
+   "expected": "no omitted Stage 2 attempt after the base; this pass starts after the latest Stage 2 entry; no recovery needed",
+   "observed": "review_passes end with pass 13 (findings); transitions after it: stage-02 -> stage-03 (2026-10-01T02:22:17Z, carryover), stage-03 -> stage-04 (2026-10-02T16:04:50Z, fallback waived), stage-04 -> stage-01 (16:46:57Z, MH-01), stage-01 -> stage-02 (16:58:35Z); my first runner call 16:59:29Z; no failed attempt, so no recovery and no excluded pass",
+   "result": "matched",
+   "evidence": "migration_status.yaml at CAND; runner log",
+   "link": "none",
+   "covers": [
+    "P10:C-002",
+    "P10:C-003",
+    "N14-C-004"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-005",
+   "item": "Source identity and governed scope",
+   "expected": "identical legacy source set; same governed scope; no new channel, subsystem or row",
+   "observed": "legacy/ identical at ROOT, BASE and CAND; nothing under sources/, .specify/ or config/ changed BASE..CAND; 210 business rows in 18 epics, row identities unchanged (3276 cells, same references); the added Rev 1 sheet and columns J and M carry Stage 4 target decisions, not legacy behavior",
+   "result": "matched",
+   "evidence": "change set; xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "P9:C-004",
+    "P10:C-005",
+    "P10:C-006",
+    "P10:C-020"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-006",
+   "item": "Complete change set BASE..CAND regenerated",
+   "expected": "every changed path listed and classified",
+   "observed": "42 paths (26 M, 16 A); the Stage 1 records changed are the workbook (one file) and two new Stage 1 notes; the reconnaissance is byte-identical; the packet list of 3 paths is a convenience subset",
+   "result": "matched",
+   "evidence": "change-set.json",
+   "link": "none",
+   "covers": [
+    "P7:C-065",
+    "N14-C-006"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-007",
+   "item": "Governing and process files changed BASE..CAND",
+   "expected": "no change to the rules this pass applies, or the change is accounted for",
+   "observed": "reviews/README.md, agent_orchestration.md, the review template, the checklist, agent-roles.md and the constitution are unchanged; the starter sync 38b6560 adds \"Keep Work Focused\" to MIGRATION.md, the four skills (BA skill blob 560391d6 -> 7af7a36a) and the methodology, which adds one reviewer duty (checked in C-021); other changes are clickable guidance links, the status schema and the delegated-authority tools",
+   "result": "matched",
+   "evidence": "diff -U0 of the process files",
+   "link": "none",
+   "covers": [
+    "N13-C-007",
+    "N14-C-007"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-008",
+   "item": "Intervening records and the Stage 4 return",
+   "expected": "pinned; their terms bound this pass; the return is finding-driven and recorded",
+   "observed": "live-check-carryover-pass-013 e035ca63...0885 (F-001..F-007 carried as accepted risks, findings stay findings); walkthrough-001-fallback 2d6f4bb1...ce4d; stage-04-requirements-revision 32de6cf4...070e names MH-01 and the C227 exception; operational-mandate record 8eeca7ec...691d records the 2026-10-02 extension; the W001 evidence is byte-identical BASE..CAND. The return stage-04 -> stage-01 is finding-driven (owner_approval null), as the Stage 1 re-entry rule allows; the carryover decision text \"no pass 014, map-correction cycle\" bounded that carryover, not a later finding-driven return (PO-3)",
+   "result": "matched",
+   "evidence": "pins; migration_status.yaml; the records",
+   "link": "none",
+   "covers": [
+    "N13-C-009",
+    "N13-C-010",
+    "N14-C-008"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-009",
+   "item": "Workbook structure BASE..CAND",
+   "expected": "no row added, removed or renumbered; sheet metadata unchanged; package changes explained",
+   "observed": "User Flows 3276 = 3276 cells, 0 row-attribute differences, dimension A1:N234, merges, columns, views, validations, conditional formats, page setup and outline identical, no formulas; package: sheet1.xml, sharedStrings.xml and styles.xml changed, sheet2.xml (Rev 1) added with workbook.xml, its relationships, [Content_Types].xml and docProps/app.xml",
+   "result": "matched",
+   "evidence": "xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "P10:C-009",
+    "P10:C-014",
+    "P10:C-035",
+    "N13-C-011",
+    "N14-C-009"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-010",
+   "item": "Columns A-H differ from BASE only in F220, H220 and C227",
+   "expected": "Stage 4 changed no legacy fact; BA-001-14 changed only F220 and H220",
+   "observed": "value differences in A-H: exactly F220, H220 and C227 (all 3276 User Flows cells compared by value, BASE against CAND)",
+   "result": "matched",
+   "evidence": "xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "N14-C-010"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-011",
+   "item": "C227 banner change is authorized and consistent",
+   "expected": "Codex-authorized exception recorded in the Stage 4 record; derived from the deferral of every child row",
+   "observed": "C227 \"Not Passed - Open\" -> \"Not Passed - Deferred\" (canonical status); its children 228-230 are all M = Yes; no other epic has all children deferred and the other 17 banner values are unchanged; the Stage 4 Gate Result records the exception (D-024). The Map Corrections sentence \"Columns A-H were not edited\" of the same record omits it (PO-4)",
+   "result": "matched",
+   "evidence": "checks014.js; stage-04-requirements-revision.md",
+   "link": "none",
+   "covers": [
+    "N14-C-011"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-012",
+   "item": "A-H style changes are presentation only",
+   "expected": "only the deferral fill that the template instructions prescribe",
+   "observed": "163 A-H cells differ in style, all in the fill alone: D-H of the 31 rows with M = Yes and A-H of banner row 227; no font, border, number-format or alignment change",
+   "result": "matched",
+   "evidence": "xlsx-diff.js; legacy_user_flows_template_instructions.md (deferred rows orange D-N; banner A-N)",
+   "link": "none",
+   "covers": [
+    "N14-C-012"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-013",
+   "item": "Target columns I-N and the Rev 1 sheet stay target-only",
+   "expected": "Stage 4 decisions only in J, M, fills and Rev 1; no legacy claim; product merit not reviewed",
+   "observed": "values change in J (210 rows) and M (31 rows) only; I, K, L and N unchanged; I-N style changes are the same fill on the same 32 rows; Rev 1 (549 cells) is a new sheet; no User Flows A-H value depends on it",
+   "result": "matched",
+   "evidence": "xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "N14-C-013"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-014",
+   "item": "F220: getAttribute removed from the operations that return data and stated as faulting",
+   "expected": "D-C-044 and D-C-049 (getAttribute faults for every caller with org.hibernate.TypeMismatchException), W001-F-50, MC-A-43",
+   "observed": "the return-data list has 18 operations (was 19); the only removal is getAttribute; the cell now says \"getAttribute does not return data: it always returns a SOAP fault (TypeMismatchException)\"; this matches D-C-044, D-C-049, W001-F-50 and the MC-A-43 wording. The BASE text contained the contradiction that pass-013 C-055 had called supported",
+   "result": "matched",
+   "evidence": "show-220.js; D/checks.json; map-corrections.md; walkthrough-001.md",
+   "link": "none",
+   "covers": [
+    "P6:C-011",
+    "P6:C-111",
+    "P6:C-120",
+    "P6:C-335",
+    "P6:C-337",
+    "P6:C-522",
+    "N13-C-055",
+    "N14-C-014"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-015",
+   "item": "F220 kept facts and operation coverage",
+   "expected": "every listed operation and kept fact is supported: MC-B-08 parent ids 0 (D-C-046), MC-C-30 getCurrentIteration fault (D-C-047), prefix removal (D-C-044, D-C-049)",
+   "observed": "the 18 operations are each observed returning data: 15 in D-C-046, getNotesForObject in D-C-048, getAttributes and getAttributesWithPrefix in D-C-049; the parent-id clause equals D-C-046; getAttributesWithPrefix keeps the prefix fact; getCurrentIteration fault matches D-C-047 (verdict match, a QuerySyntaxException fault); no fact was removed; only the getAttribute clause moved after the prefix clause",
+   "result": "matched",
+   "evidence": "show-220.js; w001-extract.js; dc047.js",
+   "link": "none",
+   "covers": [
+    "P6:C-011",
+    "P6:C-111",
+    "P6:C-120",
+    "P6:C-335",
+    "P6:C-337",
+    "P6:C-522",
+    "N13-C-055",
+    "N13-C-065",
+    "N13-C-096",
+    "N13-C-135"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-016",
+   "item": "H220: only the tied wording and a provenance note changed",
+   "expected": "the contradicting sentence narrowed; the rest kept; the runtime label stays last and unchanged",
+   "observed": "a common prefix of 1257 characters and suffix of 159 characters (the runtime label) are kept; \"all read operations answered with data\" became \"the read operations listed in F220 other than getAttribute answered with data\"; the BA-001-14 note was added before the label; the narrowed clause is true by D-C-046, D-C-048 and D-C-049, all cited in the cell (its inline citation D-C-046 covers 15 of the 18 operations, the others are cited in the same cell)",
+   "result": "matched",
+   "evidence": "show-220.js",
+   "link": "none",
+   "covers": [
+    "N14-C-016"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-017",
+   "item": "Sweep of the same contradiction in rows 218-220 and the SOAP facts",
+   "expected": "no other statement says that getAttribute returns data",
+   "observed": "workbook (both sheets): getAttribute appears only in D218, F218, H218, F220 and H220, and no cell lists it as returning data; D220 \"read ... object attributes\" holds through getAttributes (D-C-049); row 219 does not concern it; reconnaissance: the only getAttribute statement (line 465) says it always faults, and lines 356 and 444 are pass-013 F-002 text (anonymous operations), not a data claim; a same-mechanism sweep of D and F of rows 215-221 finds no operation named both as working and as failing",
+   "result": "matched",
+   "evidence": "scan-getattr.js; recon-attr.js; soap-sweep.js",
+   "link": "none",
+   "covers": [
+    "P6:C-010",
+    "P6:C-011",
+    "P6:C-108",
+    "P6:C-111",
+    "P6:C-112",
+    "P6:C-120",
+    "P6:C-333",
+    "P6:C-335",
+    "P6:C-337",
+    "P6:C-342",
+    "P6:C-487",
+    "P6:C-522",
+    "P6:C-135",
+    "N13-C-054",
+    "N13-C-055",
+    "N13-C-065",
+    "N13-C-069",
+    "N13-C-096",
+    "N13-C-135",
+    "N14-C-017"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-018",
+   "item": "Status of row 220 and the status counts",
+   "expected": "no status change forced by the correction; counts reproduce",
+   "observed": "G220 stays Partial; its H reason (R-G2: getAttribute fails and the parent ids are lost) still holds; column G is byte-identical BASE..CAND; counts 146/10/53/1 at BASE and CAND",
+   "result": "matched",
+   "evidence": "checks014.js",
+   "link": "none",
+   "covers": [
+    "P6:C-011",
+    "P6:C-111",
+    "P6:C-120",
+    "P6:C-337",
+    "P6:C-522",
+    "P7:C-059",
+    "N13-C-135"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-019",
+   "item": "Runtime labels",
+   "expected": "each H label equals rows.json and is unchanged",
+   "observed": "210 of 210 labels name the walkthrough, the row verdict and the row checks and equal their BASE text; H220 keeps its label last",
+   "result": "matched",
+   "evidence": "checks014.js",
+   "link": "none",
+   "covers": [
+    "N13-C-012",
+    "N13-C-067"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-020",
+   "item": "BA-001-14 record accuracy",
+   "expected": "assignment unchanged; tables and figures equal the diff; statements true",
+   "observed": "assignment section 2561 characters, SHA-256 f586b02e...e76b reproduces; the Correction table before/after texts equal the BASE and CAND cells; \"19 operations, now 18\" true; workbook after e1478edd...64a6 equals CAND; 3825 cells in two sheets and 17 package entries reproduce; the Retained Work statements hold (C-017); the input hash e7835bbb...5544 is an intermediate revision outside the pins (not needed: the full BASE..CAND diff is checked); tool runs are author facts (E-001)",
+   "result": "matched",
+   "evidence": "checks014.js; xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "N14-C-020"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-021",
+   "item": "Keep Work Focused compliance of the BA-001-14 executor",
+   "expected": "the assigned outcome only, simplest sufficient change, no unsupported claim, scope expansion justified",
+   "observed": "two cells changed, as assigned; one correction record, no extra artifact; the extra reads (reconnaissance search, template instructions, the Stage 4 MH-01 row) are disclosed and served the sweep; no claim beyond D-C-044/D-C-049; the 7 pass-013 findings left open as assigned. Optional improvement, not a defect: the reconnaissance Return Correction Evidence table has no BA-001-14 row; the template allows a linked correction record instead, and the status transition links it (PO-5)",
+   "result": "matched",
+   "evidence": "stage-04-mh01-dispositions.md; MIGRATION.md#keep-work-focused",
+   "link": "none",
+   "covers": [
+    "N14-C-021"
+   ],
+   "new_obligation": true
+  },
+  {
+   "id": "C-022",
+   "item": "Pass-013 F-001 (status rule) still open?",
+   "expected": "corrected or still open",
+   "observed": "open: G18, G41, G149, G152 and G162 stay Yes and G138 Inferred; the cited cells are byte-identical BASE..CAND",
+   "result": "mismatch",
+   "evidence": "checks014.js",
+   "link": "F-001",
+   "covers": [
+    "P6:C-170",
+    "N13-C-138"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-023",
+   "item": "Pass-013 F-002 (live statements beyond the checks) still open?",
+   "expected": "corrected or still open",
+   "observed": "open: F216, D218, F218 and F151 unchanged; the reconnaissance (byte-identical) keeps \"the attribute operations run anonymously\" on lines 356 and 444",
+   "result": "mismatch",
+   "evidence": "checks014.js; recon-attr.js",
+   "link": "F-002",
+   "covers": [
+    "P6:C-008",
+    "P6:C-010",
+    "P6:C-011",
+    "P6:C-035",
+    "P6:C-041",
+    "P6:C-048",
+    "P6:C-077",
+    "P6:C-108",
+    "P6:C-111",
+    "P6:C-112",
+    "P6:C-120",
+    "P6:C-130",
+    "P6:C-274",
+    "P6:C-333",
+    "P6:C-335",
+    "P6:C-337",
+    "P6:C-342",
+    "P6:C-430",
+    "P6:C-468",
+    "P6:C-470",
+    "P6:C-471",
+    "P6:C-473",
+    "P6:C-487",
+    "P6:C-522",
+    "P6:C-533",
+    "P6:C-127",
+    "P6:C-135",
+    "P6:C-429",
+    "P6:C-126",
+    "P6:C-492",
+    "P6:C-534",
+    "P6:C-538",
+    "P6:C-017",
+    "P9:C-015",
+    "P9:C-017",
+    "P9:C-022",
+    "P9:C-023",
+    "N-09",
+    "N13-C-042",
+    "N13-C-054",
+    "N13-C-055",
+    "N13-C-069"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-024",
+   "item": "Pass-013 F-003 (stale runtime-unverified qualifiers) still open?",
+   "expected": "corrected or still open",
+   "observed": "open: the 9 named F cells still carry \"(runtime unverified)\"; F132, F142 and F184 unchanged",
+   "result": "mismatch",
+   "evidence": "checks014.js",
+   "link": "F-003",
+   "covers": [
+    "N13-C-139"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-025",
+   "item": "Pass-013 F-004 (editor-date static remainder) still open?",
+   "expected": "corrected or still open",
+   "observed": "open: reconnaissance line 460 keeps the task-editor clause; E69 and H89 unchanged",
+   "result": "mismatch",
+   "evidence": "checks014.js",
+   "link": "F-004",
+   "covers": [
+    "P6:C-035",
+    "P6:C-036",
+    "P6:C-041",
+    "P6:C-048",
+    "P6:C-061",
+    "P6:C-130",
+    "P6:C-215",
+    "P6:C-468",
+    "P6:C-470",
+    "P6:C-471",
+    "P6:C-473",
+    "P6:C-487",
+    "P6:C-512",
+    "P6:C-533",
+    "P6:C-197",
+    "P6:C-506",
+    "P6:C-126",
+    "P6:C-492",
+    "P6:C-534",
+    "P6:C-538",
+    "P6:C-017",
+    "P9:C-017",
+    "P10:C-023",
+    "N-09",
+    "N-10"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-026",
+   "item": "Pass-013 F-005 (rule M and S figures) still open?",
+   "expected": "corrected or still open",
+   "observed": "open: reconnaissance lines 92-93, 321 and 323 keep 4597/4595 and 3386",
+   "result": "mismatch",
+   "evidence": "checks014.js",
+   "link": "F-005",
+   "covers": [
+    "P6:C-503",
+    "P6:C-493",
+    "P6:C-521",
+    "P10:C-015",
+    "P10:C-016",
+    "N-06",
+    "N-07",
+    "N-08"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-027",
+   "item": "Pass-013 F-006 (script-context figure) still open?",
+   "expected": "corrected or still open",
+   "observed": "open: reconnaissance line 597 keeps 103 contexts and 78 outputs",
+   "result": "mismatch",
+   "evidence": "checks014.js",
+   "link": "F-006",
+   "covers": [
+    "P6:C-503",
+    "P9:C-020",
+    "P9:C-021",
+    "N-14"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-028",
+   "item": "Pass-013 F-007 (undisclosed PM edits) closed by the PM edit note?",
+   "expected": "both PM edits recorded with what, where, why and after which attestation, and verifiable against the bytes",
+   "observed": "closed: the note records edit 1 (one link in the PM section) and edit 2 (backticks around nine date patterns); at CAND the record hashes 361f7e33...1772; reverting the link and removing exactly the nine date-pattern backtick pairs (found by an exhaustive search over the 15 candidate spans) reproduces the author-attested file hash 3c00505e...381d; removing only the nine reproduces the edit-1 hash 9ab01c40...; the PM section hashes 2d08a299... now and 29f41f0d... after reverting edit 1 (author convention: without the final newline); no word, figure or disposition changed",
+   "result": "matched",
+   "evidence": "pmnote-verify.js",
+   "link": "none",
+   "covers": [
+    "N13-C-008"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-029",
+   "item": "CHK-001 on the change set",
+   "expected": "cited IDs and lines resolve",
+   "observed": "every check, finding and item ID in F220, H220 and the two new records exists in the W001 evidence (D-C-044..D-C-049, W001-F-50, W001-F-51, MC-A-43, MC-B-08, MC-C-30); no file:line citation was added",
+   "result": "matched",
+   "evidence": "w001-extract.js",
+   "link": "none",
+   "covers": [
+    "P7:C-061",
+    "P10:C-044"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-030",
+   "item": "CHK-002 on the change set",
+   "expected": "permission statements cite server-side enforcement",
+   "observed": "no permission statement changed; D218 and H218 unchanged",
+   "result": "matched",
+   "evidence": "xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "P10:C-040"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-031",
+   "item": "CHK-003 on the change set",
+   "expected": "claimed effects reachable",
+   "observed": "F220 claims an observed fault, no effect; nothing else changed",
+   "result": "matched",
+   "evidence": "show-220.js",
+   "link": "none",
+   "covers": [
+    "P9:C-018"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-032",
+   "item": "CHK-004 on the current records",
+   "expected": "locale statements per variant",
+   "observed": "the change set has no locale statement; the carried pass-013 F-004 still fails this row",
+   "result": "mismatch",
+   "evidence": "C-025",
+   "link": "F-004",
+   "covers": [
+    "N13-C-164"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-033",
+   "item": "CHK-005 on the change set",
+   "expected": "validation keys covered",
+   "observed": "no validation statement changed",
+   "result": "matched",
+   "evidence": "xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "N13-C-165"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-034",
+   "item": "CHK-006 on the change set",
+   "expected": "delete effects complete",
+   "observed": "no delete statement changed",
+   "result": "matched",
+   "evidence": "xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "N13-C-166"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-035",
+   "item": "CHK-007 on the current records",
+   "expected": "figures match the current artifact",
+   "observed": "the change-set figures hold (18 operations, 146/10/53/1, 210 labels, the record figures); the carried pass-013 F-003, F-005 and F-006 still fail this row",
+   "result": "mismatch",
+   "evidence": "C-018, C-019, C-020, C-024, C-026, C-027",
+   "link": "F-003, F-005, F-006",
+   "covers": [
+    "N13-C-167"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-036",
+   "item": "CHK-008 on the change set",
+   "expected": "query outcomes recorded as observed",
+   "observed": "the getCurrentIteration fault stays recorded as observed (D-C-047)",
+   "result": "matched",
+   "evidence": "dc047.js",
+   "link": "none",
+   "covers": [
+    "N13-C-168"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-037",
+   "item": "CHK-009 on the change set and this evidence",
+   "expected": "no credential value reproduced",
+   "observed": "credscan.js: 0 credential values in the changed workbook (both sheets), the two new Stage 1 notes, this report and this evidence folder",
+   "result": "matched",
+   "evidence": "credscan.js (scratch)",
+   "link": "none",
+   "covers": [
+    "P7:C-062"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-038",
+   "item": "CHK-010 on the change set",
+   "expected": "link targets resolved",
+   "observed": "no redirect or link statement changed",
+   "result": "matched",
+   "evidence": "xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "N13-C-170"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-039",
+   "item": "CHK-011 on the current records",
+   "expected": "unauthenticated surfaces recorded with their actual exposure",
+   "observed": "the change set adds no unauthenticated-surface statement; the carried pass-013 F-002 still fails this row",
+   "result": "mismatch",
+   "evidence": "C-023",
+   "link": "F-002",
+   "covers": [
+    "P9:C-039"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-040",
+   "item": "CHK-012 on the change set",
+   "expected": "request-derived sinks traced",
+   "observed": "no sink statement changed",
+   "result": "matched",
+   "evidence": "xlsx-diff.js",
+   "link": "none",
+   "covers": [
+    "N13-C-172"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-041",
+   "item": "Author tool-execution facts (audits, Excel open, scanners)",
+   "expected": "not re-executable under this packet",
+   "observed": "their verifiable outputs are checked in C-009, C-018..C-020",
+   "result": "not-applicable",
+   "evidence": "packet permitted_operations",
+   "link": "E-001",
+   "covers": [
+    "P9:C-046"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-042",
+   "item": "Release-WAR equality (594 classes)",
+   "expected": "owner-approved intake fact outside the inputs",
+   "observed": "no conclusion of this pass depends on it",
+   "result": "not-applicable",
+   "evidence": "war-comparison.json",
+   "link": "E-002",
+   "covers": [
+    "P10:C-021"
+   ],
+   "new_obligation": false
+  },
+  {
+   "id": "C-043",
+   "item": "Coverage-base gap: P6:C-170 (row 41) and P6:C-260 (row 136), marked rechecked in pass 013 without any check ID",
+   "expected": "each BA-001-13 edit of these rows restates its W001 checks; the rest is byte-identical",
+   "observed": "row 41: D-G unchanged since ROOT; the H41 note restates setup-C-032 (HTTP 500 on the person page of a person with work) and A-C-043 (icons on the page of a person without time entries; setup-C-033 not run); G41 belongs to the open F-001. Row 136: D136 states the pre-selection rule and \"the chosen value is not stored on create (row 134, W001)\" (setup-C-049, B-C-081); the H136 note restates B-C-084 (both outcomes observed: active iteration discovered, inactive planned) and setup-C-051; G136 Yes comes from the source reconciliation (pass-010 C-013). Both rows are byte-identical BASE..CAND in A-H",
+   "result": "matched",
+   "evidence": "rows41-136.js; rows41-136-checks.js; pass-013 coverage-reconciliation.json",
+   "link": "none",
+   "covers": [
+    "P6:C-170",
+    "P6:C-260"
+   ],
+   "new_obligation": false
+  }
+ ]
+}

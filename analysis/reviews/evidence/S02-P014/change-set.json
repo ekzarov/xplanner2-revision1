@@ -1,0 +1,456 @@
+{
+ "packet": "S02-P014",
+ "generated_by": "reviewer scratch gen014.js (read-only over the repository)",
+ "generated_at": "2026-10-02T17:20:18.094Z",
+ "from": "6138f37be52504cf6a14f041ef828d46f1bd8944",
+ "to": "b860ccd1e9e64ea008f02e6586935723f112b655",
+ "command": "git -C <candidate checkout> diff --name-status BASE CAND; diff --numstat; diff -U0 of the process documents and the status file; own ZIP/XML reader over the BASE and CAND workbook checkouts",
+ "totals": {
+  "paths": 42,
+  "by_status": {
+   "M": 26,
+   "A": 16
+  },
+  "by_category": {
+   "process or guidance document M": 18,
+   "stage-1 record M": 1,
+   "maintenance record M": 2,
+   "maintenance record A": 1,
+   "status M": 2,
+   "sealed pass-013 file A": 10,
+   "stage-1 record A": 2,
+   "stage-2 carryover record A": 1,
+   "stage-3 record A": 1,
+   "stage-4 record A": 1,
+   "tool M": 3
+  }
+ },
+ "files": [
+  {
+   "status": "M",
+   "path": ".agents/skills/migration-architect/SKILL.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": ".agents/skills/migration-ba/SKILL.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": ".agents/skills/migration-developer/SKILL.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": ".agents/skills/migration-qa/SKILL.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "ARTIFACTS.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "MIGRATION.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/artifact-naming.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/artifact-responsibilities.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/legacy_user_flows.xlsx",
+   "category": "stage-1 record"
+  },
+  {
+   "status": "M",
+   "path": "analysis/maintenance/process-backlog-2026-10-01.md",
+   "category": "maintenance record"
+  },
+  {
+   "status": "M",
+   "path": "analysis/maintenance/process-departure-2026-09-30-operational-mandate.md",
+   "category": "maintenance record"
+  },
+  {
+   "status": "A",
+   "path": "analysis/maintenance/starter-sync-2026-10-02-38b6560.md",
+   "category": "maintenance record"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_artifact_flow.drawio",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_methodology.html",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_methodology.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_status.schema.json",
+   "category": "status"
+  },
+  {
+   "status": "M",
+   "path": "analysis/migration_status.yaml",
+   "category": "status"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/build-data.js",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/data.json",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/translation-review.json",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-canvas/translations.ru.json",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/process-cheatsheet.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P013/access-log.md",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P013/change-set.json",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P013/comparison-results.json",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P013/coverage-reconciliation.json",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P013/incident-assessment.md",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P013/independence-record.md",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P013/packet.json",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P013/pm-incident-verification.json",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/evidence/S02-P013/pm-report-transcription.json",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "A",
+   "path": "analysis/reviews/stage-02-pass-013.md",
+   "category": "sealed pass-013 file"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/README.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "A",
+   "path": "analysis/stages/stage-01/stage-03-walkthrough-001-pm-edit-note.md",
+   "category": "stage-1 record"
+  },
+  {
+   "status": "A",
+   "path": "analysis/stages/stage-01/stage-04-mh01-dispositions.md",
+   "category": "stage-1 record"
+  },
+  {
+   "status": "A",
+   "path": "analysis/stages/stage-02/live-check-carryover-pass-013.md",
+   "category": "stage-2 carryover record"
+  },
+  {
+   "status": "A",
+   "path": "analysis/stages/stage-03/walkthrough-001-fallback.md",
+   "category": "stage-3 record"
+  },
+  {
+   "status": "A",
+   "path": "analysis/stages/stage-04/stage-04-requirements-revision.md",
+   "category": "stage-4 record"
+  },
+  {
+   "status": "M",
+   "path": "analysis/stages/templates/stage-04-requirements-revision-template.md",
+   "category": "process or guidance document"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/delegated-authority.js",
+   "category": "tool"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/delegated-authority.test.js",
+   "category": "tool"
+  },
+  {
+   "status": "M",
+   "path": "analysis/tools/status-validator.js",
+   "category": "tool"
+  }
+ ],
+ "stage1_records": {
+  "reconnaissance": {
+   "path": "analysis/legacy_reconnaissance.md",
+   "base_sha256": "a38989aaafa2d9f3516aba8898b4ce0e14087f1d7e6a0197fcae204a00745206",
+   "cand_sha256": "a38989aaafa2d9f3516aba8898b4ce0e14087f1d7e6a0197fcae204a00745206",
+   "changed": false
+  },
+  "workbook": {
+   "path": "analysis/legacy_user_flows.xlsx",
+   "base_sha256": "33f3349d448212e8d256678a729335d873ce073edbaf87efc9aa16e07eab0156",
+   "cand_sha256": "e1478eddada79b574268905cb5d2a7d2412336896cdd0f872398af7d37b264a6",
+   "package_parts": {
+    "[Content_Types].xml": "changed",
+    "_rels/": "same",
+    "_rels/.rels": "same",
+    "xl/": "same",
+    "xl/_rels/": "same",
+    "xl/_rels/workbook.xml.rels": "changed",
+    "xl/worksheets/": "same",
+    "xl/worksheets/sheet1.xml": "changed",
+    "xl/sharedStrings.xml": "changed",
+    "xl/theme/": "same",
+    "xl/theme/theme1.xml": "same",
+    "xl/styles.xml": "changed",
+    "docProps/": "same",
+    "docProps/app.xml": "changed",
+    "docProps/core.xml": "same",
+    "xl/workbook.xml": "changed",
+    "xl/worksheets/sheet2.xml": "added"
+   },
+   "sheets": {
+    "base": [
+     "User Flows"
+    ],
+    "cand": [
+     "User Flows",
+     "Rev 1"
+    ]
+   },
+   "user_flows": {
+    "cells_base": 3276,
+    "cells_cand": 3276,
+    "value_changes_by_column": {
+     "J": 210,
+     "M": 31,
+     "F": 1,
+     "H": 1,
+     "C": 1
+    },
+    "style_changes_by_column": {
+     "D": 32,
+     "E": 32,
+     "F": 32,
+     "G": 32,
+     "H": 32,
+     "I": 32,
+     "J": 32,
+     "K": 32,
+     "L": 32,
+     "M": 32,
+     "N": 32,
+     "A": 1,
+     "B": 1,
+     "C": 1
+    },
+    "a_h_value_changes": [
+     "F220",
+     "H220",
+     "C227"
+    ],
+    "a_h_style_change_kinds": {
+     "fill": 163
+    },
+    "a_h_style_change_rows": [
+     15,
+     16,
+     21,
+     50,
+     51,
+     52,
+     53,
+     58,
+     70,
+     85,
+     86,
+     107,
+     108,
+     115,
+     116,
+     117,
+     118,
+     119,
+     171,
+     172,
+     175,
+     200,
+     201,
+     215,
+     218,
+     220,
+     221,
+     226,
+     227,
+     228,
+     229,
+     230
+    ],
+    "i_n_style_change_kinds": {
+     "I:fill": 32,
+     "J:fill": 32,
+     "K:fill": 32,
+     "L:fill": 32,
+     "M:fill": 32,
+     "N:fill": 32
+    },
+    "rows_attribute_changes": 0,
+    "sheet_metadata": {
+     "dimension": "same",
+     "merges": "same",
+     "cols": "same",
+     "views": "same",
+     "dv": "same",
+     "cf": "same",
+     "page": "same",
+     "outline": "same"
+    },
+    "formulas": 0,
+    "dimension": {
+     "base": "<dimension ref=\"A1:N234\"/>",
+     "cand": "<dimension ref=\"A1:N234\"/>"
+    },
+    "M_rows_set_to_yes": [
+     15,
+     16,
+     21,
+     50,
+     51,
+     52,
+     53,
+     58,
+     70,
+     85,
+     86,
+     107,
+     108,
+     115,
+     116,
+     117,
+     118,
+     119,
+     171,
+     172,
+     175,
+     200,
+     201,
+     215,
+     218,
+     220,
+     221,
+     226,
+     228,
+     229,
+     230
+    ]
+   },
+   "rev1_sheet": {
+    "status": "added",
+    "part": "xl/worksheets/sheet2.xml",
+    "cells": 549,
+    "nonempty": 549
+   },
+   "a_h_detail": {
+    "F220": {
+     "before": "Operations getProjects, getProject, getIterations, getIteration, getUserStories, getUserStory, getTasks, getTask, getCurrentTasksForPerson, getPlannedTasksForPerson, getTimeEntries, getTimeEntry, getNote, getNotesForObject, getPerson, getPeople, getAttribute, getAttributes, getAttributesWithPrefix return data, but the parent id fields of the returned beans (IterationData.projectId, UserStoryData.iterationId, TaskData.storyId, TimeEntryData.taskId) are 0; getAttribute always returns a SOAP fault (TypeMismatchException); getAttributesWithPrefix returns the keys without the prefix; getCurrentIteration returns a SOAP fault (W001).",
+     "after": "Operations getProjects, getProject, getIterations, getIteration, getUserStories, getUserStory, getTasks, getTask, getCurrentTasksForPerson, getPlannedTasksForPerson, getTimeEntries, getTimeEntry, getNote, getNotesForObject, getPerson, getPeople, getAttributes, getAttributesWithPrefix return data, but the parent id fields of the returned beans (IterationData.projectId, UserStoryData.iterationId, TaskData.storyId, TimeEntryData.taskId) are 0; getAttributesWithPrefix returns the keys without the prefix; getAttribute does not return data: it always returns a SOAP fault (TypeMismatchException); getCurrentIteration returns a SOAP fault (W001)."
+    },
+    "H220": {
+     "change": "two edits inside an unchanged prefix (1257 characters) and suffix (159 characters, the runtime label)",
+     "removed_fragment_start": "all read operations answered with data",
+     "inserted_fragment_start": "the read operations listed in F220 other than getAttribute answered with data",
+     "inserted_note": "Stage 4 MH-01 correction (BA-001-14): getAttribute is no longer listed among the operations that return data, because it always faults (D-C-044, D-C-049, W001-F-50, MC-A-43).",
+     "length_before": 1864,
+     "length_after": 2078
+    },
+    "C227": {
+     "before": "Not Passed - Open",
+     "after": "Not Passed - Deferred"
+    }
+   }
+  },
+  "new_records": [
+   {
+    "path": "analysis/stages/stage-01/stage-04-mh01-dispositions.md",
+    "sha256": "693bfc3ec4693d1b5252cb283df5e7068db5e3138da67e9f3f06ee33f8e3c30e",
+    "task": "BA-001-14"
+   },
+   {
+    "path": "analysis/stages/stage-01/stage-03-walkthrough-001-pm-edit-note.md",
+    "sha256": "54ebfeebcfd62f58eaddad1b038ef45cca0feee23e37248c1375a0b7ea94db65",
+    "task": "PM disclosure for pass-013 F-007"
+   }
+  ]
+ },
+ "unchanged_inputs": [
+  "legacy/** (4 files, identical at ROOT, BASE, CAND)",
+  "sources/**",
+  ".specify/memory/constitution.md",
+  "config/**",
+  "analysis/reviews/README.md",
+  "analysis/agent_orchestration.md",
+  "analysis/reviews/stage-NN-pass-NNN-template.md",
+  "analysis/error-prevention-checklist.md",
+  "analysis/agent-roles.md",
+  "analysis/stages/stage-03/evidence/W001/**",
+  "analysis/stages/stage-01/stage-03-walkthrough-001-dispositions.md"
+ ]
+}

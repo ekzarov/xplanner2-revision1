@@ -8,7 +8,7 @@
 
 <!-- ARTIFACT_READING_START -->
 > [!NOTE]
-> **Nine short items for the owner's next review; none blocks the current Stage 1 correction**
+> **Eleven short items for the owner's next review; none blocks the current Stage 1 correction**
 >
 > The Stage 2 control loop took twelve passes. The Stage 3 walkthrough used six part sessions plus a lead. The items below would cut that cost next time. They are proposals only.
 >
@@ -39,3 +39,5 @@
 | 7 | Timestamps were estimated once. | Always generate them programmatically (already in practice). |
 | 8 | Long Russian and English status reports. | One short story per milestone: result, scope, what is left, and the decision needed. |
 | 9 | A delegated Stage 3 fallback needed a project tool change. The waiver and the transition approval were hard-wired to the owner in person, and the delegation could not name a waiver gate. | Let a delegation record state which gates and approvals it covers, from the start, so that a new delegation needs no tool change. |
+| 10 | A narrow return to Stage 1 for one cell (F220) reset the displayed formal progress almost to zero (Stage 1 = 0%), although all earlier work was kept. | Show progress from closed work and open loops, not only from the current stage number, so that a narrow loop does not look like a restart. |
+| 11 | The Stage 4 decision packet forbade edits in columns A-H, but the derived UF-017 banner (C227) had to change with the D-024 deferral and needed a separate exception. | Name derived summary cells (epic banners) as allowed values in decision packets from the start. |

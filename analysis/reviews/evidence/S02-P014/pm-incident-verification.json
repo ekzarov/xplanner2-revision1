@@ -1,0 +1,21 @@
+{
+  "packet_id": "S02-P014",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "recorded_at": "2026-10-02T17:32:34Z",
+  "companion": "analysis/reviews/evidence/S02-P014/incident-assessment.md",
+  "companion_source_sha256": "713c84f0890fb03689294d3ca6c15acebfbd4408c029beef7a6cdafb76c40d31",
+  "companion_sha256": "f77be04f911367af96e9edcc6332fe93e41898b81ddc8ff51bcf1c80a4f0a222",
+  "pm_changes": "Only the literal token CURRENT_SESSION_ID was replaced with aeac87124971a209c in the companion (Incident session line).",
+  "report": "analysis/reviews/stage-02-pass-014.md",
+  "report_sha256": "be869fec1e50fbd4c8b227b9331fe3288c1ca17333cf5ecf45a368de3d033853",
+  "reviewer_classification": "non-material; all five guards declared verified; deviations D-001 (runner source and config read with the client file-read tool) and D-002 (21 client content searches on permitted files); M-001..M-003 runner masking, not incidents",
+  "pm_verification": {
+    "report_binding": "The companion's Incident report SHA-256 equals the committed report bytes.",
+    "evidence": "change-set.json, comparison-results.json and coverage-reconciliation.json equal the RESULT hashes; access-log.md (48f54fd8) is unchanged since RESULT; independence-record.md changed only by the PM token replacement.",
+    "worktrees": "The candidate checkout has no changes (git status empty).",
+    "access_log_corrections": "The companion records two corrections to the sealed access log (exact D-001 config timing; three statements that rested on D-002 until the 17:29:20Z runner re-read) and a third masking event M-003; the sealed log stays unchanged.",
+    "not_checked": "PM did not open the user profile or temp folders; client retention and exact client-tool times stay explicit unknowns."
+  },
+  "pm_conclusion": "The companion's support is consistent with the checked evidence. PM verification only, not approval.",
+  "owner_decision": "pending (Codex under operational-mandate-stage4-completion)"
+}
