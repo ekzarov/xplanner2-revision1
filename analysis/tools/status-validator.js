@@ -8,7 +8,7 @@ const cheerio = require('cheerio');
 const { hasEvidencePlaceholders } = require('./evidence-placeholders');
 const { constitutionVersion } = require('./constitution-version');
 const { validateReviewIncidents, validateIncidentEvidence } = require('./review-incidents');
-const { attributionError } = require('./delegated-authority');
+const { attributionError, approvalAttributionError } = require('./delegated-authority');
 // Project rule (xplanner2-revision1 departure): Stage 2 live-check carryover.
 const { validateLiveCarryover, liveCarryoverCloses, validateLiveCarryoverEvidence } = require('./stage2-live-carryover');
 const {
@@ -281,20 +281,24 @@ function validateStatus(status, schema = loadStatusSchema()) {
       status.constitution.ratified_by !== status.project.owner) {
     errors.push('/constitution/ratified_by must equal project.owner');
   }
-  const verifyOwnerApproval = (approval, location) => {
-    if (approval && approval.approved_by !== status.project.owner) {
-      errors.push(`${location}/approved_by must equal project.owner`);
+  // Project hook: the owner, or the delegate for the one delegable transition (delegated-authority.js).
+  const verifyOwnerApproval = (approval, transition, location) => {
+    const attribution = approval && approvalAttributionError(approval, transition, status);
+    if (attribution) {
+      errors.push(`${location}/approved_by must equal project.owner (${attribution})`);
     }
   };
   for (let index = 0; index < status.transition_history.length; index += 1) {
     verifyOwnerApproval(
       status.transition_history[index].owner_approval,
+      status.transition_history[index],
       `/transition_history/${index}/owner_approval`
     );
   }
   if (status.transition_request) {
     verifyOwnerApproval(
       status.transition_request.owner_approval,
+      status.transition_request,
       '/transition_request/owner_approval'
     );
   }

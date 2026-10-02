@@ -894,6 +894,14 @@
         },
         "scope": {
           "$ref": "#/$defs/nonEmptyString"
+        },
+        "delegated_authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["authority_decision_id"],
+          "properties": {
+            "authority_decision_id": { "$ref": "#/$defs/nonEmptyString" }
+          }
         }
       }
     },
@@ -1485,7 +1493,12 @@
           "required": ["delegate", "ends_at_stage"],
           "properties": {
             "delegate": { "$ref": "#/$defs/nonEmptyString" },
-            "ends_at_stage": { "$ref": "#/$defs/stage" }
+            "ends_at_stage": { "$ref": "#/$defs/stage" },
+            "waivers": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "enum": ["legacy_walkthrough_fallback"] }
+            }
           }
         },
         "delegated_authority": {
