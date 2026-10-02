@@ -76,6 +76,8 @@ The approved product and visual baseline used before wireframes are drawn. It ca
 
 **Example:** The owner selects a responsive web application with the approved palette, so Stage 6 may design desktop and mobile screens.
 
+**Project file:** [`prototyping/ui-ux-decision.md`](ui-ux-decision.md)
+
 </details>
 <details>
 <summary>ui-design-system.md</summary>
@@ -92,6 +94,8 @@ The readable UI kit: stable variant IDs, purposes, applicable states, property-t
 
 **Example:** Illustrative: task editing and story editing both use input.date with the same focus/error behavior. Stage 15 names that variant; Stage 17 implements one shared date control rather than two guessed versions.
 
+**Project file:** [`ui-design-system.md`](ui-design-system.md)
+
 </details>
 <details>
 <summary>ui-design-tokens.json</summary>
@@ -107,6 +111,8 @@ The single dictionary of typed visual values and aliases. Its foundation records
 **When used:** The Stage 5 agent prepares values and records the owner-approved foundation hash in ui-ux-decision.md. Stage 6 may add within-foundation extensions. The manifest pins the entire file for Stages 7-8 and downstream UI work. audit:prototype checks types, aliases and pins; rendered checks verify actual use.
 
 **Example:** Illustrative: button.primary-background aliases color.action. A changed global color cannot be hidden by refreshing the file hash: the Stage 5 foundation pin changes and requires a new owner decision.
+
+**Project file:** [`ui-design-tokens.json`](ui-design-tokens.json)
 
 </details>
 <details>

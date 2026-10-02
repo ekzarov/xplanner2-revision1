@@ -36,7 +36,7 @@ A populated document or green audit is not owner approval. Limited approval does
 
 > **Reading statuses:** `pending` (the owner has not chosen); `selected` (the owner chose this option for the stated baseline); `rejected` (the option was not chosen). An agent recommendation is not a selection. [Status meanings](https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/artifact-status-meanings.md).
 
-> **Template output:** `analysis/prototyping/ui-ux-decision.md`. Preserve this filename stem;
+> **Template output:** [`analysis/prototyping/ui-ux-decision.md`](../ui-ux-decision.md). Preserve this filename stem;
 > replace only the uppercase placeholders. See the artifact naming guide.
 
 </details>
@@ -95,8 +95,8 @@ A populated document or green audit is not owner approval. Limited approval does
 ## Shared UI Foundation
 
 - UI foundation SHA-256: [canonical foundation digest from ui-design-tokens.json]
-- Catalogue: `analysis/prototyping/ui-design-system.md`
-- Tokens: `analysis/prototyping/ui-design-tokens.json`
+- Catalogue: [`analysis/prototyping/ui-design-system.md`](../ui-design-system.md)
+- Tokens: [`analysis/prototyping/ui-design-tokens.json`](../ui-design-tokens.json)
 - Owner foundation decision: [approved choices, scope, date and actor; or pending]
 - Pending library/platform compatibility: [explicit constraints for architecture]
 

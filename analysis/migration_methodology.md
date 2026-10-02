@@ -1109,7 +1109,7 @@ Only an explicitly permitted exception can authorize progression. An approved wa
   lives), style options with references, and 2–3 candidate palettes.
 - This is a **human-in-the-loop checkpoint**: the agent stops and asks the
   owner for an explicit decision. The chosen form, style, and palette are
-  recorded in `analysis/prototyping/ui-ux-decision.md` (approver, date, options
+  recorded in [`analysis/prototyping/ui-ux-decision.md`](./prototyping/ui-ux-decision.md) (approver, date, options
   considered) before wireframing starts; the agent must not pick them itself.
 - If the owner selects **no interactive UI**, Stages 6–8 shrink to the
   owner-approved minimum (e.g. wireframes only for an ops/admin console, or an

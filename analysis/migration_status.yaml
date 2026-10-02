@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-04
+  current_stage: stage-05
   stage_status: awaiting_owner
-  previous_stage: stage-03
-  next_action: 'Stage 4 complete (analysis/stages/stage-04/stage-04-requirements-revision.md): Codex delegated decisions D-001..D-025 recorded and applied to the map; MH-01 loop closed (BA-001-14, pass 014). Stop before Stage 5: the Stage 4 to Stage 5 transition needs the owner decision and is not permitted under operational-mandate-stage4-completion. Kept: R-24..R-47 unverified (waiver), target verification before acceptance, the next applicable independent control must verify the Stage 3 waiver with a clean pass, pass-014 F-001..F-006 open accepted documentation risks, T-03/T-04 open SDD or Stage 9 questions.'
+  previous_stage: stage-04
+  next_action: 'Stage 5 decision material ready (analysis/prototyping/ui-ux-decision.md; drafts ui-design-system.md and ui-design-tokens.json, proposed foundation digest c41526e0…7c21, not selected). Owner to choose: form (responsive web recommended), style (utilitarian or Alternative C), palette (P1/P2/P3), dark mode, density default, icons and fonts; then UX pins the selected foundation. Alternatives A and B are out-of-scope comparisons only. No wireframes, Stage 6, stack choice, code or deploy before the owner decision.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -359,6 +359,18 @@ transition_history:
       scope: 'Stage 3 to Stage 4 under the unchanged waiver:legacy_walkthrough_fallback:xplanner2-revision1 (residual items R-24..R-47 unverified); delegated approval by Codex (PR #43 comment 5957863686 (posted 2026-10-02T17:36:10Z from the account ekzarov by Codex)), not a personal owner approval.'
       delegated_authority:
         authority_decision_id: 'operational-mandate-stage4-completion:xplanner2-revision1'
+  - from: stage-04
+    to: stage-05
+    reason: 'Owner-authorized entry into Stage 5 after the completed Stage 4 requirements revision (analysis/stages/stage-04/stage-04-requirements-revision.md, PR #44, main 546156b). Stage 5 prepares the application form and style decision material; it approves no design, palette, UI foundation or Stage 6. The operational-mandate-stage4-completion delegation has ended and is not extended to Stage 5.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-10-02T19:10:13Z'
+    gate_evidence:
+      - 'analysis/stages/stage-04/stage-04-requirements-revision.md'
+    owner_approval:
+      approved_by: 'ekzarov'
+      approved_at: '2026-10-02T19:10:13Z'
+      record: 'analysis/stages/stage-04/stage-04-requirements-revision.md'
+      scope: 'Owner words, relayed by Codex from the conversation with the owner on 2026-10-02: «Отлично. Давай переходим к шагу 5». Authorizes entering and preparing Stage 5 only: UX decision material (form, style, 2-3 palettes, accessibility) and draft ui-design-system.md / ui-design-tokens.json. Not an approval of a concrete design, palette, UI foundation, wireframes or Stage 6. The exact owner-chat time is not known to PM; approved_at is the relay recording time.'
 review_passes:
   - stage: stage-02
     pass: 1
@@ -947,9 +959,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 4 complete under the delegated mandate (keep 65, change 80, do-not-port 34, defer 31 rows); Stage 3 blocked-waived; awaiting the owner before Stage 5.'
-  completed_percent: 16
-  updated_at: '2026-10-02T17:38:12Z'
+  summary: 'Stage 5 form and style proposal prepared by UX; awaiting the owner choice; no design approved.'
+  completed_percent: 21
+  updated_at: '2026-10-02T19:26:15Z'
   agent_reviews:
     total: 14
     valid: 12

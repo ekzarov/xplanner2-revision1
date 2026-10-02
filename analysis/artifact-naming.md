@@ -76,7 +76,7 @@ command, identifier, glob, placeholder or future output path.
 | [.specify/templates/spec-template.md](../.specify/templates/spec-template.md) | `specs/NNN-SLUG/spec.md` |
 | [.specify/templates/plan-template.md](../.specify/templates/plan-template.md) | `specs/NNN-SLUG/plan.md` |
 | [.specify/templates/tasks-template.md](../.specify/templates/tasks-template.md) | `specs/NNN-SLUG/tasks.md` |
-| [analysis/prototyping/templates/ui-ux-decision-template.md](prototyping/templates/ui-ux-decision-template.md) | `analysis/prototyping/ui-ux-decision.md` |
+| [analysis/prototyping/templates/ui-ux-decision-template.md](prototyping/templates/ui-ux-decision-template.md) | [`analysis/prototyping/ui-ux-decision.md`](./prototyping/ui-ux-decision.md) |
 | [analysis/prototyping/templates/ui-ux-approval-template.md](prototyping/templates/ui-ux-approval-template.md) | `analysis/prototyping/ui-ux-approval.md` |
 | [analysis/prototyping/templates/ui-polish-backlog-template.md](prototyping/templates/ui-polish-backlog-template.md) | `analysis/prototyping/ui-polish-backlog.md` |
 | [analysis/architecture/templates/architecture-template.md](architecture/templates/architecture-template.md) | `analysis/architecture/architecture.md` |
