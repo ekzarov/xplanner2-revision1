@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-01
+  current_stage: stage-02
   stage_status: in_progress
-  previous_stage: stage-04
-  next_action: 'Stage 1 BA-001-14 corrected F220 and the tied H220 (MH-01; analysis/stages/stage-01/stage-04-mh01-dispositions.md). After the correction PR: one fresh independent Stage 2 correction-validation pass 014 (root 006, previous and coverage base 013) of this change and its directly affected obligations; then back to Stage 4 to complete it. Stage 5 not permitted.'
+  previous_stage: stage-01
+  next_action: 'Stage 2 pass 014 (packet S02-P014, correction-validation): a fresh independent BA checks the BA-001-14 F220/H220 correction and its directly affected obligations against the saved W001 evidence, retaining justified prior coverage (root 006, previous and coverage base 013); no live run, no full-blind, no Stage 5. Report analysis/reviews/stage-02-pass-014.md.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -324,6 +324,14 @@ transition_history:
     changed_at: '2026-10-02T16:46:57Z'
     gate_evidence:
       - 'analysis/stages/stage-04/stage-04-requirements-revision.md'
+      - 'analysis/stages/stage-01/stage-04-mh01-dispositions.md'
+    owner_approval: null
+  - from: stage-01
+    to: stage-02
+    reason: 'Stage 1 correction BA-001-14 of the Stage 4 map hole MH-01 (F220/H220) merged (PR #42, CI green; main b8cd33d086bb5f678a123c9293e3fb6716da553b, merged by the operator Codex under the delegated mandate); open for one fresh independent correction-validation pass 014 (root 006, previous and coverage base 013).'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-10-02T16:58:35Z'
+    gate_evidence:
       - 'analysis/stages/stage-01/stage-04-mh01-dispositions.md'
     owner_approval: null
 review_passes:
@@ -861,9 +869,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 4 decisions recorded and applied; narrow Stage 1 return for MH-01 (F220) in progress before Stage 4 completes.'
-  completed_percent: 0
-  updated_at: '2026-10-02T16:54:50Z'
+  summary: 'Stage 1 corrected F220/H220 (Stage 4 map hole MH-01); Stage 2 correction-validation pass 014 in progress; Stage 4 completes afterwards.'
+  completed_percent: 5
+  updated_at: '2026-10-02T16:58:35Z'
   agent_reviews:
     total: 13
     valid: 11
