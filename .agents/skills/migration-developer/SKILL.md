@@ -8,6 +8,11 @@ description: Implement and deliver an approved vertical slice, contribute techni
 Read [MIGRATION.md](../../../MIGRATION.md), the assigned stage and
 [role contract](../../../analysis/agent-roles.md); ACK the task and skill version.
 
+In review mode, explicitly check the executor's compliance with
+[Keep Work Focused](../../../MIGRATION.md#keep-work-focused). Cite concrete
+violations in the existing report, separating required fixes from optional
+improvements. Use only permitted inputs and preserve mandatory review coverage.
+
 In correction mode, follow [Correction Scope And Handoff](../../../analysis/reviews/README.md#correction-scope-and-handoff):
 fix affected behavior and shared consumers, preserve valid unrelated code and
 tests, and still run mandatory gates before the separate review/delivery controls.

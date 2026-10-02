@@ -819,6 +819,8 @@ requires reconciliation of the existing map, not silent replacement of the basel
 **What does the legacy system actually do, and what evidence supports it?**
 <!-- STAGE_QUESTION_1_END -->
 
+**Focus.** Trace actual behavior within the authorized scope; mark missing evidence as unknown rather than inventing requirements or expanding discovery on speculation.
+
 <!-- STAGE_REENTRY_1_START -->
 **On return to Stage 1.** Conditional input on any return: the exact record cited by migration_status.yaml, its finding IDs and linked evidence. The examples below cover Stages 2-4; a later stage supplies its own triggering record. These records are not required on the first entry. File links open the starter templates.
 
@@ -1007,6 +1009,8 @@ discarded just because the earlier source analysis disagrees.
 **Which legacy behavior do we keep, change or deliberately leave behind?**
 <!-- STAGE_QUESTION_4_END -->
 
+**Focus.** Base keep/change/do-not-port proposals on evidenced findings; separate modernization suggestions from confirmed legacy requirements.
+
 <!-- RECORD_BOUNDARY_4_START -->
 **Proposal, decision and remaining work**
 
@@ -1152,6 +1156,8 @@ Only an explicitly permitted exception can authorize progression. An approved wa
 <!-- STAGE_QUESTION_6_START -->
 **Which screens, states and transitions will represent the agreed behavior?**
 <!-- STAGE_QUESTION_6_END -->
+
+**Focus.** Reuse approved components; add a screen or state only to represent agreed behavior, not merely because another parity-map row exists.
 
 <!-- RECORD_BOUNDARY_6_START -->
 **Exception without invented verification**
@@ -1559,6 +1565,8 @@ current slice; later evidence reopens the smallest affected architecture area.
 <!-- STAGE_QUESTION_9_START -->
 **How should the target system be structured to meet its requirements and constraints?**
 <!-- STAGE_QUESTION_9_END -->
+
+**Focus.** Choose the simplest structure that meets current requirements; add layers or services for a concrete requirement or evidenced risk, not hypothetical future reuse.
 
 **On return after Stage 12:** read the exact negative closure report from the
 transition, its owner verdict and correction dispositions. Preserve item IDs;
@@ -2037,6 +2045,8 @@ blocked and is not a new approval or a passed Stage 12 cycle.
 **What knowledge from the approved architecture must we pass to the next agent?**
 <!-- STAGE_QUESTION_13_END -->
 
+**Focus.** Carry forward approved knowledge and unresolved questions; do not invent business rules or redesign the architecture while summarizing it.
+
 <!-- RECORD_BOUNDARY_13_START -->
 **Produced coverage and handoff boundary**
 
@@ -2187,6 +2197,8 @@ unless architecture is reopened and reapproved through Stages 9-12.
 <!-- STAGE_QUESTION_15_START -->
 **What exactly will we implement in the next slice, how, and how will we verify it?**
 <!-- STAGE_QUESTION_15_END -->
+
+**Focus.** Plan only the agreed slice; justify new entities, abstractions and discretionary tasks by a requirement or evidenced risk, reusing approved designs where sufficient.
 
 <!-- RECORD_BOUNDARY_15_START -->
 **Produced coverage and handoff boundary**
@@ -2478,6 +2490,8 @@ Stage 1. The corrected upstream chain must be re-approved before Build resumes.
 **Is the agreed slice implemented and verified in code and tests?**
 <!-- STAGE_QUESTION_17_END -->
 
+**Focus.** Implement approved tasks using existing patterns; do not add speculative entities or abstractions, unrelated refactors or optional features.
+
 <!-- RECORD_BOUNDARY_17_START -->
 
 <!-- TRACEABILITY_DUTY_17_START -->
@@ -2652,6 +2666,8 @@ Delivery and reconciliation are one Stage 18: deploy, execute required checks, d
 <!-- STAGE_QUESTION_18_START -->
 **Does the delivered version work, have we missed any behavior, and do its records agree?**
 <!-- STAGE_QUESTION_18_END -->
+
+**Focus.** Complete required checks and coverage; add discretionary checks for evidenced risks or uncovered behavior, not merely to enlarge the test catalogue.
 
 <!-- RECORD_BOUNDARY_18_START -->
 **What was actually verified**
