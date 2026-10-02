@@ -130,6 +130,8 @@ The plan written before wireframes are drawn. It maps every applicable parity ro
 
 **Example:** Row 42 can be classified as overlay on task-details with element "confirm deletion"; a nightly job is non-visual and therefore has no screen, surface_key or element. The opening _schema_help explains each field.
 
+**Project file:** [`screen-normalization.json`](screen-normalization.json)
+
 </details>
 <details>
 <summary>wireframes/*</summary>

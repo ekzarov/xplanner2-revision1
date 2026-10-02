@@ -155,7 +155,7 @@ PM requests owner-approved environment access, role accounts and permitted data/
 
 - **Role and skill:** UX Designer (responsible author). PM coordinates; the assigned session reads .agents/skills/migration-ux/SKILL.md and returns ACK before work. Support on demand: Business Analyst, Developer. Questions and RESULT return to PM with exact artifacts, checks and remaining gaps. Human decisions remain with the owner. [Delegation contract](agent-roles.md).
 - **Reads:** [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx); [`prototyping/ui-ux-decision.md`](prototyping/ui-ux-decision.md); [`ui-design-system.md`](prototyping/ui-design-system.md); [`ui-design-tokens.json`](prototyping/ui-design-tokens.json)
-- **Writes result:** `screen-normalization.json`; `wireframes/*`; `screen-manifest.json`; `waivers/GATE-SCOPE.md` (conditional)
+- **Writes result:** [`screen-normalization.json`](prototyping/screen-normalization.json); `wireframes/*`; `screen-manifest.json`; `waivers/GATE-SCOPE.md` (conditional)
 - **Updates shared:** [`ui-design-system.md`](prototyping/ui-design-system.md); [`ui-design-tokens.json`](prototyping/ui-design-tokens.json)
 - **Error prevention:** Before work, read applicable checks by stage and affected scope. Before handoff and after corrections, check the actual result and record outcomes in the working report or control.prevention_self_check. Generalize confirmed errors; the coordinator admits and deduplicates updates. [Checklist procedure](error-prevention.md).
 
@@ -164,7 +164,7 @@ PM requests owner-approved environment access, role accounts and permitted data/
 **Does the prototype cover the agreed behavior without omissions or unsupported additions?** *QA (fresh independent reviewer).*
 
 - **Role and skill:** QA (fresh independent reviewer). PM coordinates; the assigned session reads .agents/skills/migration-qa/SKILL.md and returns ACK before work. Questions and RESULT return to PM with exact artifacts, checks and remaining gaps. Human decisions remain with the owner. [Delegation contract](agent-roles.md).
-- **Reads:** [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx); `screen-normalization.json`; `wireframes/*`; `screen-manifest.json`; [`ui-design-system.md`](prototyping/ui-design-system.md); [`ui-design-tokens.json`](prototyping/ui-design-tokens.json)
+- **Reads:** [`legacy_user_flows.xlsx`](legacy_user_flows.xlsx); [`screen-normalization.json`](prototyping/screen-normalization.json); `wireframes/*`; `screen-manifest.json`; [`ui-design-system.md`](prototyping/ui-design-system.md); [`ui-design-tokens.json`](prototyping/ui-design-tokens.json)
 - **Writes result:** `stage-07-pass-NNN.md`; `ui-polish-backlog.md` (conditional)
 - **Updates shared:** None.
 - **Error prevention:** Read applicable checks and independently verify the full required scope, including the author self-check. In Checklist Review, compare the author claim with actual observations. Each issue links F-NNN/B-NNN to CHK-NNN, names the discrepancy and required recheck. The coordinator validates and deduplicates lesson proposals. The reviewer does not edit the shared table. [Checklist procedure](error-prevention.md).

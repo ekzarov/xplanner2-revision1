@@ -1,0 +1,1219 @@
+{
+  "_schema_help": {
+    "template_vs_project": "screen-normalization.example.json is the reusable starter example with placeholders. Copy its structure to screen-normalization.json for a project, replace the examples with real parity-map rows, and keep the example file unchanged. screen-normalization.json is the governed Stage 6 project record consumed by audit:prototype and pinned by screen-manifest.json.",
+    "purpose": "This is the row-to-visual-plan bridge. It says where every applicable legacy_user_flows.xlsx row will appear: as a screen, a state or interaction on a screen, navigation, or a non-visual behavior.",
+    "direction": "Behavior -> screen: What needs to be represented? Start with each governed parity-map row and decide its visual destination or explicit non-visual disposition.",
+    "relationship_to_manifest": "This plan is written before drawing. screen-manifest.json is written after drawing, references this file in normalization, and stores its evidence hash in normalization_sha256. Matching screen ids and surface_key values connect the planned placement to the exported screen.",
+    "fields": {
+      "rows": "All applicable parity-map rows, each classified exactly once.",
+      "rows[].row": "The physical row number in analysis/legacy_user_flows.xlsx. It is the stable link back to the legacy behavior.",
+      "rows[].classification": "One of surface, state, action, overlay, navigation or non-visual. See classification_values below.",
+      "rows[].screen": "Stable screen id planned here and later used unchanged in screen-manifest.json. Required for every visual classification; omitted for non-visual.",
+      "rows[].surface_key": "Canonical identity of the screen: channel + route family + primary user task + stable layout. It must match that screen's surface_key in screen-manifest.json.",
+      "rows[].element": "The exact state, action, overlay or navigation label on the named screen. Required for those four classifications, forbidden for surface and non-visual.",
+      "rows[].note": "Short evidence-based reason for this classification and placement; explain why this is or is not a separate screen.",
+      "excluded_rows": "Rows deliberately removed from migration scope by an explicit Stage 4 do-not-port decision. Exclusion is not a seventh classification.",
+      "excluded_rows[].row": "The physical parity-map row excluded from the target.",
+      "excluded_rows[].finding": "Identifier of the Stage 4 finding or owner decision authorizing the exclusion.",
+      "excluded_rows[].reason": "Human-readable summary of why the behavior will not be ported.",
+      "_notes": "File-level provenance and maintenance notes for this particular record. They explain how it was produced; they are not row classifications.",
+      "_schema_help": "Embedded documentation only. Audits accept it but do not treat it as migration evidence."
+    },
+    "classification_values": {
+      "surface": "A distinct visual destination with its own purpose, structure or route. It needs screen and surface_key, but no element.",
+      "state": "A condition of an existing screen, such as empty, loading, validation error or permission denied. element names that state.",
+      "action": "A user operation performed on an existing screen, such as Save or Delete. element names the action or control.",
+      "overlay": "A dialog, drawer, popover or menu displayed over an existing screen. element names the overlay.",
+      "navigation": "A transition that starts on the named screen and leads elsewhere. element names the navigation step.",
+      "non-visual": "Backend, integration, scheduled or enforcement behavior with no distinct visual representation. It has no screen, surface_key or element."
+    },
+    "example_reading": "A row with classification=state, screen=sign-in, surface_key='web + /login + sign in + centred card' and element='authentication failed' means: this legacy behavior is represented by the authentication-failed state of the sign-in screen, not by a separate wireframe."
+  },
+  "rows": [
+    {
+      "row": 8,
+      "classification": "surface",
+      "screen": "sign-in",
+      "surface_key": "web + /sign-in + sign in + centred form",
+      "note": "Stage 4 change (D-003/D-002). Sign-in with user ID and password is the only public surface (D-002, D-003)."
+    },
+    {
+      "row": 10,
+      "classification": "navigation",
+      "screen": "sign-in",
+      "surface_key": "web + /sign-in + sign in + centred form",
+      "element": "return to the requested permitted page",
+      "note": "Stage 4 change (D-003). Redirect after sign-in; draws nothing new (D-003)."
+    },
+    {
+      "row": 11,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-003). Password storage method; server-side (D-003)."
+    },
+    {
+      "row": 12,
+      "classification": "state",
+      "screen": "sign-in",
+      "surface_key": "web + /sign-in + sign in + centred form",
+      "element": "invalid-credentials",
+      "note": "Stage 4 keep (D-001). Rejection message on the same form."
+    },
+    {
+      "row": 13,
+      "classification": "state",
+      "screen": "sign-in",
+      "surface_key": "web + /sign-in + sign in + centred form",
+      "element": "unknown-user-message",
+      "note": "Stage 4 keep (D-001). Specific rejection message on the same form; kept by D-003."
+    },
+    {
+      "row": 14,
+      "classification": "state",
+      "screen": "sign-in",
+      "surface_key": "web + /sign-in + sign in + centred form",
+      "element": "blank-credentials",
+      "note": "Stage 4 change (D-003). Blank credentials are rejected on the same form; the submit-field branch is not ported."
+    },
+    {
+      "row": 17,
+      "classification": "non-visual",
+      "note": "Stage 4 keep (D-001). Access filter for protected requests; worked example in the methodology."
+    },
+    {
+      "row": 18,
+      "classification": "navigation",
+      "screen": "sign-in",
+      "surface_key": "web + /sign-in + sign in + centred form",
+      "element": "land on the current iteration",
+      "note": "Stage 4 change (D-003). Landing rule after sign-in when exactly one project is accessible (D-003 change)."
+    },
+    {
+      "row": 19,
+      "classification": "action",
+      "screen": "app-shell",
+      "surface_key": "web + every signed-in page + shared top bar and breadcrumb + page frame",
+      "element": "sign out",
+      "note": "Stage 4 keep (D-001). Header control shared by every signed-in page."
+    },
+    {
+      "row": 20,
+      "classification": "non-visual",
+      "note": "Stage 4 keep (D-001). Idle session timeout; the next request reaches sign-in through row 17."
+    },
+    {
+      "row": 23,
+      "classification": "non-visual",
+      "note": "Stage 4 keep (D-001). Role model; exact permission matrix at SDD (D-001)."
+    },
+    {
+      "row": 24,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-001). Negative permissions enforced on the server (D-001)."
+    },
+    {
+      "row": 25,
+      "classification": "non-visual",
+      "note": "Stage 4 keep (D-001). Project-0 role scope; server rule."
+    },
+    {
+      "row": 26,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-001). Server enforcement; per-screen visibility of actions is a role variation decided with the SDD permission matrix (D-001)."
+    },
+    {
+      "row": 27,
+      "classification": "non-visual",
+      "note": "Stage 4 keep (D-001). Read filter of the projects query."
+    },
+    {
+      "row": 28,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-001). Denial by server enforcement; the missing not-authorized page is not ported."
+    },
+    {
+      "row": 29,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-001). Server-side permission check for every operation (D-001)."
+    },
+    {
+      "row": 30,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-001). Server-side permission check for every operation (D-001)."
+    },
+    {
+      "row": 31,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-006). Server rule for applying role changes (D-006)."
+    },
+    {
+      "row": 32,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-001). Role rules evaluated on the server (D-001)."
+    },
+    {
+      "row": 33,
+      "classification": "action",
+      "screen": "person-editor",
+      "surface_key": "web + /people/{id}/edit + create or edit a person + form",
+      "element": "set project role",
+      "note": "Stage 4 keep (D-006). Per-project role choice inside the person editor (D-006 keep)."
+    },
+    {
+      "row": 34,
+      "classification": "action",
+      "screen": "person-editor",
+      "surface_key": "web + /people/{id}/edit + create or edit a person + form",
+      "element": "grant or revoke system administrator",
+      "note": "Stage 4 change (D-006). Explicit control shown only to system administrators (D-006 change)."
+    },
+    {
+      "row": 37,
+      "classification": "surface",
+      "screen": "people-list",
+      "surface_key": "web + /people + browse people + table list",
+      "note": "Stage 4 keep (D-007). People list with its own route."
+    },
+    {
+      "row": 38,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-007). Deactivated people are filtered out of active pick lists; list query rule (D-007)."
+    },
+    {
+      "row": 39,
+      "classification": "state",
+      "screen": "people-list",
+      "surface_key": "web + /people + browse people + table list",
+      "element": "project-filtered",
+      "note": "Stage 4 keep (D-001). Same list restricted to one project and titled with it."
+    },
+    {
+      "row": 40,
+      "classification": "surface",
+      "screen": "person-page",
+      "surface_key": "web + /people/{id} + view the work of one person + detail page with task tables",
+      "note": "Stage 4 change (D-007). Person page with task and story tables (D-007)."
+    },
+    {
+      "row": 41,
+      "classification": "navigation",
+      "screen": "person-page",
+      "surface_key": "web + /people/{id} + view the work of one person + detail page with task tables",
+      "element": "task row to time entry or task editor",
+      "note": "Stage 4 keep (D-001). Links from task rows to other surfaces."
+    },
+    {
+      "row": 42,
+      "classification": "navigation",
+      "screen": "person-page",
+      "surface_key": "web + /people/{id} + view the work of one person + detail page with task tables",
+      "element": "edit person",
+      "note": "Stage 4 keep (D-001). Edit link; role variation of the same page."
+    },
+    {
+      "row": 43,
+      "classification": "surface",
+      "screen": "person-editor",
+      "surface_key": "web + /people/{id}/edit + create or edit a person + form",
+      "note": "Stage 4 change (D-007/D-001). Person form used for create and edit (D-007)."
+    },
+    {
+      "row": 44,
+      "classification": "state",
+      "screen": "person-editor",
+      "surface_key": "web + /people/{id}/edit + create or edit a person + form",
+      "element": "validation-error",
+      "note": "Stage 4 keep (D-001). Field validation on the same form."
+    },
+    {
+      "row": 45,
+      "classification": "state",
+      "screen": "person-editor",
+      "surface_key": "web + /people/{id}/edit + create or edit a person + form",
+      "element": "duplicate-user-id",
+      "note": "Stage 4 change (D-007). Validation message instead of HTTP 500 (D-007)."
+    },
+    {
+      "row": 46,
+      "classification": "action",
+      "screen": "person-editor",
+      "surface_key": "web + /people/{id}/edit + create or edit a person + form",
+      "element": "save",
+      "note": "Stage 4 keep (D-001). Save of an existing person."
+    },
+    {
+      "row": 47,
+      "classification": "action",
+      "screen": "person-editor",
+      "surface_key": "web + /people/{id}/edit + create or edit a person + form",
+      "element": "change password",
+      "note": "Stage 4 change (D-003). Password fields inside the person editor."
+    },
+    {
+      "row": 48,
+      "classification": "action",
+      "screen": "person-editor",
+      "surface_key": "web + /people/{id}/edit + create or edit a person + form",
+      "element": "deactivate",
+      "note": "Stage 4 change (D-007). Deactivation replaces hide and delete (D-007, clarification T-01); exact control placement decided when the screen is drawn."
+    },
+    {
+      "row": 55,
+      "classification": "surface",
+      "screen": "system-info",
+      "surface_key": "web + /admin/system + view system information + read-only details page",
+      "note": "Stage 4 change (D-005). Diagnostic page for system administrators only, without connection details (D-005)."
+    },
+    {
+      "row": 56,
+      "classification": "surface",
+      "screen": "error-page",
+      "surface_key": "web + /error + explain a failure with a reference + message page",
+      "note": "Stage 4 change (D-005). Generic error page with a reference (D-005)."
+    },
+    {
+      "row": 57,
+      "classification": "state",
+      "screen": "error-page",
+      "surface_key": "web + /error + explain a failure with a reference + message page",
+      "element": "not-found",
+      "note": "Stage 4 change (D-005). Real not-found answer on the same message page (D-005)."
+    },
+    {
+      "row": 64,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-009/D-003). First installation without manual SQL (D-009)."
+    },
+    {
+      "row": 69,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-010). English date display and strict input rule applied by every date field (D-010)."
+    },
+    {
+      "row": 71,
+      "classification": "action",
+      "screen": "iteration-editor",
+      "surface_key": "web + /iterations/{id}/edit + create or edit an iteration + form",
+      "element": "pick a date",
+      "note": "Stage 4 change (D-010). One working date picker; first used by the iteration dates (D-010)."
+    },
+    {
+      "row": 72,
+      "classification": "non-visual",
+      "note": "Stage 4 keep (D-001). Request decoding."
+    },
+    {
+      "row": 73,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-005). Protected activity log (D-005)."
+    },
+    {
+      "row": 75,
+      "classification": "surface",
+      "screen": "projects-list",
+      "surface_key": "web + /projects + browse projects + table list",
+      "note": "Stage 4 keep (D-001). Projects list with its own route."
+    },
+    {
+      "row": 76,
+      "classification": "state",
+      "screen": "projects-list",
+      "surface_key": "web + /projects + browse projects + table list",
+      "element": "hidden-column",
+      "note": "Stage 4 keep (D-011). Extra column for users who may hide projects; role variation."
+    },
+    {
+      "row": 77,
+      "classification": "state",
+      "screen": "projects-list",
+      "surface_key": "web + /projects + browse projects + table list",
+      "element": "empty",
+      "note": "Stage 4 keep (D-001). No-projects message."
+    },
+    {
+      "row": 78,
+      "classification": "surface",
+      "screen": "project-editor",
+      "surface_key": "web + /projects/{id}/edit + create or edit a project + form",
+      "note": "Stage 4 keep (D-001). Project form used for create and edit."
+    },
+    {
+      "row": 79,
+      "classification": "state",
+      "screen": "project-editor",
+      "surface_key": "web + /projects/{id}/edit + create or edit a project + form",
+      "element": "missing-name",
+      "note": "Stage 4 keep (D-001). Validation on the same form."
+    },
+    {
+      "row": 80,
+      "classification": "action",
+      "screen": "project-editor",
+      "surface_key": "web + /projects/{id}/edit + create or edit a project + form",
+      "element": "set project options",
+      "note": "Stage 4 keep (D-011). Options persist; storage is not a requirement."
+    },
+    {
+      "row": 81,
+      "classification": "action",
+      "screen": "project-editor",
+      "surface_key": "web + /projects/{id}/edit + create or edit a project + form",
+      "element": "save",
+      "note": "Stage 4 keep (D-001). Edit and hide on the same form."
+    },
+    {
+      "row": 82,
+      "classification": "overlay",
+      "screen": "project-page",
+      "surface_key": "web + /projects/{id} + view a project and its iterations + detail page with iteration table",
+      "element": "delete project confirmation",
+      "note": "Stage 4 change (D-011). Explicit confirmation naming the removed owned data, including time (D-011, T-02)."
+    },
+    {
+      "row": 83,
+      "classification": "surface",
+      "screen": "project-page",
+      "surface_key": "web + /projects/{id} + view a project and its iterations + detail page with iteration table",
+      "note": "Stage 4 change (D-011). Project page with the iteration table; sorting applies to the whole list (D-011)."
+    },
+    {
+      "row": 84,
+      "classification": "state",
+      "screen": "project-page",
+      "surface_key": "web + /projects/{id} + view a project and its iterations + detail page with iteration table",
+      "element": "empty",
+      "note": "Stage 4 change (D-011). No-iterations message (D-011)."
+    },
+    {
+      "row": 88,
+      "classification": "surface",
+      "screen": "iteration-editor",
+      "surface_key": "web + /iterations/{id}/edit + create or edit an iteration + form",
+      "note": "Stage 4 keep (D-001). Iteration form with start and end dates, used for create and edit."
+    },
+    {
+      "row": 89,
+      "classification": "state",
+      "screen": "iteration-editor",
+      "surface_key": "web + /iterations/{id}/edit + create or edit an iteration + form",
+      "element": "invalid-dates",
+      "note": "Stage 4 change (D-010). Strict date validation messages (D-010)."
+    },
+    {
+      "row": 90,
+      "classification": "action",
+      "screen": "iteration-editor",
+      "surface_key": "web + /iterations/{id}/edit + create or edit an iteration + form",
+      "element": "save",
+      "note": "Stage 4 keep (D-001). Edit of name, dates, days worked and description; status shown read-only."
+    },
+    {
+      "row": 91,
+      "classification": "overlay",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "delete iteration confirmation",
+      "note": "Stage 4 change (D-012/D-011). Confirmed delete with the complete effect on owned data (D-011, D-012)."
+    },
+    {
+      "row": 92,
+      "classification": "surface",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "note": "Stage 4 keep (D-001). Representative list screen (UX-006-01): summary header and story table."
+    },
+    {
+      "row": 93,
+      "classification": "state",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "empty",
+      "note": "Stage 4 keep (D-001). No-stories message."
+    },
+    {
+      "row": 95,
+      "classification": "action",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "save order",
+      "note": "Stage 4 keep (D-001). Order numbers typed in the table and saved."
+    },
+    {
+      "row": 96,
+      "classification": "state",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "invalid-order-number",
+      "note": "Stage 4 keep (D-001). Message on the same page."
+    },
+    {
+      "row": 97,
+      "classification": "action",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "move selected stories",
+      "note": "Stage 4 change (D-012). Selected stories are moved to another iteration; cross-project targets only with rights on both projects (D-012). The target choice step is not drawn yet."
+    },
+    {
+      "row": 98,
+      "classification": "action",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "start iteration",
+      "note": "Stage 4 keep (D-001). Start command; a confirmation appears only in the cases of rows 99 and 100."
+    },
+    {
+      "row": 99,
+      "classification": "overlay",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "start iteration confirmation",
+      "note": "Stage 4 keep (D-001). Confirmation proposing to close other started iterations."
+    },
+    {
+      "row": 100,
+      "classification": "overlay",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "start iteration confirmation",
+      "note": "Stage 4 keep (D-001). Time entry on a task of a not-yet-started iteration first asks to start it."
+    },
+    {
+      "row": 101,
+      "classification": "overlay",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "close iteration confirmation",
+      "note": "Stage 4 change (D-012). Representative dialog (UX-006-01): confirmation that states the consequences (D-012; foundation action rule)."
+    },
+    {
+      "row": 102,
+      "classification": "overlay",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "continue unfinished stories",
+      "note": "Stage 4 change (D-012). Choice of a future iteration after closing; second step, not drawn yet (D-012)."
+    },
+    {
+      "row": 103,
+      "classification": "state",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "no-future-iteration",
+      "note": "Stage 4 keep (D-001). Message in the continue step."
+    },
+    {
+      "row": 104,
+      "classification": "state",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "same-iteration-rejected",
+      "note": "Stage 4 keep (D-001). Message in the continue step."
+    },
+    {
+      "row": 106,
+      "classification": "surface",
+      "screen": "iteration-tasks",
+      "surface_key": "web + /iterations/{id}/tasks + view iteration tasks grouped by story + grouped table",
+      "note": "Stage 4 change (D-012). All tasks of an iteration grouped by story (D-012 change); local tab of the iteration."
+    },
+    {
+      "row": 109,
+      "classification": "surface",
+      "screen": "iteration-statistics",
+      "surface_key": "web + /iterations/{id}/statistics + view iteration charts + chart page",
+      "note": "Stage 4 keep (D-001). Statistics charts; local tab of the iteration."
+    },
+    {
+      "row": 110,
+      "classification": "state",
+      "screen": "iteration-statistics",
+      "surface_key": "web + /iterations/{id}/statistics + view iteration charts + chart page",
+      "element": "progress-chart-shown",
+      "note": "Stage 4 keep (D-001). Chart shown only when data samples exist."
+    },
+    {
+      "row": 111,
+      "classification": "state",
+      "screen": "iteration-statistics",
+      "surface_key": "web + /iterations/{id}/statistics + view iteration charts + chart page",
+      "element": "velocity-charts-shown",
+      "note": "Stage 4 keep (D-001). Charts shown only when the setting displays them."
+    },
+    {
+      "row": 112,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-013). Daily burn-down sampling (D-013, M-03); method and schedule not chosen."
+    },
+    {
+      "row": 113,
+      "classification": "surface",
+      "screen": "iteration-accuracy",
+      "surface_key": "web + /iterations/{id}/accuracy + compare iteration estimates + table page",
+      "note": "Stage 4 keep (D-001). Accuracy comparison; local tab of the iteration."
+    },
+    {
+      "row": 114,
+      "classification": "surface",
+      "screen": "iteration-board",
+      "surface_key": "web + /iterations/{id}/board + view the task board read-only + card columns",
+      "note": "Stage 4 keep (D-023). Read-only task board (D-023); drag-to-update deferred (M-02)."
+    },
+    {
+      "row": 121,
+      "classification": "surface",
+      "screen": "story-editor",
+      "surface_key": "web + /stories/{id}/edit + create or edit a story + form",
+      "note": "Stage 4 change (D-015). Story form used for create and edit; disposition and status persisted (D-015)."
+    },
+    {
+      "row": 122,
+      "classification": "state",
+      "screen": "story-editor",
+      "surface_key": "web + /stories/{id}/edit + create or edit a story + form",
+      "element": "new-story-defaults",
+      "note": "Stage 4 keep (D-001). Default priority on a new story."
+    },
+    {
+      "row": 123,
+      "classification": "state",
+      "screen": "story-editor",
+      "surface_key": "web + /stories/{id}/edit + create or edit a story + form",
+      "element": "validation-error",
+      "note": "Stage 4 keep (D-001). Validation on the same form."
+    },
+    {
+      "row": 125,
+      "classification": "action",
+      "screen": "story-editor",
+      "surface_key": "web + /stories/{id}/edit + create or edit a story + form",
+      "element": "save",
+      "note": "Stage 4 change (D-015). Save with disposition and status persisted and pre-selected (D-015)."
+    },
+    {
+      "row": 126,
+      "classification": "overlay",
+      "screen": "story-page",
+      "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
+      "element": "delete story confirmation",
+      "note": "Stage 4 change (D-015). Confirmed delete per D-011."
+    },
+    {
+      "row": 127,
+      "classification": "surface",
+      "screen": "story-page",
+      "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
+      "note": "Stage 4 keep (D-001). Story page with its task table."
+    },
+    {
+      "row": 128,
+      "classification": "state",
+      "screen": "story-page",
+      "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
+      "element": "empty",
+      "note": "Stage 4 keep (D-001). No-tasks message."
+    },
+    {
+      "row": 129,
+      "classification": "overlay",
+      "screen": "story-page",
+      "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
+      "element": "move or continue story",
+      "note": "Stage 4 keep (D-001). Choice of the target iteration; legacy separate page."
+    },
+    {
+      "row": 130,
+      "classification": "action",
+      "screen": "story-page",
+      "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
+      "element": "continue story",
+      "note": "Stage 4 change (D-015). Continue in the target iteration (D-015)."
+    },
+    {
+      "row": 131,
+      "classification": "state",
+      "screen": "story-page",
+      "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
+      "element": "same-iteration-rejected",
+      "note": "Stage 4 keep (D-001). Message in the move or continue step."
+    },
+    {
+      "row": 132,
+      "classification": "state",
+      "screen": "story-page",
+      "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
+      "element": "move-continue-validation",
+      "note": "Stage 4 keep (D-001). Missing-name validation in the move or continue step."
+    },
+    {
+      "row": 134,
+      "classification": "surface",
+      "screen": "task-editor",
+      "surface_key": "web + /tasks/{id}/edit + create or edit a task + form",
+      "note": "Stage 4 change (D-016). Representative edit form (UX-006-01): task form with acceptor choice, used for create and edit (D-016)."
+    },
+    {
+      "row": 135,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-010). Stable stored code for the task type (D-010)."
+    },
+    {
+      "row": 136,
+      "classification": "state",
+      "screen": "task-editor",
+      "surface_key": "web + /tasks/{id}/edit + create or edit a task + form",
+      "element": "default-disposition",
+      "note": "Stage 4 change (D-016). Pre-selected disposition on a new task; the chosen value is stored (D-016)."
+    },
+    {
+      "row": 137,
+      "classification": "state",
+      "screen": "task-editor",
+      "surface_key": "web + /tasks/{id}/edit + create or edit a task + form",
+      "element": "validation-error",
+      "note": "Stage 4 change (D-016). Missing name and negative estimate messages (D-016)."
+    },
+    {
+      "row": 138,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-017). Task-change mail to the current assignee (D-017)."
+    },
+    {
+      "row": 139,
+      "classification": "action",
+      "screen": "task-editor",
+      "surface_key": "web + /tasks/{id}/edit + create or edit a task + form",
+      "element": "save",
+      "note": "Stage 4 keep (D-001). Update of an existing task."
+    },
+    {
+      "row": 140,
+      "classification": "action",
+      "screen": "task-page",
+      "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
+      "element": "complete task",
+      "note": "Stage 4 change (D-016). Completion action on the task page (D-016)."
+    },
+    {
+      "row": 141,
+      "classification": "action",
+      "screen": "task-page",
+      "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
+      "element": "reopen task",
+      "note": "Stage 4 change (D-016). Reopen action on the task page (D-016)."
+    },
+    {
+      "row": 142,
+      "classification": "overlay",
+      "screen": "task-page",
+      "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
+      "element": "delete task confirmation",
+      "note": "Stage 4 change (D-016). Confirmed delete per D-011."
+    },
+    {
+      "row": 143,
+      "classification": "surface",
+      "screen": "task-page",
+      "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
+      "note": "Stage 4 change (D-004). Task page with the time log."
+    },
+    {
+      "row": 144,
+      "classification": "overlay",
+      "screen": "task-page",
+      "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
+      "element": "move or continue task",
+      "note": "Stage 4 change (D-016). Choice of the target story (D-016)."
+    },
+    {
+      "row": 145,
+      "classification": "action",
+      "screen": "task-page",
+      "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
+      "element": "continue task",
+      "note": "Stage 4 change (D-016). Continue into the target story (D-016)."
+    },
+    {
+      "row": 146,
+      "classification": "state",
+      "screen": "task-page",
+      "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
+      "element": "same-story-rejected",
+      "note": "Stage 4 change (D-016). Message in the move or continue step."
+    },
+    {
+      "row": 147,
+      "classification": "state",
+      "screen": "task-page",
+      "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
+      "element": "move-continue-validation",
+      "note": "Stage 4 change (D-016). Missing-name validation in the move or continue step."
+    },
+    {
+      "row": 149,
+      "classification": "surface",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "note": "Stage 4 change (D-010). Multi-row time entry grid (D-010 English first)."
+    },
+    {
+      "row": 150,
+      "classification": "action",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "edit or delete entries",
+      "note": "Stage 4 keep (D-001). Same grid."
+    },
+    {
+      "row": 151,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "remaining-hours-recalculated",
+      "note": "Stage 4 keep (D-001). Live recalculation on the same grid."
+    },
+    {
+      "row": 152,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "parse-error",
+      "note": "Stage 4 change (D-010). Message instead of HTTP 500 (D-010)."
+    },
+    {
+      "row": 153,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "row-validation-error",
+      "note": "Stage 4 keep (D-001). Per-row validation message on the same grid."
+    },
+    {
+      "row": 154,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "row-validation-error",
+      "note": "Stage 4 keep (D-001). Per-row validation message on the same grid."
+    },
+    {
+      "row": 155,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "row-validation-error",
+      "note": "Stage 4 keep (D-001). Per-row validation message on the same grid."
+    },
+    {
+      "row": 156,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "row-validation-error",
+      "note": "Stage 4 keep (D-001). Per-row validation message on the same grid."
+    },
+    {
+      "row": 157,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "row-validation-error",
+      "note": "Stage 4 keep (D-001). Per-row validation message on the same grid."
+    },
+    {
+      "row": 158,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "row-validation-error",
+      "note": "Stage 4 keep (D-001). Per-row validation message on the same grid."
+    },
+    {
+      "row": 159,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "row-validation-error",
+      "note": "Stage 4 keep (D-001). Per-row validation message on the same grid."
+    },
+    {
+      "row": 160,
+      "classification": "state",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "row-validation-error",
+      "note": "Stage 4 keep (D-001). Per-row validation message on the same grid."
+    },
+    {
+      "row": 162,
+      "classification": "surface",
+      "screen": "person-timesheet",
+      "surface_key": "web + /people/{id}/timesheet + view the hours of one person for a period + period filter with table",
+      "note": "Stage 4 change (D-007). Personal timesheet reached from the person page."
+    },
+    {
+      "row": 163,
+      "classification": "state",
+      "screen": "person-timesheet",
+      "surface_key": "web + /people/{id}/timesheet + view the hours of one person for a period + period filter with table",
+      "element": "invalid-period",
+      "note": "Stage 4 change (D-010). Message instead of a silent default (D-010)."
+    },
+    {
+      "row": 164,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-001). Server-side permission check of the personal timesheet (D-001)."
+    },
+    {
+      "row": 165,
+      "classification": "surface",
+      "screen": "aggregate-timesheet",
+      "surface_key": "web + /timesheets + view combined hours of several people for a period + selection and table",
+      "note": "Stage 4 change (D-004). Combined hours of selected people, reached from the projects page."
+    },
+    {
+      "row": 166,
+      "classification": "state",
+      "screen": "aggregate-timesheet",
+      "surface_key": "web + /timesheets + view combined hours of several people for a period + selection and table",
+      "element": "invalid-period",
+      "note": "Stage 4 change (D-010). Message instead of a silent default (D-010)."
+    },
+    {
+      "row": 167,
+      "classification": "non-visual",
+      "note": "Stage 4 keep (D-001). Read filter of the aggregate timesheet query."
+    },
+    {
+      "row": 169,
+      "classification": "surface",
+      "screen": "note-editor",
+      "surface_key": "web + /notes/{id}/edit + add or edit a note + form",
+      "note": "Stage 4 change (D-018). Note form for project, iteration, story and task notes; attachments deferred (D-018)."
+    },
+    {
+      "row": 170,
+      "classification": "state",
+      "screen": "note-editor",
+      "surface_key": "web + /notes/{id}/edit + add or edit a note + form",
+      "element": "validation-error",
+      "note": "Stage 4 change (D-018). Validation messages instead of HTTP 500 (D-018)."
+    },
+    {
+      "row": 173,
+      "classification": "action",
+      "screen": "note-editor",
+      "surface_key": "web + /notes/{id}/edit + add or edit a note + form",
+      "element": "save",
+      "note": "Stage 4 change (D-018). Edit keeps the original author (D-018)."
+    },
+    {
+      "row": 178,
+      "classification": "surface",
+      "screen": "search-results",
+      "surface_key": "web + /search + find objects by text or ID + result list",
+      "note": "Stage 4 keep (D-001). Results of the header text search."
+    },
+    {
+      "row": 179,
+      "classification": "state",
+      "screen": "search-results",
+      "surface_key": "web + /search + find objects by text or ID + result list",
+      "element": "empty",
+      "note": "Stage 4 keep (D-001). Empty-results message."
+    },
+    {
+      "row": 180,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-001). Permission check of the numeric search hit."
+    },
+    {
+      "row": 181,
+      "classification": "state",
+      "screen": "search-results",
+      "surface_key": "web + /search + find objects by text or ID + result list",
+      "element": "empty-search-rejected",
+      "note": "Stage 4 change (D-005). Validation message for an empty search (D-005)."
+    },
+    {
+      "row": 182,
+      "classification": "state",
+      "screen": "search-results",
+      "surface_key": "web + /search + find objects by text or ID + result list",
+      "element": "numeric-id-match",
+      "note": "Stage 4 keep (D-001). A numeric search lists the matching object."
+    },
+    {
+      "row": 183,
+      "classification": "state",
+      "screen": "search-results",
+      "surface_key": "web + /search + find objects by text or ID + result list",
+      "element": "invalid-id",
+      "note": "Stage 4 keep (D-001). Error message for a missing, malformed or unknown ID."
+    },
+    {
+      "row": 184,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-001). Permission check of the ID jump."
+    },
+    {
+      "row": 185,
+      "classification": "navigation",
+      "screen": "app-shell",
+      "surface_key": "web + every signed-in page + shared top bar and breadcrumb + page frame",
+      "element": "breadcrumb",
+      "note": "Stage 4 change (D-004). Breadcrumb on every object page; output escaped (D-004)."
+    },
+    {
+      "row": 186,
+      "classification": "surface",
+      "screen": "history",
+      "surface_key": "web + /{object}/{id}/history + view the history of an object + event table",
+      "note": "Stage 4 change (D-019/D-010). History of one object (D-019)."
+    },
+    {
+      "row": 187,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-019). Uniform audit writing (D-019)."
+    },
+    {
+      "row": 188,
+      "classification": "navigation",
+      "screen": "app-shell",
+      "surface_key": "web + every signed-in page + shared top bar and breadcrumb + page frame",
+      "element": "me",
+      "note": "Stage 4 keep (D-001). Header link to the status page of the signed-in person."
+    },
+    {
+      "row": 190,
+      "classification": "navigation",
+      "screen": "task-editor",
+      "surface_key": "web + /tasks/{id}/edit + create or edit a task + form",
+      "element": "formatting help",
+      "note": "Stage 4 keep (D-019). Formatting-help link next to the description; other editors reuse it."
+    },
+    {
+      "row": 192,
+      "classification": "state",
+      "screen": "app-shell",
+      "surface_key": "web + every signed-in page + shared top bar and breadcrumb + page frame",
+      "element": "print view",
+      "note": "Stage 4 change (D-019). Print-friendly rendering of the same pages (M-07)."
+    },
+    {
+      "row": 203,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-017). Mail failure handling (D-017)."
+    },
+    {
+      "row": 204,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-013). Daily burn-down sampling (D-013, M-03)."
+    },
+    {
+      "row": 209,
+      "classification": "action",
+      "screen": "project-page",
+      "surface_key": "web + /projects/{id} + view a project and its iterations + detail page with iteration table",
+      "element": "export project",
+      "note": "Stage 4 change (D-021). Permitted project export (D-021)."
+    },
+    {
+      "row": 210,
+      "classification": "action",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "export iteration",
+      "note": "Stage 4 change (D-021). Permitted iteration export and printable listing (D-021)."
+    },
+    {
+      "row": 223,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-023). Internal API the board needs (D-023)."
+    },
+    {
+      "row": 225,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-023/D-002). Authentication of the internal API (D-002, D-023)."
+    }
+  ],
+  "excluded_rows": [
+    {
+      "row": 9,
+      "finding": "Stage 4 D-003 (do-not-port)",
+      "reason": "do not port — factory default credentials on the login page; the first installation sets the administrator credential without a default value."
+    },
+    {
+      "row": 35,
+      "finding": "Stage 4 D-006 (do-not-port)",
+      "reason": "do not port — the separate project role editor (HTTP 500, no link); per-project role assignment (row 33) covers the capability."
+    },
+    {
+      "row": 49,
+      "finding": "Stage 4 D-007 (do-not-port)",
+      "reason": "do not port — person delete; replaced by deactivation (row 48) without loss of time or history and without dangling references. No physical erasure of personal data in the demo; a separate decision before any real data transfer."
+    },
+    {
+      "row": 59,
+      "finding": "Stage 4 D-009 (do-not-port)",
+      "reason": "do not port — the unfinished settings pages."
+    },
+    {
+      "row": 60,
+      "finding": "Stage 4 D-009/D-004 (do-not-port)",
+      "reason": "do not port — the generic /setting handlers with request-chosen redirect: or forward: views."
+    },
+    {
+      "row": 61,
+      "finding": "Stage 4 D-009/D-002 (do-not-port)",
+      "reason": "do not port — the cache-clear URLs, one of them reachable without authentication."
+    },
+    {
+      "row": 62,
+      "finding": "Stage 4 D-009 (do-not-port)",
+      "reason": "do not port — the test utilities in production (clock shift, data sampling, notifier, property editor)."
+    },
+    {
+      "row": 63,
+      "finding": "Stage 4 D-009 (do-not-port)",
+      "reason": "do not port — the tiles reload URL."
+    },
+    {
+      "row": 65,
+      "finding": "Stage 4 D-009 (do-not-port)",
+      "reason": "do not port — the double loading of the Spring context (second Liquibase run and doubled reminder job)."
+    },
+    {
+      "row": 66,
+      "finding": "Stage 4 D-009 (do-not-port)",
+      "reason": "do not port — the embedded HSQLDB mode."
+    },
+    {
+      "row": 67,
+      "finding": "Stage 4 D-009 (do-not-port)",
+      "reason": "do not port — the legacy property-file layering; target configuration is a Stage 9 matter."
+    },
+    {
+      "row": 68,
+      "finding": "Stage 4 D-009 (do-not-port)",
+      "reason": "do not port — the ignored Hibernate and pool settings of the legacy property files."
+    },
+    {
+      "row": 94,
+      "finding": "Stage 4 D-013 (do-not-port)",
+      "reason": "do not port — the progress-bar implementation switch."
+    },
+    {
+      "row": 105,
+      "finding": "Stage 4 D-012 (do-not-port)",
+      "reason": "do not port — the tabbed iteration view (its page is missing)."
+    },
+    {
+      "row": 124,
+      "finding": "Stage 4 D-015/D-004 (do-not-port)",
+      "reason": "do not port — the merge=true binding of request parameters without validation."
+    },
+    {
+      "row": 176,
+      "finding": "Stage 4 D-018 (do-not-port)",
+      "reason": "do not port — the file manager (fails on every request)."
+    },
+    {
+      "row": 191,
+      "finding": "Stage 4 D-019 (do-not-port)",
+      "reason": "do not port — the page-width toggle; responsive web access (M-01, D-025) covers it."
+    },
+    {
+      "row": 193,
+      "finding": "Stage 4 D-019 (do-not-port)",
+      "reason": "do not port — the Twitter and Facebook share links."
+    },
+    {
+      "row": 194,
+      "finding": "Stage 4 D-019 (do-not-port)",
+      "reason": "do not port — the story feature pages (unmapped, links commented out)."
+    },
+    {
+      "row": 196,
+      "finding": "Stage 4 D-020 (do-not-port)",
+      "reason": "do not port — the CI queue for this demo; consumers are not declared absent; a production migration requires a check."
+    },
+    {
+      "row": 197,
+      "finding": "Stage 4 D-020 (do-not-port)",
+      "reason": "do not port — the CI queue for this demo; consumers are not declared absent; a production migration requires a check."
+    },
+    {
+      "row": 198,
+      "finding": "Stage 4 D-020 (do-not-port)",
+      "reason": "do not port — the CI queue for this demo; consumers are not declared absent; a production migration requires a check."
+    },
+    {
+      "row": 202,
+      "finding": "Stage 4 D-017 (do-not-port)",
+      "reason": "do not port — mail that depends on the application fetching its own stylesheet URL."
+    },
+    {
+      "row": 205,
+      "finding": "Stage 4 D-013 (do-not-port)",
+      "reason": "do not port — the automatic end-date extension switch."
+    },
+    {
+      "row": 206,
+      "finding": "Stage 4 D-017 (do-not-port)",
+      "reason": "do not port — the dormant per-change e-mail listener."
+    },
+    {
+      "row": 211,
+      "finding": "Stage 4 D-021 (do-not-port)",
+      "reason": "do not port — the JRPDF reports (templates missing)."
+    },
+    {
+      "row": 213,
+      "finding": "Stage 4 D-021 (do-not-port)",
+      "reason": "do not port — the JRPDF reports (templates missing)."
+    },
+    {
+      "row": 216,
+      "finding": "Stage 4 D-022 (do-not-port)",
+      "reason": "do not port — the anonymous /servlet/AxisServlet alias."
+    },
+    {
+      "row": 217,
+      "finding": "Stage 4 D-022 (do-not-port)",
+      "reason": "do not port — the Axis Version service."
+    },
+    {
+      "row": 219,
+      "finding": "Stage 4 D-022 (do-not-port)",
+      "reason": "do not port — the dormant JAX-WS stub."
+    },
+    {
+      "row": 224,
+      "finding": "Stage 4 D-023 (do-not-port)",
+      "reason": "do not port — the /rest/view plain-text endpoint."
+    },
+    {
+      "row": 232,
+      "finding": "Stage 4 D-025 (do-not-port)",
+      "reason": "do not port — the WAP channel; mobile access is kept as responsive web capability (M-01); Stage 5 style is not approved."
+    },
+    {
+      "row": 233,
+      "finding": "Stage 4 D-025 (do-not-port)",
+      "reason": "do not port — the WAP channel; mobile access is kept as responsive web capability (M-01); Stage 5 style is not approved."
+    },
+    {
+      "row": 234,
+      "finding": "Stage 4 D-025 (do-not-port)",
+      "reason": "do not port — the WAP channel; mobile access is kept as responsive web capability (M-01); Stage 5 style is not approved."
+    }
+  ],
+  "_notes": [
+    "Stage 6 draft by UX Designer assignment UX-006-01, generated 2026-10-02T20:35:50Z (UTC from code) from analysis/legacy_user_flows.xlsx, sheet \"User Flows\" (read-only, 210 business rows of UF-001..UF-018), column J Stage 4 destination notes, and analysis/stages/stage-04/stage-04-requirements-revision.md D-001..D-025. Not reviewed and not approved.",
+    "Accounting of all 210 business rows, each exactly once: 140 classified in rows[] (keep or change), 34 in excluded_rows[] (Stage 4 do-not-port), 31 deferred by Stage 4 and listed in the next note, 5 keep or change rows pending and listed in the note after it.",
+    "Deferred by Stage 4 (not designed and not excluded; they return to Stage 6 with their slice): D-003: rows 15, 16, 21; D-008: rows 50, 51, 52, 53; D-010: rows 58, 70; D-017: rows 85, 86, 200, 201; D-013: rows 107, 108; D-014: rows 115, 116, 117, 118, 119; D-018: rows 171, 172, 175; D-022: rows 215, 218, 220, 221; D-023: rows 226; D-024: rows 228, 229, 230. The record schema has no slot for deferred rows, so audit:prototype reports them as unclassified until PM or the owner decides how deferred scope is carried; this record does not relabel them as do-not-port.",
+    "Pending (keep or change, placement not decided; no detail invented): row 161 - Re-estimate stays reachable from the task or time editor (D-016); the placement is not decided. row 174 - Note delete confirmation; notes appear on four object pages and the shared placement is not decided. row 189 - Safe display of existing markup and object links on every object page (D-019); the rendering is not designed. row 208 - Export menu on five object pages (D-021); the shared overlay placement is not decided. row 212 - Story and task PDF listing on two pages (D-021); placement follows the export menu of row 208.",
+    "The normalization is general. Screen ids and surface keys are planning identities; route families are labels, not implementation URLs. Only the three representative screens of UX-006-01 are drawn (iteration-page, its close iteration confirmation overlay, and task-editor); every other screen, state, action, overlay and navigation step is planned but not drawn, and its element names may be refined when it is drawn.",
+    "Role variations (viewer, editor and admin per project; system administrator) follow the SDD permission matrix (D-001); no screen encodes a role ladder."
+  ]
+}
