@@ -91,7 +91,7 @@ command, identifier, glob, placeholder or future output path.
 | [analysis/knowledge/templates/SLUG-template.md](knowledge/templates/SLUG-template.md) | `analysis/knowledge/bundle/CATEGORY/SLUG.md` |
 | [analysis/reviews/stage-NN-pass-NNN-template.md](reviews/stage-NN-pass-NNN-template.md) | `analysis/reviews/stage-NN-pass-NNN.md` |
 | [analysis/stages/templates/walkthrough-NNN-template.md](stages/templates/walkthrough-NNN-template.md) | `analysis/stages/stage-03/walkthrough-NNN.md` |
-| [analysis/stages/templates/stage-04-requirements-revision-template.md](stages/templates/stage-04-requirements-revision-template.md) | `analysis/stages/stage-04/stage-04-requirements-revision.md` |
+| [analysis/stages/templates/stage-04-requirements-revision-template.md](stages/templates/stage-04-requirements-revision-template.md) | [`analysis/stages/stage-04/stage-04-requirements-revision.md`](./stages/stage-04/stage-04-requirements-revision.md) |
 | [analysis/stages/templates/knowledge-record-template.md](stages/templates/knowledge-record-template.md) | `analysis/stages/stage-13/knowledge-record.md` |
 | [analysis/stages/templates/sdd-record-template.md](stages/templates/sdd-record-template.md) | `analysis/stages/stage-15/sdd-record.md` |
 | [analysis/stages/templates/delivery-NNN-template.md](stages/templates/delivery-NNN-template.md) | `analysis/stages/stage-18/delivery-NNN.md` |

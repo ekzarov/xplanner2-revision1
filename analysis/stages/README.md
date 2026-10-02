@@ -62,6 +62,8 @@ The durable decision log for challenged legacy behavior. For every contradiction
 
 **Example:** The owner defers the legacy wiki workflow because that logic should not move into the replacement.
 
+**Project file:** [`stage-04-requirements-revision.md`](stage-04/stage-04-requirements-revision.md)
+
 </details>
 <details>
 <summary>stage-13/knowledge-record.md</summary>

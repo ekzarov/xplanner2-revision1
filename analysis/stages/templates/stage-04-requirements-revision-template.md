@@ -36,7 +36,7 @@ A populated document or green audit is not owner approval. Limited approval does
 
 > **Reading statuses:** `approved` (the recorded owner decisions cover this scope); `changes required` (reconciliation is unfinished); `blocked` (required decisions or evidence are missing). Row choices such as `keep` (preserve behavior) and `do-not-port` (exclude the named legacy behavior under its recorded conditions) are not owner approval without decision evidence. [Status meanings](https://github.com/olsys-ltd/legacy-modernization-starter/blob/main/analysis/artifact-status-meanings.md).
 
-> **Template output:** `analysis/stages/stage-04/stage-04-requirements-revision.md`. Preserve this filename stem;
+> **Template output:** [`analysis/stages/stage-04/stage-04-requirements-revision.md`](../stage-04/stage-04-requirements-revision.md). Preserve this filename stem;
 > replace only the uppercase placeholders. See the artifact naming guide.
 
 </details>
