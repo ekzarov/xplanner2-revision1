@@ -1,9 +1,9 @@
 {
   "schema_version": 4,
   "project": "xplanner2-revision1",
-  "scope": "Stage 6 UX-006-08: 25 screens with real exports and the component sheet; listed gaps pending",
+  "scope": "Stage 6 UX-006-12: 25 screens with real exports and the component sheet; open coverage items listed for Stage 7",
   "tool": "Google Stitch, project projects/2535085752995102337",
-  "export_set_version": "stage-06-draft-11-ux-006-11",
+  "export_set_version": "stage-06-draft-12-ux-006-12",
   "decision": "analysis/prototyping/ui-ux-decision.md",
   "normalization": "analysis/prototyping/screen-normalization.json",
   "normalization_sha256": "c28d7213437eeb7de36fb83a9ae548c58aae689894930e6bf9ccd1c64b851b28",
@@ -28,10 +28,12 @@
       "actions": [
         "save order",
         "move selected stories",
+        "start iteration",
         "export iteration"
       ],
       "overlays": [
         "delete iteration confirmation",
+        "start iteration confirmation",
         "close iteration confirmation",
         "continue unfinished stories"
       ],
@@ -42,6 +44,8 @@
         95,
         96,
         97,
+        98,
+        99,
         101,
         102,
         103,
@@ -68,11 +72,11 @@
         },
         {
           "path": "wireframes/dialog-desktop.html",
-          "sha256": "fa367914182c9d7525ff3b8166288486fee7a9592d878493efd972f79314f873"
+          "sha256": "e45295626aad787179b2b1afbcd0de1978f306396debe2dc011aa18bffd6d3df"
         },
         {
           "path": "wireframes/dialog-desktop.png",
-          "sha256": "a362e51c05cdfd4edfa7f76d0d04bd2106f2b791ebc6e8b4590edb7579b2d03a"
+          "sha256": "1b301b9bcbdf552091327f699a917d0036f04b2d5091ef1100354460054a5ed0"
         },
         {
           "path": "wireframes/dialog-phone.html",
@@ -84,11 +88,19 @@
         },
         {
           "path": "wireframes/continue-dialog-desktop.html",
-          "sha256": "59fec3b45622417943e163b9bd4df6b25ec6b62fcfc8cd9ba57428d8707e5c9a"
+          "sha256": "645058322dfc92b1ace800c3dba3a94a68b319be2041765e82f022cb22a673a0"
         },
         {
           "path": "wireframes/continue-dialog-desktop.png",
-          "sha256": "9a97fbadb48bc0d96f7d0b0098f51d1fdaa0a9db3a37291af84cf4b245e5398a"
+          "sha256": "4f3d48ea258b5f2bebbaa415e66ba0d64e9622318dea896f138c40f095fd8c15"
+        },
+        {
+          "path": "wireframes/iteration-start-dialog-desktop.html",
+          "sha256": "8027e42c9e5361effe3edfebcf0ebfb89507c2bb3761a22a2dc44adc34c1f259"
+        },
+        {
+          "path": "wireframes/iteration-start-dialog-desktop.png",
+          "sha256": "f3d3915bd35c211bd96bcd3c492cef7740339ea2ccdf21ce205abcd729c2df4e"
         },
         {
           "path": "wireframes/iteration-print-desktop.html",
@@ -1541,15 +1553,16 @@
     }
   ],
   "_notes": [
-    "Stage 6 DRAFT written by UX Designer UX-006-10 at 2026-10-03T14:17:39Z (UTC from code). It is NOT clean, NOT all of Stage 6, NOT a Stage 7 control and NOT owner approval. The owner liked the general style and gave direction on editor actions and profile identity only.",
-    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a named responsive or message pattern verified by a real export (P). Per-row D/P claims are recorded in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. Rows whose entry point is missing from the exports are not claimed: iteration-page 91, 98, 99, 210 and 192 (print view). App-shell rows were remapped onto drawn screens in UX-006-09 (19 projects-list, 185 task-page, 188 person-page, 192 iteration-page).",
-    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset; official UI Export ZIPs: 827baa43…73a0 (list-desktop, form-desktop, dialog-desktop), 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, continue-dialog, time-editor, person-page, person-editor, aggregate-timesheet, note-editor, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone).",
-    "Pending prepared entries (built automatically when their files exist): H4 (handoff-ux-006-09): extend iteration-page. Checked by content in the exported HTML: form-phone now shows Save, Reset and Cancel (ZIP 6157107c). Still NOT delivered: list-desktop and dialog-desktop (current files show 120.0 / 72.0 h, 40%, Story 1 Accepted; the ZIP 6157107c dialog candidate had corrected HTML but the old screenshot, so it was not imported) and form-desktop (no Reset). The authorized regenerations (UX-006-08) produced no obtainable new export. time-editor, person-editor and note-editor show Save and Cancel without Reset (prepared edits in prompts-ux-006-07-pending.json). continue-dialog-desktop: the dialog is correct, but its background page shows invented navigation (Projects, Iterations, Roadmaps, Reports, Create, help, notifications, settings) and invented story and customer names; this is a recorded defect, not counted as clean.",
-    "Editors (owner direction, relayed by Codex): Save, Reset and Cancel. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
-    "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page (export pending A6). A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",
-    "Responsive patterns: list/table: priority columns, table scrolls in its own container, 44-48 px targets; verified by list-phone (a10e679d) and project-page-phone (f4a330e1); form: single column, 16 px fields, stacked full-width Save / Reset / Cancel; verified by form-phone (296b7803; Reset edit pending export) and signin-phone (c5d26872); dialog: full width minus 16 px, stacked 48 px buttons, scrim; verified by dialog-phone (fdb44f71); detail page: heading, stacked action buttons, summary, then list/table; verified by project-page-phone (f4a330e1); board: stacked status sections per story; verified by iteration-board-phone (58e255ee); messages and validation: error summary plus field errors; verified by form-phone and signin-phone; empty state: table.data empty row; NOT yet verified (component sheet A12 pending); charts: charts stacked one per row with text legends; NOT verified (A13 pending); time grid: one stacked block per entry; NOT verified (C pending); date picker on phone: NOT verified (no phone export of iteration-editor). Surfaces without their own phone export rely on these patterns and are not individually verified.",
-    "Navigation: per-screen navigation entries; breadcrumbs on hierarchical pages, none at the root (projects-list shows a root \"Top\" breadcrumb, a recorded deviation). Carrying list position in the URL is a proposal only.",
-    "Known CI issue (PM handles; exports not retouched): dead in-page anchors in form-phone, history-desktop, list-phone and projects-list-desktop.",
+    "Stage 6 prototype set for the prototype PR, written by UX Designer UX-006-12 at 2026-10-03T14:23:17Z (UTC from code). It is NOT a Stage 7 control and NOT owner approval, and it does not declare Stage 6 complete. The owner liked the general style and gave direction on editor actions and profile identity only.",
+    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a named responsive or message pattern verified by a real export (P). Per-row D/P claims are recorded in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. App-shell rows were remapped onto drawn screens in UX-006-09 (19 projects-list, 185 task-page, 188 person-page, 192 iteration-page). Row 188 (Me) is claimed P only: the Me link is drawn in every top bar and the destination layout is the drawn person-page of User A; no export shows the own page of the signed-in person.",
+    "Open coverage items (NOT cosmetic and NOT proven coverage; for QA7 to assess against the requirements and approved patterns; no claim is made for them beyond what is drawn or pattern-verified): (1) role-dependent differences: every export shows the editor view, no viewer or administrator variant is drawn; (2) the Me page of the signed-in person is not drawn (row 188 is P, see Claims); (3) the system-info entry point is not drawn (the page itself, row 55, is drawn); (4) phone controls not verified: date picker on phone, select inside a phone dialog, empty state on phone; surfaces without their own phone export rely on the patterns below and are not individually verified.",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset; official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
+    "Pending prepared entries: none. Every export was accepted only after its real PNG was checked against its HTML; stale or cropped pairs (ZIP 6 and ZIP 7 close, ZIP 7 start and continue) were not imported and are kept in scratch.",
+    "Editors (owner direction, relayed by Codex): Save, Reset and Cancel, drawn on every exported editor. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
+    "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page. A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",
+    "Responsive patterns: list/table: priority columns, table scrolls in its own container, 44-48 px targets; verified by list-phone (a10e679d) and project-page-phone (f4a330e1); form: single column, 16 px fields, stacked full-width Save / Reset / Cancel; verified by form-phone (78b9b2d9, ZIP 6157107c) and signin-phone (c5d26872); dialog: full width minus 16 px, stacked 48 px buttons, scrim; verified by dialog-phone (fdb44f71); detail page: heading, stacked action buttons, summary, then list/table; verified by project-page-phone (f4a330e1); board: stacked status sections per story; verified by iteration-board-phone (58e255ee); messages and validation: error summary plus field errors; verified by form-phone and signin-phone; charts: charts stacked one per row with text legends; verified by iteration-statistics-phone (76be6213); time grid: one stacked block per entry; verified by time-editor-phone (c7e2ef05, ZIP 6157107c); empty state: table.data empty row; drawn on desktop (ui-kit, iteration-start-dialog-desktop); NOT verified on phone; date picker on phone: NOT verified (no phone export of iteration-editor); open coverage item; select inside a phone dialog: NOT verified (no phone export of continue-dialog); open coverage item. Surfaces without their own phone export rely on these patterns and are not individually verified.",
+    "Navigation: per-screen navigation entries; breadcrumbs on hierarchical pages, none at the root (projects-list shows a root \"Top\" breadcrumb, a recorded deviation). Carrying list position in the URL is a proposal only. list-phone has no operable select-all (row 97 is met by per-row checkboxes; recorded deviation); list-desktop draws \"Select all stories\".",
+    "Known CI issue (PM handles; exports not retouched): dead in-page anchors in some exports.",
     "Deferred: the 31 Stage 4 defer rows are recorded in the normalization deferred_rows field (UX-006-10, PR #48); they are not drawn. Former pending rows 161, 174, 189, 208 and 212 are placed (UX-006-09). The component sheet wireframes/ui-kit.html is the ui_design_system resource."
   ],
   "ui_design_system": {

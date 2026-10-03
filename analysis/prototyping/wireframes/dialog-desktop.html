@@ -1,275 +1,450 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, initial-scale=1.0">
+<title>Iteration 3 - Close confirmation complete export</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    width: 1280px;
+    min-height: 1024px;
+    height: 1024px;
+    background-color: #F7F8FA;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1D2125;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+  }
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Close Iteration 3 Confirmation Dialog</title>
-<!-- Tailwind CSS v3 with forms and container queries plugins -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<style data-purpose="typography">
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #1D2125;
-      background-color: #F7F8FA;
-    }
-  </style>
-<style data-purpose="component-styles">
-    /* Exact component border styling adhering to design specifications */
-    .btn-neutral {
-      background-color: #FFFFFF;
-      border: 1px solid #8590A2;
-      color: #1D2125;
-      height: 36px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 0 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .btn-primary {
-      background-color: #0C66E4;
-      border: 1px solid #0C66E4;
-      color: #FFFFFF;
-      height: 36px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 0 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .focus-ring {
-      outline: 2px solid #0C66E4;
-      outline-offset: 2px;
-    }
-    .radius-6 {
-      border-radius: 6px;
-    }
-    .border-control {
-      border: 1px solid #8590A2;
-    }
-    .border-divider {
-      border-color: #DCDFE4;
-    }
-    .bg-selected-row {
-      background-color: #E9F2FF;
-    }
-    .text-secondary {
-      color: #626F86;
-    }
-  </style>
+  /* Top bar */
+  .top-bar {
+    width: 100%;
+    height: 56px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #DCDFE4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+  .top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .brand-logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1D2125;
+    text-decoration: none;
+  }
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .search-label {
+    font-size: 14px;
+    color: #1D2125;
+  }
+  .search-input {
+    width: 240px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #8590A2;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #1D2125;
+    outline: none;
+    background: #FFFFFF;
+  }
+  .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .top-link {
+    color: #0C66E4;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Content area */
+  .main-content {
+    padding: 24px;
+  }
+  .breadcrumb {
+    font-size: 14px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .breadcrumb a {
+    color: #0C66E4;
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb .sep {
+    color: #626F86;
+  }
+  .breadcrumb .current {
+    color: #1D2125;
+  }
+
+  .page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1D2125;
+    margin-bottom: 12px;
+  }
+
+  /* Summary line */
+  .summary-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .progress-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .progress-bar-track {
+    width: 140px;
+    height: 6px;
+    background-color: #E2E4E8;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    width: 48%;
+    height: 100%;
+    background-color: #0C66E4;
+  }
+  .summary-text {
+    color: #1D2125;
+  }
+  .summary-sep {
+    color: #DCDFE4;
+  }
+
+  /* Local tabs */
+  .tabs-nav {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid #DCDFE4;
+    margin-bottom: 24px;
+  }
+  .tab-link {
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #626F86;
+    text-decoration: none;
+    position: relative;
+  }
+  .tab-link.active {
+    font-weight: 600;
+    color: #0C66E4;
+    border-bottom: 2px solid #0C66E4;
+    margin-bottom: -1px;
+  }
+
+  /* Table */
+  .table-wrapper {
+    background: #FFFFFF;
+    border: 1px solid #DCDFE4;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+  }
+  th {
+    background-color: #F1F2F4;
+    color: #1D2125;
+    font-weight: 600;
+    height: 40px;
+    padding: 0 12px;
+    border-bottom: 1px solid #DCDFE4;
+  }
+  td {
+    height: 40px;
+    padding: 0 12px;
+    border-bottom: 1px solid #DCDFE4;
+    color: #1D2125;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  .text-right {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .story-name-link {
+    color: #0C66E4;
+    text-decoration: none;
+  }
+  .story-name-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Scrim and Modal Dialog */
+  .scrim-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 1024px;
+    background-color: rgba(29, 33, 37, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .modal-dialog {
+    width: 480px;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(29, 33, 37, 0.2), 0 2px 6px rgba(29, 33, 37, 0.12);
+  }
+
+  .dialog-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1D2125;
+    margin-bottom: 16px;
+  }
+
+  .dialog-body {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1D2125;
+    margin-bottom: 24px;
+  }
+  .dialog-body p + p {
+    margin-top: 12px;
+  }
+
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  .btn-neutral {
+    background-color: #FFFFFF;
+    border: 1px solid #8590A2;
+    color: #1D2125;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-neutral:hover {
+    background-color: #F7F8FA;
+  }
+  .btn-neutral.focus-ring {
+    outline: 2px solid #0C66E4;
+    outline-offset: 2px;
+  }
+</style>
 </head>
-<body class="min-h-screen relative antialiased selection:bg-blue-100">
-<!-- BEGIN: PageBackground -->
-<div class="min-h-screen flex flex-col bg-[#F7F8FA] w-full max-w-[1440px] mx-auto overflow-hidden" data-purpose="stories-page-under-scrim">
-<!-- Top Navigation Bar -->
-<header class="h-14 bg-white border-b border-[#DCDFE4] px-6 flex items-center justify-between shrink-0" data-purpose="top-navigation">
-<div class="flex items-center gap-6">
-<span class="font-bold text-lg text-[#1D2125] tracking-tight">Planner</span>
-<div class="relative">
-<input class="h-8 w-56 text-sm border-control radius-6 px-3 bg-white text-[#1D2125] placeholder-[#626F86] focus:outline-none focus:border-[#0C66E4]" placeholder="Search or ID" readonly="" type="text"/>
-</div>
-</div>
-<div class="flex items-center gap-6 text-sm text-[#0C66E4]">
-<a class="hover:underline" href="#">Me</a>
-<a class="hover:underline" href="#">Sign out</a>
-</div>
-</header>
-<!-- Main Content Area -->
-<main class="flex-1 px-8 py-6 flex flex-col gap-6">
-<!-- Breadcrumb Navigation -->
-<nav aria-label="Breadcrumb" class="flex items-center text-sm text-secondary gap-2">
-<a class="text-[#0C66E4] hover:underline" href="#">Top</a>
-<span>/</span>
-<a class="text-[#0C66E4] hover:underline" href="#">Project 1</a>
-<span>/</span>
-<span>Iteration 3</span>
-</nav>
-<!-- Page Header & Metrics -->
-<div class="flex flex-col gap-3">
-<h1 class="text-2xl font-bold text-[#1D2125]">Iteration 3</h1>
-<div class="text-sm text-secondary">2026-03-02 to 2026-03-13</div>
-<div class="flex items-center gap-4 text-sm mt-1">
-<span class="text-secondary">Progress 40%</span>
-<!-- Progress bar -->
-<div class="w-36 h-2 bg-[#DCDFE4] rounded-full overflow-hidden">
-<div class="bg-[#0C66E4] h-full w-[40%] rounded-full"></div>
-</div>
-<span class="text-[#DCDFE4]">|</span>
-<div class="flex items-center gap-3 text-secondary">
-<span>Estimated <strong class="text-[#1D2125] font-semibold">120.0 h</strong></span>
-<span>Actual <strong class="text-[#1D2125] font-semibold">48.0 h</strong></span>
-<span>Remaining <strong class="text-[#1D2125] font-semibold">72.0 h</strong></span>
-</div>
-</div>
-</div>
-<!-- Local Tabs Navigation -->
-<div class="border-b border-divider flex gap-6 text-sm font-medium">
-<button class="pb-2.5 text-[#0C66E4] border-b-2 border-[#0C66E4]">Stories</button>
-<button class="pb-2.5 text-secondary hover:text-[#1D2125]">Tasks</button>
-<button class="pb-2.5 text-secondary hover:text-[#1D2125]">Statistics</button>
-<button class="pb-2.5 text-secondary hover:text-[#1D2125]">Accuracy</button>
-<button class="pb-2.5 text-secondary hover:text-[#1D2125]">Board</button>
-</div>
-<!-- Action Toolbar -->
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-3">
-<button class="btn-neutral">Move selected stories</button>
-<button class="btn-neutral">Save order</button>
-</div>
-<div class="flex items-center gap-3">
-<button class="btn-neutral">Close iteration</button>
-<button class="btn-primary">Create story</button>
-</div>
-</div>
-<!-- Story Table -->
-<div class="border border-divider radius-6 overflow-hidden bg-white">
-<table class="w-full text-left border-collapse text-sm">
-<thead>
-<tr class="border-b border-divider bg-[#F7F8FA] text-[#1D2125] font-semibold">
-<th class="p-3 w-10 text-center"><input class="radius-6 border-control text-[#0C66E4]" type="checkbox"/></th>
-<th class="p-3">ID</th>
-<th class="p-3">Order ▲</th>
-<th class="p-3">Name</th>
-<th class="p-3">Priority</th>
-<th class="p-3">Customer</th>
-<th class="p-3">Progress</th>
-<th class="p-3">Actual</th>
-<th class="p-3">Remaining</th>
-<th class="p-3">Estimate</th>
-<th class="p-3">Original estimate</th>
-<th class="p-3">Tasks</th>
-<th class="p-3">Tracker</th>
-<th class="p-3">Disposition</th>
-<th class="p-3">Status</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-divider text-[#1D2125]">
-<!-- Row 1: Story 1 (Unselected) -->
-<tr>
-<td class="p-3 text-center"><input class="radius-6 border-control text-[#0C66E4]" type="checkbox"/></td>
-<td class="p-3 text-secondary">101</td>
-<td class="p-3"><span class="border border-control radius-6 px-2 py-0.5 inline-block w-8 text-center text-xs">1</span></td>
-<td class="p-3 text-[#0C66E4]">Story 1</td>
-<td class="p-3">1</td>
-<td class="p-3">User A</td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3">4</td>
-<td class="p-3">User B</td>
-<td class="p-3">Planned</td>
-<td class="p-3">Accepted</td>
-</tr>
-<!-- Row 2: Story 2 (Selected) -->
-<tr class="bg-selected-row">
-<td class="p-3 text-center"><input checked="" class="radius-6 border-control text-[#0C66E4]" type="checkbox"/></td>
-<td class="p-3 text-secondary">102</td>
-<td class="p-3"><span class="border border-control radius-6 px-2 py-0.5 inline-block w-8 text-center text-xs bg-white">2</span></td>
-<td class="p-3 text-[#0C66E4]">Story 2</td>
-<td class="p-3">2</td>
-<td class="p-3">User C</td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3">3</td>
-<td class="p-3">User B</td>
-<td class="p-3">Planned</td>
-<td class="p-3">Draft</td>
-</tr>
-<!-- Row 3: Story 3 (Unselected) -->
-<tr>
-<td class="p-3 text-center"><input class="radius-6 border-control text-[#0C66E4]" type="checkbox"/></td>
-<td class="p-3 text-secondary">103</td>
-<td class="p-3"><span class="border border-control radius-6 px-2 py-0.5 inline-block w-8 text-center text-xs">3</span></td>
-<td class="p-3 text-[#0C66E4]">Story 3</td>
-<td class="p-3">4</td>
-<td class="p-3">User A</td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3">5</td>
-<td class="p-3">User D</td>
-<td class="p-3">Carried over</td>
-<td class="p-3">Draft</td>
-</tr>
-<!-- Row 4: Story 4 (Selected) -->
-<tr class="bg-selected-row">
-<td class="p-3 text-center"><input checked="" class="radius-6 border-control text-[#0C66E4]" type="checkbox"/></td>
-<td class="p-3 text-secondary">104</td>
-<td class="p-3"><span class="border border-control radius-6 px-2 py-0.5 inline-block w-8 text-center text-xs bg-white">4</span></td>
-<td class="p-3 text-[#0C66E4]">Story 4</td>
-<td class="p-3">4</td>
-<td class="p-3">User C</td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3">2</td>
-<td class="p-3">User D</td>
-<td class="p-3">Added</td>
-<td class="p-3">Draft</td>
-</tr>
-<!-- Row 5: Story 5 (Unselected) -->
-<tr>
-<td class="p-3 text-center"><input class="radius-6 border-control text-[#0C66E4]" type="checkbox"/></td>
-<td class="p-3 text-secondary">105</td>
-<td class="p-3"><span class="border border-control radius-6 px-2 py-0.5 inline-block w-8 text-center text-xs">5</span></td>
-<td class="p-3 text-[#0C66E4]">Story 5</td>
-<td class="p-3">3</td>
-<td class="p-3">User A</td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3"></td>
-<td class="p-3">4</td>
-<td class="p-3">User B</td>
-<td class="p-3">Planned</td>
-<td class="p-3">Accepted</td>
-</tr>
-</tbody>
-</table>
-</div>
-</main>
-</div>
-<!-- END: PageBackground -->
-<!-- BEGIN: ModalOverlayAndDialog -->
-<!-- Dark translucent scrim covering the entire screen -->
-<div aria-labelledby="modal-title" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-4" data-purpose="dialog-overlay" role="dialog" style="background-color: rgba(29, 33, 37, 0.5);">
-<!-- Centred Modal Dialog -->
-<div class="bg-white radius-6 p-6 w-full max-w-[480px] shadow-xl" data-purpose="modal-container">
-<!-- Dialog Header / Title -->
-<h2 class="text-[20px] font-semibold text-[#1D2125] mb-4 leading-snug" id="modal-title">
-        Close Iteration 3?
-      </h2>
-<!-- Dialog Body Text -->
-<div class="text-[16px] leading-[1.5] text-[#1D2125] flex flex-col gap-3">
-<p>The iteration becomes inactive.</p>
-<p>It has 4 unfinished stories. After closing, you choose a future iteration to continue them.</p>
-</div>
-<!-- Dialog Action Buttons Container -->
-<div class="flex justify-end gap-3 mt-6">
-<!-- Cancel button with keyboard focus indicator -->
-<button autofocus="" class="btn-neutral focus-ring" type="button">
-          Cancel
-        </button>
-<!-- Close iteration neutral button -->
-<button class="btn-neutral" type="button">
-          Close iteration
-        </button>
-</div>
-</div>
-</div>
-<!-- END: ModalOverlayAndDialog -->
-</body></html>
+<body>
+
+  <!-- Background content -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="brand-logo">Planner</span>
+      <div class="search-wrapper">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input id="search-input" class="search-input" type="text" />
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="top-link">Me</a>
+      <a href="#" class="top-link">Sign out</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <nav class="breadcrumb">
+      <a href="#">Top</a>
+      <span class="sep">/</span>
+      <a href="#">Project 1</a>
+      <span class="sep">/</span>
+      <span class="current">Iteration 3</span>
+    </nav>
+
+    <h1 class="page-title">Iteration 3</h1>
+
+    <div class="summary-line">
+      <div class="progress-container">
+        <span class="summary-text">Progress 48%</span>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill"></div>
+        </div>
+      </div>
+      <span class="summary-sep">|</span>
+      <span class="summary-text">Estimated 100.0 h</span>
+      <span class="summary-text">Actual 48.0 h</span>
+      <span class="summary-text">Remaining 52.0 h</span>
+    </div>
+
+    <div class="tabs-nav">
+      <a href="#" class="tab-link active">Stories</a>
+      <a href="#" class="tab-link">Tasks</a>
+      <a href="#" class="tab-link">Statistics</a>
+      <a href="#" class="tab-link">Accuracy</a>
+      <a href="#" class="tab-link">Board</a>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 60px;">ID</th>
+            <th style="width: 60px;">Order</th>
+            <th>Name</th>
+            <th style="width: 80px;">Priority</th>
+            <th style="width: 100px;">Customer</th>
+            <th style="width: 80px;" class="text-right">Progress</th>
+            <th style="width: 80px;" class="text-right">Actual</th>
+            <th style="width: 90px;" class="text-right">Remaining</th>
+            <th style="width: 80px;" class="text-right">Estimate</th>
+            <th style="width: 120px;" class="text-right">Original estimate</th>
+            <th style="width: 60px;" class="text-right">Tasks</th>
+            <th style="width: 90px;">Tracker</th>
+            <th style="width: 110px;">Disposition</th>
+            <th style="width: 90px;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>101</td>
+            <td>1</td>
+            <td><a href="#" class="story-name-link">Story 1</a></td>
+            <td>1</td>
+            <td>User A</td>
+            <td class="text-right">60%</td>
+            <td class="text-right">12.0</td>
+            <td class="text-right">8.0</td>
+            <td class="text-right">20.0</td>
+            <td class="text-right">18.0</td>
+            <td class="text-right">4</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+          <tr>
+            <td>102</td>
+            <td>2</td>
+            <td><a href="#" class="story-name-link">Story 2</a></td>
+            <td>2</td>
+            <td>User C</td>
+            <td class="text-right">25%</td>
+            <td class="text-right">6.0</td>
+            <td class="text-right">18.0</td>
+            <td class="text-right">24.0</td>
+            <td class="text-right">24.0</td>
+            <td class="text-right">3</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+          <tr>
+            <td>103</td>
+            <td>3</td>
+            <td><a href="#" class="story-name-link">Story 3</a></td>
+            <td>4</td>
+            <td>User A</td>
+            <td class="text-right">50%</td>
+            <td class="text-right">10.0</td>
+            <td class="text-right">10.0</td>
+            <td class="text-right">20.0</td>
+            <td class="text-right">16.0</td>
+            <td class="text-right">5</td>
+            <td>User D</td>
+            <td>Carried over</td>
+            <td>Draft</td>
+          </tr>
+          <tr>
+            <td>104</td>
+            <td>4</td>
+            <td><a href="#" class="story-name-link">Story 4</a></td>
+            <td>4</td>
+            <td>User C</td>
+            <td class="text-right">0%</td>
+            <td class="text-right">0.0</td>
+            <td class="text-right">16.0</td>
+            <td class="text-right">16.0</td>
+            <td class="text-right">16.0</td>
+            <td class="text-right">2</td>
+            <td>User D</td>
+            <td>Added</td>
+            <td>Draft</td>
+          </tr>
+          <tr>
+            <td>105</td>
+            <td>5</td>
+            <td><a href="#" class="story-name-link">Story 5</a></td>
+            <td>3</td>
+            <td>User A</td>
+            <td class="text-right">100%</td>
+            <td class="text-right">20.0</td>
+            <td class="text-right">0.0</td>
+            <td class="text-right">20.0</td>
+            <td class="text-right">22.0</td>
+            <td class="text-right">4</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Accepted</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Centered Modal Confirmation Dialog -->
+  <div class="scrim-overlay">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <h2 id="dialog-title" class="dialog-title">Close Iteration 3?</h2>
+      <div class="dialog-body">
+        <p>The iteration becomes inactive.</p>
+        <p>It has 4 unfinished stories. After closing, you choose a future iteration to continue them.</p>
+      </div>
+      <div class="dialog-actions">
+        <button class="btn-neutral focus-ring" type="button" autofocus>Cancel</button>
+        <button class="btn-neutral" type="button">Close iteration</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
