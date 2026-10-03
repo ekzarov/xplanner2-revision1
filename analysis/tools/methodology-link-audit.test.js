@@ -162,3 +162,64 @@ test('rejects non-portable absolute local links', (t) => {
     2
   );
 });
+
+function writeDesignExportFixture(directory, exportName = 'list-desktop.html') {
+  const fixture = writeMethodologyFixture(directory);
+  const wireframes = path.join(directory, 'analysis', 'prototyping', 'wireframes');
+  fs.mkdirSync(wireframes, { recursive: true });
+  const exportFile = path.join(wireframes, exportName);
+  fs.writeFileSync(exportFile, '<!doctype html><html><body><a href="#me">Me</a><a href="#top">Top</a>'
+    + '<section id="button-primary">Primary</section></body></html>');
+  return { ...fixture, exportFile };
+}
+
+function auditWith(directory, fixture, extraFiles) {
+  return auditMethodology({
+    root: directory,
+    methodologyFile: fixture.methodologyFile,
+    htmlFile: fixture.htmlFile,
+    files: [fixture.methodologyFile, fixture.htmlFile, fixture.entryFile, fixture.artifactMapFile, ...extraFiles],
+  });
+}
+
+test('does not report in-page links of an unchanged design-tool export as documentation errors', (t) => {
+  const directory = temporaryDirectory(t, 'methodology-audit-');
+  const fixture = writeDesignExportFixture(directory);
+  const result = auditWith(directory, fixture, [fixture.exportFile]);
+  assert.equal(result.ok, true, result.errors.join('\n'));
+});
+
+test('still rejects a missing in-page anchor in governed documentation outside wireframes', (t) => {
+  const directory = temporaryDirectory(t, 'methodology-audit-');
+  const fixture = writeDesignExportFixture(directory);
+  const page = path.join(directory, 'analysis', 'prototyping', 'guide.html');
+  fs.writeFileSync(page, '<!doctype html><html><body><a href="#me">Me</a></body></html>');
+  const notes = path.join(directory, 'analysis', 'prototyping', 'notes.md');
+  fs.writeFileSync(notes, '# Notes\n\n[Missing](#not-there)\n[Gone](missing.md)\n');
+  const result = auditWith(directory, fixture, [fixture.exportFile, page, notes]);
+  assert(result.errors.some((error) => error.includes('guide.html links to missing anchor #me')));
+  assert(result.errors.some((error) => error.includes('notes.md links to missing anchor #not-there')));
+  assert(result.errors.some((error) => error.includes('notes.md links to missing missing.md')));
+});
+
+test('still checks preview fragments from documentation into a design-tool export', (t) => {
+  const directory = temporaryDirectory(t, 'methodology-audit-');
+  const fixture = writeDesignExportFixture(directory, 'ui-kit.html');
+  const catalogue = path.join(directory, 'analysis', 'prototyping', 'ui-design-system.md');
+  fs.writeFileSync(catalogue, '# Catalogue\n\n[Primary](wireframes/ui-kit.html#button-primary)\n'
+    + '[Danger](wireframes/ui-kit.html#button-danger)\n');
+  const result = auditWith(directory, fixture, [fixture.exportFile, catalogue]);
+  assert(result.errors.some((error) => error.includes('missing anchor #button-danger in')));
+  assert(!result.errors.some((error) => error.includes('#button-primary')));
+});
+
+test('still rejects unsafe and broken cross-file links inside a design-tool export', (t) => {
+  const directory = temporaryDirectory(t, 'methodology-audit-');
+  const fixture = writeDesignExportFixture(directory);
+  fs.appendFileSync(fixture.exportFile, '<a href="javascript:alert(1)">x</a><a href="missing.html">y</a>'
+    + '<a href="list-desktop.html#me">same file by name</a>');
+  const result = auditWith(directory, fixture, [fixture.exportFile]);
+  assert(result.errors.some((error) => error.includes('contains unsafe link javascript:alert(1)')));
+  assert(result.errors.some((error) => error.includes('links to missing missing.html')));
+  assert(!result.errors.some((error) => error.includes('#me')));
+});
