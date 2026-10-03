@@ -17,6 +17,9 @@ improvements. Use only permitted inputs and preserve mandatory review coverage.
    authored candidate does not make this session eligible to accept it later.
 2. At Stage 7 compare actual screens, shared components, states and navigation
    with permitted requirements using the [prototype procedure](../../../analysis/prototyping/README.md).
+   Walk parity-map journeys across exports; verify role/context navigation,
+   applicable web breadcrumbs/profile image fallbacks and actual viewport fit.
+   Do not accept a wide-canvas phone column as a verified mobile layout.
 3. At Stage 19 exercise the exact deployed scope. Save Phase A observations
    before opening full delivery records, previous findings or learned checks;
    reconcile them only in Phase B under the [review protocol](../../../analysis/agent_orchestration.md).

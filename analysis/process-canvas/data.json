@@ -541,9 +541,11 @@
       "summary": "Normalize map rows into real surfaces, then produce the complete reviewable wireframe catalogue.",
       "actions": [
         "Classify every row as surface, state, action, overlay, navigation, or non-visual",
-        "Generate only justified screens and meaningful state variants",
-        "Export files from the design tool into the repository",
-        "Record screen-to-row, role, state, action and hash links",
+        "Design map-backed journeys and shared navigation: roles, destinations, next/back/cancel paths and retained context",
+        "Include hierarchical web breadcrumbs and in-scope profile image/fallback states; do not invent upload or identity integration",
+        "Choose Google Stitch or Figma; give the agent configured connector/local secret access, never API keys in prompts, packets, logs, exports or Git. Record authorized alternatives.",
+        "Generate only justified screens and states; check actual desktop/phone viewports, not a phone column on a wide canvas",
+        "Export files into the repository and record screen-to-row, role, state, action, navigation and hash links",
         "Develop representative screens and the shared component catalogue together, then reuse them. Pin catalogue, tokens and component previews in manifest version 4; each screen declares used ui_variants. Foundation changes return to 5.",
         "Reuse approved components; add a screen or state only to represent agreed behavior, not merely because another parity-map row exists."
       ],
@@ -620,7 +622,7 @@
       "actions": [
         "Check reviewer eligibility",
         "Run the structural prototype audit",
-        "Inspect roles, states, validation and navigation semantically",
+        "Inspect roles, states and validation; walk map-backed journeys across exports to verify navigation, context, applicable web breadcrumbs/profile fallbacks and actual viewport fit",
         "Compare every export against the map and owner decisions",
         "Independently compare screens with the shared catalogue, token values and previews, including required states, navigation, responsive behavior and accessibility. Record mismatches and unchecked scope; hashes alone do not prove visual consistency."
       ],

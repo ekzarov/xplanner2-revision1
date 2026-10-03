@@ -85,7 +85,10 @@ separately from pending library/platform compatibility or other decisions.
 
 - Layout/responsive rules: [shared grids, alignment, breakpoint token references]
 - Typography/content: [heading/body/label token names, wrapping/truncation rules]
-- Navigation and overlays: [shared patterns, keyboard/focus restoration]
+- Navigation and overlays: [map-backed journeys, role/context destinations,
+  hierarchical web breadcrumbs, back/cancel paths and keyboard/focus restoration]
+- In-scope profile identity: [image/avatar, missing-image fallback and permitted
+  actions; no assumed upload or identity integration]
 - Feedback: [validation, errors, loading, empty, success and disabled behavior]
 - Themes/accessibility: [mode mapping, contrast evidence, focus visibility]
 
