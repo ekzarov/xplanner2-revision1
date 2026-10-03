@@ -57,7 +57,10 @@ really approved the choices. A pending mandatory foundation choice blocks Stage 
 
 ## Stage 6: Evolve Screens And Components Together
 
-1. Normalize behavior into screens/states/navigation as before.
+1. Normalize behavior into screens/states/navigation. Follow
+   [Navigation And Identity Before Drawing](README.md#navigation-and-identity-before-drawing):
+   derive journeys and the shared navigation from the parity map, including
+   applicable web breadcrumbs and in-scope profile image/fallback states.
 2. Start with representative screens (for example list, edit form and dialog),
    using the approved foundation. Extract repeated elements into the catalogue
    while drawing; revise the representative screens and kit together.
@@ -74,7 +77,9 @@ really approved the choices. A pending mandatory foundation choice blocks Stage 
    normal screen exports. No required control may be left to visual guessing.
 
 Low-fidelity sketches may precede exact styling during drafting, but the Stage 6
-handoff must specify the governed values and applicable component states.
+handoff must specify the governed values and applicable component states. Check
+actual agreed desktop/phone viewports; a phone-width column on a desktop canvas
+does not verify mobile fit.
 
 ## Stages 7 And 8: Verify And Approve
 

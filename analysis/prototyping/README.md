@@ -304,6 +304,31 @@ Every exact correction must also appear as a changed surface in the next Stage
 pass cannot substitute for that post-deploy traversal.
 Implementation snapshots remain useful as secondary regression evidence only.
 
+## Navigation And Identity Before Drawing
+
+The Stage 6 UX agent designs journeys, not isolated pictures. From the parity
+map, Stage 4 decisions and permitted roles, identify the entry, destination,
+next step, back/cancel path and retained context of each applicable journey.
+Show the shared navigation, current location and role-dependent destinations
+in the exports. Record these in the existing normalization notes, manifest
+`navigation` entries and component catalogue; do not create a separate map.
+
+- For web UI, provide breadcrumbs on hierarchical pages with meaningful,
+  accessible parent links and a non-link current item. Do not fabricate levels
+  or add a breadcrumb to the root or every dialog. Other channels use their
+  appropriate location/back-navigation pattern; non-visual scope has no UI.
+- When a user profile is in scope, show an image/avatar and a usable fallback
+  for a missing image. Use synthetic imagery in design tools; do not assume a
+  photo source, upload feature or identity-provider integration. New behavior
+  still needs the existing explicit owner decision and target-only trace.
+- Verify exports at actual agreed viewport widths: a narrow column on a wide
+  canvas is not a phone capture. Check navigation, tables, actions and long
+  content for stretching, clipping and inaccessible controls.
+
+Stage 7 QA follows the journeys across the actual exports, verifies applicable
+breadcrumbs/profile states and responsive fit, and records discrepancies in
+the existing review. A passing structural audit does not prove these checks.
+
 ## Screen normalization comes before generation
 
 > **Anti-pattern: one workbook row or one user flow does not imply one wireframe

@@ -1261,14 +1261,30 @@ covered**, and **every screen is justified by rows in the map**.
 - desktop and mobile variants when the Stage 5 decision includes both;
 - target-only screens (owner-approved surfaces with no legacy predecessor).
 
+Design navigation from the parity-map journeys, not separately for each screen:
+show permitted entry points, destinations, next/back/cancel paths, current
+location and retained context. Record this in the existing normalization,
+manifest and shared catalogue. For web UI, hierarchical pages need breadcrumbs;
+in-scope profiles need an image/avatar with a missing-image fallback, without
+inventing photo upload or identity integration. Other channels use suitable
+navigation patterns; non-visual scope has no UI. Check actual agreed viewport
+widths, not a phone column on a desktop canvas. Follow
+[Navigation And Identity Before Drawing](prototyping/README.md#navigation-and-identity-before-drawing);
+new behavior still follows the owner-approved target-only rules below.
+
 #### Tooling and secrets
 
-Tooling is replaceable; examples include **Google Stitch or Figma**. The owner
-performs a one-time setup of access — an API key or a locally configured MCP
-server for the chosen tool — before this stage can run. **Secrets never enter
-the repository**: keys and MCP configuration live only in the owner's local
-environment; Git, review reports, and manifests record only the fact that access
-is configured, never the credential itself.
+Choose **Google Stitch or Figma** for UI wireframes and record the selected tool
+in the existing work record. An owner-authorized alternative is recorded, not
+silently substituted. The owner configures access once through an approved
+connector/MCP, local secret store or runtime environment-variable injection.
+Authenticated browser access need not expose an API key to the agent.
+Give the agent only the configured tool or secret reference and required scope,
+never the key value in chat, a task packet or a design prompt. **Treat design-tool
+keys like all other secrets**: do not print or copy them into logs, screenshots,
+exports, Git, reports or manifests. Use minimum required access, and revoke or
+rotate it when no longer needed. Record configuration/provenance, not credentials;
+follow [credential-safe evidence](agent_orchestration.md#credential-safe-evidence).
 
 #### The durable record
 
@@ -1439,6 +1455,9 @@ Required unchecked scope prevents a clean pass. Stage 19 preserves its blind fir
     target-only decision;
   - the declared roles, states, forms/validation, dialogs/wizard steps, and
     channel variants from the Stage 6 definition are all present;
+  - journeys are traversable across the exports, navigation respects roles and
+    context, applicable web breadcrumbs/profile image fallbacks are present,
+    and layouts fit the actual agreed viewports;
   - every manifest link (screen → rows → roles → states) resolves and the
     export hashes match the delivered files.
 - The manifest invariants are checked by the **automated prototype audit**:
