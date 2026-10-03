@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit task: Task 12 - Error</title>
+  <style>
+    /* Foundation values reset and base tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+    .phone-container {
+      width: 100%;
+      max-width: 390px;
+      background-color: #F7F8FA;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Interactive Focus States */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 48px;
+    }
+    .brand-title {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+    .top-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .top-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+    .top-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Search section */
+    .search-section {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      padding: 12px 16px 14px 16px;
+    }
+    .search-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1D2125;
+      margin-bottom: 6px;
+    }
+    .search-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 12px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+    }
+    .search-input::placeholder {
+      color: #626F86;
+    }
+
+    /* Main content container */
+    .content-area {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-nav {
+      font-size: 14px;
+      color: #626F86;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.4;
+    }
+    .breadcrumb-nav a {
+      color: #0C66E4;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+    }
+    .breadcrumb-nav a:hover {
+      text-decoration: underline;
+    }
+    .breadcrumb-separator {
+      color: #626F86;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    /* Page heading */
+    .page-heading {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+      margin-top: -4px;
+    }
+
+    /* Error summary box */
+    .error-summary-box {
+      background-color: #FFFFFF;
+      border: 1px solid #C9372C;
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .error-summary-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #C9372C;
+    }
+    .error-summary-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #C9372C;
+    }
+    .error-summary-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-left: 26px;
+    }
+    .error-summary-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .error-summary-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Form surface */
+    .form-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Field groups */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+    }
+
+    /* Inputs, Selects, Textareas */
+    .text-input,
+    .select-input,
+    .textarea-input {
+      width: 100%;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      transition: border-color 0.15s ease;
+    }
+    .text-input,
+    .select-input {
+      height: 44px;
+      padding: 0 12px;
+    }
+    .textarea-input {
+      min-height: 96px;
+      padding: 10px 12px;
+      resize: vertical;
+      line-height: 1.4;
+    }
+
+    /* Standard border */
+    .border-standard {
+      border: 1px solid #8590A2;
+    }
+
+    /* Error border & message */
+    .border-error {
+      border: 1px solid #C9372C !important;
+    }
+    .error-message {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      color: #C9372C;
+      font-size: 14px;
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+    .error-icon-inline {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+    }
+
+    /* Select styling with chevron */
+    .select-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .select-input {
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+    .select-chevron {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #626F86;
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Helper link */
+    .helper-link-wrapper {
+      margin-top: 2px;
+    }
+    .helper-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+    }
+    .helper-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Form action buttons */
+    .form-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .btn {
+      width: 100%;
+      height: 48px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-primary {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border: 1px solid #0C66E4;
+    }
+    .btn-primary:hover {
+      background-color: #0052CC;
+      border-color: #0052CC;
+    }
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border: 1px solid #8590A2;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-container">
+    <!-- Top bar -->
+    <header class="top-bar">
+      <span class="brand-title">Planner</span>
+      <nav class="top-links" aria-label="User navigation">
+        <a href="#me" class="top-link">Me</a>
+        <a href="#signout" class="top-link">Sign out</a>
+      </nav>
+    </header>
+
+    <!-- Search field -->
+    <section class="search-section" aria-label="Search">
+      <label for="search-input-field" class="search-label">Search or ID</label>
+      <input type="text" id="search-input-field" class="search-input" placeholder="Search or ID" />
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="content-area">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="#top">Top</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="#project-1">Project 1</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="#iteration-3">Iteration 3</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="#story-5">Story 5</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current" aria-current="page">Task 12</span>
+      </nav>
+
+      <!-- Page heading -->
+      <h1 class="page-heading">Edit task: Task 12</h1>
+
+      <!-- Error summary -->
+      <section class="error-summary-box" role="alert" aria-labelledby="error-summary-title">
+        <div class="error-summary-header" id="error-summary-title">
+          <svg class="error-summary-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+          </svg>
+          <span>2 fields need correction</span>
+        </div>
+        <div class="error-summary-links">
+          <a href="#field-name" class="error-summary-link">Name</a>
+          <a href="#field-estimated-hours" class="error-summary-link">Estimated hours</a>
+        </div>
+      </section>
+
+      <!-- Task Edit Form -->
+      <form class="form-card" novalidate onsubmit="return false;">
+        <!-- Name Field (Error) -->
+        <div class="field-group">
+          <label for="field-name" class="field-label">Name (required)</label>
+          <input 
+            type="text" 
+            id="field-name" 
+            class="text-input border-error" 
+            value="" 
+            aria-invalid="true" 
+            aria-describedby="name-error-msg" 
+          />
+          <div id="name-error-msg" class="error-message">
+            <svg class="error-icon-inline" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            <span>Missing task name.</span>
+          </div>
+        </div>
+
+        <!-- Type Select -->
+        <div class="field-group">
+          <label for="field-type" class="field-label">Type</label>
+          <div class="select-wrapper">
+            <select id="field-type" class="select-input border-standard">
+              <option value="Feature" selected>Feature</option>
+              <option value="Bug">Bug</option>
+              <option value="Chore">Chore</option>
+            </select>
+            <svg class="select-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Disposition Select -->
+        <div class="field-group">
+          <label for="field-disposition" class="field-label">Disposition</label>
+          <div class="select-wrapper">
+            <select id="field-disposition" class="select-input border-standard">
+              <option value="Planned" selected>Planned</option>
+              <option value="Unplanned">Unplanned</option>
+              <option value="Carried Over">Carried Over</option>
+            </select>
+            <svg class="select-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Acceptor Select -->
+        <div class="field-group">
+          <label for="field-acceptor" class="field-label">Acceptor</label>
+          <div class="select-wrapper">
+            <select id="field-acceptor" class="select-input border-standard">
+              <option value="User A" selected>User A</option>
+              <option value="User B">User B</option>
+              <option value="User C">User C</option>
+            </select>
+            <svg class="select-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Estimated hours Field (Error) -->
+        <div class="field-group">
+          <label for="field-estimated-hours" class="field-label">Estimated hours</label>
+          <input 
+            type="number" 
+            id="field-estimated-hours" 
+            class="text-input border-error" 
+            value="-2" 
+            step="any"
+            aria-invalid="true" 
+            aria-describedby="hours-error-msg" 
+          />
+          <div id="hours-error-msg" class="error-message">
+            <svg class="error-icon-inline" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            <span>Please provide an estimate greater than or equal to zero.</span>
+          </div>
+        </div>
+
+        <!-- Description Field -->
+        <div class="field-group">
+          <label for="field-description" class="field-label">Description</label>
+          <textarea id="field-description" class="textarea-input border-standard">Short description of the work.</textarea>
+          <div class="helper-link-wrapper">
+            <a href="#formatting-help" class="helper-link">Formatting help</a>
+          </div>
+        </div>
+
+        <!-- Buttons Stacked Full Width -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-neutral">Cancel</button>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

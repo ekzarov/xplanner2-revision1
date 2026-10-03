@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit task: Task 12</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* Top bar */
+    .top-bar {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      height: 56px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1D2125;
+      text-decoration: none;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #626F86;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      width: 240px;
+      height: 36px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .search-input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    .nav-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Main Container */
+    .main-content {
+      padding: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb a {
+      color: #626F86;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      color: #0C66E4;
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      margin: 0 8px;
+      color: #8590A2;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Page Heading */
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 24px;
+    }
+
+    /* Form Section */
+    .form-section {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      width: 640px;
+      padding: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #1D2125;
+      margin-bottom: 8px;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .form-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23626F86' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 32px;
+      cursor: pointer;
+    }
+
+    .form-input:focus, .form-select:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focused element specification: Acceptor select */
+    .focused-input {
+      outline: 2px solid #0C66E4 !important;
+      outline-offset: 2px !important;
+    }
+
+    .form-textarea {
+      width: 100%;
+      height: 96px;
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      outline: none;
+      resize: vertical;
+      line-height: 1.4;
+    }
+
+    .form-textarea:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .field-hint {
+      font-size: 14px;
+      color: #626F86;
+      margin-top: 6px;
+    }
+
+    .formatting-link-wrapper {
+      margin-top: 6px;
+    }
+
+    .text-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .text-link:hover {
+      text-decoration: underline;
+    }
+
+    .text-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Actions */
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      outline: none;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border-color: #0C66E4;
+    }
+
+    .btn-primary:hover {
+      background-color: #0055CC;
+    }
+
+    .btn-primary:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border: 1px solid #8590A2;
+    }
+
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+
+    .btn-neutral:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="top-left">
+      <span class="brand-name">Planner</span>
+      <div class="search-container">
+        <label for="top-search" class="search-label">Search or ID</label>
+        <input type="text" id="top-search" class="search-input" />
+      </div>
+    </div>
+    <div class="top-right">
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main container -->
+  <main class="main-content">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="#">Top</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#">Project 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#">Iteration 3</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#">Story 5</a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">Task 12</span>
+    </nav>
+
+    <!-- Page Heading -->
+    <h1 class="page-title">Edit task: Task 12</h1>
+
+    <!-- Single column form -->
+    <section class="form-section">
+      <form onsubmit="return false;">
+        <!-- Name (required) -->
+        <div class="form-group">
+          <label for="task-name" class="form-label">Name (required)</label>
+          <input type="text" id="task-name" class="form-input" value="Task 12" />
+        </div>
+
+        <!-- Type -->
+        <div class="form-group">
+          <label for="task-type" class="form-label">Type</label>
+          <select id="task-type" class="form-select">
+            <option value="Feature" selected>Feature</option>
+            <option value="Defect">Defect</option>
+            <option value="Task">Task</option>
+          </select>
+        </div>
+
+        <!-- Disposition -->
+        <div class="form-group">
+          <label for="task-disposition" class="form-label">Disposition</label>
+          <select id="task-disposition" class="form-select">
+            <option value="Planned" selected>Planned</option>
+            <option value="Carried over">Carried over</option>
+            <option value="Added">Added</option>
+          </select>
+        </div>
+
+        <!-- Acceptor (Focused) -->
+        <div class="form-group">
+          <label for="task-acceptor" class="form-label">Acceptor</label>
+          <select id="task-acceptor" class="form-select focused-input">
+            <option value="User A" selected>User A</option>
+            <option value="User B">User B</option>
+            <option value="User C">User C</option>
+          </select>
+        </div>
+
+        <!-- Estimated hours -->
+        <div class="form-group">
+          <label for="task-estimate" class="form-label">Estimated hours</label>
+          <input type="text" id="task-estimate" class="form-input" value="6.0" />
+          <p class="field-hint">Hours, 0 or more</p>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="task-description" class="form-label">Description</label>
+          <textarea id="task-description" class="form-textarea">Short description of the work.</textarea>
+          <div class="formatting-link-wrapper">
+            <a href="#" class="text-link">Formatting help</a>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-neutral">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

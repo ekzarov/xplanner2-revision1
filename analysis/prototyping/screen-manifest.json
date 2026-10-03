@@ -1,9 +1,9 @@
 {
   "schema_version": 4,
   "project": "xplanner2-revision1",
-  "scope": "Stage 6 representative set UX-006 (partial: 1 of 6 views exported)",
+  "scope": "Stage 6 representative set UX-006: list and edit form, desktop and phone (dialogs pending)",
   "tool": "Google Stitch, project projects/2535085752995102337",
-  "export_set_version": "stage-06-draft-1-partial",
+  "export_set_version": "stage-06-draft-3-representative-partial",
   "decision": "analysis/prototyping/ui-ux-decision.md",
   "normalization": "analysis/prototyping/screen-normalization.json",
   "normalization_sha256": "e8fff146e26ec1c603dcc0f0fe62e6839f16429b6c63c2b1f453fcdbc52e515f",
@@ -11,7 +11,7 @@
   "screens": [
     {
       "id": "iteration-page",
-      "title": "Iteration 3 - Stories (desktop)",
+      "title": "Iteration 3 - Stories",
       "channel": "web",
       "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
       "roles": [
@@ -38,6 +38,14 @@
         {
           "path": "wireframes/list-desktop.png",
           "sha256": "b3eb643785ce81b600967151d3090c018a5999169d64b58809c8d2f8465059e0"
+        },
+        {
+          "path": "wireframes/list-phone.html",
+          "sha256": "c61bf45451bed6bd8fb926fdfedd8e71bab8f8cd625c81f4469bb04624e6fe16"
+        },
+        {
+          "path": "wireframes/list-phone.png",
+          "sha256": "b47f420b00f0bb18ae9469b6599bcd1201a5c463daa7099fac863f3efe93972a"
         }
       ],
       "navigation": [],
@@ -52,6 +60,63 @@
         "nav.top-bar",
         "nav.breadcrumb",
         "nav.tabs"
+      ]
+    },
+    {
+      "id": "task-editor",
+      "title": "Edit task: Task 12",
+      "channel": "web",
+      "surface_key": "web + /tasks/{id}/edit + create or edit a task + form",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "default",
+        "default-disposition",
+        "validation-error"
+      ],
+      "actions": [
+        "save"
+      ],
+      "overlays": [],
+      "workbook_rows": [
+        134,
+        136,
+        137,
+        139,
+        190
+      ],
+      "files": [
+        {
+          "path": "wireframes/form-desktop.html",
+          "sha256": "3395acff452a484d81cd2c05c72a8dde77cca58ee8ee1614d2ef864bc1d67154"
+        },
+        {
+          "path": "wireframes/form-desktop.png",
+          "sha256": "5b6c9e1f4c0529db8fefb1510c73673a1826e4880f6ec756e8ff1ab60ee3c49e"
+        },
+        {
+          "path": "wireframes/form-phone.html",
+          "sha256": "edeea26eec4741c6a6921595a057ab5ab0fc3e30127e061436a3f247e6cf547b"
+        },
+        {
+          "path": "wireframes/form-phone.png",
+          "sha256": "2d2cea34c4877e141c0f2da67383be951db871ff6f1136a4a1999fe32cd4940a"
+        }
+      ],
+      "navigation": [
+        "formatting help"
+      ],
+      "ui_variants": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.select",
+        "field.textarea",
+        "link.text",
+        "message.error-summary",
+        "nav.top-bar",
+        "nav.breadcrumb"
       ]
     }
   ],
@@ -298,14 +363,15 @@
     }
   ],
   "_notes": [
-    "Partial Stage 6 draft written by UX Designer UX-006-03 at 2026-10-03T07:48:17Z (UTC from code). It is not a complete export set, has not been reviewed and is not approved. Stage 8 is not approved.",
-    "The only real screen exports are wireframes/list-desktop.html and wireframes/list-desktop.png, byte-identical to code.html and screen.png in the official Stitch export ZIP (SHA-256 2f2d331d92405628ec56c97092d5e954f7ae5894dad003764bdb109d9604538d). The HTML is also byte-identical to the get_screen HTML of screen 571fa1a5dfa6478c8712368474cc5d03.",
-    "The iteration-page screen claims only what list-desktop shows: rows 92, 95 and 97. Rows 91, 93, 96, 98, 99, 101-104 and 210 of iteration-page are planned in the normalization but not drawn, so they are not claimed here.",
-    "Pending, not exported: list-phone (screen 67531e08b55c4c3988225e51a46e51e9 was generated; its pre-edit export breaks the foundation and the corrective edit result could not be obtained); form-desktop, form-phone, dialog-desktop and dialog-phone (not generated). The other 24 planned screens of the normalization are not drawn.",
+    "Stage 6 draft written by UX Designer UX-006-04 at 2026-10-03T07:57:45Z (UTC from code). It holds only four real Stitch views. This incomplete set is not all of Stage 6, not a clean control (no Stage 7 review) and not Stage 8 approval.",
+    "Provenance: all files are byte-identical to the official Stitch Export All ZIP of UX-006-04 (SHA-256 e3d9b6923d73b2044c8a5653712ac13c3e3c7d32dca77886a67e1b89eb0da464). list-desktop = screen 571fa1a5dfa6478c8712368474cc5d03 (also identical to the first export ZIP). list-phone = screen 20c628c1a4494d28b2c0bb4abe420bce, the corrected version produced by the one corrective edit of screen 67531e08b55c4c3988225e51a46e51e9; the pre-edit version is kept only in scratch. form-desktop = screen fcf400f0730a44cfa0aeb48c9f9935ae; form-phone = screen fa2066c199bd4fb686e1db5d056c9726.",
+    "list-phone is a DRAFT with remarks. The edit removed the Inter stylesheet link and set the page to #F7F8FA and the text to #1D2125, but font-family still names Inter (so it falls back to a generic sans-serif, not the system stack). Remaining: control borders #D1D5DB (below 3:1), dividers #E5E7EB, secondary #6B7280, 12 px labels, 1 px grey focus rings and no tab focus outline, 16 px checkboxes and 32 px order inputs below the 44 px touch target, a placeholder \"Search or enter ID...\" that was not requested, and the cut-off Estimate column hint no longer visible. Width: 390 px frame, with the table inside its own horizontal scroll container and body overflow-x hidden.",
+    "form-phone is laid out as a 390 px centred column on a 1280 px desktop canvas (Stitch registered the device as DESKTOP), not as a phone-viewport capture.",
+    "Sample defects (synthetic data, not retouched): list-desktop shows Estimated 120.0 h, Remaining 72.0 h and Progress 40%, while its rows sum to 100.0 h, 52.0 h and 48%; Story 1 shows Accepted with remaining work. list-phone uses the corrected data.",
+    "task-editor: no date field (row 137 removes the created-date check). Reset of row 139 is not represented and not approved; Save and Cancel are drawn but are not a proven replacement for Update/Reset. No autocomplete. The hidden option lists contain values that no approved row names (Type \"Task\" and \"Chore\"; Disposition \"Unplanned\"; story dispositions reused for tasks).",
+    "Pending: the close iteration confirmation (row 101) on desktop and phone. Real API exports of both dialogs exist in scratch (screens 2a3fa9b9634a4bc0ac5bbff098161f9f and bf3f9002eddf4351b2af6be25bde4d59) and are not imported, pending the coordinator decision. Also pending: the other iteration-page and task-editor rows, the shared app-shell rows (19, 185, 188, drawn inside these screens but planned on app-shell), and the other 24 planned screens.",
     "No component sheet (wireframes/ui-kit.html) is exported, so ui_design_system.resources is empty and catalogue previews do not resolve. No resource is invented.",
-    "Roles: only the editor view is drawn; the viewer variation follows the SDD permission matrix (D-001) and is not drawn.",
-    "Sample defect, not retouched: the list-desktop header shows Estimated 120.0 h, Remaining 72.0 h and Progress 40%, but the five rows sum to 100.0 h, 52.0 h and 48%. Story 1 shows Accepted with 8.0 h remaining.",
-    "Deferred (31) and pending (5) rows are listed in the normalization _notes. The schema has no field for them (process backlog item 12)."
+    "Roles: only the editor view is drawn; the viewer variation follows the SDD permission matrix (D-001). Deferred (31) and pending (5) rows are listed in the normalization _notes; the schema has no field for them (process backlog item 12)."
   ],
   "ui_design_system": {
     "catalogue": {
