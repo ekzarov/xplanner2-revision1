@@ -1,12 +1,12 @@
 {
   "schema_version": 4,
   "project": "xplanner2-revision1",
-  "scope": "Stage 6 representative set UX-006: list, edit form and close iteration confirmation, desktop and phone (6 drafts)",
+  "scope": "Stage 6 UX-006-06 milestone B: 16 screens with real exports (23 views); further screens, the component sheet and phone patterns pending",
   "tool": "Google Stitch, project projects/2535085752995102337",
-  "export_set_version": "stage-06-draft-5-phone-viewports",
+  "export_set_version": "stage-06-draft-6-milestone-b-partial",
   "decision": "analysis/prototyping/ui-ux-decision.md",
   "normalization": "analysis/prototyping/screen-normalization.json",
-  "normalization_sha256": "e8fff146e26ec1c603dcc0f0fe62e6839f16429b6c63c2b1f453fcdbc52e515f",
+  "normalization_sha256": "321a88d2c9798004342ef123122d7037a99493140370cd6aafe2b3a35c43dd7b",
   "workbook_rows_sha256": "87636a53544db5769d6bc1190de7afe5004d5e23afd3fa21eb8eab302ba0b861",
   "screens": [
     {
@@ -44,11 +44,11 @@
         },
         {
           "path": "wireframes/list-phone.html",
-          "sha256": "c61bf45451bed6bd8fb926fdfedd8e71bab8f8cd625c81f4469bb04624e6fe16"
+          "sha256": "1ebbd0518a5213b0d7d27695f7b5f4773a4f378e275411234ba8aca193f1f1ae"
         },
         {
           "path": "wireframes/list-phone.png",
-          "sha256": "5e5cffa9c64b3b554d074971c2e6dbc4b3127bd06f0ff191b48ae0d36898276c"
+          "sha256": "dfa380150482b514fe5c7b0f9fa53ebcae32e9c4f4b08d5af08e94c452430af5"
         },
         {
           "path": "wireframes/dialog-desktop.html",
@@ -67,19 +67,24 @@
           "sha256": "d4a27200f4fd232781a7086f5b53bc140423b8a79cb8650da3bb886aadd02a54"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "local tabs Stories / Tasks / Statistics / Accuracy / Board",
+        "story name to story-page",
+        "Create story to story-editor",
+        "breadcrumb to project-page"
+      ],
       "ui_variants": [
         "button.primary",
         "button.neutral",
         "field.text",
-        "link.text",
         "checkbox",
         "table.data",
         "progress.bar",
         "dialog.confirm",
+        "nav.tabs",
         "nav.top-bar",
         "nav.breadcrumb",
-        "nav.tabs"
+        "link.text"
       ]
     },
     {
@@ -125,7 +130,9 @@
         }
       ],
       "navigation": [
-        "formatting help"
+        "formatting help",
+        "Save or Cancel returns to the originating page",
+        "breadcrumb to task-page"
       ],
       "ui_variants": [
         "button.primary",
@@ -133,10 +140,608 @@
         "field.text",
         "field.select",
         "field.textarea",
-        "link.text",
         "message.error-summary",
         "nav.top-bar",
-        "nav.breadcrumb"
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "sign-in",
+      "title": "Sign in",
+      "channel": "web",
+      "surface_key": "web + /sign-in + sign in + centred form",
+      "roles": [
+        "unauthenticated"
+      ],
+      "states": [
+        "default",
+        "invalid-credentials"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        8,
+        10,
+        12,
+        18
+      ],
+      "files": [
+        {
+          "path": "wireframes/signin-desktop.html",
+          "sha256": "788d555a5c84d73482ed9c48ef2f1844cd94e20604def15c9c6cb639fe3df1e3"
+        },
+        {
+          "path": "wireframes/signin-desktop.png",
+          "sha256": "86757387be367cb3d81ef2adade23e78faaf653ca09b17fdbcd0a32825033c4d"
+        },
+        {
+          "path": "wireframes/signin-phone.html",
+          "sha256": "e899bb1e7c75b402383f9afe1b85b31709123a7bf130c9ea626af3a853416bb8"
+        },
+        {
+          "path": "wireframes/signin-phone.png",
+          "sha256": "94d62cd80f0d627a75dd765c5f9b284c8f1aeb513a1784aae294c04987ba1314"
+        }
+      ],
+      "navigation": [
+        "return to the requested permitted page",
+        "land on the current iteration"
+      ],
+      "ui_variants": [
+        "button.primary",
+        "field.text",
+        "message.error-summary"
+      ]
+    },
+    {
+      "id": "projects-list",
+      "title": "Projects",
+      "channel": "web",
+      "surface_key": "web + /projects + browse projects + table list",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "populated",
+        "hidden-column"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        75,
+        76
+      ],
+      "files": [
+        {
+          "path": "wireframes/projects-list-desktop.html",
+          "sha256": "baace49583dc2651434ddb70afbd89e28020519d5d50e1869187c5a796d65c88"
+        },
+        {
+          "path": "wireframes/projects-list-desktop.png",
+          "sha256": "b1afec656d6ea810db0d31a148711448666ed406a0ce604efbbc43d2af35214a"
+        }
+      ],
+      "navigation": [
+        "project name to project-page",
+        "current iteration to iteration-page",
+        "People to people-list",
+        "Aggregate timesheet to aggregate-timesheet",
+        "Create project to project-editor"
+      ],
+      "ui_variants": [
+        "button.primary",
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "project-page",
+      "title": "Project 1",
+      "channel": "web",
+      "surface_key": "web + /projects/{id} + view a project and its iterations + detail page with iteration table",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [
+        "export project"
+      ],
+      "overlays": [],
+      "workbook_rows": [
+        83,
+        209
+      ],
+      "files": [
+        {
+          "path": "wireframes/project-page-desktop.html",
+          "sha256": "370558434b3a6799e6281b17e2590d7d8353d90fcdd699b8c3c3aa67009e27eb"
+        },
+        {
+          "path": "wireframes/project-page-desktop.png",
+          "sha256": "3e1a8e3fcf5e6b787358385e4e6b8c19ef0b1dab763f7fa019bff13b1f504986"
+        },
+        {
+          "path": "wireframes/project-page-phone.html",
+          "sha256": "596c9f43dfe71d4ac4cbfb32f496181c660ed556ff83087619ba20ae25dc85be"
+        },
+        {
+          "path": "wireframes/project-page-phone.png",
+          "sha256": "e38010b7c0d3e8916b00575c56984f19ab10a52af8edc224a537a0e0ad1c6054"
+        }
+      ],
+      "navigation": [
+        "iteration name to iteration-page",
+        "Edit to project-editor",
+        "Create iteration to iteration-editor",
+        "History to history",
+        "Add note to note-editor",
+        "breadcrumb Top to projects-list"
+      ],
+      "ui_variants": [
+        "button.neutral",
+        "button.danger",
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "project-editor",
+      "title": "Edit project: Project 1",
+      "channel": "web",
+      "surface_key": "web + /projects/{id}/edit + create or edit a project + form",
+      "roles": [
+        "admin"
+      ],
+      "states": [
+        "default"
+      ],
+      "actions": [
+        "set project options",
+        "save"
+      ],
+      "overlays": [],
+      "workbook_rows": [
+        78,
+        80,
+        81
+      ],
+      "files": [
+        {
+          "path": "wireframes/project-editor-desktop.html",
+          "sha256": "275832c2b2cbc546a817b28f74fa760e74b40b9187e5aa6c0f52998cd8af0ef3"
+        },
+        {
+          "path": "wireframes/project-editor-desktop.png",
+          "sha256": "f30039c7bd1d8bc657d4ea80076bfd6d06d0b69ae65ef044d49fe1be7b04cf98"
+        }
+      ],
+      "navigation": [
+        "Save, Reset or Cancel; Save and Cancel return to the originating page",
+        "formatting help"
+      ],
+      "ui_variants": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.textarea",
+        "checkbox",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "iteration-editor",
+      "title": "Edit iteration: Iteration 3",
+      "channel": "web",
+      "surface_key": "web + /iterations/{id}/edit + create or edit an iteration + form",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "default",
+        "date picker open"
+      ],
+      "actions": [
+        "pick a date",
+        "save"
+      ],
+      "overlays": [],
+      "workbook_rows": [
+        71,
+        88,
+        90
+      ],
+      "files": [
+        {
+          "path": "wireframes/iteration-editor-desktop.html",
+          "sha256": "4637b623380ef7f8a603cf155dd329dfcc2ea78c00bdb2d22f8d0b3125acf09f"
+        },
+        {
+          "path": "wireframes/iteration-editor-desktop.png",
+          "sha256": "f6b90bb85868b4ea09af9a33bff51cdc0b54e5b8ee0452d5ccad3fb2734f59fd"
+        }
+      ],
+      "navigation": [
+        "Save, Reset or Cancel; Save and Cancel return to the originating page",
+        "formatting help"
+      ],
+      "ui_variants": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.date",
+        "field.textarea",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "iteration-tasks",
+      "title": "Iteration 3 - Tasks",
+      "channel": "web",
+      "surface_key": "web + /iterations/{id}/tasks + view iteration tasks grouped by story + grouped table",
+      "roles": [
+        "viewer"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        106
+      ],
+      "files": [
+        {
+          "path": "wireframes/iteration-tasks-desktop.html",
+          "sha256": "ba78802956c06ed11c2aa477ca72163f9b015b3e84a263ff50efa1a3a03543e7"
+        },
+        {
+          "path": "wireframes/iteration-tasks-desktop.png",
+          "sha256": "b0cc740b450d578976d240ebe40ba9994769338f465ba56b1ee70c5a4eed0e6c"
+        }
+      ],
+      "navigation": [
+        "local tabs",
+        "task name to task-page",
+        "story name to story-page"
+      ],
+      "ui_variants": [
+        "table.data",
+        "progress.bar",
+        "nav.tabs",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "iteration-statistics",
+      "title": "Iteration 3 - Statistics",
+      "channel": "web",
+      "surface_key": "web + /iterations/{id}/statistics + view iteration charts + chart page",
+      "roles": [
+        "viewer"
+      ],
+      "states": [
+        "populated",
+        "progress-chart-shown"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        109,
+        110
+      ],
+      "files": [
+        {
+          "path": "wireframes/iteration-statistics-desktop.html",
+          "sha256": "9985bc1b89f21004e4e17c23d36854cc69e33390abd468406485c3efb1699648"
+        },
+        {
+          "path": "wireframes/iteration-statistics-desktop.png",
+          "sha256": "564470ebc768e0770adcdad6215bc568f8f63afa3466da0cad34f20cb68f160c"
+        }
+      ],
+      "navigation": [
+        "local tabs"
+      ],
+      "ui_variants": [
+        "chart.pie",
+        "chart.line",
+        "progress.bar",
+        "nav.tabs",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "iteration-accuracy",
+      "title": "Iteration 3 - Accuracy",
+      "channel": "web",
+      "surface_key": "web + /iterations/{id}/accuracy + compare iteration estimates + table page",
+      "roles": [
+        "viewer"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        113
+      ],
+      "files": [
+        {
+          "path": "wireframes/iteration-accuracy-desktop.html",
+          "sha256": "6d436abf2b9e102880572af51b81366861b127c08266299e2b64dd308bcd6980"
+        },
+        {
+          "path": "wireframes/iteration-accuracy-desktop.png",
+          "sha256": "ad54c2be75bfc8960bc939c37c56bf5120ec3a5b55de4518b856994dd8aa6bc6"
+        }
+      ],
+      "navigation": [
+        "local tabs",
+        "story name to story-page"
+      ],
+      "ui_variants": [
+        "table.data",
+        "progress.bar",
+        "nav.tabs",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "iteration-board",
+      "title": "Iteration 3 - Board",
+      "channel": "web",
+      "surface_key": "web + /iterations/{id}/board + view the task board read-only + card columns",
+      "roles": [
+        "viewer"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        114
+      ],
+      "files": [
+        {
+          "path": "wireframes/iteration-board-desktop.html",
+          "sha256": "c9b4dd145cf39842b2d2c990e860838c580877a6b8166b11da61fc6096d45fb6"
+        },
+        {
+          "path": "wireframes/iteration-board-desktop.png",
+          "sha256": "dcadd7b17c22f139bd84963f1d2f1bb9fdf092a86c6d3b788808b93e463c64c6"
+        },
+        {
+          "path": "wireframes/iteration-board-phone.html",
+          "sha256": "ed6e340d8bf4e31e4677535aeb47e4752ac19a0501243b8cb81f51e6c9799c4d"
+        },
+        {
+          "path": "wireframes/iteration-board-phone.png",
+          "sha256": "b548d247fc93e1e862c67a1e681bfc7deab48c52d778564c14fea11b29c54b2f"
+        }
+      ],
+      "navigation": [
+        "local tabs",
+        "task card link to task-page",
+        "story name to story-page"
+      ],
+      "ui_variants": [
+        "card.task",
+        "progress.bar",
+        "nav.tabs",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "story-page",
+      "title": "Story 2",
+      "channel": "web",
+      "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        127
+      ],
+      "files": [
+        {
+          "path": "wireframes/story-page-desktop.html",
+          "sha256": "8bb65a3dd9cbfaf585fcbd5ff148949bae91474574a5450c24e8d87d28e75030"
+        },
+        {
+          "path": "wireframes/story-page-desktop.png",
+          "sha256": "adbd3c3d933f2c2222c62a9ffb472029a1c94824c1606f9cd3d6e765ef2c97f1"
+        }
+      ],
+      "navigation": [
+        "task name to task-page",
+        "Edit to story-editor",
+        "Create task to task-editor",
+        "History to history",
+        "Add note to note-editor"
+      ],
+      "ui_variants": [
+        "button.neutral",
+        "button.danger",
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "people-list",
+      "title": "People",
+      "channel": "web",
+      "surface_key": "web + /people + browse people + table list",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        37
+      ],
+      "files": [
+        {
+          "path": "wireframes/people-list-desktop.html",
+          "sha256": "8d558b14f2a00c9e448df09078d793d74fff84f6ac673ae612c1ec0091bfc3b3"
+        },
+        {
+          "path": "wireframes/people-list-desktop.png",
+          "sha256": "4dbf7bfcbb0a9190b24f3e0308353f95259aabc4d70fab55e3f210db21bf0100"
+        }
+      ],
+      "navigation": [
+        "name to person-page",
+        "Create person to person-editor"
+      ],
+      "ui_variants": [
+        "button.primary",
+        "button.neutral",
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "person-timesheet",
+      "title": "Timesheet: User A",
+      "channel": "web",
+      "surface_key": "web + /people/{id}/timesheet + view the hours of one person for a period + period filter with table",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        162
+      ],
+      "files": [
+        {
+          "path": "wireframes/person-timesheet-desktop.html",
+          "sha256": "c12348094465b9e86f4c19fd1a21fb7949eab397ac23c51412b585c5d544b952"
+        },
+        {
+          "path": "wireframes/person-timesheet-desktop.png",
+          "sha256": "4635b0438ef88b6c002976d90ecc34e91cc40df0e7a49615282f05192a14182c"
+        }
+      ],
+      "navigation": [
+        "breadcrumb to person-page"
+      ],
+      "ui_variants": [
+        "button.neutral",
+        "field.date",
+        "table.data",
+        "chart.pie",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "search-results",
+      "title": "Search results: Story 2",
+      "channel": "web",
+      "surface_key": "web + /search + find objects by text or ID + result list",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        178
+      ],
+      "files": [
+        {
+          "path": "wireframes/search-results-desktop.html",
+          "sha256": "ecaf66e5c130736a16331aa63c547a7538f2ccac2ca0c1be9bd0b1592ea36f0b"
+        },
+        {
+          "path": "wireframes/search-results-desktop.png",
+          "sha256": "0ea4caa2156fd9b8f4359e5744653ddd5cee883b2ae858d8bf5c1985ae1e198f"
+        }
+      ],
+      "navigation": [
+        "result title to its object page (a note result opens its parent)"
+      ],
+      "ui_variants": [
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ]
+    },
+    {
+      "id": "history",
+      "title": "History: Story 2",
+      "channel": "web",
+      "surface_key": "web + /{object}/{id}/history + view the history of an object + event table",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [],
+      "overlays": [],
+      "workbook_rows": [
+        186
+      ],
+      "files": [
+        {
+          "path": "wireframes/history-desktop.html",
+          "sha256": "401da3f21682b82e2f96e361dbe28f2d0bb17551ca0388dad1509e1079fc98d1"
+        },
+        {
+          "path": "wireframes/history-desktop.png",
+          "sha256": "ed9e6beb995d4228aea4f403f8b2727c542f4b5fa6dfff00926a55c5acb293de"
+        }
+      ],
+      "navigation": [
+        "breadcrumb to story-page"
+      ],
+      "ui_variants": [
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
       ]
     }
   ],
@@ -383,23 +988,23 @@
     }
   ],
   "_notes": [
-    "Stage 6 draft written by UX Designer UX-006-06 (milestone A) at 2026-10-03T10:23:37Z (UTC from code). It holds the first six representative views as real Stitch files: 6 drafts. This is NOT all of Stage 6, NOT a clean control (no Stage 7 review) and NOT owner approval (Stage 8 is not approved).",
-    "Provenance: all 12 files are byte-identical to the final official Stitch UI Export ZIP made by Codex in the Stitch UI (SHA-256 827baa438f4f019c474b224f91fc58bbf4c71c2a1225b9773e4929b0da0d73a0, 641434 bytes). Screens: list-desktop 571fa1a5dfa6478c8712368474cc5d03; list-phone 20c628c1a4494d28b2c0bb4abe420bce (result of the one corrective edit of 67531e08b55c4c3988225e51a46e51e9, which is kept only in scratch); form-desktop fcf400f0730a44cfa0aeb48c9f9935ae; form-phone fa2066c199bd4fb686e1db5d056c9726; dialog-desktop 4ef3b110681143abbb8e9cd4862756d4 (generated by Codex in the Stitch UI). UX-006-06 replaced two phone views with real 390 px phone viewports through one corrective edit_screens each (prompts in prompts-ux-006-06-phone.json): form-phone is now screen 296b7803cbbc4a0591f400f35b3a2233 (edit of fa2066c199bd4fb686e1db5d056c9726), and dialog-phone is screen fdb44f71b45c4e93bec55023537ac276 (edit of f9dc35ac07af4e9291b01d8ca5035a73). Their HTML is the get_screen download unchanged. Their PNG is the same Stitch screenshot asset requested with the =w1600 size suffix (780 px wide, a 2x capture of the 390 px viewport), because the plain get_screen screenshot is only 512 px tall. Superseded files are kept in scratch.",
-    "Viewport: form-phone and dialog-phone are now real 390 px phone viewports (780 px captures at 2x). list-phone is a 390 x 807 capture but stays a draft with foundation deviations; its regeneration timed out through the API and is handed to PM for the official UI path (handoff-list-phone-ux-006-06.md).",
-    "list-phone is a DRAFT with remarks: the font-family still names Inter (no web font loaded, so it falls back to a generic sans-serif, not the system stack); control borders #D1D5DB (below 3:1); dividers #E5E7EB; secondary text #6B7280; 12 px labels; 1 px grey focus rings and no tab focus outline; 16 px checkboxes and 32 px order inputs are below the 44 px touch target; a search placeholder was added that was not requested.",
-    "Sample defects (synthetic data, not retouched): list-desktop and the dialog-desktop background show Estimated 120.0 h, Remaining 72.0 h and Progress 40%, while the rows sum to 100.0 h, 52.0 h and 48%; Story 1 shows Accepted with remaining work. list-phone and dialog-phone use the corrected data. Both dialogs state 4 unfinished stories.",
-    "task-editor: no date field (row 137 removes the created-date check). Reset of row 139 is not represented and not approved; Save and Cancel are drawn but are not a proven replacement for Update/Reset. No autocomplete. The hidden option lists contain values no approved row names (Type \"Task\" and \"Chore\"; Disposition \"Unplanned\"; story dispositions reused for tasks).",
-    "Not selected: duplicate API dialog generations 2a3fa9b9634a4bc0ac5bbff098161f9f and bf3f9002eddf4351b2af6be25bde4d59 (UX-006-03 clarification), superseded by the coordinator UI generations; kept in scratch only and absent from the final ZIP.",
-    "Pending: the other iteration-page rows (91, 93, 96, 98, 99, 102-104, 210), the other task-editor rows, the shared app-shell rows (19, 185, 188, drawn inside these screens but planned on app-shell), the other 24 planned screens, the component sheet (wireframes/ui-kit.html; ui_design_system.resources is empty and catalogue previews do not resolve), and the 31 deferred plus 5 pending rows listed in the normalization _notes (schema gap, process backlog item 12). Only the editor role is drawn; other roles follow the SDD permission matrix (D-001)."
+    "Stage 6 draft written by UX Designer UX-006-06 (milestone B) at 2026-10-03T11:21:53Z (UTC from code). It holds 16 screens drawn in 23 real Stitch views (46 files). It is NOT all of Stage 6, NOT a clean control (no Stage 7 review) and NOT owner approval: the owner liked the general style of the first six views, which does not approve the interface.",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in .migration-tmp/stage-06/ux-006-01/exports/ux-006-06/provenance.jsonl and result.md. PNGs are the =w1600 size of the get_screen asset, except list-phone (official UI Export ZIP 08308ffb…0fd4) and list-desktop, form-desktop, dialog-desktop (official UI Export ZIP 827baa43…73a0).",
+    "Pending exports (consolidated UI hand-off handoff-ux-006-06-b.md): story-editor, task-page, delete-task confirmation, continue-unfinished-stories dialog, time-editor (desktop and phone), person-page (initials avatar), person-editor, aggregate-timesheet, note-editor, error-page, system-info, statistics phone, the component sheet ui-kit, and the in-place edits of list-desktop and dialog-desktop (data and page background) and form-desktop and form-phone (Reset). The current list-desktop and dialog-desktop files still show the old sample data (120.0 / 72.0 h, 40%). The current form files do not yet show Reset.",
+    "Reset (rows 81, 90, 125, 139 record Update/Reset): represented as its own neutral action restoring the initial values in project-editor and iteration-editor; edits adding it to the task editor are pending export. Cancel (return without saving) is a UX proposal not in the rows; one owner choice is recorded in result.md.",
+    "Navigation (see screen navigation entries): breadcrumbs on hierarchical pages, none at the root (projects-list currently shows a root \"Top\" breadcrumb, a recorded deviation); editors return to the originating page as the rows state; list position in the URL is a proposal only.",
+    "Responsive patterns (verified only where stated): list/table: priority columns, the table scrolls inside its own container, 44-48 px rows and targets; verified by real 390 px exports list-phone (a10e679d) and project-page-phone (f4a330e1); form: single column, 16 px fields, 44-48 px controls, stacked full-width buttons; verified by real 390 px exports form-phone (296b7803) and signin-phone (c5d26872); dialog: full width minus 16 px margins, stacked 48 px buttons, scrim; verified by dialog-phone (fdb44f71); detail page: heading, stacked full-width action buttons, summary, then a list/table; verified by project-page-phone (f4a330e1); board: stacked status sections per story; verified by iteration-board-phone (58e255ee); charts: charts stacked one per row with text legends; NOT verified (statistics phone export pending); time grid: one stacked block per entry; NOT verified (time-editor phone not generated). Surfaces without their own phone export rely on these patterns and are not individually verified.",
+    "Profile: initials avatar (avatar.initials) is a Stage 6 draft proposal on person-page (export pending); no photo, upload or identity integration; the profile-image state needs an owner decision.",
+    "Rows claimed only where drawn. Every other planned row and the other screens of the normalization are pending, and the 31 deferred plus 5 pending rows are listed in the normalization _notes (schema gap, backlog item 12). No component sheet is exported yet, so ui_design_system.resources is empty."
   ],
   "ui_design_system": {
     "catalogue": {
       "path": "ui-design-system.md",
-      "sha256": "5c93bed479aca6011730dc280de144ba800b814438585d4e3c204b0d187a4b0f"
+      "sha256": "3fa1457849e99d909273585e1780536a2dc21f0c49b070bf2d2b6de19ce1f219"
     },
     "tokens": {
       "path": "ui-design-tokens.json",
-      "sha256": "052ea0648927930b5ad4e2a2d7b824983ea2bba636bbb06152deb21c512be301"
+      "sha256": "69bbd849ddb1ad507635b968e8eb1af4527ba124d305516fbccb0cb5a35f7507"
     },
     "resources": []
   }

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iteration 3 - Board</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #0055CC;
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      width: 220px;
+      height: 36px;
+      padding: 0 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    /* Main container */
+    .main-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      font-size: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .breadcrumb-separator {
+      color: #626F86;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Page Heading & Meta */
+    .page-header {
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .dates-text {
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 16px;
+    }
+
+    .progress-section {
+      max-width: 520px;
+    }
+
+    .progress-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 6px;
+    }
+
+    .progress-bar-bg {
+      height: 6px;
+      background-color: #DCDFE4;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar-fill {
+      width: 48%;
+      height: 100%;
+      background-color: #0C66E4;
+      border-radius: 3px;
+    }
+
+    .figures-row {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: #1D2125;
+    }
+
+    /* Local tabs */
+    .tabs-nav {
+      display: flex;
+      gap: 24px;
+      border-bottom: 1px solid #DCDFE4;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+
+    .tab-item {
+      font-size: 14px;
+      color: #1D2125;
+      padding: 10px 4px;
+      position: relative;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .tab-item:hover {
+      color: #0055CC;
+      text-decoration: none;
+    }
+
+    .tab-item.active {
+      color: #0C66E4;
+      font-weight: 600;
+    }
+
+    .tab-item.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      background-color: #0C66E4;
+    }
+
+    /* Board structure */
+    .board-container {
+      width: 100%;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    /* Column headers */
+    .board-header {
+      display: grid;
+      grid-template-columns: 160px 1fr 1fr 1fr;
+      background-color: #F1F2F4;
+      border-bottom: 1px solid #DCDFE4;
+      padding: 0 16px;
+      min-height: 40px;
+      align-items: center;
+    }
+
+    .board-header-story {
+      font-size: 14px;
+      font-weight: 600;
+      color: #626F86;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .col-header {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 12px;
+    }
+
+    .col-count {
+      color: #626F86;
+      font-weight: 400;
+    }
+
+    /* Story bands */
+    .story-band {
+      display: grid;
+      grid-template-columns: 160px 1fr 1fr 1fr;
+      padding: 16px;
+      border-bottom: 1px solid #DCDFE4;
+      align-items: start;
+      background-color: #FFFFFF;
+    }
+
+    .story-band:last-child {
+      border-bottom: none;
+    }
+
+    .story-meta {
+      padding-right: 16px;
+      padding-top: 4px;
+    }
+
+    .story-link {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0C66E4;
+      word-break: break-word;
+    }
+
+    .story-col-cell {
+      padding: 0 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 48px;
+    }
+
+    /* Task cards */
+    .task-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .task-title-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .task-title-link:hover {
+      text-decoration: underline;
+    }
+
+    .task-details {
+      font-size: 14px;
+      color: #626F86;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .task-acceptor {
+      color: #1D2125;
+    }
+
+    .task-hours {
+      color: #626F86;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="brand-title">Planner</span>
+      <div class="search-group">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input" />
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#">Me</a>
+      <a href="#">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main view -->
+  <main class="main-container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="#">Top</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#">Project 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">Iteration 3</span>
+    </nav>
+
+    <!-- Page Header & Metrics -->
+    <section class="page-header">
+      <h1 class="page-title">Iteration 3</h1>
+      <p class="dates-text">2026-03-02 to 2026-03-13</p>
+
+      <div class="progress-section">
+        <div class="progress-label-row">
+          <span>Progress 48%</span>
+        </div>
+        <div class="progress-bar-bg" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar-fill"></div>
+        </div>
+        <div class="figures-row">
+          <span>Estimated 100.0 h</span>
+          <span>Actual 48.0 h</span>
+          <span>Remaining 52.0 h</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Tabs -->
+    <nav class="tabs-nav" aria-label="Iteration Navigation">
+      <a href="#" class="tab-item">Stories</a>
+      <a href="#" class="tab-item">Tasks</a>
+      <a href="#" class="tab-item">Statistics</a>
+      <a href="#" class="tab-item">Accuracy</a>
+      <a href="#" class="tab-item active">Board</a>
+    </nav>
+
+    <!-- Read-Only Task Board -->
+    <div class="board-container">
+      <!-- Board column headers -->
+      <div class="board-header">
+        <div class="board-header-story">Story</div>
+        <div class="col-header">
+          <span>Not started</span>
+          <span class="col-count">3</span>
+        </div>
+        <div class="col-header">
+          <span>In progress</span>
+          <span class="col-count">10</span>
+        </div>
+        <div class="col-header">
+          <span>Done</span>
+          <span class="col-count">5</span>
+        </div>
+      </div>
+
+      <!-- Story 1 Band -->
+      <div class="story-band">
+        <div class="story-meta">
+          <a href="#" class="story-link">Story 1</a>
+        </div>
+        <!-- Not started -->
+        <div class="story-col-cell">
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 4</a>
+            <div class="task-details">
+              <span class="task-acceptor">User B</span>
+              <span>·</span>
+              <span class="task-hours">5.0 h</span>
+            </div>
+          </div>
+        </div>
+        <!-- In progress -->
+        <div class="story-col-cell">
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 2</a>
+            <div class="task-details">
+              <span class="task-acceptor">User A</span>
+              <span>·</span>
+              <span class="task-hours">1.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 3</a>
+            <div class="task-details">
+              <span class="task-acceptor">User B</span>
+              <span>·</span>
+              <span class="task-hours">2.0 h</span>
+            </div>
+          </div>
+        </div>
+        <!-- Done -->
+        <div class="story-col-cell">
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 1</a>
+            <div class="task-details">
+              <span class="task-acceptor">User A</span>
+              <span>·</span>
+              <span class="task-hours">0.0 h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 2 Band -->
+      <div class="story-band">
+        <div class="story-meta">
+          <a href="#" class="story-link">Story 2</a>
+        </div>
+        <!-- Not started -->
+        <div class="story-col-cell"></div>
+        <!-- In progress -->
+        <div class="story-col-cell">
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 7</a>
+            <div class="task-details">
+              <span class="task-acceptor">User B</span>
+              <span>·</span>
+              <span class="task-hours">6.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 8</a>
+            <div class="task-details">
+              <span class="task-acceptor">User B</span>
+              <span>·</span>
+              <span class="task-hours">6.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 9</a>
+            <div class="task-details">
+              <span class="task-acceptor">User C</span>
+              <span>·</span>
+              <span class="task-hours">6.0 h</span>
+            </div>
+          </div>
+        </div>
+        <!-- Done -->
+        <div class="story-col-cell"></div>
+      </div>
+
+      <!-- Story 3 Band -->
+      <div class="story-band">
+        <div class="story-meta">
+          <a href="#" class="story-link">Story 3</a>
+        </div>
+        <!-- Not started -->
+        <div class="story-col-cell"></div>
+        <!-- In progress -->
+        <div class="story-col-cell">
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 13</a>
+            <div class="task-details">
+              <span class="task-acceptor">User A</span>
+              <span>·</span>
+              <span class="task-hours">2.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 14</a>
+            <div class="task-details">
+              <span class="task-acceptor">User D</span>
+              <span>·</span>
+              <span class="task-hours">2.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 15</a>
+            <div class="task-details">
+              <span class="task-acceptor">User A</span>
+              <span>·</span>
+              <span class="task-hours">2.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 16</a>
+            <div class="task-details">
+              <span class="task-acceptor">User D</span>
+              <span>·</span>
+              <span class="task-hours">2.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 17</a>
+            <div class="task-details">
+              <span class="task-acceptor">User A</span>
+              <span>·</span>
+              <span class="task-hours">2.0 h</span>
+            </div>
+          </div>
+        </div>
+        <!-- Done -->
+        <div class="story-col-cell"></div>
+      </div>
+
+      <!-- Story 4 Band -->
+      <div class="story-band">
+        <div class="story-meta">
+          <a href="#" class="story-link">Story 4</a>
+        </div>
+        <!-- Not started -->
+        <div class="story-col-cell">
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 18</a>
+            <div class="task-details">
+              <span class="task-acceptor">User C</span>
+              <span>·</span>
+              <span class="task-hours">8.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 19</a>
+            <div class="task-details">
+              <span class="task-acceptor">User D</span>
+              <span>·</span>
+              <span class="task-hours">8.0 h</span>
+            </div>
+          </div>
+        </div>
+        <!-- In progress -->
+        <div class="story-col-cell"></div>
+        <!-- Done -->
+        <div class="story-col-cell"></div>
+      </div>
+
+      <!-- Story 5 Band -->
+      <div class="story-band">
+        <div class="story-meta">
+          <a href="#" class="story-link">Story 5</a>
+        </div>
+        <!-- Not started -->
+        <div class="story-col-cell"></div>
+        <!-- In progress -->
+        <div class="story-col-cell"></div>
+        <!-- Done -->
+        <div class="story-col-cell">
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 10</a>
+            <div class="task-details">
+              <span class="task-acceptor">User A</span>
+              <span>·</span>
+              <span class="task-hours">0.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 11</a>
+            <div class="task-details">
+              <span class="task-acceptor">User A</span>
+              <span>·</span>
+              <span class="task-hours">0.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 12</a>
+            <div class="task-details">
+              <span class="task-acceptor">User A</span>
+              <span>·</span>
+              <span class="task-hours">0.0 h</span>
+            </div>
+          </div>
+          <div class="task-card">
+            <a href="#" class="task-title-link">Task 20</a>
+            <div class="task-details">
+              <span class="task-acceptor">User B</span>
+              <span>·</span>
+              <span class="task-hours">0.0 h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in - Planner</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Product Name */
+    .brand-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 24px;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    /* Centered white form section: flat, no shadow, clean divider / border */
+    .signin-container {
+      width: 100%;
+      max-width: 400px;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 32px;
+    }
+
+    /* Heading inside form */
+    .form-heading {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #1D2125;
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 16px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.15s ease-in-out;
+    }
+
+    /* Interactive Focus States */
+    .form-input:focus,
+    .btn-primary:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Primary Submit Button */
+    .btn-primary {
+      width: 100%;
+      height: 36px;
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.15s ease-in-out;
+      margin-top: 4px;
+    }
+
+    .btn-primary:hover {
+      background-color: #0055CC;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Product name above form -->
+  <h1 class="brand-title">Planner</h1>
+
+  <!-- Centred sign-in section -->
+  <main class="signin-container">
+    <h2 class="form-heading">Sign in</h2>
+
+    <form onsubmit="event.preventDefault();">
+      <div class="form-group">
+        <label for="userId" class="form-label">User ID</label>
+        <input 
+          type="text" 
+          id="userId" 
+          name="userId" 
+          class="form-input" 
+          autocomplete="username" 
+          required 
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          class="form-input" 
+          autocomplete="current-password" 
+          required 
+        />
+      </div>
+
+      <button type="submit" class="btn-primary">Sign in</button>
+    </form>
+  </main>
+
+</body>
+</html>

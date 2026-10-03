@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit project: Project 1 - Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#f0f3ff",
+            "surface-bright": "#f9f9ff",
+            "on-background": "#0e1c2f",
+            "secondary-fixed-dim": "#82d99a",
+            "on-tertiary-fixed-variant": "#910909",
+            "on-secondary-fixed-variant": "#005229",
+            "secondary-container": "#9df6b4",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#243145",
+            "surface-variant": "#d6e3fe",
+            "on-primary-container": "#ecefff",
+            "on-error-container": "#93000a",
+            "tertiary": "#a51c16",
+            "inverse-on-surface": "#ebf1ff",
+            "outline-variant": "#c2c6d7",
+            "primary": "#004fb6",
+            "on-secondary-container": "#15733f",
+            "surface-dim": "#cddbf5",
+            "tertiary-fixed": "#ffdad5",
+            "primary-fixed": "#d9e2ff",
+            "surface-container-high": "#dee8ff",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#001945",
+            "primary-container": "#0c66e4",
+            "on-error": "#ffffff",
+            "background": "#f9f9ff",
+            "tertiary-fixed-dim": "#ffb4aa",
+            "outline": "#727786",
+            "secondary-fixed": "#9df6b4",
+            "on-surface-variant": "#424654",
+            "tertiary-container": "#c8362b",
+            "surface-container-highest": "#d6e3fe",
+            "on-surface": "#0e1c2f",
+            "surface-container": "#e7eeff",
+            "on-tertiary-fixed": "#410001",
+            "primary-fixed-dim": "#b0c6ff",
+            "on-tertiary-container": "#ffebe8",
+            "on-primary-fixed-variant": "#00429b",
+            "error-container": "#ffdad6",
+            "surface-tint": "#0058ca",
+            "on-secondary-fixed": "#00210d",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "secondary": "#086d39",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#b0c6ff",
+            "surface": "#f9f9ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "display": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+    
+    input:focus, textarea:focus, button:focus, a:focus {
+      outline: 2px solid #0C66E4 !important;
+      outline-offset: 2px !important;
+    }
+
+    .custom-checkbox {
+      accent-color: #0C66E4;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125]">
+<!-- Top bar (docked desktop flat header, 56px high, flat border, no shadows) -->
+<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] h-14 px-6 flex items-center justify-between sticky top-0 z-30">
+<div class="flex items-center gap-6">
+<span class="text-[18px] font-bold text-[#1D2125] tracking-tight">Planner</span>
+<!-- Search with visible label -->
+<form class="flex items-center gap-2" onsubmit="event.preventDefault();">
+<label class="text-[14px] text-[#1D2125] whitespace-nowrap" for="search-input">Search or ID</label>
+<input class="h-[36px] w-64 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-[14px] text-[#1D2125] focus:outline-none" id="search-input" name="q" type="text"/>
+</form>
+</div>
+<!-- Right utility navigation: Me / Sign out -->
+<div class="flex items-center gap-4 text-[14px]">
+<a class="text-[#0C66E4] hover:text-[#0055CC] font-normal transition-colors" href="#">Me</a>
+<span aria-hidden="true" class="text-[#DCDFE4]">|</span>
+<a class="text-[#0C66E4] hover:text-[#0055CC] font-normal transition-colors" href="#">Sign out</a>
+</div>
+</header>
+<!-- Page Breadcrumb Strip -->
+<div class="max-w-[1280px] mx-auto px-6 pt-4 pb-2">
+<nav aria-label="Breadcrumb">
+<ol class="flex items-center gap-1.5 text-[14px] text-[#626F86]">
+<li>
+<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Top</a>
+</li>
+<li aria-hidden="true" class="select-none text-[#626F86]">/</li>
+<li>
+<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Project 1</a>
+</li>
+<li aria-hidden="true" class="select-none text-[#626F86]">/</li>
+<li aria-current="page" class="text-[#1D2125] font-normal">
+          Edit
+        </li>
+</ol>
+</nav>
+</div>
+<!-- Main Content Canvas -->
+<main class="max-w-[1280px] mx-auto px-6 py-6">
+<!-- Page Heading -->
+<h1 class="text-[24px] font-semibold text-[#1D2125] mb-5 tracking-tight">
+      Edit project: Project 1
+    </h1>
+<!-- Form Container: Flat, 1px border, 6px radius, no drop shadow -->
+<div class="w-full max-w-[640px] bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-6">
+<form action="#" class="space-y-5" method="post" onsubmit="event.preventDefault();">
+<!-- Field 1: Name (required) -->
+<div class="flex flex-col gap-1.5">
+<label class="text-[16px] font-medium text-[#1D2125]" for="project-name">
+            Name (required)
+          </label>
+<input class="h-[36px] w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-[16px] text-[#1D2125] focus:outline-none" id="project-name" name="name" required="" type="text" value="Project 1"/>
+</div>
+<!-- Field 2: Description & Formatting help -->
+<div class="flex flex-col gap-1.5">
+<label class="text-[16px] font-normal text-[#1D2125]" for="project-description">
+            Description
+          </label>
+<textarea class="min-h-[100px] w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] p-3 text-[16px] leading-relaxed text-[#1D2125] resize-y focus:outline-none" id="project-description" name="description" rows="4">Synthetic sample project for the planning prototype.</textarea>
+<div class="pt-0.5">
+<a class="text-[14px] text-[#0C66E4] hover:text-[#0055CC] underline" href="#">
+              Formatting help
+            </a>
+</div>
+</div>
+<!-- Field 3: Wiki URL -->
+<div class="flex flex-col gap-1.5">
+<label class="text-[16px] font-normal text-[#1D2125]" for="project-wiki">
+            Wiki URL
+          </label>
+<input class="h-[36px] w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-[16px] text-[#1D2125] focus:outline-none" id="project-wiki" name="wiki_url" type="url" value=""/>
+</div>
+<!-- Checkbox Options Section -->
+<div class="space-y-3 pt-1 pb-1">
+<!-- Field 4: Escape brackets -->
+<div class="flex items-center gap-3">
+<input class="custom-checkbox w-4 h-4 rounded-[3px] border border-[#8590A2] text-[#0C66E4] focus:ring-0 focus:outline-none" id="escape-brackets" name="escape_brackets" type="checkbox"/>
+<label class="text-[16px] text-[#1D2125] cursor-pointer select-none" for="escape-brackets">
+              Escape brackets in descriptions
+            </label>
+</div>
+<!-- Field 5: Send missing time entry notification -->
+<div class="flex items-center gap-3">
+<input class="custom-checkbox w-4 h-4 rounded-[3px] border border-[#8590A2] text-[#0C66E4] focus:ring-0 focus:outline-none" id="time-notification" name="time_notification" type="checkbox"/>
+<label class="text-[16px] text-[#1D2125] cursor-pointer select-none" for="time-notification">
+              Send missing time entry notification
+            </label>
+</div>
+<!-- Field 6: Hidden -->
+<div class="flex items-center gap-3">
+<input class="custom-checkbox w-4 h-4 rounded-[3px] border border-[#8590A2] text-[#0C66E4] focus:ring-0 focus:outline-none" id="project-hidden" name="is_hidden" type="checkbox"/>
+<label class="text-[16px] text-[#1D2125] cursor-pointer select-none" for="project-hidden">
+              Hidden
+            </label>
+</div>
+</div>
+<!-- Form Actions Row (Left-aligned, 8px gap) -->
+<div class="pt-4 flex items-center gap-2">
+<!-- Primary action: Save -->
+<button class="h-[36px] px-4 bg-[#0C66E4] hover:bg-[#0055CC] text-[#FFFFFF] rounded-[6px] text-[14px] font-medium transition-colors" type="submit">
+            Save
+          </button>
+<!-- Neutral action: Reset -->
+<button class="h-[36px] px-4 bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] hover:bg-[#F1F2F4] rounded-[6px] text-[14px] font-normal transition-colors" type="reset">
+            Reset
+          </button>
+<!-- Neutral action: Cancel -->
+<button class="h-[36px] px-4 bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] hover:bg-[#F1F2F4] rounded-[6px] text-[14px] font-normal transition-colors" onclick="history.back()" type="button">
+            Cancel
+          </button>
+</div>
+</form>
+</div>
+</main>
+</body></html>

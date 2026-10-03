@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iteration 3 - Accuracy</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a {
+      color: #0C66E4;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+    a:hover {
+      color: #0055CC;
+      text-decoration: underline;
+    }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: #FFFFFF;
+      height: 56px;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .brand-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+    .search-input {
+      height: 36px;
+      width: 220px;
+      padding: 0 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 24px 64px 24px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      font-size: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumb-separator {
+      color: #626F86;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Header Section */
+    .page-header {
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+    .iteration-dates {
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 16px;
+    }
+
+    /* Progress & Figures */
+    .progress-section {
+      margin-bottom: 20px;
+    }
+    .progress-label {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 6px;
+    }
+    .progress-track {
+      width: 100%;
+      max-width: 440px;
+      height: 6px;
+      background-color: #DCDFE4;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 48%;
+      background-color: #0C66E4;
+      border-radius: 3px;
+    }
+    .figures-row {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: #1D2125;
+    }
+
+    /* Tabs */
+    .tabs-nav {
+      display: flex;
+      border-bottom: 1px solid #DCDFE4;
+      margin-bottom: 24px;
+      gap: 8px;
+    }
+    .tab-item {
+      font-size: 14px;
+      padding: 10px 16px;
+      color: #1D2125;
+      text-decoration: none;
+      font-weight: 400;
+      position: relative;
+      margin-bottom: -1px;
+      border-bottom: 2px solid transparent;
+      display: inline-block;
+    }
+    .tab-item:hover {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .tab-item.active {
+      color: #0C66E4;
+      font-weight: 600;
+      border-bottom: 2px solid #0C66E4;
+    }
+
+    /* Summary Side by Side Grid */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .table-section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+
+    /* Tables */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 0;
+    }
+    .data-table th,
+    .data-table td {
+      border: 1px solid #DCDFE4;
+      padding: 0 16px;
+      height: 40px;
+      vertical-align: middle;
+    }
+    .data-table th {
+      background-color: #F1F2F4;
+      font-weight: 600;
+      color: #1D2125;
+      text-align: left;
+    }
+    .data-table th.num-col,
+    .data-table td.num-col {
+      text-align: right;
+    }
+    .data-table tbody tr:hover {
+      background-color: #FAFBFC;
+    }
+    .data-table tfoot tr {
+      background-color: #FFFFFF;
+      font-weight: 700;
+    }
+    .data-table tfoot td {
+      border-top: 2px solid #DCDFE4;
+    }
+
+    .by-story-section {
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-left">
+      <span class="brand-title">Planner</span>
+      <div class="search-wrapper">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </div>
+    </div>
+    <div class="top-right">
+      <a href="#">Me</a>
+      <a href="#">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="#">Top</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="#">Project 1</a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">Iteration 3</span>
+    </nav>
+
+    <!-- Page Heading -->
+    <header class="page-header">
+      <h1 class="page-title">Iteration 3</h1>
+      <p class="iteration-dates">2026-03-02 to 2026-03-13</p>
+
+      <div class="progress-section">
+        <div class="progress-label">Progress 48%</div>
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="figures-row">
+          <span>Estimated 100.0 h</span>
+          <span>Actual 48.0 h</span>
+          <span>Remaining 52.0 h</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Local Tabs -->
+    <nav class="tabs-nav" aria-label="Iteration Navigation">
+      <a href="#" class="tab-item">Stories</a>
+      <a href="#" class="tab-item">Tasks</a>
+      <a href="#" class="tab-item">Statistics</a>
+      <a href="#" class="tab-item active" aria-current="page">Accuracy</a>
+      <a href="#" class="tab-item">Board</a>
+    </nav>
+
+    <!-- Two summary tables side by side -->
+    <div class="summary-grid">
+      <!-- Tasks Summary -->
+      <div>
+        <h2 class="table-section-title">Tasks</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th class="num-col">Hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Original</td>
+              <td class="num-col">96.0</td>
+            </tr>
+            <tr>
+              <td>Current</td>
+              <td class="num-col">100.0</td>
+            </tr>
+            <tr>
+              <td>Completed</td>
+              <td class="num-col">48.0</td>
+            </tr>
+            <tr>
+              <td>Remaining</td>
+              <td class="num-col">52.0</td>
+            </tr>
+            <tr>
+              <td>Over-estimated</td>
+              <td class="num-col">2.0</td>
+            </tr>
+            <tr>
+              <td>Under-estimated</td>
+              <td class="num-col">6.0</td>
+            </tr>
+            <tr>
+              <td>Added</td>
+              <td class="num-col">0.0</td>
+            </tr>
+            <tr>
+              <td>Postponed</td>
+              <td class="num-col">0.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Stories Summary -->
+      <div>
+        <h2 class="table-section-title">Stories</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th class="num-col">Hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Original</td>
+              <td class="num-col">96.0</td>
+            </tr>
+            <tr>
+              <td>Current</td>
+              <td class="num-col">100.0</td>
+            </tr>
+            <tr>
+              <td>Completed</td>
+              <td class="num-col">48.0</td>
+            </tr>
+            <tr>
+              <td>Remaining</td>
+              <td class="num-col">52.0</td>
+            </tr>
+            <tr>
+              <td>Over-estimated</td>
+              <td class="num-col">2.0</td>
+            </tr>
+            <tr>
+              <td>Under-estimated</td>
+              <td class="num-col">6.0</td>
+            </tr>
+            <tr>
+              <td>Added</td>
+              <td class="num-col">0.0</td>
+            </tr>
+            <tr>
+              <td>Postponed</td>
+              <td class="num-col">0.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Below them: By story Table -->
+    <div class="by-story-section">
+      <h2 class="table-section-title">By story</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Story</th>
+            <th class="num-col">Original</th>
+            <th class="num-col">Current</th>
+            <th class="num-col">Actual</th>
+            <th class="num-col">Remaining</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">Story 1</a></td>
+            <td class="num-col">18.0</td>
+            <td class="num-col">20.0</td>
+            <td class="num-col">12.0</td>
+            <td class="num-col">8.0</td>
+          </tr>
+          <tr>
+            <td><a href="#">Story 2</a></td>
+            <td class="num-col">24.0</td>
+            <td class="num-col">24.0</td>
+            <td class="num-col">6.0</td>
+            <td class="num-col">18.0</td>
+          </tr>
+          <tr>
+            <td><a href="#">Story 3</a></td>
+            <td class="num-col">16.0</td>
+            <td class="num-col">20.0</td>
+            <td class="num-col">10.0</td>
+            <td class="num-col">10.0</td>
+          </tr>
+          <tr>
+            <td><a href="#">Story 4</a></td>
+            <td class="num-col">16.0</td>
+            <td class="num-col">16.0</td>
+            <td class="num-col">0.0</td>
+            <td class="num-col">16.0</td>
+          </tr>
+          <tr>
+            <td><a href="#">Story 5</a></td>
+            <td class="num-col">22.0</td>
+            <td class="num-col">20.0</td>
+            <td class="num-col">20.0</td>
+            <td class="num-col">0.0</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td class="num-col">96.0</td>
+            <td class="num-col">100.0</td>
+            <td class="num-col">48.0</td>
+            <td class="num-col">52.0</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </main>
+
+</body>
+</html>
