@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-05
-  stage_status: complete
-  previous_stage: stage-04
-  next_action: 'Stage 5 complete: owner chose the Material Lean foundation (SHA-256 97e04be7…) and permitted Stage 6 prototype preparation; the owner-approved transition to Stage 6 is held in transition_request. Stage 6 authoring continues on branch stage-06/prototype-start (many-to-one normalization, minimal used controls, representative Google Stitch screens desktop and phone); the transition is recorded with a Stage 6 package that passes audit:prototype. No stack, code or deploy; Stage 8 not approved.'
+  current_stage: stage-07
+  stage_status: in_progress
+  previous_stage: stage-06
+  next_action: 'Stage 7: a fresh independent QA reviewer (migration-qa skill, ACK, not an author of the Stage 6 package) controls the exact export set stage-06-draft-12-ux-006-12 (manifest SHA-256 4c97c62e4f8802e83469463de746be5a74c10641325808de63e6fe13959c6f9b): audit:prototype, map-backed journeys across the real exports, roles, states, validation, breadcrumbs, profile fallback, actual viewport fit, catalogue/token/preview consistency; open coverage items and deviations assessed against requirements and approved patterns, cosmetics separated. Findings return to Stage 6; only a clean pass or owner-dispositioned low-cosmetic findings close Stage 7. Stage 8 owner approval stays separate.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -51,21 +51,7 @@ bootstrap_gates:
   command_contract_configured: passed
   owner_stage_1_approval: approved
 
-transition_request:
-  from: stage-05
-  to: stage-06
-  reason: 'Owner-authorized exit from Stage 5 after the explicit owner choice of form, style, palette and accessibility recorded in analysis/prototyping/ui-ux-decision.md (foundation SHA-256 97e04be7b42ba98abd8b7df2afde691c64b80029465d2f763e6ba768801c907b). Stage 6 prepares prototypes: many-to-one normalization of the agreed map, the minimal set of controls and states the agreed scenarios use, and representative screens in Google Stitch. No stack, code or deploy; Stage 8 not approved. Correction 2026-10-02T20:31:44Z on the unmerged PR #45 branch: the stage-05 -> stage-06 transition recorded in commit 4d68638 was withdrawn before merge because entering Stage 6 makes CI run audit:prototype, which needs the Stage 6 manifest and export set not yet authored (run 37060646384 failed). The owner choice and the owner''s permission to continue stay; the transition is held here and is recorded in transition_history only together with a Stage 6 package that passes audit:prototype.'
-  requested_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
-  requested_at: '2026-10-02T20:31:44Z'
-  gate_evidence:
-    - 'analysis/prototyping/ui-ux-decision.md'
-    - 'analysis/prototyping/ui-design-system.md'
-    - 'analysis/prototyping/ui-design-tokens.json'
-  owner_approval:
-    approved_by: 'ekzarov'
-    approved_at: '2026-10-02T20:21:59Z'
-    record: 'analysis/prototyping/ui-ux-decision.md'
-    scope: 'Owner words, relayed by Codex: «Поехали. Мне нравится». The personal choice of the shown foundation and permission to continue preparing prototypes (Stage 6). Not a decision on the old P1/P2/P3, not an approval of style-tile inventions or future component variants, not Stage 8 approval. The exact owner-chat time is not known to PM; approved_at is the relay recording time.'
+transition_request: null
 
 transition_history:
   - from: bootstrap
@@ -385,6 +371,30 @@ transition_history:
       approved_at: '2026-10-02T19:10:13Z'
       record: 'analysis/stages/stage-04/stage-04-requirements-revision.md'
       scope: 'Owner words, relayed by Codex from the conversation with the owner on 2026-10-02: «Отлично. Давай переходим к шагу 5». Authorizes entering and preparing Stage 5 only: UX decision material (form, style, 2-3 palettes, accessibility) and draft ui-design-system.md / ui-design-tokens.json. Not an approval of a concrete design, palette, UI foundation, wireframes or Stage 6. The exact owner-chat time is not known to PM; approved_at is the relay recording time.'
+  - from: stage-05
+    to: stage-06
+    reason: 'Owner-approved transition held in transition_request since the PR #45 correction (requested 2026-10-02T20:31:44Z); recorded now together with the Stage 6 package that passes audit:prototype (manifest analysis/prototyping/screen-manifest.json SHA-256 4c97c62e4f8802e83469463de746be5a74c10641325808de63e6fe13959c6f9b, export set stage-06-draft-12-ux-006-12).'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-10-03T14:25:10Z'
+    gate_evidence:
+      - 'analysis/prototyping/ui-ux-decision.md'
+      - 'analysis/prototyping/ui-design-system.md'
+      - 'analysis/prototyping/ui-design-tokens.json'
+    owner_approval:
+      approved_by: 'ekzarov'
+      approved_at: '2026-10-02T20:21:59Z'
+      record: 'analysis/prototyping/ui-ux-decision.md'
+      scope: 'Owner words, relayed by Codex: «Поехали. Мне нравится». The personal choice of the shown foundation and permission to continue preparing prototypes (Stage 6). Not a decision on the old P1/P2/P3, not an approval of style-tile inventions or future component variants, not Stage 8 approval. The exact owner-chat time is not known to PM; approved_at is the relay recording time.'
+  - from: stage-06
+    to: stage-07
+    reason: 'Stage 6 wireframe package complete for independent control: normalization, manifest (SHA-256 4c97c62e4f8802e83469463de746be5a74c10641325808de63e6fe13959c6f9b, export set stage-06-draft-12-ux-006-12), real Google Stitch exports and the ui-kit component sheet pass audit:prototype. Drafts only: open coverage items (role differences, the Me page, the system-info entry point, unverified phone controls) and recorded deviations are listed for the Stage 7 review; nothing is owner-approved.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-10-03T14:25:11Z'
+    gate_evidence:
+      - 'analysis/prototyping/screen-manifest.json'
+      - 'analysis/prototyping/screen-normalization.json'
+      - 'analysis/prototyping/ui-design-system.md'
+    owner_approval: null
 review_passes:
   - stage: stage-02
     pass: 1
@@ -981,9 +991,9 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 5 complete: owner chose the Material Lean foundation «Поехали. Мне нравится» (SHA-256 97e04be7…); owner-approved transition to Stage 6 held until the Stage 6 package exists.'
-  completed_percent: 21
-  updated_at: '2026-10-02T20:31:44Z'
+  summary: 'Stage 6 wireframe package (export set stage-06-draft-12-ux-006-12) passes audit:prototype; Stage 7 independent control next. Drafts, not owner-approved.'
+  completed_percent: 32
+  updated_at: '2026-10-03T14:25:11Z'
   agent_reviews:
     total: 14
     valid: 12
