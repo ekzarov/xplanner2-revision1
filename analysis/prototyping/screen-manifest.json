@@ -1,9 +1,9 @@
 {
   "schema_version": 4,
   "project": "xplanner2-revision1",
-  "scope": "Stage 6 representative set UX-006: list and edit form, desktop and phone (dialogs pending)",
+  "scope": "Stage 6 representative set UX-006: list, edit form and close iteration confirmation, desktop and phone (6 drafts)",
   "tool": "Google Stitch, project projects/2535085752995102337",
-  "export_set_version": "stage-06-draft-3-representative-partial",
+  "export_set_version": "stage-06-draft-4-representative-six",
   "decision": "analysis/prototyping/ui-ux-decision.md",
   "normalization": "analysis/prototyping/screen-normalization.json",
   "normalization_sha256": "e8fff146e26ec1c603dcc0f0fe62e6839f16429b6c63c2b1f453fcdbc52e515f",
@@ -24,11 +24,14 @@
         "save order",
         "move selected stories"
       ],
-      "overlays": [],
+      "overlays": [
+        "close iteration confirmation"
+      ],
       "workbook_rows": [
         92,
         95,
-        97
+        97,
+        101
       ],
       "files": [
         {
@@ -45,7 +48,23 @@
         },
         {
           "path": "wireframes/list-phone.png",
-          "sha256": "b47f420b00f0bb18ae9469b6599bcd1201a5c463daa7099fac863f3efe93972a"
+          "sha256": "5e5cffa9c64b3b554d074971c2e6dbc4b3127bd06f0ff191b48ae0d36898276c"
+        },
+        {
+          "path": "wireframes/dialog-desktop.html",
+          "sha256": "fa367914182c9d7525ff3b8166288486fee7a9592d878493efd972f79314f873"
+        },
+        {
+          "path": "wireframes/dialog-desktop.png",
+          "sha256": "a362e51c05cdfd4edfa7f76d0d04bd2106f2b791ebc6e8b4590edb7579b2d03a"
+        },
+        {
+          "path": "wireframes/dialog-phone.html",
+          "sha256": "f14468f7b1afb22a17f9ab89e0b80cd0eb09db469679f427784aaca7351906d6"
+        },
+        {
+          "path": "wireframes/dialog-phone.png",
+          "sha256": "e8d8d376d8f5b1be5eabda6cb9c6e17224803e24e8702a9e55857a2f3cb47f78"
         }
       ],
       "navigation": [],
@@ -57,6 +76,7 @@
         "checkbox",
         "table.data",
         "progress.bar",
+        "dialog.confirm",
         "nav.top-bar",
         "nav.breadcrumb",
         "nav.tabs"
@@ -93,7 +113,7 @@
         },
         {
           "path": "wireframes/form-desktop.png",
-          "sha256": "5b6c9e1f4c0529db8fefb1510c73673a1826e4880f6ec756e8ff1ab60ee3c49e"
+          "sha256": "83aa2c75ea8cfe353db61bb6eaf9cfbfd1a6753c57d05355674833057581a290"
         },
         {
           "path": "wireframes/form-phone.html",
@@ -363,15 +383,14 @@
     }
   ],
   "_notes": [
-    "Stage 6 draft written by UX Designer UX-006-04 at 2026-10-03T07:57:45Z (UTC from code). It holds only four real Stitch views. This incomplete set is not all of Stage 6, not a clean control (no Stage 7 review) and not Stage 8 approval.",
-    "Provenance: all files are byte-identical to the official Stitch Export All ZIP of UX-006-04 (SHA-256 e3d9b6923d73b2044c8a5653712ac13c3e3c7d32dca77886a67e1b89eb0da464). list-desktop = screen 571fa1a5dfa6478c8712368474cc5d03 (also identical to the first export ZIP). list-phone = screen 20c628c1a4494d28b2c0bb4abe420bce, the corrected version produced by the one corrective edit of screen 67531e08b55c4c3988225e51a46e51e9; the pre-edit version is kept only in scratch. form-desktop = screen fcf400f0730a44cfa0aeb48c9f9935ae; form-phone = screen fa2066c199bd4fb686e1db5d056c9726.",
-    "list-phone is a DRAFT with remarks. The edit removed the Inter stylesheet link and set the page to #F7F8FA and the text to #1D2125, but font-family still names Inter (so it falls back to a generic sans-serif, not the system stack). Remaining: control borders #D1D5DB (below 3:1), dividers #E5E7EB, secondary #6B7280, 12 px labels, 1 px grey focus rings and no tab focus outline, 16 px checkboxes and 32 px order inputs below the 44 px touch target, a placeholder \"Search or enter ID...\" that was not requested, and the cut-off Estimate column hint no longer visible. Width: 390 px frame, with the table inside its own horizontal scroll container and body overflow-x hidden.",
-    "form-phone is laid out as a 390 px centred column on a 1280 px desktop canvas (Stitch registered the device as DESKTOP), not as a phone-viewport capture.",
-    "Sample defects (synthetic data, not retouched): list-desktop shows Estimated 120.0 h, Remaining 72.0 h and Progress 40%, while its rows sum to 100.0 h, 52.0 h and 48%; Story 1 shows Accepted with remaining work. list-phone uses the corrected data.",
-    "task-editor: no date field (row 137 removes the created-date check). Reset of row 139 is not represented and not approved; Save and Cancel are drawn but are not a proven replacement for Update/Reset. No autocomplete. The hidden option lists contain values that no approved row names (Type \"Task\" and \"Chore\"; Disposition \"Unplanned\"; story dispositions reused for tasks).",
-    "Pending: the close iteration confirmation (row 101) on desktop and phone. Real API exports of both dialogs exist in scratch (screens 2a3fa9b9634a4bc0ac5bbff098161f9f and bf3f9002eddf4351b2af6be25bde4d59) and are not imported, pending the coordinator decision. Also pending: the other iteration-page and task-editor rows, the shared app-shell rows (19, 185, 188, drawn inside these screens but planned on app-shell), and the other 24 planned screens.",
-    "No component sheet (wireframes/ui-kit.html) is exported, so ui_design_system.resources is empty and catalogue previews do not resolve. No resource is invented.",
-    "Roles: only the editor view is drawn; the viewer variation follows the SDD permission matrix (D-001). Deferred (31) and pending (5) rows are listed in the normalization _notes; the schema has no field for them (process backlog item 12)."
+    "Stage 6 draft written by UX Designer UX-006-05 at 2026-10-03T08:05:29Z (UTC from code). It holds the first six representative views as real Stitch files: 6 drafts. This is NOT all of Stage 6, NOT a clean control (no Stage 7 review) and NOT owner approval (Stage 8 is not approved).",
+    "Provenance: all 12 files are byte-identical to the final official Stitch UI Export ZIP made by Codex in the Stitch UI (SHA-256 827baa438f4f019c474b224f91fc58bbf4c71c2a1225b9773e4929b0da0d73a0, 641434 bytes). Screens: list-desktop 571fa1a5dfa6478c8712368474cc5d03; list-phone 20c628c1a4494d28b2c0bb4abe420bce (result of the one corrective edit of 67531e08b55c4c3988225e51a46e51e9, which is kept only in scratch); form-desktop fcf400f0730a44cfa0aeb48c9f9935ae; form-phone fa2066c199bd4fb686e1db5d056c9726; dialog-desktop 4ef3b110681143abbb8e9cd4862756d4 and dialog-phone f9dc35ac07af4e9291b01d8ca5035a73 (generated by Codex in the Stitch UI). The list-phone and form-desktop PNGs replace the different renderings of the same HTML taken from the previous ZIP; those are kept in scratch.",
+    "Open draft viewport issue (visible, not resolved): form-phone and dialog-phone are 390 px content columns on a wide 1280 px desktop canvas, not phone-viewport captures. list-phone is a 390 x 807 capture.",
+    "list-phone is a DRAFT with remarks: the font-family still names Inter (no web font loaded, so it falls back to a generic sans-serif, not the system stack); control borders #D1D5DB (below 3:1); dividers #E5E7EB; secondary text #6B7280; 12 px labels; 1 px grey focus rings and no tab focus outline; 16 px checkboxes and 32 px order inputs are below the 44 px touch target; a search placeholder was added that was not requested.",
+    "Sample defects (synthetic data, not retouched): list-desktop and the dialog-desktop background show Estimated 120.0 h, Remaining 72.0 h and Progress 40%, while the rows sum to 100.0 h, 52.0 h and 48%; Story 1 shows Accepted with remaining work. list-phone and dialog-phone use the corrected data. Both dialogs state 4 unfinished stories.",
+    "task-editor: no date field (row 137 removes the created-date check). Reset of row 139 is not represented and not approved; Save and Cancel are drawn but are not a proven replacement for Update/Reset. No autocomplete. The hidden option lists contain values no approved row names (Type \"Task\" and \"Chore\"; Disposition \"Unplanned\"; story dispositions reused for tasks).",
+    "Not selected: duplicate API dialog generations 2a3fa9b9634a4bc0ac5bbff098161f9f and bf3f9002eddf4351b2af6be25bde4d59 (UX-006-03 clarification), superseded by the coordinator UI generations; kept in scratch only and absent from the final ZIP.",
+    "Pending: the other iteration-page rows (91, 93, 96, 98, 99, 102-104, 210), the other task-editor rows, the shared app-shell rows (19, 185, 188, drawn inside these screens but planned on app-shell), the other 24 planned screens, the component sheet (wireframes/ui-kit.html; ui_design_system.resources is empty and catalogue previews do not resolve), and the 31 deferred plus 5 pending rows listed in the normalization _notes (schema gap, process backlog item 12). Only the editor role is drawn; other roles follow the SDD permission matrix (D-001)."
   ],
   "ui_design_system": {
     "catalogue": {
