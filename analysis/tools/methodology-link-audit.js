@@ -29,6 +29,15 @@ const STARTER_SOURCE_ONLY_DOCUMENTS = new Set([
   'tests/init-migration.Tests.ps1',
   'analysis/reviews/starter-governance-hardening-review.md',
 ]);
+// Project scope fix: unchanged design-tool exports (hash-pinned by
+// audit:prototype) carry the tool's own in-page links such as "#me". Only
+// those same-document fragments are not documentation anchors; links into
+// the exports, other links inside them and unsafe links are still checked.
+const DESIGN_EXPORT_PATTERN = /^analysis\/prototyping\/wireframes\/.+\.html?$/i;
+
+function isDesignExport(root, file) {
+  return DESIGN_EXPORT_PATTERN.test(path.relative(root, file).replaceAll(path.sep, '/'));
+}
 
 function githubSlug(value) {
   return value
@@ -138,6 +147,7 @@ function validateLinks(root, files, result) {
         continue;
       }
       if (!target.anchor || fs.statSync(target.absolute).isDirectory()) continue;
+      if (target.absolute === file && isDesignExport(root, file)) continue;
       const extension = path.extname(target.absolute).toLowerCase();
       if (!['.md', '.html', '.htm'].includes(extension)) continue;
       const targetStructure = getStructure(target.absolute);
