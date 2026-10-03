@@ -1298,6 +1298,70 @@ test('requires a waiver to be linked from the next applicable clean control pass
   assert(errors.some((error) => error.includes('clean stage-07 pass')), errors.join('\n'));
 });
 
+for (const [gate, dueNumber] of [
+  ['legacy_walkthrough_fallback', 7],
+  ['architecture_retroactive', 10],
+  ['pre_sdd_knowledge', 16],
+]) {
+  test(`${gate} permits finding-driven return but still requires clean verification before advancement`, () => {
+    const base = completedStatus();
+    const waiver = validWaiver(gate);
+    const dueStage = `stage-${String(dueNumber).padStart(2, '0')}`;
+    const authorStage = `stage-${String(dueNumber - 1).padStart(2, '0')}`;
+    const nextStage = `stage-${String(dueNumber + 1).padStart(2, '0')}`;
+    const status = validStatus({
+      ...base,
+      control: {
+        state: 'active',
+        current_stage: authorStage,
+        previous_stage: dueStage,
+        stage_status: 'in_progress',
+        next_action: 'Correct the independently reported findings.',
+      },
+      owner_decisions: [waiver],
+      transition_history: [
+        ...base.transition_history.slice(0, dueNumber),
+        transition(dueStage, authorStage, dueNumber + 1),
+      ],
+      review_passes: base.review_passes
+        .filter(entry => Number(entry.stage.slice(-2)) <= dueNumber)
+        .map(entry => entry.stage === dueStage ? { ...entry, result: 'findings' } : entry),
+      progress: { ...base.progress, completed_percent: formalStageProgress(authorStage).percent },
+    });
+    assert.deepEqual(validateStatus(status), []);
+
+    status.transition_history.push(
+      transition(authorStage, dueStage, dueNumber + 2),
+      transition(dueStage, nextStage, dueNumber + 3, base.transition_history[dueNumber].owner_approval),
+    );
+    Object.assign(status.control, { current_stage: nextStage, previous_stage: dueStage });
+    status.progress.completed_percent = formalStageProgress(nextStage).percent;
+    const closingPass = reviewPass(dueStage, 2, {
+      reviewer_id: `reviewer-${dueStage}-2`,
+      reviewed_at: `2026-07-28T10:${String(dueNumber + 2).padStart(2, '0')}:30Z`,
+    });
+    status.review_passes.push(closingPass);
+    status.progress.agent_reviews.total += 1;
+    status.progress.agent_reviews.valid += 1;
+    assert(validateStatus(status).some(error => error.includes(`clean ${dueStage} pass`)));
+
+    closingPass.waiver_ids = [waiver.id];
+    closingPass.scope = 'different-scope';
+    assert(validateStatus(status).some(error => error.includes(`clean ${dueStage} pass`)));
+    closingPass.scope = waiver.scope;
+    assert.deepEqual(validateStatus(status), []);
+
+    Object.assign(closingPass, {
+      result: 'findings',
+      findings_severity_max: 'low',
+      never_cosmetic_check: 'confirmed',
+      all_findings_cosmetic: 'confirmed',
+      dispositioned_in: 'analysis/prototyping/ui-polish-backlog.md',
+    });
+    assert(validateStatus(status).some(error => error.includes(`clean ${dueStage} pass`)));
+  });
+}
+
 test('accepts completion only with clean control passes and closed delivery evidence', () => {
   assert.deepEqual(validateStatus(completedStatus()), []);
 });
