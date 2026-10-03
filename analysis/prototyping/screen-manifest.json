@@ -6,7 +6,7 @@
   "export_set_version": "stage-06-draft-13-ux-006-13",
   "decision": "analysis/prototyping/ui-ux-decision.md",
   "normalization": "analysis/prototyping/screen-normalization.json",
-  "normalization_sha256": "c28d7213437eeb7de36fb83a9ae548c58aae689894930e6bf9ccd1c64b851b28",
+  "normalization_sha256": "d4ada09d9b80f273c3876b8e6bdb9578c7d0ae7c358a02363da284a31d735ece",
   "workbook_rows_sha256": "87636a53544db5769d6bc1190de7afe5004d5e23afd3fa21eb8eab302ba0b861",
   "screens": [
     {
@@ -24,17 +24,15 @@
         "role view admin: Edit and Delete iteration (list-desktop, list-phone; rows 24, 91)",
         "role view viewer: read-only, no selection, order, toolbar, edit, delete or note actions (rows 23, 26)",
         "notes section",
-        "role view editor: no Delete iteration (rows 24, 91)",
-        "export menu open: XML, PDF (rows 208, 210)",
+        "export menu open: XML, PDF (row 210)",
+        "role view editor: no Delete iteration",
         "empty",
         "invalid-order-number",
-        "no-future-iteration",
         "same-iteration-rejected",
         "print view"
       ],
       "actions": [
         "save order",
-        "move selected stories",
         "start iteration",
         "export iteration"
       ],
@@ -45,17 +43,16 @@
         "continue unfinished stories"
       ],
       "workbook_rows": [
+        24,
         91,
         92,
         93,
         95,
         96,
-        97,
         98,
         99,
         101,
         102,
-        103,
         104,
         192,
         210
@@ -149,12 +146,12 @@
         "progress.bar",
         "dialog.confirm",
         "nav.tabs",
-        "message.error-summary",
         "nav.top-bar",
         "nav.breadcrumb",
         "link.text",
         "field.select",
-        "button.danger"
+        "button.danger",
+        "menu.popover"
       ]
     },
     {
@@ -333,18 +330,14 @@
         "role view system administrator: Delete project (rows 26, 82)",
         "empty"
       ],
-      "actions": [
-        "export project"
-      ],
+      "actions": [],
       "overlays": [
         "delete project confirmation"
       ],
       "workbook_rows": [
         82,
         83,
-        84,
-        208,
-        209
+        84
       ],
       "files": [
         {
@@ -370,8 +363,7 @@
         "Create iteration to iteration-editor",
         "History to history",
         "Add note to note-editor",
-        "breadcrumb Top to projects-list",
-        "export menu"
+        "breadcrumb Top to projects-list"
       ],
       "ui_variants": [
         "button.neutral",
@@ -670,27 +662,16 @@
       ],
       "states": [
         "populated",
-        "empty",
-        "same-iteration-rejected",
-        "move-continue-validation"
+        "empty"
       ],
-      "actions": [
-        "continue story",
-        "export PDF"
-      ],
+      "actions": [],
       "overlays": [
-        "delete story confirmation",
-        "move or continue story"
+        "delete story confirmation"
       ],
       "workbook_rows": [
         126,
         127,
-        128,
-        129,
-        130,
-        131,
-        132,
-        212
+        128
       ],
       "files": [
         {
@@ -715,8 +696,7 @@
         "table.data",
         "nav.top-bar",
         "nav.breadcrumb",
-        "link.text",
-        "field.select"
+        "link.text"
       ]
     },
     {
@@ -944,29 +924,20 @@
       ],
       "states": [
         "open task",
-        "role view viewer: completed task read-only, no complete, reopen, edit, time, move or delete actions (rows 23, 26)",
         "notes section",
-        "same-story-rejected",
-        "move-continue-validation"
+        "role view viewer: no complete, reopen, edit, time, move or delete actions"
       ],
       "actions": [
-        "complete task",
-        "reopen task",
-        "continue task"
+        "complete task"
       ],
       "overlays": [
-        "delete task confirmation",
-        "move or continue task"
+        "delete task confirmation"
       ],
       "workbook_rows": [
+        26,
         140,
-        141,
         142,
         143,
-        144,
-        145,
-        146,
-        147,
         185
       ],
       "files": [
@@ -1010,8 +981,7 @@
         "dialog.confirm",
         "nav.top-bar",
         "nav.breadcrumb",
-        "link.text",
-        "field.select"
+        "link.text"
       ]
     },
     {
@@ -1138,10 +1108,12 @@
       ],
       "states": [
         "default",
+        "role view system administrator: System administrator checkbox, every project role editable (rows 33, 34)",
         "validation-error",
         "duplicate-user-id"
       ],
       "actions": [
+        "reset",
         "cancel",
         "set project role",
         "grant or revoke system administrator",
@@ -1170,7 +1142,10 @@
           "sha256": "ba843994796bf6f592f2754e05dc71c762fad6a96afdd55ae16f9ff86550111c"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "Save and Cancel return to the originating page",
+        "breadcrumb to person-page and people-list"
+      ],
       "ui_variants": [
         "button.primary",
         "button.neutral",
@@ -1210,7 +1185,10 @@
           "sha256": "1fa4cac682965f19ea1d03c63a39be2a1920337f6089d4606cf8030a3ff87f55"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "entry from projects-list (Aggregate timesheet link)",
+        "breadcrumb Top to projects-list"
+      ],
       "ui_variants": [
         "button.neutral",
         "field.date",
@@ -1231,21 +1209,17 @@
         "editor"
       ],
       "states": [
-        "default",
+        "add mode",
         "validation-error"
       ],
       "actions": [
-        "cancel",
-        "save"
+        "reset",
+        "cancel"
       ],
-      "overlays": [
-        "delete note confirmation"
-      ],
+      "overlays": [],
       "workbook_rows": [
         169,
-        170,
-        173,
-        174
+        170
       ],
       "files": [
         {
@@ -1257,12 +1231,14 @@
           "sha256": "3db6e072dc92447f50883ca7ae08111f9b46b04ac6fa8b961dc20233cefccc49"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "Save and Cancel return to the object page",
+        "formatting help",
+        "breadcrumb to story-page"
+      ],
       "ui_variants": [
         "button.primary",
         "button.neutral",
-        "button.danger",
-        "dialog.confirm",
         "field.text",
         "field.select",
         "field.textarea",
@@ -1299,7 +1275,10 @@
           "sha256": "45e4099e0ba1411014bf50dbf4d69ce070ef09e6cade4233a497e3037297e76b"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "Me to person-page",
+        "Sign out to sign-in"
+      ],
       "ui_variants": [
         "nav.top-bar",
         "link.text"
@@ -1331,7 +1310,10 @@
           "sha256": "105aed014446ad6f9c20cb2cc5181ce622fd96e1d676d40a29ff7ebf1052dd81"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "entry: System information link in the system-administrator top bar (projects-list-desktop)",
+        "breadcrumb Top to projects-list"
+      ],
       "ui_variants": [
         "table.data",
         "nav.top-bar",
@@ -1346,7 +1328,7 @@
       "reason": "Stage 4 change (D-003). Password storage method; server-side (D-003).",
       "covered_by": {
         "coverage": "Password storage method; server-side (D-003). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "person-editor"
       }
     },
     {
@@ -1354,7 +1336,7 @@
       "reason": "Stage 4 keep (D-001). Access filter for protected requests; worked example in the methodology.",
       "covered_by": {
         "coverage": "Access filter for protected requests; worked example in the methodology. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "sign-in"
       }
     },
     {
@@ -1362,7 +1344,7 @@
       "reason": "Stage 4 keep (D-001). Idle session timeout; the next request reaches sign-in through row 17.",
       "covered_by": {
         "coverage": "Idle session timeout; the next request reaches sign-in through row 17. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "sign-in"
       }
     },
     {
@@ -1370,14 +1352,6 @@
       "reason": "Stage 4 keep (D-001). Role model; exact permission matrix at SDD (D-001).",
       "covered_by": {
         "coverage": "Role model; exact permission matrix at SDD (D-001). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
-      }
-    },
-    {
-      "row": 24,
-      "reason": "Stage 4 change (D-001). Negative permissions enforced on the server (D-001).",
-      "covered_by": {
-        "coverage": "Negative permissions enforced on the server (D-001). No screen; the SDD defines the behavior and its automated checks.",
         "initiating_screen": null
       }
     },
@@ -1390,19 +1364,11 @@
       }
     },
     {
-      "row": 26,
-      "reason": "Stage 4 change (D-001). Server enforcement; per-screen visibility of actions is a role variation decided with the SDD permission matrix (D-001).",
-      "covered_by": {
-        "coverage": "Server enforcement; per-screen visibility of actions is a role variation decided with the SDD permission matrix (D-001). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
-      }
-    },
-    {
       "row": 27,
       "reason": "Stage 4 keep (D-001). Read filter of the projects query.",
       "covered_by": {
         "coverage": "Read filter of the projects query. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "projects-list"
       }
     },
     {
@@ -1434,7 +1400,7 @@
       "reason": "Stage 4 change (D-006). Server rule for applying role changes (D-006).",
       "covered_by": {
         "coverage": "Server rule for applying role changes (D-006). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "person-editor"
       }
     },
     {
@@ -1450,7 +1416,7 @@
       "reason": "Stage 4 change (D-007). Deactivated people are filtered out of active pick lists; list query rule (D-007).",
       "covered_by": {
         "coverage": "Deactivated people are filtered out of active pick lists; list query rule (D-007). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "task-editor"
       }
     },
     {
@@ -1466,7 +1432,7 @@
       "reason": "Stage 4 change (D-010). English date display and strict input rule applied by every date field (D-010).",
       "covered_by": {
         "coverage": "English date display and strict input rule applied by every date field (D-010). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-editor"
       }
     },
     {
@@ -1490,7 +1456,7 @@
       "reason": "Stage 4 change (D-013). Daily burn-down sampling (D-013, M-03); method and schedule not chosen.",
       "covered_by": {
         "coverage": "Daily burn-down sampling (D-013, M-03); method and schedule not chosen. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-statistics"
       }
     },
     {
@@ -1498,7 +1464,7 @@
       "reason": "Stage 4 change (D-010). Stable stored code for the task type (D-010).",
       "covered_by": {
         "coverage": "Stable stored code for the task type (D-010). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "task-editor"
       }
     },
     {
@@ -1506,7 +1472,7 @@
       "reason": "Stage 4 change (D-017). Task-change mail to the current assignee (D-017).",
       "covered_by": {
         "coverage": "Task-change mail to the current assignee (D-017). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "task-editor"
       }
     },
     {
@@ -1514,7 +1480,7 @@
       "reason": "Stage 4 change (D-001). Server-side permission check of the personal timesheet (D-001).",
       "covered_by": {
         "coverage": "Server-side permission check of the personal timesheet (D-001). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "person-timesheet"
       }
     },
     {
@@ -1522,7 +1488,7 @@
       "reason": "Stage 4 keep (D-001). Read filter of the aggregate timesheet query.",
       "covered_by": {
         "coverage": "Read filter of the aggregate timesheet query. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "aggregate-timesheet"
       }
     },
     {
@@ -1530,7 +1496,7 @@
       "reason": "Stage 4 change (D-001). Permission check of the numeric search hit.",
       "covered_by": {
         "coverage": "Permission check of the numeric search hit. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "search-results"
       }
     },
     {
@@ -1538,7 +1504,7 @@
       "reason": "Stage 4 change (D-001). Permission check of the ID jump.",
       "covered_by": {
         "coverage": "Permission check of the ID jump. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "search-results"
       }
     },
     {
@@ -1554,7 +1520,7 @@
       "reason": "Stage 4 change (D-019). UX-006-09 placement: safe rendering of existing markup and object links applies to every description text; it changes no layout, so it is a rendering rule covered by output-escaping and rendering tests at SDD; the external wiki lookup stays deferred.",
       "covered_by": {
         "coverage": "UX-006-09 placement: safe rendering of existing markup and object links applies to every description text; it changes no layout, so it is a rendering rule covered by output-escaping and rendering tests at SDD; the external wiki lookup stays deferred. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "story-page"
       }
     },
     {
@@ -1562,7 +1528,7 @@
       "reason": "Stage 4 change (D-017). Mail failure handling (D-017).",
       "covered_by": {
         "coverage": "Mail failure handling (D-017). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "task-editor"
       }
     },
     {
@@ -1570,7 +1536,7 @@
       "reason": "Stage 4 change (D-013). Daily burn-down sampling (D-013, M-03).",
       "covered_by": {
         "coverage": "Daily burn-down sampling (D-013, M-03). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-statistics"
       }
     },
     {
@@ -1578,7 +1544,7 @@
       "reason": "Stage 4 change (D-023). Internal API the board needs (D-023).",
       "covered_by": {
         "coverage": "Internal API the board needs (D-023). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-board"
       }
     },
     {
@@ -1586,31 +1552,31 @@
       "reason": "Stage 4 change (D-023/D-002). Authentication of the internal API (D-002, D-023).",
       "covered_by": {
         "coverage": "Authentication of the internal API (D-002, D-023). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-board"
       }
     }
   ],
   "_notes": [
-    "Stage 6 prototype set for the prototype PR, written by UX Designer UX-006-12 at 2026-10-03T17:31:56Z (UTC from code). It is NOT a Stage 7 control and NOT owner approval, and it does not declare Stage 6 complete. The owner liked the general style and gave direction on editor actions and profile identity only.",
-    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a named responsive or message pattern verified by a real export (P). Per-row D/P claims are recorded in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. App-shell rows were remapped onto drawn screens in UX-006-09 (19 projects-list, 185 task-page, 188 person-page, 192 iteration-page). Row 188 (Me) is claimed P only: the Me link is drawn in every top bar and the destination layout is the drawn person-page of User A; no export shows the own page of the signed-in person.",
-    "Open coverage items (NOT cosmetic and NOT proven coverage; for QA7 to assess against the requirements and approved patterns; no claim is made for them beyond what is drawn or pattern-verified): (1) role-dependent differences: every export shows the editor view, no viewer or administrator variant is drawn; (2) the Me page of the signed-in person is not drawn (row 188 is P, see Claims); (3) the system-info entry point is not drawn (the page itself, row 55, is drawn); (4) phone controls not verified: date picker on phone, select inside a phone dialog, empty state on phone; surfaces without their own phone export rely on the patterns below and are not individually verified.",
-    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset; official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
+    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-03T17:43:01Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
+    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a pattern whose composition is unchanged and is drawn in a real export (P); per-row claims are in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. After Stage 7 pass 001 the claims that relied on a pattern with a different composition, or on a trigger without a drawn destination, were withdrawn: rows 97, 103, 129-132, 141, 144-147, 173, 174, 208, 209 and 212 are unclaimed and pending their exports (hand-off handoff-ux-006-13.md), so audit:prototype fails on them until they are drawn. Rows 24 and 26 are role states drawn by iteration-export-menu-desktop and task-viewer-desktop; row 210 is drawn by the export menu (iteration-export-menu-desktop).",
+    "Roles (Stage 7 pass 001 F-001/F-002): each screen declares the roles its exports draw; role views are states of the same screen. iteration-page: admin (list-desktop, list-phone: Edit and Delete iteration), editor (iteration-export-menu-desktop: no Delete iteration) and viewer (iteration-viewer-desktop: read-only); task-page: editor and viewer (task-viewer-desktop); projects-list: system administrator (Create project, Hidden column, System information link); project-page: system administrator (Delete project); people-list: admin and system administrator (Create person; for viewers and editors only that button is absent). Pending drawings: projects-list for viewer/editor/admin, project-page admin, story-page viewer, person-page viewer, person-editor admin. Open coverage items for QA: phone date picker, select inside a phone dialog and phone empty state are not verified (pending phone exports).",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
     "Pending prepared entries: none. Every export was accepted only after its real PNG was checked against its HTML; stale or cropped pairs (ZIP 6 and ZIP 7 close, ZIP 7 start and continue) were not imported and are kept in scratch.",
     "Editors (owner direction, relayed by Codex): Save, Reset and Cancel, drawn on every exported editor. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
     "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page. A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",
     "Responsive patterns: list/table: priority columns, table scrolls in its own container, 44-48 px targets; verified by list-phone (a10e679d) and project-page-phone (f4a330e1); form: single column, 16 px fields, stacked full-width Save / Reset / Cancel; verified by form-phone (78b9b2d9, ZIP 6157107c) and signin-phone (c5d26872); dialog: full width minus 16 px, stacked 48 px buttons, scrim; verified by dialog-phone (fdb44f71); detail page: heading, stacked action buttons, summary, then list/table; verified by project-page-phone (f4a330e1); board: stacked status sections per story; verified by iteration-board-phone (58e255ee); messages and validation: error summary plus field errors; verified by form-phone and signin-phone; charts: charts stacked one per row with text legends; verified by iteration-statistics-phone (76be6213); time grid: one stacked block per entry; verified by time-editor-phone (c7e2ef05, ZIP 6157107c); empty state: table.data empty row; drawn on desktop (ui-kit, iteration-start-dialog-desktop); NOT verified on phone; date picker on phone: NOT verified (no phone export of iteration-editor); open coverage item; select inside a phone dialog: NOT verified (no phone export of continue-dialog); open coverage item. Surfaces without their own phone export rely on these patterns and are not individually verified.",
-    "Navigation: per-screen navigation entries; breadcrumbs on hierarchical pages, none at the root (projects-list shows a root \"Top\" breadcrumb, a recorded deviation). Carrying list position in the URL is a proposal only. list-phone has no operable select-all (row 97 is met by per-row checkboxes; recorded deviation); list-desktop draws \"Select all stories\".",
+    "Navigation: per-screen navigation entries; breadcrumbs on hierarchical pages, none at the root (projects-list-desktop has no breadcrumb since UX-006-13); the system-administrator top bar adds \"System information\" (row 55). Carrying list position in the URL is a proposal only. list-phone has no operable select-all (row 97 is met by per-row checkboxes; recorded deviation); list-desktop draws \"Select all stories\".",
     "Known CI issue (PM handles; exports not retouched): dead in-page anchors in some exports.",
     "Deferred: the 31 Stage 4 defer rows are recorded in the normalization deferred_rows field (UX-006-10, PR #48); they are not drawn. Former pending rows 161, 174, 189, 208 and 212 are placed (UX-006-09). The component sheet wireframes/ui-kit.html is the ui_design_system resource."
   ],
   "ui_design_system": {
     "catalogue": {
       "path": "ui-design-system.md",
-      "sha256": "ff3439c101c09c5db3ad048d3d637e230bc696b68a8c0822e8f77110787c2c80"
+      "sha256": "29807f0e39ba2836ea26de0fa0e4562faa8f0acb1260b345a3c37c49c36d11f5"
     },
     "tokens": {
       "path": "ui-design-tokens.json",
-      "sha256": "69bbd849ddb1ad507635b968e8eb1af4527ba124d305516fbccb0cb5a35f7507"
+      "sha256": "36f3b7a2c394f708f5a6bf929b20c384f1642463dabe3b37cc44548868bc555e"
     },
     "resources": [
       {
