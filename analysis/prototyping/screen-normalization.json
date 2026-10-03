@@ -1245,10 +1245,198 @@
       "reason": "do not port — the WAP channel; mobile access is kept as responsive web capability (M-01); Stage 5 style is not approved."
     }
   ],
+  "deferred_rows": [
+    {
+      "row": 15,
+      "decision": "D-003",
+      "reason": "remember-me is outside the first scope (consumers unknown); credential cookies are not ported.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 16,
+      "decision": "D-003",
+      "reason": "remember-me is outside the first scope (consumers unknown); credential cookies are not ported.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 21,
+      "decision": "D-003",
+      "reason": "directory/SSO login (LDAP, NTLM, JAAS) is outside the first scope; consumers unknown.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 50,
+      "decision": "D-008",
+      "reason": "people import is outside the first scope; the need is unknown and not declared unused; format and consumer are settled before the import slice.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 51,
+      "decision": "D-008",
+      "reason": "people import is outside the first scope; the need is unknown and not declared unused; format and consumer are settled before the import slice.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 52,
+      "decision": "D-008",
+      "reason": "people import is outside the first scope; the need is unknown and not declared unused; format and consumer are settled before the import slice.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 53,
+      "decision": "D-008",
+      "reason": "people import is outside the first scope; the need is unknown and not declared unused; format and consumer are settled before the import slice.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 58,
+      "decision": "D-010",
+      "reason": "language switching and the non-English bundles wait for the multilingual slice; the first demonstration slice is English; existing texts are kept and not declared verified. The open returnto redirect is not ported (D-004).",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 70,
+      "decision": "D-010",
+      "reason": "the Spanish, French, Italian and Brazilian Portuguese date patterns wait for the multilingual slice; the Spanish pattern defect is not ported.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 85,
+      "decision": "D-017",
+      "reason": "the notification receivers serve the leads report, which is deferred to its slice, where recipients and frequency are decided.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 86,
+      "decision": "D-017",
+      "reason": "the notification receivers serve the leads report, which is deferred to its slice, where recipients and frequency are decided.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 107,
+      "decision": "D-013",
+      "reason": "pairing metrics are outside the core.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 108,
+      "decision": "D-013",
+      "reason": "pairing metrics are outside the core.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 115,
+      "decision": "D-014",
+      "reason": "story import is outside the first scope; the need is unknown and not declared unused; format and consumer are settled before the import slice.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 116,
+      "decision": "D-014",
+      "reason": "story import is outside the first scope; the need is unknown and not declared unused; format and consumer are settled before the import slice.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 117,
+      "decision": "D-014",
+      "reason": "story import is outside the first scope; the need is unknown and not declared unused; format and consumer are settled before the import slice.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 118,
+      "decision": "D-014",
+      "reason": "story import is outside the first scope; the need is unknown and not declared unused; format and consumer are settled before the import slice.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 119,
+      "decision": "D-014",
+      "reason": "story import is outside the first scope; the need is unknown and not declared unused; format and consumer are settled before the import slice.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 171,
+      "decision": "D-018",
+      "reason": "attachments are outside the core until a separate slice or an inventory of real data; database BLOB storage is not a requirement.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 172,
+      "decision": "D-018",
+      "reason": "attachments are outside the core until a separate slice or an inventory of real data; database BLOB storage is not a requirement.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 175,
+      "decision": "D-018",
+      "reason": "attachments are outside the core until a separate slice or an inventory of real data; database BLOB storage is not a requirement.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 200,
+      "decision": "D-017",
+      "reason": "the daily reminder and the leads report wait for their slice, where recipients and frequency are decided.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 201,
+      "decision": "D-017",
+      "reason": "the daily reminder and the leads report wait for their slice, where recipients and frequency are decided.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice."
+    },
+    {
+      "row": 215,
+      "decision": "D-022",
+      "reason": "SOAP is outside the demonstration core; no backward compatibility is promised and consumers are not declared absent; before a production cut-over PM collects the real consumers and operations and returns a business decision. The Axis admin parameter, the anonymous alias, Version and the JAX-WS stub are not ported.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 218,
+      "decision": "D-022",
+      "reason": "SOAP is outside the demonstration core; no backward compatibility is promised and consumers are not declared absent; before a production cut-over PM collects the real consumers and operations and returns a business decision. The Axis admin parameter, the anonymous alias, Version and the JAX-WS stub are not ported.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 220,
+      "decision": "D-022",
+      "reason": "SOAP is outside the demonstration core; no backward compatibility is promised and consumers are not declared absent; before a production cut-over PM collects the real consumers and operations and returns a business decision. The Axis admin parameter, the anonymous alias, Version and the JAX-WS stub are not ported.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 221,
+      "decision": "D-022",
+      "reason": "SOAP is outside the demonstration core; no backward compatibility is promised and consumers are not declared absent; before a production cut-over PM collects the real consumers and operations and returns a business decision. The Axis admin parameter, the anonymous alias, Version and the JAX-WS stub are not ported.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 226,
+      "decision": "D-023",
+      "reason": "external REST compatibility, including the task status update, and drag-to-update (M-02) are deferred.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 228,
+      "decision": "D-024",
+      "reason": "iCal (M-04) is outside the core until a consumer is confirmed.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 229,
+      "decision": "D-024",
+      "reason": "iCal (M-04) is outside the core until a consumer is confirmed.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    },
+    {
+      "row": 230,
+      "decision": "D-024",
+      "reason": "iCal (M-04) is outside the core until a consumer is confirmed.",
+      "resume_condition": "Responsible: PM/BA; condition: before the SDD of the corresponding slice; for compatibility or data, before any real cut-over."
+    }
+  ],
   "_notes": [
     "Stage 6 draft by UX Designer assignment UX-006-01, generated 2026-10-02T20:35:50Z (UTC from code) from analysis/legacy_user_flows.xlsx, sheet \"User Flows\" (read-only, 210 business rows of UF-001..UF-018), column J Stage 4 destination notes, and analysis/stages/stage-04/stage-04-requirements-revision.md D-001..D-025. Not reviewed and not approved.",
-    "Accounting of all 210 business rows, each exactly once: 145 classified in rows[] (keep or change), 34 in excluded_rows[] (Stage 4 do-not-port), 31 deferred by Stage 4 and listed in the next note, 0 pending (UX-006-09 placements).",
-    "Deferred by Stage 4 (not designed and not excluded; they return to Stage 6 with their slice): D-003: rows 15, 16, 21; D-008: rows 50, 51, 52, 53; D-010: rows 58, 70; D-017: rows 85, 86, 200, 201; D-013: rows 107, 108; D-014: rows 115, 116, 117, 118, 119; D-018: rows 171, 172, 175; D-022: rows 215, 218, 220, 221; D-023: rows 226; D-024: rows 228, 229, 230. The record schema has no slot for deferred rows, so audit:prototype reports them as unclassified until PM or the owner decides how deferred scope is carried; this record does not relabel them as do-not-port.",
+    "Accounting of all 210 business rows, each exactly once: 145 classified in rows[] (keep or change), 34 in excluded_rows[] (Stage 4 do-not-port), 31 in deferred_rows[] (Stage 4 defer), 0 pending (UX-006-09 placements).",
+    "Deferred rows (UX-006-10, 2026-10-03T14:11:12Z UTC from code): the 31 Stage 4 defer rows are recorded in deferred_rows (decision D-NNN from column J, reason, resume_condition = the column J responsibility and condition), accepted by prototype-audit.js since PR #48. They are not classified, not excluded and not drawn; they return to Stage 6 with their slice. Earlier versions of this record listed them in this note because the schema had no field (backlog item 12).",
     "Placements (UX-006-09, 2026-10-03T13:53:51Z UTC from code; UX choice of place within existing screens, owner direction relayed by Codex; checked at Stage 7, shown to the owner at Stage 8): row 161 re-estimate -> time-editor action; row 174 delete note confirmation -> note-editor overlay; row 189 safe markup display -> non-visual rendering rule; row 208 export menu -> project-page navigation (Export link); row 212 story/task PDF -> story-page action (Export link). No keep or change row is pending any more.",
     "The normalization is general. Screen ids and surface keys are planning identities; route families are labels, not implementation URLs. Only the three representative screens of UX-006-01 are drawn (iteration-page, its close iteration confirmation overlay, and task-editor); every other screen, state, action, overlay and navigation step is planned but not drawn, and its element names may be refined when it is drawn.",
     "Role variations (viewer, editor and admin per project; system administrator) follow the SDD permission matrix (D-001); no screen encodes a role ladder.",
