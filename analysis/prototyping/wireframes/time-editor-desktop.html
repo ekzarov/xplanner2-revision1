@@ -1,297 +1,222 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Time: Task 8 - Planner</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "surface": "#f9f9ff",
-            "secondary": "#086d39",
-            "on-primary-fixed-variant": "#00429b",
-            "inverse-on-surface": "#ebf1ff",
-            "tertiary": "#a51c16",
-            "surface-container": "#e7eeff",
-            "on-tertiary-fixed-variant": "#910909",
-            "surface-container-highest": "#d6e3fe",
-            "on-error-container": "#93000a",
-            "secondary-fixed-dim": "#82d99a",
-            "outline": "#727786",
-            "background": "#f9f9ff",
-            "on-surface-variant": "#424654",
-            "error-container": "#ffdad6",
-            "on-tertiary-container": "#ffebe8",
-            "surface-container-low": "#f0f3ff",
-            "surface-bright": "#f9f9ff",
-            "inverse-surface": "#243145",
-            "primary": "#004fb6",
-            "on-background": "#0e1c2f",
-            "on-secondary-container": "#15733f",
-            "surface-dim": "#cddbf5",
-            "on-primary-container": "#ecefff",
-            "tertiary-container": "#c8362b",
-            "on-error": "#ffffff",
-            "error": "#ba1a1a",
-            "primary-fixed": "#d9e2ff",
-            "on-tertiary-fixed": "#410001",
-            "on-secondary-fixed-variant": "#005229",
-            "outline-variant": "#c2c6d7",
-            "on-surface": "#0e1c2f",
-            "surface-variant": "#d6e3fe",
-            "primary-fixed-dim": "#b0c6ff",
-            "surface-container-high": "#dee8ff",
-            "inverse-primary": "#b0c6ff",
-            "surface-tint": "#0058ca",
-            "surface-container-lowest": "#ffffff",
-            "secondary-fixed": "#9df6b4",
-            "on-primary-fixed": "#001945",
-            "tertiary-fixed": "#ffdad5",
-            "secondary-container": "#9df6b4",
-            "on-primary": "#ffffff",
-            "on-secondary": "#ffffff",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "primary-container": "#0c66e4",
-            "on-tertiary": "#ffffff",
-            "on-secondary-fixed": "#00210d"
-          },
-          "borderRadius": {
-            "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
-          },
-          "fontFamily": {
-            "headline": ["Inter"],
-            "display": ["Inter"],
-            "body": ["Inter"],
-            "label": ["Inter"]
-          }
-        },
-      },
-    }
-  </script>
-<style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #1D2125;
-      background-color: #F7F8FA;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-    }
-    input, select, button {
-      font-family: inherit;
-    }
-    .custom-focus:focus {
-      outline: 2px solid #0C66E4 !important;
-      outline-offset: 2px !important;
-    }
-    .lean-input {
-      height: 36px;
-      border: 1px solid #8590A2;
-      border-radius: 6px;
-      background-color: #FFFFFF;
-      color: #1D2125;
-      padding: 0 10px;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    .lean-input:focus {
-      outline: 2px solid #0C66E4;
-      outline-offset: 2px;
-      border-color: #0C66E4;
-    }
-    .tabular-nums {
-      font-variant-numeric: tabular-nums;
-    }
-  </style>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"error":"#ba1a1a","on-surface":"#0e1c2f","on-error-container":"#93000a","surface-variant":"#d6e3fe","outline-variant":"#c2c6d7","surface-container-lowest":"#ffffff","on-surface-variant":"#424654","on-tertiary-fixed-variant":"#910909","inverse-primary":"#b0c6ff","on-background":"#0e1c2f","on-secondary-fixed-variant":"#005229","surface-container-highest":"#d6e3fe","on-secondary-container":"#15733f","on-error":"#ffffff","surface-container":"#e7eeff","inverse-on-surface":"#ebf1ff","tertiary-fixed":"#ffdad5","on-primary":"#ffffff","secondary-fixed":"#9df6b4","secondary-container":"#9df6b4","surface":"#f9f9ff","on-primary-fixed":"#001945","on-tertiary-container":"#ffebe8","surface-container-low":"#f0f3ff","secondary-fixed-dim":"#82d99a","background":"#f9f9ff","on-tertiary":"#ffffff","primary-fixed-dim":"#b0c6ff","outline":"#727786","tertiary-container":"#c8362b","tertiary":"#a51c16","surface-bright":"#f9f9ff","on-tertiary-fixed":"#410001","tertiary-fixed-dim":"#ffb4aa","on-primary-fixed-variant":"#00429b","primary":"#004fb6","on-secondary":"#ffffff","on-secondary-fixed":"#00210d","secondary":"#086d39","primary-container":"#0c66e4","surface-container-high":"#dee8ff","on-primary-container":"#ecefff","surface-dim":"#cddbf5","error-container":"#ffdad6","primary-fixed":"#d9e2ff","surface-tint":"#0058ca","inverse-surface":"#243145"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{},"fontFamily":{"headline":["Inter"],"display":["Inter"],"body":["Inter"],"label":["Inter"]},"fontSize":{}}}}</script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/></head>
-<body class="min-h-screen flex flex-col bg-[#F7F8FA] text-[#1D2125]">
-<!-- Top bar -->
-<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] h-14 px-6 flex items-center justify-between shrink-0">
-<div class="flex items-center gap-8">
-<span class="text-lg font-semibold tracking-tight text-[#1D2125]">Planner</span>
-<div class="flex items-center gap-2">
-<label class="text-sm font-normal text-[#1D2125] select-none" for="search-input">Search or ID</label>
-<input class="lean-input w-64" id="search-input" type="text"/>
-</div>
-</div>
-<div class="flex items-center gap-6">
-<a class="text-sm font-normal text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#me">Me</a>
-<a class="text-sm font-normal text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#signout">Sign out</a>
-</div>
-</header>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-background font-body text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-14 w-full px-6 flex items-center justify-between"><div class="flex items-center gap-6"><span class="text-base font-semibold text-on-surface tracking-tight">Planner</span><div class="flex items-center gap-2"><label class="text-sm font-normal text-on-surface-variant whitespace-nowrap" for="shell-search">Search or ID</label><input class="h-9 w-64 px-3 rounded text-sm text-on-surface bg-surface-container-lowest border border-outline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" id="shell-search" placeholder="Search tasks, IDs..." type="text"/></div></div><nav class="flex items-center gap-6" data-active-classes="text-primary-container font-semibold underline"><a class="text-sm font-normal text-primary-container hover:underline" data-path="my-profile" href="#">Me</a><a class="text-sm font-normal text-primary-container hover:underline" data-path="sign-in" href="#">Sign out</a></nav></div></header><main class="w-full pt-14 bg-background min-h-screen"><div class="flex flex-col w-full font-[-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,'Helvetica_Neue',Arial,sans-serif] text-on-surface antialiased bg-background">
+<div class="w-full px-6 py-4 flex flex-col gap-6 max-w-[1400px]">
 <!-- Breadcrumb -->
-<nav aria-label="Breadcrumb" class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] px-8 py-2.5 text-sm">
-<div class="max-w-7xl mx-auto flex items-center space-x-2 text-sm">
-<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#top">Top</a>
-<span class="text-[#626F86]">/</span>
-<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#project-1">Project 1</a>
-<span class="text-[#626F86]">/</span>
-<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#iteration-3">Iteration 3</a>
-<span class="text-[#626F86]">/</span>
-<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#story-2">Story 2</a>
-<span class="text-[#626F86]">/</span>
-<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#task-8">Task 8</a>
-<span class="text-[#626F86]">/</span>
-<span aria-current="page" class="text-[#1D2125]">Time</span>
-</div>
+<nav aria-label="Breadcrumbs" class="text-sm">
+<ol class="flex items-center gap-1.5 text-on-surface-variant flex-wrap">
+<li><a class="text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Top</a></li>
+<li aria-hidden="true" class="text-on-surface-variant">/</li>
+<li><a class="text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Project 1</a></li>
+<li aria-hidden="true" class="text-on-surface-variant">/</li>
+<li><a class="text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Iteration 3</a></li>
+<li aria-hidden="true" class="text-on-surface-variant">/</li>
+<li><a class="text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Story 2</a></li>
+<li aria-hidden="true" class="text-on-surface-variant">/</li>
+<li><a class="text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Task 8</a></li>
+<li aria-hidden="true" class="text-on-surface-variant">/</li>
+<li aria-current="page" class="text-on-surface font-normal">Time</li>
+</ol>
 </nav>
-<!-- Page content area -->
-<main class="w-full max-w-7xl mx-auto px-8 py-6 flex-1">
-<h1 class="text-2xl font-semibold text-[#1D2125] mb-6">Time: Task 8</h1>
-<!-- White Section with Grid -->
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] overflow-hidden mb-6">
+<!-- Page Heading -->
+<div class="flex items-center justify-between">
+<h1 class="text-2xl font-semibold text-on-surface tracking-tight">Time: Task 8</h1>
+</div>
+<!-- Main Time Form -->
+<form class="flex flex-col gap-6" id="time-task-form">
+<!-- Flat Table Section -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[6px] overflow-hidden">
 <div class="overflow-x-auto">
-<table class="w-full text-left border-collapse" style="font-size: 14px;">
+<table class="w-full border-collapse text-sm text-left">
 <thead>
-<tr class="bg-[#F1F2F4] border-b border-[#DCDFE4] text-[#1D2125] h-10 font-medium">
-<th class="w-16 px-4 py-2 text-center font-medium" scope="col">Delete</th>
-<th class="w-40 px-4 py-2 font-medium" scope="col">Report date</th>
-<th class="w-48 px-4 py-2 font-medium" scope="col">Start</th>
-<th class="w-32 px-4 py-2 font-medium" scope="col">End</th>
-<th class="w-32 px-4 py-2 font-medium" scope="col">Duration</th>
-<th class="w-44 px-4 py-2 font-medium" scope="col">Person</th>
-<th class="w-44 px-4 py-2 font-medium" scope="col">Pair</th>
-<th class="px-4 py-2 font-medium" scope="col">Description</th>
+<tr class="bg-surface-container-low border-b border-outline-variant text-on-surface font-semibold h-10">
+<th class="py-2 px-3 text-center w-14" scope="col">Delete</th>
+<th class="py-2 px-3 min-w-[140px]" scope="col">Report date</th>
+<th class="py-2 px-3 min-w-[200px]" scope="col">Start</th>
+<th class="py-2 px-3 min-w-[110px]" scope="col">End</th>
+<th class="py-2 px-3 text-right min-w-[90px]" scope="col">Duration</th>
+<th class="py-2 px-3 min-w-[130px]" scope="col">Person</th>
+<th class="py-2 px-3 min-w-[130px]" scope="col">Pair</th>
+<th class="py-2 px-3 min-w-[220px]" scope="col">Description</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-[#DCDFE4]">
+<tbody class="divide-y divide-outline-variant">
 <!-- Row 1 -->
-<tr class="h-10 hover:bg-[#F7F8FA]">
-<td class="px-4 py-1 text-center align-middle">
-<input aria-label="Delete entry 1" class="w-4 h-4 rounded-[3px] border-[#8590A2] text-[#0C66E4] custom-focus cursor-pointer" type="checkbox"/>
+<tr class="h-10 hover:bg-surface-container-low transition-colors">
+<td class="py-1 px-3 text-center align-middle">
+<input aria-label="Delete row 1" class="h-4 w-4 rounded-[2px] border-outline text-primary-container focus:ring-2 focus:ring-primary-container focus:ring-offset-2 align-middle cursor-pointer" name="delete_row_1" type="checkbox"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Report date" class="lean-input w-full tabular-nums" type="text" value="2026-03-03"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Report date row 1" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="date_1" type="text" value="2026-03-03"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Start time" class="lean-input w-full tabular-nums" type="text" value="09:00"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Start time row 1" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="start_1" type="text" value="09:00"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="End time" class="lean-input w-full tabular-nums" type="text" value="10:00"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="End time row 1" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="end_1" type="text" value="10:00"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Duration" class="lean-input w-full tabular-nums text-right" type="text" value="1.0"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Duration row 1" class="h-9 w-full px-2.5 text-right font-mono bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="duration_1" type="text" value="1.0"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<select aria-label="Person" class="lean-input w-full cursor-pointer">
+<td class="py-1 px-3 align-middle">
+<select aria-label="Person row 1" class="h-9 w-full px-2 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="person_1">
 <option selected="" value="User B">User B</option>
 <option value="User A">User A</option>
+<option value="User C">User C</option>
 </select>
 </td>
-<td class="px-4 py-1 align-middle">
-<select aria-label="Pair" class="lean-input w-full cursor-pointer">
-<option selected="" value="(none)">(none)</option>
+<td class="py-1 px-3 align-middle">
+<select aria-label="Pair row 1" class="h-9 w-full px-2 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="pair_1">
+<option selected="" value="none">(none)</option>
 <option value="User A">User A</option>
 <option value="User B">User B</option>
+<option value="User C">User C</option>
 </select>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Description" class="lean-input w-full" type="text" value="Synthetic entry"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Description row 1" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="description_1" type="text" value="Synthetic entry"/>
 </td>
 </tr>
 <!-- Row 2 -->
-<tr class="h-10 hover:bg-[#F7F8FA]">
-<td class="px-4 py-1 text-center align-middle">
-<input aria-label="Delete entry 2" class="w-4 h-4 rounded-[3px] border-[#8590A2] text-[#0C66E4] custom-focus cursor-pointer" type="checkbox"/>
+<tr class="h-10 hover:bg-surface-container-low transition-colors">
+<td class="py-1 px-3 text-center align-middle">
+<input aria-label="Delete row 2" class="h-4 w-4 rounded-[2px] border-outline text-primary-container focus:ring-2 focus:ring-primary-container focus:ring-offset-2 align-middle cursor-pointer" name="delete_row_2" type="checkbox"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Report date" class="lean-input w-full tabular-nums" type="text" value="2026-03-04"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Report date row 2" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="date_2" type="text" value="2026-03-04"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Start time" class="lean-input w-full tabular-nums" type="text" value="09:00"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Start time row 2" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="start_2" type="text" value="09:00"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="End time" class="lean-input w-full tabular-nums" type="text" value="10:00"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="End time row 2" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="end_2" type="text" value="10:00"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Duration" class="lean-input w-full tabular-nums text-right" type="text" value="1.0"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Duration row 2" class="h-9 w-full px-2.5 text-right font-mono bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="duration_2" type="text" value="1.0"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<select aria-label="Person" class="lean-input w-full cursor-pointer">
+<td class="py-1 px-3 align-middle">
+<select aria-label="Person row 2" class="h-9 w-full px-2 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="person_2">
 <option selected="" value="User B">User B</option>
 <option value="User A">User A</option>
+<option value="User C">User C</option>
 </select>
 </td>
-<td class="px-4 py-1 align-middle">
-<select aria-label="Pair" class="lean-input w-full cursor-pointer">
-<option selected="" value="(none)">(none)</option>
+<td class="py-1 px-3 align-middle">
+<select aria-label="Pair row 2" class="h-9 w-full px-2 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="pair_2">
+<option selected="" value="none">(none)</option>
 <option value="User A">User A</option>
 <option value="User B">User B</option>
+<option value="User C">User C</option>
 </select>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Description" class="lean-input w-full" type="text" value="Synthetic entry"/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Description row 2" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="description_2" type="text" value="Synthetic entry"/>
 </td>
 </tr>
-<!-- Row 3 (New Entry) -->
-<tr class="h-10 hover:bg-[#F7F8FA]">
-<td class="px-4 py-1 text-center align-middle">
-<input aria-label="Delete entry 3" class="w-4 h-4 rounded-[3px] border-[#8590A2] text-[#0C66E4] custom-focus cursor-pointer" type="checkbox"/>
+<!-- Row 3: Empty New Row -->
+<tr class="h-10 bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-1 px-3 text-center align-middle">
+<input aria-label="Delete row 3" class="h-4 w-4 rounded-[2px] border-outline text-primary-container focus:ring-2 focus:ring-primary-container focus:ring-offset-2 align-middle cursor-pointer" name="delete_row_3" type="checkbox"/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Report date" class="lean-input w-full tabular-nums" type="text" value=""/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Report date new row" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="date_3" placeholder="YYYY-MM-DD" type="text" value=""/>
 </td>
-<td class="px-4 py-1 align-middle">
+<td class="py-1 px-3 align-middle">
 <div class="flex items-center gap-1.5">
-<input aria-label="Start time" class="lean-input w-24 tabular-nums" type="text" value=""/>
-<button class="h-[36px] px-2.5 bg-[#FFFFFF] border border-[#8590A2] hover:bg-[#F1F2F4] text-[#1D2125] text-sm rounded-[6px] shrink-0 custom-focus font-normal" type="button">
-                    Insert time
-                  </button>
+<input aria-label="Start time new row" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" id="start-new-row" name="start_3" placeholder="HH:MM" type="text" value=""/>
+<button class="h-9 px-2.5 bg-surface-container-lowest border border-outline text-on-surface text-sm font-normal rounded-[6px] whitespace-nowrap hover:bg-surface-container-low active:bg-surface-container focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" id="btn-insert-time" type="button">
+                      Insert time
+                    </button>
 </div>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="End time" class="lean-input w-full tabular-nums" type="text" value=""/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="End time new row" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="end_3" placeholder="HH:MM" type="text" value=""/>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Duration" class="lean-input w-full tabular-nums text-right" type="text" value=""/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Duration new row" class="h-9 w-full px-2.5 text-right font-mono bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="duration_3" placeholder="0.0" type="text" value=""/>
 </td>
-<td class="px-4 py-1 align-middle">
-<select aria-label="Person" class="lean-input w-full cursor-pointer">
+<td class="py-1 px-3 align-middle">
+<select aria-label="Person new row" class="h-9 w-full px-2 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="person_3">
 <option selected="" value="User B">User B</option>
 <option value="User A">User A</option>
+<option value="User C">User C</option>
 </select>
 </td>
-<td class="px-4 py-1 align-middle">
-<select aria-label="Pair" class="lean-input w-full cursor-pointer">
-<option selected="" value="(none)">(none)</option>
+<td class="py-1 px-3 align-middle">
+<select aria-label="Pair new row" class="h-9 w-full px-2 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="pair_3">
+<option selected="" value="none">(none)</option>
 <option value="User A">User A</option>
 <option value="User B">User B</option>
+<option value="User C">User C</option>
 </select>
 </td>
-<td class="px-4 py-1 align-middle">
-<input aria-label="Description" class="lean-input w-full" type="text" value=""/>
+<td class="py-1 px-3 align-middle">
+<input aria-label="Description new row" class="h-9 w-full px-2.5 bg-surface-container-lowest border border-outline rounded-[6px] text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" name="description_3" type="text" value=""/>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<!-- Remaining hours form section -->
-<div class="mb-8">
-<div class="flex flex-col gap-1">
-<label class="text-base font-medium text-[#1D2125]" for="remaining-hours">Remaining hours</label>
+<!-- Below Grid: Remaining Hours Field -->
+<div class="flex flex-col gap-1.5 pt-2">
+<label class="text-base font-normal text-on-surface" for="remaining-hours">
+          Remaining hours
+        </label>
 <div class="flex items-center gap-3">
-<input class="lean-input w-32 tabular-nums text-right" id="remaining-hours" type="text" value="6.0"/>
-<span class="text-sm text-[#626F86]">Updates the task estimate on save</span>
+<input class="h-9 w-[100px] px-2.5 text-right font-mono bg-surface-container-lowest border border-outline rounded-[6px] text-base text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" id="remaining-hours" name="remaining_hours" step="0.1" type="number" value="6.0"/>
+<span class="text-sm text-on-surface-variant">
+            Updates the task estimate on save
+          </span>
 </div>
 </div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3 pt-4 pb-12">
+<button class="h-9 px-5 bg-primary-container hover:bg-primary text-on-primary font-normal text-base rounded-[6px] transition-colors focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" type="submit">
+          Save
+        </button>
+<button class="h-9 px-5 bg-surface-container-lowest hover:bg-surface-container-low active:bg-surface-container border border-outline text-on-surface font-normal text-base rounded-[6px] transition-colors focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" type="reset">
+          Reset
+        </button>
+<button class="h-9 px-5 bg-surface-container-lowest hover:bg-surface-container-low active:bg-surface-container border border-outline text-on-surface font-normal text-base rounded-[6px] transition-colors focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" id="btn-cancel" type="button">
+          Cancel
+        </button>
 </div>
-<!-- Action buttons -->
-<div class="flex items-center gap-3">
-<button class="h-[36px] px-4 bg-[#0C66E4] hover:bg-[#0055CC] text-[#FFFFFF] text-base font-normal rounded-[6px] custom-focus transition-colors" type="button">
-        Save
-      </button>
-<button class="h-[36px] px-4 bg-[#FFFFFF] border border-[#8590A2] hover:bg-[#F1F2F4] text-[#1D2125] text-base font-normal rounded-[6px] custom-focus transition-colors" type="button">
-        Cancel
-      </button>
+</form>
 </div>
-</main>
-</body></html>
+</div>
+<script>
+  (function() {
+    const insertBtn = document.getElementById('btn-insert-time');
+    const startInput = document.getElementById('start-new-row');
+    if (insertBtn && startInput) {
+      insertBtn.addEventListener('click', function() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        startInput.value = hours + ':' + minutes;
+        startInput.focus();
+      });
+    }
+
+    const cancelBtn = document.getElementById('btn-cancel');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', function() {
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = '#';
+        }
+      });
+    }
+
+    const form = document.getElementById('time-task-form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+      });
+    }
+  })();
+</script></main></body></html>
