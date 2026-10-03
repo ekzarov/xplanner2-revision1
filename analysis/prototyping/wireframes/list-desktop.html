@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planner - Iteration 3 - Stories</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#ecefff",
+            "background": "#f9f9ff",
+            "on-tertiary-fixed-variant": "#910909",
+            "tertiary-fixed-dim": "#ffb4aa",
+            "on-surface-variant": "#424654",
+            "on-error": "#ffffff",
+            "primary": "#0c66e4",
+            "on-secondary-fixed-variant": "#005229",
+            "on-error-container": "#93000a",
+            "tertiary-container": "#c8362b",
+            "primary-fixed": "#d9e2ff",
+            "on-primary": "#ffffff",
+            "outline-variant": "#c2c6d7",
+            "surface-variant": "#d6e3fe",
+            "inverse-primary": "#b0c6ff",
+            "on-tertiary-container": "#ffebe8",
+            "inverse-on-surface": "#ebf1ff",
+            "tertiary": "#a51c16",
+            "on-primary-fixed-variant": "#00429b",
+            "surface": "#ffffff",
+            "surface-container-high": "#dee8ff",
+            "inverse-surface": "#243145",
+            "surface-tint": "#0058ca",
+            "outline": "#8590a2",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#82d99a",
+            "surface-container-highest": "#d6e3fe",
+            "secondary-fixed": "#9df6b4",
+            "tertiary-fixed": "#ffdad5",
+            "surface-dim": "#cddbf5",
+            "on-secondary-fixed": "#00210d",
+            "secondary": "#086d39",
+            "on-background": "#0e1c2f",
+            "surface-container": "#e7eeff",
+            "primary-fixed-dim": "#b0c6ff",
+            "primary-container": "#0c66e4",
+            "surface-container-low": "#f0f3ff",
+            "on-secondary-container": "#15733f",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#410001",
+            "surface-bright": "#f9f9ff",
+            "on-surface": "#1d2125",
+            "secondary-container": "#9df6b4",
+            "on-primary-fixed": "#001945",
+            "brand-neutral": "#1d2125",
+            "brand-secondary": "#626f86",
+            "brand-border": "#dcdfe4",
+            "brand-table-head": "#f1f2f4",
+            "brand-selected": "#e9f2ff",
+            "brand-track": "#ebecf0"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.375rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+            "display": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+            "body": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+            "label": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #1d2125;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- 1. Top bar -->
+<header class="w-full px-6 flex items-center justify-between h-14 bg-surface border-b border-brand-border">
+<div class="flex items-center gap-6">
+<span class="text-base font-semibold text-on-surface tracking-tight">Planner</span>
+<div class="flex items-center gap-2">
+<label class="text-sm font-normal text-on-surface-variant whitespace-nowrap" for="search-input">Search or ID</label>
+<input class="h-8 w-60 border border-outline rounded-xl px-2.5 text-sm text-on-surface bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" id="search-input" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 text-sm font-normal">
+<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Me</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Sign out</a>
+</div>
+</header>
+<!-- 2. Breadcrumb below the top bar -->
+<nav aria-label="Breadcrumb" class="w-full px-6 py-2.5 text-sm text-brand-secondary border-b border-brand-border bg-surface">
+<ol class="flex items-center space-x-1.5 list-none p-0 m-0">
+<li><a class="hover:text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Top</a></li>
+<li class="text-outline-variant">/</li>
+<li><a class="hover:text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Project 1</a></li>
+<li class="text-outline-variant">/</li>
+<li aria-current="page" class="text-on-surface font-medium">Iteration 3</li>
+</ol>
+</nav>
+<!-- Main Canvas Container -->
+<main class="w-full px-6 pt-5 pb-12">
+<!-- 3. Page heading and summary -->
+<section class="mb-5">
+<h1 class="text-2xl font-semibold text-on-surface leading-tight tracking-tight m-0">Iteration 3</h1>
+<p class="text-sm text-brand-secondary mt-0.5 mb-3">2026-03-02 to 2026-03-13</p>
+<div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-on-surface">
+<div class="flex items-center gap-2.5">
+<span class="text-brand-secondary font-normal">Progress 40%</span>
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="w-44 h-1.5 bg-brand-track rounded-full overflow-hidden" role="progressbar">
+<div class="bg-primary h-full w-[40%]"></div>
+</div>
+</div>
+<span class="text-outline-variant">|</span>
+<span class="tabular-nums"><span class="text-brand-secondary">Estimated</span> 120.0 h</span>
+<span class="tabular-nums"><span class="text-brand-secondary">Actual</span> 48.0 h</span>
+<span class="tabular-nums"><span class="text-brand-secondary">Remaining</span> 72.0 h</span>
+</div>
+</section>
+<!-- 4. Local tabs -->
+<nav aria-label="Local tabs" class="border-b border-brand-border mb-4">
+<ul class="flex space-x-6 text-sm m-0 p-0 list-none">
+<li>
+<a aria-current="page" class="inline-block pb-2.5 font-semibold text-primary border-b-2 border-primary focus:outline-none focus:ring-2 focus:ring-primary" href="#">
+            Stories
+          </a>
+</li>
+<li>
+<a class="inline-block pb-2.5 font-normal text-brand-secondary hover:text-on-surface border-b-2 border-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">
+            Tasks
+          </a>
+</li>
+<li>
+<a class="inline-block pb-2.5 font-normal text-brand-secondary hover:text-on-surface border-b-2 border-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">
+            Statistics
+          </a>
+</li>
+<li>
+<a class="inline-block pb-2.5 font-normal text-brand-secondary hover:text-on-surface border-b-2 border-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">
+            Accuracy
+          </a>
+</li>
+<li>
+<a class="inline-block pb-2.5 font-normal text-brand-secondary hover:text-on-surface border-b-2 border-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">
+            Board
+          </a>
+</li>
+</ul>
+</nav>
+<!-- 5. Toolbar above the table -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<button class="h-9 px-3.5 bg-surface border border-outline rounded-xl text-sm font-normal text-on-surface hover:bg-brand-table-head focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors" type="button">
+          Move selected stories
+        </button>
+<button class="h-9 px-3.5 bg-surface border border-outline rounded-xl text-sm font-normal text-on-surface hover:bg-brand-table-head focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors" type="button">
+          Save order
+        </button>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-9 px-3.5 bg-surface border border-outline rounded-xl text-sm font-normal text-on-surface hover:bg-brand-table-head focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors" type="button">
+          Close iteration
+        </button>
+<button class="h-9 px-3.5 bg-primary text-on-primary rounded-xl text-sm font-semibold hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors" type="button">
+          Create story
+        </button>
+</div>
+</div>
+<!-- 6. Story table -->
+<div class="w-full overflow-x-auto border border-brand-border rounded-none">
+<table class="w-full text-left text-sm border-collapse min-w-[1000px]">
+<thead>
+<tr class="bg-brand-table-head h-10 border-b border-brand-border text-on-surface text-[13px] font-semibold select-none">
+<th class="w-10 px-3 text-center" scope="col">
+<input aria-label="Select all stories" class="rounded-sm border-outline text-primary focus:ring-primary" type="checkbox"/>
+</th>
+<th class="px-2 font-semibold" scope="col">ID</th>
+<th class="px-2 font-semibold whitespace-nowrap" scope="col">
+              Order <span class="text-xs text-on-surface ml-0.5">▲</span>
+</th>
+<th class="px-3 font-semibold" scope="col">Name</th>
+<th class="px-2 font-semibold" scope="col">Priority</th>
+<th class="px-3 font-semibold" scope="col">Customer</th>
+<th class="px-2 text-right font-semibold" scope="col">Progress</th>
+<th class="px-2 text-right font-semibold" scope="col">Actual</th>
+<th class="px-2 text-right font-semibold" scope="col">Remaining</th>
+<th class="px-2 text-right font-semibold" scope="col">Estimate</th>
+<th class="px-2 text-right font-semibold" scope="col">Original estimate</th>
+<th class="px-2 text-right font-semibold" scope="col">Tasks</th>
+<th class="px-3 font-semibold" scope="col">Tracker</th>
+<th class="px-3 font-semibold" scope="col">Disposition</th>
+<th class="px-3 font-semibold" scope="col">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-brand-border">
+<!-- Row 1: [Unchecked] -->
+<tr class="h-10 bg-surface hover:bg-brand-track/40 transition-colors">
+<td class="w-10 px-3 text-center">
+<input aria-label="Select Story 101" class="rounded-sm border-outline text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-2 tabular-nums">101</td>
+<td class="px-2">
+<input aria-label="Order for Story 101" class="w-12 h-7 text-right px-1.5 border border-outline rounded text-sm bg-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary tabular-nums" type="number" value="1"/>
+</td>
+<td class="px-3">
+<a class="text-primary hover:underline focus:outline-none focus:ring-1 focus:ring-primary" href="#">Story 1</a>
+</td>
+<td class="px-2 tabular-nums">1</td>
+<td class="px-3">User A</td>
+<td class="px-2 text-right tabular-nums">60%</td>
+<td class="px-2 text-right tabular-nums">12.0</td>
+<td class="px-2 text-right tabular-nums">8.0</td>
+<td class="px-2 text-right tabular-nums">20.0</td>
+<td class="px-2 text-right tabular-nums">18.0</td>
+<td class="px-2 text-right tabular-nums">4</td>
+<td class="px-3">User B</td>
+<td class="px-3">Planned</td>
+<td class="px-3">Accepted</td>
+</tr>
+<!-- Row 2 (SELECTED): [Checked] -->
+<tr class="h-10 bg-brand-selected font-medium transition-colors">
+<td class="w-10 px-3 text-center">
+<input aria-label="Select Story 102" checked="" class="rounded-sm border-outline text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-2 tabular-nums">102</td>
+<td class="px-2">
+<input aria-label="Order for Story 102" class="w-12 h-7 text-right px-1.5 border border-outline rounded text-sm bg-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary tabular-nums" type="number" value="2"/>
+</td>
+<td class="px-3">
+<a class="text-primary hover:underline focus:outline-none focus:ring-1 focus:ring-primary font-medium" href="#">Story 2</a>
+</td>
+<td class="px-2 tabular-nums">2</td>
+<td class="px-3">User C</td>
+<td class="px-2 text-right tabular-nums">25%</td>
+<td class="px-2 text-right tabular-nums">6.0</td>
+<td class="px-2 text-right tabular-nums">18.0</td>
+<td class="px-2 text-right tabular-nums">24.0</td>
+<td class="px-2 text-right tabular-nums">24.0</td>
+<td class="px-2 text-right tabular-nums">3</td>
+<td class="px-3">User B</td>
+<td class="px-3">Planned</td>
+<td class="px-3">Draft</td>
+</tr>
+<!-- Row 3: [Unchecked] -->
+<tr class="h-10 bg-surface hover:bg-brand-track/40 transition-colors">
+<td class="w-10 px-3 text-center">
+<input aria-label="Select Story 103" class="rounded-sm border-outline text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-2 tabular-nums">103</td>
+<td class="px-2">
+<input aria-label="Order for Story 103" class="w-12 h-7 text-right px-1.5 border border-outline rounded text-sm bg-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary tabular-nums" type="number" value="3"/>
+</td>
+<td class="px-3">
+<a class="text-primary hover:underline focus:outline-none focus:ring-1 focus:ring-primary" href="#">Story 3</a>
+</td>
+<td class="px-2 tabular-nums">4</td>
+<td class="px-3">User A</td>
+<td class="px-2 text-right tabular-nums">50%</td>
+<td class="px-2 text-right tabular-nums">10.0</td>
+<td class="px-2 text-right tabular-nums">10.0</td>
+<td class="px-2 text-right tabular-nums">20.0</td>
+<td class="px-2 text-right tabular-nums">16.0</td>
+<td class="px-2 text-right tabular-nums">5</td>
+<td class="px-3">User D</td>
+<td class="px-3">Carried over</td>
+<td class="px-3">Draft</td>
+</tr>
+<!-- Row 4 (SELECTED): [Checked] -->
+<tr class="h-10 bg-brand-selected font-medium transition-colors">
+<td class="w-10 px-3 text-center">
+<input aria-label="Select Story 104" checked="" class="rounded-sm border-outline text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-2 tabular-nums">104</td>
+<td class="px-2">
+<input aria-label="Order for Story 104" class="w-12 h-7 text-right px-1.5 border border-outline rounded text-sm bg-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary tabular-nums" type="number" value="4"/>
+</td>
+<td class="px-3">
+<a class="text-primary hover:underline focus:outline-none focus:ring-1 focus:ring-primary font-medium" href="#">Story 4</a>
+</td>
+<td class="px-2 tabular-nums">4</td>
+<td class="px-3">User C</td>
+<td class="px-2 text-right tabular-nums">0%</td>
+<td class="px-2 text-right tabular-nums">0.0</td>
+<td class="px-2 text-right tabular-nums">16.0</td>
+<td class="px-2 text-right tabular-nums">16.0</td>
+<td class="px-2 text-right tabular-nums">16.0</td>
+<td class="px-2 text-right tabular-nums">2</td>
+<td class="px-3">User D</td>
+<td class="px-3">Added</td>
+<td class="px-3">Draft</td>
+</tr>
+<!-- Row 5: [Unchecked] -->
+<tr class="h-10 bg-surface hover:bg-brand-track/40 transition-colors">
+<td class="w-10 px-3 text-center">
+<input aria-label="Select Story 105" class="rounded-sm border-outline text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-2 tabular-nums">105</td>
+<td class="px-2">
+<input aria-label="Order for Story 105" class="w-12 h-7 text-right px-1.5 border border-outline rounded text-sm bg-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary tabular-nums" type="number" value="5"/>
+</td>
+<td class="px-3">
+<a class="text-primary hover:underline focus:outline-none focus:ring-1 focus:ring-primary" href="#">Story 5</a>
+</td>
+<td class="px-2 tabular-nums">3</td>
+<td class="px-3">User A</td>
+<td class="px-2 text-right tabular-nums">100%</td>
+<td class="px-2 text-right tabular-nums">20.0</td>
+<td class="px-2 text-right tabular-nums">0.0</td>
+<td class="px-2 text-right tabular-nums">20.0</td>
+<td class="px-2 text-right tabular-nums">22.0</td>
+<td class="px-2 text-right tabular-nums">4</td>
+<td class="px-3">User B</td>
+<td class="px-3">Planned</td>
+<td class="px-3">Accepted</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+</body></html>

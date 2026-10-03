@@ -164,6 +164,8 @@ The evidence written after wireframes are drawn. Version 4 pins the common UI ki
 
 **Example:** Normalization assigns row 42 to the task-details confirmation overlay. The manifest then lists row 42 under task-details, names the overlay and roles, hashes the exported HTML, and pins the normalization evidence hash.
 
+**Project file:** [`screen-manifest.json`](screen-manifest.json)
+
 </details>
 <details>
 <summary>stage-07-pass-NNN.md</summary>
@@ -374,7 +376,7 @@ current authoring instruction or evidence that all semantic checks are automated
 
 **How do we preserve old requirement and test references without another artifact?**
 
-This applies specifically to `analysis/prototyping/screen-manifest.json`
+This applies specifically to [`analysis/prototyping/screen-manifest.json`](./screen-manifest.json)
 versions 1 and 2 that contain old `covered_by.requirement` or `covered_by.tests`
 values. Before removing those fields, the schema-migration agent preserves them
 directly in the `Imported Legacy References` section of `specs/traceability.md`.

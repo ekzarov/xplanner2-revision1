@@ -1,0 +1,321 @@
+{
+  "schema_version": 4,
+  "project": "xplanner2-revision1",
+  "scope": "Stage 6 representative set UX-006 (partial: 1 of 6 views exported)",
+  "tool": "Google Stitch, project projects/2535085752995102337",
+  "export_set_version": "stage-06-draft-1-partial",
+  "decision": "analysis/prototyping/ui-ux-decision.md",
+  "normalization": "analysis/prototyping/screen-normalization.json",
+  "normalization_sha256": "e8fff146e26ec1c603dcc0f0fe62e6839f16429b6c63c2b1f453fcdbc52e515f",
+  "workbook_rows_sha256": "87636a53544db5769d6bc1190de7afe5004d5e23afd3fa21eb8eab302ba0b861",
+  "screens": [
+    {
+      "id": "iteration-page",
+      "title": "Iteration 3 - Stories (desktop)",
+      "channel": "web",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "roles": [
+        "editor"
+      ],
+      "states": [
+        "populated"
+      ],
+      "actions": [
+        "save order",
+        "move selected stories"
+      ],
+      "overlays": [],
+      "workbook_rows": [
+        92,
+        95,
+        97
+      ],
+      "files": [
+        {
+          "path": "wireframes/list-desktop.html",
+          "sha256": "d57dcb99cb4aa5edc6e6028fb7a60c882e5e1c1806f6a86b06b615864e4e88fd"
+        },
+        {
+          "path": "wireframes/list-desktop.png",
+          "sha256": "b3eb643785ce81b600967151d3090c018a5999169d64b58809c8d2f8465059e0"
+        }
+      ],
+      "navigation": [],
+      "ui_variants": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "link.text",
+        "checkbox",
+        "table.data",
+        "progress.bar",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "nav.tabs"
+      ]
+    }
+  ],
+  "non_visual_workbook_rows": [
+    {
+      "row": 11,
+      "reason": "Stage 4 change (D-003). Password storage method; server-side (D-003).",
+      "covered_by": {
+        "coverage": "Password storage method; server-side (D-003). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 17,
+      "reason": "Stage 4 keep (D-001). Access filter for protected requests; worked example in the methodology.",
+      "covered_by": {
+        "coverage": "Access filter for protected requests; worked example in the methodology. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 20,
+      "reason": "Stage 4 keep (D-001). Idle session timeout; the next request reaches sign-in through row 17.",
+      "covered_by": {
+        "coverage": "Idle session timeout; the next request reaches sign-in through row 17. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 23,
+      "reason": "Stage 4 keep (D-001). Role model; exact permission matrix at SDD (D-001).",
+      "covered_by": {
+        "coverage": "Role model; exact permission matrix at SDD (D-001). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 24,
+      "reason": "Stage 4 change (D-001). Negative permissions enforced on the server (D-001).",
+      "covered_by": {
+        "coverage": "Negative permissions enforced on the server (D-001). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 25,
+      "reason": "Stage 4 keep (D-001). Project-0 role scope; server rule.",
+      "covered_by": {
+        "coverage": "Project-0 role scope; server rule. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 26,
+      "reason": "Stage 4 change (D-001). Server enforcement; per-screen visibility of actions is a role variation decided with the SDD permission matrix (D-001).",
+      "covered_by": {
+        "coverage": "Server enforcement; per-screen visibility of actions is a role variation decided with the SDD permission matrix (D-001). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 27,
+      "reason": "Stage 4 keep (D-001). Read filter of the projects query.",
+      "covered_by": {
+        "coverage": "Read filter of the projects query. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 28,
+      "reason": "Stage 4 change (D-001). Denial by server enforcement; the missing not-authorized page is not ported.",
+      "covered_by": {
+        "coverage": "Denial by server enforcement; the missing not-authorized page is not ported. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 29,
+      "reason": "Stage 4 change (D-001). Server-side permission check for every operation (D-001).",
+      "covered_by": {
+        "coverage": "Server-side permission check for every operation (D-001). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 30,
+      "reason": "Stage 4 change (D-001). Server-side permission check for every operation (D-001).",
+      "covered_by": {
+        "coverage": "Server-side permission check for every operation (D-001). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 31,
+      "reason": "Stage 4 change (D-006). Server rule for applying role changes (D-006).",
+      "covered_by": {
+        "coverage": "Server rule for applying role changes (D-006). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 32,
+      "reason": "Stage 4 change (D-001). Role rules evaluated on the server (D-001).",
+      "covered_by": {
+        "coverage": "Role rules evaluated on the server (D-001). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 38,
+      "reason": "Stage 4 change (D-007). Deactivated people are filtered out of active pick lists; list query rule (D-007).",
+      "covered_by": {
+        "coverage": "Deactivated people are filtered out of active pick lists; list query rule (D-007). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 64,
+      "reason": "Stage 4 change (D-009/D-003). First installation without manual SQL (D-009).",
+      "covered_by": {
+        "coverage": "First installation without manual SQL (D-009). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 69,
+      "reason": "Stage 4 change (D-010). English date display and strict input rule applied by every date field (D-010).",
+      "covered_by": {
+        "coverage": "English date display and strict input rule applied by every date field (D-010). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 72,
+      "reason": "Stage 4 keep (D-001). Request decoding.",
+      "covered_by": {
+        "coverage": "Request decoding. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 73,
+      "reason": "Stage 4 change (D-005). Protected activity log (D-005).",
+      "covered_by": {
+        "coverage": "Protected activity log (D-005). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 112,
+      "reason": "Stage 4 change (D-013). Daily burn-down sampling (D-013, M-03); method and schedule not chosen.",
+      "covered_by": {
+        "coverage": "Daily burn-down sampling (D-013, M-03); method and schedule not chosen. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 135,
+      "reason": "Stage 4 change (D-010). Stable stored code for the task type (D-010).",
+      "covered_by": {
+        "coverage": "Stable stored code for the task type (D-010). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 138,
+      "reason": "Stage 4 change (D-017). Task-change mail to the current assignee (D-017).",
+      "covered_by": {
+        "coverage": "Task-change mail to the current assignee (D-017). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 164,
+      "reason": "Stage 4 change (D-001). Server-side permission check of the personal timesheet (D-001).",
+      "covered_by": {
+        "coverage": "Server-side permission check of the personal timesheet (D-001). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 167,
+      "reason": "Stage 4 keep (D-001). Read filter of the aggregate timesheet query.",
+      "covered_by": {
+        "coverage": "Read filter of the aggregate timesheet query. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 180,
+      "reason": "Stage 4 change (D-001). Permission check of the numeric search hit.",
+      "covered_by": {
+        "coverage": "Permission check of the numeric search hit. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 184,
+      "reason": "Stage 4 change (D-001). Permission check of the ID jump.",
+      "covered_by": {
+        "coverage": "Permission check of the ID jump. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 187,
+      "reason": "Stage 4 change (D-019). Uniform audit writing (D-019).",
+      "covered_by": {
+        "coverage": "Uniform audit writing (D-019). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 203,
+      "reason": "Stage 4 change (D-017). Mail failure handling (D-017).",
+      "covered_by": {
+        "coverage": "Mail failure handling (D-017). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 204,
+      "reason": "Stage 4 change (D-013). Daily burn-down sampling (D-013, M-03).",
+      "covered_by": {
+        "coverage": "Daily burn-down sampling (D-013, M-03). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 223,
+      "reason": "Stage 4 change (D-023). Internal API the board needs (D-023).",
+      "covered_by": {
+        "coverage": "Internal API the board needs (D-023). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
+      "row": 225,
+      "reason": "Stage 4 change (D-023/D-002). Authentication of the internal API (D-002, D-023).",
+      "covered_by": {
+        "coverage": "Authentication of the internal API (D-002, D-023). No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    }
+  ],
+  "_notes": [
+    "Partial Stage 6 draft written by UX Designer UX-006-03 at 2026-10-03T07:48:17Z (UTC from code). It is not a complete export set, has not been reviewed and is not approved. Stage 8 is not approved.",
+    "The only real screen exports are wireframes/list-desktop.html and wireframes/list-desktop.png, byte-identical to code.html and screen.png in the official Stitch export ZIP (SHA-256 2f2d331d92405628ec56c97092d5e954f7ae5894dad003764bdb109d9604538d). The HTML is also byte-identical to the get_screen HTML of screen 571fa1a5dfa6478c8712368474cc5d03.",
+    "The iteration-page screen claims only what list-desktop shows: rows 92, 95 and 97. Rows 91, 93, 96, 98, 99, 101-104 and 210 of iteration-page are planned in the normalization but not drawn, so they are not claimed here.",
+    "Pending, not exported: list-phone (screen 67531e08b55c4c3988225e51a46e51e9 was generated; its pre-edit export breaks the foundation and the corrective edit result could not be obtained); form-desktop, form-phone, dialog-desktop and dialog-phone (not generated). The other 24 planned screens of the normalization are not drawn.",
+    "No component sheet (wireframes/ui-kit.html) is exported, so ui_design_system.resources is empty and catalogue previews do not resolve. No resource is invented.",
+    "Roles: only the editor view is drawn; the viewer variation follows the SDD permission matrix (D-001) and is not drawn.",
+    "Sample defect, not retouched: the list-desktop header shows Estimated 120.0 h, Remaining 72.0 h and Progress 40%, but the five rows sum to 100.0 h, 52.0 h and 48%. Story 1 shows Accepted with 8.0 h remaining.",
+    "Deferred (31) and pending (5) rows are listed in the normalization _notes. The schema has no field for them (process backlog item 12)."
+  ],
+  "ui_design_system": {
+    "catalogue": {
+      "path": "ui-design-system.md",
+      "sha256": "8dfb6e90a4c31d297096b9e0d2c3358090a7c124e238d715cc9c3770f39d7549"
+    },
+    "tokens": {
+      "path": "ui-design-tokens.json",
+      "sha256": "74dbdc0bbb37f3c70eae4a0edff94b0a60731e359bd28671d65da3a9c867165f"
+    },
+    "resources": []
+  }
+}

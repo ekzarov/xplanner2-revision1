@@ -2581,7 +2581,7 @@ Stage 1. The corrected upstream chain must be re-approved before Build resumes.
 - **Baseline provenance is executable evidence.** The gate resolves every
   affected surface (plus `app-shell` when present) through
   `screen-manifest.json`, re-hashes its file under
-  `analysis/prototyping/wireframes/`, and passes that exact path/hash contract
+  [`analysis/prototyping/wireframes/`](./prototyping/wireframes), and passes that exact path/hash contract
   to the visual test. Source-derived checks cover labels, icon identifiers,
   navigation order and selected state, representative content variants,
   placeholder glyphs, actions, composition, roles and

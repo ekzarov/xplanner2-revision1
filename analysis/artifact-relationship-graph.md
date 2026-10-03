@@ -179,7 +179,7 @@ flowchart TB
 The starter stores instructions, templates, schemas, audits, and example files.
 An initialized project creates the corresponding live artifacts, such as
 [`analysis/migration_status.yaml`](./migration_status.yaml), [`analysis/legacy_user_flows.xlsx`](./legacy_user_flows.xlsx),
-`analysis/prototyping/screen-manifest.json`,
+[`analysis/prototyping/screen-manifest.json`](./prototyping/screen-manifest.json),
 `analysis/architecture/architecture-nfr-decision-register.xlsx`, architecture records,
 feature specifications, review reports, and delivery evidence.
 
