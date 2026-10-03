@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error - Planner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125] flex flex-col">
+
+  <!-- Top bar (white, 56px, divider below) -->
+  <header class="h-[56px] bg-[#FFFFFF] border-b border-[#DCDFE4] px-6 flex items-center justify-between shrink-0">
+    <div class="flex items-center space-x-6">
+      <span class="text-xl font-bold tracking-tight text-[#1D2125]">Planner</span>
+      
+      <!-- Search field with visible label "Search or ID" -->
+      <div class="flex items-center space-x-2">
+        <label for="search-input" class="text-sm font-normal text-[#1D2125] select-none whitespace-nowrap">Search or ID</label>
+        <input
+          id="search-input"
+          type="text"
+          class="h-[36px] w-[240px] px-3 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:outline-none transition-colors"
+        />
+      </div>
+    </div>
+
+    <!-- Text links "Me" and "Sign out" on the right -->
+    <nav class="flex items-center space-x-4 text-sm font-normal">
+      <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] rounded-[2px] transition-colors">Me</a>
+      <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] rounded-[2px] transition-colors">Sign out</a>
+    </nav>
+  </header>
+
+  <!-- Main container -->
+  <main class="flex-1 px-6 py-8 flex flex-col items-start">
+    <!-- White section about 640px wide over the #F7F8FA page, flat with 1px border, 6px radius, no shadow -->
+    <section class="w-full max-w-[640px] bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-8">
+      <!-- Heading 24px, weight 600 -->
+      <h1 class="text-[24px] font-semibold leading-tight text-[#1D2125] mb-4">
+        An error has occurred.
+      </h1>
+
+      <!-- Body text -->
+      <p class="text-base text-[#1D2125] leading-relaxed mb-4">
+        The request could not be completed. Please quote this reference when you report the problem.
+      </p>
+
+      <!-- Reference text -->
+      <p class="text-base font-normal text-[#1D2125] mb-6">
+        Reference: <span class="font-mono text-[#1D2125]">7F3A-21C9</span>
+      </p>
+
+      <!-- Primary text link "Go to projects" -->
+      <div>
+        <a href="#" class="text-base text-[#0C66E4] hover:text-[#0055CC] font-normal underline underline-offset-2 rounded-[2px] inline-block transition-colors">
+          Go to projects
+        </a>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

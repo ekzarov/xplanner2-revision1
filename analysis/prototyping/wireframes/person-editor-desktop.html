@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit person: User A - Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#ffdad5",
+            "inverse-primary": "#b0c6ff",
+            "surface-variant": "#d6e3fe",
+            "on-tertiary-fixed-variant": "#910909",
+            "surface-dim": "#cddbf5",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#dee8ff",
+            "tertiary-container": "#c8362b",
+            "surface-container-highest": "#d6e3fe",
+            "secondary-fixed": "#9df6b4",
+            "primary-container": "#0c66e4",
+            "tertiary-fixed-dim": "#ffb4aa",
+            "primary-fixed": "#d9e2ff",
+            "surface-bright": "#f9f9ff",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-background": "#0e1c2f",
+            "on-secondary-fixed-variant": "#005229",
+            "surface-tint": "#0058ca",
+            "outline-variant": "#c2c6d7",
+            "on-primary-container": "#ecefff",
+            "surface-container": "#e7eeff",
+            "primary": "#004fb6",
+            "inverse-surface": "#243145",
+            "background": "#f9f9ff",
+            "secondary-fixed-dim": "#82d99a",
+            "on-tertiary-fixed": "#410001",
+            "on-error": "#ffffff",
+            "tertiary": "#a51c16",
+            "outline": "#727786",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#f0f3ff",
+            "on-surface-variant": "#424654",
+            "secondary": "#086d39",
+            "secondary-container": "#9df6b4",
+            "on-primary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#f9f9ff",
+            "on-primary-fixed-variant": "#00429b",
+            "on-tertiary-container": "#ffebe8",
+            "on-surface": "#0e1c2f",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#00210d",
+            "primary-fixed-dim": "#b0c6ff",
+            "on-secondary-container": "#15733f",
+            "inverse-on-surface": "#ebf1ff",
+            "on-primary-fixed": "#001945"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "display": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    input:focus, select:focus, button:focus, a:focus {
+      outline: 2px solid #0C66E4 !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-[#1D2125]">
+<!-- Top bar -->
+<header class="w-full h-14 bg-[#FFFFFF] border-b border-[#DCDFE4] px-8 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<span class="text-base font-semibold text-[#1D2125] tracking-tight">Planner</span>
+<div class="flex items-center">
+<label class="text-sm font-normal text-[#1D2125] mr-2" for="search-input">Search or ID</label>
+<input class="h-9 w-64 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-sm text-[#1D2125]" id="search-input" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-sm font-normal text-[#0C66E4] hover:text-[#0055CC] hover:underline" href="#">Me</a>
+<a class="text-sm font-normal text-[#0C66E4] hover:text-[#0055CC] hover:underline" href="#">Sign out</a>
+</div>
+</header>
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="px-8 pt-4 pb-2 text-sm">
+<ol class="flex items-center gap-1.5 list-none p-0 m-0">
+<li>
+<a class="text-[#0C66E4] hover:text-[#0055CC] hover:underline" href="#">Top</a>
+</li>
+<li class="text-[#626F86]">/</li>
+<li>
+<a class="text-[#0C66E4] hover:text-[#0055CC] hover:underline" href="#">People</a>
+</li>
+<li class="text-[#626F86]">/</li>
+<li>
+<a class="text-[#0C66E4] hover:text-[#0055CC] hover:underline" href="#">User A</a>
+</li>
+<li class="text-[#626F86]">/</li>
+<li aria-current="page" class="text-[#626F86]">Edit</li>
+</ol>
+</nav>
+<!-- Page Heading -->
+<div class="px-8 pt-4 pb-6">
+<h1 class="text-2xl font-semibold text-[#1D2125] m-0">Edit person: User A</h1>
+</div>
+<!-- Main Content Form -->
+<main class="px-8 pb-12">
+<div class="w-full max-w-[640px] bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-8">
+<form action="#" method="post" novalidate="" onsubmit="return false;">
+<div class="flex flex-col gap-4">
+<!-- Name (required) -->
+<div class="flex flex-col">
+<label class="text-base font-medium text-[#1D2125] mb-1" for="name">Name (required)</label>
+<input class="h-9 w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-base text-[#1D2125]" id="name" name="name" required="" type="text" value="User A"/>
+</div>
+<!-- User ID (required) -->
+<div class="flex flex-col">
+<label class="text-base font-medium text-[#1D2125] mb-1" for="user-id">User ID (required)</label>
+<input class="h-9 w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-base text-[#1D2125]" id="user-id" name="userId" required="" type="text" value="usera"/>
+</div>
+<!-- Initials (required) -->
+<div class="flex flex-col">
+<label class="text-base font-medium text-[#1D2125] mb-1" for="initials">Initials (required)</label>
+<input class="h-9 w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-base text-[#1D2125]" id="initials" name="initials" required="" type="text" value="UA"/>
+</div>
+<!-- E-mail (required) -->
+<div class="flex flex-col">
+<label class="text-base font-medium text-[#1D2125] mb-1" for="email">E-mail (required)</label>
+<input class="h-9 w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-base text-[#1D2125]" id="email" name="email" required="" type="email" value="usera@example.test"/>
+</div>
+<!-- Phone -->
+<div class="flex flex-col">
+<label class="text-base font-medium text-[#1D2125] mb-1" for="phone">Phone</label>
+<input class="h-9 w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-base text-[#1D2125]" id="phone" name="phone" type="tel" value="000-0001"/>
+</div>
+<!-- New password -->
+<div class="flex flex-col">
+<label class="text-base font-medium text-[#1D2125] mb-1" for="new-password">New password</label>
+<input class="h-9 w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-base text-[#1D2125]" id="new-password" name="newPassword" type="password"/>
+</div>
+<!-- Confirm password -->
+<div class="flex flex-col">
+<label class="text-base font-medium text-[#1D2125] mb-1" for="confirm-password">Confirm password</label>
+<input class="h-9 w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-base text-[#1D2125]" id="confirm-password" name="confirmPassword" type="password"/>
+</div>
+<!-- Deactivated Checkbox -->
+<div class="pt-2">
+<div class="flex items-center">
+<input class="w-4 h-4 text-[#0C66E4] border-[#8590A2] rounded-[6px] cursor-pointer" id="deactivated" name="deactivated" type="checkbox"/>
+<label class="ml-2 text-base font-medium text-[#1D2125] cursor-pointer select-none" for="deactivated">
+                Deactivated
+              </label>
+</div>
+<p class="mt-1 text-sm text-[#626F86] ml-6 m-0 leading-normal">
+              A deactivated person cannot sign in or take new assignments; time and history are kept.
+            </p>
+</div>
+<!-- Project Roles Section -->
+<div class="mt-6 mb-1">
+<h2 class="text-xl font-semibold text-[#1D2125] m-0 mb-3">Project roles</h2>
+<table class="w-full border border-[#DCDFE4] border-collapse text-left">
+<thead>
+<tr class="h-10 bg-[#F1F2F4] border-b border-[#DCDFE4]">
+<th class="px-3 text-sm font-semibold text-[#1D2125]" scope="col">Project</th>
+<th class="px-3 text-sm font-semibold text-[#1D2125]" scope="col">Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="h-10 border-b border-[#DCDFE4]">
+<td class="px-3 text-sm text-[#1D2125]">Project 1</td>
+<td class="px-3">
+<select class="h-8 w-36 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-2 text-sm text-[#1D2125]">
+<option value="none">None</option>
+<option value="viewer">Viewer</option>
+<option selected="" value="editor">Editor</option>
+<option value="admin">Admin</option>
+</select>
+</td>
+</tr>
+<tr class="h-10 border-b border-[#DCDFE4]">
+<td class="px-3 text-sm text-[#1D2125]">Project 2</td>
+<td class="px-3">
+<select class="h-8 w-36 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-2 text-sm text-[#1D2125]">
+<option value="none">None</option>
+<option selected="" value="viewer">Viewer</option>
+<option value="editor">Editor</option>
+<option value="admin">Admin</option>
+</select>
+</td>
+</tr>
+<tr class="h-10 border-b border-[#DCDFE4]">
+<td class="px-3 text-sm text-[#1D2125]">Project 3</td>
+<td class="px-3">
+<select class="h-8 w-36 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-2 text-sm text-[#1D2125]">
+<option selected="" value="none">None</option>
+<option value="viewer">Viewer</option>
+<option value="editor">Editor</option>
+<option value="admin">Admin</option>
+</select>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- System Administrator Checkbox -->
+<div class="pt-2">
+<div class="flex items-center">
+<input class="w-4 h-4 text-[#0C66E4] border-[#8590A2] rounded-[6px] cursor-pointer" id="system-administrator" name="systemAdministrator" type="checkbox"/>
+<label class="ml-2 text-base font-medium text-[#1D2125] cursor-pointer select-none" for="system-administrator">
+                System administrator
+              </label>
+</div>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="mt-6 flex items-center gap-3">
+<button class="h-9 px-4 bg-[#0C66E4] hover:bg-[#0055CC] text-[#FFFFFF] text-base font-medium rounded-[6px] border-none cursor-pointer flex items-center justify-center transition-colors duration-150" type="submit">
+            Save
+          </button>
+<button class="h-9 px-4 bg-[#FFFFFF] hover:bg-gray-50 border border-[#8590A2] text-[#1D2125] text-base font-medium rounded-[6px] cursor-pointer flex items-center justify-center transition-colors duration-150" type="button">
+            Cancel
+          </button>
+</div>
+</form>
+</div>
+</main>
+</body></html>

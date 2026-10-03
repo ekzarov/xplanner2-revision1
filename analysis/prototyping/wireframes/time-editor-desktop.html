@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Time: Task 8 - Planner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#f9f9ff",
+            "secondary": "#086d39",
+            "on-primary-fixed-variant": "#00429b",
+            "inverse-on-surface": "#ebf1ff",
+            "tertiary": "#a51c16",
+            "surface-container": "#e7eeff",
+            "on-tertiary-fixed-variant": "#910909",
+            "surface-container-highest": "#d6e3fe",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#82d99a",
+            "outline": "#727786",
+            "background": "#f9f9ff",
+            "on-surface-variant": "#424654",
+            "error-container": "#ffdad6",
+            "on-tertiary-container": "#ffebe8",
+            "surface-container-low": "#f0f3ff",
+            "surface-bright": "#f9f9ff",
+            "inverse-surface": "#243145",
+            "primary": "#004fb6",
+            "on-background": "#0e1c2f",
+            "on-secondary-container": "#15733f",
+            "surface-dim": "#cddbf5",
+            "on-primary-container": "#ecefff",
+            "tertiary-container": "#c8362b",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "primary-fixed": "#d9e2ff",
+            "on-tertiary-fixed": "#410001",
+            "on-secondary-fixed-variant": "#005229",
+            "outline-variant": "#c2c6d7",
+            "on-surface": "#0e1c2f",
+            "surface-variant": "#d6e3fe",
+            "primary-fixed-dim": "#b0c6ff",
+            "surface-container-high": "#dee8ff",
+            "inverse-primary": "#b0c6ff",
+            "surface-tint": "#0058ca",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#9df6b4",
+            "on-primary-fixed": "#001945",
+            "tertiary-fixed": "#ffdad5",
+            "secondary-container": "#9df6b4",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb4aa",
+            "primary-container": "#0c66e4",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#00210d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "display": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    input, select, button {
+      font-family: inherit;
+    }
+    .custom-focus:focus {
+      outline: 2px solid #0C66E4 !important;
+      outline-offset: 2px !important;
+    }
+    .lean-input {
+      height: 36px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+      padding: 0 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .lean-input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-color: #0C66E4;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/></head>
+<body class="min-h-screen flex flex-col bg-[#F7F8FA] text-[#1D2125]">
+<!-- Top bar -->
+<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] h-14 px-6 flex items-center justify-between shrink-0">
+<div class="flex items-center gap-8">
+<span class="text-lg font-semibold tracking-tight text-[#1D2125]">Planner</span>
+<div class="flex items-center gap-2">
+<label class="text-sm font-normal text-[#1D2125] select-none" for="search-input">Search or ID</label>
+<input class="lean-input w-64" id="search-input" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-sm font-normal text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#me">Me</a>
+<a class="text-sm font-normal text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#signout">Sign out</a>
+</div>
+</header>
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] px-8 py-2.5 text-sm">
+<div class="max-w-7xl mx-auto flex items-center space-x-2 text-sm">
+<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#top">Top</a>
+<span class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#project-1">Project 1</a>
+<span class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#iteration-3">Iteration 3</a>
+<span class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#story-2">Story 2</a>
+<span class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline custom-focus rounded-sm" href="#task-8">Task 8</a>
+<span class="text-[#626F86]">/</span>
+<span aria-current="page" class="text-[#1D2125]">Time</span>
+</div>
+</nav>
+<!-- Page content area -->
+<main class="w-full max-w-7xl mx-auto px-8 py-6 flex-1">
+<h1 class="text-2xl font-semibold text-[#1D2125] mb-6">Time: Task 8</h1>
+<!-- White Section with Grid -->
+<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] overflow-hidden mb-6">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse" style="font-size: 14px;">
+<thead>
+<tr class="bg-[#F1F2F4] border-b border-[#DCDFE4] text-[#1D2125] h-10 font-medium">
+<th class="w-16 px-4 py-2 text-center font-medium" scope="col">Delete</th>
+<th class="w-40 px-4 py-2 font-medium" scope="col">Report date</th>
+<th class="w-48 px-4 py-2 font-medium" scope="col">Start</th>
+<th class="w-32 px-4 py-2 font-medium" scope="col">End</th>
+<th class="w-32 px-4 py-2 font-medium" scope="col">Duration</th>
+<th class="w-44 px-4 py-2 font-medium" scope="col">Person</th>
+<th class="w-44 px-4 py-2 font-medium" scope="col">Pair</th>
+<th class="px-4 py-2 font-medium" scope="col">Description</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#DCDFE4]">
+<!-- Row 1 -->
+<tr class="h-10 hover:bg-[#F7F8FA]">
+<td class="px-4 py-1 text-center align-middle">
+<input aria-label="Delete entry 1" class="w-4 h-4 rounded-[3px] border-[#8590A2] text-[#0C66E4] custom-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Report date" class="lean-input w-full tabular-nums" type="text" value="2026-03-03"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Start time" class="lean-input w-full tabular-nums" type="text" value="09:00"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="End time" class="lean-input w-full tabular-nums" type="text" value="10:00"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Duration" class="lean-input w-full tabular-nums text-right" type="text" value="1.0"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<select aria-label="Person" class="lean-input w-full cursor-pointer">
+<option selected="" value="User B">User B</option>
+<option value="User A">User A</option>
+</select>
+</td>
+<td class="px-4 py-1 align-middle">
+<select aria-label="Pair" class="lean-input w-full cursor-pointer">
+<option selected="" value="(none)">(none)</option>
+<option value="User A">User A</option>
+<option value="User B">User B</option>
+</select>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Description" class="lean-input w-full" type="text" value="Synthetic entry"/>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="h-10 hover:bg-[#F7F8FA]">
+<td class="px-4 py-1 text-center align-middle">
+<input aria-label="Delete entry 2" class="w-4 h-4 rounded-[3px] border-[#8590A2] text-[#0C66E4] custom-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Report date" class="lean-input w-full tabular-nums" type="text" value="2026-03-04"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Start time" class="lean-input w-full tabular-nums" type="text" value="09:00"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="End time" class="lean-input w-full tabular-nums" type="text" value="10:00"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Duration" class="lean-input w-full tabular-nums text-right" type="text" value="1.0"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<select aria-label="Person" class="lean-input w-full cursor-pointer">
+<option selected="" value="User B">User B</option>
+<option value="User A">User A</option>
+</select>
+</td>
+<td class="px-4 py-1 align-middle">
+<select aria-label="Pair" class="lean-input w-full cursor-pointer">
+<option selected="" value="(none)">(none)</option>
+<option value="User A">User A</option>
+<option value="User B">User B</option>
+</select>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Description" class="lean-input w-full" type="text" value="Synthetic entry"/>
+</td>
+</tr>
+<!-- Row 3 (New Entry) -->
+<tr class="h-10 hover:bg-[#F7F8FA]">
+<td class="px-4 py-1 text-center align-middle">
+<input aria-label="Delete entry 3" class="w-4 h-4 rounded-[3px] border-[#8590A2] text-[#0C66E4] custom-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Report date" class="lean-input w-full tabular-nums" type="text" value=""/>
+</td>
+<td class="px-4 py-1 align-middle">
+<div class="flex items-center gap-1.5">
+<input aria-label="Start time" class="lean-input w-24 tabular-nums" type="text" value=""/>
+<button class="h-[36px] px-2.5 bg-[#FFFFFF] border border-[#8590A2] hover:bg-[#F1F2F4] text-[#1D2125] text-sm rounded-[6px] shrink-0 custom-focus font-normal" type="button">
+                    Insert time
+                  </button>
+</div>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="End time" class="lean-input w-full tabular-nums" type="text" value=""/>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Duration" class="lean-input w-full tabular-nums text-right" type="text" value=""/>
+</td>
+<td class="px-4 py-1 align-middle">
+<select aria-label="Person" class="lean-input w-full cursor-pointer">
+<option selected="" value="User B">User B</option>
+<option value="User A">User A</option>
+</select>
+</td>
+<td class="px-4 py-1 align-middle">
+<select aria-label="Pair" class="lean-input w-full cursor-pointer">
+<option selected="" value="(none)">(none)</option>
+<option value="User A">User A</option>
+<option value="User B">User B</option>
+</select>
+</td>
+<td class="px-4 py-1 align-middle">
+<input aria-label="Description" class="lean-input w-full" type="text" value=""/>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Remaining hours form section -->
+<div class="mb-8">
+<div class="flex flex-col gap-1">
+<label class="text-base font-medium text-[#1D2125]" for="remaining-hours">Remaining hours</label>
+<div class="flex items-center gap-3">
+<input class="lean-input w-32 tabular-nums text-right" id="remaining-hours" type="text" value="6.0"/>
+<span class="text-sm text-[#626F86]">Updates the task estimate on save</span>
+</div>
+</div>
+</div>
+<!-- Action buttons -->
+<div class="flex items-center gap-3">
+<button class="h-[36px] px-4 bg-[#0C66E4] hover:bg-[#0055CC] text-[#FFFFFF] text-base font-normal rounded-[6px] custom-focus transition-colors" type="button">
+        Save
+      </button>
+<button class="h-[36px] px-4 bg-[#FFFFFF] border border-[#8590A2] hover:bg-[#F1F2F4] text-[#1D2125] text-base font-normal rounded-[6px] custom-focus transition-colors" type="button">
+        Cancel
+      </button>
+</div>
+</main>
+</body></html>
