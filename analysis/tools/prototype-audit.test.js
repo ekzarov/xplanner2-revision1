@@ -72,13 +72,15 @@ function writePrototype(directory, options = {}) {
     let insideEpic = false;
     let epicRow = null;
     let epicValues = [];
-    for (const [rowNumber, first, third] of cells) {
+    // An optional fourth element sets further columns by number, e.g. { 10: ..., 13: ... }.
+    for (const [rowNumber, first, third, more = {}] of cells) {
       if (first) sheet.getRow(rowNumber).getCell(1).value = first;
       if (third) sheet.getRow(rowNumber).getCell(3).value = third;
+      for (const [column, value] of Object.entries(more)) sheet.getRow(rowNumber).getCell(Number(column)).value = value;
       const values = Array.from({ length: 14 }, (unused, index) => {
         if (index === 0) return String(first || '');
         if (index === 2) return String(third || '');
-        return '';
+        return String(more[index + 1] || '');
       });
       if (/^UF-\d+/.test(values[0])) {
         insideEpic = true;
@@ -2170,4 +2172,116 @@ test('reading-navigation comments are not unfilled approval placeholders', async
   fs.appendFileSync(file, '\n<!-- ARTIFACT_READING_START -->\n<!-- ARTIFACT_READING_END -->\n');
   const result = await fixture.audit();
   assert.equal(result.ok, true, result.errors.join('\n'));
+});
+
+// Project hook: Stage 4 deferred rows are recorded, verified against the
+// workbook's own deferral and the Stage 4 record, and never drawn.
+async function deferredFixture(t) {
+  const { directory, fixture } = await completeFixture(t);
+  const deferredNote = 'Deferred (Stage 4 D-003, Codex delegated): remember-me is outside the first scope.';
+  await fixture.writeWorkbook([
+    [7, 'UF-001', null],
+    [8, null, 'Login'],
+    [9, null, 'Remember me', { 10: deferredNote, 13: 'Yes' }],
+    [10, null, 'Change password', { 10: 'Keep.', 13: 'No' }],
+  ]);
+  const stage4RecordFile = path.join(directory, 'stage-04-requirements-revision.md');
+  fs.writeFileSync(stage4RecordFile, '# Stage 4\n\n| ID | Decision |\n|---|---|\n| D-003 | Sign-in scope. |\n');
+  const surface = { row: 8, classification: 'surface', screen: 'login', surface_key: 'web + /login + sign in + centred card' };
+  const deferred = (entries) => fixture.writeNormalization([surface], {
+    excluded_rows: [{ row: 10, finding: 'rf-fixture', reason: 'Fixture row excluded to isolate the deferred checks.' }],
+    deferred_rows: entries,
+  });
+  const valid = {
+    row: 9,
+    decision: 'D-003',
+    reason: 'Outside the first scope per the Stage 4 decision.',
+    resume_condition: 'Before the SDD of the corresponding slice.',
+  };
+  const audit = () => fixture.audit({ stage4RecordFile });
+  return { directory, fixture, deferred, valid, audit, stage4RecordFile };
+}
+
+test('a Stage 4 deferred row is recorded with its decision and resume condition', async (t) => {
+  const { deferred, valid, audit } = await deferredFixture(t);
+  deferred([valid]);
+  const result = await audit();
+  assert.equal(result.ok, true, result.errors.join('\n'));
+});
+
+test('an unrecorded deferred row still fails: there is no blanket skip', async (t) => {
+  const { deferred, audit } = await deferredFixture(t);
+  deferred([]);
+  const result = await audit();
+  assert(result.errors.some((error) => error.includes('row 9 is not classified')), result.errors.join('\n'));
+});
+
+test('a fake defer of a row the workbook does not defer fails', async (t) => {
+  const { fixture, valid, audit } = await deferredFixture(t);
+  fixture.writeNormalization([{ row: 8, classification: 'surface', screen: 'login', surface_key: 'web + /login + sign in + centred card' }], {
+    deferred_rows: [valid, { ...valid, row: 10 }],
+  });
+  const result = await audit();
+  assert(result.errors.some((error) => error.includes('row 10 is recorded as deferred under D-003, but the workbook does not defer it')),
+    result.errors.join('\n'));
+});
+
+test('a deferral cited under a different decision than the workbook fails', async (t) => {
+  const { deferred, valid, audit, stage4RecordFile } = await deferredFixture(t);
+  fs.appendFileSync(stage4RecordFile, '| D-008 | People import. |\n');
+  deferred([{ ...valid, decision: 'D-008' }]);
+  const result = await audit();
+  assert(result.errors.some((error) => error.includes('row 9 is recorded as deferred under D-008')), result.errors.join('\n'));
+});
+
+test('a deferral citing a decision missing from the Stage 4 record fails', async (t) => {
+  const { deferred, valid, audit, stage4RecordFile } = await deferredFixture(t);
+  fs.writeFileSync(stage4RecordFile, '# Stage 4\n\n| ID | Decision |\n|---|---|\n| D-004 | Something else. |\n');
+  deferred([valid]);
+  const result = await audit();
+  assert(result.errors.some((error) => error.includes('cite D-003, which is not a decision in the Stage 4 record')), result.errors.join('\n'));
+});
+
+test('a deferred row claimed by a screen or as non-visual fails', async (t) => {
+  const { fixture, deferred, valid, audit } = await deferredFixture(t);
+  deferred([valid]);
+  const manifest = fixture.readManifest();
+  manifest.screens[0].workbook_rows = [8, 9];
+  fixture.writeManifest(manifest);
+  const drawn = await audit();
+  assert(drawn.errors.some((error) => error.includes('row 9 is deferred but is still claimed')), drawn.errors.join('\n'));
+
+  manifest.screens[0].workbook_rows = [8];
+  manifest.non_visual_workbook_rows = [{
+    row: 9,
+    reason: 'Remember-me cookie handling has no screen.',
+    covered_by: { coverage: 'Covered by session integration tests.', initiating_screen: null },
+  }];
+  fixture.writeManifest(manifest);
+  const nonVisual = await audit();
+  assert(nonVisual.errors.some((error) => error.includes('row 9 is deferred but is still claimed')), nonVisual.errors.join('\n'));
+});
+
+test('a deferred row conflicting with a classification or a do-not-port exclusion fails', async (t) => {
+  const { fixture, valid, audit } = await deferredFixture(t);
+  fixture.writeNormalization([
+    { row: 8, classification: 'surface', screen: 'login', surface_key: 'web + /login + sign in + centred card' },
+    { row: 9, classification: 'non-visual', note: 'Fixture classification conflicting with the deferral.' },
+  ], {
+    excluded_rows: [{ row: 10, finding: 'rf-fixture', reason: 'Fixture row excluded to isolate the deferred checks.' }],
+    deferred_rows: [valid, { ...valid, row: 10 }],
+  });
+  const result = await audit();
+  assert(result.errors.some((error) => error.includes('row 9 is both classified and deferred')), result.errors.join('\n'));
+  assert(result.errors.some((error) => error.includes('row 10 is both excluded as do-not-port and deferred')), result.errors.join('\n'));
+});
+
+test('a duplicate or unknown deferred row and a placeholder reason fail', async (t) => {
+  const { deferred, valid, audit } = await deferredFixture(t);
+  deferred([valid, { ...valid, reason: 'Outside the first scope, restated once more.' }, { ...valid, row: 99 },
+    { ...valid, row: 9, resume_condition: '<when to resume>' }]);
+  const result = await audit();
+  assert(result.errors.some((error) => error.includes('row 9 is deferred more than once')), result.errors.join('\n'));
+  assert(result.errors.some((error) => error.includes('defers workbook row 99, which is not a populated scenario row')), result.errors.join('\n'));
+  assert(result.errors.some((error) => error.includes('needs a meaningful resume_condition')), result.errors.join('\n'));
 });

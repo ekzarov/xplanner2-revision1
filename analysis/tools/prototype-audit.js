@@ -325,6 +325,25 @@ const NORMALIZATION_SCHEMA = {
         additionalProperties: false,
       },
     },
+    // Project hook: rows the Stage 4 record already deferred. Not drawn and not
+    // do-not-port; each entry is checked against the workbook's own deferral
+    // (column J "Deferred (Stage 4 D-NNN" and column M "Yes") and against the
+    // decision in the Stage 4 record, so a row cannot be deferred by assertion.
+    deferred_rows: {
+      type: 'array',
+      uniqueItems: true,
+      items: {
+        type: 'object',
+        required: ['row', 'decision', 'reason', 'resume_condition'],
+        properties: {
+          row: { type: 'integer', minimum: 1 },
+          decision: { type: 'string', pattern: '^D-\\d{3}$' },
+          reason: nonEmpty,
+          resume_condition: nonEmpty,
+        },
+        additionalProperties: false,
+      },
+    },
     _schema_help: { type: 'object' },
     _notes: { type: 'array', items: nonEmpty },
   },
@@ -335,7 +354,7 @@ const NORMALIZATION_SCHEMA = {
 // any failure, having already recorded the failure: the caller must not treat
 // "nothing to check" as "nothing wrong".
 function readNormalization(options, manifest, result) {
-  const empty = { rows: new Map(), excluded: new Map(), entries: new Map() };
+  const empty = { rows: new Map(), excluded: new Map(), deferred: new Map(), entries: new Map() };
   if (!manifest.normalization) return empty;
   // Resolved beside the manifest, exactly as ui-ux-decision.md is: the manifest
   // states the canonical repository-relative path for readers, and the audit
@@ -427,7 +446,25 @@ function readNormalization(options, manifest, result) {
     }
     excluded.set(entry.row, entry);
   }
-  return { rows, excluded, entries };
+  const deferred = new Map();
+  for (const entry of record.deferred_rows || []) {
+    for (const [field, value] of [['reason', entry.reason], ['resume_condition', entry.resume_condition]]) {
+      if (PLACEHOLDER.test(value) || value.trim().length < 12) {
+        result.fail(`deferred workbook row ${entry.row} needs a meaningful ${field}`);
+      }
+    }
+    if (rows.has(entry.row)) {
+      result.fail(`workbook row ${entry.row} is both classified and deferred`);
+    }
+    if (excluded.has(entry.row)) {
+      result.fail(`workbook row ${entry.row} is both excluded as do-not-port and deferred`);
+    }
+    if (deferred.has(entry.row)) {
+      result.fail(`workbook row ${entry.row} is deferred more than once`);
+    }
+    deferred.set(entry.row, entry);
+  }
+  return { rows, excluded, deferred, entries };
 }
 
 async function populatedWorkbookRows(workbookFile, result) {
@@ -522,6 +559,12 @@ async function auditPrototype(input = {}) {
       input.workbookFile ||
       process.env.WORKBOOK_FILE ||
       path.join(input.prototypeDir || process.env.PROTOTYPE_DIR || path.join(__dirname, '..', 'prototyping'), '..', 'legacy_user_flows.xlsx')
+    ),
+    // Read only when the normalization defers rows: the approved Stage 4 record
+    // that must contain each cited decision.
+    stage4RecordFile: path.resolve(
+      input.stage4RecordFile ||
+      path.join(input.prototypeDir || process.env.PROTOTYPE_DIR || path.join(__dirname, '..', 'prototyping'), '..', 'stages', 'stage-04', 'stage-04-requirements-revision.md')
     ),
   };
   const result = new AuditResult('PROTOTYPE AUDIT');
@@ -771,7 +814,7 @@ async function auditPrototype(input = {}) {
   // labels — each classification is checked against where the row actually
   // landed in the manifest.
   const normalization = readNormalization(options, manifest, result);
-  const { rows: normalizationRows, excluded: excludedRows } = normalization;
+  const { rows: normalizationRows, excluded: excludedRows, deferred: deferredRows } = normalization;
 
   const workbook = await populatedWorkbookRows(options.workbookFile, result);
   const governedRows = workbook.rows;
@@ -822,7 +865,7 @@ async function auditPrototype(input = {}) {
 
   // An empty catalogue is legitimate only when there is nothing to draw.
   if (!manifest.screens.length) {
-    const drawable = [...governedRows].filter((row) => !nonVisualRows.has(row) && !excludedRows.has(row));
+    const drawable = [...governedRows].filter((row) => !nonVisualRows.has(row) && !excludedRows.has(row) && !deferredRows.has(row));
     if (drawable.length) {
       result.fail(`screen-manifest.json declares no screens while ${drawable.length} governed row(s) are neither non-visual nor excluded (first: ${drawable[0]})`);
     }
@@ -855,6 +898,20 @@ async function auditPrototype(input = {}) {
       }
       continue;
     }
+    const deferredRecord = deferredRows.get(row);
+    if (deferredRecord) {
+      if (visualRows.has(row) || nonVisualRows.has(row)) {
+        result.fail(`workbook row ${row} is deferred but is still claimed in the manifest`);
+      }
+      // The workbook must already say so: J opens with the same Stage 4
+      // decision and M records the deferral. Anything else is a fake defer.
+      const values = (workbook.cells.get(row) || {}).values || [];
+      const noted = /^Deferred \(Stage 4 (D-\d{3})\b/.exec(values[9] || '');
+      if (!noted || noted[1] !== deferredRecord.decision || !/^yes$/i.test(values[12] || '')) {
+        result.fail(`workbook row ${row} is recorded as deferred under ${deferredRecord.decision}, but the workbook does not defer it under that Stage 4 decision (column J "Deferred (Stage 4 ${deferredRecord.decision}", column M "Yes")`);
+      }
+      continue;
+    }
     if (!classification) {
       result.fail(`populated workbook row ${row} is not classified in the normalization record and is not recorded as an excluded do-not-port row`);
       continue;
@@ -882,6 +939,27 @@ async function auditPrototype(input = {}) {
     for (const row of [...normalizationRows.keys(), ...excludedRows.keys()]) {
       if (!governedRows.has(row)) {
         result.fail(`normalization record classifies workbook row ${row}, which is not a populated scenario row`);
+      }
+    }
+    for (const row of deferredRows.keys()) {
+      if (!governedRows.has(row)) {
+        result.fail(`normalization record defers workbook row ${row}, which is not a populated scenario row`);
+      }
+    }
+  }
+  // Each cited decision must exist in the approved Stage 4 record.
+  if (deferredRows.size) {
+    let record = null;
+    try {
+      record = fs.readFileSync(options.stage4RecordFile, 'utf8');
+    } catch (error) {
+      result.fail(`deferred rows cite Stage 4 decisions, but the Stage 4 record cannot be read: ${error.message}`);
+    }
+    if (record !== null) {
+      for (const decision of new Set([...deferredRows.values()].map((entry) => entry.decision))) {
+        if (!new RegExp(`^\\|\\s*${decision}\\s*\\|`, 'm').test(record)) {
+          result.fail(`deferred rows cite ${decision}, which is not a decision in the Stage 4 record`);
+        }
       }
     }
   }
