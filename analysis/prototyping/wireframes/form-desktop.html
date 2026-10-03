@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit task: Task 12 - Save Reset Cancel</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: #FFFFFF;
+      height: 56px;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      width: 220px;
+      height: 36px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .search-input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .top-link:hover {
+      text-decoration: underline;
+    }
+
+    .top-link:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Main Container */
+    main {
+      padding: 24px 32px 48px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 16px;
+    }
+
+    .breadcrumbs a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumbs a:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .breadcrumbs .separator {
+      color: #626F86;
+    }
+
+    .breadcrumbs .current {
+      color: #1D2125;
+    }
+
+    /* Page Heading */
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    /* Form Surface */
+    .form-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      width: 640px;
+      max-width: 100%;
+      padding: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #1D2125;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .form-control {
+      height: 36px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-size: 16px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      font-family: inherit;
+      width: 100%;
+      outline: none;
+    }
+
+    .form-control:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    select.form-control {
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23626F86%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 14px 14px;
+      padding-right: 36px;
+    }
+
+    textarea.form-control {
+      height: 120px;
+      padding: 10px 12px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .form-hint {
+      font-size: 12px;
+      color: #626F86;
+      margin-top: 6px;
+    }
+
+    .formatting-help-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .formatting-help-link:hover {
+      text-decoration: underline;
+    }
+
+    .formatting-help-link:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Form Actions */
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      text-decoration: none;
+      outline: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      border: 1px solid #0C66E4;
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      color: #1D2125;
+    }
+
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="#" class="brand">Planner</a>
+      <div class="search-group">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input" autocomplete="off">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="top-link">Me</a>
+      <a href="#" class="top-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Breadcrumb -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="#">Top</a>
+      <span class="separator">/</span>
+      <a href="#">Project 1</a>
+      <span class="separator">/</span>
+      <a href="#">Iteration 3</a>
+      <span class="separator">/</span>
+      <a href="#">Story 5</a>
+      <span class="separator">/</span>
+      <span class="current">Task 12</span>
+    </nav>
+
+    <!-- Page Heading -->
+    <h1>Edit task: Task 12</h1>
+
+    <!-- Form Surface -->
+    <div class="form-container">
+      <form id="edit-task-form">
+        <!-- Name (required) -->
+        <div class="form-group">
+          <label for="task-name" class="form-label">Name (required)</label>
+          <input type="text" id="task-name" name="name" class="form-control" value="Task 12" required>
+        </div>
+
+        <!-- Type select -->
+        <div class="form-group">
+          <label for="task-type" class="form-label">Type</label>
+          <select id="task-type" name="type" class="form-control">
+            <option value="Feature" selected>Feature</option>
+            <option value="Debt">Debt</option>
+            <option value="Defect">Defect</option>
+            <option value="Functional test">Functional test</option>
+            <option value="Acceptance test">Acceptance test</option>
+            <option value="Overhead">Overhead</option>
+          </select>
+        </div>
+
+        <!-- Disposition select -->
+        <div class="form-group">
+          <label for="task-disposition" class="form-label">Disposition</label>
+          <select id="task-disposition" name="disposition" class="form-control">
+            <option value="Planned" selected>Planned</option>
+            <option value="Discovered">Discovered</option>
+          </select>
+        </div>
+
+        <!-- Acceptor select (with keyboard focus) -->
+        <div class="form-group">
+          <label for="task-acceptor" class="form-label">Acceptor</label>
+          <select id="task-acceptor" name="acceptor" class="form-control" autofocus>
+            <option value="User A" selected>User A</option>
+            <option value="User B">User B</option>
+            <option value="User C">User C</option>
+            <option value="User D">User D</option>
+          </select>
+        </div>
+
+        <!-- Estimated hours -->
+        <div class="form-group">
+          <label for="task-estimated" class="form-label">Estimated hours</label>
+          <input type="text" id="task-estimated" name="estimated_hours" class="form-control" value="6.0">
+          <span class="form-hint">Hours, 0 or more</span>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="task-description" class="form-label">Description</label>
+          <textarea id="task-description" name="description" class="form-control">Short description of the work.</textarea>
+          <div>
+            <a href="#" class="formatting-help-link">Formatting help</a>
+          </div>
+        </div>
+
+        <!-- Actions: Save, Reset, Cancel -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="btn-save">Save</button>
+          <button type="reset" class="btn btn-neutral" id="btn-reset">Reset</button>
+          <button type="button" class="btn btn-neutral" id="btn-cancel" onclick="window.history.back()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Ensure the Acceptor field maintains focus indicator as requested
+    document.addEventListener("DOMContentLoaded", function() {
+      const acceptor = document.getElementById("task-acceptor");
+      if (acceptor) {
+        acceptor.focus();
+      }
+    });
+  </script>
+</body>
+</html>

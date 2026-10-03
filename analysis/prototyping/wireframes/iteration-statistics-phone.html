@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<title>Iteration 3 - Statistics</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-container": "#c8362b",
+            "secondary": "#086d39",
+            "inverse-surface": "#243145",
+            "on-primary-fixed": "#001945",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#0e1c2f",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "primary": "#004fb6",
+            "inverse-on-surface": "#ebf1ff",
+            "on-primary-fixed-variant": "#00429b",
+            "secondary-fixed": "#9df6b4",
+            "on-tertiary-fixed": "#410001",
+            "surface-container-low": "#f0f3ff",
+            "tertiary-fixed-dim": "#ffb4aa",
+            "on-surface-variant": "#424654",
+            "on-secondary-fixed-variant": "#005229",
+            "surface-dim": "#cddbf5",
+            "surface-bright": "#f9f9ff",
+            "on-background": "#0e1c2f",
+            "error": "#ba1a1a",
+            "surface-tint": "#0058ca",
+            "primary-container": "#0c66e4",
+            "tertiary-fixed": "#ffdad5",
+            "on-tertiary-fixed-variant": "#910909",
+            "surface-container": "#e7eeff",
+            "primary-fixed-dim": "#b0c6ff",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#00210d",
+            "on-secondary-container": "#15733f",
+            "surface": "#f9f9ff",
+            "outline": "#727786",
+            "on-error": "#ffffff",
+            "secondary-fixed-dim": "#82d99a",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#dee8ff",
+            "surface-container-highest": "#d6e3fe",
+            "outline-variant": "#c2c6d7",
+            "inverse-primary": "#b0c6ff",
+            "surface-variant": "#d6e3fe",
+            "on-primary-container": "#ecefff",
+            "tertiary": "#a51c16",
+            "secondary-container": "#9df6b4",
+            "on-secondary": "#ffffff",
+            "background": "#f9f9ff",
+            "primary-fixed": "#d9e2ff",
+            "on-tertiary-container": "#ffebe8"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      margin: 0;
+      padding: 0;
+      width: 390px;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-focus:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="w-[390px] mx-auto bg-[#F7F8FA] text-[#1D2125]">
+<!-- Top bar -->
+<header class="w-full bg-white border-b border-[#DCDFE4] px-4 flex items-center justify-between h-[48px]">
+<div class="flex items-center">
+<span class="text-[17px] font-bold text-[#1D2125] tracking-tight">Planner</span>
+</div>
+<nav class="flex items-center gap-1">
+<a class="min-h-[44px] px-2.5 flex items-center text-[14px] text-[#0C66E4] hover:text-[#0055CC] custom-focus rounded-[6px]" href="#me">Me</a>
+<span class="text-[#DCDFE4] select-none">|</span>
+<a class="min-h-[44px] px-2.5 flex items-center text-[14px] text-[#626F86] hover:text-[#1D2125] custom-focus rounded-[6px]" href="#signout">Sign out</a>
+</nav>
+</header>
+<!-- Search section -->
+<section class="px-4 pt-3 pb-2 bg-[#F7F8FA]">
+<label class="block text-[13px] font-medium text-[#1D2125] mb-1" for="search-input">Search or ID</label>
+<div class="relative w-full">
+<input class="w-full h-[44px] bg-white border border-[#8590A2] rounded-[6px] px-3 text-[16px] text-[#1D2125] custom-focus outline-none" id="search-input" type="text"/>
+</div>
+</section>
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="px-4 py-1">
+<ol class="flex items-center flex-wrap gap-0 text-[14px] text-[#626F86]">
+<li class="flex items-center">
+<a class="min-h-[44px] flex items-center text-[#0C66E4] hover:text-[#0055CC] custom-focus rounded-[6px]" href="#top">Top</a>
+<span class="mx-1.5 text-[#626F86]">/</span>
+</li>
+<li class="flex items-center">
+<a class="min-h-[44px] flex items-center text-[#0C66E4] hover:text-[#0055CC] custom-focus rounded-[6px]" href="#project-1">Project 1</a>
+<span class="mx-1.5 text-[#626F86]">/</span>
+</li>
+<li aria-current="page" class="flex items-center text-[#1D2125] font-semibold min-h-[44px]">
+        Iteration 3
+      </li>
+</ol>
+</nav>
+<!-- Main header details -->
+<main class="px-4">
+<div class="mt-1">
+<h1 class="text-[24px] font-semibold text-[#1D2125] leading-tight">Iteration 3</h1>
+<p class="text-[14px] text-[#626F86] mt-0.5">2026-03-02 to 2026-03-13</p>
+</div>
+<!-- Progress bar & metrics -->
+<div class="mt-4 bg-white border border-[#DCDFE4] rounded-[6px] p-3.5">
+<div class="flex justify-between items-center mb-1.5">
+<span class="text-[14px] font-medium text-[#1D2125]">Progress</span>
+<span class="text-[14px] font-semibold text-[#1D2125]">48%</span>
+</div>
+<div class="w-full h-2.5 bg-[#E1E4EA] rounded-full overflow-hidden">
+<div class="h-full bg-[#0C66E4] rounded-full" style="width: 48%;"></div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-[#DCDFE4] text-center">
+<div>
+<div class="text-[11px] text-[#626F86] uppercase tracking-wider font-medium">Estimated</div>
+<div class="text-[14px] font-semibold text-[#1D2125] mt-0.5">100.0 h</div>
+</div>
+<div>
+<div class="text-[11px] text-[#626F86] uppercase tracking-wider font-medium">Actual</div>
+<div class="text-[14px] font-semibold text-[#0C66E4] mt-0.5">48.0 h</div>
+</div>
+<div>
+<div class="text-[11px] text-[#626F86] uppercase tracking-wider font-medium">Remaining</div>
+<div class="text-[14px] font-semibold text-[#1D2125] mt-0.5">52.0 h</div>
+</div>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav aria-label="Iteration tabs" class="flex border-b border-[#DCDFE4] mt-4 overflow-x-auto no-scrollbar">
+<a class="min-h-[44px] flex items-center px-3 text-[14px] text-[#626F86] font-normal hover:text-[#1D2125] custom-focus border-b-2 border-transparent -mb-[1px]" href="#stories">Stories</a>
+<a class="min-h-[44px] flex items-center px-3 text-[14px] text-[#626F86] font-normal hover:text-[#1D2125] custom-focus border-b-2 border-transparent -mb-[1px]" href="#tasks">Tasks</a>
+<a aria-current="page" class="min-h-[44px] flex items-center px-3 text-[14px] text-[#0C66E4] font-semibold border-b-2 border-[#0C66E4] -mb-[1px] custom-focus" href="#statistics">Statistics</a>
+<a class="min-h-[44px] flex items-center px-3 text-[14px] text-[#626F86] font-normal hover:text-[#1D2125] custom-focus border-b-2 border-transparent -mb-[1px]" href="#accuracy">Accuracy</a>
+<a class="min-h-[44px] flex items-center px-3 text-[14px] text-[#626F86] font-normal hover:text-[#1D2125] custom-focus border-b-2 border-transparent -mb-[1px]" href="#board">Board</a>
+</nav>
+<!-- Charts stack column -->
+<div class="mt-4 pb-8 space-y-4">
+<!-- Chart 1: Tasks by type -->
+<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
+<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Tasks by type</h2>
+<div class="flex justify-center my-2">
+<!-- Total 18: Feature 13 (~72.2%), Defect 3 (~16.7%), Debt 2 (~11.1%) -->
+<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
+<!-- Feature (13/18 = 72.22%) -->
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="72.22 27.78" stroke-dashoffset="0" stroke-width="5"></circle>
+<!-- Defect (3/18 = 16.67%) -->
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#1F883D" stroke-dasharray="16.67 83.33" stroke-dashoffset="-72.22" stroke-width="5"></circle>
+<!-- Debt (2/18 = 11.11%) -->
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="11.11 88.89" stroke-dashoffset="-88.89" stroke-width="5"></circle>
+</svg>
+</div>
+<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
+<span class="text-[#1D2125]">Feature</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">13</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#1F883D] inline-block"></span>
+<span class="text-[#1D2125]">Defect</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">3</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
+<span class="text-[#1D2125]">Debt</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">2</span>
+</div>
+</div>
+</section>
+<!-- Chart 2: Tasks by disposition -->
+<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
+<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Tasks by disposition</h2>
+<div class="flex justify-center my-2">
+<!-- Total 18: Planned 15 (~83.33%), Discovered 3 (~16.67%) -->
+<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="83.33 16.67" stroke-dashoffset="0" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="16.67 83.33" stroke-dashoffset="-83.33" stroke-width="5"></circle>
+</svg>
+</div>
+<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
+<span class="text-[#1D2125]">Planned</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">15</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
+<span class="text-[#1D2125]">Discovered</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">3</span>
+</div>
+</div>
+</section>
+<!-- Chart 3: Estimated hours by type -->
+<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
+<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Estimated hours by type</h2>
+<div class="flex justify-center my-2">
+<!-- Total 100.0: Feature 70.0 (70%), Defect 21.0 (21%), Debt 9.0 (9%) -->
+<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="70 30" stroke-dashoffset="0" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#1F883D" stroke-dasharray="21 79" stroke-dashoffset="-70" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="9 91" stroke-dashoffset="-91" stroke-width="5"></circle>
+</svg>
+</div>
+<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
+<span class="text-[#1D2125]">Feature</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">70.0</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#1F883D] inline-block"></span>
+<span class="text-[#1D2125]">Defect</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">21.0</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
+<span class="text-[#1D2125]">Debt</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">9.0</span>
+</div>
+</div>
+</section>
+<!-- Chart 4: Estimated hours by disposition -->
+<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
+<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Estimated hours by disposition</h2>
+<div class="flex justify-center my-2">
+<!-- Total 100.0: Planned 83.0 (83%), Discovered 17.0 (17%) -->
+<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="83 17" stroke-dashoffset="0" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="17 83" stroke-dashoffset="-83" stroke-width="5"></circle>
+</svg>
+</div>
+<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
+<span class="text-[#1D2125]">Planned</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">83.0</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
+<span class="text-[#1D2125]">Discovered</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">17.0</span>
+</div>
+</div>
+</section>
+<!-- Chart 5: Actual hours by type -->
+<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
+<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Actual hours by type</h2>
+<div class="flex justify-center my-2">
+<!-- Total 48.0: Feature 39.0 (81.25%), Defect 5.0 (10.42%), Debt 4.0 (8.33%) -->
+<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="81.25 18.75" stroke-dashoffset="0" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#1F883D" stroke-dasharray="10.42 89.58" stroke-dashoffset="-81.25" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="8.33 91.67" stroke-dashoffset="-91.67" stroke-width="5"></circle>
+</svg>
+</div>
+<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
+<span class="text-[#1D2125]">Feature</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">39.0</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#1F883D] inline-block"></span>
+<span class="text-[#1D2125]">Defect</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">5.0</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
+<span class="text-[#1D2125]">Debt</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">4.0</span>
+</div>
+</div>
+</section>
+<!-- Chart 6: Actual hours by disposition -->
+<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
+<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Actual hours by disposition</h2>
+<div class="flex justify-center my-2">
+<!-- Total 48.0: Planned 44.0 (91.67%), Discovered 4.0 (8.33%) -->
+<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="91.67 8.33" stroke-dashoffset="0" stroke-width="5"></circle>
+<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="8.33 91.67" stroke-dashoffset="-91.67" stroke-width="5"></circle>
+</svg>
+</div>
+<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
+<span class="text-[#1D2125]">Planned</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">44.0</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
+<span class="text-[#1D2125]">Discovered</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">4.0</span>
+</div>
+</div>
+</section>
+<!-- Chart 7: Progress -->
+<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
+<h2 class="text-[16px] font-semibold text-[#1D2125] mb-2">Progress</h2>
+<div class="w-full overflow-hidden">
+<svg class="w-full h-auto text-[9px] text-[#626F86]" viewbox="0 0 320 160">
+<!-- Horizontal Grid lines (Y: 120h=15, 100h=35, 80h=55, 60h=75, 40h=95, 20h=115, 0h=135) -->
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="15" y2="15"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="18">120 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="35" y2="35"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="38">100 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="55" y2="55"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="58">80 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="75" y2="75"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="78">60 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="95" y2="95"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="98">40 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="115" y2="115"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="118">20 h</text>
+<line stroke="#DCDFE4" stroke-width="1" x1="38" x2="310" y1="135" y2="135"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="138">0 h</text>
+<!-- X-axis vertical ticks & labels -->
+<!-- 03-02 (x=45), 03-04 (x=95), 03-06 (x=145), 03-10 (x=205), 03-11 D8 (x=255), 03-13 (x=305) -->
+<text fill="#626F86" font-size="9" text-anchor="middle" x="45" y="150">03-02</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="95" y="150">03-04</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="145" y="150">03-06</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="205" y="150">03-10</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="255" y="150">03-11 (D8)</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="305" y="150">03-13</text>
+<!-- Dashed horizontal line: Estimated hours (100.0 h constant at y=35) -->
+<line stroke="#8590A2" stroke-dasharray="4,4" stroke-width="2" x1="45" x2="305" y1="35" y2="35"></line>
+<!-- Solid blue line: Actual hours (0h -> 48h at 03-11 D8) -->
+<!-- y at 0h = 135, y at 48h = 135 - (48 * 1) = 87 -->
+<polyline fill="none" points="45,135 95,125 145,107 205,97 255,87" stroke="#0C66E4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<circle cx="255" cy="87" fill="#0C66E4" r="3.5"></circle>
+</svg>
+</div>
+<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-4 h-0.5 bg-[#0C66E4] inline-block"></span>
+<span class="text-[#1D2125]">Actual hours</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">48.0 h</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-4 h-0.5 border-t border-dashed border-[#8590A2] inline-block"></span>
+<span class="text-[#1D2125]">Estimated hours</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">100.0 h</span>
+</div>
+</div>
+</section>
+<!-- Chart 8: Burn-down -->
+<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
+<h2 class="text-[16px] font-semibold text-[#1D2125] mb-2">Burn-down</h2>
+<div class="w-full overflow-hidden">
+<svg class="w-full h-auto text-[9px] text-[#626F86]" viewbox="0 0 320 160">
+<!-- Horizontal Grid lines -->
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="15" y2="15"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="18">120 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="35" y2="35"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="38">100 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="55" y2="55"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="58">80 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="75" y2="75"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="78">60 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="95" y2="95"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="98">40 h</text>
+<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="115" y2="115"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="118">20 h</text>
+<line stroke="#DCDFE4" stroke-width="1" x1="38" x2="310" y1="135" y2="135"></line>
+<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="138">0 h</text>
+<!-- X-axis vertical ticks & labels -->
+<text fill="#626F86" font-size="9" text-anchor="middle" x="45" y="150">03-02</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="95" y="150">03-04</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="145" y="150">03-06</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="205" y="150">03-10</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="255" y="150">03-11 (D8)</text>
+<text fill="#626F86" font-size="9" text-anchor="middle" x="305" y="150">03-13</text>
+<!-- Target baseline: 100h (y=35) at 03-02 (x=45) down to 0h (y=135) at 03-13 (x=305) -->
+<line stroke="#8590A2" stroke-dasharray="4,4" stroke-width="2" x1="45" x2="305" y1="35" y2="135"></line>
+<!-- Solid green line: Remaining hours falling from 100h to 52.0h at 03-11 D8 (y=83) -->
+<polyline fill="none" points="45,35 95,45 145,63 205,73 255,83" stroke="#1F883D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<circle cx="255" cy="83" fill="#1F883D" r="3.5"></circle>
+</svg>
+</div>
+<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-4 h-0.5 bg-[#1F883D] inline-block"></span>
+<span class="text-[#1D2125]">Remaining hours</span>
+</div>
+<span class="text-[#1D2125] font-semibold tabular-nums">52.0 h</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-4 h-0.5 border-t border-dashed border-[#8590A2] inline-block"></span>
+<span class="text-[#1D2125]">Target baseline</span>
+</div>
+<span class="text-[#626F86] text-[13px] tabular-nums">100h → 0h</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

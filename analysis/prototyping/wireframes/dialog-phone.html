@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Close Iteration 3 Confirmation Dialog (Mobile)</title>
+<style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mobile-container {
+      width: 100%;
+      max-width: 390px;
+      min-height: 100vh;
+      background-color: #F7F8FA;
+      position: relative;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top bar */
+    .top-bar {
+      background-color: #FFFFFF;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #DCDFE4;
+    }
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+    }
+    .user-links {
+      display: flex;
+      gap: 16px;
+    }
+    .user-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    /* Page Content */
+    .page-content {
+      padding: 16px;
+      flex: 1;
+    }
+
+    /* Search input */
+    .search-group {
+      margin-bottom: 16px;
+    }
+    .search-label {
+      display: block;
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 6px;
+    }
+    .search-input {
+      width: 100%;
+      height: 40px;
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .breadcrumb a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    /* Header & Progress */
+    .iteration-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+    .iteration-dates {
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 16px;
+    }
+    .metrics-section {
+      margin-bottom: 16px;
+    }
+    .progress-header {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 6px;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background-color: #DCDFE4;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .progress-bar-fill {
+      width: 48%;
+      height: 100%;
+      background-color: #0C66E4;
+      border-radius: 3px;
+    }
+    .stats-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 14px;
+      color: #626F86;
+    }
+    .stats-row span strong {
+      color: #1D2125;
+    }
+
+    /* Tabs */
+    .tabs-nav {
+      display: flex;
+      border-bottom: 1px solid #DCDFE4;
+      margin-bottom: 16px;
+      overflow-x: auto;
+    }
+    .tab-item {
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #626F86;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .tab-item.active {
+      color: #0C66E4;
+      border-bottom-color: #0C66E4;
+      font-weight: 600;
+    }
+
+    /* Action buttons */
+    .actions-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .primary-btn {
+      width: 100%;
+      height: 44px;
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border: 1px solid #0C66E4;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .button-group-sub {
+      display: flex;
+      gap: 8px;
+    }
+    .neutral-btn-small {
+      flex: 1;
+      height: 40px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* Stories table */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th {
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+    td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr.selected {
+      background-color: #E9F2FF;
+    }
+    .checkbox-col {
+      width: 28px;
+      text-align: center;
+    }
+    .story-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #8590A2;
+      border-radius: 3px;
+      accent-color: #0C66E4;
+      cursor: pointer;
+    }
+    .order-input {
+      width: 32px;
+      height: 28px;
+      text-align: center;
+      border: 1px solid #8590A2;
+      border-radius: 4px;
+      font-size: 14px;
+      background: #FFFFFF;
+    }
+
+    /* Scrim Backdrop */
+    .scrim {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(9, 30, 66, 0.54);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 100;
+    }
+
+    /* Modal Dialog */
+    .modal-dialog {
+      width: 100%;
+      background-color: #FFFFFF;
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(9, 30, 66, 0.25);
+    }
+    .modal-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .modal-body {
+      font-size: 16px;
+      color: #1D2125;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .modal-body p {
+      margin-bottom: 12px;
+    }
+    .modal-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Modal Stacked Buttons */
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .modal-btn {
+      width: 100%;
+      height: 48px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    /* Cancel button has keyboard focus: 2px #0C66E4 outline at 2px offset */
+    .modal-btn.has-focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+<div class="mobile-container" style="max-width: 100%; width: 100%;">
+<!-- Top bar -->
+<header class="top-bar">
+<span class="brand">Planner</span>
+<div class="user-links">
+<a class="user-link" href="#">Me</a>
+<a class="user-link" href="#">Sign out</a>
+</div>
+</header>
+<!-- Page Content -->
+<main class="page-content">
+<div class="search-group">
+<label class="search-label" for="search-input">Search or ID</label>
+<input class="search-input" id="search-input" style="width: 100%; height: 44px; padding: 8px 12px; font-family: inherit; font-size: 14px; color: #1D2125; background-color: #FFFFFF; border: 1px solid #8590A2; border-radius: 6px; outline: none;" type="text" value=""/>
+</div>
+<nav aria-label="Breadcrumbs" class="breadcrumb">
+<a href="#">Top</a>
+<span>/</span>
+<a href="#">Project 1</a>
+<span>/</span>
+<span>Iteration 3</span>
+</nav>
+<h1 class="iteration-title">Iteration 3</h1>
+<p class="iteration-dates">2026-03-02 to 2026-03-13</p>
+<section class="metrics-section">
+<div class="progress-header">Progress 48%</div>
+<div class="progress-bar-bg">
+<div class="progress-bar-fill"></div>
+</div>
+<div class="stats-row">
+<span>Estimated <strong>100.0 h</strong></span>
+<span>Actual <strong>48.0 h</strong></span>
+<span>Remaining <strong>52.0 h</strong></span>
+</div>
+</section>
+<nav aria-label="Iteration sections" class="tabs-nav">
+<a class="tab-item active" href="#">Stories</a>
+<a class="tab-item" href="#">Tasks</a>
+<a class="tab-item" href="#">Statistics</a>
+<a class="tab-item" href="#">Accuracy</a>
+<a class="tab-item" href="#">Board</a>
+</nav>
+<div class="actions-stack">
+<button class="primary-btn" style="width: 100%; height: 44px; background-color: #0C66E4; color: #FFFFFF; border: 1px solid #0C66E4; border-radius: 6px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer;" type="button">Create story</button>
+<div class="button-group-sub">
+<button class="neutral-btn-small" style="flex: 1; height: 44px; background-color: #FFFFFF; color: #1D2125; border: 1px solid #8590A2; border-radius: 6px; font-family: inherit; font-size: 14px; cursor: pointer;" type="button">Move selected stories</button>
+<button class="neutral-btn-small" style="flex: 1; height: 44px; background-color: #FFFFFF; color: #1D2125; border: 1px solid #8590A2; border-radius: 6px; font-family: inherit; font-size: 14px; cursor: pointer;" type="button">Save order</button>
+<button class="neutral-btn-small" style="flex: 1; height: 44px; background-color: #FFFFFF; color: #1D2125; border: 1px solid #8590A2; border-radius: 6px; font-family: inherit; font-size: 14px; cursor: pointer;" type="button">Close iteration</button>
+</div>
+</div>
+<div class="table-container" style="background-color: #FFFFFF; border: 1px solid #8590A2; border-radius: 6px; overflow: hidden;">
+<table>
+<thead>
+<tr>
+<th class="checkbox-col" style="width: 44px; min-width: 44px; height: 44px; text-align: center; vertical-align: middle; padding: 0;"><input aria-label="Select all stories" type="checkbox"/></th>
+<th>Order</th>
+<th>Name</th>
+<th>Status</th>
+<th>Remaining</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="checkbox-col" style="width: 44px; min-width: 44px; height: 44px; text-align: center; vertical-align: middle; padding: 0;"><input type="checkbox"/></td>
+<td><input class="order-input" readonly="" style="width: 36px; height: 44px; text-align: center; border: 1px solid #8590A2; border-radius: 6px; font-size: 14px; background: #FFFFFF;" type="text" value="1"/></td>
+<td><a class="story-link" href="#">Story 1</a></td>
+<td>Draft</td>
+<td>8.0</td>
+</tr>
+<tr class="selected">
+<td class="checkbox-col" style="width: 44px; min-width: 44px; height: 44px; text-align: center; vertical-align: middle; padding: 0;"><input checked="" type="checkbox"/></td>
+<td><input class="order-input" readonly="" style="width: 36px; height: 44px; text-align: center; border: 1px solid #8590A2; border-radius: 6px; font-size: 14px; background: #FFFFFF;" type="text" value="2"/></td>
+<td><a class="story-link" href="#">Story 2</a></td>
+<td>Draft</td>
+<td>18.0</td>
+</tr>
+<tr>
+<td class="checkbox-col" style="width: 44px; min-width: 44px; height: 44px; text-align: center; vertical-align: middle; padding: 0;"><input type="checkbox"/></td>
+<td><input class="order-input" readonly="" style="width: 36px; height: 44px; text-align: center; border: 1px solid #8590A2; border-radius: 6px; font-size: 14px; background: #FFFFFF;" type="text" value="3"/></td>
+<td><a class="story-link" href="#">Story 3</a></td>
+<td>Draft</td>
+<td>10.0</td>
+</tr>
+<tr class="selected">
+<td class="checkbox-col" style="width: 44px; min-width: 44px; height: 44px; text-align: center; vertical-align: middle; padding: 0;"><input checked="" type="checkbox"/></td>
+<td><input class="order-input" readonly="" style="width: 36px; height: 44px; text-align: center; border: 1px solid #8590A2; border-radius: 6px; font-size: 14px; background: #FFFFFF;" type="text" value="4"/></td>
+<td><a class="story-link" href="#">Story 4</a></td>
+<td>Draft</td>
+<td>16.0</td>
+</tr>
+<tr>
+<td class="checkbox-col" style="width: 44px; min-width: 44px; height: 44px; text-align: center; vertical-align: middle; padding: 0;"><input type="checkbox"/></td>
+<td><input class="order-input" readonly="" style="width: 36px; height: 44px; text-align: center; border: 1px solid #8590A2; border-radius: 6px; font-size: 14px; background: #FFFFFF;" type="text" value="5"/></td>
+<td><a class="story-link" href="#">Story 5</a></td>
+<td>Accepted</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+<!-- Scrim & Centred Modal Dialog -->
+<div class="scrim" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; background-color: rgba(29, 33, 37, 0.40); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 100;">
+<div aria-labelledby="modal-title" aria-modal="true" class="modal-dialog" role="dialog" style="width: 100%; max-width: calc(100% - 0px); background-color: #FFFFFF; border-radius: 6px; padding: 24px; box-shadow: 0 8px 24px rgba(9, 30, 66, 0.25);">
+<h2 class="modal-title" id="modal-title">Close Iteration 3?</h2>
+<div class="modal-body">
+<p>The iteration becomes inactive.</p>
+<p>It has 4 unfinished stories. After closing, you choose a future iteration to continue them.</p>
+</div>
+<div class="modal-actions">
+<button class="modal-btn has-focus" style="width: 100%; height: 48px; background-color: #FFFFFF; color: #1D2125; border: 1px solid #8590A2; border-radius: 6px; font-family: inherit; font-size: 16px; font-weight: 500; display: flex; align-items: center; justify-content: center; cursor: pointer; outline: 2px solid #0C66E4; outline-offset: 2px;" type="button">Cancel</button>
+<button class="modal-btn" style="width: 100%; height: 48px; background-color: #FFFFFF; color: #1D2125; border: 1px solid #8590A2; border-radius: 6px; font-family: inherit; font-size: 16px; font-weight: 500; display: flex; align-items: center; justify-content: center; cursor: pointer;" type="button">Close iteration</button>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

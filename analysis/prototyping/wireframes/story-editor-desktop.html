@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit story: Story 2 - Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdad5",
+            "on-surface-variant": "#424654",
+            "tertiary-container": "#c8362b",
+            "surface-tint": "#0058ca",
+            "on-tertiary-fixed-variant": "#910909",
+            "surface-variant": "#d6e3fe",
+            "on-primary-fixed": "#001945",
+            "on-background": "#0e1c2f",
+            "inverse-on-surface": "#ebf1ff",
+            "secondary-fixed": "#9df6b4",
+            "tertiary": "#a51c16",
+            "surface-container": "#e7eeff",
+            "secondary-container": "#9df6b4",
+            "background": "#f9f9ff",
+            "outline-variant": "#c2c6d7",
+            "surface": "#f9f9ff",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#15733f",
+            "on-tertiary-container": "#ffebe8",
+            "tertiary-fixed-dim": "#ffb4aa",
+            "on-primary-container": "#ecefff",
+            "primary-container": "#0c66e4",
+            "primary": "#004fb6",
+            "on-tertiary-fixed": "#410001",
+            "surface-dim": "#cddbf5",
+            "surface-container-highest": "#d6e3fe",
+            "surface-container-high": "#dee8ff",
+            "on-secondary-fixed-variant": "#005229",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#b0c6ff",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#0e1c2f",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f0f3ff",
+            "on-secondary-fixed": "#00210d",
+            "on-primary": "#ffffff",
+            "outline": "#727786",
+            "on-primary-fixed-variant": "#00429b",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#82d99a",
+            "inverse-surface": "#243145",
+            "secondary": "#086d39",
+            "on-error-container": "#93000a",
+            "surface-bright": "#f9f9ff",
+            "primary-fixed": "#d9e2ff",
+            "inverse-primary": "#b0c6ff"
+          },
+          borderRadius: {
+            "DEFAULT": "6px",
+            "lg": "6px",
+            "xl": "6px",
+            "full": "9999px"
+          },
+          fontFamily: {
+            sans: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+            body: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif']
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .focus-ring:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #0C66E4;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125] text-base leading-normal">
+<!-- Desktop Top Bar -->
+<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] h-14">
+<div class="max-w-[1200px] h-full mx-auto px-6 flex items-center justify-between">
+<div class="flex items-center space-x-6">
+<span class="text-base font-semibold text-[#1D2125] tracking-tight">Planner</span>
+<div class="flex items-center space-x-2">
+<label class="text-sm font-medium text-[#1D2125] whitespace-nowrap" for="topbar-search">Search or ID</label>
+<input class="h-9 w-52 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] text-[#1D2125] text-sm px-3 focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="topbar-search" type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<a class="text-sm font-medium text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#me">Me</a>
+<span class="text-[#DCDFE4]">|</span>
+<a class="text-sm font-medium text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#signout">Sign out</a>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="max-w-[1200px] mx-auto px-6 py-6">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="mb-4 text-sm">
+<ol class="flex items-center space-x-1.5 text-sm">
+<li>
+<a class="text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#top">Top</a>
+</li>
+<li class="text-[#626F86]">/</li>
+<li>
+<a class="text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#project-1">Project 1</a>
+</li>
+<li class="text-[#626F86]">/</li>
+<li>
+<a class="text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#iteration-3">Iteration 3</a>
+</li>
+<li class="text-[#626F86]">/</li>
+<li>
+<a class="text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#story-2">Story 2</a>
+</li>
+<li class="text-[#626F86]">/</li>
+<li aria-current="page" class="text-[#1D2125] font-normal">
+          Edit
+        </li>
+</ol>
+</nav>
+<!-- Page Heading -->
+<h1 class="text-2xl font-semibold text-[#1D2125] mb-6">Edit story: Story 2</h1>
+<!-- Form Section -->
+<section class="max-w-[640px] bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-8 mb-8">
+<form action="#" class="space-y-5" method="POST">
+<!-- Field a: Name (required) -->
+<div>
+<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-name">Name (required)</label>
+<input class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-name" name="name" required="" type="text" value="Story 2"/>
+</div>
+<!-- Field b: Disposition -->
+<div>
+<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-disposition">Disposition</label>
+<select class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-disposition" name="disposition">
+<option selected="" value="Planned">Planned</option>
+<option value="Carried over">Carried over</option>
+<option value="Added">Added</option>
+</select>
+</div>
+<!-- Field c: Status -->
+<div>
+<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-status">Status</label>
+<select class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-status" name="status">
+<option selected="" value="Draft">Draft</option>
+<option value="In progress">In progress</option>
+<option value="Completed">Completed</option>
+<option value="Accepted">Accepted</option>
+</select>
+</div>
+<!-- Field d: Customer -->
+<div>
+<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-customer">Customer</label>
+<select class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-customer" name="customer">
+<option value="User A">User A</option>
+<option value="User B">User B</option>
+<option selected="" value="User C">User C</option>
+<option value="User D">User D</option>
+</select>
+</div>
+<!-- Field e: Tracker -->
+<div>
+<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-tracker">Tracker</label>
+<select class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-tracker" name="tracker">
+<option value="User A">User A</option>
+<option selected="" value="User B">User B</option>
+<option value="User C">User C</option>
+<option value="User D">User D</option>
+</select>
+</div>
+<!-- Field f: Priority -->
+<div>
+<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-priority">Priority</label>
+<input class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-priority" name="priority" type="number" value="2"/>
+</div>
+<!-- Field g: Order -->
+<div>
+<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-order">Order</label>
+<input class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-order" name="order" type="number" value="2"/>
+</div>
+<!-- Field h: Estimated hours -->
+<div>
+<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-estimated-hours">Estimated hours</label>
+<input class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-estimated-hours" name="estimated_hours" step="0.1" type="number" value="24.0"/>
+<p class="mt-1 text-sm text-[#626F86]">Hours, 0 or more</p>
+</div>
+<!-- Field i: Description -->
+<div>
+<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-description">Description</label>
+<textarea class="w-full min-h-[110px] rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] p-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-description" name="description" rows="4">Synthetic sample story.</textarea>
+<!-- Field j: Primary text link below description -->
+<div class="mt-1.5">
+<a class="text-sm font-normal text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#formatting-help">Formatting help</a>
+</div>
+</div>
+<!-- Form buttons -->
+<div class="pt-4 flex items-center space-x-3">
+<button class="h-9 px-5 rounded-[6px] bg-[#0C66E4] hover:bg-[#0055CC] text-[#FFFFFF] text-base font-medium focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 transition-colors" type="submit">
+            Save
+          </button>
+<button class="h-9 px-4 rounded-[6px] bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] text-base font-normal hover:bg-[#F1F2F4] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 transition-colors" type="reset">
+            Reset
+          </button>
+<button class="h-9 px-4 rounded-[6px] bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] text-base font-normal hover:bg-[#F1F2F4] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 transition-colors" type="button">
+            Cancel
+          </button>
+</div>
+</form>
+</section>
+</main>
+</body></html>

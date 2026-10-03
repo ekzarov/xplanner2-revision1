@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Edit task: Task 12 (Error State - Mobile)</title>
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Custom configuration and font rules -->
+<style data-purpose="base-styling">
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Custom focus outlines */
+    input:focus, select:focus, textarea:focus, button:focus, a:focus {
+      outline: 2px solid #0C66E4 !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125] pb-12">
+<!-- BEGIN: TopBar -->
+<header class="bg-white border-b border-[#DCDFE4] sticky top-0 z-30 w-full" data-purpose="top-navigation">
+<div class="h-14 px-4 flex items-center justify-between">
+<!-- App Brand Logo / Title -->
+<span class="text-xl font-bold text-[#1D2125] tracking-tight">Planner</span>
+<!-- User Menu Links -->
+<nav aria-label="User navigation" class="flex items-center space-x-1">
+<a class="px-2.5 py-3 text-sm font-medium text-[#0C66E4] hover:underline inline-flex items-center justify-center min-h-[44px]" href="#me">Me</a>
+<a class="px-2.5 py-3 text-sm font-medium text-[#0C66E4] hover:underline inline-flex items-center justify-center min-h-[44px]" href="#signout">Sign out</a>
+</nav>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: SearchSection -->
+<section class="bg-white border-b border-[#DCDFE4] px-4 py-3" data-purpose="global-search">
+<label class="block text-sm font-medium text-[#1D2125] mb-1.5" for="global-search-input">
+      Search or ID
+    </label>
+<input class="w-full h-11 px-3 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white" id="global-search-input" name="search" type="text"/>
+</section>
+<!-- END: SearchSection -->
+<!-- BEGIN: MainContent -->
+<main class="px-4 pt-4 pb-8 max-w-full">
+<!-- BEGIN: BreadcrumbNavigation -->
+<nav aria-label="Breadcrumb" class="text-sm py-1 mb-3 flex flex-wrap items-center gap-1.5 leading-normal" data-purpose="breadcrumbs">
+<a class="text-[#0C66E4] hover:underline" href="#top">Top</a>
+<span aria-hidden="true" class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline" href="#project-1">Project 1</a>
+<span aria-hidden="true" class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline" href="#iteration-3">Iteration 3</a>
+<span aria-hidden="true" class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline" href="#story-5">Story 5</a>
+<span aria-hidden="true" class="text-[#626F86]">/</span>
+<span aria-current="page" class="text-[#1D2125] font-medium">Task 12</span>
+</nav>
+<!-- END: BreadcrumbNavigation -->
+<!-- BEGIN: PageHeading -->
+<h1 class="text-2xl font-bold text-[#1D2125] tracking-tight mb-4">Edit task: Task 12</h1>
+<!-- END: PageHeading -->
+<!-- BEGIN: ErrorSummaryBox -->
+<section aria-labelledby="error-summary-title" class="bg-white border border-[#C9372C] rounded-[6px] p-4 mb-4" data-purpose="error-summary" role="alert">
+<div class="flex items-center gap-2 mb-2.5">
+<!-- SVG Warning / Exclamation Icon -->
+<svg aria-hidden="true" class="w-5 h-5 text-[#C9372C] flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path>
+</svg>
+<h2 class="text-base font-bold text-[#C9372C]" id="error-summary-title">
+          2 fields need correction
+        </h2>
+</div>
+<ul class="space-y-1 pl-7 list-none">
+<li>
+<a class="inline-block py-1 text-sm font-normal text-[#0C66E4] hover:underline" href="#name-input">Name</a>
+</li>
+<li>
+<a class="inline-block py-1 text-sm font-normal text-[#0C66E4] hover:underline" href="#estimated-hours">Estimated hours</a>
+</li>
+</ul>
+</section>
+<!-- END: ErrorSummaryBox -->
+<!-- BEGIN: TaskEditForm -->
+<form class="space-y-4" data-purpose="task-edit-form" novalidate="">
+<!-- White card container for form controls -->
+<div class="bg-white border border-[#DCDFE4] rounded-[6px] p-4 space-y-4">
+<!-- Field 1: Name (Error State) -->
+<div data-purpose="field-name">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="name-input">
+            Name (required)
+          </label>
+<input aria-describedby="name-error" aria-invalid="true" class="w-full h-11 px-3 border border-[#C9372C] rounded-[6px] text-base text-[#1D2125] focus:border-[#C9372C] focus:ring-0 bg-white" id="name-input" name="name" type="text" value=""/>
+<div class="flex items-center gap-1.5 mt-1.5 text-[#C9372C]" id="name-error" role="alert">
+<svg aria-hidden="true" class="w-4 h-4 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-sm font-normal">Missing task name.</span>
+</div>
+</div>
+<!-- Field 2: Type -->
+<div data-purpose="field-type">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="task-type">
+            Type
+          </label>
+<div class="relative">
+<select class="w-full h-11 px-3 pr-8 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white appearance-none" id="task-type" name="type">
+<option selected="" value="Feature">Feature</option>
+<option value="Debt">Debt</option>
+<option value="Defect">Defect</option>
+<option value="Functional test">Functional test</option>
+<option value="Acceptance test">Acceptance test</option>
+<option value="Overhead">Overhead</option>
+</select>
+<!-- Dropdown Chevron Icon -->
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#626F86]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Field 3: Disposition -->
+<div data-purpose="field-disposition">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="disposition">
+            Disposition
+          </label>
+<div class="relative">
+<select class="w-full h-11 px-3 pr-8 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white appearance-none" id="disposition" name="disposition">
+<option selected="" value="Planned">Planned</option>
+<option value="Discovered">Discovered</option>
+</select>
+<!-- Dropdown Chevron Icon -->
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#626F86]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Field 4: Acceptor -->
+<div data-purpose="field-acceptor">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="acceptor">
+            Acceptor
+          </label>
+<div class="relative">
+<select class="w-full h-11 px-3 pr-8 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white appearance-none" id="acceptor" name="acceptor">
+<option selected="" value="User A">User A</option>
+</select>
+<!-- Dropdown Chevron Icon -->
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#626F86]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Field 5: Estimated Hours (Error State) -->
+<div data-purpose="field-estimated-hours">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="estimated-hours">
+            Estimated hours
+          </label>
+<input aria-describedby="estimated-hours-error" aria-invalid="true" class="w-full h-11 px-3 border border-[#C9372C] rounded-[6px] text-base text-[#1D2125] focus:border-[#C9372C] focus:ring-0 bg-white" id="estimated-hours" name="estimated_hours" type="number" value="-2"/>
+<div class="flex items-start gap-1.5 mt-1.5 text-[#C9372C]" id="estimated-hours-error" role="alert">
+<svg aria-hidden="true" class="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-sm font-normal leading-snug">Please provide an estimate greater than or equal to zero.</span>
+</div>
+</div>
+<!-- Field 6: Description -->
+<div data-purpose="field-description">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="description">
+            Description
+          </label>
+<textarea class="w-full p-3 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white resize-y" id="description" name="description" rows="4">Short description of the work.</textarea>
+<div class="mt-1">
+<a class="text-sm text-[#0C66E4] hover:underline inline-block py-1" href="#formatting-help">Formatting help</a>
+</div>
+</div>
+</div>
+<!-- Action Buttons Stack -->
+<div class="space-y-2.5 pt-1" data-purpose="form-actions">
+<!-- Save Button -->
+<button class="w-full h-12 bg-[#0C66E4] hover:bg-[#0052cc] text-white font-medium text-base rounded-[6px] flex items-center justify-center transition-colors shadow-sm active:opacity-90" type="submit">
+          Save
+        </button>
+<!-- Reset Button -->
+<button class="w-full h-12 bg-white hover:bg-[#EBEEF2] border border-[#8590A2] text-[#1D2125] font-medium text-base rounded-[6px] flex items-center justify-center transition-colors active:bg-[#DCDFE4]" type="reset">
+          Reset
+        </button>
+<!-- Cancel Button -->
+<button class="w-full h-12 bg-white hover:bg-[#EBEEF2] border border-[#8590A2] text-[#1D2125] font-medium text-base rounded-[6px] flex items-center justify-center transition-colors active:bg-[#DCDFE4]" type="button">
+          Cancel
+        </button>
+</div>
+</form>
+<!-- END: TaskEditForm -->
+</main>
+<!-- END: MainContent -->
+</body></html>

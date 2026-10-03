@@ -99,8 +99,8 @@ command, identifier, glob, placeholder or future output path.
 | [analysis/stages/templates/owner-walkthrough-NNN-template.md](stages/templates/owner-walkthrough-NNN-template.md) | `analysis/stages/stage-19/owner-walkthrough-NNN.md` |
 | [analysis/stages/templates/owner-walkthrough-decline-template.md](stages/templates/owner-walkthrough-decline-template.md) | `analysis/stages/stage-19/owner-walkthrough-decline.md` |
 | [analysis/stages/templates/GATE-SCOPE-template.md](stages/templates/GATE-SCOPE-template.md) | `analysis/stages/waivers/GATE-SCOPE.md` |
-| [analysis/prototyping/templates/screen-normalization.example.json](prototyping/templates/screen-normalization.example.json) | `analysis/prototyping/screen-normalization.json` |
-| [analysis/prototyping/templates/screen-manifest.example.json](prototyping/templates/screen-manifest.example.json) | `analysis/prototyping/screen-manifest.json` |
+| [analysis/prototyping/templates/screen-normalization.example.json](prototyping/templates/screen-normalization.example.json) | [`analysis/prototyping/screen-normalization.json`](./prototyping/screen-normalization.json) |
+| [analysis/prototyping/templates/screen-manifest.example.json](prototyping/templates/screen-manifest.example.json) | [`analysis/prototyping/screen-manifest.json`](./prototyping/screen-manifest.json) |
 | [analysis/architecture/templates/architecture-nfr-manifest.example.json](architecture/templates/architecture-nfr-manifest.example.json) | `analysis/architecture/architecture-nfr-manifest.json` |
 | [analysis/knowledge/templates/knowledge-manifest.example.json](knowledge/templates/knowledge-manifest.example.json) | `analysis/knowledge/knowledge-manifest.json` |
 | [analysis/inventories/target-surface-inventory.example.json](inventories/target-surface-inventory.example.json) | `analysis/inventories/target-surface-inventory.json` |

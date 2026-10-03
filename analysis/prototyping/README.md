@@ -130,6 +130,8 @@ The plan written before wireframes are drawn. It maps every applicable parity ro
 
 **Example:** Row 42 can be classified as overlay on task-details with element "confirm deletion"; a nightly job is non-visual and therefore has no screen, surface_key or element. The opening _schema_help explains each field.
 
+**Project file:** [`screen-normalization.json`](screen-normalization.json)
+
 </details>
 <details>
 <summary>wireframes/*</summary>
@@ -161,6 +163,8 @@ The evidence written after wireframes are drawn. Version 4 pins the common UI ki
 **When used:** Created after drawing from the normalization plan and updated with every export. Version 4 also pins the shared UI catalogue, tokens and component-sheet resources; screen ui_variants name the used catalogue entries. Its normalization path and normalization_sha256 bind it back to screen-normalization.json; its screen entries prove which planned rows, roles, states, actions and files actually exist.
 
 **Example:** Normalization assigns row 42 to the task-details confirmation overlay. The manifest then lists row 42 under task-details, names the overlay and roles, hashes the exported HTML, and pins the normalization evidence hash.
+
+**Project file:** [`screen-manifest.json`](screen-manifest.json)
 
 </details>
 <details>
@@ -397,7 +401,7 @@ current authoring instruction or evidence that all semantic checks are automated
 
 **How do we preserve old requirement and test references without another artifact?**
 
-This applies specifically to `analysis/prototyping/screen-manifest.json`
+This applies specifically to [`analysis/prototyping/screen-manifest.json`](./screen-manifest.json)
 versions 1 and 2 that contain old `covered_by.requirement` or `covered_by.tests`
 values. Before removing those fields, the schema-migration agent preserves them
 directly in the `Imported Legacy References` section of `specs/traceability.md`.

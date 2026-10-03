@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects - Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed": "#ffdad5",
+            "primary-fixed": "#d9e2ff",
+            "tertiary-fixed-dim": "#ffb4aa",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f0f3ff",
+            "on-tertiary-fixed-variant": "#910909",
+            "surface-container-high": "#dee8ff",
+            "tertiary-container": "#c8362b",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#424654",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#243145",
+            "on-primary": "#ffffff",
+            "secondary-container": "#9df6b4",
+            "on-secondary-fixed-variant": "#005229",
+            "primary-container": "#0c66e4",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#c2c6d7",
+            "on-secondary-fixed": "#00210d",
+            "surface-bright": "#f9f9ff",
+            "background": "#f9f9ff",
+            "on-secondary-container": "#15733f",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#410001",
+            "surface-dim": "#cddbf5",
+            "secondary": "#086d39",
+            "surface-variant": "#d6e3fe",
+            "secondary-fixed": "#9df6b4",
+            "tertiary": "#a51c16",
+            "primary": "#004fb6",
+            "surface-container-highest": "#d6e3fe",
+            "on-tertiary-container": "#ffebe8",
+            "surface-tint": "#0058ca",
+            "on-primary-container": "#ecefff",
+            "inverse-on-surface": "#ebf1ff",
+            "primary-fixed-dim": "#b0c6ff",
+            "outline": "#727786",
+            "on-primary-fixed-variant": "#00429b",
+            "on-background": "#0e1c2f",
+            "on-error": "#ffffff",
+            "surface-container": "#e7eeff",
+            "surface": "#f9f9ff",
+            "secondary-fixed-dim": "#82d99a",
+            "inverse-primary": "#b0c6ff",
+            "on-surface": "#0e1c2f",
+            "on-primary-fixed": "#001945"
+          },
+          borderRadius: {
+            "DEFAULT": "6px",
+            "lg": "6px",
+            "xl": "6px",
+            "full": "0.75rem"
+          },
+          fontFamily: {
+            headline: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+            display: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+            body: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+            label: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif']
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    :root {
+      --color-surface: #FFFFFF;
+      --color-page: #F7F8FA;
+      --color-table-header: #F1F2F4;
+      --color-text: #1D2125;
+      --color-secondary-text: #626F86;
+      --color-primary: #0C66E4;
+      --color-primary-hover: #0055CC;
+      --color-border: #8590A2;
+      --color-divider: #DCDFE4;
+      --color-selected: #E9F2FF;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--color-page);
+      color: var(--color-text);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    .focus-ring:focus,
+    .focus-ring:focus-visible {
+      outline: 2px solid var(--color-primary) !important;
+      outline-offset: 2px !important;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125]">
+<!-- Top bar -->
+<header class="w-full bg-[#FFFFFF] h-[56px] border-b border-[#DCDFE4] px-6">
+<div class="max-w-[1280px] mx-auto h-full flex items-center justify-between">
+<!-- Brand & Search -->
+<div class="flex items-center gap-8">
+<span class="text-[18px] font-semibold tracking-tight text-[#1D2125]">Planner</span>
+<form action="#" class="flex items-center gap-2 m-0" method="get" onsubmit="event.preventDefault();">
+<label class="text-[14px] text-[#1D2125] font-normal whitespace-nowrap" for="search-id">Search or ID</label>
+<input class="h-[36px] w-64 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-[14px] text-[#1D2125] focus-ring transition-none" id="search-id" name="search" type="text"/>
+</form>
+</div>
+<!-- User Text Actions -->
+<div class="flex items-center gap-6">
+<a class="text-[14px] text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#me">Me</a>
+<a class="text-[14px] text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#signout">Sign out</a>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="max-w-[1280px] mx-auto px-6 pt-4 pb-12">
+<!-- Breadcrumb Area -->
+<nav aria-label="Breadcrumb" class="mb-4">
+<ol class="flex items-center list-none p-0 m-0 text-[14px]">
+<li aria-current="page" class="text-[#1D2125] font-normal">Top</li>
+</ol>
+</nav>
+<!-- Page Header Area -->
+<section class="mb-6">
+<div class="flex items-center justify-between">
+<h1 class="text-[24px] font-semibold text-[#1D2125] leading-none m-0">Projects</h1>
+<button class="h-[36px] px-4 bg-[#0C66E4] hover:bg-[#0055CC] text-[#FFFFFF] text-[14px] font-normal rounded-[6px] focus-ring border-0 inline-flex items-center justify-center cursor-pointer transition-none" type="button">
+          Create project
+        </button>
+</div>
+<!-- Sub Links -->
+<div class="flex items-center gap-3 mt-3 text-[14px]">
+<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px]" href="#people">People</a>
+<span aria-hidden="true" class="text-[#626F86] select-none">•</span>
+<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px]" href="#timesheet">Aggregate timesheet</a>
+</div>
+</section>
+<!-- Projects Table Area -->
+<section class="w-full">
+<div class="w-full border border-[#DCDFE4] bg-[#FFFFFF] rounded-none overflow-x-auto">
+<table class="w-full border-collapse text-left text-[14px]">
+<thead>
+<tr class="bg-[#F1F2F4] border-b border-[#DCDFE4] h-[40px]">
+<th class="font-semibold text-[#1D2125] px-4 w-24 tabular-nums" scope="col">
+<button class="inline-flex items-center gap-1 font-semibold text-[#1D2125] bg-transparent border-0 p-0 text-[14px] focus-ring cursor-pointer" type="button">
+<span>ID</span>
+<span class="material-symbols-outlined text-[16px] text-[#626F86]" data-icon="arrow_upward">arrow_upward</span>
+</button>
+</th>
+<th class="font-semibold text-[#1D2125] px-4" scope="col">
+<button class="inline-flex items-center gap-1 font-semibold text-[#1D2125] bg-transparent border-0 p-0 text-[14px] focus-ring cursor-pointer" type="button">
+<span>Name</span>
+<span class="material-symbols-outlined text-[16px] text-[#626F86]" data-icon="unfold_more">unfold_more</span>
+</button>
+</th>
+<th class="font-semibold text-[#1D2125] px-4" scope="col">
+<button class="inline-flex items-center gap-1 font-semibold text-[#1D2125] bg-transparent border-0 p-0 text-[14px] focus-ring cursor-pointer" type="button">
+<span>Current iteration</span>
+<span class="material-symbols-outlined text-[16px] text-[#626F86]" data-icon="unfold_more">unfold_more</span>
+</button>
+</th>
+<th class="font-semibold text-[#1D2125] px-4 w-32" scope="col">
+<button class="inline-flex items-center gap-1 font-semibold text-[#1D2125] bg-transparent border-0 p-0 text-[14px] focus-ring cursor-pointer" type="button">
+<span>Hidden</span>
+<span class="material-symbols-outlined text-[16px] text-[#626F86]" data-icon="unfold_more">unfold_more</span>
+</button>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#DCDFE4]">
+<!-- Row 1 -->
+<tr class="h-[40px] hover:bg-[#F7F8FA]">
+<td class="px-4 text-[#1D2125] tabular-nums font-normal">1</td>
+<td class="px-4">
+<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#project-1">Project 1</a>
+</td>
+<td class="px-4">
+<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#iteration-3">Iteration 3</a>
+</td>
+<td class="px-4 text-[#1D2125] font-normal">No</td>
+</tr>
+<!-- Row 2 -->
+<tr class="h-[40px] hover:bg-[#F7F8FA]">
+<td class="px-4 text-[#1D2125] tabular-nums font-normal">2</td>
+<td class="px-4">
+<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#project-2">Project 2</a>
+</td>
+<td class="px-4">
+<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#iteration-6">Iteration 6</a>
+</td>
+<td class="px-4 text-[#1D2125] font-normal">No</td>
+</tr>
+<!-- Row 3: Hidden project listed last, unstyled differently -->
+<tr class="h-[40px] hover:bg-[#F7F8FA]">
+<td class="px-4 text-[#1D2125] tabular-nums font-normal">3</td>
+<td class="px-4">
+<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#project-3">Project 3</a>
+</td>
+<td class="px-4 text-[#626F86]"></td>
+<td class="px-4 text-[#1D2125] font-normal">Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</body></html>

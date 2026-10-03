@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User A - Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary": "#ffffff",
+            "surface-container": "#e7eeff",
+            "surface-tint": "#0058ca",
+            "secondary": "#086d39",
+            "on-tertiary-container": "#ffebe8",
+            "inverse-surface": "#243145",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#9df6b4",
+            "on-primary-fixed": "#001945",
+            "surface-container-low": "#f0f3ff",
+            "on-tertiary-fixed-variant": "#910909",
+            "tertiary": "#a51c16",
+            "surface-bright": "#f9f9ff",
+            "surface": "#f9f9ff",
+            "on-secondary-container": "#15733f",
+            "on-primary-container": "#ecefff",
+            "on-background": "#0e1c2f",
+            "inverse-on-surface": "#ebf1ff",
+            "surface-variant": "#d6e3fe",
+            "tertiary-container": "#c8362b",
+            "inverse-primary": "#b0c6ff",
+            "tertiary-fixed-dim": "#ffb4aa",
+            "background": "#f9f9ff",
+            "primary": "#004fb6",
+            "on-surface": "#0e1c2f",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#82d99a",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#ffdad5",
+            "primary-fixed-dim": "#b0c6ff",
+            "on-error": "#ffffff",
+            "surface-container-high": "#dee8ff",
+            "on-surface-variant": "#424654",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#9df6b4",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#d9e2ff",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#0c66e4",
+            "on-secondary-fixed-variant": "#005229",
+            "outline": "#727786",
+            "on-primary-fixed-variant": "#00429b",
+            "on-tertiary-fixed": "#410001",
+            "surface-dim": "#cddbf5",
+            "surface-container-highest": "#d6e3fe",
+            "outline-variant": "#c2c6d7",
+            "on-secondary-fixed": "#00210d"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          fontFamily: {
+            body: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+            headline: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+            display: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+            label: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #0C66E4 !important;
+      outline-offset: 2px !important;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125]">
+<!-- Header / Top bar -->
+<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] h-14 px-6 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<span class="text-[18px] font-bold text-[#1D2125] tracking-tight">Planner</span>
+<!-- Search control -->
+<div class="flex items-center gap-2">
+<label class="text-[14px] text-[#1D2125] font-normal cursor-pointer select-none" for="search-input">
+          Search or ID
+        </label>
+<input class="h-9 w-60 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-[14px] text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="search-input" type="text"/>
+</div>
+</div>
+<!-- Right text links -->
+<div class="flex items-center gap-4 text-[14px]">
+<a class="text-[#0C66E4] hover:text-[#0055CC] font-normal transition-colors" href="#">Me</a>
+<a class="text-[#0C66E4] hover:text-[#0055CC] font-normal transition-colors" href="#">Sign out</a>
+</div>
+</header>
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="px-8 pt-4 pb-2 text-[14px]">
+<ol class="flex items-center gap-1.5 list-none p-0 m-0">
+<li>
+<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Top</a>
+</li>
+<li aria-hidden="true" class="text-[#626F86]">/</li>
+<li>
+<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">People</a>
+</li>
+<li aria-hidden="true" class="text-[#626F86]">/</li>
+<li aria-current="page" class="text-[#1D2125] font-normal">User A</li>
+</ol>
+</nav>
+<!-- Heading Row -->
+<div class="px-8 py-4">
+<div class="flex items-center gap-4">
+<div aria-hidden="true" class="w-12 h-12 rounded-[6px] bg-[#E9F2FF] flex items-center justify-center text-[16px] font-semibold text-[#1D2125] select-none">
+        UA
+      </div>
+<div>
+<h1 class="text-[24px] font-semibold text-[#1D2125] leading-tight">User A</h1>
+<div class="flex items-center gap-2 mt-1 text-[14px]">
+<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Edit</a>
+<span aria-hidden="true" class="text-[#626F86] text-xs">•</span>
+<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Timesheet</a>
+<span aria-hidden="true" class="text-[#626F86] text-xs">•</span>
+<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">People</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Sections -->
+<main class="px-8 pb-12 flex flex-col gap-6">
+<!-- Section 1: Active tasks -->
+<section aria-labelledby="heading-active-tasks">
+<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-active-tasks">Active tasks</h2>
+<div class="w-full bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] overflow-hidden">
+<table class="w-full text-left border-collapse text-[14px]">
+<thead>
+<tr class="bg-[#F1F2F4] h-10 text-[#1D2125] font-semibold border-b border-[#DCDFE4]">
+<th class="px-4 py-0 font-semibold" scope="col">Task</th>
+<th class="px-4 py-0 font-semibold" scope="col">Story</th>
+<th class="px-4 py-0 font-semibold text-right tabular-nums" scope="col">Estimate</th>
+<th class="px-4 py-0 font-semibold text-right tabular-nums" scope="col">Actual</th>
+<th class="px-4 py-0 font-semibold text-right tabular-nums" scope="col">Remaining</th>
+<th class="px-4 py-0 font-semibold" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 2</a>
+</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 1</a>
+</td>
+<td class="px-4 py-0 text-right tabular-nums">5.0</td>
+<td class="px-4 py-0 text-right tabular-nums">4.0</td>
+<td class="px-4 py-0 text-right tabular-nums">1.0</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Time</a>
+<span aria-hidden="true" class="text-[#626F86] mx-1">•</span>
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Edit</a>
+</td>
+</tr>
+<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 13</a>
+</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 3</a>
+</td>
+<td class="px-4 py-0 text-right tabular-nums">4.0</td>
+<td class="px-4 py-0 text-right tabular-nums">2.0</td>
+<td class="px-4 py-0 text-right tabular-nums">2.0</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Time</a>
+<span aria-hidden="true" class="text-[#626F86] mx-1">•</span>
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Edit</a>
+</td>
+</tr>
+<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 15</a>
+</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 3</a>
+</td>
+<td class="px-4 py-0 text-right tabular-nums">4.0</td>
+<td class="px-4 py-0 text-right tabular-nums">2.0</td>
+<td class="px-4 py-0 text-right tabular-nums">2.0</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Time</a>
+<span aria-hidden="true" class="text-[#626F86] mx-1">•</span>
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Edit</a>
+</td>
+</tr>
+<tr class="h-10 hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 17</a>
+</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 3</a>
+</td>
+<td class="px-4 py-0 text-right tabular-nums">4.0</td>
+<td class="px-4 py-0 text-right tabular-nums">2.0</td>
+<td class="px-4 py-0 text-right tabular-nums">2.0</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Time</a>
+<span aria-hidden="true" class="text-[#626F86] mx-1">•</span>
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Edit</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section 2: Planned tasks -->
+<section aria-labelledby="heading-planned-tasks">
+<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-planned-tasks">Planned tasks</h2>
+<p class="text-[14px] text-[#626F86] m-0">None</p>
+</section>
+<!-- Section 3: Completed tasks -->
+<section aria-labelledby="heading-completed-tasks">
+<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-completed-tasks">Completed tasks</h2>
+<div class="w-full bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] overflow-hidden">
+<table class="w-full text-left border-collapse text-[14px]">
+<thead>
+<tr class="bg-[#F1F2F4] h-10 text-[#1D2125] font-semibold border-b border-[#DCDFE4]">
+<th class="px-4 py-0 font-semibold" scope="col">Task</th>
+<th class="px-4 py-0 font-semibold" scope="col">Story</th>
+<th class="px-4 py-0 font-semibold text-right tabular-nums" scope="col">Estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 1</a>
+</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 1</a>
+</td>
+<td class="px-4 py-0 text-right tabular-nums">5.0</td>
+</tr>
+<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 10</a>
+</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 5</a>
+</td>
+<td class="px-4 py-0 text-right tabular-nums">5.0</td>
+</tr>
+<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 11</a>
+</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 5</a>
+</td>
+<td class="px-4 py-0 text-right tabular-nums">5.0</td>
+</tr>
+<tr class="h-10 hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 12</a>
+</td>
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 5</a>
+</td>
+<td class="px-4 py-0 text-right tabular-nums">6.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section 4: Stories as customer -->
+<section aria-labelledby="heading-stories-customer">
+<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-stories-customer">Stories as customer</h2>
+<div class="w-full bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] overflow-hidden">
+<table class="w-full text-left border-collapse text-[14px]">
+<thead>
+<tr class="bg-[#F1F2F4] h-10 text-[#1D2125] font-semibold border-b border-[#DCDFE4]">
+<th class="px-4 py-0 font-semibold" scope="col">Story</th>
+</tr>
+</thead>
+<tbody>
+<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 1</a>
+</td>
+</tr>
+<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 3</a>
+</td>
+</tr>
+<tr class="h-10 hover:bg-[#F7F8FA]">
+<td class="px-4 py-0">
+<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 5</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section 5: Stories as tracker -->
+<section aria-labelledby="heading-stories-tracker">
+<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-stories-tracker">Stories as tracker</h2>
+<p class="text-[14px] text-[#626F86] m-0">None</p>
+</section>
+<!-- Section 6: Future tasks -->
+<section aria-labelledby="heading-future-tasks">
+<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-future-tasks">Future tasks</h2>
+<p class="text-[14px] text-[#626F86] m-0">None</p>
+</section>
+</main>
+</body></html>

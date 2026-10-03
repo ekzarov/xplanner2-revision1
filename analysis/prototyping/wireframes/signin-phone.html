@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign in - Planner</title>
+<style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Product Name */
+    .brand-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 24px;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    /* Centered white form section: flat, no shadow, clean divider / border */
+    .signin-container {
+      width: 100%;
+      max-width: 400px;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 32px;
+    }
+
+    /* Heading inside form */
+    .form-heading {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #1D2125;
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 16px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.15s ease-in-out;
+    }
+
+    /* Interactive Focus States */
+    .form-input:focus,
+    .btn-primary:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Primary Submit Button */
+    .btn-primary {
+      width: 100%;
+      height: 36px;
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.15s ease-in-out;
+      margin-top: 4px;
+    }
+
+    .btn-primary:hover {
+      background-color: #0055CC;
+    }
+  </style>
+</head>
+<body style="min-height: 100vh; background-color: #F7F8FA; color: #1D2125; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 48px 16px 24px 16px; margin: 0; box-sizing: border-box;">
+<!-- Product name above form -->
+<h1 class="brand-title" style="margin-bottom: 24px; text-align: center; font-size: 26px; font-weight: 700; color: #1D2125; letter-spacing: -0.02em;">Planner</h1>
+<!-- Centred sign-in section -->
+<main class="signin-container" style="width: 100%; max-width: none; background-color: #FFFFFF; border: 1px solid #DCDFE4; border-radius: 6px; padding: 24px 20px; box-sizing: border-box;"><h2 class="form-heading" style="font-size: 20px; font-weight: 600; color: #1D2125; margin-bottom: 20px; line-height: 1.3;">Sign in</h2><div role="alert" style="display: flex; align-items: flex-start; gap: 10px; background-color: #FEEBEA; border: 1px solid #C9372C; border-radius: 6px; padding: 12px 14px; margin-bottom: 20px;"><svg fill="none" height="20" style="flex-shrink: 0; margin-top: 1px;" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10 2C5.58 2 2 5.58 2 10C2 14.42 5.58 18 10 18C14.42 18 18 14.42 18 10C18 5.58 14.42 2 10 2ZM9 6C9 5.45 9.45 5 10 5C10.55 5 11 5.45 11 6V10C11 10.55 10.55 11 10 11C9.45 11 9 10.55 9 10V6ZM10 15C9.45 15 9 14.55 9 14C9 13.45 9.45 13 10 13C10.55 13 11 13.45 11 14C11 14.55 10.55 15 10 15Z" fill="#C9372C" fill-rule="evenodd"></path></svg><span style="font-size: 14px; line-height: 1.45; color: #1D2125; font-weight: 500;">Could not authenticate user. Wrong userid or password</span></div><form onsubmit="event.preventDefault();"><div class="form-group" style="margin-bottom: 20px;"><label class="form-label" for="userId" style="display: block; font-size: 14px; font-weight: 500; color: #1D2125; margin-bottom: 8px;">User ID</label><input autocomplete="username" class="form-input" id="userId" name="userId" required="" style="width: 100%; height: 46px; padding: 0 14px; font-family: inherit; font-size: 16px; color: #1D2125; background-color: #FFFFFF; border: 1px solid #8590A2; border-radius: 6px; outline: none; box-sizing: border-box;" type="text" value="User A"/></div><div class="form-group" style="margin-bottom: 24px;"><label class="form-label" for="password" style="display: block; font-size: 14px; font-weight: 500; color: #1D2125; margin-bottom: 8px;">Password</label><input autocomplete="current-password" class="form-input" id="password" name="password" required="" style="width: 100%; height: 46px; padding: 0 14px; font-family: inherit; font-size: 16px; color: #1D2125; background-color: #FFFFFF; border: 1px solid #8590A2; border-radius: 6px; outline: none; box-sizing: border-box;" type="password" value=""/></div><button class="btn-primary" style="width: 100%; height: 46px; background-color: #0C66E4; color: #FFFFFF; border: none; border-radius: 6px; font-family: inherit; font-size: 16px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;" type="submit">Sign in</button></form></main>
+</body>
+</html>

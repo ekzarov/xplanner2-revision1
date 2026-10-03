@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iteration 3 - Print view</title>
+  <style>
+    /* Reset & Print View Foundation: Black text #000000 on white #FFFFFF only */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      background: transparent !important;
+      color: #000000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #FFFFFF !important;
+      color: #000000 !important;
+      font-size: 14px;
+      line-height: 1.4;
+      padding: 32px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .project-name {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .date-range {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .metrics-line {
+      font-size: 14px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    thead {
+      display: table-header-group; /* Repeated on every printed page */
+    }
+    tr {
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #000000;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    th {
+      font-weight: 600;
+    }
+    .num-col {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    @media print {
+      body {
+        padding: 0;
+      }
+      thead {
+        display: table-header-group;
+      }
+      tr {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Iteration 3</h1>
+  <div class="project-name">Project 1</div>
+  <div class="date-range">2026-03-02 to 2026-03-13</div>
+
+  <div class="metrics-line">
+    <span>Progress 48%</span>
+    <span>Estimated 100.0 h</span>
+    <span>Actual 48.0 h</span>
+    <span>Remaining 52.0 h</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Order</th>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>Customer</th>
+        <th class="num-col">Progress</th>
+        <th class="num-col">Actual</th>
+        <th class="num-col">Remaining</th>
+        <th class="num-col">Estimate</th>
+        <th class="num-col">Original estimate</th>
+        <th class="num-col">Tasks</th>
+        <th>Tracker</th>
+        <th>Disposition</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>101</td>
+        <td>1</td>
+        <td>Story 1</td>
+        <td>1</td>
+        <td>User A</td>
+        <td class="num-col">60%</td>
+        <td class="num-col">12.0</td>
+        <td class="num-col">8.0</td>
+        <td class="num-col">20.0</td>
+        <td class="num-col">18.0</td>
+        <td class="num-col">4</td>
+        <td>User B</td>
+        <td>Planned</td>
+        <td>Draft</td>
+      </tr>
+      <tr>
+        <td>102</td>
+        <td>2</td>
+        <td>Story 2</td>
+        <td>2</td>
+        <td>User C</td>
+        <td class="num-col">25%</td>
+        <td class="num-col">6.0</td>
+        <td class="num-col">18.0</td>
+        <td class="num-col">24.0</td>
+        <td class="num-col">24.0</td>
+        <td class="num-col">3</td>
+        <td>User B</td>
+        <td>Planned</td>
+        <td>Draft</td>
+      </tr>
+      <tr>
+        <td>103</td>
+        <td>3</td>
+        <td>Story 3</td>
+        <td>4</td>
+        <td>User A</td>
+        <td class="num-col">50%</td>
+        <td class="num-col">10.0</td>
+        <td class="num-col">10.0</td>
+        <td class="num-col">20.0</td>
+        <td class="num-col">16.0</td>
+        <td class="num-col">5</td>
+        <td>User D</td>
+        <td>Carried over</td>
+        <td>Draft</td>
+      </tr>
+      <tr>
+        <td>104</td>
+        <td>4</td>
+        <td>Story 4</td>
+        <td>4</td>
+        <td>User C</td>
+        <td class="num-col">0%</td>
+        <td class="num-col">0.0</td>
+        <td class="num-col">16.0</td>
+        <td class="num-col">16.0</td>
+        <td class="num-col">16.0</td>
+        <td class="num-col">2</td>
+        <td>User D</td>
+        <td>Added</td>
+        <td>Draft</td>
+      </tr>
+      <tr>
+        <td>105</td>
+        <td>5</td>
+        <td>Story 5</td>
+        <td>3</td>
+        <td>User A</td>
+        <td class="num-col">100%</td>
+        <td class="num-col">20.0</td>
+        <td class="num-col">0.0</td>
+        <td class="num-col">20.0</td>
+        <td class="num-col">22.0</td>
+        <td class="num-col">4</td>
+        <td>User B</td>
+        <td>Planned</td>
+        <td>Accepted</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

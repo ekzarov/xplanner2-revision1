@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search results: Story 2 - Planner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --text: #1D2125;
+      --secondary: #626F86;
+      --primary: #0C66E4;
+      --primary-hover: #0055CC;
+      --completion: #1F7A45;
+      --danger: #C9372C;
+      --bg: #F7F8FA;
+      --surface: #FFFFFF;
+      --control-border: #8590A2;
+      --divider: #DCDFE4;
+      --table-header: #F1F2F4;
+      --selected: #E9F2FF;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .top-bar {
+      height: 56px;
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .search-input {
+      height: 36px;
+      border: 1px solid var(--control-border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 16px;
+      color: var(--text);
+      background-color: var(--surface);
+      padding: 0 12px;
+      width: 260px;
+    }
+
+    .search-input:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      border-color: var(--primary);
+    }
+
+    .table-container {
+      background-color: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--table-header);
+      color: var(--text);
+      font-weight: 600;
+      height: 40px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    td {
+      height: 40px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--divider);
+      color: var(--text);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .primary-link {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .primary-link:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Top bar (white, 56px, divider below) -->
+  <header class="top-bar flex items-center justify-between px-6">
+    <div class="flex items-center gap-6">
+      <span class="text-xl font-bold tracking-tight text-[#1D2125]">Planner</span>
+      
+      <div class="flex items-center gap-3">
+        <label for="top-search" class="text-sm font-normal text-[#1D2125] whitespace-nowrap">Search or ID</label>
+        <input 
+          id="top-search" 
+          type="text" 
+          value="Story 2" 
+          class="search-input"
+        >
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4 text-sm">
+      <a href="#" class="primary-link">Me</a>
+      <a href="#" class="primary-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="max-w-7xl mx-auto px-6 py-6">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="text-sm mb-4">
+      <ol class="flex items-center space-x-1.5 text-sm">
+        <li>
+          <a href="#" class="primary-link">Top</a>
+        </li>
+        <li class="text-[#626F86]">/</li>
+        <li class="text-[#1D2125]" aria-current="page">Search</li>
+      </ol>
+    </nav>
+
+    <!-- Page Heading -->
+    <h1 class="text-2xl font-semibold text-[#1D2125] mb-6">Search results: Story 2</h1>
+
+    <!-- Results Table -->
+    <div class="table-container mb-3">
+      <table>
+        <thead>
+          <tr>
+            <th class="w-36">Type</th>
+            <th class="w-24">ID</th>
+            <th class="w-64">Title</th>
+            <th>Match</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Story</td>
+            <td>102</td>
+            <td>
+              <a href="#" class="primary-link">Story 2</a>
+            </td>
+            <td>&ldquo;Story 2&rdquo;</td>
+          </tr>
+          <tr>
+            <td>Note</td>
+            <td>31</td>
+            <td>
+              <a href="#" class="primary-link">Story 2</a>
+            </td>
+            <td>&ldquo;...see Story 2...&rdquo;</td>
+          </tr>
+          <tr>
+            <td>Task</td>
+            <td>8</td>
+            <td>
+              <a href="#" class="primary-link">Task 8</a>
+            </td>
+            <td>&ldquo;...part of Story 2...&rdquo;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Results Count -->
+    <p class="text-sm text-[#626F86]">3 results</p>
+  </main>
+
+</body>
+</html>

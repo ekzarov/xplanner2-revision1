@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, initial-scale=1.0">
+<title>Iteration 4 - Start confirmation complete export</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    width: 1280px;
+    min-height: 1024px;
+    height: 1024px;
+    background-color: #F7F8FA;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1D2125;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Top bar */
+  .top-bar {
+    width: 100%;
+    height: 56px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #DCDFE4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+  .top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .brand-logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1D2125;
+    text-decoration: none;
+  }
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .search-label {
+    font-size: 14px;
+    color: #1D2125;
+  }
+  .search-input {
+    width: 240px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #8590A2;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #1D2125;
+    outline: none;
+    background: #FFFFFF;
+  }
+  .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .top-link {
+    color: #0C66E4;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .top-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Content area */
+  .main-content {
+    padding: 24px;
+  }
+  .breadcrumb {
+    font-size: 14px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .breadcrumb a {
+    color: #0C66E4;
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .breadcrumb .sep {
+    color: #626F86;
+  }
+  .breadcrumb .current {
+    color: #1D2125;
+  }
+
+  /* Header row with buttons */
+  .header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1D2125;
+  }
+  .header-actions {
+    display: flex;
+    gap: 8px;
+  }
+  .btn-action-neutral {
+    background-color: #FFFFFF;
+    border: 1px solid #8590A2;
+    color: #1D2125;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .btn-action-danger {
+    background-color: #C9372C;
+    border: 1px solid #C9372C;
+    color: #FFFFFF;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .date-range {
+    font-size: 14px;
+    color: #626F86;
+    margin-bottom: 12px;
+  }
+
+  /* Summary line */
+  .summary-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #1D2125;
+  }
+
+  /* Local tabs */
+  .tabs-nav {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid #DCDFE4;
+    margin-bottom: 24px;
+  }
+  .tab-link {
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #626F86;
+    text-decoration: none;
+    position: relative;
+  }
+  .tab-link.active {
+    font-weight: 600;
+    color: #0C66E4;
+    border-bottom: 2px solid #0C66E4;
+    margin-bottom: -1px;
+  }
+
+  /* Empty state */
+  .empty-state {
+    padding: 48px 0;
+    color: #626F86;
+    font-size: 14px;
+  }
+
+  /* Scrim and Modal Dialog */
+  .scrim-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 1024px;
+    background-color: rgba(29, 33, 37, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .modal-dialog {
+    width: 480px;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(29, 33, 37, 0.2), 0 2px 6px rgba(29, 33, 37, 0.12);
+  }
+
+  .dialog-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1D2125;
+    margin-bottom: 16px;
+  }
+
+  .dialog-body {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1D2125;
+    margin-bottom: 20px;
+  }
+  .dialog-body p + p {
+    margin-top: 12px;
+  }
+
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    user-select: none;
+  }
+  .custom-checkbox {
+    width: 18px;
+    height: 18px;
+    background-color: #0C66E4;
+    border: 1px solid #0C66E4;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-checkbox svg {
+    width: 12px;
+    height: 12px;
+    stroke: #FFFFFF;
+    stroke-width: 2.5;
+    fill: none;
+  }
+  .checkbox-label {
+    font-size: 16px;
+    color: #1D2125;
+    cursor: pointer;
+  }
+
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  .btn-neutral {
+    background-color: #FFFFFF;
+    border: 1px solid #8590A2;
+    color: #1D2125;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-neutral:hover {
+    background-color: #F7F8FA;
+  }
+  .btn-neutral.focus-ring {
+    outline: 2px solid #0C66E4;
+    outline-offset: 2px;
+  }
+
+  .btn-primary {
+    background-color: #0C66E4;
+    border: 1px solid #0C66E4;
+    color: #FFFFFF;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-primary:hover {
+    background-color: #0055CC;
+    border-color: #0055CC;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Background content -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="brand-logo">Planner</span>
+      <div class="search-wrapper">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input id="search-input" class="search-input" type="text" />
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="top-link">Me</a>
+      <a href="#" class="top-link">Sign out</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <nav class="breadcrumb">
+      <a href="#">Top</a>
+      <span class="sep">/</span>
+      <a href="#">Project 1</a>
+      <span class="sep">/</span>
+      <span class="current">Iteration 4</span>
+    </nav>
+
+    <div class="header-row">
+      <h1 class="page-title">Iteration 4</h1>
+      <div class="header-actions">
+        <button class="btn-action-neutral" type="button">Start iteration</button>
+        <button class="btn-action-neutral" type="button">Edit iteration</button>
+        <button class="btn-action-danger" type="button">Delete iteration</button>
+      </div>
+    </div>
+
+    <div class="date-range">2026-03-16 to 2026-03-27</div>
+
+    <div class="summary-line">
+      <span>Progress 0%</span>
+      <span>Estimated 0.0 h</span>
+      <span>Actual 0.0 h</span>
+      <span>Remaining 0.0 h</span>
+    </div>
+
+    <div class="tabs-nav">
+      <a href="#" class="tab-link active">Stories</a>
+      <a href="#" class="tab-link">Tasks</a>
+      <a href="#" class="tab-link">Statistics</a>
+      <a href="#" class="tab-link">Accuracy</a>
+      <a href="#" class="tab-link">Board</a>
+    </div>
+
+    <div class="empty-state">
+      No stories in this iteration.
+    </div>
+  </main>
+
+  <!-- Centered Modal Confirmation Dialog -->
+  <div class="scrim-overlay">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <h2 id="dialog-title" class="dialog-title">Start Iteration 4?</h2>
+      <div class="dialog-body">
+        <p>Do you want to start the iteration?</p>
+        <p>1 started iteration needs to be closed: Iteration 3.</p>
+      </div>
+
+      <div class="checkbox-row">
+        <div class="custom-checkbox">
+          <svg viewBox="0 0 16 16">
+            <polyline points="3.5 8.5 6.5 11.5 12.5 4.5"></polyline>
+          </svg>
+        </div>
+        <span class="checkbox-label">Close started iterations</span>
+      </div>
+
+      <div class="dialog-actions">
+        <button class="btn-neutral focus-ring" type="button" autofocus>Cancel</button>
+        <button class="btn-primary" type="button">Start iteration</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
