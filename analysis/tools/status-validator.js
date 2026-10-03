@@ -467,7 +467,9 @@ function validateStatus(status, schema = loadStatusSchema()) {
       : `stage-${String(dueNumber).padStart(2, '0')}`;
     if (dueStage) {
       const applicableWindows = stageExitWindows(history, dueStage)
-        .filter((window) => Date.parse(window.exit.changed_at) >= Date.parse(waiver.decided_at));
+        .filter((window) => Date.parse(window.exit.changed_at) >= Date.parse(waiver.decided_at))
+        // Findings may return to authoring before the waiver can receive clean control.
+        .filter((window) => window.exit.to === 'complete' || stageNumber(window.exit.to) > dueNumber);
       if (applicableWindows.length) {
         const firstWindow = applicableWindows[0];
         const confirmingPass = passesInWindow(reviewPasses, dueStage, firstWindow).find(
