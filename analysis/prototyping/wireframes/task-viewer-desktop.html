@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 12 - Planner</title>
+  <style>
+    /* Foundation resets & tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Accessibility: Skip link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 4px;
+      z-index: 10000;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focus ring for all interactive elements */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 240px;
+      padding: 0 10px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    .main-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 24px 64px 24px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 12px;
+    }
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      list-style: none;
+      font-size: 14px;
+      color: #626F86;
+    }
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+    }
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      margin: 0 8px;
+      color: #626F86;
+    }
+    .breadcrumb-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-link:hover {
+      text-decoration: underline;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Header */
+    .page-header {
+      margin-bottom: 12px;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+    }
+
+    /* Action Links */
+    .action-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    .action-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .action-link:hover {
+      text-decoration: underline;
+    }
+    .action-separator {
+      color: #626F86;
+    }
+
+    /* Details Grid */
+    .details-container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 340px));
+      row-gap: 8px;
+      column-gap: 48px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    .detail-item {
+      display: flex;
+      gap: 8px;
+    }
+    .detail-label {
+      color: #626F86;
+      min-width: 100px;
+    }
+    .detail-value {
+      color: #1D2125;
+    }
+
+    .description-block {
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: #1D2125;
+    }
+
+    /* Section divider line */
+    .section-divider {
+      border: 0;
+      border-top: 1px solid #DCDFE4;
+      margin-bottom: 24px;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+
+    /* Time Log Table */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      padding: 10px 16px;
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 10px 16px;
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .col-num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .total-row td {
+      font-weight: 600;
+      background-color: #FFFFFF;
+      border-top: 1px solid #DCDFE4;
+    }
+
+    /* Notes Section */
+    .note-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 16px 20px;
+    }
+
+    .note-subject {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+
+    .note-meta {
+      font-size: 12px;
+      color: #626F86;
+      margin-bottom: 10px;
+    }
+
+    .note-body {
+      font-size: 14px;
+      color: #1D2125;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="brand-title">Planner</span>
+      <div class="search-group">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
+    </div>
+  </header>
+
+  <main id="main" class="main-content">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Top</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Project 1</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Iteration 3</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Story 5</a></li>
+        <li class="breadcrumb-item"><span class="breadcrumb-current" aria-current="page">Task 12</span></li>
+      </ol>
+    </nav>
+
+    <header class="page-header">
+      <h1 class="page-title">Task 12</h1>
+    </header>
+
+    <div class="action-links">
+      <a href="#" class="action-link">Export</a>
+      <span class="action-separator">·</span>
+      <a href="#" class="action-link">History</a>
+    </div>
+
+    <div class="details-container">
+      <div class="detail-item">
+        <span class="detail-label">Acceptor:</span>
+        <span class="detail-value">User A</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Created:</span>
+        <span class="detail-value">2026-03-02</span>
+      </div>
+
+      <div class="detail-item">
+        <span class="detail-label">Estimated:</span>
+        <span class="detail-value">6.0 h</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Status:</span>
+        <span class="detail-value">Completed</span>
+      </div>
+
+      <div class="detail-item">
+        <span class="detail-label">Actual:</span>
+        <span class="detail-value">6.0 h</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Disposition:</span>
+        <span class="detail-value">Planned</span>
+      </div>
+
+      <div class="detail-item">
+        <span class="detail-label">Remaining:</span>
+        <span class="detail-value">0.0 h</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Type:</span>
+        <span class="detail-value">Feature</span>
+      </div>
+    </div>
+
+    <div class="description-block">
+      Synthetic sample task.
+    </div>
+
+    <hr class="section-divider">
+
+    <section aria-labelledby="timelog-heading">
+      <h2 id="timelog-heading" class="section-title">Time log</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Report date</th>
+              <th scope="col">Start</th>
+              <th scope="col">End</th>
+              <th scope="col" class="col-num">Duration</th>
+              <th scope="col">Person</th>
+              <th scope="col">Pair</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026-03-05</td>
+              <td>09:00</td>
+              <td>12:00</td>
+              <td class="col-num">3.0</td>
+              <td>User A</td>
+              <td>(none)</td>
+              <td>Synthetic entry</td>
+            </tr>
+            <tr>
+              <td>2026-03-06</td>
+              <td>09:00</td>
+              <td>12:00</td>
+              <td class="col-num">3.0</td>
+              <td>User A</td>
+              <td>(none)</td>
+              <td>Synthetic entry</td>
+            </tr>
+            <tr class="total-row">
+              <td>Total</td>
+              <td></td>
+              <td></td>
+              <td class="col-num">6.0</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="section-title">Notes</h2>
+      <div class="note-card">
+        <div class="note-subject">Synthetic task note</div>
+        <div class="note-meta">User A · 2026-03-06</div>
+        <div class="note-body">Synthetic note text.</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
