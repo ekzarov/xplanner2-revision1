@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit task: Task 12 - Error</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit task: Task 12 - Error</title>
+<style>
     /* Foundation values reset and base tokens */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -344,156 +345,122 @@
   </style>
 </head>
 <body>
-  <div class="phone-container">
-    <!-- Top bar -->
-    <header class="top-bar">
-      <span class="brand-title">Planner</span>
-      <nav class="top-links" aria-label="User navigation">
-        <a href="#me" class="top-link">Me</a>
-        <a href="#signout" class="top-link">Sign out</a>
-      </nav>
-    </header>
-
-    <!-- Search field -->
-    <section class="search-section" aria-label="Search">
-      <label for="search-input-field" class="search-label">Search or ID</label>
-      <input type="text" id="search-input-field" class="search-input" placeholder="Search or ID" />
-    </section>
-
-    <!-- Main Content Area -->
-    <main class="content-area">
-      <!-- Breadcrumb -->
-      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-        <a href="#top">Top</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="#project-1">Project 1</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="#iteration-3">Iteration 3</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="#story-5">Story 5</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current" aria-current="page">Task 12</span>
-      </nav>
-
-      <!-- Page heading -->
-      <h1 class="page-heading">Edit task: Task 12</h1>
-
-      <!-- Error summary -->
-      <section class="error-summary-box" role="alert" aria-labelledby="error-summary-title">
-        <div class="error-summary-header" id="error-summary-title">
-          <svg class="error-summary-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-          </svg>
-          <span>2 fields need correction</span>
-        </div>
-        <div class="error-summary-links">
-          <a href="#field-name" class="error-summary-link">Name</a>
-          <a href="#field-estimated-hours" class="error-summary-link">Estimated hours</a>
-        </div>
-      </section>
-
-      <!-- Task Edit Form -->
-      <form class="form-card" novalidate onsubmit="return false;">
-        <!-- Name Field (Error) -->
-        <div class="field-group">
-          <label for="field-name" class="field-label">Name (required)</label>
-          <input 
-            type="text" 
-            id="field-name" 
-            class="text-input border-error" 
-            value="" 
-            aria-invalid="true" 
-            aria-describedby="name-error-msg" 
-          />
-          <div id="name-error-msg" class="error-message">
-            <svg class="error-icon-inline" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-            </svg>
-            <span>Missing task name.</span>
-          </div>
-        </div>
-
-        <!-- Type Select -->
-        <div class="field-group">
-          <label for="field-type" class="field-label">Type</label>
-          <div class="select-wrapper">
-            <select id="field-type" class="select-input border-standard">
-              <option value="Feature" selected>Feature</option>
-              <option value="Bug">Bug</option>
-              <option value="Chore">Chore</option>
-            </select>
-            <svg class="select-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- Disposition Select -->
-        <div class="field-group">
-          <label for="field-disposition" class="field-label">Disposition</label>
-          <div class="select-wrapper">
-            <select id="field-disposition" class="select-input border-standard">
-              <option value="Planned" selected>Planned</option>
-              <option value="Unplanned">Unplanned</option>
-              <option value="Carried Over">Carried Over</option>
-            </select>
-            <svg class="select-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- Acceptor Select -->
-        <div class="field-group">
-          <label for="field-acceptor" class="field-label">Acceptor</label>
-          <div class="select-wrapper">
-            <select id="field-acceptor" class="select-input border-standard">
-              <option value="User A" selected>User A</option>
-              <option value="User B">User B</option>
-              <option value="User C">User C</option>
-            </select>
-            <svg class="select-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" />
-            </svg>
-          </div>
-        </div>
-
-        <!-- Estimated hours Field (Error) -->
-        <div class="field-group">
-          <label for="field-estimated-hours" class="field-label">Estimated hours</label>
-          <input 
-            type="number" 
-            id="field-estimated-hours" 
-            class="text-input border-error" 
-            value="-2" 
-            step="any"
-            aria-invalid="true" 
-            aria-describedby="hours-error-msg" 
-          />
-          <div id="hours-error-msg" class="error-message">
-            <svg class="error-icon-inline" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-            </svg>
-            <span>Please provide an estimate greater than or equal to zero.</span>
-          </div>
-        </div>
-
-        <!-- Description Field -->
-        <div class="field-group">
-          <label for="field-description" class="field-label">Description</label>
-          <textarea id="field-description" class="textarea-input border-standard">Short description of the work.</textarea>
-          <div class="helper-link-wrapper">
-            <a href="#formatting-help" class="helper-link">Formatting help</a>
-          </div>
-        </div>
-
-        <!-- Buttons Stacked Full Width -->
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Save</button>
-          <button type="button" class="btn btn-neutral">Cancel</button>
-        </div>
-      </form>
-    </main>
-  </div>
+<div class="phone-container">
+<!-- Top bar -->
+<header class="top-bar">
+<span class="brand-title">Planner</span>
+<nav aria-label="User navigation" class="top-links">
+<a class="top-link" href="#me">Me</a>
+<a class="top-link" href="#signout">Sign out</a>
+</nav>
+</header>
+<!-- Search field -->
+<section aria-label="Search" class="search-section">
+<label class="search-label" for="search-input-field">Search or ID</label>
+<input class="search-input" id="search-input-field" type="text"/>
+</section>
+<!-- Main Content Area -->
+<main class="content-area">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+<a href="#top">Top</a>
+<span class="breadcrumb-separator">/</span>
+<a href="#project-1">Project 1</a>
+<span class="breadcrumb-separator">/</span>
+<a href="#iteration-3">Iteration 3</a>
+<span class="breadcrumb-separator">/</span>
+<a href="#story-5">Story 5</a>
+<span class="breadcrumb-separator">/</span>
+<span aria-current="page" class="breadcrumb-current">Task 12</span>
+</nav>
+<!-- Page heading -->
+<h1 class="page-heading">Edit task: Task 12</h1>
+<!-- Error summary -->
+<section aria-labelledby="error-summary-title" class="error-summary-box" role="alert">
+<div class="error-summary-header" id="error-summary-title">
+<svg aria-hidden="true" class="error-summary-icon" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" fill-rule="evenodd"></path>
+</svg>
+<span>2 fields need correction</span>
+</div>
+<div class="error-summary-links">
+<a class="error-summary-link" href="#field-name">Name</a>
+<a class="error-summary-link" href="#field-estimated-hours">Estimated hours</a>
+</div>
+</section>
+<!-- Task Edit Form -->
+<form class="form-card" novalidate="" onsubmit="return false;">
+<!-- Name Field (Error) -->
+<div class="field-group">
+<label class="field-label" for="field-name">Name (required)</label>
+<input aria-describedby="name-error-msg" aria-invalid="true" class="text-input border-error" id="field-name" type="text" value=""/>
+<div class="error-message" id="name-error-msg">
+<svg aria-hidden="true" class="error-icon-inline" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" fill-rule="evenodd"></path>
+</svg>
+<span>Missing task name.</span>
+</div>
+</div>
+<!-- Type Select -->
+<div class="field-group">
+<label class="field-label" for="field-type">Type</label>
+<div class="select-wrapper">
+<select class="select-input border-standard" id="field-type"><option selected="" value="Feature">Feature</option><option value="Debt">Debt</option><option value="Defect">Defect</option><option value="Functional test">Functional test</option><option value="Acceptance test">Acceptance test</option><option value="Overhead">Overhead</option></select>
+<svg aria-hidden="true" class="select-chevron" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+<!-- Disposition Select -->
+<div class="field-group">
+<label class="field-label" for="field-disposition">Disposition</label>
+<div class="select-wrapper">
+<select class="select-input border-standard" id="field-disposition"><option selected="" value="Planned">Planned</option><option value="Discovered">Discovered</option></select>
+<svg aria-hidden="true" class="select-chevron" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+<!-- Acceptor Select -->
+<div class="field-group">
+<label class="field-label" for="field-acceptor">Acceptor</label>
+<div class="select-wrapper">
+<select class="select-input border-standard" id="field-acceptor">
+<option selected="" value="User A">User A</option>
+<option value="User B">User B</option>
+<option value="User C">User C</option>
+</select>
+<svg aria-hidden="true" class="select-chevron" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+<!-- Estimated hours Field (Error) -->
+<div class="field-group">
+<label class="field-label" for="field-estimated-hours">Estimated hours</label>
+<input aria-describedby="hours-error-msg" aria-invalid="true" class="text-input border-error" id="field-estimated-hours" step="any" type="number" value="-2"/>
+<div class="error-message" id="hours-error-msg">
+<svg aria-hidden="true" class="error-icon-inline" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" fill-rule="evenodd"></path>
+</svg>
+<span>Please provide an estimate greater than or equal to zero.</span>
+</div>
+</div>
+<!-- Description Field -->
+<div class="field-group">
+<label class="field-label" for="field-description">Description</label>
+<textarea class="textarea-input border-standard" id="field-description">Short description of the work.</textarea>
+<div class="helper-link-wrapper">
+<a class="helper-link" href="#formatting-help">Formatting help</a>
+</div>
+</div>
+<!-- Buttons Stacked Full Width -->
+<div class="form-actions">
+<button class="btn btn-primary" type="submit">Save</button>
+<button class="btn btn-neutral" type="button">Cancel</button>
+</div>
+</form>
+</main>
+</div>
 </body>
 </html>
