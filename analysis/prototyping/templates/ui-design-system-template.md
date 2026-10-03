@@ -48,12 +48,12 @@
 
 ## Ownership And Baseline
 
-Template output: `analysis/prototyping/ui-design-system.md`.
+Template output: [`analysis/prototyping/ui-design-system.md`](../ui-design-system.md).
 
 - Created by: [Stage 5 agent; identity/date]
 - Maintained by: [Stage 6 prototyping agent; identity/date]
 - Foundation decision: `ui-ux-decision.md` [exact version]
-- Values: `analysis/prototyping/ui-design-tokens.json`
+- Values: [`analysis/prototyping/ui-design-tokens.json`](../ui-design-tokens.json)
 - Export set: [version; full source hashes in screen-manifest.json]
 - Approved by: [owner/date and ui-ux-approval.md, or explicitly not yet approved]
 

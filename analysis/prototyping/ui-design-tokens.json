@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "_schema_help": {
+    "question": "What exact visual values must all screens and components reuse?",
+    "status": "Owner-chosen Stage 5 foundation 'Material Lean' (UX-005-03), recorded in analysis/prototyping/ui-ux-decision.md decision version 1. The owner's choice («Поехали. Мне нравится», ekzarov, relayed by Codex) covers this foundation only; it approves no screen, component variant or function.",
+    "ownership": "Stage 5 UX author records the chosen foundation; Stage 6 maintains extensions. The owner decides at Stages 5 and 8.",
+    "modes": "Light theme only. A dark theme and a comfortable-density option are possible later but are not approved; adding either is a foundation change that returns to Stage 5.",
+    "units": "Dimensions use rem (1rem = 16px at default browser text size) so that user text-size settings scale the interface.",
+    "consumption": "The catalogue uses property=token.name bindings. audit:prototype checks types, aliases, pins and references once a manifest exists; rendered tests check visual correctness.",
+    "foundation": "The canonical foundation digest is printed by node analysis/tools/ui-design-system.js and pinned once in ui-ux-decision.md. Any change to this object prints a new digest and returns to Stage 5.",
+    "extensions": "Empty at Stage 5. Stage 6 adds only tokens that agreed scenarios need (for example breakpoints, overlay shadow, a danger hover) within this foundation, for owner approval at Stage 8."
+  },
+  "foundation": {
+    "component_library": "Framework-neutral shared component catalogue (ui-design-system.md) in the light minimalist Material style 'Material Lean'; no Material library is selected; the implementation adapter is chosen with the architecture at Stage 9",
+    "icon_set": "Lucide (icon-only only for familiar tool actions with an accessible name and tooltip; business commands are labeled with text; subject to Stage 9 platform compatibility)",
+    "tokens": {
+      "color.surface": { "type": "color", "value": "#FFFFFF" },
+      "color.page": { "type": "color", "value": "#F7F8FA" },
+      "color.table-header": { "type": "color", "value": "#F1F2F4" },
+      "color.text": { "type": "color", "value": "#1D2125" },
+      "color.text-secondary": { "type": "color", "value": "#626F86" },
+      "color.primary": { "type": "color", "value": "#0C66E4" },
+      "color.primary-hover": { "type": "color", "value": "#0055CC" },
+      "color.selected": { "type": "color", "value": "#E9F2FF" },
+      "color.completion": { "type": "color", "value": "#1F7A45" },
+      "color.completion-hover": { "type": "color", "value": "#166038" },
+      "color.completion-tint": { "type": "color", "value": "#E3FCEF" },
+      "color.danger": { "type": "color", "value": "#C9372C" },
+      "color.border-control": { "type": "color", "value": "#8590A2" },
+      "color.divider": { "type": "color", "value": "#DCDFE4" },
+      "color.on-fill": { "type": "color", "value": "#FFFFFF" },
+      "color.focus": { "type": "color", "value": "{color.primary}" },
+
+      "font.body": { "type": "fontFamily", "value": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif" },
+      "type.size-body": { "type": "dimension", "value": "1rem" },
+      "type.size-table": { "type": "dimension", "value": "0.875rem" },
+      "type.size-heading-1": { "type": "dimension", "value": "1.5rem" },
+      "type.size-heading-2": { "type": "dimension", "value": "1.25rem" },
+      "type.weight-regular": { "type": "fontWeight", "value": 400 },
+      "type.weight-strong": { "type": "fontWeight", "value": 600 },
+      "type.line-body": { "type": "number", "value": 1.5 },
+
+      "space.1": { "type": "dimension", "value": "0.25rem" },
+      "space.2": { "type": "dimension", "value": "0.5rem" },
+      "space.3": { "type": "dimension", "value": "0.75rem" },
+      "space.4": { "type": "dimension", "value": "1rem" },
+      "space.6": { "type": "dimension", "value": "1.5rem" },
+      "space.8": { "type": "dimension", "value": "2rem" },
+
+      "size.control": { "type": "dimension", "value": "2.25rem" },
+      "size.table-row": { "type": "dimension", "value": "2.5rem" },
+      "size.touch-target-min": { "type": "dimension", "value": "2.75rem" },
+      "size.touch-target-max": { "type": "dimension", "value": "3rem" },
+
+      "radius.standard": { "type": "dimension", "value": "0.375rem" },
+      "border.width": { "type": "dimension", "value": "1px" },
+      "focus.width": { "type": "dimension", "value": "2px" },
+      "focus.offset": { "type": "dimension", "value": "2px" }
+    }
+  },
+  "extensions": {}
+}
