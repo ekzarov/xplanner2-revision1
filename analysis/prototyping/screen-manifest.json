@@ -3,10 +3,10 @@
   "project": "xplanner2-revision1",
   "scope": "Stage 6 UX-006-08: 25 screens with real exports and the component sheet; listed gaps pending",
   "tool": "Google Stitch, project projects/2535085752995102337",
-  "export_set_version": "stage-06-draft-8-ux-006-08",
+  "export_set_version": "stage-06-draft-9-ux-006-09",
   "decision": "analysis/prototyping/ui-ux-decision.md",
   "normalization": "analysis/prototyping/screen-normalization.json",
-  "normalization_sha256": "03b3cb00a5aecfb8e3a574875fb6de9db873a0f44f0ed99968cedb9726940312",
+  "normalization_sha256": "b545eb7330bed581223b9664422018a54a7058fbdf3e3a7b3aaa82f35d1b1efe",
   "workbook_rows_sha256": "87636a53544db5769d6bc1190de7afe5004d5e23afd3fa21eb8eab302ba0b861",
   "screens": [
     {
@@ -144,11 +144,11 @@
         },
         {
           "path": "wireframes/form-phone.html",
-          "sha256": "d863897ec596ff4856dce198cbaa738e1881afd34046b6ff89e3169101978fef"
+          "sha256": "5cddf19ce35e455e814a4fbc35c745d8a05b6d49cdc9e66bc7c722c76ee11673"
         },
         {
           "path": "wireframes/form-phone.png",
-          "sha256": "e70fddfad269af656c71a160a1cba106d447be274d13e36cade00b5bb952c90b"
+          "sha256": "fc53ae67ed4bbafcc0d8367fa68ea1f95561564c88d498e7f420e8884bc87690"
         }
       ],
       "navigation": [
@@ -234,9 +234,12 @@
         "hidden-column",
         "empty"
       ],
-      "actions": [],
+      "actions": [
+        "sign out"
+      ],
       "overlays": [],
       "workbook_rows": [
+        19,
         75,
         76,
         77
@@ -288,6 +291,7 @@
         82,
         83,
         84,
+        208,
         209
       ],
       "files": [
@@ -314,7 +318,8 @@
         "Create iteration to iteration-editor",
         "History to history",
         "Add note to note-editor",
-        "breadcrumb Top to projects-list"
+        "breadcrumb Top to projects-list",
+        "export menu"
       ],
       "ui_variants": [
         "button.neutral",
@@ -618,7 +623,8 @@
         "move-continue-validation"
       ],
       "actions": [
-        "continue story"
+        "continue story",
+        "export PDF"
       ],
       "overlays": [
         "delete story confirmation",
@@ -631,7 +637,8 @@
         129,
         130,
         131,
-        132
+        132,
+        212
       ],
       "files": [
         {
@@ -902,7 +909,8 @@
         144,
         145,
         146,
-        147
+        147,
+        185
       ],
       "files": [
         {
@@ -926,7 +934,8 @@
         "Edit to task-editor",
         "Enter time to time-editor",
         "History to history",
-        "Add note to note-editor"
+        "Add note to note-editor",
+        "breadcrumb"
       ],
       "ui_variants": [
         "button.completion",
@@ -957,7 +966,8 @@
       "actions": [
         "reset",
         "cancel",
-        "edit or delete entries"
+        "edit or delete entries",
+        "re-estimate"
       ],
       "overlays": [
         "start iteration confirmation"
@@ -975,7 +985,8 @@
         157,
         158,
         159,
-        160
+        160,
+        161
       ],
       "files": [
         {
@@ -985,6 +996,14 @@
         {
           "path": "wireframes/time-editor-desktop.png",
           "sha256": "89a6e532aa7276266c7959c4ab5ca2cf831479b515d1cffb9edd5ef62b1088aa"
+        },
+        {
+          "path": "wireframes/time-editor-phone.html",
+          "sha256": "ceef95ada0693a071092a31cd56645cc08deecfc221b476a68ae4524d09fbcad"
+        },
+        {
+          "path": "wireframes/time-editor-phone.png",
+          "sha256": "9fd44cb88be245f14f58e93759ff79a29bfa5d9b293c5d99ca7fe73c9cce728f"
         }
       ],
       "navigation": [
@@ -1018,7 +1037,8 @@
       "workbook_rows": [
         40,
         41,
-        42
+        42,
+        188
       ],
       "files": [
         {
@@ -1032,7 +1052,8 @@
       ],
       "navigation": [
         "task row to time entry or task editor",
-        "edit person"
+        "edit person",
+        "me"
       ],
       "ui_variants": [
         "avatar.initials",
@@ -1056,7 +1077,6 @@
         "duplicate-user-id"
       ],
       "actions": [
-        "reset",
         "cancel",
         "set project role",
         "grant or revoke system administrator",
@@ -1150,15 +1170,17 @@
         "validation-error"
       ],
       "actions": [
-        "reset",
         "cancel",
         "save"
       ],
-      "overlays": [],
+      "overlays": [
+        "delete note confirmation"
+      ],
       "workbook_rows": [
         169,
         170,
-        173
+        173,
+        174
       ],
       "files": [
         {
@@ -1174,6 +1196,8 @@
       "ui_variants": [
         "button.primary",
         "button.neutral",
+        "button.danger",
+        "dialog.confirm",
         "field.text",
         "field.select",
         "field.textarea",
@@ -1461,6 +1485,14 @@
       }
     },
     {
+      "row": 189,
+      "reason": "Stage 4 change (D-019). UX-006-09 placement: safe rendering of existing markup and object links applies to every description text; it changes no layout, so it is a rendering rule covered by output-escaping and rendering tests at SDD; the external wiki lookup stays deferred.",
+      "covered_by": {
+        "coverage": "UX-006-09 placement: safe rendering of existing markup and object links applies to every description text; it changes no layout, so it is a rendering rule covered by output-escaping and rendering tests at SDD; the external wiki lookup stays deferred. No screen; the SDD defines the behavior and its automated checks.",
+        "initiating_screen": null
+      }
+    },
+    {
       "row": 203,
       "reason": "Stage 4 change (D-017). Mail failure handling (D-017).",
       "covered_by": {
@@ -1494,10 +1526,10 @@
     }
   ],
   "_notes": [
-    "Stage 6 DRAFT written by UX Designer UX-006-08 at 2026-10-03T13:47:47Z (UTC from code). It is NOT clean, NOT all of Stage 6, NOT a Stage 7 control and NOT owner approval. The owner liked the general style and gave direction on editor actions and profile identity only.",
-    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a named responsive or message pattern verified by a real export (P). Per-row D/P claims are recorded in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. Rows whose entry point is missing from the exports are not claimed: iteration-page 91, 98, 99, 210 and app-shell 19, 185, 188, 192.",
-    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset; official UI Export ZIPs: 827baa43…73a0 (list-desktop, form-desktop, dialog-desktop), 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, continue-dialog, time-editor, person-page, person-editor, aggregate-timesheet, note-editor, error-page, system-info, iteration-statistics-phone, ui-kit).",
-    "Pending prepared entries (built automatically when their files exist): C (time-editor phone): extend time-editor. Hand-off B NOT delivered (checked in the exported HTML of ZIP 8f103662): list-desktop and dialog-desktop still show 120.0 / 72.0 h and 40% and Story 1 Accepted; form-desktop and form-phone show no Reset. The authorized regenerations (UX-006-08) produced no obtainable new export. time-editor, person-editor and note-editor show Save and Cancel without Reset (prepared edits in prompts-ux-006-07-pending.json). continue-dialog-desktop: the dialog is correct, but its background page shows invented navigation (Projects, Iterations, Roadmaps, Reports, Create, help, notifications, settings) and invented story and customer names; this is a recorded defect, not counted as clean.",
+    "Stage 6 DRAFT written by UX Designer UX-006-09 at 2026-10-03T13:55:31Z (UTC from code). It is NOT clean, NOT all of Stage 6, NOT a Stage 7 control and NOT owner approval. The owner liked the general style and gave direction on editor actions and profile identity only.",
+    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a named responsive or message pattern verified by a real export (P). Per-row D/P claims are recorded in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. Rows whose entry point is missing from the exports are not claimed: iteration-page 91, 98, 99, 210 and 192 (print view). App-shell rows were remapped onto drawn screens in UX-006-09 (19 projects-list, 185 task-page, 188 person-page, 192 iteration-page).",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset; official UI Export ZIPs: 827baa43…73a0 (list-desktop, form-desktop, dialog-desktop), 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, continue-dialog, time-editor, person-page, person-editor, aggregate-timesheet, note-editor, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone).",
+    "Pending prepared entries (built automatically when their files exist): H3 (handoff-ux-006-09): extend iteration-page; H4 (handoff-ux-006-09): extend iteration-page; H9 (handoff-ux-006-09): extend iteration-page. Checked by content in the exported HTML: form-phone now shows Save, Reset and Cancel (ZIP 6157107c). Still NOT delivered: list-desktop and dialog-desktop (current files show 120.0 / 72.0 h, 40%, Story 1 Accepted; the ZIP 6157107c dialog candidate had corrected HTML but the old screenshot, so it was not imported) and form-desktop (no Reset). The authorized regenerations (UX-006-08) produced no obtainable new export. time-editor, person-editor and note-editor show Save and Cancel without Reset (prepared edits in prompts-ux-006-07-pending.json). continue-dialog-desktop: the dialog is correct, but its background page shows invented navigation (Projects, Iterations, Roadmaps, Reports, Create, help, notifications, settings) and invented story and customer names; this is a recorded defect, not counted as clean.",
     "Editors (owner direction, relayed by Codex): Save, Reset and Cancel. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
     "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page (export pending A6). A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",
     "Responsive patterns: list/table: priority columns, table scrolls in its own container, 44-48 px targets; verified by list-phone (a10e679d) and project-page-phone (f4a330e1); form: single column, 16 px fields, stacked full-width Save / Reset / Cancel; verified by form-phone (296b7803; Reset edit pending export) and signin-phone (c5d26872); dialog: full width minus 16 px, stacked 48 px buttons, scrim; verified by dialog-phone (fdb44f71); detail page: heading, stacked action buttons, summary, then list/table; verified by project-page-phone (f4a330e1); board: stacked status sections per story; verified by iteration-board-phone (58e255ee); messages and validation: error summary plus field errors; verified by form-phone and signin-phone; empty state: table.data empty row; NOT yet verified (component sheet A12 pending); charts: charts stacked one per row with text legends; NOT verified (A13 pending); time grid: one stacked block per entry; NOT verified (C pending); date picker on phone: NOT verified (no phone export of iteration-editor). Surfaces without their own phone export rely on these patterns and are not individually verified.",

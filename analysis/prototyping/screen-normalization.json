@@ -90,10 +90,10 @@
     {
       "row": 19,
       "classification": "action",
-      "screen": "app-shell",
-      "surface_key": "web + every signed-in page + shared top bar and breadcrumb + page frame",
-      "element": "sign out",
-      "note": "Stage 4 keep (D-001). Header control shared by every signed-in page."
+      "note": "Stage 4 keep (Keep As Recorded). UX-006-09 remap from the planned app-shell: the \"Sign out\" link is drawn in the top bar of every exported page; recorded on projects-list, the root page of the signed-in journey.",
+      "screen": "projects-list",
+      "surface_key": "web + /projects + browse projects + table list",
+      "element": "sign out"
     },
     {
       "row": 20,
@@ -844,6 +844,14 @@
       "note": "Stage 4 keep (D-001). Per-row validation message on the same grid."
     },
     {
+      "row": 161,
+      "classification": "action",
+      "screen": "time-editor",
+      "surface_key": "web + /tasks/{id}/time + enter time on a task + multi-row grid form",
+      "element": "re-estimate",
+      "note": "Stage 4 change (D-016). UX-006-09 placement: the legacy estimate update posts to the time editor (row 161, /do/edit/time) and D-016 keeps it reachable from the task or time editor; the time editor already draws \"Remaining hours ... updates the task estimate on save\"; the \"Estimate changed from x to y\" history entry is written on save (non-visual part)."
+    },
+    {
       "row": 162,
       "classification": "surface",
       "screen": "person-timesheet",
@@ -907,6 +915,14 @@
       "note": "Stage 4 change (D-018). Edit keeps the original author (D-018)."
     },
     {
+      "row": 174,
+      "classification": "overlay",
+      "screen": "note-editor",
+      "surface_key": "web + /notes/{id}/edit + add or edit a note + form",
+      "element": "delete note confirmation",
+      "note": "Stage 4 change (D-018). UX-006-09 placement: notes are edited in one note editor for all four object types, so the delete of an existing note (\"Do you want to delete note <subject>\") is a danger confirmation opened from the note editor in edit mode; shown by the danger confirmation pattern (task-delete-dialog)."
+    },
+    {
       "row": 178,
       "classification": "surface",
       "screen": "search-results",
@@ -958,10 +974,10 @@
     {
       "row": 185,
       "classification": "navigation",
-      "screen": "app-shell",
-      "surface_key": "web + every signed-in page + shared top bar and breadcrumb + page frame",
-      "element": "breadcrumb",
-      "note": "Stage 4 change (D-004). Breadcrumb on every object page; output escaped (D-004)."
+      "note": "Stage 4 change (D-004). UX-006-09 remap from the planned app-shell: the full breadcrumb Top / Project / Iteration / Story / Task is drawn on task-page (all hierarchical pages carry the same pattern); output escaped.",
+      "screen": "task-page",
+      "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
+      "element": "breadcrumb"
     },
     {
       "row": 186,
@@ -978,10 +994,15 @@
     {
       "row": 188,
       "classification": "navigation",
-      "screen": "app-shell",
-      "surface_key": "web + every signed-in page + shared top bar and breadcrumb + page frame",
-      "element": "me",
-      "note": "Stage 4 keep (D-001). Header link to the status page of the signed-in person."
+      "note": "Stage 4 keep (Keep As Recorded). UX-006-09 remap from the planned app-shell: the \"Me\" link in the top bar opens the person page of the signed-in person (same sections, row 188); recorded on person-page, which draws both the link and the destination layout.",
+      "screen": "person-page",
+      "surface_key": "web + /people/{id} + view the work of one person + detail page with task tables",
+      "element": "me"
+    },
+    {
+      "row": 189,
+      "classification": "non-visual",
+      "note": "Stage 4 change (D-019). UX-006-09 placement: safe rendering of existing markup and object links applies to every description text; it changes no layout, so it is a rendering rule covered by output-escaping and rendering tests at SDD; the external wiki lookup stays deferred."
     },
     {
       "row": 190,
@@ -994,10 +1015,10 @@
     {
       "row": 192,
       "classification": "state",
-      "screen": "app-shell",
-      "surface_key": "web + every signed-in page + shared top bar and breadcrumb + page frame",
-      "element": "print view",
-      "note": "Stage 4 change (D-019). Print-friendly rendering of the same pages (M-07)."
+      "note": "Stage 4 change (D-019, M-07). UX-006-09 remap from the planned app-shell: print-friendly rendering (no top bar, breadcrumb or toolbar) shown on the iteration stories page; needs one print-view export (hand-off).",
+      "screen": "iteration-page",
+      "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
+      "element": "print view"
     },
     {
       "row": 203,
@@ -1008,6 +1029,14 @@
       "row": 204,
       "classification": "non-visual",
       "note": "Stage 4 change (D-013). Daily burn-down sampling (D-013, M-03)."
+    },
+    {
+      "row": 208,
+      "classification": "navigation",
+      "screen": "project-page",
+      "surface_key": "web + /projects/{id} + view a project and its iterations + detail page with iteration table",
+      "element": "export menu",
+      "note": "Stage 4 change (D-021). UX-006-09 placement: the \"Export\" link drawn on the project page (and on iteration, story, task and person pages) opens the format menu, which lists only the kept, permitted formats (XML and printable PDF; MPX/MSPDI deferred, JRPDF not ported)."
     },
     {
       "row": 209,
@@ -1024,6 +1053,14 @@
       "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
       "element": "export iteration",
       "note": "Stage 4 change (D-021). Permitted iteration export and printable listing (D-021)."
+    },
+    {
+      "row": 212,
+      "classification": "action",
+      "screen": "story-page",
+      "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
+      "element": "export PDF",
+      "note": "Stage 4 keep (D-021). UX-006-09 placement: the \"Export\" link drawn on the story page (the same link on the task page) leads to the printable PDF of permitted data."
     },
     {
       "row": 223,
@@ -1210,13 +1247,14 @@
   ],
   "_notes": [
     "Stage 6 draft by UX Designer assignment UX-006-01, generated 2026-10-02T20:35:50Z (UTC from code) from analysis/legacy_user_flows.xlsx, sheet \"User Flows\" (read-only, 210 business rows of UF-001..UF-018), column J Stage 4 destination notes, and analysis/stages/stage-04/stage-04-requirements-revision.md D-001..D-025. Not reviewed and not approved.",
-    "Accounting of all 210 business rows, each exactly once: 140 classified in rows[] (keep or change), 34 in excluded_rows[] (Stage 4 do-not-port), 31 deferred by Stage 4 and listed in the next note, 5 keep or change rows pending and listed in the note after it.",
+    "Accounting of all 210 business rows, each exactly once: 145 classified in rows[] (keep or change), 34 in excluded_rows[] (Stage 4 do-not-port), 31 deferred by Stage 4 and listed in the next note, 0 pending (UX-006-09 placements).",
     "Deferred by Stage 4 (not designed and not excluded; they return to Stage 6 with their slice): D-003: rows 15, 16, 21; D-008: rows 50, 51, 52, 53; D-010: rows 58, 70; D-017: rows 85, 86, 200, 201; D-013: rows 107, 108; D-014: rows 115, 116, 117, 118, 119; D-018: rows 171, 172, 175; D-022: rows 215, 218, 220, 221; D-023: rows 226; D-024: rows 228, 229, 230. The record schema has no slot for deferred rows, so audit:prototype reports them as unclassified until PM or the owner decides how deferred scope is carried; this record does not relabel them as do-not-port.",
-    "Pending (keep or change, placement not decided; no detail invented): row 161 - Re-estimate stays reachable from the task or time editor (D-016); the placement is not decided. row 174 - Note delete confirmation; notes appear on four object pages and the shared placement is not decided. row 189 - Safe display of existing markup and object links on every object page (D-019); the rendering is not designed. row 208 - Export menu on five object pages (D-021); the shared overlay placement is not decided. row 212 - Story and task PDF listing on two pages (D-021); placement follows the export menu of row 208.",
+    "Placements (UX-006-09, 2026-10-03T13:53:51Z UTC from code; UX choice of place within existing screens, owner direction relayed by Codex; checked at Stage 7, shown to the owner at Stage 8): row 161 re-estimate -> time-editor action; row 174 delete note confirmation -> note-editor overlay; row 189 safe markup display -> non-visual rendering rule; row 208 export menu -> project-page navigation (Export link); row 212 story/task PDF -> story-page action (Export link). No keep or change row is pending any more.",
     "The normalization is general. Screen ids and surface keys are planning identities; route families are labels, not implementation URLs. Only the three representative screens of UX-006-01 are drawn (iteration-page, its close iteration confirmation overlay, and task-editor); every other screen, state, action, overlay and navigation step is planned but not drawn, and its element names may be refined when it is drawn.",
     "Role variations (viewer, editor and admin per project; system administrator) follow the SDD permission matrix (D-001); no screen encodes a role ladder.",
     "Navigation model (UX-006-06, 2026-10-03T11:21:52Z UTC from code; Starter guidance \"Navigation And Identity Before Drawing\"): journeys come from the map. Sign-in (row 8) goes to the requested permitted page (row 10), else to the current iteration when exactly one project is accessible (row 18), else to the projects list. From there: project (83), iteration with local tabs Stories / Tasks / Statistics / Accuracy / Board (92, 106, 109, 113, 114), story (127), task (143), then the task editor (134) or time editor (149). People: people list (37), person page (40; \"me\" row 188 opens the same page for the signed-in person), person editor (43), timesheet (162). Aggregate timesheet (165) from the projects list; search (178), history (186), error (56) and system information (55, system administrators only). Hierarchical pages show the breadcrumb Top / Project / Iteration / Story / Task (row 185) with a plain current item and no breadcrumb at the root. Editors return to the originating page as rows 43, 78, 88, 121, 134 and 149 state, on same-application paths only (D-004); carrying list position in the URL is a proposal for the owner, not a requirement. Roles: one interface; actions are absent without permission (row 26); the matrix is set at SDD (D-001).",
     "Identity (UX-006-06, revised UX-006-07 by owner direction relayed by Codex): no map row names a photo or avatar. The person and \"me\" pages (rows 40, 188) show an initials avatar from the stored initials (rows 37, 43, 44) as the identity and fallback (Stage 6 draft). A profile photo is an explicitly unapproved extension that does not block representing the existing profile; no upload and no identity integration.",
-    "Editor actions (rows 81, 90, 125 and 139 record Update/Reset; owner direction UX-006-07, relayed by Codex): editors offer Save, Reset and Cancel. Save stores and returns to the origin; Reset restores the initial values and stays on the form; Cancel leaves without saving and returns to the origin. Neither replaces the other. Row mappings are unchanged."
+    "Editor actions (rows 81, 90, 125 and 139 record Update/Reset; owner direction UX-006-07, relayed by Codex): editors offer Save, Reset and Cancel. Save stores and returns to the origin; Reset restores the initial values and stays on the form; Cancel leaves without saving and returns to the origin. Neither replaces the other. Row mappings are unchanged.",
+    "App-shell (UX-006-09): no standalone app-shell surface remains. The shared top bar and breadcrumb are drawn inside every export; rows 19 (sign out), 185 (breadcrumb), 188 (me) and 192 (print view) are recorded on projects-list, task-page, person-page and iteration-page respectively. Only the print view needs an export of its own."
   ]
 }

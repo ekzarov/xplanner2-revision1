@@ -1,466 +1,202 @@
 <!DOCTYPE html>
 
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Edit task: Task 12 - Error</title>
-<style>
-    /* Foundation values reset and base tokens */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Edit task: Task 12 (Error State - Mobile)</title>
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Custom configuration and font rules -->
+<style data-purpose="base-styling">
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: #F7F8FA;
       color: #1D2125;
-      font-size: 14px;
-      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
     }
-    .phone-container {
-      width: 100%;
-      max-width: 390px;
-      background-color: #F7F8FA;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Interactive Focus States */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
-      outline: 2px solid #0C66E4;
-      outline-offset: 2px;
-    }
-
-    /* Top bar */
-    .top-bar {
-      background-color: #FFFFFF;
-      border-bottom: 1px solid #DCDFE4;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 48px;
-    }
-    .brand-title {
-      font-weight: 700;
-      font-size: 18px;
-      color: #1D2125;
-      letter-spacing: -0.01em;
-    }
-    .top-links {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .top-link {
-      color: #0C66E4;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-    }
-    .top-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Search section */
-    .search-section {
-      background-color: #FFFFFF;
-      border-bottom: 1px solid #DCDFE4;
-      padding: 12px 16px 14px 16px;
-    }
-    .search-label {
-      display: block;
-      font-size: 14px;
-      font-weight: 500;
-      color: #1D2125;
-      margin-bottom: 6px;
-    }
-    .search-input {
-      width: 100%;
-      height: 44px;
-      padding: 0 12px;
-      border: 1px solid #8590A2;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 14px;
-      color: #1D2125;
-      background-color: #FFFFFF;
-    }
-    .search-input::placeholder {
-      color: #626F86;
-    }
-
-    /* Main content container */
-    .content-area {
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* Breadcrumbs */
-    .breadcrumb-nav {
-      font-size: 14px;
-      color: #626F86;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 6px;
-      line-height: 1.4;
-    }
-    .breadcrumb-nav a {
-      color: #0C66E4;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-    }
-    .breadcrumb-nav a:hover {
-      text-decoration: underline;
-    }
-    .breadcrumb-separator {
-      color: #626F86;
-    }
-    .breadcrumb-current {
-      color: #1D2125;
-      font-weight: 500;
-    }
-
-    /* Page heading */
-    .page-heading {
-      font-size: 24px;
-      font-weight: 700;
-      color: #1D2125;
-      letter-spacing: -0.01em;
-      margin-top: -4px;
-    }
-
-    /* Error summary box */
-    .error-summary-box {
-      background-color: #FFFFFF;
-      border: 1px solid #C9372C;
-      border-radius: 6px;
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .error-summary-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      font-size: 14px;
-      color: #C9372C;
-    }
-    .error-summary-icon {
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      color: #C9372C;
-    }
-    .error-summary-links {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding-left: 26px;
-    }
-    .error-summary-link {
-      color: #0C66E4;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      min-height: 24px;
-      display: inline-flex;
-      align-items: center;
-    }
-    .error-summary-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Form surface */
-    .form-card {
-      background-color: #FFFFFF;
-      border: 1px solid #DCDFE4;
-      border-radius: 6px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* Field groups */
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .field-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1D2125;
-    }
-
-    /* Inputs, Selects, Textareas */
-    .text-input,
-    .select-input,
-    .textarea-input {
-      width: 100%;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 14px;
-      color: #1D2125;
-      background-color: #FFFFFF;
-      transition: border-color 0.15s ease;
-    }
-    .text-input,
-    .select-input {
-      height: 44px;
-      padding: 0 12px;
-    }
-    .textarea-input {
-      min-height: 96px;
-      padding: 10px 12px;
-      resize: vertical;
-      line-height: 1.4;
-    }
-
-    /* Standard border */
-    .border-standard {
-      border: 1px solid #8590A2;
-    }
-
-    /* Error border & message */
-    .border-error {
-      border: 1px solid #C9372C !important;
-    }
-    .error-message {
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-      color: #C9372C;
-      font-size: 14px;
-      line-height: 1.35;
-      margin-top: 2px;
-    }
-    .error-icon-inline {
-      flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-      margin-top: 2px;
-    }
-
-    /* Select styling with chevron */
-    .select-wrapper {
-      position: relative;
-      width: 100%;
-    }
-    .select-input {
-      appearance: none;
-      -webkit-appearance: none;
-      padding-right: 36px;
-      cursor: pointer;
-    }
-    .select-chevron {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
-      color: #626F86;
-      width: 16px;
-      height: 16px;
-    }
-
-    /* Helper link */
-    .helper-link-wrapper {
-      margin-top: 2px;
-    }
-    .helper-link {
-      color: #0C66E4;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-    }
-    .helper-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Form action buttons */
-    .form-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 8px;
-    }
-    .btn {
-      width: 100%;
-      height: 48px;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-sizing: border-box;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-    .btn-primary {
-      background-color: #0C66E4;
-      color: #FFFFFF;
-      border: 1px solid #0C66E4;
-    }
-    .btn-primary:hover {
-      background-color: #0052CC;
-      border-color: #0052CC;
-    }
-    .btn-neutral {
-      background-color: #FFFFFF;
-      color: #1D2125;
-      border: 1px solid #8590A2;
-    }
-    .btn-neutral:hover {
-      background-color: #F7F8FA;
+    /* Custom focus outlines */
+    input:focus, select:focus, textarea:focus, button:focus, a:focus {
+      outline: 2px solid #0C66E4 !important;
+      outline-offset: 2px !important;
     }
   </style>
 </head>
-<body>
-<div class="phone-container">
-<!-- Top bar -->
-<header class="top-bar">
-<span class="brand-title">Planner</span>
-<nav aria-label="User navigation" class="top-links">
-<a class="top-link" href="#me">Me</a>
-<a class="top-link" href="#signout">Sign out</a>
+<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125] pb-12">
+<!-- BEGIN: TopBar -->
+<header class="bg-white border-b border-[#DCDFE4] sticky top-0 z-30 w-full" data-purpose="top-navigation">
+<div class="h-14 px-4 flex items-center justify-between">
+<!-- App Brand Logo / Title -->
+<span class="text-xl font-bold text-[#1D2125] tracking-tight">Planner</span>
+<!-- User Menu Links -->
+<nav aria-label="User navigation" class="flex items-center space-x-1">
+<a class="px-2.5 py-3 text-sm font-medium text-[#0C66E4] hover:underline inline-flex items-center justify-center min-h-[44px]" href="#me">Me</a>
+<a class="px-2.5 py-3 text-sm font-medium text-[#0C66E4] hover:underline inline-flex items-center justify-center min-h-[44px]" href="#signout">Sign out</a>
 </nav>
+</div>
 </header>
-<!-- Search field -->
-<section aria-label="Search" class="search-section">
-<label class="search-label" for="search-input-field">Search or ID</label>
-<input class="search-input" id="search-input-field" type="text"/>
+<!-- END: TopBar -->
+<!-- BEGIN: SearchSection -->
+<section class="bg-white border-b border-[#DCDFE4] px-4 py-3" data-purpose="global-search">
+<label class="block text-sm font-medium text-[#1D2125] mb-1.5" for="global-search-input">
+      Search or ID
+    </label>
+<input class="w-full h-11 px-3 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white" id="global-search-input" name="search" type="text"/>
 </section>
-<!-- Main Content Area -->
-<main class="content-area">
-<!-- Breadcrumb -->
-<nav aria-label="Breadcrumb" class="breadcrumb-nav">
-<a href="#top">Top</a>
-<span class="breadcrumb-separator">/</span>
-<a href="#project-1">Project 1</a>
-<span class="breadcrumb-separator">/</span>
-<a href="#iteration-3">Iteration 3</a>
-<span class="breadcrumb-separator">/</span>
-<a href="#story-5">Story 5</a>
-<span class="breadcrumb-separator">/</span>
-<span aria-current="page" class="breadcrumb-current">Task 12</span>
+<!-- END: SearchSection -->
+<!-- BEGIN: MainContent -->
+<main class="px-4 pt-4 pb-8 max-w-full">
+<!-- BEGIN: BreadcrumbNavigation -->
+<nav aria-label="Breadcrumb" class="text-sm py-1 mb-3 flex flex-wrap items-center gap-1.5 leading-normal" data-purpose="breadcrumbs">
+<a class="text-[#0C66E4] hover:underline" href="#top">Top</a>
+<span aria-hidden="true" class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline" href="#project-1">Project 1</a>
+<span aria-hidden="true" class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline" href="#iteration-3">Iteration 3</a>
+<span aria-hidden="true" class="text-[#626F86]">/</span>
+<a class="text-[#0C66E4] hover:underline" href="#story-5">Story 5</a>
+<span aria-hidden="true" class="text-[#626F86]">/</span>
+<span aria-current="page" class="text-[#1D2125] font-medium">Task 12</span>
 </nav>
-<!-- Page heading -->
-<h1 class="page-heading">Edit task: Task 12</h1>
-<!-- Error summary -->
-<section aria-labelledby="error-summary-title" class="error-summary-box" role="alert">
-<div class="error-summary-header" id="error-summary-title">
-<svg aria-hidden="true" class="error-summary-icon" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" fill-rule="evenodd"></path>
+<!-- END: BreadcrumbNavigation -->
+<!-- BEGIN: PageHeading -->
+<h1 class="text-2xl font-bold text-[#1D2125] tracking-tight mb-4">Edit task: Task 12</h1>
+<!-- END: PageHeading -->
+<!-- BEGIN: ErrorSummaryBox -->
+<section aria-labelledby="error-summary-title" class="bg-white border border-[#C9372C] rounded-[6px] p-4 mb-4" data-purpose="error-summary" role="alert">
+<div class="flex items-center gap-2 mb-2.5">
+<!-- SVG Warning / Exclamation Icon -->
+<svg aria-hidden="true" class="w-5 h-5 text-[#C9372C] flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path>
 </svg>
-<span>2 fields need correction</span>
+<h2 class="text-base font-bold text-[#C9372C]" id="error-summary-title">
+          2 fields need correction
+        </h2>
 </div>
-<div class="error-summary-links">
-<a class="error-summary-link" href="#field-name">Name</a>
-<a class="error-summary-link" href="#field-estimated-hours">Estimated hours</a>
-</div>
+<ul class="space-y-1 pl-7 list-none">
+<li>
+<a class="inline-block py-1 text-sm font-normal text-[#0C66E4] hover:underline" href="#name-input">Name</a>
+</li>
+<li>
+<a class="inline-block py-1 text-sm font-normal text-[#0C66E4] hover:underline" href="#estimated-hours">Estimated hours</a>
+</li>
+</ul>
 </section>
-<!-- Task Edit Form -->
-<form class="form-card" novalidate="" onsubmit="return false;">
-<!-- Name Field (Error) -->
-<div class="field-group">
-<label class="field-label" for="field-name">Name (required)</label>
-<input aria-describedby="name-error-msg" aria-invalid="true" class="text-input border-error" id="field-name" type="text" value=""/>
-<div class="error-message" id="name-error-msg">
-<svg aria-hidden="true" class="error-icon-inline" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" fill-rule="evenodd"></path>
+<!-- END: ErrorSummaryBox -->
+<!-- BEGIN: TaskEditForm -->
+<form class="space-y-4" data-purpose="task-edit-form" novalidate="">
+<!-- White card container for form controls -->
+<div class="bg-white border border-[#DCDFE4] rounded-[6px] p-4 space-y-4">
+<!-- Field 1: Name (Error State) -->
+<div data-purpose="field-name">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="name-input">
+            Name (required)
+          </label>
+<input aria-describedby="name-error" aria-invalid="true" class="w-full h-11 px-3 border border-[#C9372C] rounded-[6px] text-base text-[#1D2125] focus:border-[#C9372C] focus:ring-0 bg-white" id="name-input" name="name" type="text" value=""/>
+<div class="flex items-center gap-1.5 mt-1.5 text-[#C9372C]" id="name-error" role="alert">
+<svg aria-hidden="true" class="w-4 h-4 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path>
 </svg>
-<span>Missing task name.</span>
+<span class="text-sm font-normal">Missing task name.</span>
 </div>
 </div>
-<!-- Type Select -->
-<div class="field-group">
-<label class="field-label" for="field-type">Type</label>
-<div class="select-wrapper">
-<select class="select-input border-standard" id="field-type"><option selected="" value="Feature">Feature</option><option value="Debt">Debt</option><option value="Defect">Defect</option><option value="Functional test">Functional test</option><option value="Acceptance test">Acceptance test</option><option value="Overhead">Overhead</option></select>
-<svg aria-hidden="true" class="select-chevron" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" fill-rule="evenodd"></path>
-</svg>
-</div>
-</div>
-<!-- Disposition Select -->
-<div class="field-group">
-<label class="field-label" for="field-disposition">Disposition</label>
-<div class="select-wrapper">
-<select class="select-input border-standard" id="field-disposition"><option selected="" value="Planned">Planned</option><option value="Discovered">Discovered</option></select>
-<svg aria-hidden="true" class="select-chevron" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" fill-rule="evenodd"></path>
-</svg>
-</div>
-</div>
-<!-- Acceptor Select -->
-<div class="field-group">
-<label class="field-label" for="field-acceptor">Acceptor</label>
-<div class="select-wrapper">
-<select class="select-input border-standard" id="field-acceptor">
-<option selected="" value="User A">User A</option>
-<option value="User B">User B</option>
-<option value="User C">User C</option>
+<!-- Field 2: Type -->
+<div data-purpose="field-type">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="task-type">
+            Type
+          </label>
+<div class="relative">
+<select class="w-full h-11 px-3 pr-8 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white appearance-none" id="task-type" name="type">
+<option selected="" value="Feature">Feature</option>
+<option value="Debt">Debt</option>
+<option value="Defect">Defect</option>
+<option value="Functional test">Functional test</option>
+<option value="Acceptance test">Acceptance test</option>
+<option value="Overhead">Overhead</option>
 </select>
-<svg aria-hidden="true" class="select-chevron" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" fill-rule="evenodd"></path>
+<!-- Dropdown Chevron Icon -->
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#626F86]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
 </div>
 </div>
-<!-- Estimated hours Field (Error) -->
-<div class="field-group">
-<label class="field-label" for="field-estimated-hours">Estimated hours</label>
-<input aria-describedby="hours-error-msg" aria-invalid="true" class="text-input border-error" id="field-estimated-hours" step="any" type="number" value="-2"/>
-<div class="error-message" id="hours-error-msg">
-<svg aria-hidden="true" class="error-icon-inline" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" fill-rule="evenodd"></path>
+</div>
+<!-- Field 3: Disposition -->
+<div data-purpose="field-disposition">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="disposition">
+            Disposition
+          </label>
+<div class="relative">
+<select class="w-full h-11 px-3 pr-8 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white appearance-none" id="disposition" name="disposition">
+<option selected="" value="Planned">Planned</option>
+<option value="Discovered">Discovered</option>
+</select>
+<!-- Dropdown Chevron Icon -->
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#626F86]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
-<span>Please provide an estimate greater than or equal to zero.</span>
 </div>
 </div>
-<!-- Description Field -->
-<div class="field-group">
-<label class="field-label" for="field-description">Description</label>
-<textarea class="textarea-input border-standard" id="field-description">Short description of the work.</textarea>
-<div class="helper-link-wrapper">
-<a class="helper-link" href="#formatting-help">Formatting help</a>
+</div>
+<!-- Field 4: Acceptor -->
+<div data-purpose="field-acceptor">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="acceptor">
+            Acceptor
+          </label>
+<div class="relative">
+<select class="w-full h-11 px-3 pr-8 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white appearance-none" id="acceptor" name="acceptor">
+<option selected="" value="User A">User A</option>
+</select>
+<!-- Dropdown Chevron Icon -->
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#626F86]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
 </div>
 </div>
-<!-- Buttons Stacked Full Width -->
-<div class="form-actions">
-<button class="btn btn-primary" type="submit">Save</button>
-<button class="btn btn-neutral" type="button">Cancel</button>
+</div>
+<!-- Field 5: Estimated Hours (Error State) -->
+<div data-purpose="field-estimated-hours">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="estimated-hours">
+            Estimated hours
+          </label>
+<input aria-describedby="estimated-hours-error" aria-invalid="true" class="w-full h-11 px-3 border border-[#C9372C] rounded-[6px] text-base text-[#1D2125] focus:border-[#C9372C] focus:ring-0 bg-white" id="estimated-hours" name="estimated_hours" type="number" value="-2"/>
+<div class="flex items-start gap-1.5 mt-1.5 text-[#C9372C]" id="estimated-hours-error" role="alert">
+<svg aria-hidden="true" class="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-sm font-normal leading-snug">Please provide an estimate greater than or equal to zero.</span>
+</div>
+</div>
+<!-- Field 6: Description -->
+<div data-purpose="field-description">
+<label class="block text-sm font-medium text-[#1D2125] mb-1" for="description">
+            Description
+          </label>
+<textarea class="w-full p-3 border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:ring-0 bg-white resize-y" id="description" name="description" rows="4">Short description of the work.</textarea>
+<div class="mt-1">
+<a class="text-sm text-[#0C66E4] hover:underline inline-block py-1" href="#formatting-help">Formatting help</a>
+</div>
+</div>
+</div>
+<!-- Action Buttons Stack -->
+<div class="space-y-2.5 pt-1" data-purpose="form-actions">
+<!-- Save Button -->
+<button class="w-full h-12 bg-[#0C66E4] hover:bg-[#0052cc] text-white font-medium text-base rounded-[6px] flex items-center justify-center transition-colors shadow-sm active:opacity-90" type="submit">
+          Save
+        </button>
+<!-- Reset Button -->
+<button class="w-full h-12 bg-white hover:bg-[#EBEEF2] border border-[#8590A2] text-[#1D2125] font-medium text-base rounded-[6px] flex items-center justify-center transition-colors active:bg-[#DCDFE4]" type="reset">
+          Reset
+        </button>
+<!-- Cancel Button -->
+<button class="w-full h-12 bg-white hover:bg-[#EBEEF2] border border-[#8590A2] text-[#1D2125] font-medium text-base rounded-[6px] flex items-center justify-center transition-colors active:bg-[#DCDFE4]" type="button">
+          Cancel
+        </button>
 </div>
 </form>
+<!-- END: TaskEditForm -->
 </main>
-</div>
-</body>
-</html>
+<!-- END: MainContent -->
+</body></html>
