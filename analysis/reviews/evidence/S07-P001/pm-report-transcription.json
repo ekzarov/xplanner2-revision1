@@ -1,0 +1,33 @@
+{
+  "packet_id": "S07-P001",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-07-pass-001.md",
+  "producer": "Reviewer subagent ac6db45336bd6251f authored the report and all evidence and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-07/p001/stage-07-pass-001.md",
+  "source_sha256": "2db2b5536e7ac63752e5336f7c8e6f8ee037526393b9f629ba19c3943a93918a",
+  "pm_changes": [
+    "The literal token CURRENT_SESSION_ID was replaced with ac6db45336bd6251f (one occurrence).",
+    "npm run fix:artifact-links wrapped repository paths in code spans on 14 lines as clickable links ([`path`](relative-path)), as audit:artifact-links requires. Removing these link wrappers reproduces the source with the session ID substituted, byte for byte after LF normalization (checked)."
+  ],
+  "pm_packet_omission": "The PM packet did not ask the reviewer to verify waiver:legacy_walkthrough_fallback:xplanner2-revision1, which the status validator expects the first Stage 7 exit window to verify with a clean pass; the reviewer reported \"Waiver IDs reviewed: none\".",
+  "evidence_copied_unchanged": [
+    {
+      "file": "analysis/reviews/evidence/S07-P001/coverage-check.json",
+      "sha256": "f2594a3161e8c9ee900cc1c24e8f5286aa5cb2d46c13eec45eee5ff80ce67a84"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P001/export-scan.json",
+      "sha256": "834ead760250b8abe161e79be023ff6d5fe1152f98e5ed954c0f92fabe56aa7c"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P001/hash-verification.json",
+      "sha256": "487fd9adaceb44e69e3dca43dd0d11f33b1e20743c03bf846de32f9f8f765594"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P001/non-token-colors.json",
+      "sha256": "cb9574294cc34ed6cb0b8535ccde4d9fa3576deb9a6d385d47f2601936011f0f"
+    }
+  ],
+  "final_report_sha256": "a2340d05d89f3c5434023c5f8f4ab5e3978948301ae432b895b4155b9f293dfd",
+  "recorded_at": "2026-10-03T14:50:02Z"
+}

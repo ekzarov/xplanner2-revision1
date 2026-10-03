@@ -1,0 +1,1189 @@
+{
+ "generated_at": "2026-10-03T14:41:45.468Z",
+ "reviewed_revision": "23e96ebb9bcceec7e99b6589c240d0eecd52a9cb",
+ "export_set_version": "stage-06-draft-12-ux-006-12",
+ "manifest_sha256": "4c97c62e4f8802e83469463de746be5a74c10641325808de63e6fe13959c6f9b",
+ "legend": {
+  "D": "drawn in a named export",
+  "P": "covered by a drawn pattern with unchanged composition (reviewer-accepted)",
+  "N": "navigation/redirect recorded, not drawable",
+  "NV": "non-visual coverage accepted",
+  "M": "missing or misclassified (finding)"
+ },
+ "row_accounting": {
+  "classified": 145,
+  "excluded": 34,
+  "deferred": 31,
+  "total": 210,
+  "matches_workbook_column_J": true
+ },
+ "counts": {
+  "D": 59,
+  "N": 2,
+  "NV": 29,
+  "P": 36,
+  "M": 19
+ },
+ "rows": [
+  {
+   "row": 8,
+   "classification": "surface",
+   "screen": "sign-in",
+   "element": null,
+   "determination": "D",
+   "evidence": "signin-desktop.html, signin-phone.html: User ID, Password, Sign in"
+  },
+  {
+   "row": 10,
+   "classification": "navigation",
+   "screen": "sign-in",
+   "element": "return to the requested permitted page",
+   "determination": "N",
+   "evidence": "redirect after sign-in; recorded in manifest navigation of sign-in"
+  },
+  {
+   "row": 11,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 12,
+   "classification": "state",
+   "screen": "sign-in",
+   "element": "invalid-credentials",
+   "determination": "D",
+   "evidence": "signin-phone.html role=alert \"Could not authenticate user. Wrong userid or password\""
+  },
+  {
+   "row": 13,
+   "classification": "state",
+   "screen": "sign-in",
+   "element": "unknown-user-message",
+   "determination": "P",
+   "evidence": "same alert composition as row 12 (signin-phone.html)"
+  },
+  {
+   "row": 14,
+   "classification": "state",
+   "screen": "sign-in",
+   "element": "blank-credentials",
+   "determination": "P",
+   "evidence": "same alert composition as row 12 (signin-phone.html)"
+  },
+  {
+   "row": 17,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 18,
+   "classification": "navigation",
+   "screen": "sign-in",
+   "element": "land on the current iteration",
+   "determination": "N",
+   "evidence": "landing rule recorded in manifest navigation of sign-in"
+  },
+  {
+   "row": 19,
+   "classification": "action",
+   "screen": "projects-list",
+   "element": "sign out",
+   "determination": "D",
+   "evidence": "Sign out link in the top bar of every signed-in export"
+  },
+  {
+   "row": 20,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 23,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 24,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "M",
+   "evidence": "UI-visible role behaviour (links/buttons hidden per permission) classified non-visual, see F-001"
+  },
+  {
+   "row": 25,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 26,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "M",
+   "evidence": "UI-visible role behaviour (links/buttons hidden per permission) classified non-visual, see F-001"
+  },
+  {
+   "row": 27,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 28,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 29,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 30,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 31,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 32,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 33,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "set project role",
+   "determination": "D",
+   "evidence": "person-editor-desktop.html Project roles table with role selects"
+  },
+  {
+   "row": 34,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "grant or revoke system administrator",
+   "determination": "D",
+   "evidence": "person-editor-desktop.html System administrator checkbox"
+  },
+  {
+   "row": 37,
+   "classification": "surface",
+   "screen": "people-list",
+   "element": null,
+   "determination": "D",
+   "evidence": "people-list-desktop.html User ID/Name/Initials/Phone/E-mail, sorted by Name, pager"
+  },
+  {
+   "row": 38,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 39,
+   "classification": "state",
+   "screen": "people-list",
+   "element": "project-filtered",
+   "determination": "P",
+   "evidence": "same list composition with a project heading; entry: project-page People link"
+  },
+  {
+   "row": 40,
+   "classification": "surface",
+   "screen": "person-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "person-page-desktop.html Active/Planned/Completed tasks, Stories as customer/tracker, Future tasks"
+  },
+  {
+   "row": 41,
+   "classification": "navigation",
+   "screen": "person-page",
+   "element": "task row to time entry or task editor",
+   "determination": "D",
+   "evidence": "person-page-desktop.html Actions column Time / Edit"
+  },
+  {
+   "row": 42,
+   "classification": "navigation",
+   "screen": "person-page",
+   "element": "edit person",
+   "determination": "D",
+   "evidence": "person-page-desktop.html Edit / Timesheet / People links"
+  },
+  {
+   "row": 43,
+   "classification": "surface",
+   "screen": "person-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "person-editor-desktop.html (edit mode; create mode is the same form); entry Create person on people-list"
+  },
+  {
+   "row": 44,
+   "classification": "state",
+   "screen": "person-editor",
+   "element": "validation-error",
+   "determination": "P",
+   "evidence": "message.error-summary + field error pattern (form-phone.html)"
+  },
+  {
+   "row": 45,
+   "classification": "state",
+   "screen": "person-editor",
+   "element": "duplicate-user-id",
+   "determination": "P",
+   "evidence": "message.error-summary + field error pattern (form-phone.html)"
+  },
+  {
+   "row": 46,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "person-editor-desktop.html Save/Reset/Cancel"
+  },
+  {
+   "row": 47,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "change password",
+   "determination": "D",
+   "evidence": "person-editor-desktop.html New password / Confirm password"
+  },
+  {
+   "row": 48,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "deactivate",
+   "determination": "D",
+   "evidence": "person-editor-desktop.html Deactivated checkbox with explanation"
+  },
+  {
+   "row": 55,
+   "classification": "surface",
+   "screen": "system-info",
+   "element": null,
+   "determination": "D",
+   "evidence": "system-info-desktop.html (page drawn); entry point missing, see F-004"
+  },
+  {
+   "row": 56,
+   "classification": "surface",
+   "screen": "error-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "error-page-desktop.html generic message with reference, no stack trace"
+  },
+  {
+   "row": 57,
+   "classification": "state",
+   "screen": "error-page",
+   "element": "not-found",
+   "determination": "P",
+   "evidence": "same message-page composition (error-page-desktop.html)"
+  },
+  {
+   "row": 64,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 69,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 71,
+   "classification": "action",
+   "screen": "iteration-editor",
+   "element": "pick a date",
+   "determination": "D",
+   "evidence": "iteration-editor-desktop.html open date picker and format hint"
+  },
+  {
+   "row": 72,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 73,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 75,
+   "classification": "surface",
+   "screen": "projects-list",
+   "element": null,
+   "determination": "D",
+   "evidence": "projects-list-desktop.html ID/Name/Current iteration; People and Aggregate timesheet links"
+  },
+  {
+   "row": 76,
+   "classification": "state",
+   "screen": "projects-list",
+   "element": "hidden-column",
+   "determination": "D",
+   "evidence": "projects-list-desktop.html Hidden column (role issue, see F-002)"
+  },
+  {
+   "row": 77,
+   "classification": "state",
+   "screen": "projects-list",
+   "element": "empty",
+   "determination": "P",
+   "evidence": "table.data empty-message pattern (iteration-start-dialog-desktop.html background)"
+  },
+  {
+   "row": 78,
+   "classification": "surface",
+   "screen": "project-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "project-editor-desktop.html (edit mode; create mode is the same form)"
+  },
+  {
+   "row": 79,
+   "classification": "state",
+   "screen": "project-editor",
+   "element": "missing-name",
+   "determination": "P",
+   "evidence": "error-summary / field-error pattern (form-phone.html)"
+  },
+  {
+   "row": 80,
+   "classification": "action",
+   "screen": "project-editor",
+   "element": "set project options",
+   "determination": "D",
+   "evidence": "project-editor-desktop.html Wiki URL, Escape brackets, Send missing time entry notification"
+  },
+  {
+   "row": 81,
+   "classification": "action",
+   "screen": "project-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "project-editor-desktop.html Save/Reset/Cancel and Hidden checkbox"
+  },
+  {
+   "row": 82,
+   "classification": "overlay",
+   "screen": "project-page",
+   "element": "delete project confirmation",
+   "determination": "P",
+   "evidence": "dialog.confirm delete pattern (task-delete-dialog-desktop.html); trigger Delete project drawn for declared role admin, see F-002"
+  },
+  {
+   "row": 83,
+   "classification": "surface",
+   "screen": "project-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "project-page-desktop.html and project-page-phone.html iteration table sorted by End date"
+  },
+  {
+   "row": 84,
+   "classification": "state",
+   "screen": "project-page",
+   "element": "empty",
+   "determination": "P",
+   "evidence": "table.data empty-message pattern"
+  },
+  {
+   "row": 88,
+   "classification": "surface",
+   "screen": "iteration-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "iteration-editor-desktop.html (edit mode; create mode is the same form)"
+  },
+  {
+   "row": 89,
+   "classification": "state",
+   "screen": "iteration-editor",
+   "element": "invalid-dates",
+   "determination": "P",
+   "evidence": "error pattern; field.date invalid state on ui-kit.html#field-date"
+  },
+  {
+   "row": 90,
+   "classification": "action",
+   "screen": "iteration-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "iteration-editor-desktop.html read-only Status and Save/Reset/Cancel"
+  },
+  {
+   "row": 91,
+   "classification": "overlay",
+   "screen": "iteration-page",
+   "element": "delete iteration confirmation",
+   "determination": "P",
+   "evidence": "dialog.confirm delete pattern; trigger Delete iteration drawn for declared role editor, see F-002"
+  },
+  {
+   "row": 92,
+   "classification": "surface",
+   "screen": "iteration-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "list-desktop.html summary, progress bar and story table with the 14 columns"
+  },
+  {
+   "row": 93,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "empty",
+   "determination": "D",
+   "evidence": "iteration-start-dialog-desktop.html background \"No stories in this iteration.\""
+  },
+  {
+   "row": 95,
+   "classification": "action",
+   "screen": "iteration-page",
+   "element": "save order",
+   "determination": "D",
+   "evidence": "list-desktop.html order inputs and Save order"
+  },
+  {
+   "row": 96,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "invalid-order-number",
+   "determination": "P",
+   "evidence": "page-message pattern; not drawn on iteration-page itself"
+  },
+  {
+   "row": 97,
+   "classification": "action",
+   "screen": "iteration-page",
+   "element": "move selected stories",
+   "determination": "M",
+   "evidence": "Move selected stories button drawn; the target-iteration move dialog is not drawn anywhere, see F-003"
+  },
+  {
+   "row": 98,
+   "classification": "action",
+   "screen": "iteration-page",
+   "element": "start iteration",
+   "determination": "D",
+   "evidence": "iteration-start-dialog-desktop.html Start iteration button and dialog"
+  },
+  {
+   "row": 99,
+   "classification": "overlay",
+   "screen": "iteration-page",
+   "element": "start iteration confirmation",
+   "determination": "D",
+   "evidence": "iteration-start-dialog-desktop.html close-started message and checkbox (div, see F-006)"
+  },
+  {
+   "row": 100,
+   "classification": "overlay",
+   "screen": "time-editor",
+   "element": "start iteration confirmation",
+   "determination": "P",
+   "evidence": "dialog.confirm start pattern (iteration-start-dialog-desktop.html)"
+  },
+  {
+   "row": 101,
+   "classification": "overlay",
+   "screen": "iteration-page",
+   "element": "close iteration confirmation",
+   "determination": "D",
+   "evidence": "dialog-desktop.html and dialog-phone.html close confirmation"
+  },
+  {
+   "row": 102,
+   "classification": "overlay",
+   "screen": "iteration-page",
+   "element": "continue unfinished stories",
+   "determination": "D",
+   "evidence": "continue-dialog-desktop.html future-iteration select"
+  },
+  {
+   "row": 103,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "no-future-iteration",
+   "determination": "M",
+   "evidence": "continue dialog without a future iteration changes composition (no select); not drawn, see F-003"
+  },
+  {
+   "row": 104,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "same-iteration-rejected",
+   "determination": "P",
+   "evidence": "message pattern inside the continue dialog"
+  },
+  {
+   "row": 106,
+   "classification": "surface",
+   "screen": "iteration-tasks",
+   "element": null,
+   "determination": "D",
+   "evidence": "iteration-tasks-desktop.html tasks grouped by story"
+  },
+  {
+   "row": 109,
+   "classification": "surface",
+   "screen": "iteration-statistics",
+   "element": null,
+   "determination": "D",
+   "evidence": "iteration-statistics desktop/phone: six pie charts, progress and burn-down"
+  },
+  {
+   "row": 110,
+   "classification": "state",
+   "screen": "iteration-statistics",
+   "element": "progress-chart-shown",
+   "determination": "D",
+   "evidence": "iteration-statistics progress line chart"
+  },
+  {
+   "row": 111,
+   "classification": "state",
+   "screen": "iteration-statistics",
+   "element": "velocity-charts-shown",
+   "determination": "P",
+   "evidence": "chart.line pattern; velocity charts hidden in the shipped configuration"
+  },
+  {
+   "row": 112,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 113,
+   "classification": "surface",
+   "screen": "iteration-accuracy",
+   "element": null,
+   "determination": "D",
+   "evidence": "iteration-accuracy-desktop.html Tasks/Stories summaries and By story table"
+  },
+  {
+   "row": 114,
+   "classification": "surface",
+   "screen": "iteration-board",
+   "element": null,
+   "determination": "D",
+   "evidence": "iteration-board desktop/phone read-only task cards"
+  },
+  {
+   "row": 121,
+   "classification": "surface",
+   "screen": "story-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "story-editor-desktop.html (edit mode; create mode is the same form)"
+  },
+  {
+   "row": 122,
+   "classification": "state",
+   "screen": "story-editor",
+   "element": "new-story-defaults",
+   "determination": "P",
+   "evidence": "pre-filled value in create mode; same composition"
+  },
+  {
+   "row": 123,
+   "classification": "state",
+   "screen": "story-editor",
+   "element": "validation-error",
+   "determination": "P",
+   "evidence": "error-summary / field-error pattern"
+  },
+  {
+   "row": 125,
+   "classification": "action",
+   "screen": "story-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "story-editor-desktop.html Disposition/Status pre-selected; Save/Reset/Cancel"
+  },
+  {
+   "row": 126,
+   "classification": "overlay",
+   "screen": "story-page",
+   "element": "delete story confirmation",
+   "determination": "P",
+   "evidence": "dialog.confirm delete pattern; trigger Delete story on story-page"
+  },
+  {
+   "row": 127,
+   "classification": "surface",
+   "screen": "story-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "story-page-desktop.html summary, task table and links"
+  },
+  {
+   "row": 128,
+   "classification": "state",
+   "screen": "story-page",
+   "element": "empty",
+   "determination": "P",
+   "evidence": "table.data empty-message pattern"
+  },
+  {
+   "row": 129,
+   "classification": "overlay",
+   "screen": "story-page",
+   "element": "move or continue story",
+   "determination": "M",
+   "evidence": "Move or continue button drawn; story move/continue dialog not drawn, see F-003"
+  },
+  {
+   "row": 130,
+   "classification": "action",
+   "screen": "story-page",
+   "element": "continue story",
+   "determination": "M",
+   "evidence": "continue choice lives in the undrawn move/continue dialog, see F-003"
+  },
+  {
+   "row": 131,
+   "classification": "state",
+   "screen": "story-page",
+   "element": "same-iteration-rejected",
+   "determination": "M",
+   "evidence": "validation inside the undrawn move/continue dialog, see F-003"
+  },
+  {
+   "row": 132,
+   "classification": "state",
+   "screen": "story-page",
+   "element": "move-continue-validation",
+   "determination": "M",
+   "evidence": "validation inside the undrawn move/continue dialog, see F-003"
+  },
+  {
+   "row": 134,
+   "classification": "surface",
+   "screen": "task-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "form-desktop.html Name/Type/Disposition/Acceptor/Estimated hours/Description"
+  },
+  {
+   "row": 135,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 136,
+   "classification": "state",
+   "screen": "task-editor",
+   "element": "default-disposition",
+   "determination": "D",
+   "evidence": "form-desktop.html Disposition select (pre-selection rule itself is a create-mode value)"
+  },
+  {
+   "row": 137,
+   "classification": "state",
+   "screen": "task-editor",
+   "element": "validation-error",
+   "determination": "D",
+   "evidence": "form-phone.html error summary, \"Missing task name.\" and the estimate message"
+  },
+  {
+   "row": 138,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 139,
+   "classification": "action",
+   "screen": "task-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "form-desktop.html Save/Reset/Cancel"
+  },
+  {
+   "row": 140,
+   "classification": "action",
+   "screen": "task-page",
+   "element": "complete task",
+   "determination": "D",
+   "evidence": "task-page-desktop.html Complete task"
+  },
+  {
+   "row": 141,
+   "classification": "action",
+   "screen": "task-page",
+   "element": "reopen task",
+   "determination": "M",
+   "evidence": "completed-task state with Reopen task not drawn, see F-003"
+  },
+  {
+   "row": 142,
+   "classification": "overlay",
+   "screen": "task-page",
+   "element": "delete task confirmation",
+   "determination": "D",
+   "evidence": "task-delete-dialog-desktop.html states the effect on time entries"
+  },
+  {
+   "row": 143,
+   "classification": "surface",
+   "screen": "task-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "task-page-desktop.html summary and Time log"
+  },
+  {
+   "row": 144,
+   "classification": "overlay",
+   "screen": "task-page",
+   "element": "move or continue task",
+   "determination": "M",
+   "evidence": "Move or continue button drawn; task move/continue dialog not drawn, see F-003"
+  },
+  {
+   "row": 145,
+   "classification": "action",
+   "screen": "task-page",
+   "element": "continue task",
+   "determination": "M",
+   "evidence": "continue choice in the undrawn task dialog, see F-003"
+  },
+  {
+   "row": 146,
+   "classification": "state",
+   "screen": "task-page",
+   "element": "same-story-rejected",
+   "determination": "M",
+   "evidence": "validation inside the undrawn task dialog, see F-003"
+  },
+  {
+   "row": 147,
+   "classification": "state",
+   "screen": "task-page",
+   "element": "move-continue-validation",
+   "determination": "M",
+   "evidence": "validation inside the undrawn task dialog, see F-003"
+  },
+  {
+   "row": 149,
+   "classification": "surface",
+   "screen": "time-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "time-editor desktop/phone multi-row grid, Insert time, Save/Reset/Cancel"
+  },
+  {
+   "row": 150,
+   "classification": "action",
+   "screen": "time-editor",
+   "element": "edit or delete entries",
+   "determination": "D",
+   "evidence": "time-editor Delete checkbox per row"
+  },
+  {
+   "row": 151,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "remaining-hours-recalculated",
+   "determination": "D",
+   "evidence": "time-editor Remaining hours \"Updates the task estimate on save\""
+  },
+  {
+   "row": 152,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "parse-error",
+   "determination": "P",
+   "evidence": "row error pattern (time-editor-phone.html)"
+  },
+  {
+   "row": 153,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "row error pattern (time-editor-phone.html)"
+  },
+  {
+   "row": 154,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "D",
+   "evidence": "time-editor-phone.html \"No person is specified in a time entry.\""
+  },
+  {
+   "row": 155,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "row error pattern"
+  },
+  {
+   "row": 156,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "row error pattern"
+  },
+  {
+   "row": 157,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "row error pattern"
+  },
+  {
+   "row": 158,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "row error pattern"
+  },
+  {
+   "row": 159,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "row error pattern"
+  },
+  {
+   "row": 160,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "row error pattern"
+  },
+  {
+   "row": 161,
+   "classification": "action",
+   "screen": "time-editor",
+   "element": "re-estimate",
+   "determination": "D",
+   "evidence": "time-editor Remaining hours field (re-estimate placement UX-006-09)"
+  },
+  {
+   "row": 162,
+   "classification": "surface",
+   "screen": "person-timesheet",
+   "element": null,
+   "determination": "D",
+   "evidence": "person-timesheet-desktop.html period, summary, daily totals, three pies; entry from person-page"
+  },
+  {
+   "row": 163,
+   "classification": "state",
+   "screen": "person-timesheet",
+   "element": "invalid-period",
+   "determination": "P",
+   "evidence": "field.date invalid state (ui-kit.html#field-date) and error pattern"
+  },
+  {
+   "row": 164,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 165,
+   "classification": "surface",
+   "screen": "aggregate-timesheet",
+   "element": null,
+   "determination": "D",
+   "evidence": "aggregate-timesheet-desktop.html people checkboxes, period, tables, pies; entry from projects-list"
+  },
+  {
+   "row": 166,
+   "classification": "state",
+   "screen": "aggregate-timesheet",
+   "element": "invalid-period",
+   "determination": "P",
+   "evidence": "field.date invalid state and error pattern"
+  },
+  {
+   "row": 167,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 169,
+   "classification": "surface",
+   "screen": "note-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "note-editor-desktop.html add mode; the Notes section on object pages is not drawn, see F-004"
+  },
+  {
+   "row": 170,
+   "classification": "state",
+   "screen": "note-editor",
+   "element": "validation-error",
+   "determination": "P",
+   "evidence": "error-summary / field-error pattern"
+  },
+  {
+   "row": 173,
+   "classification": "action",
+   "screen": "note-editor",
+   "element": "save",
+   "determination": "M",
+   "evidence": "edit-note entry (notes list on object pages) and edit mode not drawn, see F-004"
+  },
+  {
+   "row": 174,
+   "classification": "overlay",
+   "screen": "note-editor",
+   "element": "delete note confirmation",
+   "determination": "M",
+   "evidence": "delete-note control and its entry not drawn on any export, see F-004"
+  },
+  {
+   "row": 178,
+   "classification": "surface",
+   "screen": "search-results",
+   "element": null,
+   "determination": "D",
+   "evidence": "search-results-desktop.html Type/ID/Title/Match"
+  },
+  {
+   "row": 179,
+   "classification": "state",
+   "screen": "search-results",
+   "element": "empty",
+   "determination": "P",
+   "evidence": "message pattern on the results page"
+  },
+  {
+   "row": 180,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 181,
+   "classification": "state",
+   "screen": "search-results",
+   "element": "empty-search-rejected",
+   "determination": "P",
+   "evidence": "message pattern"
+  },
+  {
+   "row": 182,
+   "classification": "state",
+   "screen": "search-results",
+   "element": "numeric-id-match",
+   "determination": "P",
+   "evidence": "same result-list composition"
+  },
+  {
+   "row": 183,
+   "classification": "state",
+   "screen": "search-results",
+   "element": "invalid-id",
+   "determination": "P",
+   "evidence": "message pattern"
+  },
+  {
+   "row": 184,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 185,
+   "classification": "navigation",
+   "screen": "task-page",
+   "element": "breadcrumb",
+   "determination": "D",
+   "evidence": "breadcrumb on every hierarchical export"
+  },
+  {
+   "row": 186,
+   "classification": "surface",
+   "screen": "history",
+   "element": null,
+   "determination": "D",
+   "evidence": "history-desktop.html (story); project container view not represented, see F-003"
+  },
+  {
+   "row": 187,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 188,
+   "classification": "navigation",
+   "screen": "person-page",
+   "element": "me",
+   "determination": "P",
+   "evidence": "Me link in every top bar; destination has the drawn person-page composition (accepted)"
+  },
+  {
+   "row": 189,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 190,
+   "classification": "navigation",
+   "screen": "task-editor",
+   "element": "formatting help",
+   "determination": "D",
+   "evidence": "Formatting help link on every description editor"
+  },
+  {
+   "row": 192,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "print view",
+   "determination": "D",
+   "evidence": "iteration-print-desktop.html"
+  },
+  {
+   "row": 203,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 204,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 208,
+   "classification": "navigation",
+   "screen": "project-page",
+   "element": "export menu",
+   "determination": "M",
+   "evidence": "Export link drawn; the menu of permitted formats is not drawn, see F-003"
+  },
+  {
+   "row": 209,
+   "classification": "action",
+   "screen": "project-page",
+   "element": "export project",
+   "determination": "M",
+   "evidence": "project export format choice belongs to the undrawn menu, see F-003"
+  },
+  {
+   "row": 210,
+   "classification": "action",
+   "screen": "iteration-page",
+   "element": "export iteration",
+   "determination": "M",
+   "evidence": "iteration export choice (XML, PDF) belongs to the undrawn menu, see F-003"
+  },
+  {
+   "row": 212,
+   "classification": "action",
+   "screen": "story-page",
+   "element": "export PDF",
+   "determination": "M",
+   "evidence": "story/task PDF choice belongs to the undrawn menu, see F-003"
+  },
+  {
+   "row": 223,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  },
+  {
+   "row": 225,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by statement accepted as non-visual; initiating_screen null (see F-009 where one exists)"
+  }
+ ]
+}
