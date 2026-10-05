@@ -1,437 +1,563 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Iteration 3 - Board</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "surface-container-lowest": "#ffffff",
-            "primary-container": "#0c66e4",
-            "surface-tint": "#0058ca",
-            "on-secondary-fixed-variant": "#005229",
-            "on-secondary-container": "#15733f",
-            "on-primary-fixed": "#001945",
-            "on-primary-container": "#ecefff",
-            "outline-variant": "#c2c6d7",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "surface-variant": "#d6e3fe",
-            "on-primary": "#ffffff",
-            "error": "#ba1a1a",
-            "secondary-container": "#9df6b4",
-            "on-secondary-fixed": "#00210d",
-            "on-secondary": "#ffffff",
-            "inverse-primary": "#b0c6ff",
-            "surface-bright": "#f9f9ff",
-            "primary-fixed-dim": "#b0c6ff",
-            "tertiary-container": "#c8362b",
-            "tertiary": "#a51c16",
-            "secondary-fixed": "#9df6b4",
-            "on-surface": "#0e1c2f",
-            "on-tertiary-fixed": "#410001",
-            "primary-fixed": "#d9e2ff",
-            "on-background": "#0e1c2f",
-            "on-tertiary": "#ffffff",
-            "surface": "#f9f9ff",
-            "outline": "#727786",
-            "tertiary-fixed": "#ffdad5",
-            "secondary-fixed-dim": "#82d99a",
-            "secondary": "#086d39",
-            "on-tertiary-fixed-variant": "#910909",
-            "on-primary-fixed-variant": "#00429b",
-            "error-container": "#ffdad6",
-            "background": "#f9f9ff",
-            "inverse-on-surface": "#ebf1ff",
-            "primary": "#004fb6",
-            "on-error": "#ffffff",
-            "inverse-surface": "#243145",
-            "surface-container-high": "#dee8ff",
-            "surface-container": "#e7eeff",
-            "on-tertiary-container": "#ffebe8",
-            "surface-container-low": "#f0f3ff",
-            "on-error-container": "#93000a",
-            "surface-dim": "#cddbf5",
-            "on-surface-variant": "#424654",
-            "surface-container-highest": "#d6e3fe"
-          },
-          borderRadius: {
-            DEFAULT: "0.125rem",
-            lg: "0.25rem",
-            xl: "0.375rem",
-            full: "0.75rem"
-          },
-          fontFamily: {
-            sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            body: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UX13-P41b Iteration 3 - Board (Phone UI, acceptors)</title>
 <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #F7F8FA;
-      color: #1D2125;
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      -webkit-font-smoothing: antialiased;
-      width: 390px;
-      min-width: 390px;
-      max-width: 390px;
+    }
+
+    body {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
       overflow-x: hidden;
     }
-    a:focus-visible, button:focus-visible, input:focus-visible {
-      outline: 2px solid #0C66E4 !important;
-      outline-offset: 2px !important;
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 1000;
     }
-    .custom-scroll-hidden::-webkit-scrollbar {
-      display: none;
+    .skip-link:focus {
+      top: 16px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
     }
-    .custom-scroll-hidden {
-      -ms-overflow-style: none;
+
+    a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      width: 100%;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      padding: 12px 16px;
+    }
+    .top-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+    .user-nav {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .user-nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: #0C66E4;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .search-container {
+      width: 100%;
+    }
+    .search-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+    .search-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 12px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    /* Main layout */
+    .page-wrapper {
+      width: 100%;
+      padding: 16px 16px 32px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 12px;
+    }
+    .breadcrumb-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      list-style: none;
+      font-size: 14px;
+      gap: 6px;
+    }
+    .breadcrumb-item {
+      display: inline-flex;
+      align-items: center;
+    }
+    .breadcrumb-item a {
+      color: #0C66E4;
+    }
+    .breadcrumb-separator {
+      color: #626F86;
+      margin-left: 6px;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    /* Page Header */
+    .page-header {
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .date-range {
+      font-size: 13px;
+      color: #626F86;
+      margin-bottom: 12px;
+    }
+
+    /* Progress block */
+    .progress-section {
+      margin-bottom: 8px;
+    }
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background-color: #DCDFE4;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .progress-bar-fill {
+      width: 48%;
+      height: 100%;
+      background-color: #0C66E4;
+    }
+    .metrics-line {
+      font-size: 13px;
+      color: #1D2125;
+      line-height: 1.4;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .metrics-separator {
+      color: #626F86;
+    }
+
+    /* Tabs Navigation */
+    .tabs-nav {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+      border-bottom: 1px solid #DCDFE4;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
     }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+    .tabs-nav::-webkit-scrollbar {
+      display: none;
+    }
+    .tabs-list {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    .tab-link {
+      display: inline-block;
+      padding: 10px 0;
+      color: #626F86;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      flex-shrink: 0;
+      border-bottom: 2px solid transparent;
+      min-height: 44px;
+      box-sizing: border-box;
+      line-height: 24px;
+    }
+    .tab-link:hover {
+      color: #1D2125;
+      text-decoration: none;
+    }
+    .tab-link[aria-current="page"] {
+      color: #0C66E4;
+      font-weight: 600;
+      border-bottom: 2px solid #0C66E4;
+    }
+
+    /* Board Summary & Stories */
+    .board-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .story-band {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 14px;
+    }
+
+    .story-band-header {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #DCDFE4;
+      margin-bottom: 12px;
+    }
+    .story-title-link {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0C66E4;
+      display: inline-block;
+      min-height: 24px;
+    }
+
+    /* Stacked Status Sections inside each Story Band */
+    .status-section {
+      margin-bottom: 12px;
+    }
+    .status-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .status-heading {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #626F86;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-count {
+      color: #626F86;
+      font-weight: 500;
+    }
+
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Task Card */
+    .task-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 10px 12px;
+      min-height: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .task-name-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0C66E4;
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+    .task-details {
+      font-size: 12px;
+      color: #626F86;
+      line-height: 1.4;
+    }
+
+    .empty-state {
+      font-size: 13px;
+      color: #626F86;
+      font-style: normal;
+      padding: 4px 0 6px;
     }
   </style>
-  </head>
-<body class="w-[390px] mx-auto min-h-screen bg-[#F7F8FA] text-[#1D2125] flex flex-col pb-12">
-<!-- TOP BAR -->
-<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] px-4 h-14 flex items-center justify-between shrink-0">
-<div class="flex items-center">
-<span class="text-base font-semibold text-[#1D2125] tracking-tight">Planner</span>
-</div>
-<nav aria-label="User navigation" class="flex items-center space-x-1">
-<a class="h-[44px] min-h-[44px] px-3 inline-flex items-center text-sm font-normal text-[#1D2125] hover:text-[#0C66E4] rounded-[6px]" href="#">
-        Me
-      </a>
-<a class="h-[44px] min-h-[44px] px-3 inline-flex items-center text-sm font-normal text-[#1D2125] hover:text-[#0C66E4] rounded-[6px]" href="#">
-        Sign out
-      </a>
+</head>
+<body>
+<!-- Accessible Skip Link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Top Bar -->
+<header class="top-bar">
+<div class="top-bar-header">
+<span class="brand-title">Planner</span>
+<nav aria-label="User account" class="user-nav">
+<a href="#me">Me</a>
+<a href="#signout">Sign out</a>
 </nav>
-</header>
-<main class="w-full px-4 flex flex-col">
-<!-- SEARCH SECTION -->
-<div class="pt-4 pb-3">
-<label class="block text-sm font-normal text-[#1D2125] mb-1.5" for="search-input">
-        Search or ID
-      </label>
-<input class="w-full h-[44px] bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-[16px] text-[#1D2125] focus:border-[#0C66E4]" id="search-input" type="text"/>
 </div>
-<!-- BREADCRUMBS -->
-<nav aria-label="Breadcrumb" class="py-1">
-<ol class="flex items-center flex-wrap text-sm text-[#626F86]">
-<li class="inline-flex items-center">
-<a class="min-h-[44px] inline-flex items-center text-[#0C66E4] hover:underline pr-1" href="#">Top</a>
-<span class="px-1 text-[#626F86]">/</span>
+<div class="search-container">
+<label class="search-label" for="search-input">Search or ID</label>
+<input autocomplete="off" class="search-input" id="search-input" name="search" type="search"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="page-wrapper" id="main">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+<ol class="breadcrumb-list">
+<li class="breadcrumb-item">
+<a href="#top">Top</a>
+<span aria-hidden="true" class="breadcrumb-separator">/</span>
 </li>
-<li class="inline-flex items-center">
-<a class="min-h-[44px] inline-flex items-center text-[#0C66E4] hover:underline px-1" href="#">Project 1</a>
-<span class="px-1 text-[#626F86]">/</span>
+<li class="breadcrumb-item">
+<a href="#project-1">Project 1</a>
+<span aria-hidden="true" class="breadcrumb-separator">/</span>
 </li>
-<li class="inline-flex items-center">
-<span aria-current="page" class="min-h-[44px] inline-flex items-center text-[#1D2125] font-medium pl-1">Iteration 3</span>
+<li class="breadcrumb-item">
+<span aria-current="page" class="breadcrumb-current">Iteration 3</span>
 </li>
 </ol>
 </nav>
-<!-- TITLE & METRICS -->
-<div class="pt-1 pb-3">
-<h1 class="text-[24px] font-semibold text-[#1D2125] leading-tight mb-1">Iteration 3</h1>
-<p class="text-[14px] text-[#626F86] mb-3">2026-03-02 to 2026-03-13</p>
-<!-- PROGRESS -->
-<div class="mb-3">
-<div class="flex items-center justify-between text-sm text-[#1D2125] mb-1.5 font-normal">
+<!-- Page Heading -->
+<header class="page-header">
+<h1 class="page-title">Iteration 3</h1>
+<div class="date-range">2026-03-02 to 2026-03-13</div>
+<div class="progress-section">
+<div aria-label="Iteration progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="48" class="progress-bar-container" role="progressbar">
+<div class="progress-bar-fill"></div>
+</div>
+<div class="metrics-line">
 <span>Progress 48%</span>
-</div>
-<div class="w-full h-[8px] bg-[#DCDFE4] rounded-[4px] overflow-hidden">
-<div class="h-full bg-[#0C66E4] rounded-[4px]" style="width: 48%;"></div>
-</div>
-</div>
-<!-- METRICS LINE -->
-<div class="pt-1 text-[13px] leading-relaxed text-[#626F86] flex flex-wrap gap-x-3 gap-y-1">
-<span>Estimated <strong class="font-semibold text-[#1D2125]">100.0 h</strong></span>
-<span>Actual <strong class="font-semibold text-[#1D2125]">48.0 h</strong></span>
-<span>Remaining <strong class="font-semibold text-[#1D2125]">52.0 h</strong></span>
+<span aria-hidden="true" class="metrics-separator">·</span>
+<span>Estimated 100.0 h</span>
+<span aria-hidden="true" class="metrics-separator">·</span>
+<span>Actual 48.0 h</span>
+<span aria-hidden="true" class="metrics-separator">·</span>
+<span>Remaining 52.0 h</span>
 </div>
 </div>
-<!-- TABS BAR -->
-<div class="border-b border-[#DCDFE4] -mx-4 px-4 overflow-x-auto custom-scroll-hidden mb-4">
-<nav aria-label="Tabs" class="flex space-x-6 min-w-max">
-<a class="h-[44px] min-h-[44px] inline-flex items-center text-sm font-normal text-[#626F86] hover:text-[#0C66E4]" href="#">
-          Stories
-        </a>
-<a class="h-[44px] min-h-[44px] inline-flex items-center text-sm font-normal text-[#626F86] hover:text-[#0C66E4]" href="#">
-          Tasks
-        </a>
-<a class="h-[44px] min-h-[44px] inline-flex items-center text-sm font-normal text-[#626F86] hover:text-[#0C66E4]" href="#">
-          Statistics
-        </a>
-<a class="h-[44px] min-h-[44px] inline-flex items-center text-sm font-normal text-[#626F86] hover:text-[#0C66E4]" href="#">
-          Accuracy
-        </a>
-<a aria-current="page" class="h-[44px] min-h-[44px] inline-flex items-center text-sm font-semibold text-[#0C66E4] border-b-2 border-[#0C66E4]" href="#">
-          Board
-        </a>
+</header>
+<!-- Tabs Row with horizontal scrolling -->
+<nav aria-label="Iteration sections" class="tabs-nav">
+<ul class="tabs-list">
+<li><a class="tab-link" href="#stories">Stories</a></li>
+<li><a class="tab-link" href="#tasks">Tasks</a></li>
+<li><a class="tab-link" href="#statistics">Statistics</a></li>
+<li><a class="tab-link" href="#accuracy">Accuracy</a></li>
+<li><a aria-current="page" class="tab-link" href="#board">Board</a></li>
+</ul>
 </nav>
+<!-- Task Board -->
+<section aria-label="Iteration Task Board" class="board-container"><div class="metrics-line" style="display:flex;flex-wrap:wrap;gap:8px;font-size:13px;font-weight:600;color:#626F86;padding-bottom:4px;"><span>Not started 3</span><span aria-hidden="true" class="metrics-separator">·</span><span>In progress 10</span><span aria-hidden="true" class="metrics-separator">·</span><span>Done 5</span></div>
+<!-- Story 1 -->
+<article aria-labelledby="story-1-heading" class="story-band">
+<div class="story-band-header">
+<a class="story-title-link" href="#story-1" id="story-1-heading">Story 1</a>
 </div>
-<!-- BOARD SUMMARY COUNTS -->
-<div class="grid grid-cols-3 gap-2 py-2 mb-4 bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] px-3 text-center">
-<div class="flex flex-col">
-<span class="text-[12px] text-[#626F86]">Not started</span>
-<span class="text-[15px] font-semibold text-[#1D2125]">3</span>
-</div>
-<div class="flex flex-col border-x border-[#DCDFE4]">
-<span class="text-[12px] text-[#626F86]">In progress</span>
-<span class="text-[15px] font-semibold text-[#0C66E4]">10</span>
-</div>
-<div class="flex flex-col">
-<span class="text-[12px] text-[#626F86]">Done</span>
-<span class="text-[15px] font-semibold text-[#1F7A45]">5</span>
-</div>
-</div>
-<!-- STORIES LIST -->
-<div class="flex flex-col space-y-5">
-<!-- STORY 1 -->
-<section class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3.5">
-<div class="border-b border-[#DCDFE4] pb-2 mb-3">
-<h2 class="text-base font-semibold text-[#0C66E4]">Story 1</h2>
-</div>
-<div class="space-y-3">
-<!-- Not started -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1.5 uppercase tracking-wide">Not started</div>
-<div class="space-y-2">
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 4</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User B · 5.0 h</span>
-</a>
+<div class="status-section">
+<h2 class="status-heading">Not started <span class="status-count">(1)</span></h2>
+<div class="card-list">
+<div class="task-card">
+<a class="task-name-link" href="#task-4">Task 4</a>
+<div class="task-details">User B · 5.0 h</div>
 </div>
 </div>
 </div>
-<!-- In progress -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1.5 uppercase tracking-wide">In progress</div>
-<div class="space-y-2">
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 2</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User A · 1.0 h</span>
-</a>
+<div class="status-section">
+<h2 class="status-heading">In progress <span class="status-count">(2)</span></h2>
+<div class="card-list">
+<div class="task-card">
+<a class="task-name-link" href="#task-2">Task 2</a>
+<div class="task-details">User A · 1.0 h</div>
 </div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 3</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User B · 2.0 h</span>
-</a>
+<div class="task-card">
+<a class="task-name-link" href="#task-3">Task 3</a>
+<div class="task-details">User B · 2.0 h</div>
 </div>
 </div>
 </div>
-<!-- Done -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1.5 uppercase tracking-wide">Done</div>
-<div class="space-y-2">
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 1</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User A · 0.0 h</span>
-</a>
+<div class="status-section">
+<h2 class="status-heading">Done <span class="status-count">(1)</span></h2>
+<div class="card-list">
+<div class="task-card">
+<a class="task-name-link" href="#task-1">Task 1</a>
+<div class="task-details">User A · 0.0 h</div>
 </div>
 </div>
 </div>
+</article>
+<!-- Story 2 -->
+<article aria-labelledby="story-2-heading" class="story-band">
+<div class="story-band-header">
+<a class="story-title-link" href="#story-2" id="story-2-heading">Story 2</a>
 </div>
+<div class="status-section">
+<h2 class="status-heading">Not started <span class="status-count">(0)</span></h2>
+<div class="empty-state">None</div>
+</div>
+<div class="status-section">
+<h2 class="status-heading">In progress <span class="status-count">(3)</span></h2>
+<div class="card-list">
+<div class="task-card">
+<a class="task-name-link" href="#task-7">Task 7</a>
+<div class="task-details">User B · 6.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-8">Task 8</a>
+<div class="task-details">User B · 6.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-9">Task 9</a>
+<div class="task-details">User C · 6.0 h</div>
+</div>
+</div>
+</div>
+<div class="status-section">
+<h2 class="status-heading">Done <span class="status-count">(0)</span></h2>
+<div class="empty-state">None</div>
+</div>
+</article>
+<!-- Story 3 -->
+<article aria-labelledby="story-3-heading" class="story-band">
+<div class="story-band-header">
+<a class="story-title-link" href="#story-3" id="story-3-heading">Story 3</a>
+</div>
+<div class="status-section">
+<h2 class="status-heading">Not started <span class="status-count">(0)</span></h2>
+<div class="empty-state">None</div>
+</div>
+<div class="status-section">
+<h2 class="status-heading">In progress <span class="status-count">(5)</span></h2>
+<div class="card-list">
+<div class="task-card">
+<a class="task-name-link" href="#task-13">Task 13</a>
+<div class="task-details">User A · 2.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-14">Task 14</a>
+<div class="task-details">User D · 2.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-15">Task 15</a>
+<div class="task-details">User A · 2.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-16">Task 16</a>
+<div class="task-details">User D · 2.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-17">Task 17</a>
+<div class="task-details">User A · 2.0 h</div>
+</div>
+</div>
+</div>
+<div class="status-section">
+<h2 class="status-heading">Done <span class="status-count">(0)</span></h2>
+<div class="empty-state">None</div>
+</div>
+</article>
+<!-- Story 4 -->
+<article aria-labelledby="story-4-heading" class="story-band">
+<div class="story-band-header">
+<a class="story-title-link" href="#story-4" id="story-4-heading">Story 4</a>
+</div>
+<div class="status-section">
+<h2 class="status-heading">Not started <span class="status-count">(2)</span></h2>
+<div class="card-list">
+<div class="task-card">
+<a class="task-name-link" href="#task-18">Task 18</a>
+<div class="task-details">User C · 8.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-19">Task 19</a>
+<div class="task-details">User D · 8.0 h</div>
+</div>
+</div>
+</div>
+<div class="status-section">
+<h2 class="status-heading">In progress <span class="status-count">(0)</span></h2>
+<div class="empty-state">None</div>
+</div>
+<div class="status-section">
+<h2 class="status-heading">Done <span class="status-count">(0)</span></h2>
+<div class="empty-state">None</div>
+</div>
+</article>
+<!-- Story 5 -->
+<article aria-labelledby="story-5-heading" class="story-band">
+<div class="story-band-header">
+<a class="story-title-link" href="#story-5" id="story-5-heading">Story 5</a>
+</div>
+<div class="status-section">
+<h2 class="status-heading">Not started <span class="status-count">(0)</span></h2>
+<div class="empty-state">None</div>
+</div>
+<div class="status-section">
+<h2 class="status-heading">In progress <span class="status-count">(0)</span></h2>
+<div class="empty-state">None</div>
+</div>
+<div class="status-section">
+<h2 class="status-heading">Done <span class="status-count">(4)</span></h2>
+<div class="card-list">
+<div class="task-card">
+<a class="task-name-link" href="#task-10">Task 10</a>
+<div class="task-details">User A · 0.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-11">Task 11</a>
+<div class="task-details">User A · 0.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-12">Task 12</a>
+<div class="task-details">User A · 0.0 h</div>
+</div>
+<div class="task-card">
+<a class="task-name-link" href="#task-20">Task 20</a>
+<div class="task-details">User B · 0.0 h</div>
+</div>
+</div>
+</div>
+</article>
 </section>
-<!-- STORY 2 -->
-<section class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3.5">
-<div class="border-b border-[#DCDFE4] pb-2 mb-3">
-<h2 class="text-base font-semibold text-[#0C66E4]">Story 2</h2>
-</div>
-<div class="space-y-3">
-<!-- Not started -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1 uppercase tracking-wide">Not started</div>
-<p class="text-[14px] text-[#626F86] py-1">None</p>
-</div>
-<!-- In progress -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1.5 uppercase tracking-wide">In progress</div>
-<div class="space-y-2">
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 7</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User B · 6.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 8</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User B · 6.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 9</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User C · 6.0 h</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Done -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1 uppercase tracking-wide">Done</div>
-<p class="text-[14px] text-[#626F86] py-1">None</p>
-</div>
-</div>
-</section>
-<!-- STORY 3 -->
-<section class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3.5">
-<div class="border-b border-[#DCDFE4] pb-2 mb-3">
-<h2 class="text-base font-semibold text-[#0C66E4]">Story 3</h2>
-</div>
-<div class="space-y-3">
-<!-- Not started -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1 uppercase tracking-wide">Not started</div>
-<p class="text-[14px] text-[#626F86] py-1">None</p>
-</div>
-<!-- In progress -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1.5 uppercase tracking-wide">In progress</div>
-<div class="space-y-2">
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 13</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User A · 2.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 14</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User D · 2.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 15</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User A · 2.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 16</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User D · 2.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 17</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User A · 2.0 h</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Done -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1 uppercase tracking-wide">Done</div>
-<p class="text-[14px] text-[#626F86] py-1">None</p>
-</div>
-</div>
-</section>
-<!-- STORY 4 -->
-<section class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3.5">
-<div class="border-b border-[#DCDFE4] pb-2 mb-3">
-<h2 class="text-base font-semibold text-[#0C66E4]">Story 4</h2>
-</div>
-<div class="space-y-3">
-<!-- Not started -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1.5 uppercase tracking-wide">Not started</div>
-<div class="space-y-2">
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 18</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User C · 8.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 19</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User D · 8.0 h</span>
-</a>
-</div>
-</div>
-</div>
-<!-- In progress -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1 uppercase tracking-wide">In progress</div>
-<p class="text-[14px] text-[#626F86] py-1">None</p>
-</div>
-<!-- Done -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1 uppercase tracking-wide">Done</div>
-<p class="text-[14px] text-[#626F86] py-1">None</p>
-</div>
-</div>
-</section>
-<!-- STORY 5 -->
-<section class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3.5">
-<div class="border-b border-[#DCDFE4] pb-2 mb-3">
-<h2 class="text-base font-semibold text-[#0C66E4]">Story 5</h2>
-</div>
-<div class="space-y-3">
-<!-- Not started -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1 uppercase tracking-wide">Not started</div>
-<p class="text-[14px] text-[#626F86] py-1">None</p>
-</div>
-<!-- In progress -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1 uppercase tracking-wide">In progress</div>
-<p class="text-[14px] text-[#626F86] py-1">None</p>
-</div>
-<!-- Done -->
-<div>
-<div class="text-[13px] font-semibold text-[#626F86] mb-1.5 uppercase tracking-wide">Done</div>
-<div class="space-y-2">
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 10</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User A · 0.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 11</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User A · 0.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 12</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User A · 0.0 h</span>
-</a>
-</div>
-<div class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-3">
-<a class="min-h-[44px] flex flex-col justify-center" href="#">
-<span class="text-[#0C66E4] font-medium text-[15px] hover:underline">Task 20</span>
-<span class="text-[14px] text-[#626F86] mt-0.5">User B · 0.0 h</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div>
 </main>
-</body></html>
+</body>
+</html>

@@ -1,472 +1,749 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=390, initial-scale=1.0" name="viewport"/>
-<title>Iteration 3 - Statistics</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "tertiary-container": "#c8362b",
-            "secondary": "#086d39",
-            "inverse-surface": "#243145",
-            "on-primary-fixed": "#001945",
-            "surface-container-lowest": "#ffffff",
-            "on-surface": "#0e1c2f",
-            "on-error-container": "#93000a",
-            "error-container": "#ffdad6",
-            "primary": "#004fb6",
-            "inverse-on-surface": "#ebf1ff",
-            "on-primary-fixed-variant": "#00429b",
-            "secondary-fixed": "#9df6b4",
-            "on-tertiary-fixed": "#410001",
-            "surface-container-low": "#f0f3ff",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "on-surface-variant": "#424654",
-            "on-secondary-fixed-variant": "#005229",
-            "surface-dim": "#cddbf5",
-            "surface-bright": "#f9f9ff",
-            "on-background": "#0e1c2f",
-            "error": "#ba1a1a",
-            "surface-tint": "#0058ca",
-            "primary-container": "#0c66e4",
-            "tertiary-fixed": "#ffdad5",
-            "on-tertiary-fixed-variant": "#910909",
-            "surface-container": "#e7eeff",
-            "primary-fixed-dim": "#b0c6ff",
-            "on-tertiary": "#ffffff",
-            "on-secondary-fixed": "#00210d",
-            "on-secondary-container": "#15733f",
-            "surface": "#f9f9ff",
-            "outline": "#727786",
-            "on-error": "#ffffff",
-            "secondary-fixed-dim": "#82d99a",
-            "on-primary": "#ffffff",
-            "surface-container-high": "#dee8ff",
-            "surface-container-highest": "#d6e3fe",
-            "outline-variant": "#c2c6d7",
-            "inverse-primary": "#b0c6ff",
-            "surface-variant": "#d6e3fe",
-            "on-primary-container": "#ecefff",
-            "tertiary": "#a51c16",
-            "secondary-container": "#9df6b4",
-            "on-secondary": "#ffffff",
-            "background": "#f9f9ff",
-            "primary-fixed": "#d9e2ff",
-            "on-tertiary-container": "#ffebe8"
-          },
-          borderRadius: {
-            "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
-          }
-        }
-      }
-    }
-  </script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UX13-P22c Iteration 3 - Statistics (Phone UI, breadcrumb)</title>
 <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #F7F8FA;
-      color: #1D2125;
+    /* CSS Reset & Foundation Tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      width: 390px;
-      min-height: 100vh;
+    }
+
+    :root {
+      --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --text: #1D2125;
+      --text-secondary: #626F86;
+      --primary: #0C66E4;
+      --bg: #F7F8FA;
+      --surface: #FFFFFF;
+      --border: #8590A2;
+      --divider: #DCDFE4;
+      --header-row: #F1F2F4;
+      --selected: #E9F2FF;
+      --danger: #C9372C;
+      --danger-hover: #AE2A19;
+      --radius: 6px;
+      --chart-blue: #0C66E4;
+      --chart-green: #1F7A45;
+      --chart-slate: #626F86;
+      --chart-red: #C9372C;
+    }
+
+    body {
+      width: 100%;
+      min-width: 0;
+      font-family: var(--font-stack);
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text);
+      background-color: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
-    .custom-focus:focus-visible {
-      outline: 2px solid #0C66E4;
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 1000;
+      padding: 8px 12px;
+      background: var(--surface);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: top 0.15s ease-in-out;
+    }
+    .skip-link:focus {
+      top: 12px;
+      outline: 2px solid var(--primary);
       outline-offset: 2px;
     }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+
+    /* Global Focus Ring */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* Header & Top Bar */
+    .top-bar {
+      width: 100%;
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--divider);
+      padding: 12px 16px 14px;
+    }
+
+    .top-bar-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .user-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .user-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .user-links a:hover {
+      text-decoration: underline;
+    }
+
+    .search-block {
+      width: 100%;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 36px;
+      padding: 6px 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    /* Main Content Layout */
+    .page-wrapper {
+      width: 100%;
+      padding: 16px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 12px;
+    }
+    .breadcrumb-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .breadcrumb-list li::after {
+      content: "/";
+      margin-left: 6px;
+      color: var(--text-secondary);
+    }
+    .breadcrumb-list li:last-child::after {
+      content: "";
+    }
+    .breadcrumb-list a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .breadcrumb-list a:hover {
+      text-decoration: underline;
+    }
+    .breadcrumb-list [aria-current="page"] {
+      color: var(--text-secondary);
+    }
+
+    /* Heading & Metadata */
+    .page-header {
+      margin-bottom: 14px;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .date-range {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    /* Summary & Progress Bar */
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background-color: var(--divider);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background-color: var(--primary);
+      border-radius: 999px;
+    }
+    .summary-metrics {
+      font-size: 13px;
+      color: var(--text);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+    }
+    .metric-item {
+      white-space: nowrap;
+    }
+
+    /* Tab Row */
+    .tabs-nav-container {
+      width: 100%;
+      max-width: 100%;
+      border-bottom: 1px solid var(--divider);
+      margin-top: 18px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    .tabs-nav-container::-webkit-scrollbar {
+      display: none;
+    }
+    .tabs-nav-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .tabs-list {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 2px;
+    }
+    .tab-link {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 8px 0;
+      flex-shrink: 0;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+    .tab-link:hover {
+      color: var(--text);
+    }
+    .tab-link[aria-current="page"] {
+      font-weight: 600;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+
+    /* Charts Stack Section */
+    .charts-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .chart-card {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .chart-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    /* Pie Chart Container */
+    .pie-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    @media (min-width: 360px) {
+      .pie-layout {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+      }
+    }
+
+    .pie-svg {
+      width: 130px;
+      height: 130px;
+      flex-shrink: 0;
+      transform: rotate(-90deg);
+      border-radius: 50%;
+    }
+
+    .legend-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .legend-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .color-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .legend-val {
+      font-weight: 600;
+      color: var(--text);
+      margin-left: 8px;
+    }
+
+    /* Progress Horizontal Bars Card */
+    .horizontal-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hbar-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .hbar-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+    .hbar-name {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .hbar-val {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .hbar-track {
+      width: 100%;
+      height: 14px;
+      background: var(--header-row);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--divider);
+    }
+    .hbar-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    /* Burn-down Chart */
+    .burndown-container {
+      width: 100%;
+    }
+    .burndown-svg-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .burndown-svg {
+      width: 100%;
+      min-width: 320px;
+      height: auto;
+      display: block;
+    }
+    .burndown-legend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .burndown-line-indicator {
+      width: 18px;
+      height: 3px;
+      background-color: var(--chart-blue);
+      border-radius: 2px;
+      display: inline-block;
     }
   </style>
-  </head>
-<body class="w-[390px] mx-auto bg-[#F7F8FA] text-[#1D2125]">
-<!-- Top bar -->
-<header class="w-full bg-white border-b border-[#DCDFE4] px-4 flex items-center justify-between h-[48px]">
-<div class="flex items-center">
-<span class="text-[17px] font-bold text-[#1D2125] tracking-tight">Planner</span>
+<style>.breadcrumb-list li::after { content: none !important; } .breadcrumb-list li { white-space: nowrap; flex-shrink: 0; } .bc-sep { margin: 0 4px; color: var(--text-secondary); }</style></head>
+<body>
+<!-- Accessibility Skip to Main Content Link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Phone Top Bar -->
+<header class="top-bar">
+<div class="top-bar-nav">
+<span class="brand-title">Planner</span>
+<div class="user-links">
+<a href="#me">Me</a>
+<a href="#signout">Sign out</a>
 </div>
-<nav class="flex items-center gap-1">
-<a class="min-h-[44px] px-2.5 flex items-center text-[14px] text-[#0C66E4] hover:text-[#0055CC] custom-focus rounded-[6px]" href="#me">Me</a>
-<span class="text-[#DCDFE4] select-none">|</span>
-<a class="min-h-[44px] px-2.5 flex items-center text-[14px] text-[#626F86] hover:text-[#1D2125] custom-focus rounded-[6px]" href="#signout">Sign out</a>
-</nav>
+</div>
+<div class="search-block">
+<label class="search-label" for="search-input">Search or ID</label>
+<input class="search-input" id="search-input" name="search" type="text"/>
+</div>
 </header>
-<!-- Search section -->
-<section class="px-4 pt-3 pb-2 bg-[#F7F8FA]">
-<label class="block text-[13px] font-medium text-[#1D2125] mb-1" for="search-input">Search or ID</label>
-<div class="relative w-full">
-<input class="w-full h-[44px] bg-white border border-[#8590A2] rounded-[6px] px-3 text-[16px] text-[#1D2125] custom-focus outline-none" id="search-input" type="text"/>
-</div>
-</section>
-<!-- Breadcrumbs -->
-<nav aria-label="Breadcrumb" class="px-4 py-1">
-<ol class="flex items-center flex-wrap gap-0 text-[14px] text-[#626F86]">
-<li class="flex items-center">
-<a class="min-h-[44px] flex items-center text-[#0C66E4] hover:text-[#0055CC] custom-focus rounded-[6px]" href="#top">Top</a>
-<span class="mx-1.5 text-[#626F86]">/</span>
-</li>
-<li class="flex items-center">
-<a class="min-h-[44px] flex items-center text-[#0C66E4] hover:text-[#0055CC] custom-focus rounded-[6px]" href="#project-1">Project 1</a>
-<span class="mx-1.5 text-[#626F86]">/</span>
-</li>
-<li aria-current="page" class="flex items-center text-[#1D2125] font-semibold min-h-[44px]">
-        Iteration 3
-      </li>
-</ol>
+<!-- Main Content Region -->
+<main class="page-wrapper" id="main">
+<!-- Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+<ol class="breadcrumb-list"><li style="white-space: nowrap; flex-shrink: 0;"><a href="#top">Top</a><span aria-hidden="true" class="bc-sep" style="margin: 0 4px; color: var(--text-secondary);">/</span></li><li style="white-space: nowrap; flex-shrink: 0;"><a href="#project-1">Project 1</a><span aria-hidden="true" class="bc-sep" style="margin: 0 4px; color: var(--text-secondary);">/</span></li><li style="white-space: nowrap; flex-shrink: 0;"><span aria-current="page">Iteration 3</span></li></ol>
 </nav>
-<!-- Main header details -->
-<main class="px-4">
-<div class="mt-1">
-<h1 class="text-[24px] font-semibold text-[#1D2125] leading-tight">Iteration 3</h1>
-<p class="text-[14px] text-[#626F86] mt-0.5">2026-03-02 to 2026-03-13</p>
+<!-- Page Header & Summary -->
+<header class="page-header">
+<h1 class="page-title">Iteration 3</h1>
+<p class="date-range">2026-03-02 to 2026-03-13</p>
+<div aria-label="Iteration progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="48" class="progress-bar-container" role="progressbar">
+<div class="progress-bar-fill" style="width: 48%;"></div>
 </div>
-<!-- Progress bar & metrics -->
-<div class="mt-4 bg-white border border-[#DCDFE4] rounded-[6px] p-3.5">
-<div class="flex justify-between items-center mb-1.5">
-<span class="text-[14px] font-medium text-[#1D2125]">Progress</span>
-<span class="text-[14px] font-semibold text-[#1D2125]">48%</span>
+<div class="summary-metrics">
+<span class="metric-item"><strong>Progress 48%</strong></span>
+<span class="metric-item">Estimated 100.0 h</span>
+<span class="metric-item">Actual 48.0 h</span>
+<span class="metric-item">Remaining 52.0 h</span>
 </div>
-<div class="w-full h-2.5 bg-[#E1E4EA] rounded-full overflow-hidden">
-<div class="h-full bg-[#0C66E4] rounded-full" style="width: 48%;"></div>
+</header>
+<!-- Horizontally Scrollable Local Tabs -->
+<nav aria-label="Iteration sections" class="tabs-nav-container">
+<div class="tabs-list" role="tablist">
+<a class="tab-link" href="#stories" role="tab">Stories</a>
+<a class="tab-link" href="#tasks" role="tab">Tasks</a>
+<a aria-current="page" class="tab-link" href="#statistics" role="tab">Statistics</a>
+<a class="tab-link" href="#accuracy" role="tab">Accuracy</a>
+<a class="tab-link" href="#board" role="tab">Board</a>
 </div>
-<div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-[#DCDFE4] text-center">
-<div>
-<div class="text-[11px] text-[#626F86] uppercase tracking-wider font-medium">Estimated</div>
-<div class="text-[14px] font-semibold text-[#1D2125] mt-0.5">100.0 h</div>
-</div>
-<div>
-<div class="text-[11px] text-[#626F86] uppercase tracking-wider font-medium">Actual</div>
-<div class="text-[14px] font-semibold text-[#0C66E4] mt-0.5">48.0 h</div>
-</div>
-<div>
-<div class="text-[11px] text-[#626F86] uppercase tracking-wider font-medium">Remaining</div>
-<div class="text-[14px] font-semibold text-[#1D2125] mt-0.5">52.0 h</div>
-</div>
-</div>
-</div>
-<!-- Navigation Tabs -->
-<nav aria-label="Iteration tabs" class="flex border-b border-[#DCDFE4] mt-4 overflow-x-auto no-scrollbar">
-<a class="min-h-[44px] flex items-center px-3 text-[14px] text-[#626F86] font-normal hover:text-[#1D2125] custom-focus border-b-2 border-transparent -mb-[1px]" href="#stories">Stories</a>
-<a class="min-h-[44px] flex items-center px-3 text-[14px] text-[#626F86] font-normal hover:text-[#1D2125] custom-focus border-b-2 border-transparent -mb-[1px]" href="#tasks">Tasks</a>
-<a aria-current="page" class="min-h-[44px] flex items-center px-3 text-[14px] text-[#0C66E4] font-semibold border-b-2 border-[#0C66E4] -mb-[1px] custom-focus" href="#statistics">Statistics</a>
-<a class="min-h-[44px] flex items-center px-3 text-[14px] text-[#626F86] font-normal hover:text-[#1D2125] custom-focus border-b-2 border-transparent -mb-[1px]" href="#accuracy">Accuracy</a>
-<a class="min-h-[44px] flex items-center px-3 text-[14px] text-[#626F86] font-normal hover:text-[#1D2125] custom-focus border-b-2 border-transparent -mb-[1px]" href="#board">Board</a>
 </nav>
-<!-- Charts stack column -->
-<div class="mt-4 pb-8 space-y-4">
+<!-- Stacked Charts (One per row, full width) -->
+<section aria-label="Iteration statistics charts" class="charts-stack">
 <!-- Chart 1: Tasks by type -->
-<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Tasks by type</h2>
-<div class="flex justify-center my-2">
-<!-- Total 18: Feature 13 (~72.2%), Defect 3 (~16.7%), Debt 2 (~11.1%) -->
-<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
-<!-- Feature (13/18 = 72.22%) -->
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="72.22 27.78" stroke-dashoffset="0" stroke-width="5"></circle>
-<!-- Defect (3/18 = 16.67%) -->
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#1F883D" stroke-dasharray="16.67 83.33" stroke-dashoffset="-72.22" stroke-width="5"></circle>
-<!-- Debt (2/18 = 11.11%) -->
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="11.11 88.89" stroke-dashoffset="-88.89" stroke-width="5"></circle>
-</svg>
+<!-- Total: 18 (Feature 13: 72.22%, Defect 3: 16.67%, Debt 2: 11.11%) -->
+<article class="chart-card">
+<h2 class="chart-title">Tasks by type</h2>
+<div class="pie-layout">
+<svg aria-hidden="true" class="pie-svg" focusable="false" viewbox="0 0 100 100"><!-- Feature: 72.22% = 260 deg (0 to 260 deg) -->
+<!-- x = 50 + 50*cos(260°) = 50 - 50*0.173648 = 41.32, y = 50 + 50*sin(260°) = 50 - 50*0.984808 = 0.76 -->
+<path d="M 50 50 L 100 50 A 50 50 0 1 1 41.3 0.8 Z" fill="#0C66E4"></path>
+<!-- Defect: 16.67% = 60 deg (260 to 320 deg) -->
+<!-- x = 50 + 50*cos(320°) = 50 + 50*0.766044 = 88.30, y = 50 + 50*sin(320°) = 50 - 50*0.642788 = 17.86 -->
+<path d="M 50 50 L 41.3 0.8 A 50 50 0 0 1 88.3 17.9 Z" fill="#1F7A45"></path>
+<!-- Debt: 11.11% = 40 deg (320 to 360 deg) -->
+<path d="M 50 50 L 88.3 17.9 A 50 50 0 0 1 100 50 Z" fill="#626F86"></path></svg>
+<div class="legend-list">
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #0C66E4;"></span>
+<span>Feature</span>
+</span>
+<span class="legend-val">13</span>
 </div>
-<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
-<span class="text-[#1D2125]">Feature</span>
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #1F7A45;"></span>
+<span>Defect</span>
+</span>
+<span class="legend-val">3</span>
 </div>
-<span class="text-[#1D2125] font-semibold tabular-nums">13</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#1F883D] inline-block"></span>
-<span class="text-[#1D2125]">Defect</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">3</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
-<span class="text-[#1D2125]">Debt</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">2</span>
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #626F86;"></span>
+<span>Debt</span>
+</span>
+<span class="legend-val">2</span>
 </div>
 </div>
-</section>
+</div>
+</article>
 <!-- Chart 2: Tasks by disposition -->
-<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Tasks by disposition</h2>
-<div class="flex justify-center my-2">
-<!-- Total 18: Planned 15 (~83.33%), Discovered 3 (~16.67%) -->
-<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="83.33 16.67" stroke-dashoffset="0" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="16.67 83.33" stroke-dashoffset="-83.33" stroke-width="5"></circle>
+<!-- Total: 18 (Planned 15: 83.33%, Discovered 3: 16.67%) -->
+<article class="chart-card">
+<h2 class="chart-title">Tasks by disposition</h2>
+<div class="pie-layout">
+<svg aria-hidden="true" class="pie-svg" focusable="false" viewbox="0 0 100 100">
+<!-- Planned: 83.33% = 300 deg -->
+<!-- Discovered: 16.67% = 60 deg -->
+<path d="M 50 50 L 100 50 A 50 50 0 1 1 75 6.7 Z" fill="#0C66E4"></path>
+<path d="M 50 50 L 75 6.7 A 50 50 0 0 1 100 50 Z" fill="#1F7A45"></path>
 </svg>
+<div class="legend-list">
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #0C66E4;"></span>
+<span>Planned</span>
+</span>
+<span class="legend-val">15</span>
 </div>
-<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
-<span class="text-[#1D2125]">Planned</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">15</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
-<span class="text-[#1D2125]">Discovered</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">3</span>
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #1F7A45;"></span>
+<span>Discovered</span>
+</span>
+<span class="legend-val">3</span>
 </div>
 </div>
-</section>
+</div>
+</article>
 <!-- Chart 3: Estimated hours by type -->
-<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Estimated hours by type</h2>
-<div class="flex justify-center my-2">
-<!-- Total 100.0: Feature 70.0 (70%), Defect 21.0 (21%), Debt 9.0 (9%) -->
-<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="70 30" stroke-dashoffset="0" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#1F883D" stroke-dasharray="21 79" stroke-dashoffset="-70" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="9 91" stroke-dashoffset="-91" stroke-width="5"></circle>
+<!-- Total: 100.0 (Feature 70.0: 70%, Defect 21.0: 21%, Debt 9.0: 9%) -->
+<article class="chart-card">
+<h2 class="chart-title">Estimated hours by type</h2>
+<div class="pie-layout">
+<svg aria-hidden="true" class="pie-svg" focusable="false" viewbox="0 0 100 100">
+<!-- Feature 70%: 0 to 252 deg -->
+<!-- Defect 21%: 252 to 327.6 deg -->
+<!-- Debt 9%: 327.6 to 360 deg -->
+<path d="M 50 50 L 100 50 A 50 50 0 1 1 34.5 2.5 Z" fill="#0C66E4"></path>
+<path d="M 50 50 L 34.5 2.5 A 50 50 0 0 1 92.2 23.2 Z" fill="#1F7A45"></path>
+<path d="M 50 50 L 92.2 23.2 A 50 50 0 0 1 100 50 Z" fill="#626F86"></path>
 </svg>
+<div class="legend-list">
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #0C66E4;"></span>
+<span>Feature</span>
+</span>
+<span class="legend-val">70.0</span>
 </div>
-<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
-<span class="text-[#1D2125]">Feature</span>
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #1F7A45;"></span>
+<span>Defect</span>
+</span>
+<span class="legend-val">21.0</span>
 </div>
-<span class="text-[#1D2125] font-semibold tabular-nums">70.0</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#1F883D] inline-block"></span>
-<span class="text-[#1D2125]">Defect</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">21.0</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
-<span class="text-[#1D2125]">Debt</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">9.0</span>
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #626F86;"></span>
+<span>Debt</span>
+</span>
+<span class="legend-val">9.0</span>
 </div>
 </div>
-</section>
+</div>
+</article>
 <!-- Chart 4: Estimated hours by disposition -->
-<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Estimated hours by disposition</h2>
-<div class="flex justify-center my-2">
-<!-- Total 100.0: Planned 83.0 (83%), Discovered 17.0 (17%) -->
-<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="83 17" stroke-dashoffset="0" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="17 83" stroke-dashoffset="-83" stroke-width="5"></circle>
+<!-- Total: 100.0 (Planned 83.0: 83%, Discovered 17.0: 17%) -->
+<article class="chart-card">
+<h2 class="chart-title">Estimated hours by disposition</h2>
+<div class="pie-layout">
+<svg aria-hidden="true" class="pie-svg" focusable="false" viewbox="0 0 100 100">
+<!-- Planned 83%: 0 to 298.8 deg -->
+<!-- Discovered 17%: 298.8 to 360 deg -->
+<path d="M 50 50 L 100 50 A 50 50 0 1 1 74.1 6.2 Z" fill="#0C66E4"></path>
+<path d="M 50 50 L 74.1 6.2 A 50 50 0 0 1 100 50 Z" fill="#1F7A45"></path>
 </svg>
+<div class="legend-list">
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #0C66E4;"></span>
+<span>Planned</span>
+</span>
+<span class="legend-val">83.0</span>
 </div>
-<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
-<span class="text-[#1D2125]">Planned</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">83.0</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
-<span class="text-[#1D2125]">Discovered</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">17.0</span>
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #1F7A45;"></span>
+<span>Discovered</span>
+</span>
+<span class="legend-val">17.0</span>
 </div>
 </div>
-</section>
+</div>
+</article>
 <!-- Chart 5: Actual hours by type -->
-<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Actual hours by type</h2>
-<div class="flex justify-center my-2">
-<!-- Total 48.0: Feature 39.0 (81.25%), Defect 5.0 (10.42%), Debt 4.0 (8.33%) -->
-<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="81.25 18.75" stroke-dashoffset="0" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#1F883D" stroke-dasharray="10.42 89.58" stroke-dashoffset="-81.25" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="8.33 91.67" stroke-dashoffset="-91.67" stroke-width="5"></circle>
+<!-- Total: 48.0 (Feature 39.0: 81.25%, Defect 5.0: 10.42%, Debt 4.0: 8.33%) -->
+<article class="chart-card">
+<h2 class="chart-title">Actual hours by type</h2>
+<div class="pie-layout">
+<svg aria-hidden="true" class="pie-svg" focusable="false" viewbox="0 0 100 100">
+<!-- Feature 81.25%: 0 to 292.5 deg -->
+<!-- Defect 10.42%: 292.5 to 330 deg -->
+<!-- Debt 8.33%: 330 to 360 deg -->
+<path d="M 50 50 L 100 50 A 50 50 0 1 1 69.1 3.8 Z" fill="#0C66E4"></path>
+<path d="M 50 50 L 69.1 3.8 A 50 50 0 0 1 93.3 25 Z" fill="#1F7A45"></path>
+<path d="M 50 50 L 93.3 25 A 50 50 0 0 1 100 50 Z" fill="#626F86"></path>
 </svg>
+<div class="legend-list">
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #0C66E4;"></span>
+<span>Feature</span>
+</span>
+<span class="legend-val">39.0</span>
 </div>
-<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
-<span class="text-[#1D2125]">Feature</span>
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #1F7A45;"></span>
+<span>Defect</span>
+</span>
+<span class="legend-val">5.0</span>
 </div>
-<span class="text-[#1D2125] font-semibold tabular-nums">39.0</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#1F883D] inline-block"></span>
-<span class="text-[#1D2125]">Defect</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">5.0</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
-<span class="text-[#1D2125]">Debt</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">4.0</span>
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #626F86;"></span>
+<span>Debt</span>
+</span>
+<span class="legend-val">4.0</span>
 </div>
 </div>
-</section>
+</div>
+</article>
 <!-- Chart 6: Actual hours by disposition -->
-<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-<h2 class="text-[16px] font-semibold text-[#1D2125] mb-3">Actual hours by disposition</h2>
-<div class="flex justify-center my-2">
-<!-- Total 48.0: Planned 44.0 (91.67%), Discovered 4.0 (8.33%) -->
-<svg class="transform -rotate-90" height="140" viewbox="0 0 42 42" width="140">
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#E1E4EA" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#0C66E4" stroke-dasharray="91.67 8.33" stroke-dashoffset="0" stroke-width="5"></circle>
-<circle cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#5E6C84" stroke-dasharray="8.33 91.67" stroke-dashoffset="-91.67" stroke-width="5"></circle>
+<!-- Total: 48.0 (Planned 44.0: 91.67%, Discovered 4.0: 8.33%) -->
+<article class="chart-card">
+<h2 class="chart-title">Actual hours by disposition</h2>
+<div class="pie-layout">
+<svg aria-hidden="true" class="pie-svg" focusable="false" viewbox="0 0 100 100">
+<!-- Planned 91.67%: 0 to 330 deg -->
+<!-- Discovered 8.33%: 330 to 360 deg -->
+<path d="M 50 50 L 100 50 A 50 50 0 1 1 93.3 25 Z" fill="#0C66E4"></path>
+<path d="M 50 50 L 93.3 25 A 50 50 0 0 1 100 50 Z" fill="#1F7A45"></path>
 </svg>
+<div class="legend-list">
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #0C66E4;"></span>
+<span>Planned</span>
+</span>
+<span class="legend-val">44.0</span>
 </div>
-<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] inline-block"></span>
-<span class="text-[#1D2125]">Planned</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">44.0</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-[2px] bg-[#5E6C84] inline-block"></span>
-<span class="text-[#1D2125]">Discovered</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">4.0</span>
+<div class="legend-item">
+<span class="legend-indicator">
+<span class="color-dot" style="background-color: #1F7A45;"></span>
+<span>Discovered</span>
+</span>
+<span class="legend-val">4.0</span>
 </div>
 </div>
+</div>
+</article>
+<!-- Progress Horizontal Bars -->
+<article class="chart-card">
+<h2 class="chart-title">Progress</h2>
+<div class="horizontal-bars">
+<!-- Actual hours 48.0 h (relative to 100.0 h = 48%) -->
+<div class="hbar-group">
+<div class="hbar-label-row">
+<span class="hbar-name">Actual hours</span>
+<span class="hbar-val">48.0 h</span>
+</div>
+<div aria-label="Actual hours progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="48" class="hbar-track" role="progressbar">
+<div class="hbar-fill" style="width: 48%; background-color: #0C66E4;"></div>
+</div>
+</div>
+<!-- Estimated hours 100.0 h (full bar = 100%) -->
+<div class="hbar-group">
+<div class="hbar-label-row">
+<span class="hbar-name">Estimated hours</span>
+<span class="hbar-val">100.0 h</span>
+</div>
+<div aria-label="Estimated hours target" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" class="hbar-track" role="progressbar">
+<div class="hbar-fill" style="width: 100%; background-color: #626F86;"></div>
+</div>
+</div>
+</div>
+</article>
+<!-- Burn-down Chart -->
+<article class="chart-card">
+<h2 class="chart-title">Burn-down</h2>
+<div class="burndown-container">
+<div class="burndown-svg-wrapper">
+<!-- Single line series: Remaining hours per working day -->
+<!-- Points: 
+                 1: 2026-03-02 (100.0) -> x=45, y=30
+                 2: 2026-03-03 (92.0)  -> x=90, y=42
+                 3: 2026-03-04 (84.0)  -> x=135, y=54
+                 4: 2026-03-05 (76.0)  -> x=180, y=66
+                 5: 2026-03-06 (68.0)  -> x=225, y=78
+                 6: 2026-03-09 (60.0)  -> x=270, y=90
+                 7: 2026-03-10 (52.0)  -> x=315, y=102
+            -->
+<svg aria-label="Burn-down line chart showing remaining hours per working day" class="burndown-svg" viewbox="0 0 355 185"><!-- Grid lines -->
+<line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="30" y2="30"></line>
+<line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="66" y2="66"></line>
+<line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="102" y2="102"></line>
+<line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="138" y2="138"></line>
+<line stroke="#8590A2" stroke-width="1" x1="40" x2="335" y1="174" y2="174"></line>
+<!-- Y-axis labels -->
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="34">100</text>
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="70">75</text>
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="106">50</text>
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="142">25</text>
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="178">0</text>
+<!-- Polyline for data points -->
+<polyline fill="none" points="45,30 90,42 135,54 180,66 225,78 270,90 315,102" stroke="#0C66E4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Point markers & values -->
+<!-- 2026-03-02: 100.0 -->
+<circle cx="45" cy="30" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="45" y="22">100.0</text>
+<!-- 2026-03-03: 92.0 -->
+<circle cx="90" cy="42" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="90" y="34">92.0</text>
+<!-- 2026-03-04: 84.0 -->
+<circle cx="135" cy="54" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="135" y="46">84.0</text>
+<!-- 2026-03-05: 76.0 -->
+<circle cx="180" cy="66" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="180" y="58">76.0</text>
+<!-- 2026-03-06: 68.0 -->
+<circle cx="225" cy="78" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="225" y="70">68.0</text>
+<!-- 2026-03-09: 60.0 -->
+<circle cx="270" cy="90" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="270" y="82">60.0</text>
+<!-- 2026-03-10: 52.0 -->
+<circle cx="315" cy="102" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="315" y="94">52.0</text>
+<!-- X-axis Date Labels -->
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="45" y="192">03-02</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="90" y="192">03-03</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="135" y="192">03-04</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="180" y="192">03-05</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="225" y="192">03-06</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="270" y="192">03-09</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="315" y="192">03-10</text></svg>
+</div>
+<div class="burndown-legend">
+<span class="burndown-line-indicator"></span>
+<span>Remaining hours</span>
+</div>
+</div>
+</article>
 </section>
-<!-- Chart 7: Progress -->
-<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-<h2 class="text-[16px] font-semibold text-[#1D2125] mb-2">Progress</h2>
-<div class="w-full overflow-hidden">
-<svg class="w-full h-auto text-[9px] text-[#626F86]" viewbox="0 0 320 160">
-<!-- Horizontal Grid lines (Y: 120h=15, 100h=35, 80h=55, 60h=75, 40h=95, 20h=115, 0h=135) -->
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="15" y2="15"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="18">120 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="35" y2="35"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="38">100 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="55" y2="55"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="58">80 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="75" y2="75"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="78">60 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="95" y2="95"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="98">40 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="115" y2="115"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="118">20 h</text>
-<line stroke="#DCDFE4" stroke-width="1" x1="38" x2="310" y1="135" y2="135"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="138">0 h</text>
-<!-- X-axis vertical ticks & labels -->
-<!-- 03-02 (x=45), 03-04 (x=95), 03-06 (x=145), 03-10 (x=205), 03-11 D8 (x=255), 03-13 (x=305) -->
-<text fill="#626F86" font-size="9" text-anchor="middle" x="45" y="150">03-02</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="95" y="150">03-04</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="145" y="150">03-06</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="205" y="150">03-10</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="255" y="150">03-11 (D8)</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="305" y="150">03-13</text>
-<!-- Dashed horizontal line: Estimated hours (100.0 h constant at y=35) -->
-<line stroke="#8590A2" stroke-dasharray="4,4" stroke-width="2" x1="45" x2="305" y1="35" y2="35"></line>
-<!-- Solid blue line: Actual hours (0h -> 48h at 03-11 D8) -->
-<!-- y at 0h = 135, y at 48h = 135 - (48 * 1) = 87 -->
-<polyline fill="none" points="45,135 95,125 145,107 205,97 255,87" stroke="#0C66E4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
-<circle cx="255" cy="87" fill="#0C66E4" r="3.5"></circle>
-</svg>
-</div>
-<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-4 h-0.5 bg-[#0C66E4] inline-block"></span>
-<span class="text-[#1D2125]">Actual hours</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">48.0 h</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-4 h-0.5 border-t border-dashed border-[#8590A2] inline-block"></span>
-<span class="text-[#1D2125]">Estimated hours</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">100.0 h</span>
-</div>
-</div>
-</section>
-<!-- Chart 8: Burn-down -->
-<section class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-<h2 class="text-[16px] font-semibold text-[#1D2125] mb-2">Burn-down</h2>
-<div class="w-full overflow-hidden">
-<svg class="w-full h-auto text-[9px] text-[#626F86]" viewbox="0 0 320 160">
-<!-- Horizontal Grid lines -->
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="15" y2="15"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="18">120 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="35" y2="35"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="38">100 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="55" y2="55"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="58">80 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="75" y2="75"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="78">60 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="95" y2="95"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="98">40 h</text>
-<line stroke="#F1F2F4" stroke-width="1" x1="38" x2="310" y1="115" y2="115"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="118">20 h</text>
-<line stroke="#DCDFE4" stroke-width="1" x1="38" x2="310" y1="135" y2="135"></line>
-<text fill="#626F86" font-size="9" text-anchor="end" x="32" y="138">0 h</text>
-<!-- X-axis vertical ticks & labels -->
-<text fill="#626F86" font-size="9" text-anchor="middle" x="45" y="150">03-02</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="95" y="150">03-04</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="145" y="150">03-06</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="205" y="150">03-10</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="255" y="150">03-11 (D8)</text>
-<text fill="#626F86" font-size="9" text-anchor="middle" x="305" y="150">03-13</text>
-<!-- Target baseline: 100h (y=35) at 03-02 (x=45) down to 0h (y=135) at 03-13 (x=305) -->
-<line stroke="#8590A2" stroke-dasharray="4,4" stroke-width="2" x1="45" x2="305" y1="35" y2="135"></line>
-<!-- Solid green line: Remaining hours falling from 100h to 52.0h at 03-11 D8 (y=83) -->
-<polyline fill="none" points="45,35 95,45 145,63 205,73 255,83" stroke="#1F883D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
-<circle cx="255" cy="83" fill="#1F883D" r="3.5"></circle>
-</svg>
-</div>
-<div class="mt-3 pt-3 border-t border-[#DCDFE4] space-y-1.5 text-[14px]">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-4 h-0.5 bg-[#1F883D] inline-block"></span>
-<span class="text-[#1D2125]">Remaining hours</span>
-</div>
-<span class="text-[#1D2125] font-semibold tabular-nums">52.0 h</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-4 h-0.5 border-t border-dashed border-[#8590A2] inline-block"></span>
-<span class="text-[#1D2125]">Target baseline</span>
-</div>
-<span class="text-[#626F86] text-[13px] tabular-nums">100h → 0h</span>
-</div>
-</div>
-</section>
-</div>
 </main>
-</body></html>
+</body>
+</html>

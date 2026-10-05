@@ -1,231 +1,457 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Project 1 - Planner</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "on-error-container": "#93000a",
-            "on-secondary": "#ffffff",
-            "primary-fixed": "#d9e2ff",
-            "on-primary-fixed": "#001945",
-            "on-secondary-fixed-variant": "#005229",
-            "background": "#F7F8FA",
-            "surface-container": "#e7eeff",
-            "surface-container-lowest": "#ffffff",
-            "secondary-fixed-dim": "#82d99a",
-            "on-error": "#ffffff",
-            "error-container": "#ffdad6",
-            "inverse-surface": "#243145",
-            "on-secondary-fixed": "#00210d",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "surface-container-high": "#dee8ff",
-            "on-tertiary-fixed-variant": "#910909",
-            "surface-bright": "#f9f9ff",
-            "surface": "#FFFFFF",
-            "inverse-primary": "#b0c6ff",
-            "primary": "#0C66E4",
-            "on-primary-fixed-variant": "#00429b",
-            "tertiary-fixed": "#ffdad5",
-            "on-secondary-container": "#15733f",
-            "surface-tint": "#0058ca",
-            "surface-container-low": "#f0f3ff",
-            "secondary": "#086d39",
-            "primary-container": "#0c66e4",
-            "on-tertiary-fixed": "#410001",
-            "tertiary": "#a51c16",
-            "primary-fixed-dim": "#b0c6ff",
-            "on-tertiary-container": "#ffebe8",
-            "surface-variant": "#d6e3fe",
-            "secondary-fixed": "#9df6b4",
-            "tertiary-container": "#c8362b",
-            "secondary-container": "#9df6b4",
-            "on-primary-container": "#ecefff",
-            "inverse-on-surface": "#ebf1ff",
-            "outline": "#8590A2",
-            "on-tertiary": "#ffffff",
-            "surface-container-highest": "#d6e3fe",
-            "on-background": "#1D2125",
-            "on-surface": "#1D2125",
-            "on-surface-variant": "#626F86",
-            "error": "#C9372C",
-            "outline-variant": "#DCDFE4"
-          },
-          fontFamily: {
-            headline: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            display: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            body: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            label: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UX13-P42b Project 1 - Planner (Phone UI, System administrator, column order)</title>
 <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #F7F8FA;
-      color: #1D2125;
+    /* CSS Reset & Foundation Tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      -webkit-font-smoothing: antialiased;
     }
-    
-    /* Interactive element focus state */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible {
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      z-index: 1000;
+      padding: 12px 16px;
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+    }
+    .skip-link:focus {
+      top: 16px;
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
     }
+
+    /* Focus styling */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    div[tabindex="0"]:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Header / Phone Top Bar */
+    .header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      width: 100%;
+    }
+
+    .header-inner {
+      padding: 12px 16px;
+      width: 100%;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      min-width: 44px;
+      justify-content: center;
+    }
+
+    .header-link:hover {
+      text-decoration: underline;
+    }
+
+    .search-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .search-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1D2125;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 44px;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    /* System administrator text link below search field */
+    .admin-bar {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+    }
+
+    .admin-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 13px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .admin-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    .main-content {
+      width: 100%;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Breadcrumb Navigation */
+    .breadcrumb-nav {
+      font-size: 14px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .breadcrumb-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .breadcrumb-item:not(:last-child)::after {
+      content: "/";
+      color: #626F86;
+    }
+
+    .breadcrumb-link {
+      color: #0C66E4;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    .breadcrumb-link:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    /* Page Header Section */
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      line-height: 1.25;
+    }
+
+    .project-description {
+      font-size: 14px;
+      color: #1D2125;
+      line-height: 1.4;
+    }
+
+    /* Primary Action Links */
+    .action-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    .action-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Buttons block (on right or stacked for phone width) */
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .btn {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border: 1px solid #8590A2;
+    }
+
+    .btn-neutral:hover {
+      background-color: #F1F2F4;
+    }
+
+    .btn-danger {
+      background-color: #C9372C;
+      color: #FFFFFF;
+      border: 1px solid #C9372C;
+    }
+
+    .btn-danger:hover {
+      background-color: #AE2A19;
+      border-color: #AE2A19;
+    }
+
+    /* Iterations Section */
+    .section-iterations {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+    }
+
+    /* Responsive Table Container */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+
+    .data-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table th {
+      background-color: #F1F2F4;
+      font-weight: 600;
+      color: #1D2125;
+    }
+
+    /* Sortable Header Button */
+    .th-sort-button {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 0;
+      min-height: 44px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .th-sort-button:hover {
+      text-decoration: underline;
+    }
+
+    .sort-icon {
+      font-size: 12px;
+      color: #1D2125;
+    }
+
+    .cell-number {
+      text-align: right;
+    }
+
+    .cell-link {
+      color: #0C66E4;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    .cell-link:hover {
+      text-decoration: underline;
+    }
   </style>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head>
-<body class="min-h-screen bg-background text-on-surface">
-<!-- Top bar -->
-<header class="w-full bg-surface border-b border-outline-variant">
-<div class="px-4 py-3 flex flex-col gap-3">
-<div class="flex items-center justify-between">
-<span class="text-base font-semibold text-on-surface tracking-tight">Planner</span>
-<div class="flex items-center gap-1 text-sm font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center px-2" href="#">Me</a>
-<span aria-hidden="true" class="text-outline-variant select-none">|</span>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center px-2" href="#">Sign out</a>
+<style>
+    .breadcrumb-item::after {
+      display: none !important;
+      content: none !important;
+    }
+    .breadcrumb-item {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .bc-sep {
+      color: #626F86;
+      margin-left: 6px;
+    }
+  </style></head>
+<body>
+<!-- Visually hidden skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Phone Top Bar -->
+<header class="header" role="banner">
+<div class="header-inner">
+<div class="header-top">
+<a class="brand" href="#">Planner</a>
+<div class="header-links">
+<a class="header-link" href="#">Me</a>
+<a class="header-link" href="#">Sign out</a>
 </div>
 </div>
-<form class="flex flex-col gap-1.5" role="search">
-<label class="text-sm text-on-surface select-none font-normal" for="search-input">Search or ID</label>
-<input class="h-11 px-3 bg-surface text-on-surface text-base border border-outline rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 w-full" id="search-input" name="q" type="text"/>
-</form>
+<div class="search-group">
+<label class="search-label" for="search-input">Search or ID</label>
+<input class="search-input" id="search-input" type="text"/>
+</div>
+<!-- View of system administrator -->
+<div class="admin-bar">
+<a class="admin-link" href="#">System information</a>
+</div>
 </div>
 </header>
-<!-- Breadcrumbs -->
-<nav aria-label="Breadcrumb" class="w-full bg-transparent">
-<div class="px-4 pt-3 pb-1">
-<ol class="flex items-center gap-1 text-sm">
-<li>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center pr-1" href="#">Top</a>
-</li>
-<li aria-hidden="true" class="text-on-surface-variant select-none px-1">/</li>
-<li aria-current="page" class="text-on-surface font-normal min-h-[44px] inline-flex items-center">Project 1</li>
-</ol>
-</div>
+<!-- Main Content Area -->
+<main class="main-content" id="main">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+<ol class="breadcrumb-list"><li class="breadcrumb-item"><a class="breadcrumb-link" href="#">Top</a> <span aria-hidden="true" class="bc-sep">/</span></li><li class="breadcrumb-item"><span aria-current="page" class="breadcrumb-current">Project 1</span></li></ol>
 </nav>
-<!-- Main Canvas -->
-<main class="w-full px-4 py-3">
-<!-- Heading & Actions Cluster -->
-<section class="flex flex-col gap-4 pb-6 border-b border-outline-variant">
-<div>
-<h1 class="text-2xl font-semibold text-on-surface leading-tight">Project 1</h1>
-<p class="text-sm text-on-surface-variant mt-1 leading-normal">Synthetic sample project for the planning prototype.</p>
-<!-- Action links with 44px touch targets -->
-<div class="flex flex-wrap items-center gap-x-1 gap-y-0 mt-3 text-sm">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center pr-1.5" href="#">People</a>
-<span aria-hidden="true" class="text-on-surface-variant select-none px-1">•</span>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center px-1.5" href="#">Export</a>
-<span aria-hidden="true" class="text-on-surface-variant select-none px-1">•</span>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center px-1.5" href="#">History</a>
-<span aria-hidden="true" class="text-on-surface-variant select-none px-1">•</span>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center pl-1.5" href="#">Add note</a>
+<!-- Page Heading & Metadata -->
+<section aria-labelledby="page-title" class="page-header">
+<h1 class="page-title" id="page-title">Project 1</h1>
+<p class="project-description">Synthetic sample project for the planning prototype.</p>
+<!-- Action Links in Primary -->
+<div class="action-links">
+<a class="action-link" href="#">People</a>
+<a class="action-link" href="#">Export</a>
+<a class="action-link" href="#">History</a>
+<a class="action-link" href="#">Add note</a>
 </div>
-</div>
-<!-- Action Buttons stacked full-width for mobile, 44-48px high, text 16px -->
-<div class="flex flex-col gap-2.5 w-full pt-1">
-<button class="h-11 px-4 w-full bg-surface text-on-surface text-base font-normal border border-outline rounded-[6px] hover:bg-[#F1F2F4] transition-colors duration-150 inline-flex items-center justify-center" type="button">
-        Edit
-      </button>
-<button class="h-11 px-4 w-full bg-surface text-on-surface text-base font-normal border border-outline rounded-[6px] hover:bg-[#F1F2F4] transition-colors duration-150 inline-flex items-center justify-center" type="button">
-        Create iteration
-      </button>
-<button class="h-11 px-4 w-full bg-error text-on-error text-base font-normal rounded-[6px] hover:bg-[#B02A20] transition-colors duration-150 inline-flex items-center justify-center" type="button">
-        Delete project
-      </button>
+<!-- Action Buttons -->
+<div class="button-group">
+<button class="btn btn-neutral" type="button">Edit</button>
+<button class="btn btn-neutral" type="button">Create iteration</button>
+<button class="btn btn-danger" type="button">Delete project</button>
 </div>
 </section>
 <!-- Iterations Section -->
-<section class="mt-6">
-<div class="flex items-center justify-between mb-3">
-<h2 class="text-xl font-semibold text-on-surface">Iterations</h2>
-</div>
-<!-- Flat Table with horizontal scroll so the page itself doesn't scroll horizontally -->
-<div class="border border-outline-variant bg-surface rounded-[6px] overflow-hidden">
-<div class="overflow-x-auto w-full">
-<table class="min-w-[540px] w-full text-left border-collapse">
-<thead>
-<tr class="bg-[#F1F2F4] border-b border-outline-variant text-on-surface text-sm select-none">
-<th class="h-11 px-3 font-semibold text-left" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px] min-h-[44px] inline-flex items-center" href="#">Name</a>
-</th>
-<th aria-sort="descending" class="h-11 px-3 font-semibold text-left" scope="col">
-<a class="inline-flex items-center gap-1 text-on-surface hover:text-primary rounded-[2px] min-h-[44px]" href="#">
-<span>End date</span>
-<span aria-hidden="true" class="text-xs">▼</span>
-</a>
-</th>
-<th class="h-11 px-3 font-semibold text-right tabular-nums" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px] min-h-[44px] inline-flex items-center justify-end" href="#">Stories</a>
-</th>
-<th class="h-11 px-3 font-semibold text-left" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px] min-h-[44px] inline-flex items-center" href="#">Start date</a>
-</th>
-<th class="h-11 px-3 font-semibold text-right tabular-nums" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px] min-h-[44px] inline-flex items-center justify-end" href="#">Days worked</a>
-</th>
-<th class="h-11 px-3 font-semibold w-14 text-right tabular-nums" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px] min-h-[44px] inline-flex items-center justify-end" href="#">ID</a>
-</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-outline-variant text-sm text-on-surface">
-<tr class="h-11 hover:bg-[#F7F8FA] transition-colors">
-<td class="px-3 font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center" href="#">Iteration 4</a>
-</td>
-<td class="px-3 text-on-surface">2026-03-27</td>
-<td class="px-3 text-right tabular-nums text-on-surface">0</td>
-<td class="px-3 text-on-surface">2026-03-16</td>
-<td class="px-3 text-right tabular-nums text-on-surface">10</td>
-<td class="px-3 text-right tabular-nums text-on-surface-variant">4</td>
-</tr>
-<tr class="h-11 hover:bg-[#F7F8FA] transition-colors">
-<td class="px-3 font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center" href="#">Iteration 3</a>
-</td>
-<td class="px-3 text-on-surface">2026-03-13</td>
-<td class="px-3 text-right tabular-nums text-on-surface">5</td>
-<td class="px-3 text-on-surface">2026-03-02</td>
-<td class="px-3 text-right tabular-nums text-on-surface">10</td>
-<td class="px-3 text-right tabular-nums text-on-surface-variant">3</td>
-</tr>
-<tr class="h-11 hover:bg-[#F7F8FA] transition-colors">
-<td class="px-3 font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center" href="#">Iteration 2</a>
-</td>
-<td class="px-3 text-on-surface">2026-02-27</td>
-<td class="px-3 text-right tabular-nums text-on-surface">5</td>
-<td class="px-3 text-on-surface">2026-02-16</td>
-<td class="px-3 text-right tabular-nums text-on-surface">10</td>
-<td class="px-3 text-right tabular-nums text-on-surface-variant">2</td>
-</tr>
-<tr class="h-11 hover:bg-[#F7F8FA] transition-colors">
-<td class="px-3 font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px] min-h-[44px] inline-flex items-center" href="#">Iteration 1</a>
-</td>
-<td class="px-3 text-on-surface">2026-02-13</td>
-<td class="px-3 text-right tabular-nums text-on-surface">6</td>
-<td class="px-3 text-on-surface">2026-02-02</td>
-<td class="px-3 text-right tabular-nums text-on-surface">10</td>
-<td class="px-3 text-right tabular-nums text-on-surface-variant">1</td>
-</tr>
-</tbody>
+<section aria-labelledby="iterations-title" class="section-iterations">
+<h2 class="section-title" id="iterations-title">Iterations</h2>
+<!-- Focusable container for horizontal scrolling of wide table -->
+<div aria-label="Iterations table" class="table-container" role="region" tabindex="0">
+<table class="data-table">
+<thead><tr><th aria-sort="none" scope="col"><button class="th-sort-button" type="button">Name</button></th><th aria-sort="descending" scope="col"><button class="th-sort-button" type="button">End date <span aria-hidden="true" class="sort-icon">▼</span></button></th><th aria-sort="none" class="cell-number" scope="col"><button class="th-sort-button" style="justify-content: flex-end;" type="button">Stories</button></th><th aria-sort="none" scope="col"><button class="th-sort-button" type="button">Start date</button></th><th aria-sort="none" scope="col"><button class="th-sort-button" type="button">ID</button></th><th aria-sort="none" class="cell-number" scope="col"><button class="th-sort-button" style="justify-content: flex-end;" type="button">Days worked</button></th></tr></thead>
+<tbody><tr><td><a class="cell-link" href="#">Iteration 4</a></td><td>2026-03-27</td><td class="cell-number">0</td><td>2026-03-16</td><td>4</td><td class="cell-number">10</td></tr><tr><td><a class="cell-link" href="#">Iteration 3</a></td><td>2026-03-13</td><td class="cell-number">5</td><td>2026-03-02</td><td>3</td><td class="cell-number">10</td></tr><tr><td><a class="cell-link" href="#">Iteration 2</a></td><td>2026-02-27</td><td class="cell-number">5</td><td>2026-02-16</td><td>2</td><td class="cell-number">10</td></tr><tr><td><a class="cell-link" href="#">Iteration 1</a></td><td>2026-02-13</td><td class="cell-number">6</td><td>2026-02-02</td><td>1</td><td class="cell-number">10</td></tr></tbody>
 </table>
-</div>
 </div>
 </section>
 </main>
-</body></html>
+</body>
+</html>
