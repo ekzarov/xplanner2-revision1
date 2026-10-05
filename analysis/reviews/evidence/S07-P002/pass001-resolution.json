@@ -1,0 +1,90 @@
+{
+ "generated_at": "2026-10-05T11:26:02.719Z",
+ "baseline_report": "analysis/reviews/stage-07-pass-001.md",
+ "items": [
+  {
+   "id": "F-001",
+   "original_severity": "high",
+   "status": "resolved",
+   "evidence": "Rows 24 and 26 reclassified as states; per-screen roles declared; role views drawn: iteration-viewer-desktop, iteration-export-menu-desktop (editor), list-desktop/phone (admin), task-viewer-desktop, story-viewer-export-desktop, person-page-viewer-desktop, person-editor-admin-desktop, projects-list-member-desktop, project-page-admin-desktop; non_visual_workbook_rows 29 (24, 26 removed)"
+  },
+  {
+   "id": "F-002",
+   "original_severity": "medium",
+   "status": "resolved (as stated); new related contradiction F-002 of pass 002",
+   "evidence": "Delete iteration only in the admin view; Create project and Hidden column only for system administrators (projects-list-desktop); Delete project only system administrator; Create person declared for admin/system administrator per row 24. New: admin hide permission contradicts between project-editor and projects-list-member (pass-002 F-002)"
+  },
+  {
+   "id": "F-003",
+   "original_severity": "medium",
+   "status": "resolved, except the progress chart (pass-002 F-001, not in pass-001 scope)",
+   "evidence": "Drawn: story-move-dialog-desktop, task-move-dialog-desktop (validation), iteration-move-stories-dialog-desktop, menu.popover in iteration-export-menu/project-page-admin/story-viewer-export, task-completed-desktop (Reopen), continue-no-future-desktop, history-project-desktop; field.select now present in story/task dialogs"
+  },
+  {
+   "id": "F-004",
+   "original_severity": "medium",
+   "status": "resolved",
+   "evidence": "System information link in the system-administrator top bar (projects-list-desktop, project-page-desktop/phone, person-editor-desktop, system-info-desktop); Notes sections with Edit/Delete on iteration, project, story and task pages; note-editor-edit-desktop and note-delete-dialog-desktop"
+  },
+  {
+   "id": "F-005",
+   "original_severity": "medium",
+   "status": "resolved",
+   "evidence": "list-phone keeps Edit/Delete iteration, Export, History, Add note, Move, Save order, Close, Create story and a header select-all checkbox; phone date picker (iteration-editor-phone), select in a phone dialog (continue-dialog-phone), phone empty state (iteration-empty-phone); 11 phone views at 390 CSS px"
+  },
+  {
+   "id": "F-006",
+   "original_severity": "medium",
+   "status": "largely resolved; residual open as pass-002 F-004 (low)",
+   "evidence": "Skip link in all 55 signed-in exports; no user-scalable=no or fixed viewport widths; native checkbox in the start dialog; aria-current on every breadcrumb current item; aria-sort on every sorted header (16 exports); time-editor-phone Person \"(required)\". Residual: role=tab without aria-selected in iteration-start-dialog-desktop and iteration-statistics-phone; required fields not marked in text on iteration-editor-desktop, time-editor-desktop, sign-in, note Body"
+  },
+  {
+   "id": "F-007",
+   "original_severity": "low",
+   "status": "partly resolved; new stale claims open as pass-002 F-005",
+   "evidence": "The ten pass-001 statements were rewritten; new statements are stale (catalogue lines 84, 88, 89 \"pending regeneration\"; manifest scope and _notes[2], _notes[7]; normalization rows 97, 102, 208 notes)"
+  },
+  {
+   "id": "F-008",
+   "original_severity": "low",
+   "status": "resolved",
+   "evidence": "No \"Target baseline\" series; no \"PLN-\" placeholder; no search placeholder in any export"
+  },
+  {
+   "id": "F-009",
+   "original_severity": "low",
+   "status": "largely resolved; residual open as pass-002 F-005",
+   "evidence": "initiating_screen set for 19 of 29 non-visual rows (the 10 null are server-wide rules without an initiating screen); Reset declared for person-editor and note-editor; navigation non-empty for every screen; ui-kit previews danger hover, scrolled table and top-bar focus; color.danger-hover extension token. Residual: projects-list declares nav.breadcrumb without one; task-editor breadcrumb navigation claim"
+  },
+  {
+   "id": "F-010",
+   "original_severity": "low cosmetic",
+   "status": "largely resolved; residual open as pass-002 F-008",
+   "evidence": "No Google Fonts, Inter or Material Symbols; no #086D39/#004FB6; residual non-token colours and px/14px body text"
+  },
+  {
+   "id": "F-011",
+   "original_severity": "low cosmetic",
+   "status": "resolved",
+   "evidence": "Story 5 original estimate 22.0 in iteration-tasks, list, print and accuracy"
+  },
+  {
+   "id": "F-012",
+   "original_severity": "low cosmetic",
+   "status": "resolved",
+   "evidence": "No breadcrumb on projects-list-desktop or projects-list-member-desktop"
+  },
+  {
+   "id": "F-013",
+   "original_severity": "low cosmetic",
+   "status": "largely resolved; residual in pass-002 F-008",
+   "evidence": "Filled pies on desktop, phone and ui-kit; person-timesheet \"By story\" is a pie. Residual: disposition series colour differs desktop vs phone"
+  },
+  {
+   "id": "F-014",
+   "original_severity": "low cosmetic",
+   "status": "open as pass-002 F-007",
+   "evidence": "Insets 30/40/65/80 px, link separators, avatar shape, upper-case labels and other frame differences remain"
+  }
+ ]
+}

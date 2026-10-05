@@ -1,0 +1,1191 @@
+{
+ "generated_at": "2026-10-05T11:25:19.406Z",
+ "reviewed_revision": "8a610c307aa56461fcb9055fb1b8704cb90c1a88",
+ "export_set_version": "stage-06-draft-13-ux-006-13",
+ "manifest_sha256": "62d28c32d0c0145a4a92813477b5cf47c5c340bbe92f50bf849bc36b0a401852",
+ "legend": {
+  "D": "drawn in a named export",
+  "P": "covered by a drawn pattern whose composition is unchanged (message text or values only)",
+  "N": "navigation/redirect recorded, not drawable",
+  "NV": "non-visual coverage accepted",
+  "M": "mismatch (finding)"
+ },
+ "row_accounting": {
+  "classified": 145,
+  "excluded": 34,
+  "deferred": 31,
+  "total": 210,
+  "matches_workbook_column_J": true,
+  "matches_stage04_reconciliation": true
+ },
+ "counts": {
+  "D": 76,
+  "N": 2,
+  "NV": 29,
+  "P": 37,
+  "M": 1
+ },
+ "unassessed": [],
+ "rows": [
+  {
+   "row": 8,
+   "classification": "surface",
+   "screen": "sign-in",
+   "element": null,
+   "determination": "D",
+   "evidence": "D signin-desktop/phone: User ID, Password, Sign in"
+  },
+  {
+   "row": 10,
+   "classification": "navigation",
+   "screen": "sign-in",
+   "element": "return to the requested permitted page",
+   "determination": "N",
+   "evidence": "N: redirect recorded in sign-in navigation"
+  },
+  {
+   "row": 11,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Password storage method; server-side (D-003). No screen; the SDD defines the behavior and  | initiating_screen=person-editor"
+  },
+  {
+   "row": 12,
+   "classification": "state",
+   "screen": "sign-in",
+   "element": "invalid-credentials",
+   "determination": "D",
+   "evidence": "D signin-phone alert \"Could not authenticate user. Wrong userid or password\""
+  },
+  {
+   "row": 13,
+   "classification": "state",
+   "screen": "sign-in",
+   "element": "unknown-user-message",
+   "determination": "P",
+   "evidence": "P signin-phone alert composition, message text only"
+  },
+  {
+   "row": 14,
+   "classification": "state",
+   "screen": "sign-in",
+   "element": "blank-credentials",
+   "determination": "P",
+   "evidence": "P signin-phone alert composition"
+  },
+  {
+   "row": 17,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Access filter for protected requests; worked example in the methodology. No screen; the SD | initiating_screen=sign-in"
+  },
+  {
+   "row": 18,
+   "classification": "navigation",
+   "screen": "sign-in",
+   "element": "land on the current iteration",
+   "determination": "N",
+   "evidence": "N: landing rule in sign-in navigation"
+  },
+  {
+   "row": 19,
+   "classification": "action",
+   "screen": "projects-list",
+   "element": "sign out",
+   "determination": "D",
+   "evidence": "D Sign out in every top bar"
+  },
+  {
+   "row": 20,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Idle session timeout; the next request reaches sign-in through row 17. No screen; the SDD  | initiating_screen=sign-in"
+  },
+  {
+   "row": 23,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Role model; exact permission matrix at SDD (D-001). No screen; the SDD defines the behavio | initiating_screen=null"
+  },
+  {
+   "row": 24,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "role view editor: no Delete iteration",
+   "determination": "D",
+   "evidence": "D iteration-export-menu-desktop (editor, no Delete iteration); projects-list-member-desktop (no Create project); people-list state recorded"
+  },
+  {
+   "row": 25,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Project-0 role scope; server rule. No screen; the SDD defines the behavior and its automat | initiating_screen=null"
+  },
+  {
+   "row": 26,
+   "classification": "state",
+   "screen": "task-page",
+   "element": "role view viewer: no complete, reopen, edit, time, move or delete actions",
+   "determination": "D",
+   "evidence": "D task-viewer-desktop, iteration-viewer-desktop, story-viewer-export-desktop, person-page-viewer-desktop"
+  },
+  {
+   "row": 27,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Read filter of the projects query. No screen; the SDD defines the behavior and its automat | initiating_screen=projects-list"
+  },
+  {
+   "row": 28,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Denial by server enforcement; the missing not-authorized page is not ported. No screen; th | initiating_screen=null"
+  },
+  {
+   "row": 29,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Server-side permission check for every operation (D-001). No screen; the SDD defines the b | initiating_screen=null"
+  },
+  {
+   "row": 30,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Server-side permission check for every operation (D-001). No screen; the SDD defines the b | initiating_screen=null"
+  },
+  {
+   "row": 31,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Server rule for applying role changes (D-006). No screen; the SDD defines the behavior and | initiating_screen=person-editor"
+  },
+  {
+   "row": 32,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Role rules evaluated on the server (D-001). No screen; the SDD defines the behavior and it | initiating_screen=null"
+  },
+  {
+   "row": 33,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "set project role",
+   "determination": "D",
+   "evidence": "D person-editor-desktop role selects; person-editor-admin-desktop editable only for the administered project"
+  },
+  {
+   "row": 34,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "grant or revoke system administrator",
+   "determination": "D",
+   "evidence": "D person-editor-desktop System administrator checkbox; absent in person-editor-admin-desktop"
+  },
+  {
+   "row": 37,
+   "classification": "surface",
+   "screen": "people-list",
+   "element": null,
+   "determination": "D",
+   "evidence": "D people-list-desktop"
+  },
+  {
+   "row": 38,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Deactivated people are filtered out of active pick lists; list query rule (D-007). No scre | initiating_screen=task-editor"
+  },
+  {
+   "row": 39,
+   "classification": "state",
+   "screen": "people-list",
+   "element": "project-filtered",
+   "determination": "P",
+   "evidence": "P people-list heading variant (only the title differs)"
+  },
+  {
+   "row": 40,
+   "classification": "surface",
+   "screen": "person-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "D person-page-desktop sections"
+  },
+  {
+   "row": 41,
+   "classification": "navigation",
+   "screen": "person-page",
+   "element": "task row to time entry or task editor",
+   "determination": "D",
+   "evidence": "D person-page-desktop Time/Edit per active task; absent for the viewer"
+  },
+  {
+   "row": 42,
+   "classification": "navigation",
+   "screen": "person-page",
+   "element": "edit person",
+   "determination": "D",
+   "evidence": "D person-page-desktop Edit link; absent in the viewer view"
+  },
+  {
+   "row": 43,
+   "classification": "surface",
+   "screen": "person-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "D person-editor-desktop"
+  },
+  {
+   "row": 44,
+   "classification": "state",
+   "screen": "person-editor",
+   "element": "validation-error",
+   "determination": "P",
+   "evidence": "P error-summary and field error pattern (form-phone)"
+  },
+  {
+   "row": 45,
+   "classification": "state",
+   "screen": "person-editor",
+   "element": "duplicate-user-id",
+   "determination": "P",
+   "evidence": "P same pattern, message text only"
+  },
+  {
+   "row": 46,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "D Save"
+  },
+  {
+   "row": 47,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "change password",
+   "determination": "D",
+   "evidence": "D New/Confirm password"
+  },
+  {
+   "row": 48,
+   "classification": "action",
+   "screen": "person-editor",
+   "element": "deactivate",
+   "determination": "D",
+   "evidence": "D Deactivated checkbox with explanation"
+  },
+  {
+   "row": 55,
+   "classification": "surface",
+   "screen": "system-info",
+   "element": null,
+   "determination": "D",
+   "evidence": "D system-info-desktop; entry link in the system-administrator top bar"
+  },
+  {
+   "row": 56,
+   "classification": "surface",
+   "screen": "error-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "D error-page-desktop with reference"
+  },
+  {
+   "row": 57,
+   "classification": "state",
+   "screen": "error-page",
+   "element": "not-found",
+   "determination": "P",
+   "evidence": "P error-page composition, message only"
+  },
+  {
+   "row": 64,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: First installation without manual SQL (D-009). No screen; the SDD defines the behavior and | initiating_screen=null"
+  },
+  {
+   "row": 69,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: English date display and strict input rule applied by every date field (D-010). No screen; | initiating_screen=iteration-editor"
+  },
+  {
+   "row": 71,
+   "classification": "action",
+   "screen": "iteration-editor",
+   "element": "pick a date",
+   "determination": "D",
+   "evidence": "D iteration-editor-desktop/phone date picker"
+  },
+  {
+   "row": 72,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Request decoding. No screen; the SDD defines the behavior and its automated checks. | initiating_screen=null"
+  },
+  {
+   "row": 73,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Protected activity log (D-005). No screen; the SDD defines the behavior and its automated  | initiating_screen=null"
+  },
+  {
+   "row": 75,
+   "classification": "surface",
+   "screen": "projects-list",
+   "element": null,
+   "determination": "D",
+   "evidence": "D projects-list-desktop/member"
+  },
+  {
+   "row": 76,
+   "classification": "state",
+   "screen": "projects-list",
+   "element": "hidden-column",
+   "determination": "D",
+   "evidence": "D projects-list-desktop Hidden column (system-administrator view); admin contradiction in F-002"
+  },
+  {
+   "row": 77,
+   "classification": "state",
+   "screen": "projects-list",
+   "element": "empty",
+   "determination": "P",
+   "evidence": "P empty message pattern (iteration-empty-phone)"
+  },
+  {
+   "row": 78,
+   "classification": "surface",
+   "screen": "project-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "D project-editor-desktop"
+  },
+  {
+   "row": 79,
+   "classification": "state",
+   "screen": "project-editor",
+   "element": "missing-name",
+   "determination": "P",
+   "evidence": "P field error pattern"
+  },
+  {
+   "row": 80,
+   "classification": "action",
+   "screen": "project-editor",
+   "element": "set project options",
+   "determination": "D",
+   "evidence": "D Wiki URL, escape brackets, missing-time notification options"
+  },
+  {
+   "row": 81,
+   "classification": "action",
+   "screen": "project-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "D Save/Reset/Cancel, Hidden checkbox (F-002)"
+  },
+  {
+   "row": 82,
+   "classification": "overlay",
+   "screen": "project-page",
+   "element": "delete project confirmation",
+   "determination": "P",
+   "evidence": "P delete confirmation pattern (task-delete-dialog-desktop names the removed time)"
+  },
+  {
+   "row": 83,
+   "classification": "surface",
+   "screen": "project-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "D project-page-desktop/phone/admin"
+  },
+  {
+   "row": 84,
+   "classification": "state",
+   "screen": "project-page",
+   "element": "empty",
+   "determination": "P",
+   "evidence": "P empty message pattern"
+  },
+  {
+   "row": 88,
+   "classification": "surface",
+   "screen": "iteration-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "D iteration-editor-desktop/phone"
+  },
+  {
+   "row": 89,
+   "classification": "state",
+   "screen": "iteration-editor",
+   "element": "invalid-dates",
+   "determination": "P",
+   "evidence": "P ui-kit#field-date invalid \"End date is invalid.\""
+  },
+  {
+   "row": 90,
+   "classification": "action",
+   "screen": "iteration-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "D Save; Status read-only (phone)"
+  },
+  {
+   "row": 91,
+   "classification": "overlay",
+   "screen": "iteration-page",
+   "element": "delete iteration confirmation",
+   "determination": "P",
+   "evidence": "P delete confirmation pattern; Delete iteration drawn for admin"
+  },
+  {
+   "row": 92,
+   "classification": "surface",
+   "screen": "iteration-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "D list-desktop/phone, iteration-viewer-desktop"
+  },
+  {
+   "row": 93,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "empty",
+   "determination": "D",
+   "evidence": "D iteration-empty-phone \"No stories in this iteration.\""
+  },
+  {
+   "row": 95,
+   "classification": "action",
+   "screen": "iteration-page",
+   "element": "save order",
+   "determination": "D",
+   "evidence": "D Save order and order inputs"
+  },
+  {
+   "row": 96,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "invalid-order-number",
+   "determination": "P",
+   "evidence": "P page message pattern"
+  },
+  {
+   "row": 97,
+   "classification": "action",
+   "screen": "iteration-page",
+   "element": "move selected stories",
+   "determination": "D",
+   "evidence": "D iteration-move-stories-dialog-desktop"
+  },
+  {
+   "row": 98,
+   "classification": "action",
+   "screen": "iteration-page",
+   "element": "start iteration",
+   "determination": "D",
+   "evidence": "D Start iteration (iteration-empty-phone, iteration-start-dialog-desktop)"
+  },
+  {
+   "row": 99,
+   "classification": "overlay",
+   "screen": "iteration-page",
+   "element": "start iteration confirmation",
+   "determination": "D",
+   "evidence": "D iteration-start-dialog-desktop with a native checkbox"
+  },
+  {
+   "row": 100,
+   "classification": "overlay",
+   "screen": "time-editor",
+   "element": "start iteration confirmation",
+   "determination": "P",
+   "evidence": "P start confirmation pattern (iteration-start-dialog-desktop)"
+  },
+  {
+   "row": 101,
+   "classification": "overlay",
+   "screen": "iteration-page",
+   "element": "close iteration confirmation",
+   "determination": "D",
+   "evidence": "D dialog-desktop/phone"
+  },
+  {
+   "row": 102,
+   "classification": "overlay",
+   "screen": "iteration-page",
+   "element": "continue unfinished stories",
+   "determination": "D",
+   "evidence": "D continue-dialog-desktop/phone"
+  },
+  {
+   "row": 103,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "no-future-iteration",
+   "determination": "D",
+   "evidence": "D continue-no-future-desktop"
+  },
+  {
+   "row": 104,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "same-iteration-rejected",
+   "determination": "P",
+   "evidence": "P story-move-dialog same-iteration message pattern"
+  },
+  {
+   "row": 106,
+   "classification": "surface",
+   "screen": "iteration-tasks",
+   "element": null,
+   "determination": "D",
+   "evidence": "D iteration-tasks-desktop"
+  },
+  {
+   "row": 109,
+   "classification": "surface",
+   "screen": "iteration-statistics",
+   "element": null,
+   "determination": "D",
+   "evidence": "D six pies and burn-down (iteration-statistics-desktop/phone)"
+  },
+  {
+   "row": 110,
+   "classification": "state",
+   "screen": "iteration-statistics",
+   "element": "progress-chart-shown",
+   "determination": "M",
+   "evidence": "MISMATCH progress line chart drawn as two progress bars; weekends excluded (F-001)"
+  },
+  {
+   "row": 111,
+   "classification": "state",
+   "screen": "iteration-statistics",
+   "element": "velocity-charts-shown",
+   "determination": "D",
+   "evidence": "D velocity charts not shown (shipped notDisplayed)"
+  },
+  {
+   "row": 112,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Daily burn-down sampling (D-013, M-03); method and schedule not chosen. No screen; the SDD | initiating_screen=iteration-statistics"
+  },
+  {
+   "row": 113,
+   "classification": "surface",
+   "screen": "iteration-accuracy",
+   "element": null,
+   "determination": "D",
+   "evidence": "D iteration-accuracy-desktop"
+  },
+  {
+   "row": 114,
+   "classification": "surface",
+   "screen": "iteration-board",
+   "element": null,
+   "determination": "D",
+   "evidence": "D iteration-board-desktop/phone"
+  },
+  {
+   "row": 121,
+   "classification": "surface",
+   "screen": "story-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "D story-editor-desktop"
+  },
+  {
+   "row": 122,
+   "classification": "state",
+   "screen": "story-editor",
+   "element": "new-story-defaults",
+   "determination": "P",
+   "evidence": "P default priority value only"
+  },
+  {
+   "row": 123,
+   "classification": "state",
+   "screen": "story-editor",
+   "element": "validation-error",
+   "determination": "P",
+   "evidence": "P field error pattern"
+  },
+  {
+   "row": 125,
+   "classification": "action",
+   "screen": "story-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "D Save with disposition/status"
+  },
+  {
+   "row": 126,
+   "classification": "overlay",
+   "screen": "story-page",
+   "element": "delete story confirmation",
+   "determination": "P",
+   "evidence": "P delete confirmation pattern; Delete story drawn"
+  },
+  {
+   "row": 127,
+   "classification": "surface",
+   "screen": "story-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "D story-page-desktop"
+  },
+  {
+   "row": 128,
+   "classification": "state",
+   "screen": "story-page",
+   "element": "empty",
+   "determination": "P",
+   "evidence": "P empty message pattern"
+  },
+  {
+   "row": 129,
+   "classification": "overlay",
+   "screen": "story-page",
+   "element": "move or continue story",
+   "determination": "D",
+   "evidence": "D story-move-dialog-desktop"
+  },
+  {
+   "row": 130,
+   "classification": "action",
+   "screen": "story-page",
+   "element": "continue story",
+   "determination": "D",
+   "evidence": "D Continue button in story-move-dialog-desktop"
+  },
+  {
+   "row": 131,
+   "classification": "state",
+   "screen": "story-page",
+   "element": "same-iteration-rejected",
+   "determination": "D",
+   "evidence": "D story-move-dialog-desktop \"Cannot move or continue story in same iteration.\""
+  },
+  {
+   "row": 132,
+   "classification": "state",
+   "screen": "story-page",
+   "element": "move-continue-validation",
+   "determination": "P",
+   "evidence": "P same dialog error pattern"
+  },
+  {
+   "row": 134,
+   "classification": "surface",
+   "screen": "task-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "D form-desktop/phone"
+  },
+  {
+   "row": 135,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Stable stored code for the task type (D-010). No screen; the SDD defines the behavior and  | initiating_screen=task-editor"
+  },
+  {
+   "row": 136,
+   "classification": "state",
+   "screen": "task-editor",
+   "element": "default-disposition",
+   "determination": "P",
+   "evidence": "P pre-selected disposition value only"
+  },
+  {
+   "row": 137,
+   "classification": "state",
+   "screen": "task-editor",
+   "element": "validation-error",
+   "determination": "D",
+   "evidence": "D form-phone errors"
+  },
+  {
+   "row": 138,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Task-change mail to the current assignee (D-017). No screen; the SDD defines the behavior  | initiating_screen=task-editor"
+  },
+  {
+   "row": 139,
+   "classification": "action",
+   "screen": "task-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "D Save"
+  },
+  {
+   "row": 140,
+   "classification": "action",
+   "screen": "task-page",
+   "element": "complete task",
+   "determination": "D",
+   "evidence": "D Complete task (task-page-desktop)"
+  },
+  {
+   "row": 141,
+   "classification": "action",
+   "screen": "task-page",
+   "element": "reopen task",
+   "determination": "D",
+   "evidence": "D Reopen task (task-completed-desktop)"
+  },
+  {
+   "row": 142,
+   "classification": "overlay",
+   "screen": "task-page",
+   "element": "delete task confirmation",
+   "determination": "D",
+   "evidence": "D task-delete-dialog-desktop"
+  },
+  {
+   "row": 143,
+   "classification": "surface",
+   "screen": "task-page",
+   "element": null,
+   "determination": "D",
+   "evidence": "D task-page-desktop"
+  },
+  {
+   "row": 144,
+   "classification": "overlay",
+   "screen": "task-page",
+   "element": "move or continue task",
+   "determination": "D",
+   "evidence": "D task-move-dialog-desktop"
+  },
+  {
+   "row": 145,
+   "classification": "action",
+   "screen": "task-page",
+   "element": "continue task",
+   "determination": "D",
+   "evidence": "D Continue in task-move-dialog-desktop"
+  },
+  {
+   "row": 146,
+   "classification": "state",
+   "screen": "task-page",
+   "element": "same-story-rejected",
+   "determination": "D",
+   "evidence": "D task-move-dialog-desktop \"Cannot move or continue task in same story.\""
+  },
+  {
+   "row": 147,
+   "classification": "state",
+   "screen": "task-page",
+   "element": "move-continue-validation",
+   "determination": "P",
+   "evidence": "P same dialog error pattern"
+  },
+  {
+   "row": 149,
+   "classification": "surface",
+   "screen": "time-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "D time-editor-desktop/phone"
+  },
+  {
+   "row": 150,
+   "classification": "action",
+   "screen": "time-editor",
+   "element": "edit or delete entries",
+   "determination": "D",
+   "evidence": "D Delete checkbox per entry"
+  },
+  {
+   "row": 151,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "remaining-hours-recalculated",
+   "determination": "D",
+   "evidence": "D Remaining hours with \"Updates the task estimate on save\""
+  },
+  {
+   "row": 152,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "parse-error",
+   "determination": "P",
+   "evidence": "P row error pattern"
+  },
+  {
+   "row": 153,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "P row error pattern"
+  },
+  {
+   "row": 154,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "D",
+   "evidence": "D time-editor-phone \"No person is specified in a time entry.\""
+  },
+  {
+   "row": 155,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "P row error pattern"
+  },
+  {
+   "row": 156,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "P row error pattern"
+  },
+  {
+   "row": 157,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "P row error pattern"
+  },
+  {
+   "row": 158,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "P row error pattern"
+  },
+  {
+   "row": 159,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "P row error pattern"
+  },
+  {
+   "row": 160,
+   "classification": "state",
+   "screen": "time-editor",
+   "element": "row-validation-error",
+   "determination": "P",
+   "evidence": "P row error pattern"
+  },
+  {
+   "row": 161,
+   "classification": "action",
+   "screen": "time-editor",
+   "element": "re-estimate",
+   "determination": "D",
+   "evidence": "D Remaining hours field (re-estimate)"
+  },
+  {
+   "row": 162,
+   "classification": "surface",
+   "screen": "person-timesheet",
+   "element": null,
+   "determination": "D",
+   "evidence": "D person-timesheet-desktop"
+  },
+  {
+   "row": 163,
+   "classification": "state",
+   "screen": "person-timesheet",
+   "element": "invalid-period",
+   "determination": "P",
+   "evidence": "P message pattern"
+  },
+  {
+   "row": 164,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Server-side permission check of the personal timesheet (D-001). No screen; the SDD defines | initiating_screen=person-timesheet"
+  },
+  {
+   "row": 165,
+   "classification": "surface",
+   "screen": "aggregate-timesheet",
+   "element": null,
+   "determination": "D",
+   "evidence": "D aggregate-timesheet-desktop"
+  },
+  {
+   "row": 166,
+   "classification": "state",
+   "screen": "aggregate-timesheet",
+   "element": "invalid-period",
+   "determination": "P",
+   "evidence": "P message pattern"
+  },
+  {
+   "row": 167,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Read filter of the aggregate timesheet query. No screen; the SDD defines the behavior and  | initiating_screen=aggregate-timesheet"
+  },
+  {
+   "row": 169,
+   "classification": "surface",
+   "screen": "note-editor",
+   "element": null,
+   "determination": "D",
+   "evidence": "D note-editor-desktop; Notes sections on object pages"
+  },
+  {
+   "row": 170,
+   "classification": "state",
+   "screen": "note-editor",
+   "element": "validation-error",
+   "determination": "P",
+   "evidence": "P field error pattern (Body not marked required: F-004)"
+  },
+  {
+   "row": 173,
+   "classification": "action",
+   "screen": "note-editor",
+   "element": "save",
+   "determination": "D",
+   "evidence": "D note-editor-edit-desktop (author kept)"
+  },
+  {
+   "row": 174,
+   "classification": "overlay",
+   "screen": "note-editor",
+   "element": "delete note confirmation",
+   "determination": "D",
+   "evidence": "D note-delete-dialog-desktop"
+  },
+  {
+   "row": 178,
+   "classification": "surface",
+   "screen": "search-results",
+   "element": null,
+   "determination": "D",
+   "evidence": "D search-results-desktop"
+  },
+  {
+   "row": 179,
+   "classification": "state",
+   "screen": "search-results",
+   "element": "empty",
+   "determination": "P",
+   "evidence": "P message pattern"
+  },
+  {
+   "row": 180,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Permission check of the numeric search hit. No screen; the SDD defines the behavior and it | initiating_screen=search-results"
+  },
+  {
+   "row": 181,
+   "classification": "state",
+   "screen": "search-results",
+   "element": "empty-search-rejected",
+   "determination": "P",
+   "evidence": "P message pattern"
+  },
+  {
+   "row": 182,
+   "classification": "state",
+   "screen": "search-results",
+   "element": "numeric-id-match",
+   "determination": "P",
+   "evidence": "P result list composition (numeric query)"
+  },
+  {
+   "row": 183,
+   "classification": "state",
+   "screen": "search-results",
+   "element": "invalid-id",
+   "determination": "P",
+   "evidence": "P message pattern"
+  },
+  {
+   "row": 184,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Permission check of the ID jump. No screen; the SDD defines the behavior and its automated | initiating_screen=search-results"
+  },
+  {
+   "row": 185,
+   "classification": "navigation",
+   "screen": "task-page",
+   "element": "breadcrumb",
+   "determination": "D",
+   "evidence": "D breadcrumbs on hierarchical pages (task-editor gap: F-003)"
+  },
+  {
+   "row": 186,
+   "classification": "surface",
+   "screen": "history",
+   "element": null,
+   "determination": "D",
+   "evidence": "D history-desktop, history-project-desktop"
+  },
+  {
+   "row": 187,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Uniform audit writing (D-019). No screen; the SDD defines the behavior and its automated c | initiating_screen=null"
+  },
+  {
+   "row": 188,
+   "classification": "navigation",
+   "screen": "person-page",
+   "element": "me",
+   "determination": "D",
+   "evidence": "D Me link; same person-page composition"
+  },
+  {
+   "row": 189,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: UX-006-09 placement: safe rendering of existing markup and object links applies to every d | initiating_screen=story-page"
+  },
+  {
+   "row": 190,
+   "classification": "navigation",
+   "screen": "task-editor",
+   "element": "formatting help",
+   "determination": "D",
+   "evidence": "D Formatting help on editors"
+  },
+  {
+   "row": 192,
+   "classification": "state",
+   "screen": "iteration-page",
+   "element": "print view",
+   "determination": "D",
+   "evidence": "D iteration-print-desktop"
+  },
+  {
+   "row": 203,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Mail failure handling (D-017). No screen; the SDD defines the behavior and its automated c | initiating_screen=task-editor"
+  },
+  {
+   "row": 204,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Daily burn-down sampling (D-013, M-03). No screen; the SDD defines the behavior and its au | initiating_screen=iteration-statistics"
+  },
+  {
+   "row": 208,
+   "classification": "navigation",
+   "screen": "project-page",
+   "element": "export menu",
+   "determination": "D",
+   "evidence": "D menu.popover (iteration XML/PDF, project XML, story PDF)"
+  },
+  {
+   "row": 209,
+   "classification": "action",
+   "screen": "project-page",
+   "element": "export project",
+   "determination": "D",
+   "evidence": "D project-page-admin-desktop XML"
+  },
+  {
+   "row": 210,
+   "classification": "action",
+   "screen": "iteration-page",
+   "element": "export iteration",
+   "determination": "D",
+   "evidence": "D iteration-export-menu-desktop XML, PDF"
+  },
+  {
+   "row": 212,
+   "classification": "action",
+   "screen": "story-page",
+   "element": "export PDF",
+   "determination": "D",
+   "evidence": "D story-viewer-export-desktop PDF; the task Export link uses the same pattern"
+  },
+  {
+   "row": 223,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Internal API the board needs (D-023). No screen; the SDD defines the behavior and its auto | initiating_screen=iteration-board"
+  },
+  {
+   "row": 225,
+   "classification": "non-visual",
+   "screen": null,
+   "element": null,
+   "determination": "NV",
+   "evidence": "covered_by: Authentication of the internal API (D-002, D-023). No screen; the SDD defines the behavior | initiating_screen=iteration-board"
+  }
+ ]
+}
