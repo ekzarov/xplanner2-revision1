@@ -2,76 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Error - Planner</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-25 Error - Planner</title>
   <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #1D2125;
-      background-color: #F7F8FA;
+    /* Reset & Foundation Tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      -webkit-font-smoothing: antialiased;
     }
-    a:focus-visible, button:focus-visible, input:focus-visible {
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #FFFFFF;
+      color: #0C66E4;
+      padding: 8px 16px;
+      font-weight: 600;
+      border: 2px solid #0C66E4;
+      border-radius: 6px;
+      z-index: 10000;
+      text-decoration: none;
+      outline: none;
+    }
+    .skip-link:focus {
+      top: 10px;
+    }
+
+    /* Focus styles */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
     }
+
+    /* Top Bar */
+    header.top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-group label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      width: 240px;
+      height: 32px;
+      padding: 0 10px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    main {
+      padding: 32px 24px;
+    }
+
+    /* Error Card */
+    .error-card {
+      width: 100%;
+      max-width: 640px;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 32px;
+    }
+
+    .error-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .error-description {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .error-reference {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 32px;
+    }
+
+    .error-action-link {
+      display: inline-block;
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+    .error-action-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125] flex flex-col">
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Top bar (white, 56px, divider below) -->
-  <header class="h-[56px] bg-[#FFFFFF] border-b border-[#DCDFE4] px-6 flex items-center justify-between shrink-0">
-    <div class="flex items-center space-x-6">
-      <span class="text-xl font-bold tracking-tight text-[#1D2125]">Planner</span>
-      
-      <!-- Search field with visible label "Search or ID" -->
-      <div class="flex items-center space-x-2">
-        <label for="search-input" class="text-sm font-normal text-[#1D2125] select-none whitespace-nowrap">Search or ID</label>
-        <input
-          id="search-input"
-          type="text"
-          class="h-[36px] w-[240px] px-3 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] text-base text-[#1D2125] focus:border-[#0C66E4] focus:outline-none transition-colors"
-        />
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="nav-left">
+      <a href="#" class="brand-name">Planner</a>
+      <div class="search-group">
+        <label for="site-search">Search or ID</label>
+        <input type="search" id="site-search" name="q" class="search-input" autocomplete="off">
       </div>
     </div>
-
-    <!-- Text links "Me" and "Sign out" on the right -->
-    <nav class="flex items-center space-x-4 text-sm font-normal">
-      <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] rounded-[2px] transition-colors">Me</a>
-      <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] rounded-[2px] transition-colors">Sign out</a>
-    </nav>
+    <div class="nav-right">
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
+    </div>
   </header>
 
-  <!-- Main container -->
-  <main class="flex-1 px-6 py-8 flex flex-col items-start">
-    <!-- White section about 640px wide over the #F7F8FA page, flat with 1px border, 6px radius, no shadow -->
-    <section class="w-full max-w-[640px] bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-8">
-      <!-- Heading 24px, weight 600 -->
-      <h1 class="text-[24px] font-semibold leading-tight text-[#1D2125] mb-4">
-        An error has occurred.
-      </h1>
-
-      <!-- Body text -->
-      <p class="text-base text-[#1D2125] leading-relaxed mb-4">
-        The request could not be completed. Please quote this reference when you report the problem.
-      </p>
-
-      <!-- Reference text -->
-      <p class="text-base font-normal text-[#1D2125] mb-6">
-        Reference: <span class="font-mono text-[#1D2125]">7F3A-21C9</span>
-      </p>
-
-      <!-- Primary text link "Go to projects" -->
+  <!-- Main content area -->
+  <main id="main">
+    <section class="error-card" aria-labelledby="error-heading">
+      <h1 id="error-heading" class="error-title">An error has occurred.</h1>
+      <p class="error-description">The request could not be completed. Please quote this reference when you report the problem.</p>
+      <p class="error-reference">Reference: 7F3A-21C9</p>
       <div>
-        <a href="#" class="text-base text-[#0C66E4] hover:text-[#0055CC] font-normal underline underline-offset-2 rounded-[2px] inline-block transition-colors">
-          Go to projects
-        </a>
+        <a href="#" class="error-action-link">Go to projects</a>
       </div>
     </section>
   </main>
-
 </body>
 </html>
