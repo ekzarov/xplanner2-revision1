@@ -2,247 +2,393 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>People - Planner</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-31 People - Planner (Admin)</title>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: #F7F8FA;
       color: #1D2125;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.5;
-      margin: 0;
-      padding: 0;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
 
-    a, button, input {
-      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      z-index: 1000;
+      outline: none;
     }
 
-    a:focus-visible, button:focus-visible, input:focus-visible {
+    .skip-link:focus {
+      top: 10px;
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
+    }
+
+    /* Focus styling */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-group label {
+      font-size: 13px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      height: 32px;
+      width: 220px;
+      padding: 0 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main container */
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 24px 48px 24px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    .breadcrumb-item a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .breadcrumb-item a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #626F86;
+    }
+
+    .breadcrumb-item.current {
+      color: #1D2125;
+    }
+
+    /* Header section */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
     }
 
     .btn-primary {
       background-color: #0C66E4;
       color: #FFFFFF;
-      height: 36px;
-      padding: 0 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid transparent;
-      cursor: pointer;
+      border-color: #0C66E4;
     }
+
     .btn-primary:hover {
       background-color: #0055CC;
+      border-color: #0055CC;
     }
 
-    .btn-neutral-disabled {
+    .btn-neutral {
       background-color: #FFFFFF;
-      color: #8590A2;
-      border: 1px solid #DCDFE4;
-      height: 36px;
-      padding: 0 14px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 400;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: not-allowed;
-      opacity: 0.7;
-    }
-
-    .input-control {
-      height: 36px;
-      border: 1px solid #8590A2;
-      border-radius: 6px;
-      background-color: #FFFFFF;
-      padding: 0 10px;
-      font-size: 16px;
       color: #1D2125;
-      box-sizing: border-box;
+      border-color: #8590A2;
     }
 
-    .table-container {
-      width: 100%;
+    .btn-neutral:disabled {
       background-color: #FFFFFF;
+      color: #A5ADBA;
+      border-color: #DCDFE4;
+      cursor: not-allowed;
+    }
+
+    /* Table styling */
+    .table-container {
+      background: #FFFFFF;
       border: 1px solid #DCDFE4;
       border-radius: 6px;
       overflow: hidden;
     }
 
-    table {
+    .data-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
       text-align: left;
+      font-size: 14px;
     }
 
-    th {
+    .data-table th {
       background-color: #F1F2F4;
       color: #1D2125;
       font-weight: 600;
-      height: 40px;
       padding: 0 16px;
+      height: 40px;
       border-bottom: 1px solid #DCDFE4;
       user-select: none;
     }
 
-    td {
+    .data-table th button {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 0;
+    }
+
+    .sort-indicator {
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .data-table td {
       height: 40px;
       padding: 0 16px;
       border-bottom: 1px solid #DCDFE4;
       color: #1D2125;
     }
 
-    tbody tr:last-child td {
+    .data-table tr:last-child td {
       border-bottom: none;
     }
 
-    tbody tr:hover {
-      background-color: #F7F8FA;
+    .data-table tr:hover td {
+      background-color: #FAFBFC;
+    }
+
+    .table-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .table-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Paging */
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      color: #626F86;
+      font-size: 14px;
+    }
+
+    .pagination-actions {
+      display: flex;
+      gap: 8px;
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col">
-  <!-- Top bar (white, 56px, divider below) -->
-  <header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] h-[56px] px-8 flex items-center justify-between">
-    <div class="flex items-center space-x-6">
-      <span class="text-[20px] font-bold tracking-tight text-[#1D2125]">Planner</span>
-      <div class="flex items-center space-x-2">
-        <label for="search-input" class="text-[14px] text-[#1D2125] whitespace-nowrap">Search or ID</label>
-        <input 
-          id="search-input" 
-          type="text" 
-          class="input-control w-64"
-        />
+<body>
+  <!-- Skip to main content -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-bar-left">
+      <span class="brand">Planner</span>
+      <div class="search-group">
+        <label for="search-input">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
       </div>
     </div>
-    <div class="flex items-center space-x-5 text-[14px]">
-      <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] font-normal">Me</a>
-      <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] font-normal">Sign out</a>
+    <div class="top-bar-right">
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
     </div>
   </header>
 
-  <!-- Main Container -->
-  <main class="flex-1 w-full max-w-[1400px] mx-auto px-8 pt-6 pb-12">
-    <!-- Breadcrumb (14px, links in primary, current item plain text): Top / People -->
-    <nav class="text-[14px] text-[#626F86] mb-5" aria-label="Breadcrumb">
-      <a href="#" class="text-[#0C66E4] hover:text-[#0055CC]">Top</a>
-      <span class="mx-2 text-[#8590A2]">/</span>
-      <span class="text-[#1D2125]">People</span>
+  <!-- Main content area -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#">Top</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item current" aria-current="page">People</li>
+      </ol>
     </nav>
 
-    <!-- Page heading & Create person button -->
-    <div class="flex items-center justify-between mb-6">
-      <h1 class="text-[24px] font-semibold text-[#1D2125] m-0 leading-tight">People</h1>
-      <button type="button" class="btn-primary">
-        Create person
-      </button>
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1 class="page-title">People</h1>
+      <button type="button" class="btn btn-primary">Create person</button>
     </div>
 
-    <!-- Table (full width, header #F1F2F4, 14px, 40px rows, sortable headers, sorted by Name ascending with an arrow) -->
-    <div class="table-container mb-4">
-      <table>
+    <!-- Table of People -->
+    <div class="table-container">
+      <table class="data-table">
         <thead>
           <tr>
-            <th class="w-[18%]">
-              <button type="button" class="flex items-center space-x-1 font-semibold text-[#1D2125] hover:text-[#0C66E4] cursor-pointer bg-transparent border-0 p-0 text-[14px]">
-                <span>User ID</span>
-              </button>
+            <th scope="col" aria-sort="none">
+              <button type="button">User ID</button>
             </th>
-            <th class="w-[24%]">
-              <button type="button" class="flex items-center space-x-1.5 font-semibold text-[#1D2125] hover:text-[#0C66E4] cursor-pointer bg-transparent border-0 p-0 text-[14px]">
-                <span>Name</span>
-                <span class="text-[12px] text-[#1D2125]" aria-label="sorted ascending">▲</span>
-              </button>
+            <th scope="col" aria-sort="ascending">
+              <button type="button">Name <span class="sort-indicator" aria-hidden="true">&#9650;</span></button>
             </th>
-            <th class="w-[14%]">
-              <button type="button" class="flex items-center space-x-1 font-semibold text-[#1D2125] hover:text-[#0C66E4] cursor-pointer bg-transparent border-0 p-0 text-[14px]">
-                <span>Initials</span>
-              </button>
+            <th scope="col" aria-sort="none">
+              <button type="button">Initials</button>
             </th>
-            <th class="w-[18%]">
-              <button type="button" class="flex items-center space-x-1 font-semibold text-[#1D2125] hover:text-[#0C66E4] cursor-pointer bg-transparent border-0 p-0 text-[14px]">
-                <span>Phone</span>
-              </button>
+            <th scope="col" aria-sort="none">
+              <button type="button">Phone</button>
             </th>
-            <th class="w-[26%]">
-              <button type="button" class="flex items-center space-x-1 font-semibold text-[#1D2125] hover:text-[#0C66E4] cursor-pointer bg-transparent border-0 p-0 text-[14px]">
-                <span>E-mail</span>
-              </button>
+            <th scope="col" aria-sort="none">
+              <button type="button">E-mail</button>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="font-mono text-[13px] text-[#1D2125]">usera</td>
-            <td>
-              <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] font-medium">User A</a>
-            </td>
+            <td>usera</td>
+            <td><a href="#" class="table-link">User A</a></td>
             <td>UA</td>
             <td>000-0001</td>
-            <td>
-              <a href="mailto:usera@example.test" class="text-[#0C66E4] hover:text-[#0055CC]">usera@example.test</a>
-            </td>
+            <td><a href="mailto:usera@example.test" class="table-link">usera@example.test</a></td>
           </tr>
           <tr>
-            <td class="font-mono text-[13px] text-[#1D2125]">userb</td>
-            <td>
-              <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] font-medium">User B</a>
-            </td>
+            <td>userb</td>
+            <td><a href="#" class="table-link">User B</a></td>
             <td>UB</td>
             <td>000-0002</td>
-            <td>
-              <a href="mailto:userb@example.test" class="text-[#0C66E4] hover:text-[#0055CC]">userb@example.test</a>
-            </td>
+            <td><a href="mailto:userb@example.test" class="table-link">userb@example.test</a></td>
           </tr>
           <tr>
-            <td class="font-mono text-[13px] text-[#1D2125]">userc</td>
-            <td>
-              <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] font-medium">User C</a>
-            </td>
+            <td>userc</td>
+            <td><a href="#" class="table-link">User C</a></td>
             <td>UC</td>
             <td>000-0003</td>
-            <td>
-              <a href="mailto:userc@example.test" class="text-[#0C66E4] hover:text-[#0055CC]">userc@example.test</a>
-            </td>
+            <td><a href="mailto:userc@example.test" class="table-link">userc@example.test</a></td>
           </tr>
           <tr>
-            <td class="font-mono text-[13px] text-[#1D2125]">userd</td>
-            <td>
-              <a href="#" class="text-[#0C66E4] hover:text-[#0055CC] font-medium">User D</a>
-            </td>
+            <td>userd</td>
+            <td><a href="#" class="table-link">User D</a></td>
             <td>UD</td>
             <td>000-0004</td>
-            <td>
-              <a href="mailto:userd@example.test" class="text-[#0C66E4] hover:text-[#0055CC]">userd@example.test</a>
-            </td>
+            <td><a href="mailto:userd@example.test" class="table-link">userd@example.test</a></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Paging controls below table -->
-    <div class="flex items-center justify-between pt-2">
-      <div class="text-[14px] text-[#626F86]">
-        Page 1 of 1
-      </div>
-      <div class="flex items-center space-x-2">
-        <button type="button" disabled class="btn-neutral-disabled">
-          Previous
-        </button>
-        <button type="button" disabled class="btn-neutral-disabled">
-          Next
-        </button>
+    <!-- Pagination -->
+    <div class="pagination-bar">
+      <span>Page 1 of 1</span>
+      <div class="pagination-actions">
+        <button type="button" class="btn btn-neutral" disabled>Previous</button>
+        <button type="button" class="btn btn-neutral" disabled>Next</button>
       </div>
     </div>
   </main>

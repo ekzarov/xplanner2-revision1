@@ -1,455 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iteration 3 - Accuracy</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UX13-27 Iteration 3 - Accuracy</title>
+<!-- Load Tailwind CSS v3 with forms and container-queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+          },
+          colors: {
+            textPrimary: '#1D2125',
+            secondary: '#626F86',
+            brand: '#0C66E4',
+            pageBg: '#F7F8FA',
+            surface: '#FFFFFF',
+            borderControl: '#8590A2',
+            divider: '#DCDFE4',
+            headerBg: '#F1F2F4',
+            selectedBg: '#E9F2FF',
+            danger: '#C9372C',
+            dangerHover: '#AE2A19',
+          },
+          borderRadius: {
+            DEFAULT: '6px',
+            custom: '6px',
+          }
+        }
+      }
     }
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      color: #1D2125;
-      background-color: #F7F8FA;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-    a {
-      color: #0C66E4;
-      text-decoration: none;
-      border-radius: 2px;
-    }
-    a:hover {
-      color: #0055CC;
-      text-decoration: underline;
-    }
-    a:focus-visible, button:focus-visible, input:focus-visible {
+  </script>
+<style data-purpose="focus-styles">
+    /* Global accessible focus styling according to design system specifications */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
     }
-
-    /* Top Bar */
-    .top-bar {
-      background-color: #FFFFFF;
-      height: 56px;
-      border-bottom: 1px solid #DCDFE4;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-    }
-    .top-left {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    .brand-title {
-      font-size: 20px;
-      font-weight: 600;
-      color: #1D2125;
-      letter-spacing: -0.01em;
-    }
-    .search-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .search-label {
-      font-size: 14px;
-      color: #1D2125;
-      white-space: nowrap;
-    }
-    .search-input {
-      height: 36px;
-      width: 220px;
-      padding: 0 10px;
-      font-family: inherit;
-      font-size: 14px;
-      color: #1D2125;
-      background-color: #FFFFFF;
-      border: 1px solid #8590A2;
-      border-radius: 6px;
-    }
-    .top-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      font-size: 14px;
-    }
-
-    /* Main Container */
-    .main-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px 24px 64px 24px;
-    }
-
-    /* Breadcrumb */
-    .breadcrumb {
-      font-size: 14px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .breadcrumb-separator {
-      color: #626F86;
-    }
-    .breadcrumb-current {
-      color: #1D2125;
-    }
-
-    /* Header Section */
-    .page-header {
-      margin-bottom: 24px;
-    }
-    .page-title {
-      font-size: 24px;
-      font-weight: 600;
-      color: #1D2125;
-      margin-bottom: 4px;
-    }
-    .iteration-dates {
-      font-size: 14px;
-      color: #626F86;
-      margin-bottom: 16px;
-    }
-
-    /* Progress & Figures */
-    .progress-section {
-      margin-bottom: 20px;
-    }
-    .progress-label {
-      font-size: 14px;
-      color: #1D2125;
-      margin-bottom: 6px;
-    }
-    .progress-track {
-      width: 100%;
-      max-width: 440px;
-      height: 6px;
-      background-color: #DCDFE4;
-      border-radius: 3px;
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-    .progress-fill {
-      height: 100%;
-      width: 48%;
-      background-color: #0C66E4;
-      border-radius: 3px;
-    }
-    .figures-row {
-      display: flex;
-      gap: 24px;
-      font-size: 14px;
-      color: #1D2125;
-    }
-
-    /* Tabs */
-    .tabs-nav {
-      display: flex;
-      border-bottom: 1px solid #DCDFE4;
-      margin-bottom: 24px;
-      gap: 8px;
-    }
-    .tab-item {
-      font-size: 14px;
-      padding: 10px 16px;
-      color: #1D2125;
-      text-decoration: none;
-      font-weight: 400;
-      position: relative;
-      margin-bottom: -1px;
-      border-bottom: 2px solid transparent;
-      display: inline-block;
-    }
-    .tab-item:hover {
-      color: #0C66E4;
-      text-decoration: none;
-    }
-    .tab-item.active {
-      color: #0C66E4;
-      font-weight: 600;
-      border-bottom: 2px solid #0C66E4;
-    }
-
-    /* Summary Side by Side Grid */
-    .summary-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-
-    .table-section-title {
-      font-size: 20px;
-      font-weight: 600;
-      color: #1D2125;
-      margin-bottom: 12px;
-    }
-
-    /* Tables */
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      background-color: #FFFFFF;
-      border: 1px solid #DCDFE4;
-      border-radius: 0;
-    }
+  </style>
+<style data-purpose="table-layout">
+    /* Custom table utility styles */
     .data-table th,
     .data-table td {
-      border: 1px solid #DCDFE4;
-      padding: 0 16px;
-      height: 40px;
-      vertical-align: middle;
-    }
-    .data-table th {
-      background-color: #F1F2F4;
-      font-weight: 600;
-      color: #1D2125;
-      text-align: left;
-    }
-    .data-table th.num-col,
-    .data-table td.num-col {
-      text-align: right;
-    }
-    .data-table tbody tr:hover {
-      background-color: #FAFBFC;
-    }
-    .data-table tfoot tr {
-      background-color: #FFFFFF;
-      font-weight: 700;
-    }
-    .data-table tfoot td {
-      border-top: 2px solid #DCDFE4;
-    }
-
-    .by-story-section {
-      margin-top: 16px;
+      padding: 10px 16px;
+      font-size: 14px;
+      line-height: 20px;
     }
   </style>
 </head>
-<body>
-
-  <!-- Top Bar -->
-  <header class="top-bar">
-    <div class="top-left">
-      <span class="brand-title">Planner</span>
-      <div class="search-wrapper">
-        <label for="search-input" class="search-label">Search or ID</label>
-        <input type="text" id="search-input" class="search-input">
-      </div>
-    </div>
-    <div class="top-right">
-      <a href="#">Me</a>
-      <a href="#">Sign out</a>
-    </div>
-  </header>
-
-  <!-- Main Content -->
-  <main class="main-container">
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="#">Top</a>
-      <span class="breadcrumb-separator">/</span>
-      <a href="#">Project 1</a>
-      <span class="breadcrumb-separator">/</span>
-      <span class="breadcrumb-current">Iteration 3</span>
-    </nav>
-
-    <!-- Page Heading -->
-    <header class="page-header">
-      <h1 class="page-title">Iteration 3</h1>
-      <p class="iteration-dates">2026-03-02 to 2026-03-13</p>
-
-      <div class="progress-section">
-        <div class="progress-label">Progress 48%</div>
-        <div class="progress-track">
-          <div class="progress-fill"></div>
-        </div>
-        <div class="figures-row">
-          <span>Estimated 100.0 h</span>
-          <span>Actual 48.0 h</span>
-          <span>Remaining 52.0 h</span>
-        </div>
-      </div>
-    </header>
-
-    <!-- Local Tabs -->
-    <nav class="tabs-nav" aria-label="Iteration Navigation">
-      <a href="#" class="tab-item">Stories</a>
-      <a href="#" class="tab-item">Tasks</a>
-      <a href="#" class="tab-item">Statistics</a>
-      <a href="#" class="tab-item active" aria-current="page">Accuracy</a>
-      <a href="#" class="tab-item">Board</a>
-    </nav>
-
-    <!-- Two summary tables side by side -->
-    <div class="summary-grid">
-      <!-- Tasks Summary -->
-      <div>
-        <h2 class="table-section-title">Tasks</h2>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Metric</th>
-              <th class="num-col">Hours</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Original</td>
-              <td class="num-col">96.0</td>
-            </tr>
-            <tr>
-              <td>Current</td>
-              <td class="num-col">100.0</td>
-            </tr>
-            <tr>
-              <td>Completed</td>
-              <td class="num-col">48.0</td>
-            </tr>
-            <tr>
-              <td>Remaining</td>
-              <td class="num-col">52.0</td>
-            </tr>
-            <tr>
-              <td>Over-estimated</td>
-              <td class="num-col">2.0</td>
-            </tr>
-            <tr>
-              <td>Under-estimated</td>
-              <td class="num-col">6.0</td>
-            </tr>
-            <tr>
-              <td>Added</td>
-              <td class="num-col">0.0</td>
-            </tr>
-            <tr>
-              <td>Postponed</td>
-              <td class="num-col">0.0</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Stories Summary -->
-      <div>
-        <h2 class="table-section-title">Stories</h2>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Metric</th>
-              <th class="num-col">Hours</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Original</td>
-              <td class="num-col">96.0</td>
-            </tr>
-            <tr>
-              <td>Current</td>
-              <td class="num-col">100.0</td>
-            </tr>
-            <tr>
-              <td>Completed</td>
-              <td class="num-col">48.0</td>
-            </tr>
-            <tr>
-              <td>Remaining</td>
-              <td class="num-col">52.0</td>
-            </tr>
-            <tr>
-              <td>Over-estimated</td>
-              <td class="num-col">2.0</td>
-            </tr>
-            <tr>
-              <td>Under-estimated</td>
-              <td class="num-col">6.0</td>
-            </tr>
-            <tr>
-              <td>Added</td>
-              <td class="num-col">0.0</td>
-            </tr>
-            <tr>
-              <td>Postponed</td>
-              <td class="num-col">0.0</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Below them: By story Table -->
-    <div class="by-story-section">
-      <h2 class="table-section-title">By story</h2>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Story</th>
-            <th class="num-col">Original</th>
-            <th class="num-col">Current</th>
-            <th class="num-col">Actual</th>
-            <th class="num-col">Remaining</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="#">Story 1</a></td>
-            <td class="num-col">18.0</td>
-            <td class="num-col">20.0</td>
-            <td class="num-col">12.0</td>
-            <td class="num-col">8.0</td>
-          </tr>
-          <tr>
-            <td><a href="#">Story 2</a></td>
-            <td class="num-col">24.0</td>
-            <td class="num-col">24.0</td>
-            <td class="num-col">6.0</td>
-            <td class="num-col">18.0</td>
-          </tr>
-          <tr>
-            <td><a href="#">Story 3</a></td>
-            <td class="num-col">16.0</td>
-            <td class="num-col">20.0</td>
-            <td class="num-col">10.0</td>
-            <td class="num-col">10.0</td>
-          </tr>
-          <tr>
-            <td><a href="#">Story 4</a></td>
-            <td class="num-col">16.0</td>
-            <td class="num-col">16.0</td>
-            <td class="num-col">0.0</td>
-            <td class="num-col">16.0</td>
-          </tr>
-          <tr>
-            <td><a href="#">Story 5</a></td>
-            <td class="num-col">22.0</td>
-            <td class="num-col">20.0</td>
-            <td class="num-col">20.0</td>
-            <td class="num-col">0.0</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>Total</td>
-            <td class="num-col">96.0</td>
-            <td class="num-col">100.0</td>
-            <td class="num-col">48.0</td>
-            <td class="num-col">52.0</td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-  </main>
-
-</body>
-</html>
+<body class="bg-[#F7F8FA] text-[#1D2125] font-sans antialiased min-h-screen">
+<!-- BEGIN: Accessibility Skip Link -->
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-[#0C66E4] focus:p-2 focus:border focus:border-[#0C66E4] focus:rounded-[6px]" href="#main">
+    Skip to main content
+  </a>
+<!-- END: Accessibility Skip Link -->
+<!-- BEGIN: TopBar -->
+<header class="h-[56px] bg-white border-b border-[#DCDFE4] px-8 flex items-center justify-between" role="banner">
+<!-- Brand and Search Container -->
+<div class="flex items-center gap-6">
+<span class="text-[18px] font-bold tracking-tight text-[#1D2125]">Planner</span>
+<form class="flex items-center gap-2" onsubmit="event.preventDefault();" role="search">
+<label class="text-sm text-[#1D2125] font-normal cursor-pointer select-none" for="search-input">Search or ID</label>
+<input class="h-[32px] w-[180px] rounded-[6px] border border-[#8590A2] bg-white px-2.5 text-sm text-[#1D2125] focus:ring-0 focus:outline-none focus:border-[#0C66E4]" id="search-input" type="search"/>
+</form>
+</div>
+<!-- User Navigation -->
+<nav aria-label="User Navigation" class="flex items-center gap-4 text-sm font-medium">
+<a class="text-[#0C66E4] hover:underline" href="#">Me</a>
+<a class="text-[#0C66E4] hover:underline" href="#">Sign out</a>
+</nav>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: MainContent -->
+<main class="px-8 py-6 max-w-[1440px] mx-auto" id="main">
+<!-- Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb">
+<ol class="flex items-center gap-2 text-sm">
+<li>
+<a class="text-[#0C66E4] hover:underline" href="#">Top</a>
+</li>
+<li aria-hidden="true" class="text-[#626F86]">/</li>
+<li>
+<a class="text-[#0C66E4] hover:underline" href="#">Project 1</a>
+</li>
+<li aria-hidden="true" class="text-[#626F86]">/</li>
+<li aria-current="page" class="text-[#1D2125]">Iteration 3</li>
+</ol>
+</nav>
+<!-- BEGIN: IterationHeader -->
+<section aria-labelledby="iteration-heading" class="mt-4 mb-6">
+<h1 class="text-[28px] font-bold leading-tight text-[#1D2125]" id="iteration-heading">Iteration 3</h1>
+<p class="text-sm text-[#626F86] mt-1">2026-03-02 to 2026-03-13</p>
+<!-- Progress Section -->
+<div class="mt-4 max-w-[340px]" data-purpose="iteration-progress">
+<div class="text-sm text-[#1D2125] mb-1.5 font-normal">Progress 48%</div>
+<div aria-label="Progress 48%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="48" class="h-2 w-full bg-[#DCDFE4] rounded-full overflow-hidden" role="progressbar">
+<div class="h-full bg-[#0C66E4] rounded-full" style="width: 48%;"></div>
+</div>
+<div class="flex items-center gap-4 text-sm text-[#1D2125] mt-3 whitespace-nowrap">
+<span>Estimated 100.0 h</span>
+<span>Actual 48.0 h</span>
+<span>Remaining 52.0 h</span>
+</div>
+</div>
+</section>
+<!-- END: IterationHeader -->
+<!-- BEGIN: LocalNavigationTabs -->
+<nav aria-label="Iteration Views" class="border-b border-[#DCDFE4] mb-6">
+<div class="flex space-x-6">
+<a class="pb-3 text-sm text-[#626F86] hover:text-[#1D2125] transition-colors" href="#">Stories</a>
+<a class="pb-3 text-sm text-[#626F86] hover:text-[#1D2125] transition-colors" href="#">Tasks</a>
+<a class="pb-3 text-sm text-[#626F86] hover:text-[#1D2125] transition-colors" href="#">Statistics</a>
+<a aria-current="page" class="pb-3 text-sm font-semibold text-[#0C66E4] border-b-2 border-[#0C66E4] -mb-[1px]" href="#">Accuracy</a>
+<a class="pb-3 text-sm text-[#626F86] hover:text-[#1D2125] transition-colors" href="#">Board</a>
+</div>
+</nav>
+<!-- END: LocalNavigationTabs -->
+<!-- BEGIN: SummaryTablesGrid -->
+<section aria-label="Summary by Tasks and Stories" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<!-- Tasks Summary -->
+<div>
+<h2 class="text-[18px] font-semibold text-[#1D2125] mb-2">Tasks</h2>
+<div class="bg-white border border-[#DCDFE4] rounded-[6px] overflow-hidden">
+<table class="w-full text-left border-collapse data-table">
+<thead>
+<tr class="bg-[#F1F2F4] border-b border-[#DCDFE4]">
+<th class="font-semibold text-[#1D2125]" scope="col">Metric</th>
+<th class="font-semibold text-[#1D2125] text-right" scope="col">Hours</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#DCDFE4]">
+<tr>
+<td class="text-[#1D2125]">Original</td>
+<td class="text-[#1D2125] text-right">96.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Current</td>
+<td class="text-[#1D2125] text-right">100.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Completed</td>
+<td class="text-[#1D2125] text-right">48.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Remaining</td>
+<td class="text-[#1D2125] text-right">52.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Over-estimated</td>
+<td class="text-[#1D2125] text-right">2.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Under-estimated</td>
+<td class="text-[#1D2125] text-right">6.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Added</td>
+<td class="text-[#1D2125] text-right">0.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Postponed</td>
+<td class="text-[#1D2125] text-right">0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Stories Summary -->
+<div>
+<h2 class="text-[18px] font-semibold text-[#1D2125] mb-2">Stories</h2>
+<div class="bg-white border border-[#DCDFE4] rounded-[6px] overflow-hidden">
+<table class="w-full text-left border-collapse data-table">
+<thead>
+<tr class="bg-[#F1F2F4] border-b border-[#DCDFE4]">
+<th class="font-semibold text-[#1D2125]" scope="col">Metric</th>
+<th class="font-semibold text-[#1D2125] text-right" scope="col">Hours</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#DCDFE4]">
+<tr>
+<td class="text-[#1D2125]">Original</td>
+<td class="text-[#1D2125] text-right">96.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Current</td>
+<td class="text-[#1D2125] text-right">100.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Completed</td>
+<td class="text-[#1D2125] text-right">48.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Remaining</td>
+<td class="text-[#1D2125] text-right">52.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Over-estimated</td>
+<td class="text-[#1D2125] text-right">2.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Under-estimated</td>
+<td class="text-[#1D2125] text-right">6.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Added</td>
+<td class="text-[#1D2125] text-right">0.0</td>
+</tr>
+<tr>
+<td class="text-[#1D2125]">Postponed</td>
+<td class="text-[#1D2125] text-right">0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- END: SummaryTablesGrid -->
+<!-- BEGIN: DetailedStoriesTable -->
+<section aria-labelledby="by-story-heading">
+<h2 class="text-[18px] font-semibold text-[#1D2125] mb-2" id="by-story-heading">By story</h2>
+<div class="bg-white border border-[#DCDFE4] rounded-[6px] overflow-hidden">
+<table class="w-full text-left border-collapse data-table">
+<thead>
+<tr class="bg-[#F1F2F4] border-b border-[#DCDFE4]">
+<th class="font-semibold text-[#1D2125]" scope="col">Story</th>
+<th class="font-semibold text-[#1D2125] text-right" scope="col">Original</th>
+<th class="font-semibold text-[#1D2125] text-right" scope="col">Current</th>
+<th class="font-semibold text-[#1D2125] text-right" scope="col">Actual</th>
+<th class="font-semibold text-[#1D2125] text-right" scope="col">Remaining</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#DCDFE4]">
+<tr>
+<td>
+<a class="text-[#0C66E4] hover:underline" href="#">Story 1</a>
+</td>
+<td class="text-right text-[#1D2125]">18.0</td>
+<td class="text-right text-[#1D2125]">20.0</td>
+<td class="text-right text-[#1D2125]">12.0</td>
+<td class="text-right text-[#1D2125]">8.0</td>
+</tr>
+<tr>
+<td>
+<a class="text-[#0C66E4] hover:underline" href="#">Story 2</a>
+</td>
+<td class="text-right text-[#1D2125]">24.0</td>
+<td class="text-right text-[#1D2125]">24.0</td>
+<td class="text-right text-[#1D2125]">6.0</td>
+<td class="text-right text-[#1D2125]">18.0</td>
+</tr>
+<tr>
+<td>
+<a class="text-[#0C66E4] hover:underline" href="#">Story 3</a>
+</td>
+<td class="text-right text-[#1D2125]">16.0</td>
+<td class="text-right text-[#1D2125]">20.0</td>
+<td class="text-right text-[#1D2125]">10.0</td>
+<td class="text-right text-[#1D2125]">10.0</td>
+</tr>
+<tr>
+<td>
+<a class="text-[#0C66E4] hover:underline" href="#">Story 4</a>
+</td>
+<td class="text-right text-[#1D2125]">16.0</td>
+<td class="text-right text-[#1D2125]">16.0</td>
+<td class="text-right text-[#1D2125]">0.0</td>
+<td class="text-right text-[#1D2125]">16.0</td>
+</tr>
+<tr>
+<td>
+<a class="text-[#0C66E4] hover:underline" href="#">Story 5</a>
+</td>
+<td class="text-right text-[#1D2125]">22.0</td>
+<td class="text-right text-[#1D2125]">20.0</td>
+<td class="text-right text-[#1D2125]">20.0</td>
+<td class="text-right text-[#1D2125]">0.0</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="border-t-2 border-[#DCDFE4] font-bold text-[#1D2125]">
+<th scope="row">Total</th>
+<td class="text-right">96.0</td>
+<td class="text-right">100.0</td>
+<td class="text-right">48.0</td>
+<td class="text-right">52.0</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</section>
+<!-- END: DetailedStoriesTable -->
+</main>
+<!-- END: MainContent -->
+</body></html>

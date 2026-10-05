@@ -392,11 +392,11 @@
       "files": [
         {
           "path": "wireframes/project-page-desktop.html",
-          "sha256": "370558434b3a6799e6281b17e2590d7d8353d90fcdd699b8c3c3aa67009e27eb"
+          "sha256": "a2f5e340bbc060c9ab753bb9814b8effd5c43eadbdc0d88f2b227f5514429b4e"
         },
         {
           "path": "wireframes/project-page-desktop.png",
-          "sha256": "3e1a8e3fcf5e6b787358385e4e6b8c19ef0b1dab763f7fa019bff13b1f504986"
+          "sha256": "60d9d4fa93bb045974f722b4ce7f2c63e974fbbe01efb6d53a80612ec7015b17"
         },
         {
           "path": "wireframes/project-page-phone.html",
@@ -512,11 +512,11 @@
       "files": [
         {
           "path": "wireframes/iteration-editor-desktop.html",
-          "sha256": "4637b623380ef7f8a603cf155dd329dfcc2ea78c00bdb2d22f8d0b3125acf09f"
+          "sha256": "14d8f039008c05696f8bf749f45eb06f4230626c51ac1e1c032d9c15e0985a13"
         },
         {
           "path": "wireframes/iteration-editor-desktop.png",
-          "sha256": "f6b90bb85868b4ea09af9a33bff51cdc0b54e5b8ee0452d5ccad3fb2734f59fd"
+          "sha256": "72d1bac49459153a57ba7c7ee206df5cecfae574253beebb8924536e927309eb"
         }
       ],
       "navigation": [
@@ -553,11 +553,11 @@
       "files": [
         {
           "path": "wireframes/iteration-tasks-desktop.html",
-          "sha256": "ba78802956c06ed11c2aa477ca72163f9b015b3e84a263ff50efa1a3a03543e7"
+          "sha256": "1f46aa52eff4d5ddea7ebae9211f82ad5b0aa97ceac29484cd341cc920f1c348"
         },
         {
           "path": "wireframes/iteration-tasks-desktop.png",
-          "sha256": "b0cc740b450d578976d240ebe40ba9994769338f465ba56b1ee70c5a4eed0e6c"
+          "sha256": "f0012e75961a3b2422b461c1836985db01d17ec6a2f90be63941c944ca7c2249"
         }
       ],
       "navigation": [
@@ -644,11 +644,11 @@
       "files": [
         {
           "path": "wireframes/iteration-accuracy-desktop.html",
-          "sha256": "6d436abf2b9e102880572af51b81366861b127c08266299e2b64dd308bcd6980"
+          "sha256": "438c2610fd91957f4146e58bcd65faed4ff17600b80f6b61fd5c71433857b2aa"
         },
         {
           "path": "wireframes/iteration-accuracy-desktop.png",
-          "sha256": "ad54c2be75bfc8960bc939c37c56bf5120ec3a5b55de4518b856994dd8aa6bc6"
+          "sha256": "c79b02c00b46fe563d19990023d2cd55f6454c97fe9897fc1668166d97d96508"
         }
       ],
       "navigation": [
@@ -683,11 +683,11 @@
       "files": [
         {
           "path": "wireframes/iteration-board-desktop.html",
-          "sha256": "c9b4dd145cf39842b2d2c990e860838c580877a6b8166b11da61fc6096d45fb6"
+          "sha256": "558711499c80ccbe2a8628fc49feab4344beebc3fa6b5bcd146a3beb1b1cee3c"
         },
         {
           "path": "wireframes/iteration-board-desktop.png",
-          "sha256": "dcadd7b17c22f139bd84963f1d2f1bb9fdf092a86c6d3b788808b93e463c64c6"
+          "sha256": "99973c6d4f667f01e9c48e615de4db3781a5fad20c0cedba2a58f34b45b8a5eb"
         },
         {
           "path": "wireframes/iteration-board-phone.html",
@@ -818,11 +818,11 @@
       "files": [
         {
           "path": "wireframes/people-list-desktop.html",
-          "sha256": "8d558b14f2a00c9e448df09078d793d74fff84f6ac673ae612c1ec0091bfc3b3"
+          "sha256": "0817fd1adce7070fc1250dbf42f434a0f0aa8f918100f27d7cb80deb3a57fb9b"
         },
         {
           "path": "wireframes/people-list-desktop.png",
-          "sha256": "4dbf7bfcbb0a9190b24f3e0308353f95259aabc4d70fab55e3f210db21bf0100"
+          "sha256": "34886e273391cf0fe06b2b8edcb5fe4770ad315730720fa97f40bc21568996df"
         }
       ],
       "navigation": [
@@ -1737,10 +1737,10 @@
     }
   ],
   "_notes": [
-    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T08:43:45Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
+    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T09:39:00Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
     "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a pattern whose composition is unchanged and is drawn in a real export (P); per-row claims are in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. After Stage 7 pass 001 the claims that relied on a pattern with a different composition, or on a trigger without a drawn destination, were withdrawn and are now drawn by the UX-006-13 exports. No visual row is unclaimed. Rows 24 and 26 are role states drawn by iteration-export-menu-desktop and task-viewer-desktop; row 210 is drawn by the export menu (iteration-export-menu-desktop).",
     "Roles (Stage 7 pass 001 F-001/F-002): each screen declares the roles its exports draw; role views are states of the same screen. iteration-page: admin (list-desktop, list-phone: Edit and Delete iteration), editor (iteration-export-menu-desktop: no Delete iteration) and viewer (iteration-viewer-desktop: read-only); task-page: editor and viewer (task-viewer-desktop); projects-list: system administrator (Create project, Hidden column, System information link); project-page: system administrator (Delete project); people-list: admin and system administrator (Create person; for viewers and editors only that button is absent). Also drawn: projects-list for viewer/editor/admin, project-page admin (export menu), story-page viewer (export menu), person-page viewer, person-editor project admin. Open coverage items for QA: phone date picker, select inside a phone dialog and phone empty state are not verified (pending phone exports).",
-    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983, story-page-desktop 841a0392 (replaces c0e12320), project-page-admin-desktop 832f3f12, person-editor-admin-desktop 127b7b36, projects-list-member-desktop 10bdaa21, story-viewer-export-desktop 06cb5800, person-page-viewer-desktop ba6f2600, iteration-empty-phone a5b766ae (390 px phone), list-desktop caaa1e00, iteration-start-dialog-desktop 00767edb, iteration-statistics-desktop 265577d0, aggregate-timesheet-desktop 9e592647, ui-kit 2d5cea05, error-page-desktop 1515d68f, history-desktop 816bb3ab; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983, story-page-desktop 841a0392 (replaces c0e12320), project-page-admin-desktop 832f3f12, person-editor-admin-desktop 127b7b36, projects-list-member-desktop 10bdaa21, story-viewer-export-desktop 06cb5800, person-page-viewer-desktop ba6f2600, iteration-empty-phone a5b766ae (390 px phone), list-desktop caaa1e00, iteration-start-dialog-desktop 00767edb, iteration-statistics-desktop 265577d0, aggregate-timesheet-desktop 9e592647, ui-kit 2d5cea05, error-page-desktop 1515d68f, history-desktop 816bb3ab, iteration-accuracy-desktop b546187d, iteration-board-desktop a21e46d6, iteration-editor-desktop 0e6fb0d9, iteration-tasks-desktop 2d39cb77, people-list-desktop 7add2352, project-page-desktop 38232108; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
     "Pending prepared entries: none. Every export was accepted only after its real PNG was checked against its HTML; stale or cropped pairs (ZIP 6 and ZIP 7 close, ZIP 7 start and continue) were not imported and are kept in scratch.",
     "Editors (owner direction, relayed by Codex): Save, Reset and Cancel, drawn on every exported editor. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
     "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page. A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",
