@@ -1,733 +1,1396 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UI kit</title>
-<script src="https://cdn.tailwindcss.com"></script>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UX13-23e UI kit (scrolled table specimen)</title>
 <style>
-  :root {
-    --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --color-text: #1D2125;
-    --color-secondary: #626F86;
-    --color-primary: #0C66E4;
-    --color-primary-hover: #0055CC;
-    --color-completion: #1F7A45;
-    --color-completion-hover: #166038;
-    --color-danger: #C9372C;
-    --color-bg: #F7F8FA;
-    --color-surface: #FFFFFF;
-    --color-border: #8590A2;
-    --color-divider: #DCDFE4;
-    --color-table-header: #F1F2F4;
-    --color-selected: #E9F2FF;
-  }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  body {
-    font-family: var(--font-stack);
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    margin: 0;
-    padding: 32px 24px 64px;
-    font-size: 16px;
-    line-height: 1.5;
-  }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 40px;
+    }
 
-  .focus-ring-simulated {
-    outline: 2px solid var(--color-primary) !important;
-    outline-offset: 2px !important;
-  }
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 9999;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+    .skip-link-specimen-visible {
+      display: inline-block;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
 
-  /* Interactive focus styles */
-  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
+    .page-header {
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+    .page-desc {
+      font-size: 14px;
+      color: #626F86;
+    }
 
-  .component-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-divider);
-    border-radius: 6px;
-    padding: 24px;
-    margin-bottom: 24px;
-  }
+    .component-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
 
-  .component-title {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--color-divider);
-  }
+    .component-card {
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 24px;
+    }
 
-  .state-label {
-    font-size: 14px;
-    color: var(--color-secondary);
-    margin-top: 8px;
-    text-align: left;
-  }
-</style>
+    .component-title {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 20px;
+    }
+
+    .states-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .state-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .state-label {
+      font-size: 14px;
+      color: #626F86;
+    }
+
+    /* Common Button Styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    /* Focus ring helper */
+    .has-focus-ring {
+      outline: 2px solid #0C66E4 !important;
+      outline-offset: 2px !important;
+    }
+
+    /* Button Primary */
+    .btn-primary-default {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border-color: #0C66E4;
+    }
+    .btn-primary-hover {
+      background-color: #0055CC;
+      color: #FFFFFF;
+      border-color: #0055CC;
+    }
+    .btn-primary-disabled {
+      background-color: #0C66E4;
+      opacity: 0.4;
+      color: #FFFFFF;
+      border-color: #0C66E4;
+      cursor: not-allowed;
+    }
+    .btn-primary-loading {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border-color: #0C66E4;
+      cursor: wait;
+      gap: 8px;
+    }
+
+    /* Button Completion */
+    .btn-completion-default {
+      background-color: #1F7A45;
+      color: #FFFFFF;
+      border-color: #1F7A45;
+    }
+    .btn-completion-hover {
+      background-color: #166038;
+      color: #FFFFFF;
+      border-color: #166038;
+    }
+    .btn-completion-disabled {
+      background-color: #1F7A45;
+      opacity: 0.4;
+      color: #FFFFFF;
+      border-color: #1F7A45;
+      cursor: not-allowed;
+    }
+    .btn-completion-loading {
+      background-color: #1F7A45;
+      color: #FFFFFF;
+      border-color: #1F7A45;
+      cursor: wait;
+      gap: 8px;
+    }
+
+    /* Button Neutral */
+    .btn-neutral-default {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border-color: #8590A2;
+    }
+    .btn-neutral-hover {
+      background-color: #F7F8FA;
+      color: #1D2125;
+      border-color: #8590A2;
+    }
+    .btn-neutral-disabled {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border-color: #8590A2;
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Button Danger */
+    .btn-danger-default {
+      background-color: #C9372C;
+      color: #FFFFFF;
+      border-color: #C9372C;
+    }
+    .btn-danger-hover {
+      background-color: #AE2A19;
+      color: #FFFFFF;
+      border-color: #AE2A19;
+    }
+    .btn-danger-disabled {
+      background-color: #C9372C;
+      opacity: 0.4;
+      color: #FFFFFF;
+      border-color: #C9372C;
+      cursor: not-allowed;
+    }
+
+    /* Spinner pure CSS SVG */
+    .spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid #FFFFFF;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Form Fields Common */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 220px;
+    }
+    .field-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1D2125;
+    }
+    .field-input {
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      height: 36px;
+      padding: 0 12px;
+      background: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      outline: none;
+      width: 100%;
+    }
+    .field-input.invalid, .field-select.invalid, .field-textarea.invalid {
+      border-color: #C9372C;
+    }
+    .field-input:disabled, .field-select:disabled, .field-textarea:disabled {
+      background-color: #F1F2F4;
+      color: #626F86;
+      cursor: not-allowed;
+      border-color: #DCDFE4;
+    }
+    .field-msg-error {
+      font-size: 13px;
+      color: #C9372C;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .field-hint {
+      font-size: 12px;
+      color: #626F86;
+    }
+
+    .field-select {
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      height: 36px;
+      padding: 0 32px 0 12px;
+      background: #FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231D2125' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 12px center;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      outline: none;
+      width: 100%;
+      appearance: none;
+    }
+
+    .field-textarea {
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      padding: 8px 12px;
+      background: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      outline: none;
+      width: 100%;
+      height: 72px;
+      resize: vertical;
+    }
+
+    /* Links */
+    .link-primary {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .link-primary:hover, .link-primary.hover-state {
+      color: #0055CC;
+      text-decoration: underline;
+    }
+    .link-focus-box {
+      border: 2px solid #0C66E4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    /* Checkbox */
+    .checkbox-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #1D2125;
+      cursor: pointer;
+    }
+    .checkbox-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #8590A2;
+      border-radius: 3px;
+      accent-color: #0C66E4;
+      cursor: pointer;
+    }
+    .checkbox-item input[type="checkbox"]:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    /* Custom visual representation of checkbox focus */
+    .checkbox-focus-ring {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-radius: 3px;
+    }
+
+    /* Table */
+    .ui-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+    .ui-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+    .ui-table th button {
+      background: transparent;
+      border: none;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0;
+    }
+    .ui-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+      height: 40px;
+    }
+    .ui-table tr.selected {
+      background-color: #E9F2FF;
+    }
+    .ui-table tr.empty-row td {
+      text-align: center;
+      color: #626F86;
+      font-style: normal;
+      padding: 16px;
+    }
+
+    /* Progress bar */
+    .progress-container {
+      width: 320px;
+    }
+    .progress-label-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1D2125;
+    }
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background-color: #DCDFE4;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: #0C66E4;
+      border-radius: 4px;
+    }
+
+    /* Error Summary */
+    .error-summary-box {
+      background-color: #FFFFFF;
+      border: 1px solid #C9372C;
+      border-radius: 6px;
+      padding: 16px 20px;
+      max-width: 440px;
+    }
+    .error-summary-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #C9372C;
+      margin-bottom: 10px;
+    }
+    .error-summary-list {
+      list-style-type: none;
+      padding-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .error-summary-list li::before {
+      content: "•";
+      color: #0C66E4;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    /* Scrim and Dialog Specimen */
+    .scrim-container {
+      width: 100%;
+      max-width: 600px;
+      height: 280px;
+      background-color: rgba(29, 33, 37, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .modal-dialog {
+      background: #FFFFFF;
+      border-radius: 6px;
+      padding: 24px;
+      width: 100%;
+      max-width: 380px;
+      border: 1px solid #DCDFE4;
+    }
+    .modal-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 10px;
+    }
+    .modal-body {
+      font-size: 14px;
+      color: #626F86;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    /* Top Bar Specimen */
+    .top-bar-specimen {
+      background-color: #FFFFFF;
+      height: 56px;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      width: 100%;
+    }
+    .top-bar-brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+    }
+    .top-bar-search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .top-bar-search-label {
+      font-size: 14px;
+      color: #626F86;
+      white-space: nowrap;
+    }
+    .top-bar-search-input {
+      font-family: inherit;
+      font-size: 14px;
+      height: 34px;
+      width: 240px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 10px;
+      outline: none;
+    }
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Breadcrumbs Specimen */
+    .breadcrumb-nav ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .breadcrumb-nav li + li::before {
+      content: "/";
+      color: #626F86;
+      margin-right: 8px;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    /* Tabs Specimen */
+    .tabs-nav {
+      display: flex;
+      border-bottom: 1px solid #DCDFE4;
+      gap: 24px;
+    }
+    .tab-item {
+      font-size: 14px;
+      color: #626F86;
+      text-decoration: none;
+      padding-bottom: 8px;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+    .tab-item.selected {
+      color: #0C66E4;
+      font-weight: 600;
+      border-bottom-color: #0C66E4;
+    }
+
+    /* Avatar */
+    .avatar-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+      background-color: #E9F2FF;
+      color: #1D2125;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* Task Card Specimen */
+    .task-card-specimen {
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 12px 16px;
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .task-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .task-card-user {
+      font-size: 13px;
+      color: #626F86;
+    }
+    .task-card-hours {
+      font-size: 13px;
+      color: #626F86;
+    }
+
+    /* Popover Menu Specimen */
+    .popover-menu-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .popover-menu {
+      margin-top: 6px;
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 8px 0;
+      width: 120px;
+    }
+    .popover-caption {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #626F86;
+      padding: 4px 12px;
+    }
+    .popover-item {
+      padding: 6px 12px;
+      font-size: 14px;
+      color: #1D2125;
+      display: block;
+      text-decoration: none;
+    }
+    .popover-item:hover {
+      background-color: #F7F8FA;
+    }
+
+    /* Scrolled Table Container Specimen */
+    .scrolled-table-container {
+      width: 320px;
+      overflow-x: auto;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+    }
+    .scrolled-table-container:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    .scrolled-table-container .ui-table {
+      width: 520px;
+    }
+  </style>
 </head>
-<body class="antialiased">
-
-  <header class="max-w-6xl mx-auto mb-8">
-    <h1 class="text-[24px] font-semibold text-[#1D2125] leading-tight">UI kit</h1>
-    <p class="text-[14px] text-[#626F86] mt-1">Component specification sheet for Planner application</p>
-  </header>
-
-  <main class="max-w-6xl mx-auto space-y-6">
-
-    <!-- 1) button.primary -->
-    <section id="button-primary" class="component-card">
-      <h2 class="component-title">button.primary</h2>
-      <div class="flex flex-wrap gap-8 items-end">
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#0C66E4] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center transition-colors">Save</button>
-          <div class="state-label">default</div>
-        </div>
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#0055CC] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center">Save</button>
-          <div class="state-label">hover (#0055CC)</div>
-        </div>
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#0C66E4] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center focus-ring-simulated">Save</button>
-          <div class="state-label">focus</div>
-        </div>
-        <div>
-          <button type="button" disabled class="h-[36px] px-4 rounded-[6px] bg-[#0C66E4]/40 text-[#FFFFFF]/70 text-[16px] font-normal inline-flex items-center justify-center cursor-not-allowed">Save</button>
-          <div class="state-label">disabled</div>
-        </div>
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#0C66E4] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center gap-2 cursor-wait">
-            <svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
-            </svg>
-            Save
-          </button>
-          <div class="state-label">loading</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2) button.completion -->
-    <section id="button-completion" class="component-card">
-      <h2 class="component-title">button.completion</h2>
-      <div class="flex flex-wrap gap-8 items-end">
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#1F7A45] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center transition-colors">Complete task</button>
-          <div class="state-label">default (#1F7A45)</div>
-        </div>
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#166038] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center">Complete task</button>
-          <div class="state-label">hover (#166038)</div>
-        </div>
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#1F7A45] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center focus-ring-simulated">Complete task</button>
-          <div class="state-label">focus</div>
-        </div>
-        <div>
-          <button type="button" disabled class="h-[36px] px-4 rounded-[6px] bg-[#1F7A45]/40 text-[#FFFFFF]/70 text-[16px] font-normal inline-flex items-center justify-center cursor-not-allowed">Complete task</button>
-          <div class="state-label">disabled</div>
-        </div>
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#1F7A45] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center gap-2 cursor-wait">
-            <svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
-            </svg>
-            Complete task
-          </button>
-          <div class="state-label">loading</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3) button.neutral -->
-    <section id="button-neutral" class="component-card">
-      <h2 class="component-title">button.neutral</h2>
-      <div class="flex flex-wrap gap-8 items-end">
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] text-[16px] font-normal inline-flex items-center justify-center">Cancel</button>
-          <div class="state-label">default (white, 1px #8590A2)</div>
-        </div>
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#F7F8FA] border border-[#8590A2] text-[#1D2125] text-[16px] font-normal inline-flex items-center justify-center">Cancel</button>
-          <div class="state-label">hover (#F7F8FA)</div>
-        </div>
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] text-[16px] font-normal inline-flex items-center justify-center focus-ring-simulated">Cancel</button>
-          <div class="state-label">focus</div>
-        </div>
-        <div>
-          <button type="button" disabled class="h-[36px] px-4 rounded-[6px] bg-[#FFFFFF] border border-[#DCDFE4] text-[#626F86]/50 text-[16px] font-normal inline-flex items-center justify-center cursor-not-allowed">Cancel</button>
-          <div class="state-label">disabled</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4) button.danger -->
-    <section id="button-danger" class="component-card">
-      <h2 class="component-title">button.danger</h2>
-      <div class="flex flex-wrap gap-8 items-end">
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#C9372C] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center">Delete</button>
-          <div class="state-label">default (#C9372C)</div>
-        </div>
-        <div>
-          <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#C9372C] text-[#FFFFFF] text-[16px] font-normal inline-flex items-center justify-center focus-ring-simulated">Delete</button>
-          <div class="state-label">focus</div>
-        </div>
-        <div>
-          <button type="button" disabled class="h-[36px] px-4 rounded-[6px] bg-[#C9372C]/40 text-[#FFFFFF]/70 text-[16px] font-normal inline-flex items-center justify-center cursor-not-allowed">Delete</button>
-          <div class="state-label">disabled</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5) field.text -->
-    <section id="field-text" class="component-card">
-      <h2 class="component-title">field.text</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Name (required)</label>
-          <input type="text" value="Task 12" class="w-full h-[36px] px-3 text-[16px] text-[#1D2125] bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] outline-none">
-          <div class="state-label">default</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Name (required)</label>
-          <input type="text" value="Task 12" class="w-full h-[36px] px-3 text-[16px] text-[#1D2125] bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] focus-ring-simulated">
-          <div class="state-label">focus</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Name (required)</label>
-          <input type="text" value="" class="w-full h-[36px] px-3 text-[16px] text-[#1D2125] bg-[#FFFFFF] border border-[#C9372C] rounded-[6px] outline-none">
-          <div class="flex items-center gap-1.5 mt-1.5 text-[#C9372C] text-[14px]">
-            <svg class="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-            </svg>
-            <span>Missing name.</span>
-          </div>
-          <div class="state-label">invalid</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#626F86] mb-1 font-normal">Name (required)</label>
-          <input type="text" value="Task 12" disabled class="w-full h-[36px] px-3 text-[16px] text-[#626F86] bg-[#F1F2F4] border border-[#DCDFE4] rounded-[6px] cursor-not-allowed">
-          <div class="state-label">disabled</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6) link.text -->
-    <section id="link-text" class="component-card">
-      <h2 class="component-title">link.text</h2>
-      <div class="flex flex-wrap gap-8 items-end">
-        <div>
-          <a href="#" onclick="return false;" class="text-[16px] text-[#0C66E4] hover:no-underline">Formatting help</a>
-          <div class="state-label">default</div>
-        </div>
-        <div>
-          <a href="#" onclick="return false;" class="text-[16px] text-[#0055CC] underline">Formatting help</a>
-          <div class="state-label">hover (#0055CC underlined)</div>
-        </div>
-        <div>
-          <a href="#" onclick="return false;" class="text-[16px] text-[#0C66E4] focus-ring-simulated inline-block px-0.5">Formatting help</a>
-          <div class="state-label">focus</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7) field.select -->
-    <section id="field-select" class="component-card">
-      <h2 class="component-title">field.select</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Acceptor</label>
-          <div class="relative">
-            <select class="w-full h-[36px] pl-3 pr-8 text-[16px] text-[#1D2125] bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] appearance-none outline-none">
-              <option selected>User A</option>
-              <option>User B</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#626F86]">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
-          </div>
-          <div class="state-label">default</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Acceptor</label>
-          <div class="relative">
-            <select class="w-full h-[36px] pl-3 pr-8 text-[16px] text-[#1D2125] bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] appearance-none focus-ring-simulated">
-              <option selected>User A</option>
-              <option>User B</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#626F86]">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
-          </div>
-          <div class="state-label">focus</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Acceptor</label>
-          <div class="relative">
-            <select class="w-full h-[36px] pl-3 pr-8 text-[16px] text-[#1D2125] bg-[#FFFFFF] border border-[#C9372C] rounded-[6px] appearance-none outline-none">
-              <option selected>User A</option>
-              <option>User B</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#C9372C]">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
-          </div>
-          <div class="state-label">invalid</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#626F86] mb-1 font-normal">Acceptor</label>
-          <div class="relative">
-            <select disabled class="w-full h-[36px] pl-3 pr-8 text-[16px] text-[#626F86] bg-[#F1F2F4] border border-[#DCDFE4] rounded-[6px] appearance-none cursor-not-allowed">
-              <option selected>User A</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#626F86]/50">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
-          </div>
-          <div class="state-label">disabled</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8) field.textarea -->
-    <section id="field-textarea" class="component-card">
-      <h2 class="component-title">field.textarea</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Description</label>
-          <textarea rows="3" class="w-full p-3 text-[16px] text-[#1D2125] bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] outline-none resize-none">Synthetic sample description.</textarea>
-          <div class="state-label">default</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Description</label>
-          <textarea rows="3" class="w-full p-3 text-[16px] text-[#1D2125] bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] resize-none focus-ring-simulated">Synthetic sample description.</textarea>
-          <div class="state-label">focus</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Description</label>
-          <textarea rows="3" class="w-full p-3 text-[16px] text-[#1D2125] bg-[#FFFFFF] border border-[#C9372C] rounded-[6px] outline-none resize-none">Synthetic sample description.</textarea>
-          <div class="state-label">invalid</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#626F86] mb-1 font-normal">Description</label>
-          <textarea rows="3" disabled class="w-full p-3 text-[16px] text-[#626F86] bg-[#F1F2F4] border border-[#DCDFE4] rounded-[6px] resize-none cursor-not-allowed">Synthetic sample description.</textarea>
-          <div class="state-label">disabled</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9) field.date -->
-    <section id="field-date" class="component-card">
-      <h2 class="component-title">field.date</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Start date</label>
-          <div class="flex items-center h-[36px] bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 justify-between">
-            <span class="text-[16px] text-[#1D2125]">2026-03-02</span>
-            <button type="button" class="text-[#626F86] p-1" aria-label="Open calendar">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+<body>
+<!-- Skip link for the page -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="page-header">
+<h1 class="page-title">UI kit</h1>
+<p class="page-desc">Component specification sheet for Planner application</p>
+</header>
+<main id="main">
+<div class="component-sections">
+<!-- 1) button.primary -->
+<section class="component-card" id="button-primary">
+<h2 class="component-title">button.primary</h2>
+<div class="states-row">
+<div class="state-col">
+<button class="btn btn-primary-default" type="button">Save</button>
+<span class="state-label">default</span>
+</div>
+<div class="state-col">
+<button class="btn btn-primary-hover" type="button">Save</button>
+<span class="state-label">hover (#0055CC)</span>
+</div>
+<div class="state-col">
+<button class="btn btn-primary-default has-focus-ring" type="button">Save</button>
+<span class="state-label">focus</span>
+</div>
+<div class="state-col">
+<button class="btn btn-primary-disabled" disabled="" type="button">Save</button>
+<span class="state-label">disabled</span>
+</div>
+<div class="state-col">
+<button aria-busy="true" class="btn btn-primary-loading" type="button">
+<span aria-hidden="true" class="spinner"></span>
+              Save
             </button>
-          </div>
-          <p class="text-[14px] text-[#626F86] mt-1">Format: 2026-03-02</p>
-          <div class="state-label">default with calendar & hint</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Start date</label>
-          <div class="flex items-center h-[36px] bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 justify-between focus-ring-simulated">
-            <span class="text-[16px] text-[#1D2125]">2026-03-02</span>
-            <button type="button" class="text-[#626F86] p-1" aria-label="Open calendar">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+<span class="state-label">loading</span>
+</div>
+</div>
+</section>
+<!-- 2) button.completion -->
+<section class="component-card" id="button-completion">
+<h2 class="component-title">button.completion</h2>
+<div class="states-row">
+<div class="state-col">
+<button class="btn btn-completion-default" type="button">Complete task</button>
+<span class="state-label">default (#1F7A45)</span>
+</div>
+<div class="state-col">
+<button class="btn btn-completion-hover" type="button">Complete task</button>
+<span class="state-label">hover (#166038)</span>
+</div>
+<div class="state-col">
+<button class="btn btn-completion-default has-focus-ring" type="button">Complete task</button>
+<span class="state-label">focus</span>
+</div>
+<div class="state-col">
+<button class="btn btn-completion-disabled" disabled="" type="button">Complete task</button>
+<span class="state-label">disabled</span>
+</div>
+<div class="state-col">
+<button aria-busy="true" class="btn btn-completion-loading" type="button">
+<span aria-hidden="true" class="spinner"></span>
+              Complete task
             </button>
-          </div>
-          <div class="state-label">focus</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#1D2125] mb-1 font-normal">Start date</label>
-          <div class="flex items-center h-[36px] bg-[#FFFFFF] border border-[#C9372C] rounded-[6px] px-3 justify-between">
-            <span class="text-[16px] text-[#1D2125]">2026-99-99</span>
-            <button type="button" class="text-[#C9372C] p-1" aria-label="Open calendar">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-            </button>
-          </div>
-          <p class="text-[14px] text-[#C9372C] mt-1">End date is invalid.</p>
-          <div class="state-label">invalid</div>
-        </div>
-        <div>
-          <label class="block text-[16px] text-[#626F86] mb-1 font-normal">Start date</label>
-          <div class="flex items-center h-[36px] bg-[#F1F2F4] border border-[#DCDFE4] rounded-[6px] px-3 justify-between cursor-not-allowed">
-            <span class="text-[16px] text-[#626F86]">2026-03-02</span>
-            <span class="text-[#626F86]/50 p-1">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-            </span>
-          </div>
-          <div class="state-label">disabled</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10) checkbox -->
-    <section id="checkbox" class="component-card">
-      <h2 class="component-title">checkbox</h2>
-      <div class="flex flex-wrap gap-8 items-start">
-        <div>
-          <label class="flex items-center gap-2.5 cursor-pointer">
-            <span class="w-[18px] h-[18px] rounded-[3px] bg-[#FFFFFF] border border-[#8590A2] inline-flex items-center justify-center"></span>
-            <span class="text-[16px] text-[#1D2125]">Select Story 1</span>
-          </label>
-          <div class="state-label">default</div>
-        </div>
-        <div>
-          <label class="flex items-center gap-2.5 cursor-pointer">
-            <span class="w-[18px] h-[18px] rounded-[3px] bg-[#0C66E4] border border-[#0C66E4] inline-flex items-center justify-center text-white">
-              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-            </span>
-            <span class="text-[16px] text-[#1D2125]">Select Story 1</span>
-          </label>
-          <div class="state-label">checked (#0C66E4, white tick)</div>
-        </div>
-        <div>
-          <label class="flex items-center gap-2.5 cursor-pointer">
-            <span class="w-[18px] h-[18px] rounded-[3px] bg-[#FFFFFF] border border-[#8590A2] inline-flex items-center justify-center focus-ring-simulated"></span>
-            <span class="text-[16px] text-[#1D2125]">Select Story 1</span>
-          </label>
-          <div class="state-label">focus</div>
-        </div>
-        <div>
-          <label class="flex items-center gap-2.5 cursor-not-allowed">
-            <span class="w-[18px] h-[18px] rounded-[3px] bg-[#F1F2F4] border border-[#DCDFE4] inline-flex items-center justify-center"></span>
-            <span class="text-[16px] text-[#626F86]">Select Story 1</span>
-          </label>
-          <div class="state-label">disabled</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 11) table.data -->
-    <section id="table-data" class="component-card">
-      <h2 class="component-title">table.data</h2>
-      <div class="border border-[#DCDFE4] rounded-[6px] overflow-hidden bg-white">
-        <table class="w-full text-left border-collapse text-[14px]">
-          <thead>
-            <tr class="bg-[#F1F2F4] h-[40px] border-b border-[#DCDFE4] text-[#1D2125] font-semibold">
-              <th class="w-10 px-3">
-                <span class="w-[16px] h-[16px] rounded-[2px] bg-[#FFFFFF] border border-[#8590A2] inline-block"></span>
-              </th>
-              <th class="px-4 cursor-pointer">
-                <div class="inline-flex items-center gap-1.5">
-                  <span>Order</span>
-                  <span class="text-[12px] text-[#1D2125]">▲</span>
-                </div>
-              </th>
-              <th class="px-4">Name</th>
-              <th class="px-4">Status</th>
-              <th class="px-4">Remaining</th>
-              <th class="px-4">Estimate</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-[#DCDFE4]">
-            <tr class="h-[40px] hover:bg-[#F7F8FA]">
-              <td class="px-3">
-                <span class="w-[16px] h-[16px] rounded-[2px] bg-[#FFFFFF] border border-[#8590A2] inline-block"></span>
-              </td>
-              <td class="px-4">1</td>
-              <td class="px-4 text-[#0C66E4]">Story 1</td>
-              <td class="px-4">Draft</td>
-              <td class="px-4">8.0 h</td>
-              <td class="px-4">20.0 h</td>
-            </tr>
-            <!-- Selected row (#E9F2FF) -->
-            <tr class="h-[40px] bg-[#E9F2FF]">
-              <td class="px-3">
-                <span class="w-[16px] h-[16px] rounded-[2px] bg-[#0C66E4] border border-[#0C66E4] inline-flex items-center justify-center text-white">
-                  <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </span>
-              </td>
-              <td class="px-4">2</td>
-              <td class="px-4 text-[#0C66E4] font-medium">Story 2</td>
-              <td class="px-4">Draft</td>
-              <td class="px-4">18.0 h</td>
-              <td class="px-4">24.0 h</td>
-            </tr>
-            <!-- Empty state row -->
-            <tr class="h-[40px] bg-[#FFFFFF]">
-              <td colspan="6" class="px-4 text-center text-[#626F86] italic">No stories</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="state-label">Table with header #F1F2F4 (14px, 40px rows), sorted column arrow, selected row (#E9F2FF), and empty row "No stories"</div>
-    </section>
-
-    <!-- 12) progress.bar -->
-    <section id="progress-bar" class="component-card">
-      <h2 class="component-title">progress.bar</h2>
-      <div class="space-y-4 max-w-xl">
-        <div class="flex items-center justify-between text-[14px]">
-          <span class="text-[#1D2125] font-normal">Progress</span>
-          <span class="text-[#1D2125] font-semibold">48%</span>
-        </div>
-        <div class="w-full h-2 bg-[#DCDFE4] rounded-full overflow-hidden" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">
-          <div class="h-full bg-[#0C66E4] rounded-full" style="width: 48%;"></div>
-        </div>
-        <div class="state-label">default, 48% filled #0C66E4 on a #DCDFE4 track, labelled "Progress 48%"</div>
-      </div>
-    </section>
-
-    <!-- 13) message.error-summary -->
-    <section id="message-error-summary" class="component-card">
-      <h2 class="component-title">message.error-summary</h2>
-      <div class="max-w-xl bg-white border border-[#C9372C] rounded-[6px] p-4">
-        <div class="flex items-center gap-2 text-[#C9372C] font-semibold text-[16px] mb-2">
-          <svg class="w-5 h-5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-          </svg>
-          <span>2 fields need correction</span>
-        </div>
-        <ul class="list-disc list-inside space-y-1 pl-1">
-          <li><a href="#" onclick="return false;" class="text-[#0C66E4] text-[16px] hover:underline">Name</a></li>
-          <li><a href="#" onclick="return false;" class="text-[#0C66E4] text-[16px] hover:underline">Estimated hours</a></li>
-        </ul>
-      </div>
-      <div class="state-label">default, white box with 1px #C9372C border, error icon, "2 fields need correction" and two primary links</div>
-    </section>
-
-    <!-- 14) dialog.confirm -->
-    <section id="dialog-confirm" class="component-card">
-      <h2 class="component-title">dialog.confirm</h2>
-      <div class="relative bg-[#1D2125]/40 rounded-[6px] p-8 flex items-center justify-center min-h-[220px]">
-        <div class="bg-white rounded-[6px] border border-[#DCDFE4] max-w-sm w-full p-6 text-left">
-          <h3 class="text-[20px] font-semibold text-[#1D2125] mb-2">Close Iteration 3?</h3>
-          <p class="text-[16px] text-[#626F86] mb-6">
-            The iteration becomes inactive. It has 4 unfinished stories.
-          </p>
-          <div class="flex items-center justify-end gap-3">
-            <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] text-[16px] focus-ring-simulated">
-              Cancel
-            </button>
-            <button type="button" class="h-[36px] px-4 rounded-[6px] bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] text-[16px]">
-              Close iteration
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="state-label">default, dialog "Close Iteration 3?" with body text and two neutral buttons, Cancel focused, on a #1D2125 40% scrim</div>
-    </section>
-
-    <!-- 15) nav.top-bar -->
-    <section id="nav-top-bar" class="component-card">
-      <h2 class="component-title">nav.top-bar</h2>
-      <header class="w-full h-[56px] bg-white border-b border-[#DCDFE4] px-6 flex items-center justify-between">
-        <div class="flex items-center gap-6">
-          <span class="text-[18px] font-semibold text-[#1D2125]">Planner</span>
-          <div class="flex items-center gap-2">
-            <label for="sample-search" class="text-[14px] text-[#626F86]">Search or ID</label>
-            <input id="sample-search" type="text" class="h-[36px] w-64 px-3 text-[16px] border border-[#8590A2] rounded-[6px] outline-none">
-          </div>
-        </div>
-        <div class="flex items-center gap-4 text-[16px]">
-          <a href="#" onclick="return false;" class="text-[#0C66E4] hover:underline">Me</a>
-          <span class="text-[#DCDFE4]">|</span>
-          <a href="#" onclick="return false;" class="text-[#0C66E4] hover:underline">Sign out</a>
-        </div>
-      </header>
-      <div class="state-label">default, white 56px bar with "Planner", search field labelled "Search or ID", links "Me" and "Sign out"</div>
-    </section>
-
-    <!-- 16) nav.breadcrumb -->
-    <section id="nav-breadcrumb" class="component-card">
-      <h2 class="component-title">nav.breadcrumb</h2>
-      <div class="space-y-4">
-        <div>
-          <nav aria-label="Breadcrumb default" class="text-[16px] flex items-center gap-2 text-[#626F86]">
-            <a href="#" onclick="return false;" class="text-[#0C66E4] hover:underline">Top</a>
-            <span>/</span>
-            <a href="#" onclick="return false;" class="text-[#0C66E4] hover:underline">Project 1</a>
-            <span>/</span>
-            <span class="text-[#1D2125] font-normal">Iteration 3</span>
-          </nav>
-          <div class="state-label">default "Top / Project 1 / Iteration 3" (links primary, current plain)</div>
-        </div>
-        <div>
-          <nav aria-label="Breadcrumb focused" class="text-[16px] flex items-center gap-2 text-[#626F86]">
-            <a href="#" onclick="return false;" class="text-[#0C66E4] hover:underline focus-ring-simulated px-0.5">Top</a>
-            <span>/</span>
-            <a href="#" onclick="return false;" class="text-[#0C66E4] hover:underline">Project 1</a>
-            <span>/</span>
-            <span class="text-[#1D2125] font-normal">Iteration 3</span>
-          </nav>
-          <div class="state-label">focus on one link</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 17) nav.tabs -->
-    <section id="nav-tabs" class="component-card">
-      <h2 class="component-title">nav.tabs</h2>
-      <div class="space-y-6">
-        <div>
-          <div class="flex items-center gap-6 border-b border-[#DCDFE4]">
-            <a href="#" onclick="return false;" class="text-[16px] text-[#626F86] pb-3 hover:text-[#1D2125]">Stories</a>
-            <a href="#" onclick="return false;" class="text-[16px] text-[#626F86] pb-3 hover:text-[#1D2125]">Tasks</a>
-            <a href="#" onclick="return false;" class="text-[16px] text-[#626F86] pb-3 hover:text-[#1D2125]">Statistics</a>
-          </div>
-          <div class="state-label">default</div>
-        </div>
-        <div>
-          <div class="flex items-center gap-6 border-b border-[#DCDFE4]">
-            <a href="#" onclick="return false;" class="text-[16px] text-[#0C66E4] font-semibold pb-3 border-b-2 border-[#0C66E4]">Stories</a>
-            <a href="#" onclick="return false;" class="text-[16px] text-[#626F86] pb-3 hover:text-[#1D2125]">Tasks</a>
-            <a href="#" onclick="return false;" class="text-[16px] text-[#626F86] pb-3 hover:text-[#1D2125]">Statistics</a>
-          </div>
-          <div class="state-label">selected (primary text, weight 600, 2px primary underline)</div>
-        </div>
-        <div>
-          <div class="flex items-center gap-6 border-b border-[#DCDFE4]">
-            <a href="#" onclick="return false;" class="text-[16px] text-[#0C66E4] font-semibold pb-3 border-b-2 border-[#0C66E4]">Stories</a>
-            <a href="#" onclick="return false;" class="text-[16px] text-[#626F86] pb-3 focus-ring-simulated">Tasks</a>
-            <a href="#" onclick="return false;" class="text-[16px] text-[#626F86] pb-3 hover:text-[#1D2125]">Statistics</a>
-          </div>
-          <div class="state-label">focus</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 18) avatar.initials -->
-    <section id="avatar-initials" class="component-card">
-      <h2 class="component-title">avatar.initials</h2>
-      <div>
-        <div class="w-[48px] h-[48px] rounded-[6px] bg-[#E9F2FF] flex items-center justify-center text-[#1D2125] font-semibold text-[18px]">
-          UA
-        </div>
-        <div class="state-label">default, 48px square, 6px radius, #E9F2FF background, "UA" in #1D2125 weight 600</div>
-      </div>
-    </section>
-
-    <!-- 19) chart.pie -->
-    <section id="chart-pie" class="component-card">
-      <h2 class="component-title">chart.pie</h2>
-      <div class="flex flex-col sm:flex-row items-center gap-8 max-w-lg">
-        <!-- 2D flat pie chart -->
-        <svg width="140" height="140" viewBox="0 0 40 40" class="shrink-0 -rotate-90">
-          <!-- Total: 18 (Feature: 13, Defect: 3, Debt: 2) -->
-          <!-- Feature: 13/18 = 72.22% (stroke-dasharray 72.22 27.78) -->
-          <!-- Defect: 3/18 = 16.67% (stroke-dasharray 16.67 83.33) offset -72.22 -->
-          <!-- Debt: 2/18 = 11.11% (stroke-dasharray 11.11 88.89) offset -88.89 -->
-          <circle cx="20" cy="20" r="15.9155" fill="none" stroke="#0C66E4" stroke-width="8" stroke-dasharray="72.22 27.78" stroke-dashoffset="0"></circle>
-          <circle cx="20" cy="20" r="15.9155" fill="none" stroke="#1F7A45" stroke-width="8" stroke-dasharray="16.67 83.33" stroke-dashoffset="-72.22"></circle>
-          <circle cx="20" cy="20" r="15.9155" fill="none" stroke="#626F86" stroke-width="8" stroke-dasharray="11.11 88.89" stroke-dashoffset="-88.89"></circle>
-        </svg>
-
-        <!-- Legend -->
-        <div class="space-y-2 text-[14px]">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 bg-[#0C66E4] rounded-[2px] shrink-0"></span>
-            <span class="text-[#1D2125]">Feature</span>
-            <span class="text-[#626F86] ml-2 font-medium">13</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 bg-[#1F7A45] rounded-[2px] shrink-0"></span>
-            <span class="text-[#1D2125]">Defect</span>
-            <span class="text-[#626F86] ml-2 font-medium">3</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 bg-[#626F86] rounded-[2px] shrink-0"></span>
-            <span class="text-[#1D2125]">Debt</span>
-            <span class="text-[#626F86] ml-2 font-medium">2</span>
-          </div>
-        </div>
-      </div>
-      <div class="state-label">default, flat 2D pie with legend values Feature 13 (#0C66E4), Defect 3 (#1F7A45), Debt 2 (#626F86)</div>
-    </section>
-
-    <!-- 20) chart.line -->
-    <section id="chart-line" class="component-card">
-      <h2 class="component-title">chart.line</h2>
-      <div class="max-w-2xl bg-white p-4">
-        <svg viewBox="0 0 500 200" class="w-full h-auto text-[12px] text-[#626F86]">
-          <!-- Grid lines -->
-          <line x1="40" y1="20" x2="480" y2="20" stroke="#DCDFE4" stroke-width="1"></line>
-          <line x1="40" y1="60" x2="480" y2="60" stroke="#DCDFE4" stroke-width="1"></line>
-          <line x1="40" y1="100" x2="480" y2="100" stroke="#DCDFE4" stroke-width="1"></line>
-          <line x1="40" y1="140" x2="480" y2="140" stroke="#DCDFE4" stroke-width="1"></line>
-          <line x1="40" y1="170" x2="480" y2="170" stroke="#8590A2" stroke-width="1"></line>
-
-          <!-- Y-axis labels -->
-          <text x="32" y="24" text-anchor="end" fill="#626F86" font-size="11">100h</text>
-          <text x="32" y="64" text-anchor="end" fill="#626F86" font-size="11">75h</text>
-          <text x="32" y="104" text-anchor="end" fill="#626F86" font-size="11">50h</text>
-          <text x="32" y="144" text-anchor="end" fill="#626F86" font-size="11">25h</text>
-          <text x="32" y="174" text-anchor="end" fill="#626F86" font-size="11">0h</text>
-
-          <!-- X-axis labels -->
-          <text x="40" y="190" text-anchor="middle" fill="#626F86" font-size="11">03-02</text>
-          <text x="150" y="190" text-anchor="middle" fill="#626F86" font-size="11">03-05</text>
-          <text x="260" y="190" text-anchor="middle" fill="#626F86" font-size="11">03-08</text>
-          <text x="370" y="190" text-anchor="middle" fill="#626F86" font-size="11">03-11</text>
-          <text x="480" y="190" text-anchor="middle" fill="#626F86" font-size="11">03-13</text>
-
-          <!-- Estimated line (dashed #626F86) -->
-          <line x1="40" y1="20" x2="480" y2="20" stroke="#626F86" stroke-width="2" stroke-dasharray="4 4"></line>
-
-          <!-- Actual hours line (#0C66E4) -->
-          <polyline fill="none" stroke="#0C66E4" stroke-width="2" points="40,170 150,150 260,120 370,95"></polyline>
-          <circle cx="370" cy="95" r="4" fill="#0C66E4"></circle>
-        </svg>
-
-        <!-- Chart Legend -->
-        <div class="flex items-center gap-6 mt-4 text-[14px]">
-          <div class="flex items-center gap-2">
-            <span class="w-4 h-0.5 bg-[#0C66E4]"></span>
-            <span class="text-[#1D2125]">Actual hours</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-4 h-0.5 border-b border-dashed border-[#626F86]"></span>
-            <span class="text-[#626F86]">Estimated hours</span>
-          </div>
-        </div>
-      </div>
-      <div class="state-label">default, flat line chart with axis labels and legend (actual #0C66E4, estimated #626F86 dashed)</div>
-    </section>
-
-    <!-- 21) card.task -->
-    <section id="card-task" class="component-card">
-      <h2 class="component-title">card.task</h2>
-      <div class="flex flex-wrap gap-8 items-start">
-        <div>
-          <div class="w-64 bg-white border border-[#DCDFE4] rounded-[6px] p-3">
-            <div class="flex items-center justify-between mb-2">
-              <a href="#" onclick="return false;" class="text-[16px] text-[#0C66E4] font-medium hover:underline">Task 7</a>
-              <span class="text-[14px] text-[#626F86]">6.0 h</span>
-            </div>
-            <div class="text-[14px] text-[#626F86]">User B</div>
-          </div>
-          <div class="state-label">default</div>
-        </div>
-        <div>
-          <div class="w-64 bg-white border border-[#DCDFE4] rounded-[6px] p-3 focus-ring-simulated">
-            <div class="flex items-center justify-between mb-2">
-              <a href="#" onclick="return false;" class="text-[16px] text-[#0C66E4] font-medium hover:underline">Task 7</a>
-              <span class="text-[14px] text-[#626F86]">6.0 h</span>
-            </div>
-            <div class="text-[14px] text-[#626F86]">User B</div>
-          </div>
-          <div class="state-label">focus</div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-</body>
-</html>
+<span class="state-label">loading</span>
+</div>
+</div>
+</section>
+<!-- 3) button.neutral -->
+<section class="component-card" id="button-neutral">
+<h2 class="component-title">button.neutral</h2>
+<div class="states-row">
+<div class="state-col">
+<button class="btn btn-neutral-default" type="button">Cancel</button>
+<span class="state-label">default (white, 1px #8590A2)</span>
+</div>
+<div class="state-col">
+<button class="btn btn-neutral-hover" type="button">Cancel</button>
+<span class="state-label">hover (#F7F8FA)</span>
+</div>
+<div class="state-col">
+<button class="btn btn-neutral-default has-focus-ring" type="button">Cancel</button>
+<span class="state-label">focus</span>
+</div>
+<div class="state-col">
+<button class="btn btn-neutral-disabled" disabled="" type="button">Cancel</button>
+<span class="state-label">disabled</span>
+</div>
+</div>
+</section>
+<!-- 4) button.danger -->
+<section class="component-card" id="button-danger">
+<h2 class="component-title">button.danger</h2>
+<div class="states-row">
+<div class="state-col">
+<button class="btn btn-danger-default" type="button">Delete</button>
+<span class="state-label">default (#C9372C)</span>
+</div>
+<div class="state-col">
+<button class="btn btn-danger-hover" type="button">Delete</button>
+<span class="state-label">focus</span>
+</div>
+<div class="state-col">
+<button class="btn btn-danger-disabled" disabled="" type="button">Delete</button>
+<span class="state-label">disabled</span>
+</div>
+</div>
+</section>
+<!-- Added specimen: button.danger hover -->
+<section class="component-card" id="button-danger-hover">
+<h2 class="component-title">button.danger hover</h2>
+<div class="states-row">
+<div class="state-col">
+<button class="btn btn-danger-default" type="button">Delete</button>
+<span class="state-label">default (#C9372C)</span>
+</div>
+<div class="state-col">
+<button class="btn btn-danger-hover" type="button">Delete</button>
+<span class="state-label">hover (#AE2A19)</span>
+</div>
+</div>
+</section>
+<!-- 5) field.text -->
+<section class="component-card" id="field-text">
+<h2 class="component-title">field.text</h2>
+<div class="states-row">
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="field-text-default">Name (required)</label>
+<input class="field-input" id="field-text-default" type="text" value="Task 12"/>
+</div>
+<span class="state-label">default</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="field-text-focus">Name (required)</label>
+<input class="field-input has-focus-ring" id="field-text-focus" type="text" value="Task 12"/>
+</div>
+<span class="state-label">focus</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="field-text-invalid">Name (required)</label>
+<input aria-describedby="text-error-desc" aria-invalid="true" class="field-input invalid" id="field-text-invalid" type="text" value=""/>
+<div class="field-msg-error" id="text-error-desc">
+<svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+                Missing name.
+              </div>
+</div>
+<span class="state-label">invalid</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="field-text-disabled">Name (required)</label>
+<input class="field-input" disabled="" id="field-text-disabled" type="text" value="Task 12"/>
+</div>
+<span class="state-label">disabled</span>
+</div>
+</div>
+</section>
+<!-- 6) link.text -->
+<section class="component-card" id="link-text">
+<h2 class="component-title">link.text</h2>
+<div class="states-row" style="align-items: center;">
+<div class="state-col">
+<a class="link-primary" href="#link-text">Formatting help</a>
+<span class="state-label">default</span>
+</div>
+<div class="state-col">
+<a class="link-primary hover-state" href="#link-text">Formatting help</a>
+<span class="state-label">hover (#0055CC underlined)</span>
+</div>
+<div class="state-col">
+<span class="link-focus-box">
+<a class="link-primary" href="#link-text" style="outline: none;">Formatting help</a>
+</span>
+<span class="state-label">focus</span>
+</div>
+</div>
+</section>
+<!-- 7) field.select -->
+<section class="component-card" id="field-select">
+<h2 class="component-title">field.select</h2>
+<div class="states-row">
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="select-default">Acceptor</label>
+<select class="field-select" id="select-default">
+<option selected="">User A</option>
+<option>User B</option>
+</select>
+</div>
+<span class="state-label">default</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="select-focus">Acceptor</label>
+<select class="field-select has-focus-ring" id="select-focus">
+<option selected="">User A</option>
+<option>User B</option>
+</select>
+</div>
+<span class="state-label">focus</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="select-invalid">Acceptor</label>
+<select aria-invalid="true" class="field-select invalid" id="select-invalid">
+<option selected="">User A</option>
+<option>User B</option>
+</select>
+</div>
+<span class="state-label">invalid</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="select-disabled">Acceptor</label>
+<select class="field-select" disabled="" id="select-disabled">
+<option selected="">User A</option>
+<option>User B</option>
+</select>
+</div>
+<span class="state-label">disabled</span>
+</div>
+</div>
+</section>
+<!-- 8) field.textarea -->
+<section class="component-card" id="field-textarea">
+<h2 class="component-title">field.textarea</h2>
+<div class="states-row">
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="textarea-default">Description</label>
+<textarea class="field-textarea" id="textarea-default">Synthetic sample description.</textarea>
+</div>
+<span class="state-label">default</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="textarea-focus">Description</label>
+<textarea class="field-textarea has-focus-ring" id="textarea-focus">Synthetic sample description.</textarea>
+</div>
+<span class="state-label">focus</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="textarea-invalid">Description</label>
+<textarea aria-invalid="true" class="field-textarea invalid" id="textarea-invalid">Synthetic sample description.</textarea>
+</div>
+<span class="state-label">invalid</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="textarea-disabled">Description</label>
+<textarea class="field-textarea" disabled="" id="textarea-disabled">Synthetic sample description.</textarea>
+</div>
+<span class="state-label">disabled</span>
+</div>
+</div>
+</section>
+<!-- 9) field.date -->
+<section class="component-card" id="field-date">
+<h2 class="component-title">field.date</h2>
+<div class="states-row">
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="date-default">Start date</label>
+<div style="position: relative;">
+<input class="field-input" id="date-default" style="padding-right: 32px;" type="text" value="2026-03-02"/>
+<button aria-label="Open calendar" style="position: absolute; right: 8px; top: 8px; background: none; border: none; cursor: pointer; color: #626F86;" type="button">
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+</button>
+</div>
+<span class="field-hint">Format: 2026-03-02</span>
+</div>
+<span class="state-label">default with calendar &amp; hint</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="date-focus">Start date</label>
+<div style="position: relative;">
+<input class="field-input has-focus-ring" id="date-focus" style="padding-right: 32px;" type="text" value="2026-03-02"/>
+<button aria-label="Open calendar" style="position: absolute; right: 8px; top: 8px; background: none; border: none; cursor: pointer; color: #626F86;" type="button">
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+</button>
+</div>
+</div>
+<span class="state-label">focus</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="date-invalid">Start date</label>
+<div style="position: relative;">
+<input aria-invalid="true" class="field-input invalid" id="date-invalid" style="padding-right: 32px;" type="text" value="2026-99-99"/>
+<button aria-label="Open calendar" style="position: absolute; right: 8px; top: 8px; background: none; border: none; cursor: pointer; color: #626F86;" type="button">
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+</button>
+</div>
+<span class="field-msg-error">End date is invalid.</span>
+</div>
+<span class="state-label">invalid</span>
+</div>
+<div class="state-col">
+<div class="field-group">
+<label class="field-label" for="date-disabled">Start date</label>
+<div style="position: relative;">
+<input class="field-input" disabled="" id="date-disabled" style="padding-right: 32px;" type="text" value="2026-03-02"/>
+<button aria-label="Open calendar" disabled="" style="position: absolute; right: 8px; top: 8px; background: none; border: none; cursor: not-allowed; color: #626F86; opacity: 0.5;" type="button">
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+</button>
+</div>
+</div>
+<span class="state-label">disabled</span>
+</div>
+</div>
+</section>
+<!-- 10) checkbox -->
+<section class="component-card" id="checkbox">
+<h2 class="component-title">checkbox</h2>
+<div class="states-row" style="align-items: center;">
+<div class="state-col">
+<label class="checkbox-item">
+<input type="checkbox"/>
+<span>Select Story 1</span>
+</label>
+<span class="state-label">default</span>
+</div>
+<div class="state-col">
+<label class="checkbox-item">
+<input checked="" type="checkbox"/>
+<span>Select Story 1</span>
+</label>
+<span class="state-label">checked (#0C66E4, white tick)</span>
+</div>
+<div class="state-col">
+<label class="checkbox-item">
+<span class="checkbox-focus-ring" style="display: inline-flex;">
+<input type="checkbox"/>
+</span>
+<span>Select Story 1</span>
+</label>
+<span class="state-label">focus</span>
+</div>
+<div class="state-col">
+<label class="checkbox-item" style="color: #626F86; cursor: not-allowed;">
+<input disabled="" type="checkbox"/>
+<span>Select Story 1</span>
+</label>
+<span class="state-label">disabled</span>
+</div>
+</div>
+</section>
+<!-- 11) table.data -->
+<section class="component-card" id="table-data">
+<h2 class="component-title">table.data</h2>
+<div style="border: 1px solid #DCDFE4; border-radius: 6px; overflow: hidden; max-width: 800px;">
+<table class="ui-table">
+<thead>
+<tr>
+<th style="width: 40px;">
+<label style="display: flex; align-items: center;">
+<input aria-label="Select all rows" type="checkbox"/>
+</label>
+</th>
+<th aria-sort="ascending" scope="col">
+<button type="button">
+<span>Order</span>
+<span aria-hidden="true">▲</span>
+</button>
+</th>
+<th aria-sort="none" scope="col">
+<button type="button">Name</button>
+</th>
+<th aria-sort="none" scope="col">
+<button type="button">Status</button>
+</th>
+<th aria-sort="none" scope="col">
+<button type="button">Remaining</button>
+</th>
+<th aria-sort="none" scope="col">
+<button type="button">Estimate</button>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<label><input aria-label="Select Story 1" type="checkbox"/></label>
+</td>
+<td>1</td>
+<td><a class="link-primary" href="#table-data">Story 1</a></td>
+<td>Draft</td>
+<td>8.0 h</td>
+<td>20.0 h</td>
+</tr>
+<tr class="selected">
+<td>
+<label><input aria-label="Select Story 2" checked="" type="checkbox"/></label>
+</td>
+<td>2</td>
+<td><a class="link-primary" href="#table-data">Story 2</a></td>
+<td>Draft</td>
+<td>18.0 h</td>
+<td>24.0 h</td>
+</tr>
+<tr class="empty-row">
+<td colspan="6">No stories</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="state-label" style="margin-top: 12px;">Table with header #F1F2F4 (14px, 40px rows), sorted column arrow, selected row (#E9F2FF), and empty row "No stories"</p>
+</section>
+<!-- Added specimen: table.data scrolled -->
+<section class="component-card" id="table-data-scrolled">
+<h2 class="component-title">table.data scrolled</h2>
+<div aria-label="Scrolled table specimen" class="scrolled-table-container" id="scrolled-table-region" role="region" tabindex="0">
+<table class="ui-table">
+<thead>
+<tr>
+<th style="width: 40px;">
+<label style="display: flex; align-items: center;">
+<input aria-label="Select all rows" type="checkbox"/>
+</label>
+</th>
+<th aria-sort="ascending" scope="col">
+<button type="button"><span>Order</span> ▲</button>
+</th>
+<th aria-sort="none" scope="col">
+<button type="button">Name</button>
+</th>
+<th aria-sort="none" scope="col">
+<button type="button">Status</button>
+</th>
+<th aria-sort="none" scope="col">
+<button type="button">Remaining</button>
+</th>
+<th aria-sort="none" scope="col">
+<button type="button">Estimate</button>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><label><input type="checkbox"/></label></td>
+<td>1</td>
+<td><a class="link-primary" href="#table-data-scrolled">Story 1</a></td>
+<td>Draft</td>
+<td>8.0 h</td>
+<td>20.0 h</td>
+</tr>
+<tr class="selected">
+<td><label><input checked="" type="checkbox"/></label></td>
+<td>2</td>
+<td><a class="link-primary" href="#table-data-scrolled">Story 2</a></td>
+<td>Draft</td>
+<td>18.0 h</td>
+<td>24.0 h</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="state-label" style="margin-top: 12px;">A narrow container whose table is scrolled horizontally inside its own focusable region, the first columns cut at the container edge</p>
+<script>
+          window.addEventListener('DOMContentLoaded', function () {
+            var container = document.getElementById('scrolled-table-region');
+            if (container) {
+              container.scrollLeft = container.scrollWidth;
+            }
+          });
+        </script>
+</section>
+<!-- 12) progress.bar -->
+<section class="component-card" id="progress-bar">
+<h2 class="component-title">progress.bar</h2>
+<div class="progress-container">
+<div class="progress-label-row">
+<span>Progress</span>
+<span style="color: #1D2125; font-weight: 600;">48%</span>
+</div>
+<div aria-label="Progress 48%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="48" class="progress-track" role="progressbar">
+<div class="progress-fill" style="width: 48%;"></div>
+</div>
+</div>
+<p class="state-label" style="margin-top: 12px;">default, 48% filled #0C66E4 on a #DCDFE4 track, labelled "Progress 48%"</p>
+</section>
+<!-- 13) message.error-summary -->
+<section class="component-card" id="message-error-summary">
+<h2 class="component-title">message.error-summary</h2>
+<div aria-labelledby="err-summary-title" class="error-summary-box" role="alert">
+<div class="error-summary-header" id="err-summary-title">
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+<span>2 fields need correction</span>
+</div>
+<ul class="error-summary-list">
+<li><a class="link-primary" href="#field-text-invalid">Name</a></li>
+<li><a class="link-primary" href="#date-invalid">Estimated hours</a></li>
+</ul>
+</div>
+<p class="state-label" style="margin-top: 12px;">default, white box with 1px #C9372C border, error icon, "2 fields need correction" and two primary links</p>
+</section>
+<!-- 14) dialog.confirm -->
+<section class="component-card" id="dialog-confirm">
+<h2 class="component-title">dialog.confirm</h2>
+<div class="scrim-container">
+<div aria-labelledby="dialog-specimen-title" aria-modal="true" class="modal-dialog" role="dialog">
+<h3 class="modal-title" id="dialog-specimen-title">Close Iteration 3?</h3>
+<p class="modal-body">The iteration becomes inactive. It has 4 unfinished stories.</p>
+<div class="modal-actions">
+<button class="btn btn-neutral-default has-focus-ring" type="button">Cancel</button>
+<button class="btn btn-neutral-default" type="button">Close iteration</button>
+</div>
+</div>
+</div>
+<p class="state-label" style="margin-top: 12px;">default, dialog "Close Iteration 3?" with body text and two neutral buttons, Cancel focused, on a #1D2125 40% scrim</p>
+</section>
+<!-- 15) nav.top-bar -->
+<section class="component-card" id="nav-top-bar">
+<h2 class="component-title">nav.top-bar</h2>
+<div aria-label="Top navigation bar specimen" class="top-bar-specimen" role="region">
+<!-- Specimen skip link (hidden by default) -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<a class="top-bar-brand" href="#nav-top-bar">Planner</a>
+<div class="top-bar-search-wrap">
+<label class="top-bar-search-label" for="top-bar-search">Search or ID</label>
+<input class="top-bar-search-input" id="top-bar-search" type="text"/>
+</div>
+<div class="top-bar-links">
+<a class="link-primary" href="#nav-top-bar">Me</a>
+<a class="link-primary" href="#nav-top-bar">Sign out</a>
+</div>
+</div>
+<p class="state-label" style="margin-top: 12px;">default, white 56px bar with "Planner", search field labelled "Search or ID", links "Me" and "Sign out"</p>
+</section>
+<!-- Added specimen: nav.top-bar focus -->
+<section class="component-card" id="nav-top-bar-focus">
+<h2 class="component-title">nav.top-bar focus</h2>
+<div aria-label="Top navigation bar with focused skip link specimen" class="top-bar-specimen" role="region">
+<div style="display: flex; align-items: center; gap: 12px;">
+<span class="skip-link-specimen-visible">Skip to main content</span>
+<a class="top-bar-brand" href="#nav-top-bar-focus">Planner</a>
+</div>
+<div class="top-bar-search-wrap">
+<label class="top-bar-search-label" for="top-bar-search-f">Search or ID</label>
+<input class="top-bar-search-input" id="top-bar-search-f" type="text"/>
+</div>
+<div class="top-bar-links">
+<a class="link-primary" href="#nav-top-bar-focus">Me</a>
+<a class="link-primary" href="#nav-top-bar-focus">Sign out</a>
+</div>
+</div>
+<p class="state-label" style="margin-top: 12px;">The top bar with its "Skip to main content" link visible because it has keyboard focus, shown as a 2px #0C66E4 focus outline</p>
+</section>
+<!-- 16) nav.breadcrumb -->
+<section class="component-card" id="nav-breadcrumb">
+<h2 class="component-title">nav.breadcrumb</h2>
+<div class="states-row" style="flex-direction: column; gap: 16px;">
+<div class="state-col">
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+<ol>
+<li><a class="link-primary" href="#nav-breadcrumb">Top</a></li>
+<li><a class="link-primary" href="#nav-breadcrumb">Project 1</a></li>
+<li><span aria-current="page" class="breadcrumb-current">Iteration 3</span></li>
+</ol>
+</nav>
+<span class="state-label">default "Top / Project 1 / Iteration 3" (links primary, current plain)</span>
+</div>
+<div class="state-col">
+<nav aria-label="Breadcrumb focus state" class="breadcrumb-nav">
+<ol>
+<li><a class="link-primary" href="#nav-breadcrumb">Top</a></li>
+<li>
+<span class="link-focus-box">
+<a class="link-primary" href="#nav-breadcrumb" style="outline: none;">Project 1</a>
+</span>
+</li>
+<li><span aria-current="page" class="breadcrumb-current">Iteration 3</span></li>
+</ol>
+</nav>
+<span class="state-label">focus on one link</span>
+</div>
+</div>
+</section>
+<!-- 17) nav.tabs -->
+<section class="component-card" id="nav-tabs">
+<h2 class="component-title">nav.tabs</h2>
+<div class="states-row" style="flex-direction: column; gap: 20px;">
+<div class="state-col" style="width: 100%;">
+<nav aria-label="Local tabs default" class="tabs-nav">
+<a class="tab-item" href="#nav-tabs">Stories</a>
+<a class="tab-item" href="#nav-tabs">Tasks</a>
+<a class="tab-item" href="#nav-tabs">Statistics</a>
+</nav>
+<span class="state-label">default</span>
+</div>
+<div class="state-col" style="width: 100%;">
+<nav aria-label="Local tabs selected" class="tabs-nav">
+<a aria-current="page" class="tab-item selected" href="#nav-tabs">Stories</a>
+<a class="tab-item" href="#nav-tabs">Tasks</a>
+<a class="tab-item" href="#nav-tabs">Statistics</a>
+</nav>
+<span class="state-label">selected (primary text, weight 600, 2px primary underline)</span>
+</div>
+<div class="state-col" style="width: 100%;">
+<nav aria-label="Local tabs focus" class="tabs-nav">
+<a aria-current="page" class="tab-item selected" href="#nav-tabs">Stories</a>
+<span class="link-focus-box" style="display: inline-block;">
+<a class="tab-item" href="#nav-tabs" style="border-bottom: none; outline: none;">Tasks</a>
+</span>
+<a class="tab-item" href="#nav-tabs">Statistics</a>
+</nav>
+<span class="state-label">focus</span>
+</div>
+</div>
+</section>
+<!-- 18) avatar.initials -->
+<section class="component-card" id="avatar-initials">
+<h2 class="component-title">avatar.initials</h2>
+<div class="states-row">
+<div class="state-col">
+<div aria-label="User initials UA" class="avatar-box">UA</div>
+<span class="state-label">default, 48px square, 6px radius, #E9F2FF background, "UA" in #1D2125 weight 600</span>
+</div>
+</div>
+</section>
+<!-- 19) chart.pie -->
+<section class="component-card" id="chart-pie">
+<h2 class="component-title">chart.pie</h2>
+<div style="display: flex; align-items: center; gap: 32px;">
+<!-- Flat 2D filled pie chart: Feature 13 (72.2%), Defect 3 (16.7%), Debt 2 (11.1%) -->
+<svg aria-label="Flat 2D pie chart showing Feature 13, Defect 3, Debt 2" height="120" role="img" viewbox="0 0 100 100" width="120">
+<!-- Debt 2: 320 to 360 deg -->
+<path d="M 50 50 L 88.3 17.6 A 50 50 0 0 1 50 0 Z" fill="#626F86"></path>
+<!-- Defect 3: 260 to 320 deg -->
+<path d="M 50 50 L 0.8 41.3 A 50 50 0 0 1 88.3 17.6 Z" fill="#1F7A45"></path>
+<!-- Feature 13: 0 to 260 deg -->
+<path d="M 50 50 L 50 0 A 50 50 0 1 1 0.8 41.3 Z" fill="#0C66E4"></path>
+</svg>
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+<div style="display: flex; align-items: center; gap: 8px;">
+<span style="width: 12px; height: 12px; background: #0C66E4; border-radius: 2px;"></span>
+<span>Feature 13</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px;">
+<span style="width: 12px; height: 12px; background: #1F7A45; border-radius: 2px;"></span>
+<span>Defect 3</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px;">
+<span style="width: 12px; height: 12px; background: #626F86; border-radius: 2px;"></span>
+<span>Debt 2</span>
+</div>
+</div>
+</div>
+<p class="state-label" style="margin-top: 12px;">default, flat 2D pie with legend values Feature 13 (#0C66E4), Defect 3 (#1F7A45), Debt 2 (#626F86)</p>
+</section>
+<!-- 20) chart.line -->
+<section class="component-card" id="chart-line">
+<h2 class="component-title">chart.line</h2>
+<div style="max-width: 520px;">
+<svg aria-label="Flat line chart showing actual vs estimated hours" height="160" role="img" viewbox="0 0 480 150" width="100%">
+<!-- Grid lines -->
+<line stroke="#DCDFE4" stroke-dasharray="3,3" x1="40" x2="460" y1="30" y2="30"></line>
+<line stroke="#DCDFE4" stroke-dasharray="3,3" x1="40" x2="460" y1="70" y2="70"></line>
+<line stroke="#DCDFE4" stroke-dasharray="3,3" x1="40" x2="460" y1="110" y2="110"></line>
+<line stroke="#8590A2" x1="40" x2="460" y1="130" y2="130"></line>
+<!-- Y Axis Labels -->
+<text fill="#626F86" font-size="10" text-anchor="end" x="32" y="34">100h</text>
+<text fill="#626F86" font-size="10" text-anchor="end" x="32" y="74">50h</text>
+<text fill="#626F86" font-size="10" text-anchor="end" x="32" y="134">0h</text>
+<!-- X Axis Labels -->
+<text fill="#626F86" font-size="10" text-anchor="middle" x="60" y="145">03-02</text>
+<text fill="#626F86" font-size="10" text-anchor="middle" x="160" y="145">03-05</text>
+<text fill="#626F86" font-size="10" text-anchor="middle" x="260" y="145">03-08</text>
+<text fill="#626F86" font-size="10" text-anchor="middle" x="360" y="145">03-11</text>
+<text fill="#626F86" font-size="10" text-anchor="middle" x="440" y="145">03-13</text>
+<!-- Estimated Baseline (Dashed #626F86) -->
+<line stroke="#626F86" stroke-dasharray="4,4" stroke-width="2" x1="60" x2="440" y1="30" y2="30"></line>
+<!-- Actual Hours Line (#0C66E4) -->
+<polyline fill="none" points="60,130 160,105 260,85 360,65" stroke="#0C66E4" stroke-width="2.5"></polyline>
+<circle cx="360" cy="65" fill="#0C66E4" r="4"></circle>
+</svg>
+<div style="display: flex; gap: 20px; font-size: 12px; margin-top: 8px;">
+<div style="display: flex; align-items: center; gap: 6px;">
+<span style="width: 16px; height: 3px; background: #0C66E4;"></span>
+<span>Actual hours</span>
+</div>
+<div style="display: flex; align-items: center; gap: 6px;">
+<span style="width: 16px; height: 3px; border-top: 2px dashed #626F86;"></span>
+<span>Estimated hours</span>
+</div>
+</div>
+</div>
+<p class="state-label" style="margin-top: 12px;">default, flat line chart with axis labels and legend (actual #0C66E4, estimated #626F86 dashed)</p>
+</section>
+<!-- 21) card.task -->
+<section class="component-card" id="card-task">
+<h2 class="component-title">card.task</h2>
+<div class="states-row">
+<div class="state-col">
+<div class="task-card-specimen">
+<div class="task-card-header">
+<a class="link-primary" href="#card-task" style="font-weight: 500;">Task 7</a>
+<span class="task-card-hours">6.0 h</span>
+</div>
+<div class="task-card-user">User B</div>
+</div>
+<span class="state-label">default</span>
+</div>
+<div class="state-col">
+<div class="task-card-specimen has-focus-ring">
+<div class="task-card-header">
+<a class="link-primary" href="#card-task" style="font-weight: 500;">Task 7</a>
+<span class="task-card-hours">6.0 h</span>
+</div>
+<div class="task-card-user">User B</div>
+</div>
+<span class="state-label">focus</span>
+</div>
+</div>
+</section>
+<!-- Added specimen: menu.popover -->
+<section class="component-card" id="menu-popover">
+<h2 class="component-title">menu.popover</h2>
+<div class="popover-menu-wrap">
+<a aria-expanded="true" aria-haspopup="true" class="link-primary" href="#menu-popover" style="font-weight: 500;">Export</a>
+<div aria-label="Export format" class="popover-menu" role="menu">
+<div class="popover-caption">FORMAT</div>
+<a class="popover-item" href="#menu-popover" role="menuitem">XML</a>
+<a class="popover-item" href="#menu-popover" role="menuitem">PDF</a>
+</div>
+</div>
+<p class="state-label" style="margin-top: 12px;">A link "Export" with aria-expanded="true" and under it a small white menu, 1px #DCDFE4 border, 6px radius, no shadow, caption "Format" in secondary text and the items "XML" and "PDF"</p>
+</section>
+</div>
+</main>
+</body></html>

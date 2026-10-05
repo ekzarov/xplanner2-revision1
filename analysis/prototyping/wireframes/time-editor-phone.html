@@ -1,395 +1,648 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Time: Task 8 - Planner</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "on-tertiary-fixed-variant": "#910909",
-            "on-tertiary-container": "#ffebe8",
-            "on-tertiary-fixed": "#410001",
-            "tertiary": "#a51c16",
-            "surface-container-low": "#f0f3ff",
-            "surface-bright": "#f9f9ff",
-            "surface-container": "#e7eeff",
-            "inverse-primary": "#b0c6ff",
-            "on-error": "#ffffff",
-            "on-primary-fixed": "#001945",
-            "surface-variant": "#d6e3fe",
-            "background": "#f9f9ff",
-            "on-surface": "#0e1c2f",
-            "inverse-on-surface": "#ebf1ff",
-            "error": "#ba1a1a",
-            "on-secondary-container": "#15733f",
-            "tertiary-fixed": "#ffdad5",
-            "primary-fixed-dim": "#b0c6ff",
-            "on-secondary-fixed": "#00210d",
-            "on-primary-container": "#ecefff",
-            "surface-container-highest": "#d6e3fe",
-            "secondary-fixed": "#9df6b4",
-            "on-secondary-fixed-variant": "#005229",
-            "on-primary": "#ffffff",
-            "on-surface-variant": "#424654",
-            "tertiary-container": "#c8362b",
-            "primary-fixed": "#d9e2ff",
-            "outline": "#727786",
-            "surface-container-high": "#dee8ff",
-            "error-container": "#ffdad6",
-            "on-background": "#0e1c2f",
-            "secondary-container": "#9df6b4",
-            "outline-variant": "#c2c6d7",
-            "primary": "#004fb6",
-            "inverse-surface": "#243145",
-            "surface-tint": "#0058ca",
-            "on-secondary": "#ffffff",
-            "on-error-container": "#93000a",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "secondary": "#086d39",
-            "surface": "#f9f9ff",
-            "secondary-fixed-dim": "#82d99a",
-            "primary-container": "#0c66e4",
-            "surface-dim": "#cddbf5",
-            "surface-container-lowest": "#ffffff",
-            "on-tertiary": "#ffffff",
-            "on-primary-fixed-variant": "#00429b"
-          },
-          borderRadius: {
-            "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
-          },
-          fontFamily: {
-            headline: ["Inter", "system-ui", "-apple-system", "sans-serif"],
-            display: ["Inter", "system-ui", "-apple-system", "sans-serif"],
-            body: ["Inter", "system-ui", "-apple-system", "sans-serif"],
-            label: ["Inter", "system-ui", "-apple-system", "sans-serif"]
-          }
-        }
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-P44 Time: Task 8 (Phone UI)</title>
+  <style>
+    /* Foundation resets & tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-  </script>
-<style>
-    /* Exact Material Lean Foundation styling requirements */
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: #F7F8FA;
       color: #1D2125;
-      margin: 0;
-      padding: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    .lean-input, .lean-select {
-      font-size: 16px;
-      line-height: 1.5;
+
+    /* Accessibility skip link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 6px;
+      z-index: 9999;
+    }
+    .skip-link:focus {
+      top: 12px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Interactive focus styles */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      padding: 12px 16px 14px 16px;
+      width: 100%;
+    }
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
       color: #1D2125;
+      text-decoration: none;
+    }
+    .user-nav {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .user-nav a {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .user-nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Search row */
+    .search-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .search-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1D2125;
+    }
+    .search-input {
+      width: 100%;
+      height: 40px;
+      padding: 0 12px;
+      background: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      color: #1D2125;
+      font-size: 14px;
+    }
+
+    /* Page container */
+    .page-wrapper {
+      width: 100%;
+      padding: 14px 16px 32px 16px;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-nav {
+      margin-bottom: 12px;
+    }
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px 6px;
+      font-size: 14px;
+    }
+    .breadcrumb-list li {
+      white-space: nowrap;
+      flex-shrink: 0;
+      color: #626F86;
+    }
+    .breadcrumb-list a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-list a:hover {
+      text-decoration: underline;
+    }
+    .breadcrumb-separator {
+      color: #626F86;
+      user-select: none;
+      margin-left: 2px;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    /* Page Heading */
+    .page-heading {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 16px;
+    }
+
+    /* Error Summary banner */
+    .error-summary {
+      background-color: #FFFFFF;
+      border: 1px solid #C9372C;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+    .error-summary-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 8px;
+    }
+    .error-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      background-color: #C9372C;
+      color: #FFFFFF;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .error-summary-link {
+      display: inline-block;
+      margin-left: 26px;
+      color: #0C66E4;
+      text-decoration: underline;
+      font-size: 14px;
+    }
+
+    /* Entries Container */
+    .entries-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    /* Entry Card */
+    .entry-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .entry-header {
+      background-color: #F1F2F4;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1D2125;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .entry-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Form Fields */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1D2125;
+    }
+    .input-control {
+      width: 100%;
+      height: 36px;
+      padding: 0 10px;
+      background: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      color: #1D2125;
+      font-size: 14px;
+    }
+    .input-control:disabled {
+      background: #F7F8FA;
+      color: #626F86;
+    }
+    select.input-control {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23626F86' d='M2.5 4.5L6 8l3.5-3.5H2.5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 28px;
+    }
+
+    /* Error input state */
+    .input-error {
+      border: 1px solid #C9372C !important;
+    }
+    .error-inline-msg {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #C9372C;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    /* Row split layout for time/duration */
+    .field-row {
+      display: flex;
+      gap: 10px;
+    }
+    .field-row > .form-group {
+      flex: 1;
+    }
+
+    /* Insert time group */
+    .insert-time-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn-insert {
+      height: 36px;
+      padding: 0 12px;
       background-color: #FFFFFF;
       border: 1px solid #8590A2;
       border-radius: 6px;
-      height: 44px;
-      padding-left: 12px;
-      padding-right: 12px;
-      width: 100%;
-      box-sizing: border-box;
-      outline: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: #1D2125;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
-    .lean-input:focus, .lean-select:focus {
-      outline: 2px solid #0C66E4;
-      outline-offset: 2px;
+    .btn-insert:hover {
+      background-color: #F1F2F4;
+    }
+
+    /* Checkbox group */
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding-top: 4px;
+      border-top: 1px solid #F1F2F4;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #0C66E4;
+      cursor: pointer;
+    }
+    .checkbox-group label {
+      font-size: 14px;
+      color: #1D2125;
+      cursor: pointer;
+    }
+
+    /* Remaining Hours Box */
+    .remaining-section {
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 20px;
+    }
+    .field-hint {
+      font-size: 12px;
+      color: #626F86;
+      margin-top: 4px;
+    }
+
+    /* Action Buttons (Stacked, 48px) */
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    .btn {
+      width: 100%;
+      height: 48px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-sizing: border-box;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background-color: #0C66E4;
+      color: #FFFFFF;
       border-color: #0C66E4;
     }
-    .lean-input-error {
-      border: 1px solid #C9372C !important;
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
     }
-    .lean-input-error:focus {
-      outline: 2px solid #C9372C;
-      outline-offset: 2px;
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border: 1px solid #8590A2;
     }
-    .material-symbols-outlined {
-      font-family: 'Material Symbols Outlined';
-      font-weight: normal;
-      font-style: normal;
-      font-size: 20px;
-      line-height: 1;
-      letter-spacing: normal;
-      text-transform: none;
-      display: inline-block;
-      white-space: nowrap;
-      word-wrap: normal;
-      direction: ltr;
-      -webkit-font-feature-settings: 'liga';
-      -webkit-font-smoothing: antialiased;
-    }
-    .focus-ring:focus {
-      outline: 2px solid #0C66E4;
-      outline-offset: 2px;
+    .btn-neutral:hover {
+      background-color: #F1F2F4;
     }
   </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="w-full min-h-screen text-[#1D2125] flex flex-col items-center">
-<div class="w-full max-w-[390px] min-h-screen bg-[#F7F8FA] flex flex-col pb-12">
-<!-- Top Bar Navigation -->
-<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] px-4 h-14 flex items-center justify-between sticky top-0 z-20">
-<div class="flex items-center gap-2">
-<span class="text-base font-semibold text-[#1D2125] tracking-tight">Planner</span>
-</div>
-<nav aria-label="User actions" class="flex items-center gap-1">
-<a class="min-w-[44px] min-h-[44px] flex items-center justify-center text-sm font-normal text-[#0C66E4] hover:underline focus-ring rounded-[6px]" href="#me">
-          Me
-        </a>
-<span aria-hidden="true" class="text-[#8590A2] select-none">|</span>
-<a class="min-w-[44px] min-h-[44px] flex items-center justify-center text-sm font-normal text-[#0C66E4] hover:underline focus-ring rounded-[6px]" href="#signout">
-          Sign out
-        </a>
-</nav>
-</header>
-<!-- Top search bar container -->
-<div class="px-4 pt-3 pb-2 bg-[#FFFFFF] border-b border-[#DCDFE4]">
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="global-search">
-        Search or ID
-      </label>
-<div class="relative w-full">
-<input autocomplete="off" class="lean-input h-[44px] pr-10" id="global-search" name="search_query" type="text"/>
-<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-[#626F86]">
-<span class="material-symbols-outlined" data-icon="search">search</span>
-</div>
-</div>
-</div>
-<!-- Breadcrumb bar -->
-<nav aria-label="Breadcrumb" class="px-4 py-3 bg-[#F7F8FA]">
-<ol class="flex items-center flex-wrap text-sm text-[#626F86] gap-y-1">
-<li><a class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]" href="#top">Top</a></li>
-<li aria-hidden="true" class="mx-1.5 text-[#8590A2]">/</li>
-<li><a class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]" href="#project-1">Project 1</a></li>
-<li aria-hidden="true" class="mx-1.5 text-[#8590A2]">/</li>
-<li><a class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]" href="#iteration-3">Iteration 3</a></li>
-<li aria-hidden="true" class="mx-1.5 text-[#8590A2]">/</li>
-<li><a class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]" href="#story-2">Story 2</a></li>
-<li aria-hidden="true" class="mx-1.5 text-[#8590A2]">/</li>
-<li><a class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]" href="#task-8">Task 8</a></li>
-<li aria-hidden="true" class="mx-1.5 text-[#8590A2]">/</li>
-<li aria-current="page" class="text-[#1D2125] font-semibold">Time</li>
-</ol>
-</nav>
-<!-- Main Content Canvas with 16px side margins -->
-<main class="px-4 flex-1">
-<h1 class="text-2xl font-semibold text-[#1D2125] mb-4">Time: Task 8</h1>
-<!-- Error Summary Box -->
-<section aria-labelledby="error-summary-title" class="bg-[#FFFFFF] border border-[#C9372C] rounded-[6px] p-3 mb-4" role="alert">
-<div class="flex items-center gap-2 mb-1.5">
-<span class="material-symbols-outlined text-[#C9372C]" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span>
-<h2 class="text-base font-semibold text-[#C9372C]" id="error-summary-title">
-            1 entry needs correction
-          </h2>
-</div>
-<p class="text-sm pl-7">
-<a class="text-[#0C66E4] underline hover:text-[#0055CC] focus-ring rounded-[2px]" href="#entry-3">
-            Entry 3: Person (required)
-          </a>
-</p>
-</section>
-<!-- Form for Time Entries -->
-<form action="#" id="time-entries-form" method="post" novalidate="">
-<!-- Entry 1 -->
-<article aria-labelledby="entry-1-heading" class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-4 mb-4">
-<h2 class="text-base font-semibold text-[#1D2125] mb-3 pb-2 border-b border-[#DCDFE4]" id="entry-1-heading">Entry 1</h2>
-<div class="space-y-3">
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="date-1">Report date</label>
-<input class="lean-input" id="date-1" name="date_1" type="text" value="2026-03-03"/>
-</div>
-<div class="grid grid-cols-2 gap-3">
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="start-1">Start</label>
-<input class="lean-input" id="start-1" name="start_1" type="text" value="09:00"/>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="end-1">End</label>
-<input class="lean-input" id="end-1" name="end_1" type="text" value="10:00"/>
-</div>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="duration-1">Duration</label>
-<input class="lean-input" id="duration-1" name="duration_1" type="text" value="1.0"/>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="person-1">Person</label>
-<select class="lean-select" id="person-1" name="person_1">
-<option value="User A">User A</option>
-<option selected="" value="User B">User B</option>
-<option value="User C">User C</option>
-</select>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="pair-1">Pair</label>
-<select class="lean-select" id="pair-1" name="pair_1">
-<option selected="" value="">(none)</option>
-<option value="User A">User A</option>
-<option value="User C">User C</option>
-</select>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="desc-1">Description</label>
-<input class="lean-input" id="desc-1" name="desc_1" type="text" value="Synthetic entry"/>
-</div>
-<div class="pt-2">
-<label class="flex items-center min-h-[44px] cursor-pointer select-none">
-<input class="w-5 h-5 rounded-[4px] border-[#8590A2] text-[#0C66E4] focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" name="delete_1" type="checkbox"/>
-<span class="ml-2.5 text-sm text-[#1D2125]">Delete this entry</span>
-</label>
-</div>
-</div>
-</article>
-<!-- Entry 2 -->
-<article aria-labelledby="entry-2-heading" class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-4 mb-4">
-<h2 class="text-base font-semibold text-[#1D2125] mb-3 pb-2 border-b border-[#DCDFE4]" id="entry-2-heading">Entry 2</h2>
-<div class="space-y-3">
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="date-2">Report date</label>
-<input class="lean-input" id="date-2" name="date_2" type="text" value="2026-03-04"/>
-</div>
-<div class="grid grid-cols-2 gap-3">
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="start-2">Start</label>
-<input class="lean-input" id="start-2" name="start_2" type="text" value="09:00"/>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="end-2">End</label>
-<input class="lean-input" id="end-2" name="end_2" type="text" value="10:00"/>
-</div>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="duration-2">Duration</label>
-<input class="lean-input" id="duration-2" name="duration_2" type="text" value="1.0"/>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="person-2">Person</label>
-<select class="lean-select" id="person-2" name="person_2">
-<option value="User A">User A</option>
-<option selected="" value="User B">User B</option>
-<option value="User C">User C</option>
-</select>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="pair-2">Pair</label>
-<select class="lean-select" id="pair-2" name="pair_2">
-<option selected="" value="">(none)</option>
-<option value="User A">User A</option>
-<option value="User C">User C</option>
-</select>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="desc-2">Description</label>
-<input class="lean-input" id="desc-2" name="desc_2" type="text" value="Synthetic entry"/>
-</div>
-<div class="pt-2">
-<label class="flex items-center min-h-[44px] cursor-pointer select-none">
-<input class="w-5 h-5 rounded-[4px] border-[#8590A2] text-[#0C66E4] focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" name="delete_2" type="checkbox"/>
-<span class="ml-2.5 text-sm text-[#1D2125]">Delete this entry</span>
-</label>
-</div>
-</div>
-</article>
-<!-- Entry 3 (Error State) -->
-<article aria-labelledby="entry-3-heading" class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-4 mb-4" id="entry-3">
-<h2 class="text-base font-semibold text-[#1D2125] mb-3 pb-2 border-b border-[#DCDFE4]" id="entry-3-heading">Entry 3</h2>
-<div class="space-y-3">
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="date-3">Report date</label>
-<input class="lean-input" id="date-3" name="date_3" type="text" value=""/>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="start-3">Start</label>
-<div class="flex items-center gap-2">
-<input class="lean-input flex-1" id="start-3" name="start_3" type="text" value=""/>
-<button class="whitespace-nowrap h-11 px-3 bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] rounded-[6px] text-sm font-normal hover:bg-[#F1F2F4] focus-ring flex items-center justify-center min-w-[44px]" type="button">
-                  Insert time
-                </button>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-3">
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="end-3">End</label>
-<input class="lean-input" id="end-3" name="end_3" type="text" value=""/>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="duration-3">Duration</label>
-<input class="lean-input" id="duration-3" name="duration_3" type="text" value=""/>
-</div>
-</div>
-<!-- Person with Error -->
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="person-3">
-                Person <span class="text-[#C9372C]">*</span>
-</label>
-<select aria-describedby="person-3-error" aria-invalid="true" class="lean-select lean-input-error" id="person-3" name="person_3">
-<option selected="" value="">(select person)</option>
-<option value="User A">User A</option>
-<option value="User B">User B</option>
-<option value="User C">User C</option>
-</select>
-<div class="flex items-center gap-1.5 mt-1.5 text-[#C9372C]" id="person-3-error">
-<span class="material-symbols-outlined text-[18px]" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span>
-<span class="text-sm font-normal">No person is specified in a time entry.</span>
-</div>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="pair-3">Pair</label>
-<select class="lean-select" id="pair-3" name="pair_3">
-<option selected="" value="">(none)</option>
-<option value="User A">User A</option>
-<option value="User B">User B</option>
-<option value="User C">User C</option>
-</select>
-</div>
-<div>
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="desc-3">Description</label>
-<input class="lean-input" id="desc-3" name="desc_3" type="text" value=""/>
-</div>
-<div class="pt-2">
-<label class="flex items-center min-h-[44px] cursor-pointer select-none">
-<input class="w-5 h-5 rounded-[4px] border-[#8590A2] text-[#0C66E4] focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" name="delete_3" type="checkbox"/>
-<span class="ml-2.5 text-sm text-[#1D2125]">Delete this entry</span>
-</label>
-</div>
-</div>
-</article>
-<!-- Remaining hours Section -->
-<section class="bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-4 mb-6">
-<label class="block text-sm font-normal text-[#1D2125] mb-1" for="remaining-hours">
-            Remaining hours
-          </label>
-<input class="lean-input mb-1 text-right" id="remaining-hours" name="remaining_hours" style="font-variant-numeric: tabular-nums;" type="text" value="6.0"/>
-<p class="text-xs text-[#626F86]">
-            Updates the task estimate on save
-          </p>
-</section>
-<!-- Editor Action Buttons -->
-<div class="flex flex-col gap-3">
-<button class="w-full h-12 bg-[#0C66E4] text-[#FFFFFF] font-semibold text-base rounded-[6px] hover:bg-[#0055CC] focus-ring transition-colors flex items-center justify-center cursor-pointer shadow-none" type="submit">
-            Save
-          </button>
-<button class="w-full h-12 bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] font-normal text-base rounded-[6px] hover:bg-[#F1F2F4] focus-ring transition-colors flex items-center justify-center cursor-pointer" type="reset">
-            Reset
-          </button>
-<a class="w-full h-12 bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] font-normal text-base rounded-[6px] hover:bg-[#F1F2F4] focus-ring transition-colors flex items-center justify-center text-center no-underline cursor-pointer" href="#task-8">
-            Cancel
-          </a>
-</div>
-</form>
-</main>
-</div>
-</body></html>
+</head>
+<body>
+  <!-- Accessibility skip link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-header">
+      <a href="#" class="brand-title">Planner</a>
+      <nav class="user-nav" aria-label="User navigation">
+        <a href="#">Me</a>
+        <a href="#">Sign out</a>
+      </nav>
+    </div>
+    <div class="search-group">
+      <label for="site-search" class="search-label">Search or ID</label>
+      <input type="search" id="site-search" class="search-input" name="search">
+    </div>
+  </header>
+
+  <!-- Main content wrapper -->
+  <main id="main" class="page-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li>
+          <a href="#">Top</a>
+          <span class="breadcrumb-separator">/</span>
+        </li>
+        <li>
+          <a href="#">Project 1</a>
+          <span class="breadcrumb-separator">/</span>
+        </li>
+        <li>
+          <a href="#">Iteration 3</a>
+          <span class="breadcrumb-separator">/</span>
+        </li>
+        <li>
+          <a href="#">Story 2</a>
+          <span class="breadcrumb-separator">/</span>
+        </li>
+        <li>
+          <a href="#">Task 8</a>
+          <span class="breadcrumb-separator">/</span>
+        </li>
+        <li class="breadcrumb-current" aria-current="page">Time</li>
+      </ol>
+    </nav>
+
+    <!-- Page Heading -->
+    <h1 class="page-heading">Time: Task 8</h1>
+
+    <!-- Error summary -->
+    <div class="error-summary" role="alert" aria-labelledby="error-summary-title">
+      <div class="error-summary-header" id="error-summary-title">
+        <span class="error-icon" aria-hidden="true">!</span>
+        <span>1 entry needs correction</span>
+      </div>
+      <a href="#entry-3-person" class="error-summary-link">Entry 3: Person</a>
+    </div>
+
+    <!-- Time entries (Stacked grid block per entry) -->
+    <div class="entries-container">
+      <!-- Entry 1 -->
+      <section class="entry-card" aria-labelledby="entry-1-title">
+        <div class="entry-header">
+          <span id="entry-1-title">Entry 1 · 2026-03-03</span>
+        </div>
+        <div class="entry-body">
+          <div class="form-group">
+            <label for="entry-1-date">Report date</label>
+            <input type="text" id="entry-1-date" class="input-control" value="2026-03-03">
+          </div>
+
+          <div class="field-row">
+            <div class="form-group">
+              <label for="entry-1-start">Start</label>
+              <input type="text" id="entry-1-start" class="input-control" value="09:00">
+            </div>
+            <div class="form-group">
+              <label for="entry-1-end">End</label>
+              <input type="text" id="entry-1-end" class="input-control" value="10:00">
+            </div>
+            <div class="form-group">
+              <label for="entry-1-duration">Duration</label>
+              <input type="text" id="entry-1-duration" class="input-control" value="1.0">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="entry-1-person">Person (required)</label>
+            <select id="entry-1-person" class="input-control">
+              <option value="User B" selected>User B</option>
+              <option value="User A">User A</option>
+              <option value="User C">User C</option>
+              <option value="User D">User D</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="entry-1-pair">Pair</label>
+            <select id="entry-1-pair" class="input-control">
+              <option value="" selected>(none)</option>
+              <option value="User A">User A</option>
+              <option value="User B">User B</option>
+              <option value="User C">User C</option>
+              <option value="User D">User D</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="entry-1-desc">Description</label>
+            <input type="text" id="entry-1-desc" class="input-control" value="Synthetic entry">
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="entry-1-delete">
+            <label for="entry-1-delete">Delete</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Entry 2 -->
+      <section class="entry-card" aria-labelledby="entry-2-title">
+        <div class="entry-header">
+          <span id="entry-2-title">Entry 2 · 2026-03-04</span>
+        </div>
+        <div class="entry-body">
+          <div class="form-group">
+            <label for="entry-2-date">Report date</label>
+            <input type="text" id="entry-2-date" class="input-control" value="2026-03-04">
+          </div>
+
+          <div class="field-row">
+            <div class="form-group">
+              <label for="entry-2-start">Start</label>
+              <input type="text" id="entry-2-start" class="input-control" value="09:00">
+            </div>
+            <div class="form-group">
+              <label for="entry-2-end">End</label>
+              <input type="text" id="entry-2-end" class="input-control" value="10:00">
+            </div>
+            <div class="form-group">
+              <label for="entry-2-duration">Duration</label>
+              <input type="text" id="entry-2-duration" class="input-control" value="1.0">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="entry-2-person">Person (required)</label>
+            <select id="entry-2-person" class="input-control">
+              <option value="User B" selected>User B</option>
+              <option value="User A">User A</option>
+              <option value="User C">User C</option>
+              <option value="User D">User D</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="entry-2-pair">Pair</label>
+            <select id="entry-2-pair" class="input-control">
+              <option value="" selected>(none)</option>
+              <option value="User A">User A</option>
+              <option value="User B">User B</option>
+              <option value="User C">User C</option>
+              <option value="User D">User D</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="entry-2-desc">Description</label>
+            <input type="text" id="entry-2-desc" class="input-control" value="Synthetic entry">
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="entry-2-delete">
+            <label for="entry-2-delete">Delete</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Entry 3 (New entry with validation error state) -->
+      <section class="entry-card" aria-labelledby="entry-3-title" id="entry-3">
+        <div class="entry-header">
+          <span id="entry-3-title">New entry</span>
+        </div>
+        <div class="entry-body">
+          <div class="form-group">
+            <label for="entry-3-date">Report date</label>
+            <input type="text" id="entry-3-date" class="input-control" value="">
+          </div>
+
+          <div class="form-group">
+            <label for="entry-3-start">Start</label>
+            <div class="insert-time-group">
+              <input type="text" id="entry-3-start" class="input-control" value="">
+              <button type="button" class="btn-insert">Insert time</button>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="form-group">
+              <label for="entry-3-end">End</label>
+              <input type="text" id="entry-3-end" class="input-control" value="">
+            </div>
+            <div class="form-group">
+              <label for="entry-3-duration">Duration</label>
+              <input type="text" id="entry-3-duration" class="input-control" value="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="entry-3-person">Person (required)</label>
+            <select id="entry-3-person" class="input-control input-error" aria-invalid="true" aria-describedby="entry-3-person-error">
+              <option value="" selected>(none)</option>
+              <option value="User B">User B</option>
+              <option value="User A">User A</option>
+              <option value="User C">User C</option>
+              <option value="User D">User D</option>
+            </select>
+            <div class="error-inline-msg" id="entry-3-person-error">
+              <span class="error-icon" aria-hidden="true">!</span>
+              <span>No person is specified in a time entry.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="entry-3-pair">Pair</label>
+            <select id="entry-3-pair" class="input-control">
+              <option value="" selected>(none)</option>
+              <option value="User A">User A</option>
+              <option value="User B">User B</option>
+              <option value="User C">User C</option>
+              <option value="User D">User D</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="entry-3-desc">Description</label>
+            <input type="text" id="entry-3-desc" class="input-control" value="">
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="entry-3-delete">
+            <label for="entry-3-delete">Delete</label>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Remaining hours -->
+    <div class="remaining-section">
+      <div class="form-group">
+        <label for="remaining-hours">Remaining hours</label>
+        <input type="text" id="remaining-hours" class="input-control" value="6.0" aria-describedby="remaining-hours-hint">
+        <p id="remaining-hours-hint" class="field-hint">Updates the task estimate on save</p>
+      </div>
+    </div>
+
+    <!-- Actions (Stacked full width 48px buttons) -->
+    <div class="action-buttons">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="reset" class="btn btn-neutral">Reset</button>
+      <button type="button" class="btn btn-neutral">Cancel</button>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Move or continue: Story 2 - Planner</title>
+  <style>
+    /* Reset & Base Foundation */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 1024px;
+      position: relative;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      z-index: 1000;
+      padding: 8px 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focus styling */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Links */
+    a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.2px;
+    }
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+    .search-input {
+      height: 36px;
+      width: 240px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 10px;
+      font-size: 14px;
+      color: #1D2125;
+      font-family: inherit;
+    }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    /* Main Container */
+    main {
+      padding: 24px 32px 64px 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumb-separator {
+      color: #626F86;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Page Header */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+    }
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* Buttons */
+    .btn {
+      height: 36px;
+      padding: 0 14px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: inherit;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-neutral {
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      color: #1D2125;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+    .btn-primary {
+      background-color: #0C66E4;
+      border: 1px solid #0C66E4;
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+    .btn-danger {
+      background-color: #C9372C;
+      border: 1px solid #C9372C;
+      color: #FFFFFF;
+    }
+    .btn-danger:hover {
+      background-color: #AE2A19;
+      border-color: #AE2A19;
+    }
+
+    /* Quick Links Subheader */
+    .quick-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .quick-links-separator {
+      color: #626F86;
+    }
+
+    /* Details Grid */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 380px));
+      row-gap: 12px;
+      column-gap: 48px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #F1F2F4;
+      padding-bottom: 6px;
+    }
+    .detail-label {
+      color: #626F86;
+    }
+    .detail-value {
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    /* Description */
+    .story-description {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 32px;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+
+    /* Table */
+    .data-table-wrap {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+    .data-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      height: 40px;
+      padding: 0 12px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+    .data-table th button {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      cursor: pointer;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .data-table td {
+      height: 40px;
+      padding: 0 12px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+    }
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+    .col-num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .data-table th.col-num button {
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    /* Notes Section */
+    .notes-box {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .note-header {
+      margin-bottom: 8px;
+    }
+    .note-subject {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+    }
+    .note-meta {
+      font-size: 13px;
+      color: #626F86;
+      margin-top: 2px;
+    }
+    .note-body {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+    .note-actions {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+    }
+    .link-danger {
+      color: #C9372C;
+    }
+    .link-danger:hover {
+      color: #AE2A19;
+      text-decoration: underline;
+    }
+
+    /* Modal Scrim */
+    .scrim {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(29, 33, 37, 0.50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 24px;
+    }
+
+    /* Modal Dialog */
+    .modal-dialog {
+      background-color: #FFFFFF;
+      width: 520px;
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+    .dialog-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+    .dialog-description {
+      font-size: 14px;
+      color: #1D2125;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    /* Error summary box */
+    .error-summary {
+      background-color: #FFFFFF;
+      border-left: 4px solid #C9372C;
+      border-top: 1px solid #DCDFE4;
+      border-right: 1px solid #DCDFE4;
+      border-bottom: 1px solid #DCDFE4;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      color: #C9372C;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Form control in dialog */
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1D2125;
+      margin-bottom: 6px;
+    }
+    .form-select {
+      width: 100%;
+      height: 36px;
+      background-color: #FFFFFF;
+      border: 2px solid #C9372C;
+      border-radius: 6px;
+      padding: 0 10px;
+      font-size: 14px;
+      color: #1D2125;
+      font-family: inherit;
+    }
+    .form-select:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Dialog Buttons */
+    .dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Visually hidden skip link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="brand-name">Planner</span>
+      <form class="search-group" role="search" onsubmit="event.preventDefault();">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" name="search" class="search-input">
+      </form>
+    </div>
+    <div class="top-bar-right">
+      <a href="#">Me</a>
+      <a href="#">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Background Content Region -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a href="#">Top</a>
+          <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Project 1</a>
+          <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#">Iteration 3</a>
+          <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        </li>
+        <li class="breadcrumb-item">
+          <span class="breadcrumb-current" aria-current="page">Story 2</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Page Header & Story Actions -->
+    <div class="page-header">
+      <h1 class="page-title">Story 2</h1>
+      <div class="header-actions">
+        <button type="button" class="btn btn-neutral">Edit</button>
+        <button type="button" class="btn btn-neutral" aria-haspopup="dialog">Move or continue</button>
+        <button type="button" class="btn btn-danger">Delete story</button>
+        <button type="button" class="btn btn-primary">Create task</button>
+      </div>
+    </div>
+
+    <!-- Quick Links Subheader -->
+    <div class="quick-links">
+      <a href="#">Export</a>
+      <span class="quick-links-separator" aria-hidden="true">·</span>
+      <a href="#">History</a>
+      <span class="quick-links-separator" aria-hidden="true">·</span>
+      <a href="#">Add note</a>
+    </div>
+
+    <!-- Story Details Grid -->
+    <div class="details-grid">
+      <div class="detail-item">
+        <span class="detail-label">Estimated</span>
+        <span class="detail-value">24.0 h</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Customer</span>
+        <span class="detail-value">User C</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Actual</span>
+        <span class="detail-value">6.0 h</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Tracker</span>
+        <span class="detail-value">User B</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Remaining</span>
+        <span class="detail-value">18.0 h</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Last update</span>
+        <span class="detail-value">2026-03-04</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Disposition</span>
+        <span class="detail-value">Planned</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Status</span>
+        <span class="detail-value">Draft</span>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <p class="story-description">Synthetic sample story.</p>
+
+    <!-- Tasks Section -->
+    <section aria-labelledby="tasks-heading">
+      <h2 id="tasks-heading" class="section-title">Tasks</h2>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="none">
+                <button type="button">Task</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button">ID</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button">Acceptor</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button">Status</button>
+              </th>
+              <th scope="col" class="col-num" aria-sort="none">
+                <button type="button">Estimate</button>
+              </th>
+              <th scope="col" class="col-num" aria-sort="none">
+                <button type="button">Actual</button>
+              </th>
+              <th scope="col" class="col-num" aria-sort="none">
+                <button type="button">Remaining</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">Task 7</a></td>
+              <td>7</td>
+              <td>User B</td>
+              <td>In progress</td>
+              <td class="col-num">8.0</td>
+              <td class="col-num">2.0</td>
+              <td class="col-num">6.0</td>
+            </tr>
+            <tr>
+              <td><a href="#">Task 8</a></td>
+              <td>8</td>
+              <td>User B</td>
+              <td>In progress</td>
+              <td class="col-num">8.0</td>
+              <td class="col-num">2.0</td>
+              <td class="col-num">6.0</td>
+            </tr>
+            <tr>
+              <td><a href="#">Task 9</a></td>
+              <td>9</td>
+              <td>User C</td>
+              <td>In progress</td>
+              <td class="col-num">8.0</td>
+              <td class="col-num">2.0</td>
+              <td class="col-num">6.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Notes Section -->
+    <section aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="section-title">Notes</h2>
+      <div class="notes-box">
+        <div class="note-header">
+          <div class="note-subject">Synthetic story note</div>
+          <div class="note-meta">User C · 2026-03-03</div>
+        </div>
+        <p class="note-body">Synthetic note text.</p>
+        <div class="note-actions">
+          <a href="#">Edit</a>
+          <a href="#" class="link-danger">Delete</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Centered Modal Scrim & Dialog -->
+  <div class="scrim" role="presentation">
+    <div 
+      class="modal-dialog" 
+      role="dialog" 
+      aria-modal="true" 
+      aria-labelledby="dialog-title"
+      aria-describedby="dialog-desc">
+      
+      <h2 id="dialog-title" class="dialog-title">Move or continue Story 2</h2>
+      
+      <p id="dialog-desc" class="dialog-description">
+        Move takes the story and its tasks to the target iteration. Continue keeps this story and creates a continuation in the target iteration for the unfinished work.
+      </p>
+
+      <!-- Error summary box with role="alert" -->
+      <div id="error-summary-id" class="error-summary" role="alert">
+        Cannot move or continue story in same iteration.
+      </div>
+
+      <!-- Target Iteration selection -->
+      <div class="form-group">
+        <label for="target-iteration" class="form-label">Target iteration</label>
+        <select 
+          id="target-iteration" 
+          name="target_iteration" 
+          class="form-select"
+          aria-invalid="true" 
+          aria-describedby="error-summary-id">
+          <option selected>Project 1: Iteration 3 (2026-03-02 to 2026-03-13)</option>
+        </select>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-neutral">Cancel</button>
+        <button type="button" class="btn btn-neutral">Continue</button>
+        <button type="button" class="btn btn-primary">Move</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

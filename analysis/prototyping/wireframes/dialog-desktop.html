@@ -1,450 +1,804 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=1280, initial-scale=1.0">
-<title>Iteration 3 - Close confirmation complete export</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UX13-38c Iteration 3 - Close confirmation (Editor, progress fill)</title>
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  html, body {
-    width: 1280px;
-    min-height: 1024px;
-    height: 1024px;
-    background-color: #F7F8FA;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: #1D2125;
-    font-size: 14px;
-    position: relative;
-    overflow: hidden;
-  }
+    /* CSS Reset & Foundation Tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  /* Top bar */
-  .top-bar {
-    width: 100%;
-    height: 56px;
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #DCDFE4;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-  }
-  .top-bar-left {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .brand-logo {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1D2125;
-    text-decoration: none;
-  }
-  .search-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .search-label {
-    font-size: 14px;
-    color: #1D2125;
-  }
-  .search-input {
-    width: 240px;
-    height: 36px;
-    padding: 0 12px;
-    border: 1px solid #8590A2;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 14px;
-    color: #1D2125;
-    outline: none;
-    background: #FFFFFF;
-  }
-  .top-bar-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .top-link {
-    color: #0C66E4;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .top-link:hover {
-    text-decoration: underline;
-  }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 1024px;
+      position: relative;
+    }
 
-  /* Content area */
-  .main-content {
-    padding: 24px;
-  }
-  .breadcrumb {
-    font-size: 14px;
-    margin-bottom: 16px;
-    display: flex;
-    gap: 6px;
-    align-items: center;
-  }
-  .breadcrumb a {
-    color: #0C66E4;
-    text-decoration: none;
-  }
-  .breadcrumb a:hover {
-    text-decoration: underline;
-  }
-  .breadcrumb .sep {
-    color: #626F86;
-  }
-  .breadcrumb .current {
-    color: #1D2125;
-  }
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      z-index: 10000;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
 
-  .page-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: #1D2125;
-    margin-bottom: 12px;
-  }
+    /* Focus styling */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
 
-  /* Summary line */
-  .summary-line {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-    font-size: 14px;
-  }
-  .progress-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .progress-bar-track {
-    width: 140px;
-    height: 6px;
-    background-color: #E2E4E8;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .progress-bar-fill {
-    width: 48%;
-    height: 100%;
-    background-color: #0C66E4;
-  }
-  .summary-text {
-    color: #1D2125;
-  }
-  .summary-sep {
-    color: #DCDFE4;
-  }
+    /* Top Navigation Bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      width: 100%;
+    }
 
-  /* Local tabs */
-  .tabs-nav {
-    display: flex;
-    gap: 24px;
-    border-bottom: 1px solid #DCDFE4;
-    margin-bottom: 24px;
-  }
-  .tab-link {
-    padding-bottom: 10px;
-    font-size: 14px;
-    color: #626F86;
-    text-decoration: none;
-    position: relative;
-  }
-  .tab-link.active {
-    font-weight: 600;
-    color: #0C66E4;
-    border-bottom: 2px solid #0C66E4;
-    margin-bottom: -1px;
-  }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
 
-  /* Table */
-  .table-wrapper {
-    background: #FFFFFF;
-    border: 1px solid #DCDFE4;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    text-align: left;
-  }
-  th {
-    background-color: #F1F2F4;
-    color: #1D2125;
-    font-weight: 600;
-    height: 40px;
-    padding: 0 12px;
-    border-bottom: 1px solid #DCDFE4;
-  }
-  td {
-    height: 40px;
-    padding: 0 12px;
-    border-bottom: 1px solid #DCDFE4;
-    color: #1D2125;
-  }
-  tr:last-child td {
-    border-bottom: none;
-  }
-  .text-right {
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-  }
-  .story-name-link {
-    color: #0C66E4;
-    text-decoration: none;
-  }
-  .story-name-link:hover {
-    text-decoration: underline;
-  }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+    }
 
-  /* Scrim and Modal Dialog */
-  .scrim-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1280px;
-    height: 1024px;
-    background-color: rgba(29, 33, 37, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
+    .search-form {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-  .modal-dialog {
-    width: 480px;
-    background-color: #FFFFFF;
-    border-radius: 6px;
-    padding: 24px;
-    box-shadow: 0 8px 24px rgba(29, 33, 37, 0.2), 0 2px 6px rgba(29, 33, 37, 0.12);
-  }
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
 
-  .dialog-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #1D2125;
-    margin-bottom: 16px;
-  }
+    .search-input {
+      height: 32px;
+      width: 220px;
+      padding: 0 8px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
 
-  .dialog-body {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #1D2125;
-    margin-bottom: 24px;
-  }
-  .dialog-body p + p {
-    margin-top: 12px;
-  }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-  .dialog-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-  }
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
 
-  .btn-neutral {
-    background-color: #FFFFFF;
-    border: 1px solid #8590A2;
-    color: #1D2125;
-    height: 36px;
-    padding: 0 16px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    outline: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-neutral:hover {
-    background-color: #F7F8FA;
-  }
-  .btn-neutral.focus-ring {
-    outline: 2px solid #0C66E4;
-    outline-offset: 2px;
-  }
-</style>
+    /* Main Container */
+    .main-container {
+      padding: 24px 32px 48px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .breadcrumb-item a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-item a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #626F86;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Header Section */
+    .page-header {
+      margin-bottom: 16px;
+    }
+
+    .header-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+    }
+
+    /* Neutral button */
+    .btn-neutral {
+      height: 36px;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+
+    .btn-primary {
+      height: 36px;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: #FFFFFF;
+      background-color: #0C66E4;
+      border: 1px solid #0C66E4;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+    }
+
+    .iteration-dates {
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 12px;
+    }
+
+    /* Summary & Progress Bar */
+    .summary-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .progress-track {
+      width: 140px;
+      height: 8px;
+      background-color: #DCDFE4;
+      border-radius: 4px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background-color: #0C66E4;
+      border-radius: 4px;
+    }
+
+    .summary-figures {
+      color: #1D2125;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .summary-sep {
+      color: #626F86;
+    }
+
+    /* Context links */
+    .context-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .context-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .context-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Local Navigation Tabs */
+    .local-tabs {
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .tab-item {
+      padding-bottom: 10px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #626F86;
+      position: relative;
+    }
+
+    .tab-item[aria-current="page"] {
+      color: #0C66E4;
+      font-weight: 600;
+    }
+    .tab-item[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #0C66E4;
+    }
+
+    /* Table Toolbar */
+    .table-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .toolbar-left, .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Story Data Table */
+    .table-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .data-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+
+    .data-table th button.th-sort-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0;
+    }
+
+    .data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table tr.selected-row {
+      background-color: #E9F2FF;
+    }
+
+    .data-table tr:hover:not(.selected-row) {
+      background-color: #FAFBFC;
+    }
+
+    .order-input {
+      width: 44px;
+      height: 28px;
+      padding: 0 4px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .cell-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .cell-link:hover {
+      text-decoration: underline;
+    }
+
+    .status-text {
+      color: #1D2125;
+    }
+
+    /* Notes Card */
+    .notes-section {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 24px;
+    }
+
+    .notes-header {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 16px;
+    }
+
+    .note-item {
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .note-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+
+    .note-meta {
+      font-size: 12px;
+      color: #626F86;
+      margin-bottom: 12px;
+    }
+
+    .note-body {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+
+    .note-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .note-action-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .note-action-link:hover {
+      text-decoration: underline;
+    }
+    .note-delete-link {
+      color: #C9372C;
+    }
+
+    /* Scrim Overlay */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(29, 33, 37, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    /* Centered Modal Dialog */
+    .modal-dialog {
+      width: 480px;
+      background-color: #FFFFFF;
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+      position: relative;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .modal-body {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1D2125;
+      margin-bottom: 24px;
+    }
+
+    .modal-body p {
+      margin-bottom: 12px;
+    }
+    .modal-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    /* Modal Button Specifics */
+    .modal-btn {
+      height: 36px;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-btn:hover {
+      background-color: #F7F8FA;
+    }
+
+    /* Focused button on initial render: Cancel has 2px #0C66E4 outline at 2px offset */
+    .btn-focused {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Visually hidden utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Background content -->
-  <header class="top-bar">
-    <div class="top-bar-left">
-      <span class="brand-logo">Planner</span>
-      <div class="search-wrapper">
-        <label for="search-input" class="search-label">Search or ID</label>
-        <input id="search-input" class="search-input" type="text" />
-      </div>
-    </div>
-    <div class="top-bar-right">
-      <a href="#" class="top-link">Me</a>
-      <a href="#" class="top-link">Sign out</a>
-    </div>
-  </header>
-
-  <main class="main-content">
-    <nav class="breadcrumb">
-      <a href="#">Top</a>
-      <span class="sep">/</span>
-      <a href="#">Project 1</a>
-      <span class="sep">/</span>
-      <span class="current">Iteration 3</span>
-    </nav>
-
-    <h1 class="page-title">Iteration 3</h1>
-
-    <div class="summary-line">
-      <div class="progress-container">
-        <span class="summary-text">Progress 48%</span>
-        <div class="progress-bar-track">
-          <div class="progress-bar-fill"></div>
-        </div>
-      </div>
-      <span class="summary-sep">|</span>
-      <span class="summary-text">Estimated 100.0 h</span>
-      <span class="summary-text">Actual 48.0 h</span>
-      <span class="summary-text">Remaining 52.0 h</span>
-    </div>
-
-    <div class="tabs-nav">
-      <a href="#" class="tab-link active">Stories</a>
-      <a href="#" class="tab-link">Tasks</a>
-      <a href="#" class="tab-link">Statistics</a>
-      <a href="#" class="tab-link">Accuracy</a>
-      <a href="#" class="tab-link">Board</a>
-    </div>
-
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th style="width: 60px;">ID</th>
-            <th style="width: 60px;">Order</th>
-            <th>Name</th>
-            <th style="width: 80px;">Priority</th>
-            <th style="width: 100px;">Customer</th>
-            <th style="width: 80px;" class="text-right">Progress</th>
-            <th style="width: 80px;" class="text-right">Actual</th>
-            <th style="width: 90px;" class="text-right">Remaining</th>
-            <th style="width: 80px;" class="text-right">Estimate</th>
-            <th style="width: 120px;" class="text-right">Original estimate</th>
-            <th style="width: 60px;" class="text-right">Tasks</th>
-            <th style="width: 90px;">Tracker</th>
-            <th style="width: 110px;">Disposition</th>
-            <th style="width: 90px;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>101</td>
-            <td>1</td>
-            <td><a href="#" class="story-name-link">Story 1</a></td>
-            <td>1</td>
-            <td>User A</td>
-            <td class="text-right">60%</td>
-            <td class="text-right">12.0</td>
-            <td class="text-right">8.0</td>
-            <td class="text-right">20.0</td>
-            <td class="text-right">18.0</td>
-            <td class="text-right">4</td>
-            <td>User B</td>
-            <td>Planned</td>
-            <td>Draft</td>
-          </tr>
-          <tr>
-            <td>102</td>
-            <td>2</td>
-            <td><a href="#" class="story-name-link">Story 2</a></td>
-            <td>2</td>
-            <td>User C</td>
-            <td class="text-right">25%</td>
-            <td class="text-right">6.0</td>
-            <td class="text-right">18.0</td>
-            <td class="text-right">24.0</td>
-            <td class="text-right">24.0</td>
-            <td class="text-right">3</td>
-            <td>User B</td>
-            <td>Planned</td>
-            <td>Draft</td>
-          </tr>
-          <tr>
-            <td>103</td>
-            <td>3</td>
-            <td><a href="#" class="story-name-link">Story 3</a></td>
-            <td>4</td>
-            <td>User A</td>
-            <td class="text-right">50%</td>
-            <td class="text-right">10.0</td>
-            <td class="text-right">10.0</td>
-            <td class="text-right">20.0</td>
-            <td class="text-right">16.0</td>
-            <td class="text-right">5</td>
-            <td>User D</td>
-            <td>Carried over</td>
-            <td>Draft</td>
-          </tr>
-          <tr>
-            <td>104</td>
-            <td>4</td>
-            <td><a href="#" class="story-name-link">Story 4</a></td>
-            <td>4</td>
-            <td>User C</td>
-            <td class="text-right">0%</td>
-            <td class="text-right">0.0</td>
-            <td class="text-right">16.0</td>
-            <td class="text-right">16.0</td>
-            <td class="text-right">16.0</td>
-            <td class="text-right">2</td>
-            <td>User D</td>
-            <td>Added</td>
-            <td>Draft</td>
-          </tr>
-          <tr>
-            <td>105</td>
-            <td>5</td>
-            <td><a href="#" class="story-name-link">Story 5</a></td>
-            <td>3</td>
-            <td>User A</td>
-            <td class="text-right">100%</td>
-            <td class="text-right">20.0</td>
-            <td class="text-right">0.0</td>
-            <td class="text-right">20.0</td>
-            <td class="text-right">22.0</td>
-            <td class="text-right">4</td>
-            <td>User B</td>
-            <td>Planned</td>
-            <td>Accepted</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </main>
-
-  <!-- Centered Modal Confirmation Dialog -->
-  <div class="scrim-overlay">
-    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-      <h2 id="dialog-title" class="dialog-title">Close Iteration 3?</h2>
-      <div class="dialog-body">
-        <p>The iteration becomes inactive.</p>
-        <p>It has 4 unfinished stories. After closing, you choose a future iteration to continue them.</p>
-      </div>
-      <div class="dialog-actions">
-        <button class="btn-neutral focus-ring" type="button" autofocus>Cancel</button>
-        <button class="btn-neutral" type="button">Close iteration</button>
-      </div>
-    </div>
-  </div>
-
+<!-- Skip Link for Accessibility -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Top Bar -->
+<header class="top-bar">
+<div class="top-bar-left">
+<a class="brand-title" href="#">Planner</a>
+<form class="search-form" onsubmit="event.preventDefault();" role="search">
+<label class="search-label" for="search-input">Search or ID</label>
+<input class="search-input" id="search-input" type="text"/>
+</form>
+</div>
+<div class="top-bar-right">
+<a class="nav-link" href="#">Me</a>
+<a class="nav-link" href="#">Sign out</a>
+</div>
+</header>
+<!-- Main Content (Iteration 3 Stories Page Background) -->
+<main aria-hidden="true" class="main-container" id="main">
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+<ol class="breadcrumb-list">
+<li class="breadcrumb-item"><a href="#">Top</a></li>
+<li aria-hidden="true" class="breadcrumb-separator">/</li>
+<li class="breadcrumb-item"><a href="#">Project 1</a></li>
+<li aria-hidden="true" class="breadcrumb-separator">/</li>
+<li class="breadcrumb-item"><span aria-current="page" class="breadcrumb-current">Iteration 3</span></li>
+</ol>
+</nav>
+<!-- Page Header -->
+<div class="page-header">
+<div class="header-title-row">
+<h1 class="page-title">Iteration 3</h1>
+<div class="header-actions">
+<button class="btn-neutral" type="button">Edit iteration</button>
+</div>
+</div>
+<div class="iteration-dates">2026-03-02 to 2026-03-13</div>
+<!-- Summary & Progress -->
+<div class="summary-row">
+<span>Progress 48%
+          <span aria-valuemax="100" aria-valuemin="0" aria-valuenow="48" class="progress-track" role="progressbar">
+<span class="progress-fill" style="display: block; width: 48%; height: 100%; background-color: #0C66E4; border-radius: 4px;"></span>
+</span>
+</span>
+<span class="summary-sep">•</span>
+<span class="summary-figures">
+<span>Estimated 100.0 h</span>
+<span class="summary-sep">•</span>
+<span>Actual 48.0 h</span>
+<span class="summary-sep">•</span>
+<span>Remaining 52.0 h</span>
+</span>
+</div>
+<!-- Context Links -->
+<div class="context-links">
+<a class="context-link" href="#">Export</a>
+<a class="context-link" href="#">History</a>
+<a class="context-link" href="#">Add note</a>
+</div>
+</div>
+<!-- Local Navigation Tabs -->
+<nav aria-label="Iteration sections" class="local-tabs">
+<a aria-current="page" class="tab-item" href="#">Stories</a>
+<a class="tab-item" href="#">Tasks</a>
+<a class="tab-item" href="#">Statistics</a>
+<a class="tab-item" href="#">Accuracy</a>
+<a class="tab-item" href="#">Board</a>
+</nav>
+<!-- Table Action Toolbar -->
+<div class="table-toolbar">
+<div class="toolbar-left">
+<button class="btn-neutral" type="button">Move selected stories</button>
+<button class="btn-neutral" type="button">Save order</button>
+</div>
+<div class="toolbar-right">
+<button class="btn-neutral" type="button">Close iteration</button>
+<button class="btn-primary" type="button">Create story</button>
+</div>
+</div>
+<!-- Stories Table -->
+<div class="table-card">
+<table class="data-table">
+<thead>
+<tr>
+<th style="width: 40px; text-align: center;">
+<input aria-label="Select all stories" id="select-all-stories" type="checkbox"/>
+</th>
+<th style="width: 50px;">ID</th>
+<th aria-sort="ascending" style="width: 80px;">
+<button class="th-sort-btn" type="button">Order ▲</button>
+</th>
+<th>Name</th>
+<th>Priority</th>
+<th>Customer</th>
+<th>Progress</th>
+<th>Actual</th>
+<th>Remaining</th>
+<th>Estimate</th>
+<th>Original estimate</th>
+<th>Tasks</th>
+<th>Tracker</th>
+<th>Disposition</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<!-- Story 1 -->
+<tr>
+<td style="text-align: center;">
+<input aria-label="Select Story 1" id="story-1-cb" type="checkbox"/>
+</td>
+<td>101</td>
+<td>
+<label class="sr-only" for="order-1">Order for Story 1</label>
+<input class="order-input" id="order-1" type="text" value="1"/>
+</td>
+<td><a class="cell-link" href="#">Story 1</a></td>
+<td>1</td>
+<td>User A</td>
+<td>60%</td>
+<td>12.0</td>
+<td>8.0</td>
+<td>20.0</td>
+<td>18.0</td>
+<td>4</td>
+<td>User B</td>
+<td>Planned</td>
+<td class="status-text">Draft</td>
+</tr>
+<!-- Story 2 (Selected) -->
+<tr class="selected-row">
+<td style="text-align: center;">
+<input aria-label="Select Story 2" checked="" id="story-2-cb" type="checkbox"/>
+</td>
+<td>102</td>
+<td>
+<label class="sr-only" for="order-2">Order for Story 2</label>
+<input class="order-input" id="order-2" type="text" value="2"/>
+</td>
+<td><a class="cell-link" href="#">Story 2</a></td>
+<td>2</td>
+<td>User C</td>
+<td>25%</td>
+<td>6.0</td>
+<td>18.0</td>
+<td>24.0</td>
+<td>24.0</td>
+<td>3</td>
+<td>User B</td>
+<td>Planned</td>
+<td class="status-text">Draft</td>
+</tr>
+<!-- Story 3 -->
+<tr>
+<td style="text-align: center;">
+<input aria-label="Select Story 3" id="story-3-cb" type="checkbox"/>
+</td>
+<td>103</td>
+<td>
+<label class="sr-only" for="order-3">Order for Story 3</label>
+<input class="order-input" id="order-3" type="text" value="3"/>
+</td>
+<td><a class="cell-link" href="#">Story 3</a></td>
+<td>4</td>
+<td>User A</td>
+<td>50%</td>
+<td>10.0</td>
+<td>10.0</td>
+<td>20.0</td>
+<td>16.0</td>
+<td>5</td>
+<td>User D</td>
+<td>Carried over</td>
+<td class="status-text">Draft</td>
+</tr>
+<!-- Story 4 (Selected) -->
+<tr class="selected-row">
+<td style="text-align: center;">
+<input aria-label="Select Story 4" checked="" id="story-4-cb" type="checkbox"/>
+</td>
+<td>104</td>
+<td>
+<label class="sr-only" for="order-4">Order for Story 4</label>
+<input class="order-input" id="order-4" type="text" value="4"/>
+</td>
+<td><a class="cell-link" href="#">Story 4</a></td>
+<td>4</td>
+<td>User C</td>
+<td>0%</td>
+<td>0.0</td>
+<td>16.0</td>
+<td>16.0</td>
+<td>16.0</td>
+<td>2</td>
+<td>User D</td>
+<td>Added</td>
+<td class="status-text">Draft</td>
+</tr>
+<!-- Story 5 -->
+<tr>
+<td style="text-align: center;">
+<input aria-label="Select Story 5" id="story-5-cb" type="checkbox"/>
+</td>
+<td>105</td>
+<td>
+<label class="sr-only" for="order-5">Order for Story 5</label>
+<input class="order-input" id="order-5" type="text" value="5"/>
+</td>
+<td><a class="cell-link" href="#">Story 5</a></td>
+<td>3</td>
+<td>User A</td>
+<td>100%</td>
+<td>20.0</td>
+<td>0.0</td>
+<td>20.0</td>
+<td>22.0</td>
+<td>4</td>
+<td>User B</td>
+<td>Planned</td>
+<td class="status-text">Accepted</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Notes Section -->
+<section aria-labelledby="notes-heading" class="notes-section">
+<h2 class="notes-header" id="notes-heading">Notes</h2>
+<div class="note-item">
+<div class="note-title">Synthetic iteration note</div>
+<div class="note-meta">User B · 2026-03-02</div>
+<p class="note-body">Synthetic note text.</p>
+<div class="note-actions">
+<a class="note-action-link" href="#">Edit</a>
+<a class="note-action-link note-delete-link" href="#">Delete</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Scrim Overlay & Centered Modal Dialog -->
+<div class="modal-backdrop" role="presentation">
+<div aria-labelledby="dialog-title" aria-modal="true" class="modal-dialog" role="dialog">
+<h2 class="modal-title" id="dialog-title">Close Iteration 3?</h2>
+<div class="modal-body">
+<p>The iteration becomes inactive.</p>
+<p>It has 4 unfinished stories. After closing, you choose a future iteration to continue them.</p>
+</div>
+<div class="modal-actions">
+<button autofocus="" class="modal-btn btn-focused" type="button">Cancel</button>
+<button class="modal-btn" type="button">Close iteration</button>
+</div>
+</div>
+</div>
 </body>
 </html>

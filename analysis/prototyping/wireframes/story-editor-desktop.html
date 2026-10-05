@@ -1,226 +1,432 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Edit story: Story 2 - Planner</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "surface-container-lowest": "#ffffff",
-            "tertiary-fixed": "#ffdad5",
-            "on-surface-variant": "#424654",
-            "tertiary-container": "#c8362b",
-            "surface-tint": "#0058ca",
-            "on-tertiary-fixed-variant": "#910909",
-            "surface-variant": "#d6e3fe",
-            "on-primary-fixed": "#001945",
-            "on-background": "#0e1c2f",
-            "inverse-on-surface": "#ebf1ff",
-            "secondary-fixed": "#9df6b4",
-            "tertiary": "#a51c16",
-            "surface-container": "#e7eeff",
-            "secondary-container": "#9df6b4",
-            "background": "#f9f9ff",
-            "outline-variant": "#c2c6d7",
-            "surface": "#f9f9ff",
-            "error": "#ba1a1a",
-            "on-secondary-container": "#15733f",
-            "on-tertiary-container": "#ffebe8",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "on-primary-container": "#ecefff",
-            "primary-container": "#0c66e4",
-            "primary": "#004fb6",
-            "on-tertiary-fixed": "#410001",
-            "surface-dim": "#cddbf5",
-            "surface-container-highest": "#d6e3fe",
-            "surface-container-high": "#dee8ff",
-            "on-secondary-fixed-variant": "#005229",
-            "on-error": "#ffffff",
-            "primary-fixed-dim": "#b0c6ff",
-            "on-tertiary": "#ffffff",
-            "on-surface": "#0e1c2f",
-            "on-secondary": "#ffffff",
-            "surface-container-low": "#f0f3ff",
-            "on-secondary-fixed": "#00210d",
-            "on-primary": "#ffffff",
-            "outline": "#727786",
-            "on-primary-fixed-variant": "#00429b",
-            "error-container": "#ffdad6",
-            "secondary-fixed-dim": "#82d99a",
-            "inverse-surface": "#243145",
-            "secondary": "#086d39",
-            "on-error-container": "#93000a",
-            "surface-bright": "#f9f9ff",
-            "primary-fixed": "#d9e2ff",
-            "inverse-primary": "#b0c6ff"
-          },
-          borderRadius: {
-            "DEFAULT": "6px",
-            "lg": "6px",
-            "xl": "6px",
-            "full": "9999px"
-          },
-          fontFamily: {
-            sans: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
-            body: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif']
-          }
-        },
-      },
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-36 Edit story: Story 2 - Planner</title>
+  <style>
+    /* Reset & Foundation tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-  </script>
-<style>
+
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: #F7F8FA;
       color: #1D2125;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    .focus-ring:focus {
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      text-decoration: none;
+      z-index: 1000;
       outline: none;
-      box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #0C66E4;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focus ring styles */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top navigation bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      font-weight: 400;
+      color: #1D2125;
+    }
+
+    .search-input {
+      width: 200px;
+      height: 36px;
+      padding: 0 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .top-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content container */
+    main {
+      padding: 24px 24px 48px;
+      max-width: 1280px;
+      width: 100%;
+      margin: 0;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 14px;
+      color: #626F86;
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb-item:not(:last-child)::after {
+      content: "/";
+      margin: 0 8px;
+      color: #626F86;
+    }
+
+    .breadcrumb-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-link:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    /* Page Heading */
+    .page-heading {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    /* Form Card Container */
+    .form-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 640px;
+      padding: 24px;
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field-label {
+      font-size: 16px;
+      font-weight: 400;
+      color: #1D2125;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    .field-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 16px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .field-select {
+      width: 100%;
+      height: 36px;
+      padding: 0 32px 0 12px;
+      font-family: inherit;
+      font-size: 16px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23626F86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      cursor: pointer;
+    }
+
+    .field-hint {
+      font-size: 12px;
+      color: #626F86;
+      margin-top: 4px;
+    }
+
+    .field-textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 16px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      resize: vertical;
+      line-height: 1.4;
+    }
+
+    .help-link-wrapper {
+      margin-top: 6px;
+    }
+
+    .help-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .help-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Actions */
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border-color: #0C66E4;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border-color: #8590A2;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
     }
   </style>
 </head>
-<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125] text-base leading-normal">
-<!-- Desktop Top Bar -->
-<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] h-14">
-<div class="max-w-[1200px] h-full mx-auto px-6 flex items-center justify-between">
-<div class="flex items-center space-x-6">
-<span class="text-base font-semibold text-[#1D2125] tracking-tight">Planner</span>
-<div class="flex items-center space-x-2">
-<label class="text-sm font-medium text-[#1D2125] whitespace-nowrap" for="topbar-search">Search or ID</label>
-<input class="h-9 w-52 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] text-[#1D2125] text-sm px-3 focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="topbar-search" type="text"/>
-</div>
-</div>
-<div class="flex items-center space-x-4">
-<a class="text-sm font-medium text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#me">Me</a>
-<span class="text-[#DCDFE4]">|</span>
-<a class="text-sm font-medium text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#signout">Sign out</a>
-</div>
-</div>
-</header>
-<!-- Main Canvas -->
-<main class="max-w-[1200px] mx-auto px-6 py-6">
-<!-- Breadcrumb -->
-<nav aria-label="Breadcrumb" class="mb-4 text-sm">
-<ol class="flex items-center space-x-1.5 text-sm">
-<li>
-<a class="text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#top">Top</a>
-</li>
-<li class="text-[#626F86]">/</li>
-<li>
-<a class="text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#project-1">Project 1</a>
-</li>
-<li class="text-[#626F86]">/</li>
-<li>
-<a class="text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#iteration-3">Iteration 3</a>
-</li>
-<li class="text-[#626F86]">/</li>
-<li>
-<a class="text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#story-2">Story 2</a>
-</li>
-<li class="text-[#626F86]">/</li>
-<li aria-current="page" class="text-[#1D2125] font-normal">
-          Edit
-        </li>
-</ol>
-</nav>
-<!-- Page Heading -->
-<h1 class="text-2xl font-semibold text-[#1D2125] mb-6">Edit story: Story 2</h1>
-<!-- Form Section -->
-<section class="max-w-[640px] bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-8 mb-8">
-<form action="#" class="space-y-5" method="POST">
-<!-- Field a: Name (required) -->
-<div>
-<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-name">Name (required)</label>
-<input class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-name" name="name" required="" type="text" value="Story 2"/>
-</div>
-<!-- Field b: Disposition -->
-<div>
-<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-disposition">Disposition</label>
-<select class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-disposition" name="disposition">
-<option selected="" value="Planned">Planned</option>
-<option value="Carried over">Carried over</option>
-<option value="Added">Added</option>
-</select>
-</div>
-<!-- Field c: Status -->
-<div>
-<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-status">Status</label>
-<select class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-status" name="status">
-<option selected="" value="Draft">Draft</option>
-<option value="In progress">In progress</option>
-<option value="Completed">Completed</option>
-<option value="Accepted">Accepted</option>
-</select>
-</div>
-<!-- Field d: Customer -->
-<div>
-<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-customer">Customer</label>
-<select class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-customer" name="customer">
-<option value="User A">User A</option>
-<option value="User B">User B</option>
-<option selected="" value="User C">User C</option>
-<option value="User D">User D</option>
-</select>
-</div>
-<!-- Field e: Tracker -->
-<div>
-<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-tracker">Tracker</label>
-<select class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-tracker" name="tracker">
-<option value="User A">User A</option>
-<option selected="" value="User B">User B</option>
-<option value="User C">User C</option>
-<option value="User D">User D</option>
-</select>
-</div>
-<!-- Field f: Priority -->
-<div>
-<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-priority">Priority</label>
-<input class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-priority" name="priority" type="number" value="2"/>
-</div>
-<!-- Field g: Order -->
-<div>
-<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-order">Order</label>
-<input class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-order" name="order" type="number" value="2"/>
-</div>
-<!-- Field h: Estimated hours -->
-<div>
-<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-estimated-hours">Estimated hours</label>
-<input class="w-full h-9 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-estimated-hours" name="estimated_hours" step="0.1" type="number" value="24.0"/>
-<p class="mt-1 text-sm text-[#626F86]">Hours, 0 or more</p>
-</div>
-<!-- Field i: Description -->
-<div>
-<label class="block text-base font-semibold text-[#1D2125] mb-2" for="story-description">Description</label>
-<textarea class="w-full min-h-[110px] rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] p-3 text-base text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="story-description" name="description" rows="4">Synthetic sample story.</textarea>
-<!-- Field j: Primary text link below description -->
-<div class="mt-1.5">
-<a class="text-sm font-normal text-[#0C66E4] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 rounded-[2px]" href="#formatting-help">Formatting help</a>
-</div>
-</div>
-<!-- Form buttons -->
-<div class="pt-4 flex items-center space-x-3">
-<button class="h-9 px-5 rounded-[6px] bg-[#0C66E4] hover:bg-[#0055CC] text-[#FFFFFF] text-base font-medium focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 transition-colors" type="submit">
-            Save
-          </button>
-<button class="h-9 px-4 rounded-[6px] bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] text-base font-normal hover:bg-[#F1F2F4] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 transition-colors" type="reset">
-            Reset
-          </button>
-<button class="h-9 px-4 rounded-[6px] bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] text-base font-normal hover:bg-[#F1F2F4] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2 transition-colors" type="button">
-            Cancel
-          </button>
-</div>
-</form>
-</section>
-</main>
-</body></html>
+<body>
+  <!-- Visually hidden skip link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="#" class="brand-name">Planner</a>
+      <form class="search-form" role="search" onsubmit="return false;">
+        <label for="top-search" class="search-label">Search or ID</label>
+        <input type="text" id="top-search" class="search-input">
+      </form>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="top-link">Me</a>
+      <a href="#" class="top-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main content area -->
+  <main id="main">
+    <!-- Breadcrumb navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Top</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Project 1</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Iteration 3</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Story 2</a></li>
+        <li class="breadcrumb-item"><span class="breadcrumb-current" aria-current="page">Edit</span></li>
+      </ol>
+    </nav>
+
+    <!-- Page Heading -->
+    <h1 class="page-heading">Edit story: Story 2</h1>
+
+    <!-- Edit Story Form Card -->
+    <div class="form-card">
+      <form id="edit-story-form" onsubmit="return false;">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="story-name" class="field-label">Name (required)</label>
+          <input type="text" id="story-name" name="name" class="field-input" value="Story 2" required>
+        </div>
+
+        <!-- Disposition -->
+        <div class="form-group">
+          <label for="story-disposition" class="field-label">Disposition</label>
+          <select id="story-disposition" name="disposition" class="field-select">
+            <option value="Planned" selected>Planned</option>
+            <option value="Carried over">Carried over</option>
+            <option value="Added">Added</option>
+          </select>
+        </div>
+
+        <!-- Status -->
+        <div class="form-group">
+          <label for="story-status" class="field-label">Status</label>
+          <select id="story-status" name="status" class="field-select">
+            <option value="Draft" selected>Draft</option>
+            <option value="In progress">In progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Accepted">Accepted</option>
+          </select>
+        </div>
+
+        <!-- Customer -->
+        <div class="form-group">
+          <label for="story-customer" class="field-label">Customer</label>
+          <select id="story-customer" name="customer" class="field-select">
+            <option value="User A">User A</option>
+            <option value="User B">User B</option>
+            <option value="User C" selected>User C</option>
+            <option value="User D">User D</option>
+          </select>
+        </div>
+
+        <!-- Tracker -->
+        <div class="form-group">
+          <label for="story-tracker" class="field-label">Tracker</label>
+          <select id="story-tracker" name="tracker" class="field-select">
+            <option value="User A">User A</option>
+            <option value="User B" selected>User B</option>
+            <option value="User C">User C</option>
+            <option value="User D">User D</option>
+          </select>
+        </div>
+
+        <!-- Priority -->
+        <div class="form-group">
+          <label for="story-priority" class="field-label">Priority</label>
+          <input type="number" id="story-priority" name="priority" class="field-input" value="2">
+        </div>
+
+        <!-- Order -->
+        <div class="form-group">
+          <label for="story-order" class="field-label">Order</label>
+          <input type="number" id="story-order" name="order" class="field-input" value="2">
+        </div>
+
+        <!-- Estimated hours -->
+        <div class="form-group">
+          <label for="story-estimate" class="field-label">Estimated hours</label>
+          <input type="text" id="story-estimate" name="estimated_hours" class="field-input" value="24.0" aria-describedby="estimate-hint">
+          <span id="estimate-hint" class="field-hint">Hours, 0 or more</span>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="story-description" class="field-label">Description</label>
+          <textarea id="story-description" name="description" class="field-textarea">Synthetic sample story.</textarea>
+          <div class="help-link-wrapper">
+            <a href="#" class="help-link">Formatting help</a>
+          </div>
+        </div>
+
+        <!-- Action Buttons: Save, Reset, Cancel -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="reset" class="btn btn-neutral">Reset</button>
+          <button type="button" class="btn btn-neutral" onclick="history.back()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

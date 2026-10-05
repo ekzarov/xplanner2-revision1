@@ -1,80 +1,376 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-40r Add note: Story 2 - Planner (no shell)</title>
+  <style>
+    /* Reset & Base Foundation Tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"error":"#ba1a1a","on-surface":"#0e1c2f","on-error-container":"#93000a","surface-variant":"#d6e3fe","outline-variant":"#c2c6d7","surface-container-lowest":"#ffffff","on-surface-variant":"#424654","on-tertiary-fixed-variant":"#910909","inverse-primary":"#b0c6ff","on-background":"#0e1c2f","on-secondary-fixed-variant":"#005229","surface-container-highest":"#d6e3fe","on-secondary-container":"#15733f","on-error":"#ffffff","surface-container":"#e7eeff","inverse-on-surface":"#ebf1ff","tertiary-fixed":"#ffdad5","on-primary":"#ffffff","secondary-fixed":"#9df6b4","secondary-container":"#9df6b4","surface":"#f9f9ff","on-primary-fixed":"#001945","on-tertiary-container":"#ffebe8","surface-container-low":"#f0f3ff","secondary-fixed-dim":"#82d99a","background":"#f9f9ff","on-tertiary":"#ffffff","primary-fixed-dim":"#b0c6ff","outline":"#727786","tertiary-container":"#c8362b","tertiary":"#a51c16","surface-bright":"#f9f9ff","on-tertiary-fixed":"#410001","tertiary-fixed-dim":"#ffb4aa","on-primary-fixed-variant":"#00429b","primary":"#004fb6","on-secondary":"#ffffff","on-secondary-fixed":"#00210d","secondary":"#086d39","primary-container":"#0c66e4","surface-container-high":"#dee8ff","on-primary-container":"#ecefff","surface-dim":"#cddbf5","error-container":"#ffdad6","primary-fixed":"#d9e2ff","surface-tint":"#0058ca","inverse-surface":"#243145"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{},"fontFamily":{"headline":["Inter"],"display":["Inter"],"body":["Inter"],"label":["Inter"]},"fontSize":{}}}}</script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-background font-body text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-14 w-full px-6 flex items-center justify-between"><div class="flex items-center gap-6"><span class="text-base font-semibold text-on-surface tracking-tight">Planner</span><div class="flex items-center gap-2"><label class="text-sm font-normal text-on-surface-variant whitespace-nowrap" for="shell-search">Search or ID</label><input class="h-9 w-64 px-3 rounded text-sm text-on-surface bg-surface-container-lowest border border-outline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" id="shell-search" placeholder="Search tasks, IDs..." type="text"/></div></div><nav class="flex items-center gap-6" data-active-classes="text-primary-container font-semibold underline"><a class="text-sm font-normal text-primary-container hover:underline" data-path="my-profile" href="#">Me</a><a class="text-sm font-normal text-primary-container hover:underline" data-path="sign-in" href="#">Sign out</a></nav></div></header><main class="w-full pt-14 bg-background min-h-screen"><div class="flex flex-col w-full">
-<div class="w-full px-6 py-3 border-b border-outline-variant bg-surface-container-lowest">
-<nav aria-label="Breadcrumb">
-<ol class="flex items-center gap-1.5 text-[14px] leading-tight">
-<li>
-<a class="text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Top</a>
-</li>
-<li aria-hidden="true" class="text-on-surface-variant">/</li>
-<li>
-<a class="text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Project 1</a>
-</li>
-<li aria-hidden="true" class="text-on-surface-variant">/</li>
-<li>
-<a class="text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Iteration 3</a>
-</li>
-<li aria-hidden="true" class="text-on-surface-variant">/</li>
-<li>
-<a class="text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Story 2</a>
-</li>
-<li aria-hidden="true" class="text-on-surface-variant">/</li>
-<li aria-current="page" class="text-on-surface font-normal">Note</li>
-</ol>
-</nav>
-</div>
-<div class="w-full px-6 py-6 max-w-[1200px]">
-<h1 class="text-[24px] font-semibold text-on-surface leading-snug mb-6">
-      Add note: Story 2
-    </h1>
-<div class="w-full max-w-[640px] bg-surface-container-lowest border border-outline-variant rounded-[6px] p-6">
-<form class="flex flex-col gap-6" id="add-note-form" onsubmit="event.preventDefault();">
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal text-on-surface" for="subject-field">
-            Subject (required)
-          </label>
-<input class="h-[36px] w-full px-3 text-[16px] text-on-surface bg-surface-container-lowest border border-outline rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" defaultvalue="Synthetic note" id="subject-field" name="subject" required="" type="text" value="Synthetic note"/>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal text-on-surface" for="author-field">
-            Author (required)
-          </label>
-<div class="relative">
-<select class="h-[36px] w-full px-3 text-[16px] text-on-surface bg-surface-container-lowest border border-outline rounded-[6px] appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 cursor-pointer pr-10" id="author-field" name="author" required="">
-<option value="User A">User A</option>
-<option selected="" value="User B">User B</option>
-<option value="User C">User C</option>
-<option value="User D">User D</option>
-</select>
-<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-on-surface-variant">
-<span class="material-symbols-outlined text-[20px]">expand_more</span>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal text-on-surface" for="body-field">
-            Body
-          </label>
-<textarea class="w-full p-3 text-[16px] leading-[1.5] text-on-surface bg-surface-container-lowest border border-outline rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 resize-y" id="body-field" name="body" rows="6">Synthetic note text.</textarea>
-<div class="pt-0.5">
-<a class="text-[14px] text-primary-container hover:underline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 rounded-[2px]" href="#">Formatting help</a>
-</div>
-</div>
-<div class="flex items-center gap-3 pt-2">
-<button class="h-[36px] px-4 bg-primary-container text-on-primary font-medium text-[16px] rounded-[6px] hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 flex items-center justify-center cursor-pointer" type="submit">
-            Save
-          </button>
-<button class="h-[36px] px-4 bg-surface-container-lowest text-on-surface border border-outline font-medium text-[16px] rounded-[6px] hover:bg-surface-container-low transition-colors focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 flex items-center justify-center cursor-pointer" type="reset">
-            Reset
-          </button>
-<button class="h-[36px] px-4 bg-surface-container-lowest text-on-surface border border-outline font-medium text-[16px] rounded-[6px] hover:bg-surface-container-low transition-colors focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 flex items-center justify-center cursor-pointer" onclick="window.history.back()" type="button">
-            Cancel
-          </button>
-</div>
-</form>
-</div>
-</div>
-</div></main></body></html>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      z-index: 1000;
+      padding: 8px 16px;
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focus Rings */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    .search-input {
+      width: 240px;
+      height: 36px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .top-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    .main-content {
+      padding: 24px;
+      max-width: 1280px;
+      margin: 0;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      list-style: none;
+      font-size: 14px;
+      gap: 8px;
+    }
+
+    .breadcrumb-item {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      margin-right: 8px;
+      color: #626F86;
+    }
+
+    .breadcrumb-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .breadcrumb-link:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Page Heading */
+    .page-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    /* Form Card Section */
+    .form-section {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 24px;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 400;
+      color: #1D2125;
+      margin-bottom: 8px;
+    }
+
+    .text-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 16px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .select-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 32px 0 12px;
+      font-family: inherit;
+      font-size: 16px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231D2125' d='M2.2 4.2L6 8l3.8-3.8.7.7-4.5 4.5L1.5 4.9z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      cursor: pointer;
+    }
+
+    .textarea-input {
+      width: 100%;
+      min-height: 160px;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      resize: vertical;
+    }
+
+    .help-link-wrap {
+      margin-top: 8px;
+    }
+
+    .help-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .help-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Actions Bar */
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      height: 36px;
+      padding: 0 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border-color: #0C66E4;
+    }
+
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border-color: #8590A2;
+    }
+
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+  </style>
+</head>
+<body>
+  <!-- Visually hidden Skip to main content link as first element in body -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top Bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-bar-left">
+      <span class="brand-title">Planner</span>
+      <div class="search-container">
+        <label for="top-search" class="search-label">Search or ID</label>
+        <input type="text" id="top-search" class="search-input">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="top-link">Me</a>
+      <a href="#" class="top-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Region -->
+  <main id="main" class="main-content">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Top</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Project 1</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Iteration 3</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Story 2</a></li>
+        <li class="breadcrumb-item"><span class="breadcrumb-current" aria-current="page">Note</span></li>
+      </ol>
+    </nav>
+
+    <!-- Page Heading -->
+    <h1 class="page-title">Add note: Story 2</h1>
+
+    <!-- Single Column Form Section (640px wide) -->
+    <div class="form-section">
+      <form action="#" method="post" onsubmit="return false;">
+        <!-- Subject -->
+        <div class="form-group">
+          <label for="note-subject" class="field-label">Subject (required)</label>
+          <input type="text" id="note-subject" name="subject" class="text-input" value="Synthetic note" required>
+        </div>
+
+        <!-- Author -->
+        <div class="form-group">
+          <label for="note-author" class="field-label">Author (required)</label>
+          <select id="note-author" name="author" class="select-input" required>
+            <option value="User B" selected>User B</option>
+            <option value="User A">User A</option>
+            <option value="User C">User C</option>
+            <option value="User D">User D</option>
+          </select>
+        </div>
+
+        <!-- Body -->
+        <div class="form-group">
+          <label for="note-body" class="field-label">Body</label>
+          <textarea id="note-body" name="body" class="textarea-input">Synthetic note text.</textarea>
+          <div class="help-link-wrap">
+            <a href="#" class="help-link">Formatting help</a>
+          </div>
+        </div>
+
+        <!-- Action Buttons (Left Aligned: Save, Reset, Cancel) -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="reset" class="btn btn-neutral">Reset</button>
+          <button type="button" class="btn btn-neutral">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

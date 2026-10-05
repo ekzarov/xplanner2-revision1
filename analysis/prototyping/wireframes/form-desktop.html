@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit task: Task 12 - Save Reset Cancel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-39 Edit task: Task 12 - Save Reset Cancel</title>
   <style>
+    /* Reset & Base Styles */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -15,14 +16,36 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: #F7F8FA;
       color: #1D2125;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.5;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Top Bar */
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 1000;
+      transition: top 0.15s ease-in-out;
+    }
+    .skip-link:focus {
+      top: 12px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top Navigation Bar */
     .top-bar {
       background-color: #FFFFFF;
       height: 56px;
@@ -30,7 +53,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
 
     .top-bar-left {
@@ -53,14 +79,15 @@
       gap: 8px;
     }
 
-    .search-label {
+    .search-group label {
       font-size: 14px;
       color: #1D2125;
+      font-weight: 400;
       white-space: nowrap;
     }
 
     .search-input {
-      width: 220px;
+      width: 240px;
       height: 36px;
       border: 1px solid #8590A2;
       border-radius: 6px;
@@ -68,7 +95,6 @@
       font-size: 14px;
       color: #1D2125;
       background-color: #FFFFFF;
-      outline: none;
       font-family: inherit;
     }
 
@@ -83,189 +109,216 @@
       gap: 16px;
     }
 
-    .top-link {
+    .top-bar-right a {
       color: #0C66E4;
       text-decoration: none;
       font-size: 14px;
+      font-weight: 500;
     }
 
-    .top-link:hover {
+    .top-bar-right a:hover {
       text-decoration: underline;
     }
 
-    .top-link:focus-visible {
+    .top-bar-right a:focus {
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
-      border-radius: 2px;
     }
 
     /* Main Container */
     main {
+      flex: 1;
       padding: 24px 32px 48px;
-      max-width: 1200px;
+      max-width: 1280px;
       width: 100%;
     }
 
     /* Breadcrumbs */
-    .breadcrumbs {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: #626F86;
+    .breadcrumb-nav {
       margin-bottom: 16px;
     }
 
-    .breadcrumbs a {
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      font-size: 14px;
+      color: #626F86;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      margin: 0 8px;
+      color: #626F86;
+    }
+
+    .breadcrumb-item a {
       color: #0C66E4;
       text-decoration: none;
     }
 
-    .breadcrumbs a:hover {
+    .breadcrumb-item a:hover {
       text-decoration: underline;
     }
 
-    .breadcrumbs a:focus-visible {
+    .breadcrumb-item a:focus {
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
-      border-radius: 2px;
     }
 
-    .breadcrumbs .separator {
-      color: #626F86;
-    }
-
-    .breadcrumbs .current {
+    .breadcrumb-current {
       color: #1D2125;
     }
 
     /* Page Heading */
-    h1 {
+    .page-title {
       font-size: 24px;
       font-weight: 600;
       color: #1D2125;
-      line-height: 1.25;
       margin-bottom: 24px;
+      letter-spacing: -0.01em;
     }
 
     /* Form Surface */
-    .form-container {
+    .form-surface {
       background-color: #FFFFFF;
       border: 1px solid #DCDFE4;
       border-radius: 6px;
-      width: 640px;
-      max-width: 100%;
-      padding: 32px;
+      width: 100%;
+      max-width: 640px;
+      padding: 24px;
     }
 
+    /* Form Fields */
     .form-group {
       margin-bottom: 20px;
       display: flex;
       flex-direction: column;
     }
 
-    .form-label {
+    .field-label {
       font-size: 16px;
       font-weight: 500;
       color: #1D2125;
       margin-bottom: 8px;
-      display: inline-block;
+      display: block;
     }
 
-    .form-control {
-      height: 36px;
+    .text-input,
+    .select-input,
+    .textarea-input {
+      width: 100%;
       border: 1px solid #8590A2;
       border-radius: 6px;
-      padding: 0 12px;
-      font-size: 16px;
-      color: #1D2125;
       background-color: #FFFFFF;
+      color: #1D2125;
+      font-size: 16px;
       font-family: inherit;
-      width: 100%;
-      outline: none;
     }
 
-    .form-control:focus {
+    .text-input,
+    .select-input {
+      height: 36px;
+      padding: 0 12px;
+    }
+
+    .select-input {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231D2125' d='M1.41 0L6 4.58L10.59 0L12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .textarea-input {
+      min-height: 104px;
+      padding: 8px 12px;
+      line-height: 1.5;
+      resize: vertical;
+    }
+
+    /* Focus States */
+    .text-input:focus,
+    .select-input:focus,
+    .textarea-input:focus {
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
     }
 
-    select.form-control {
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23626F86%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      background-size: 14px 14px;
-      padding-right: 36px;
+    /* Specifically required focused element */
+    .focused-control {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
     }
 
-    textarea.form-control {
-      height: 120px;
-      padding: 10px 12px;
-      resize: vertical;
-      line-height: 1.5;
-    }
-
-    .form-hint {
-      font-size: 12px;
+    .field-hint {
+      font-size: 14px;
       color: #626F86;
       margin-top: 6px;
     }
 
-    .formatting-help-link {
+    .formatting-link {
       display: inline-block;
-      margin-top: 6px;
-      font-size: 14px;
+      margin-top: 8px;
       color: #0C66E4;
+      font-size: 14px;
       text-decoration: none;
+      font-weight: 400;
+      align-self: flex-start;
     }
 
-    .formatting-help-link:hover {
+    .formatting-link:hover {
       text-decoration: underline;
     }
 
-    .formatting-help-link:focus-visible {
+    .formatting-link:focus {
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
-      border-radius: 2px;
     }
 
-    /* Form Actions */
-    .form-actions {
+    /* Button Group */
+    .button-group {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 24px;
+      padding-top: 8px;
     }
 
     .btn {
       height: 36px;
       padding: 0 16px;
+      border-radius: 6px;
       font-size: 14px;
       font-weight: 500;
-      border-radius: 6px;
+      font-family: inherit;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-family: inherit;
+      border: 1px solid transparent;
       text-decoration: none;
-      outline: none;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+      transition: background-color 0.15s, border-color 0.15s;
     }
 
-    .btn:focus-visible {
+    .btn:focus {
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
     }
 
     .btn-primary {
       background-color: #0C66E4;
-      border: 1px solid #0C66E4;
       color: #FFFFFF;
+      border-color: #0C66E4;
     }
 
     .btn-primary:hover {
@@ -275,8 +328,8 @@
 
     .btn-neutral {
       background-color: #FFFFFF;
-      border: 1px solid #8590A2;
       color: #1D2125;
+      border: 1px solid #8590A2;
     }
 
     .btn-neutral:hover {
@@ -285,53 +338,53 @@
   </style>
 </head>
 <body>
+  <!-- Skip to main content link for keyboard accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Top Bar -->
+  <!-- Top Navigation Bar -->
   <header class="top-bar">
     <div class="top-bar-left">
       <a href="#" class="brand">Planner</a>
       <div class="search-group">
-        <label for="search-input" class="search-label">Search or ID</label>
-        <input type="text" id="search-input" class="search-input" autocomplete="off">
+        <label for="site-search">Search or ID</label>
+        <input type="text" id="site-search" class="search-input" name="search">
       </div>
     </div>
     <div class="top-bar-right">
-      <a href="#" class="top-link">Me</a>
-      <a href="#" class="top-link">Sign out</a>
+      <a href="#">Me</a>
+      <a href="#">Sign out</a>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Breadcrumb -->
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="#">Top</a>
-      <span class="separator">/</span>
-      <a href="#">Project 1</a>
-      <span class="separator">/</span>
-      <a href="#">Iteration 3</a>
-      <span class="separator">/</span>
-      <a href="#">Story 5</a>
-      <span class="separator">/</span>
-      <span class="current">Task 12</span>
+  <!-- Main Content Region -->
+  <main id="main">
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#">Top</a></li>
+        <li class="breadcrumb-item"><a href="#">Project 1</a></li>
+        <li class="breadcrumb-item"><a href="#">Iteration 3</a></li>
+        <li class="breadcrumb-item"><a href="#">Story 5</a></li>
+        <li class="breadcrumb-item"><span class="breadcrumb-current" aria-current="page">Task 12</span></li>
+      </ol>
     </nav>
 
-    <!-- Page Heading -->
-    <h1>Edit task: Task 12</h1>
+    <!-- Page Title -->
+    <h1 class="page-title">Edit task: Task 12</h1>
 
-    <!-- Form Surface -->
-    <div class="form-container">
-      <form id="edit-task-form">
+    <!-- Single Column Form Section (640px max width, flat surface) -->
+    <div class="form-surface">
+      <form action="#" method="post" novalidate>
         <!-- Name (required) -->
         <div class="form-group">
-          <label for="task-name" class="form-label">Name (required)</label>
-          <input type="text" id="task-name" name="name" class="form-control" value="Task 12" required>
+          <label for="task-name" class="field-label">Name (required)</label>
+          <input type="text" id="task-name" name="name" class="text-input" value="Task 12" required>
         </div>
 
-        <!-- Type select -->
+        <!-- Type -->
         <div class="form-group">
-          <label for="task-type" class="form-label">Type</label>
-          <select id="task-type" name="type" class="form-control">
+          <label for="task-type" class="field-label">Type</label>
+          <select id="task-type" name="type" class="select-input">
             <option value="Feature" selected>Feature</option>
             <option value="Debt">Debt</option>
             <option value="Defect">Defect</option>
@@ -341,19 +394,19 @@
           </select>
         </div>
 
-        <!-- Disposition select -->
+        <!-- Disposition -->
         <div class="form-group">
-          <label for="task-disposition" class="form-label">Disposition</label>
-          <select id="task-disposition" name="disposition" class="form-control">
+          <label for="task-disposition" class="field-label">Disposition</label>
+          <select id="task-disposition" name="disposition" class="select-input">
             <option value="Planned" selected>Planned</option>
             <option value="Discovered">Discovered</option>
           </select>
         </div>
 
-        <!-- Acceptor select (with keyboard focus) -->
+        <!-- Acceptor (Focused) -->
         <div class="form-group">
-          <label for="task-acceptor" class="form-label">Acceptor</label>
-          <select id="task-acceptor" name="acceptor" class="form-control" autofocus>
+          <label for="task-acceptor" class="field-label">Acceptor</label>
+          <select id="task-acceptor" name="acceptor" class="select-input focused-control" autofocus>
             <option value="User A" selected>User A</option>
             <option value="User B">User B</option>
             <option value="User C">User C</option>
@@ -363,38 +416,26 @@
 
         <!-- Estimated hours -->
         <div class="form-group">
-          <label for="task-estimated" class="form-label">Estimated hours</label>
-          <input type="text" id="task-estimated" name="estimated_hours" class="form-control" value="6.0">
-          <span class="form-hint">Hours, 0 or more</span>
+          <label for="task-estimate" class="field-label">Estimated hours</label>
+          <input type="text" id="task-estimate" name="estimate" class="text-input" value="6.0" aria-describedby="estimate-hint">
+          <span id="estimate-hint" class="field-hint">Hours, 0 or more</span>
         </div>
 
         <!-- Description -->
         <div class="form-group">
-          <label for="task-description" class="form-label">Description</label>
-          <textarea id="task-description" name="description" class="form-control">Short description of the work.</textarea>
-          <div>
-            <a href="#" class="formatting-help-link">Formatting help</a>
-          </div>
+          <label for="task-description" class="field-label">Description</label>
+          <textarea id="task-description" name="description" class="textarea-input" rows="4">Short description of the work.</textarea>
+          <a href="#" class="formatting-link">Formatting help</a>
         </div>
 
-        <!-- Actions: Save, Reset, Cancel -->
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary" id="btn-save">Save</button>
-          <button type="reset" class="btn btn-neutral" id="btn-reset">Reset</button>
-          <button type="button" class="btn btn-neutral" id="btn-cancel" onclick="window.history.back()">Cancel</button>
+        <!-- Buttons: Save, Reset, Cancel -->
+        <div class="button-group">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="reset" class="btn btn-neutral">Reset</button>
+          <button type="button" class="btn btn-neutral">Cancel</button>
         </div>
       </form>
     </div>
   </main>
-
-  <script>
-    // Ensure the Acceptor field maintains focus indicator as requested
-    document.addEventListener("DOMContentLoaded", function() {
-      const acceptor = document.getElementById("task-acceptor");
-      if (acceptor) {
-        acceptor.focus();
-      }
-    });
-  </script>
 </body>
 </html>

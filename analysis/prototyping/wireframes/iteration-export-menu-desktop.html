@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iteration 3 - Stories (Export format menu)</title>
+  <style>
+    /* Reset & Base Foundation */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #FFFFFF;
+      color: #0C66E4;
+      padding: 8px 16px;
+      border: 2px solid #0C66E4;
+      border-radius: 6px;
+      font-weight: 600;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 12px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Interactive Elements Focus Ring */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Header / Top Bar */
+    header.top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-container label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 220px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 10px;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      font-family: inherit;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-bar-right a {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .top-bar-right a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    main.main-content {
+      padding: 24px 32px 64px 32px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumbs */
+    nav[aria-label="Breadcrumb"] ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    nav[aria-label="Breadcrumb"] li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav[aria-label="Breadcrumb"] li::after {
+      content: "/";
+      color: #626F86;
+    }
+
+    nav[aria-label="Breadcrumb"] li:last-child::after {
+      display: none;
+    }
+
+    nav[aria-label="Breadcrumb"] a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    nav[aria-label="Breadcrumb"] a:hover {
+      text-decoration: underline;
+    }
+
+    nav[aria-label="Breadcrumb"] [aria-current="page"] {
+      color: #1D2125;
+      font-weight: normal;
+    }
+
+    /* Header Section */
+    .page-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+    }
+
+    .date-range {
+      font-size: 14px;
+      color: #626F86;
+      margin-top: 2px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      padding: 0 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      color: #1D2125;
+    }
+    .btn-neutral:hover {
+      background-color: #F1F2F4;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      border: 1px solid #0C66E4;
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+
+    /* Summary Bar */
+    .summary-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 14px;
+      color: #1D2125;
+      margin-top: 10px;
+    }
+
+    .progress-bar-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .progress-bar-label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    .progress-track {
+      width: 140px;
+      height: 8px;
+      background-color: #DCDFE4;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 48%;
+      height: 100%;
+      background-color: #0C66E4;
+    }
+
+    .summary-metrics {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #1D2125;
+    }
+
+    /* Action Links & Menu */
+    .actions-row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 12px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    .actions-row a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .actions-row a:hover {
+      text-decoration: underline;
+    }
+
+    .export-anchor {
+      position: relative;
+      display: inline-block;
+    }
+
+    .export-anchor a {
+      font-weight: 500;
+    }
+
+    /* Export Format Menu */
+    .export-menu {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 6px 0;
+      min-width: 130px;
+      z-index: 100;
+      box-shadow: none;
+    }
+
+    .export-menu-caption {
+      padding: 4px 12px 2px 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #626F86;
+      font-weight: 600;
+    }
+
+    .export-menu-item {
+      display: block;
+      width: 100%;
+      padding: 6px 12px;
+      font-size: 14px;
+      color: #1D2125;
+      text-decoration: none;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .export-menu-item:hover {
+      background-color: #F1F2F4;
+      text-decoration: none;
+      color: #0C66E4;
+    }
+
+    /* Tabs */
+    .tabs-nav {
+      border-bottom: 1px solid #DCDFE4;
+      margin-bottom: 20px;
+    }
+
+    .tabs-list {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .tabs-list a {
+      display: block;
+      padding: 8px 4px 10px 4px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #626F86;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    .tabs-list a:hover {
+      color: #1D2125;
+    }
+
+    .tabs-list a[aria-current="page"] {
+      color: #0C66E4;
+      font-weight: 600;
+      border-bottom: 2px solid #0C66E4;
+    }
+
+    /* Toolbar */
+    .table-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Stories Table */
+    .table-container {
+      width: 100%;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    table.data-table th {
+      background-color: #F1F2F4;
+      height: 40px;
+      padding: 0 10px;
+      font-weight: 600;
+      color: #1D2125;
+      border-bottom: 1px solid #DCDFE4;
+      user-select: none;
+    }
+
+    table.data-table th button.sort-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    table.data-table th button.sort-btn:hover {
+      background-color: #E4E6EB;
+    }
+
+    table.data-table td {
+      height: 40px;
+      padding: 0 10px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .col-checkbox {
+      width: 36px;
+      text-align: center;
+    }
+
+    .checkbox-native {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #0C66E4;
+      vertical-align: middle;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .order-input {
+      width: 44px;
+      height: 28px;
+      text-align: center;
+      border: 1px solid #8590A2;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: inherit;
+      color: #1D2125;
+      background: #FFFFFF;
+    }
+
+    .story-name-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .story-name-link:hover {
+      text-decoration: underline;
+    }
+
+    .num-cell {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Notes Section */
+    .notes-section {
+      margin-top: 32px;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 20px 24px;
+    }
+
+    .notes-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+
+    .note-card {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .note-subject {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+    }
+
+    .note-meta {
+      font-size: 13px;
+      color: #626F86;
+    }
+
+    .note-body {
+      font-size: 14px;
+      color: #1D2125;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .note-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+    }
+
+    .note-actions a.link-edit {
+      color: #0C66E4;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .note-actions a.link-edit:hover {
+      text-decoration: underline;
+    }
+
+    .note-actions a.link-delete {
+      color: #C9372C;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .note-actions a.link-delete:hover {
+      color: #AE2A19;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Visually hidden skip to main content link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-bar-left">
+      <a href="#" class="brand-title">Planner</a>
+      <div class="search-container">
+        <label for="search-input">Search or ID</label>
+        <input type="text" id="search-input" class="search-input" />
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#">Me</a>
+      <a href="#">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main content area -->
+  <main id="main" class="main-content">
+    
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#">Top</a></li>
+        <li><a href="#">Project 1</a></li>
+        <li><span aria-current="page">Iteration 3</span></li>
+      </ol>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header-row">
+      <div>
+        <h1 class="page-title">Iteration 3</h1>
+        <p class="date-range">2026-03-02 to 2026-03-13</p>
+      </div>
+      <div>
+        <!-- For editors: only Edit iteration (no Delete iteration) -->
+        <button type="button" class="btn btn-neutral">Edit iteration</button>
+      </div>
+    </div>
+
+    <!-- Summary line -->
+    <div class="summary-row">
+      <div class="progress-bar-container">
+        <span class="progress-bar-label">Progress 48%</span>
+        <div class="progress-track" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" aria-label="Iteration progress">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+      <div class="summary-metrics">
+        <span>Estimated 100.0 h</span>
+        <span>Actual 48.0 h</span>
+        <span>Remaining 52.0 h</span>
+      </div>
+    </div>
+
+    <!-- Sub-actions: Export (expanded), History, Add note -->
+    <div class="actions-row">
+      <div class="export-anchor">
+        <a href="#" id="export-btn" aria-haspopup="true" aria-expanded="true">Export</a>
+        <!-- Format Menu -->
+        <div class="export-menu" role="menu" aria-labelledby="export-btn">
+          <div class="export-menu-caption">Format</div>
+          <button type="button" class="export-menu-item" role="menuitem">XML</button>
+          <button type="button" class="export-menu-item" role="menuitem">PDF</button>
+        </div>
+      </div>
+      <span>·</span>
+      <a href="#">History</a>
+      <span>·</span>
+      <a href="#">Add note</a>
+    </div>
+
+    <!-- Shared Frame Tabs -->
+    <nav class="tabs-nav" aria-label="Iteration sections">
+      <ul class="tabs-list">
+        <li><a href="#" aria-current="page">Stories</a></li>
+        <li><a href="#">Tasks</a></li>
+        <li><a href="#">Statistics</a></li>
+        <li><a href="#">Accuracy</a></li>
+        <li><a href="#">Board</a></li>
+      </ul>
+    </nav>
+
+    <!-- Toolbar above table -->
+    <div class="table-toolbar">
+      <div class="toolbar-left">
+        <button type="button" class="btn btn-neutral">Move selected stories</button>
+        <button type="button" class="btn btn-neutral">Save order</button>
+      </div>
+      <div class="toolbar-right">
+        <button type="button" class="btn btn-neutral">Close iteration</button>
+        <button type="button" class="btn btn-primary">Create story</button>
+      </div>
+    </div>
+
+    <!-- Stories Table -->
+    <div class="table-container">
+      <table class="data-table" aria-label="Stories in Iteration 3">
+        <thead>
+          <tr>
+            <th class="col-checkbox">
+              <label>
+                <span class="visually-hidden">Select all stories</span>
+                <input type="checkbox" class="checkbox-native" />
+              </label>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-btn">ID</button>
+            </th>
+            <th scope="col" aria-sort="ascending">
+              <button type="button" class="sort-btn">Order ▲</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-btn">Name</button>
+            </th>
+            <th scope="col" aria-sort="none" class="num-cell">
+              <button type="button" class="sort-btn">Priority</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-btn">Customer</button>
+            </th>
+            <th scope="col" aria-sort="none" class="num-cell">
+              <button type="button" class="sort-btn">Progress</button>
+            </th>
+            <th scope="col" aria-sort="none" class="num-cell">
+              <button type="button" class="sort-btn">Actual</button>
+            </th>
+            <th scope="col" aria-sort="none" class="num-cell">
+              <button type="button" class="sort-btn">Remaining</button>
+            </th>
+            <th scope="col" aria-sort="none" class="num-cell">
+              <button type="button" class="sort-btn">Estimate</button>
+            </th>
+            <th scope="col" aria-sort="none" class="num-cell">
+              <button type="button" class="sort-btn">Original estimate</button>
+            </th>
+            <th scope="col" aria-sort="none" class="num-cell">
+              <button type="button" class="sort-btn">Tasks</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-btn">Tracker</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-btn">Disposition</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-btn">Status</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1 -->
+          <tr>
+            <td class="col-checkbox">
+              <label>
+                <span class="visually-hidden">Select Story 1</span>
+                <input type="checkbox" class="checkbox-native" />
+              </label>
+            </td>
+            <td>101</td>
+            <td>
+              <label>
+                <span class="visually-hidden">Order for Story 1</span>
+                <input type="number" class="order-input" value="1" />
+              </label>
+            </td>
+            <td><a href="#" class="story-name-link">Story 1</a></td>
+            <td class="num-cell">1</td>
+            <td>User A</td>
+            <td class="num-cell">60%</td>
+            <td class="num-cell">12.0</td>
+            <td class="num-cell">8.0</td>
+            <td class="num-cell">20.0</td>
+            <td class="num-cell">18.0</td>
+            <td class="num-cell">4</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+          <!-- Row 2 -->
+          <tr>
+            <td class="col-checkbox">
+              <label>
+                <span class="visually-hidden">Select Story 2</span>
+                <input type="checkbox" class="checkbox-native" />
+              </label>
+            </td>
+            <td>102</td>
+            <td>
+              <label>
+                <span class="visually-hidden">Order for Story 2</span>
+                <input type="number" class="order-input" value="2" />
+              </label>
+            </td>
+            <td><a href="#" class="story-name-link">Story 2</a></td>
+            <td class="num-cell">2</td>
+            <td>User C</td>
+            <td class="num-cell">25%</td>
+            <td class="num-cell">6.0</td>
+            <td class="num-cell">18.0</td>
+            <td class="num-cell">24.0</td>
+            <td class="num-cell">24.0</td>
+            <td class="num-cell">3</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+          <!-- Row 3 -->
+          <tr>
+            <td class="col-checkbox">
+              <label>
+                <span class="visually-hidden">Select Story 3</span>
+                <input type="checkbox" class="checkbox-native" />
+              </label>
+            </td>
+            <td>103</td>
+            <td>
+              <label>
+                <span class="visually-hidden">Order for Story 3</span>
+                <input type="number" class="order-input" value="3" />
+              </label>
+            </td>
+            <td><a href="#" class="story-name-link">Story 3</a></td>
+            <td class="num-cell">4</td>
+            <td>User A</td>
+            <td class="num-cell">50%</td>
+            <td class="num-cell">10.0</td>
+            <td class="num-cell">10.0</td>
+            <td class="num-cell">20.0</td>
+            <td class="num-cell">16.0</td>
+            <td class="num-cell">5</td>
+            <td>User D</td>
+            <td>Carried over</td>
+            <td>Draft</td>
+          </tr>
+          <!-- Row 4 -->
+          <tr>
+            <td class="col-checkbox">
+              <label>
+                <span class="visually-hidden">Select Story 4</span>
+                <input type="checkbox" class="checkbox-native" />
+              </label>
+            </td>
+            <td>104</td>
+            <td>
+              <label>
+                <span class="visually-hidden">Order for Story 4</span>
+                <input type="number" class="order-input" value="4" />
+              </label>
+            </td>
+            <td><a href="#" class="story-name-link">Story 4</a></td>
+            <td class="num-cell">4</td>
+            <td>User C</td>
+            <td class="num-cell">0%</td>
+            <td class="num-cell">0.0</td>
+            <td class="num-cell">16.0</td>
+            <td class="num-cell">16.0</td>
+            <td class="num-cell">16.0</td>
+            <td class="num-cell">2</td>
+            <td>User D</td>
+            <td>Added</td>
+            <td>Draft</td>
+          </tr>
+          <!-- Row 5 -->
+          <tr>
+            <td class="col-checkbox">
+              <label>
+                <span class="visually-hidden">Select Story 5</span>
+                <input type="checkbox" class="checkbox-native" />
+              </label>
+            </td>
+            <td>105</td>
+            <td>
+              <label>
+                <span class="visually-hidden">Order for Story 5</span>
+                <input type="number" class="order-input" value="5" />
+              </label>
+            </td>
+            <td><a href="#" class="story-name-link">Story 5</a></td>
+            <td class="num-cell">3</td>
+            <td>User A</td>
+            <td class="num-cell">100%</td>
+            <td class="num-cell">20.0</td>
+            <td class="num-cell">0.0</td>
+            <td class="num-cell">20.0</td>
+            <td class="num-cell">22.0</td>
+            <td class="num-cell">4</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Accepted</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Notes Section below the table -->
+    <section class="notes-section" aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="notes-title">Notes</h2>
+      <article class="note-card">
+        <h3 class="note-subject">Synthetic iteration note</h3>
+        <p class="note-meta">User B · 2026-03-02</p>
+        <p class="note-body">Synthetic note text.</p>
+        <div class="note-actions">
+          <a href="#" class="link-edit">Edit</a>
+          <a href="#" class="link-delete">Delete</a>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-13 User B - Planner (Viewer)</title>
+  <style>
+    /* CSS Reset & Foundation */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      z-index: 1000;
+      text-decoration: none;
+      transition: top 0.15s ease-in-out;
+    }
+    .skip-link:focus {
+      top: 12px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Interactive Focus Rings */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-form label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 220px;
+      padding: 0 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .top-bar-right a {
+      color: #0C66E4;
+      font-weight: 500;
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      padding: 24px 32px 48px;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      font-size: 14px;
+      color: #626F86;
+      gap: 8px;
+    }
+
+    .breadcrumb-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumb-list li+li::before {
+      content: "/";
+      color: #626F86;
+    }
+
+    .breadcrumb-list a {
+      color: #0C66E4;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Profile Header */
+    .profile-header {
+      margin-bottom: 28px;
+    }
+
+    .profile-identity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .avatar-initials {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #E9F2FF;
+      color: #1D2125;
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    h1.page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.2;
+    }
+
+    .profile-links {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: 64px;
+    }
+
+    .profile-links a {
+      color: #0C66E4;
+    }
+
+    .profile-links span.bullet {
+      color: #626F86;
+    }
+
+    /* Content Sections */
+    .section-block {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+
+    /* Data Tables */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    table.data-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      padding: 0 16px;
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 0 16px;
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Numbers right aligned with tabular figures */
+    .num-col {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Empty state / plain lists */
+    .empty-text {
+      font-size: 14px;
+      color: #626F86;
+    }
+
+    .stories-list-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 12px 16px;
+    }
+
+    .stories-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .stories-list li a {
+      color: #0C66E4;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to main content link for keyboard accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar (56px, white, 1px divider below) -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <div class="brand-title">Planner</div>
+      <form class="search-form" role="search">
+        <label for="search-input">Search or ID</label>
+        <input type="search" id="search-input" name="q" class="search-input" autocomplete="off">
+      </form>
+    </div>
+    <div class="top-bar-right">
+      <a href="#">Me</a>
+      <a href="#">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Region -->
+  <main id="main">
+    <!-- Breadcrumb navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="#">Top</a></li>
+        <li><a href="#">People</a></li>
+        <li><span class="breadcrumb-current" aria-current="page">User B</span></li>
+      </ol>
+    </nav>
+
+    <!-- Header row: Avatar + Page Heading + Links -->
+    <div class="profile-header">
+      <div class="profile-identity">
+        <div class="avatar-initials" aria-hidden="true">UB</div>
+        <h1 class="page-title">User B</h1>
+      </div>
+      <div class="profile-links">
+        <a href="#">Timesheet</a>
+        <span class="bullet" aria-hidden="true">•</span>
+        <a href="#">People</a>
+      </div>
+    </div>
+
+    <!-- Active tasks section -->
+    <section class="section-block" aria-labelledby="heading-active-tasks">
+      <h2 id="heading-active-tasks" class="section-title">Active tasks</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Story</th>
+              <th scope="col" class="num-col">Estimate</th>
+              <th scope="col" class="num-col">Actual</th>
+              <th scope="col" class="num-col">Remaining</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">Task 3</a></td>
+              <td><a href="#">Story 1</a></td>
+              <td class="num-col">5.0</td>
+              <td class="num-col">3.0</td>
+              <td class="num-col">2.0</td>
+            </tr>
+            <tr>
+              <td><a href="#">Task 7</a></td>
+              <td><a href="#">Story 2</a></td>
+              <td class="num-col">8.0</td>
+              <td class="num-col">2.0</td>
+              <td class="num-col">6.0</td>
+            </tr>
+            <tr>
+              <td><a href="#">Task 8</a></td>
+              <td><a href="#">Story 2</a></td>
+              <td class="num-col">8.0</td>
+              <td class="num-col">2.0</td>
+              <td class="num-col">6.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Planned tasks section -->
+    <section class="section-block" aria-labelledby="heading-planned-tasks">
+      <h2 id="heading-planned-tasks" class="section-title">Planned tasks</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Story</th>
+              <th scope="col" class="num-col">Estimate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">Task 4</a></td>
+              <td><a href="#">Story 1</a></td>
+              <td class="num-col">5.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Completed tasks section -->
+    <section class="section-block" aria-labelledby="heading-completed-tasks">
+      <h2 id="heading-completed-tasks" class="section-title">Completed tasks</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Story</th>
+              <th scope="col" class="num-col">Estimate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">Task 20</a></td>
+              <td><a href="#">Story 5</a></td>
+              <td class="num-col">4.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Stories as customer section -->
+    <section class="section-block" aria-labelledby="heading-stories-customer">
+      <h2 id="heading-stories-customer" class="section-title">Stories as customer</h2>
+      <p class="empty-text">None</p>
+    </section>
+
+    <!-- Stories as tracker section -->
+    <section class="section-block" aria-labelledby="heading-stories-tracker">
+      <h2 id="heading-stories-tracker" class="section-title">Stories as tracker</h2>
+      <div class="stories-list-container">
+        <ul class="stories-list">
+          <li><a href="#">Story 1</a></li>
+          <li><a href="#">Story 2</a></li>
+          <li><a href="#">Story 5</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Future tasks section -->
+    <section class="section-block" aria-labelledby="heading-future-tasks">
+      <h2 id="heading-future-tasks" class="section-title">Future tasks</h2>
+      <p class="empty-text">None</p>
+    </section>
+  </main>
+</body>
+</html>

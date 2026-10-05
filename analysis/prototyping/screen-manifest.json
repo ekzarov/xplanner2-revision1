@@ -3,10 +3,10 @@
   "project": "xplanner2-revision1",
   "scope": "Stage 6 UX-006-12: 25 screens with real exports and the component sheet; open coverage items listed for Stage 7",
   "tool": "Google Stitch, project projects/2535085752995102337",
-  "export_set_version": "stage-06-draft-12-ux-006-12",
+  "export_set_version": "stage-06-draft-13-ux-006-13",
   "decision": "analysis/prototyping/ui-ux-decision.md",
   "normalization": "analysis/prototyping/screen-normalization.json",
-  "normalization_sha256": "c28d7213437eeb7de36fb83a9ae548c58aae689894930e6bf9ccd1c64b851b28",
+  "normalization_sha256": "a38073ba03888bfa228b9c0e280b1cb79eb952b388ed5a03195b7f73828f3938",
   "workbook_rows_sha256": "87636a53544db5769d6bc1190de7afe5004d5e23afd3fa21eb8eab302ba0b861",
   "screens": [
     {
@@ -15,10 +15,20 @@
       "channel": "web",
       "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
       "roles": [
-        "editor"
+        "admin",
+        "editor",
+        "viewer"
       ],
       "states": [
         "populated",
+        "role view admin: Edit and Delete iteration (list-desktop, list-phone; rows 24, 91)",
+        "role view viewer: read-only, no selection, order, toolbar, edit, delete or note actions (rows 23, 26)",
+        "notes section",
+        "export menu open: XML, PDF (row 210)",
+        "move selected stories dialog (target iteration select)",
+        "empty state on phone (not-started Iteration 4, editor)",
+        "continue unfinished stories dialog on phone (only future Iteration 4 offered)",
+        "role view editor: no Delete iteration",
         "empty",
         "invalid-order-number",
         "no-future-iteration",
@@ -38,6 +48,7 @@
         "continue unfinished stories"
       ],
       "workbook_rows": [
+        24,
         91,
         92,
         93,
@@ -56,51 +67,51 @@
       "files": [
         {
           "path": "wireframes/list-desktop.html",
-          "sha256": "2c67692f447896e71c8bb647be5bf61af325192dee9c9750713e5ea2bf05c59e"
+          "sha256": "19c23e985db0f870b78921a0a8741180ea2f471fd3aa54d7a4ec56fabfb134ff"
         },
         {
           "path": "wireframes/list-desktop.png",
-          "sha256": "5e019c569dcdb0abd595e90169f31b46339b551aa2a7d1f31007eced17042bfc"
+          "sha256": "e3e0232cc02d07d14b3e2fb9f806962dbf7e40ae59e4e58413b8d85785c84cce"
         },
         {
           "path": "wireframes/list-phone.html",
-          "sha256": "1ebbd0518a5213b0d7d27695f7b5f4773a4f378e275411234ba8aca193f1f1ae"
+          "sha256": "7595bbec161a1bd241f2c2316c9024a379042dfdc69142d69e020426c347f4c1"
         },
         {
           "path": "wireframes/list-phone.png",
-          "sha256": "dfa380150482b514fe5c7b0f9fa53ebcae32e9c4f4b08d5af08e94c452430af5"
+          "sha256": "a7ce78e4d88115a0509c0cf53d448a4a523e83f4f922154736853f8da4fe860b"
         },
         {
           "path": "wireframes/dialog-desktop.html",
-          "sha256": "e45295626aad787179b2b1afbcd0de1978f306396debe2dc011aa18bffd6d3df"
+          "sha256": "c3b0bc1cfbb7831aebab3dea47304504f8b1aa53df70103d6e789889a013f030"
         },
         {
           "path": "wireframes/dialog-desktop.png",
-          "sha256": "1b301b9bcbdf552091327f699a917d0036f04b2d5091ef1100354460054a5ed0"
+          "sha256": "b815616405f3f71d5bc488f14c6ff5f2df0012fdd26c3c4cc061ba2dba58235e"
         },
         {
           "path": "wireframes/dialog-phone.html",
-          "sha256": "c3859f448e89751db54bab18b0bb57c9fcdc6b88d8c0950cb7ae401730fe59b4"
+          "sha256": "f56ded65c95e74fed8b274e4a5993e27a4aefab0846808f1b4cf654967e8f7d0"
         },
         {
           "path": "wireframes/dialog-phone.png",
-          "sha256": "d4a27200f4fd232781a7086f5b53bc140423b8a79cb8650da3bb886aadd02a54"
+          "sha256": "8a8684dbdaeef993f631525056dff93dbe1f24557169bfaed47e434082e063a7"
         },
         {
           "path": "wireframes/continue-dialog-desktop.html",
-          "sha256": "645058322dfc92b1ace800c3dba3a94a68b319be2041765e82f022cb22a673a0"
+          "sha256": "141d083d74161c055a943e5499646b7e754739007f6e194737e902ab19bcfb6e"
         },
         {
           "path": "wireframes/continue-dialog-desktop.png",
-          "sha256": "4f3d48ea258b5f2bebbaa415e66ba0d64e9622318dea896f138c40f095fd8c15"
+          "sha256": "0bd2ac6192267d367fa61d81d8856e397b3e49ffda316437012dc9cefccaa11d"
         },
         {
           "path": "wireframes/iteration-start-dialog-desktop.html",
-          "sha256": "8027e42c9e5361effe3edfebcf0ebfb89507c2bb3761a22a2dc44adc34c1f259"
+          "sha256": "e036e0a89c78b2f4d242141fd09b1bc0b0bb11f082c20e70d06320d9894c6f34"
         },
         {
           "path": "wireframes/iteration-start-dialog-desktop.png",
-          "sha256": "f3d3915bd35c211bd96bcd3c492cef7740339ea2ccdf21ce205abcd729c2df4e"
+          "sha256": "3fbb8e18524d89ac652e596864b7cb340bb96615fa089bc22b8b2bfabc68e0bd"
         },
         {
           "path": "wireframes/iteration-print-desktop.html",
@@ -109,6 +120,54 @@
         {
           "path": "wireframes/iteration-print-desktop.png",
           "sha256": "71c47e1fe62f9116a80a05d4ae1a2a2e0b3a4e0cb0bb2fecb3fcf852eba57c9b"
+        },
+        {
+          "path": "wireframes/iteration-viewer-desktop.html",
+          "sha256": "a8f2d19f3cd7b0b1d37c2ea38667c403c826992343bae4f127556c86a0fa5ba7"
+        },
+        {
+          "path": "wireframes/iteration-viewer-desktop.png",
+          "sha256": "5d0c33443e131254faa88e40587b13a3f574400c0151ec60413c7c4a4f4fe39c"
+        },
+        {
+          "path": "wireframes/iteration-export-menu-desktop.html",
+          "sha256": "71e8ee5f23bbc6f46a0004450597c711539bad55ecb898b341a8a62fddea0f41"
+        },
+        {
+          "path": "wireframes/iteration-export-menu-desktop.png",
+          "sha256": "531f4136497138ff41a0d48b92dd71bdf64e1a1875adce9680167956dcbd2df9"
+        },
+        {
+          "path": "wireframes/continue-no-future-desktop.html",
+          "sha256": "91638ab84c1aa5f934be59938784943d67f62600995285136cf99580ae221808"
+        },
+        {
+          "path": "wireframes/continue-no-future-desktop.png",
+          "sha256": "e0d2fea22d15e61020d53813919c649c4a284b7091eea69ebb905452ac9340d1"
+        },
+        {
+          "path": "wireframes/iteration-move-stories-dialog-desktop.html",
+          "sha256": "6d86d7a1ddbf246e422ecc49fb52a4e781d61a570ffbc11473579f932310090d"
+        },
+        {
+          "path": "wireframes/iteration-move-stories-dialog-desktop.png",
+          "sha256": "9071299c341eabc394033fd5e74f001a5b4d63432abd3792f14c8fa419747ec5"
+        },
+        {
+          "path": "wireframes/iteration-empty-phone.html",
+          "sha256": "38ebe0383968a1d4aba75d61b830be9ac3cb3ce6c85451bc14e67f2adc36bc6a"
+        },
+        {
+          "path": "wireframes/iteration-empty-phone.png",
+          "sha256": "f753e9ff6bfd3c2a16e04d17cdd820812b3a60747a5adeddca864c7dc26decef"
+        },
+        {
+          "path": "wireframes/continue-dialog-phone.html",
+          "sha256": "aaa95eb0447103091e0aad29bd88d20cfcc0005959acf20483ff09ae6b8f530c"
+        },
+        {
+          "path": "wireframes/continue-dialog-phone.png",
+          "sha256": "35c282bc110f646c0c1db861ae3eaae274da23fcf15cbd240f14288793a91a6f"
         }
       ],
       "navigation": [
@@ -126,12 +185,12 @@
         "progress.bar",
         "dialog.confirm",
         "nav.tabs",
-        "message.error-summary",
         "nav.top-bar",
         "nav.breadcrumb",
         "link.text",
         "field.select",
-        "button.danger"
+        "button.danger",
+        "menu.popover"
       ]
     },
     {
@@ -163,19 +222,19 @@
       "files": [
         {
           "path": "wireframes/form-desktop.html",
-          "sha256": "4086d0e89f7bbacfbe41c2b1921364e9072df98f987a69195cbbc9a1406fe0d0"
+          "sha256": "ce146331cf1c9f997b4e760afc1888de05a3bbcd084bfb05c4a19cd3562cb11f"
         },
         {
           "path": "wireframes/form-desktop.png",
-          "sha256": "38e9fb5654251d91d32e90febc662dfd4f3e9cf902c328ed7a92aee32182c453"
+          "sha256": "bab74db5c061790fdeb31997a1ba359e389ced5cbe150ba1c2574426fd463275"
         },
         {
           "path": "wireframes/form-phone.html",
-          "sha256": "5cddf19ce35e455e814a4fbc35c745d8a05b6d49cdc9e66bc7c722c76ee11673"
+          "sha256": "83932873146c8870283f6c281351eab8097a3631a785dc6d842ccbfa8d43b6be"
         },
         {
           "path": "wireframes/form-phone.png",
-          "sha256": "fc53ae67ed4bbafcc0d8367fa68ea1f95561564c88d498e7f420e8884bc87690"
+          "sha256": "72f6a46706d56948d8d13f94d75bfcd8e2d5dc6bad541f2eb565367c178fb946"
         }
       ],
       "navigation": [
@@ -253,11 +312,15 @@
       "channel": "web",
       "surface_key": "web + /projects + browse projects + table list",
       "roles": [
+        "system administrator",
+        "viewer",
         "editor",
         "admin"
       ],
       "states": [
         "populated",
+        "role view system administrator: Create project, Hidden column, System information link",
+        "role view viewer, editor, admin: no Create project, no Hidden column, only readable projects (rows 24, 27, 76)",
         "hidden-column",
         "empty"
       ],
@@ -274,11 +337,19 @@
       "files": [
         {
           "path": "wireframes/projects-list-desktop.html",
-          "sha256": "baace49583dc2651434ddb70afbd89e28020519d5d50e1869187c5a796d65c88"
+          "sha256": "9eedaee289cbec6087215cbc86139a7ec6e4448af644f04185ff6f4d9783a6ac"
         },
         {
           "path": "wireframes/projects-list-desktop.png",
-          "sha256": "b1afec656d6ea810db0d31a148711448666ed406a0ce604efbbc43d2af35214a"
+          "sha256": "47a5e6b26eca7ebaccead4499d685bdd3944162659545783cd14a67e177307b4"
+        },
+        {
+          "path": "wireframes/projects-list-member-desktop.html",
+          "sha256": "b578d20867f53e1ce920bd94fbbfb4442f10f534b41e9221ec000cd07c598194"
+        },
+        {
+          "path": "wireframes/projects-list-member-desktop.png",
+          "sha256": "41d29edfd0acca465528acbcd2b0441d872b15650fccd0259bfbb492cb28ff4c"
         }
       ],
       "navigation": [
@@ -286,7 +357,8 @@
         "current iteration to iteration-page",
         "People to people-list",
         "Aggregate timesheet to aggregate-timesheet",
-        "Create project to project-editor"
+        "Create project to project-editor",
+        "System information to system-info (system administrator only)"
       ],
       "ui_variants": [
         "button.primary",
@@ -302,10 +374,15 @@
       "channel": "web",
       "surface_key": "web + /projects/{id} + view a project and its iterations + detail page with iteration table",
       "roles": [
+        "system administrator",
         "admin"
       ],
       "states": [
         "populated",
+        "role view system administrator: Delete project (rows 26, 82)",
+        "role view admin: Edit and Create iteration, no Delete project (rows 26, 82)",
+        "export menu open: XML (rows 208, 209)",
+        "notes section (editor: Edit and Delete links)",
         "empty"
       ],
       "actions": [
@@ -324,19 +401,27 @@
       "files": [
         {
           "path": "wireframes/project-page-desktop.html",
-          "sha256": "370558434b3a6799e6281b17e2590d7d8353d90fcdd699b8c3c3aa67009e27eb"
+          "sha256": "a2f5e340bbc060c9ab753bb9814b8effd5c43eadbdc0d88f2b227f5514429b4e"
         },
         {
           "path": "wireframes/project-page-desktop.png",
-          "sha256": "3e1a8e3fcf5e6b787358385e4e6b8c19ef0b1dab763f7fa019bff13b1f504986"
+          "sha256": "60d9d4fa93bb045974f722b4ce7f2c63e974fbbe01efb6d53a80612ec7015b17"
         },
         {
           "path": "wireframes/project-page-phone.html",
-          "sha256": "596c9f43dfe71d4ac4cbfb32f496181c660ed556ff83087619ba20ae25dc85be"
+          "sha256": "96a3d13e602b6a363515609e674c65d3f00b96623879e430b8c67abd5929c206"
         },
         {
           "path": "wireframes/project-page-phone.png",
-          "sha256": "e38010b7c0d3e8916b00575c56984f19ab10a52af8edc224a537a0e0ad1c6054"
+          "sha256": "50e7b8901ba89e6a320e8c140d9abf21195744b28000f3b74a2538ecbf1de087"
+        },
+        {
+          "path": "wireframes/project-page-admin-desktop.html",
+          "sha256": "b2889e63e05a6af7da71f20385c890eca5689b7cccbb714e1fcb8fc8ee95a837"
+        },
+        {
+          "path": "wireframes/project-page-admin-desktop.png",
+          "sha256": "05da654454c647fe8511e3145d17fd2264fa72b0e56782b923bf886fc53bec7e"
         }
       ],
       "navigation": [
@@ -354,7 +439,8 @@
         "table.data",
         "nav.top-bar",
         "nav.breadcrumb",
-        "link.text"
+        "link.text",
+        "menu.popover"
       ]
     },
     {
@@ -385,11 +471,11 @@
       "files": [
         {
           "path": "wireframes/project-editor-desktop.html",
-          "sha256": "275832c2b2cbc546a817b28f74fa760e74b40b9187e5aa6c0f52998cd8af0ef3"
+          "sha256": "e318d0211beeb3bc9595db551aa1e3b0c625355f9e13ea2d897a2e2e525963a2"
         },
         {
           "path": "wireframes/project-editor-desktop.png",
-          "sha256": "f30039c7bd1d8bc657d4ea80076bfd6d06d0b69ae65ef044d49fe1be7b04cf98"
+          "sha256": "da66c93f13a988aa988f71ef7ce52f6d0d8bfb14f6bf6ef3de403d88423c1ff7"
         }
       ],
       "navigation": [
@@ -417,6 +503,7 @@
       ],
       "states": [
         "date picker open",
+        "date picker open on phone (start date 2026-03-02 selected)",
         "invalid-dates"
       ],
       "actions": [
@@ -435,11 +522,19 @@
       "files": [
         {
           "path": "wireframes/iteration-editor-desktop.html",
-          "sha256": "4637b623380ef7f8a603cf155dd329dfcc2ea78c00bdb2d22f8d0b3125acf09f"
+          "sha256": "14d8f039008c05696f8bf749f45eb06f4230626c51ac1e1c032d9c15e0985a13"
         },
         {
           "path": "wireframes/iteration-editor-desktop.png",
-          "sha256": "f6b90bb85868b4ea09af9a33bff51cdc0b54e5b8ee0452d5ccad3fb2734f59fd"
+          "sha256": "72d1bac49459153a57ba7c7ee206df5cecfae574253beebb8924536e927309eb"
+        },
+        {
+          "path": "wireframes/iteration-editor-phone.html",
+          "sha256": "2bd9d72897207664a817fd77fe712b45786c7d1d4aa09f9793bf9829cef30ed8"
+        },
+        {
+          "path": "wireframes/iteration-editor-phone.png",
+          "sha256": "65a445104425cad74f3735ddb6853df7834201321334ed7f66fc6b2eaadd29ff"
         }
       ],
       "navigation": [
@@ -476,11 +571,11 @@
       "files": [
         {
           "path": "wireframes/iteration-tasks-desktop.html",
-          "sha256": "ba78802956c06ed11c2aa477ca72163f9b015b3e84a263ff50efa1a3a03543e7"
+          "sha256": "1f46aa52eff4d5ddea7ebae9211f82ad5b0aa97ceac29484cd341cc920f1c348"
         },
         {
           "path": "wireframes/iteration-tasks-desktop.png",
-          "sha256": "b0cc740b450d578976d240ebe40ba9994769338f465ba56b1ee70c5a4eed0e6c"
+          "sha256": "f0012e75961a3b2422b461c1836985db01d17ec6a2f90be63941c944ca7c2249"
         }
       ],
       "navigation": [
@@ -520,19 +615,19 @@
       "files": [
         {
           "path": "wireframes/iteration-statistics-desktop.html",
-          "sha256": "9985bc1b89f21004e4e17c23d36854cc69e33390abd468406485c3efb1699648"
+          "sha256": "566005e4eef511f59bdc87270aef5bbc16b212768ad6e8c0f20f3f2eb7ce676e"
         },
         {
           "path": "wireframes/iteration-statistics-desktop.png",
-          "sha256": "564470ebc768e0770adcdad6215bc568f8f63afa3466da0cad34f20cb68f160c"
+          "sha256": "7e3f9461ce8e6fb2d4e639d9497ce02793d7f5cc7f6b4027717f699a7fd2288c"
         },
         {
           "path": "wireframes/iteration-statistics-phone.html",
-          "sha256": "827d480a12c82cc5fbd01409e987966adff7008ca65de22a845a5f25380c575b"
+          "sha256": "17d6113b065f7aa59f9724720eef54bb39026171cd67330e5bdc8570d8f089c6"
         },
         {
           "path": "wireframes/iteration-statistics-phone.png",
-          "sha256": "b3608f817d566b3515c88b90d1b949e969ac65d2a8a3cfac8a65bf4c5fe84608"
+          "sha256": "4cb076b37c234330727c31256a64db423e30cced2d4d53762409cb3a49584e2a"
         }
       ],
       "navigation": [
@@ -567,11 +662,11 @@
       "files": [
         {
           "path": "wireframes/iteration-accuracy-desktop.html",
-          "sha256": "6d436abf2b9e102880572af51b81366861b127c08266299e2b64dd308bcd6980"
+          "sha256": "438c2610fd91957f4146e58bcd65faed4ff17600b80f6b61fd5c71433857b2aa"
         },
         {
           "path": "wireframes/iteration-accuracy-desktop.png",
-          "sha256": "ad54c2be75bfc8960bc939c37c56bf5120ec3a5b55de4518b856994dd8aa6bc6"
+          "sha256": "c79b02c00b46fe563d19990023d2cd55f6454c97fe9897fc1668166d97d96508"
         }
       ],
       "navigation": [
@@ -606,19 +701,19 @@
       "files": [
         {
           "path": "wireframes/iteration-board-desktop.html",
-          "sha256": "c9b4dd145cf39842b2d2c990e860838c580877a6b8166b11da61fc6096d45fb6"
+          "sha256": "558711499c80ccbe2a8628fc49feab4344beebc3fa6b5bcd146a3beb1b1cee3c"
         },
         {
           "path": "wireframes/iteration-board-desktop.png",
-          "sha256": "dcadd7b17c22f139bd84963f1d2f1bb9fdf092a86c6d3b788808b93e463c64c6"
+          "sha256": "99973c6d4f667f01e9c48e615de4db3781a5fad20c0cedba2a58f34b45b8a5eb"
         },
         {
           "path": "wireframes/iteration-board-phone.html",
-          "sha256": "ed6e340d8bf4e31e4677535aeb47e4752ac19a0501243b8cb81f51e6c9799c4d"
+          "sha256": "b9b0a1dbe18efefa2aca8adb5d89289af7a50efb854d2d06444872dcfe81ecd1"
         },
         {
           "path": "wireframes/iteration-board-phone.png",
-          "sha256": "b548d247fc93e1e862c67a1e681bfc7deab48c52d778564c14fea11b29c54b2f"
+          "sha256": "95caf05bbe765d0c52080d25defe9b5e87b4e56f6ce5b690d17559b93416c729"
         }
       ],
       "navigation": [
@@ -641,10 +736,15 @@
       "channel": "web",
       "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
       "roles": [
-        "editor"
+        "editor",
+        "viewer"
       ],
       "states": [
         "populated",
+        "notes section (editor: Edit and Delete links)",
+        "notes section (editor: Edit and Delete links), story-page-desktop",
+        "role view viewer: read-only, Export and History only (rows 23, 26)",
+        "export menu open: PDF (rows 208, 212)",
         "empty",
         "same-iteration-rejected",
         "move-continue-validation"
@@ -670,11 +770,27 @@
       "files": [
         {
           "path": "wireframes/story-page-desktop.html",
-          "sha256": "8bb65a3dd9cbfaf585fcbd5ff148949bae91474574a5450c24e8d87d28e75030"
+          "sha256": "65b08ae56854460ad99ab8d0e09f2bb72f2e6c25de1fb14249a4989356b5b808"
         },
         {
           "path": "wireframes/story-page-desktop.png",
-          "sha256": "adbd3c3d933f2c2222c62a9ffb472029a1c94824c1606f9cd3d6e765ef2c97f1"
+          "sha256": "feb1f1d3e463c2603afb20e86e2b8da8a1db94a966b4bc1d2e471ed6788d1410"
+        },
+        {
+          "path": "wireframes/story-move-dialog-desktop.html",
+          "sha256": "fab470c82074465dacb960fbc7bc01ba53a857aea4475e9b860b6fa0cbddfe26"
+        },
+        {
+          "path": "wireframes/story-move-dialog-desktop.png",
+          "sha256": "5bdb86e0788a0d2661c2cde8206a10aa1dd9f98b97462b5d38841b63d18aed8a"
+        },
+        {
+          "path": "wireframes/story-viewer-export-desktop.html",
+          "sha256": "8bdb0589abadc72606597e368cd099a4ee0797a996418ae7c738eb902cf2d9e3"
+        },
+        {
+          "path": "wireframes/story-viewer-export-desktop.png",
+          "sha256": "3c4fb2a8b78c676a8590df5b9f414cdf5590159b705b38dfdab2c20580345ac7"
         }
       ],
       "navigation": [
@@ -691,7 +807,10 @@
         "nav.top-bar",
         "nav.breadcrumb",
         "link.text",
-        "field.select"
+        "dialog.confirm",
+        "field.select",
+        "message.error-summary",
+        "menu.popover"
       ]
     },
     {
@@ -700,10 +819,12 @@
       "channel": "web",
       "surface_key": "web + /people + browse people + table list",
       "roles": [
-        "editor"
+        "admin",
+        "system administrator"
       ],
       "states": [
         "populated",
+        "role view admin or system administrator: Create person (row 24); for viewer and editor the Create person button is absent and the composition is otherwise unchanged (role variation, not drawn separately)",
         "project-filtered"
       ],
       "actions": [],
@@ -715,11 +836,11 @@
       "files": [
         {
           "path": "wireframes/people-list-desktop.html",
-          "sha256": "8d558b14f2a00c9e448df09078d793d74fff84f6ac673ae612c1ec0091bfc3b3"
+          "sha256": "0817fd1adce7070fc1250dbf42f434a0f0aa8f918100f27d7cb80deb3a57fb9b"
         },
         {
           "path": "wireframes/people-list-desktop.png",
-          "sha256": "4dbf7bfcbb0a9190b24f3e0308353f95259aabc4d70fab55e3f210db21bf0100"
+          "sha256": "34886e273391cf0fe06b2b8edcb5fe4770ad315730720fa97f40bc21568996df"
         }
       ],
       "navigation": [
@@ -756,11 +877,11 @@
       "files": [
         {
           "path": "wireframes/person-timesheet-desktop.html",
-          "sha256": "c12348094465b9e86f4c19fd1a21fb7949eab397ac23c51412b585c5d544b952"
+          "sha256": "36f73fc12613591b1a07dddf87daf7a5fcb7d9a2e9b3d81d4a9eae2f4d90f86f"
         },
         {
           "path": "wireframes/person-timesheet-desktop.png",
-          "sha256": "4635b0438ef88b6c002976d90ecc34e91cc40df0e7a49615282f05192a14182c"
+          "sha256": "1f9b547b809c78038f851de80499b9386aedb0a595c36baeb7ecc5484b04d759"
         }
       ],
       "navigation": [
@@ -803,11 +924,11 @@
       "files": [
         {
           "path": "wireframes/search-results-desktop.html",
-          "sha256": "ecaf66e5c130736a16331aa63c547a7538f2ccac2ca0c1be9bd0b1592ea36f0b"
+          "sha256": "302c262477a0c1df0d497db7c2372c8d0e41674f9b22c486266815c89177d3bd"
         },
         {
           "path": "wireframes/search-results-desktop.png",
-          "sha256": "0ea4caa2156fd9b8f4359e5744653ddd5cee883b2ae858d8bf5c1985ae1e198f"
+          "sha256": "0c79feb54d2bb87eef3b4e33e319f77d9891606a93fa2a8368ce2fec53ce0508"
         }
       ],
       "navigation": [
@@ -829,7 +950,8 @@
         "editor"
       ],
       "states": [
-        "populated"
+        "populated",
+        "project container view: created and deleted objects of the project with type and name"
       ],
       "actions": [],
       "overlays": [],
@@ -839,15 +961,24 @@
       "files": [
         {
           "path": "wireframes/history-desktop.html",
-          "sha256": "401da3f21682b82e2f96e361dbe28f2d0bb17551ca0388dad1509e1079fc98d1"
+          "sha256": "69ffbcccdbbf5ac32c5e02d1b4b6063344c278314305109b928b06480374a523"
         },
         {
           "path": "wireframes/history-desktop.png",
-          "sha256": "ed9e6beb995d4228aea4f403f8b2727c542f4b5fa6dfff00926a55c5acb293de"
+          "sha256": "c33027c505dee18b3712dc66e819022f729d0f325756699b6922fcb0e6105478"
+        },
+        {
+          "path": "wireframes/history-project-desktop.html",
+          "sha256": "bd0fe05a0de566cec19d0d2bdf8be597e4844a3244bde2e89dbf09c523657920"
+        },
+        {
+          "path": "wireframes/history-project-desktop.png",
+          "sha256": "ca54e08cf3846b3629f487ff9beecb1b7214ca87b6801b8ea1cf0030a9ac54ab"
         }
       ],
       "navigation": [
-        "breadcrumb to story-page"
+        "breadcrumb to story-page",
+        "Show events of the project itself (container view to object view)"
       ],
       "ui_variants": [
         "table.data",
@@ -884,11 +1015,11 @@
       "files": [
         {
           "path": "wireframes/story-editor-desktop.html",
-          "sha256": "800dca9081bbebc4cd28993a44e3e4b1e43d4a4f5957e2edd139b7002434d8a9"
+          "sha256": "fd5dcc40627f417a1b3b4b12841294f4695a25b854ba112e116ae113d813e9f2"
         },
         {
           "path": "wireframes/story-editor-desktop.png",
-          "sha256": "b96492b60632081dad1c13b21915f28b9a9f65f2f36c89786b8b6fe796b3df11"
+          "sha256": "9d722864e7a570a3f64585445b01bee46796ce6b1c60120cca66ab7aae1844e0"
         }
       ],
       "navigation": [
@@ -912,10 +1043,15 @@
       "channel": "web",
       "surface_key": "web + /tasks/{id} + view a task and its time log + detail page with time table",
       "roles": [
-        "editor"
+        "editor",
+        "viewer"
       ],
       "states": [
         "open task",
+        "completed task (editor view, Reopen task)",
+        "notes section (editor: Edit and Delete links)",
+        "notes section",
+        "role view viewer: no complete, reopen, edit, time, move or delete actions",
         "same-story-rejected",
         "move-continue-validation"
       ],
@@ -929,6 +1065,7 @@
         "move or continue task"
       ],
       "workbook_rows": [
+        26,
         140,
         141,
         142,
@@ -942,19 +1079,43 @@
       "files": [
         {
           "path": "wireframes/task-page-desktop.html",
-          "sha256": "8412ec6b24246f14ada724a9a11155e8af5a19c5a365be5f1ff033c5bf742b01"
+          "sha256": "0743328bb21e882016aac6c81f1ba92a3e640934be0c877b7ce26f54a35aaac0"
         },
         {
           "path": "wireframes/task-page-desktop.png",
-          "sha256": "80bfc880fce0fe40b32a1999a425da33724679ee7f22ec51c797844b8e5196aa"
+          "sha256": "ea8a17b898ca23fac98f5b03fd020aa5367cf94a05abdda305fbe2e0d0658aa7"
         },
         {
           "path": "wireframes/task-delete-dialog-desktop.html",
-          "sha256": "b21e7cb4efa70f050a2175d0042d5907264c403b3c0e919b7fa3941372c7a12d"
+          "sha256": "9297f438cb978d7ceb97d827aa44bcdcde75c55b85f260fbde209fe8a280416a"
         },
         {
           "path": "wireframes/task-delete-dialog-desktop.png",
-          "sha256": "b7102a818c18711e25e7948f979b3e1ccce5a8fd626acae0bb924f141a813f00"
+          "sha256": "e40340410e690278d70305f5b757729c028fdf76b01e936401ec1f60476705ca"
+        },
+        {
+          "path": "wireframes/task-move-dialog-desktop.html",
+          "sha256": "4ca11c6b35bf7ad1ea3325c84f37fe16a929c760baaef0ad82300e5203af1297"
+        },
+        {
+          "path": "wireframes/task-move-dialog-desktop.png",
+          "sha256": "37be29895e5a23816ba30b49f602505aa4fc2b6d1521fa4ea9a795480c52ca9d"
+        },
+        {
+          "path": "wireframes/task-completed-desktop.html",
+          "sha256": "187cc1ad8aec1d19605b18b69e5e71744089c71bded9cc30662dd799ccacb8c6"
+        },
+        {
+          "path": "wireframes/task-completed-desktop.png",
+          "sha256": "b0891b6e17e3142db8f362aee5e17834bb082994c70f9ed14396c95c12288996"
+        },
+        {
+          "path": "wireframes/task-viewer-desktop.html",
+          "sha256": "a363d2a976de9a04f51eb8cde4a46e4f2de646635afb3c969c23636f02d7004c"
+        },
+        {
+          "path": "wireframes/task-viewer-desktop.png",
+          "sha256": "d2eb5d612ecea76418253d722875325028a09c9069deadda3e6ca40198f4c6df"
         }
       ],
       "navigation": [
@@ -973,7 +1134,8 @@
         "nav.top-bar",
         "nav.breadcrumb",
         "link.text",
-        "field.select"
+        "field.select",
+        "message.error-summary"
       ]
     },
     {
@@ -1018,19 +1180,19 @@
       "files": [
         {
           "path": "wireframes/time-editor-desktop.html",
-          "sha256": "de6b592ab274e957a360ed21aaf4ff10b9dc5635b16a4e186de81ce7d2059974"
+          "sha256": "b3bf0dd60a89eaba96f7a857d86b46fd9c4df30eef25ddcf20c542ea5f3d8652"
         },
         {
           "path": "wireframes/time-editor-desktop.png",
-          "sha256": "ea97be9965ccbc2acc27b5983c880950d02c7f9c0763fef920d25457579b0f55"
+          "sha256": "732d35c9b63b1d0a4a419fb5b13e3305fe901ee9db8a80282689bb30b09fb3a6"
         },
         {
           "path": "wireframes/time-editor-phone.html",
-          "sha256": "ceef95ada0693a071092a31cd56645cc08deecfc221b476a68ae4524d09fbcad"
+          "sha256": "64af9e0923a2a823242101233b486eac51d97103b4bf55bf1390f7ed9cbda179"
         },
         {
           "path": "wireframes/time-editor-phone.png",
-          "sha256": "9fd44cb88be245f14f58e93759ff79a29bfa5d9b293c5d99ca7fe73c9cce728f"
+          "sha256": "916ce813107029e1c94d53a5ac91a1f044a6f154d86e75af3e1738e1bb2bd0e6"
         }
       ],
       "navigation": [
@@ -1054,10 +1216,12 @@
       "channel": "web",
       "surface_key": "web + /people/{id} + view the work of one person + detail page with task tables",
       "roles": [
-        "editor"
+        "editor",
+        "viewer"
       ],
       "states": [
-        "populated"
+        "populated",
+        "role view viewer: another person, no Edit link and no per-task Time or Edit links (rows 41, 42)"
       ],
       "actions": [],
       "overlays": [],
@@ -1070,11 +1234,19 @@
       "files": [
         {
           "path": "wireframes/person-page-desktop.html",
-          "sha256": "8343152ff853e754ed161cc0d0634c2f1bd4ffbd98436e189cedb43341d8124b"
+          "sha256": "cab523c39104932f99b77ec01ffddea8f0d760aeea97ca26f1d01c8995455c62"
         },
         {
           "path": "wireframes/person-page-desktop.png",
-          "sha256": "e0ce5ae162cadc4e75fbdbaa92cb9277ad9c6a42f08d67ecc7d9f1ce43b6ece6"
+          "sha256": "ab05c2acf1a0537156275c905e952fd82729b97c138c6985e96a378cd64368cd"
+        },
+        {
+          "path": "wireframes/person-page-viewer-desktop.html",
+          "sha256": "286604e58e22caf8abbbe3d2372b1e92fe04510717cb2846e7612b0dff31ec4d"
+        },
+        {
+          "path": "wireframes/person-page-viewer-desktop.png",
+          "sha256": "bbf2bd1c5c109a528cd286cb7a8e0b6b7505fb581ead86d09c1fa2895b92d267"
         }
       ],
       "navigation": [
@@ -1096,14 +1268,18 @@
       "channel": "web",
       "surface_key": "web + /people/{id}/edit + create or edit a person + form",
       "roles": [
-        "system administrator"
+        "system administrator",
+        "admin"
       ],
       "states": [
         "default",
+        "role view system administrator: System administrator checkbox, every project role editable (rows 33, 34)",
+        "role view project admin: no System administrator checkbox, roles editable only on administered projects (rows 33, 34)",
         "validation-error",
         "duplicate-user-id"
       ],
       "actions": [
+        "reset",
         "cancel",
         "set project role",
         "grant or revoke system administrator",
@@ -1125,14 +1301,25 @@
       "files": [
         {
           "path": "wireframes/person-editor-desktop.html",
-          "sha256": "df24ee73ada0753b7c0e663b3d435a41093e4f25e6b20149e2f550ff6ba823f6"
+          "sha256": "7dcd94751e9f89dff8cc49bef655cde4e3012f1fbad5297e38b9fcdd071b3ec8"
         },
         {
           "path": "wireframes/person-editor-desktop.png",
-          "sha256": "ba843994796bf6f592f2754e05dc71c762fad6a96afdd55ae16f9ff86550111c"
+          "sha256": "f36e52e5b1bb69113bb355eae7d70f30ac78774d129ebccd7735a3cbb0baf652"
+        },
+        {
+          "path": "wireframes/person-editor-admin-desktop.html",
+          "sha256": "f17b41ecb45682345843cfb91752f7870a746b03fbf992c2e55a460e00471fa0"
+        },
+        {
+          "path": "wireframes/person-editor-admin-desktop.png",
+          "sha256": "18d19ada6f8ffb044f98a75ec7eeefbd4e1a8059ef9e201fa8f366ea854fc383"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "Save and Cancel return to the originating page",
+        "breadcrumb to person-page and people-list"
+      ],
       "ui_variants": [
         "button.primary",
         "button.neutral",
@@ -1165,14 +1352,17 @@
       "files": [
         {
           "path": "wireframes/aggregate-timesheet-desktop.html",
-          "sha256": "96a96f3706f906b3405c649e9fc7374792bb03d57368d687f15cc7bcfe786eef"
+          "sha256": "c830eefa2959f80d0aaa80f25aa7d22dd3b929ee0242b7e98a670442fdac403d"
         },
         {
           "path": "wireframes/aggregate-timesheet-desktop.png",
-          "sha256": "1fa4cac682965f19ea1d03c63a39be2a1920337f6089d4606cf8030a3ff87f55"
+          "sha256": "a365039eca95cd295679fd476e8054447806bda93d4e7b4c6f39c1531f1ba906"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "entry from projects-list (Aggregate timesheet link)",
+        "breadcrumb Top to projects-list"
+      ],
       "ui_variants": [
         "button.neutral",
         "field.date",
@@ -1193,10 +1383,12 @@
         "editor"
       ],
       "states": [
-        "default",
+        "add mode",
+        "edit mode (original author kept, Delete note)",
         "validation-error"
       ],
       "actions": [
+        "reset",
         "cancel",
         "save"
       ],
@@ -1212,25 +1404,45 @@
       "files": [
         {
           "path": "wireframes/note-editor-desktop.html",
-          "sha256": "93dc7cc9a182c86cd83cfb191ae12d783c168403fec83e43ec3d82845f8d155b"
+          "sha256": "184f148d2e6e0e2ce232bcf9ddee654cd34ce165d8da550a8601d85fc26e34d1"
         },
         {
           "path": "wireframes/note-editor-desktop.png",
-          "sha256": "3db6e072dc92447f50883ca7ae08111f9b46b04ac6fa8b961dc20233cefccc49"
+          "sha256": "8f70ecbf491ceafdf27f627b44f3d6ec0aa2ba579956b009963ee7efb0c10ebe"
+        },
+        {
+          "path": "wireframes/note-editor-edit-desktop.html",
+          "sha256": "f7f6d50b0c12cfd3ff158c9fe0719736cdc8049837882647b54ebe112fae4599"
+        },
+        {
+          "path": "wireframes/note-editor-edit-desktop.png",
+          "sha256": "70d743412d8e31436c3914be59e384b859846613291def806d1bd95e5394a91b"
+        },
+        {
+          "path": "wireframes/note-delete-dialog-desktop.html",
+          "sha256": "3c14fa850bc945f84b620f032b09081f651000505e4ac42d585124e5557b0d90"
+        },
+        {
+          "path": "wireframes/note-delete-dialog-desktop.png",
+          "sha256": "d1fb7d1af29d2f4b2b78276873524c08684294370da56062df45d80876cb405a"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "Save and Cancel return to the object page",
+        "formatting help",
+        "breadcrumb to story-page"
+      ],
       "ui_variants": [
         "button.primary",
         "button.neutral",
-        "button.danger",
-        "dialog.confirm",
         "field.text",
         "field.select",
         "field.textarea",
         "nav.top-bar",
         "nav.breadcrumb",
-        "link.text"
+        "link.text",
+        "button.danger",
+        "dialog.confirm"
       ]
     },
     {
@@ -1254,14 +1466,17 @@
       "files": [
         {
           "path": "wireframes/error-page-desktop.html",
-          "sha256": "061568ef15de476e9771e7bd856321190f853801c84db1cd8c0c461c844ac32d"
+          "sha256": "4083eb85318cb24e6f05fef1ab021622d2b28c1d705753eaf8286cdd40170c8c"
         },
         {
           "path": "wireframes/error-page-desktop.png",
-          "sha256": "45e4099e0ba1411014bf50dbf4d69ce070ef09e6cade4233a497e3037297e76b"
+          "sha256": "9ff55311d280ac8a4b1d2217d891eb818f4c36bf96c32ed13d4e3368afbc3fe2"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "Me to person-page",
+        "Sign out to sign-in"
+      ],
       "ui_variants": [
         "nav.top-bar",
         "link.text"
@@ -1286,14 +1501,17 @@
       "files": [
         {
           "path": "wireframes/system-info-desktop.html",
-          "sha256": "0b6591ec3f1b1ece9fb8c6c757fc77e92cf468277c8512c5c03598eb0ae5b1ca"
+          "sha256": "b6847b047ebd6e992ba0aa7d9e76680d328189b7c21e89e1753a98d51475bbec"
         },
         {
           "path": "wireframes/system-info-desktop.png",
-          "sha256": "105aed014446ad6f9c20cb2cc5181ce622fd96e1d676d40a29ff7ebf1052dd81"
+          "sha256": "8678c4eac69a6360d9344fa5828125d0039eb26a2a7a183161ac384e6314dde0"
         }
       ],
-      "navigation": [],
+      "navigation": [
+        "entry: System information link in the system-administrator top bar (projects-list-desktop)",
+        "breadcrumb Top to projects-list"
+      ],
       "ui_variants": [
         "table.data",
         "nav.top-bar",
@@ -1308,7 +1526,7 @@
       "reason": "Stage 4 change (D-003). Password storage method; server-side (D-003).",
       "covered_by": {
         "coverage": "Password storage method; server-side (D-003). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "person-editor"
       }
     },
     {
@@ -1316,7 +1534,7 @@
       "reason": "Stage 4 keep (D-001). Access filter for protected requests; worked example in the methodology.",
       "covered_by": {
         "coverage": "Access filter for protected requests; worked example in the methodology. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "sign-in"
       }
     },
     {
@@ -1324,7 +1542,7 @@
       "reason": "Stage 4 keep (D-001). Idle session timeout; the next request reaches sign-in through row 17.",
       "covered_by": {
         "coverage": "Idle session timeout; the next request reaches sign-in through row 17. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "sign-in"
       }
     },
     {
@@ -1332,14 +1550,6 @@
       "reason": "Stage 4 keep (D-001). Role model; exact permission matrix at SDD (D-001).",
       "covered_by": {
         "coverage": "Role model; exact permission matrix at SDD (D-001). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
-      }
-    },
-    {
-      "row": 24,
-      "reason": "Stage 4 change (D-001). Negative permissions enforced on the server (D-001).",
-      "covered_by": {
-        "coverage": "Negative permissions enforced on the server (D-001). No screen; the SDD defines the behavior and its automated checks.",
         "initiating_screen": null
       }
     },
@@ -1352,19 +1562,11 @@
       }
     },
     {
-      "row": 26,
-      "reason": "Stage 4 change (D-001). Server enforcement; per-screen visibility of actions is a role variation decided with the SDD permission matrix (D-001).",
-      "covered_by": {
-        "coverage": "Server enforcement; per-screen visibility of actions is a role variation decided with the SDD permission matrix (D-001). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
-      }
-    },
-    {
       "row": 27,
       "reason": "Stage 4 keep (D-001). Read filter of the projects query.",
       "covered_by": {
         "coverage": "Read filter of the projects query. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "projects-list"
       }
     },
     {
@@ -1396,7 +1598,7 @@
       "reason": "Stage 4 change (D-006). Server rule for applying role changes (D-006).",
       "covered_by": {
         "coverage": "Server rule for applying role changes (D-006). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "person-editor"
       }
     },
     {
@@ -1412,7 +1614,7 @@
       "reason": "Stage 4 change (D-007). Deactivated people are filtered out of active pick lists; list query rule (D-007).",
       "covered_by": {
         "coverage": "Deactivated people are filtered out of active pick lists; list query rule (D-007). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "task-editor"
       }
     },
     {
@@ -1428,7 +1630,7 @@
       "reason": "Stage 4 change (D-010). English date display and strict input rule applied by every date field (D-010).",
       "covered_by": {
         "coverage": "English date display and strict input rule applied by every date field (D-010). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-editor"
       }
     },
     {
@@ -1452,7 +1654,7 @@
       "reason": "Stage 4 change (D-013). Daily burn-down sampling (D-013, M-03); method and schedule not chosen.",
       "covered_by": {
         "coverage": "Daily burn-down sampling (D-013, M-03); method and schedule not chosen. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-statistics"
       }
     },
     {
@@ -1460,7 +1662,7 @@
       "reason": "Stage 4 change (D-010). Stable stored code for the task type (D-010).",
       "covered_by": {
         "coverage": "Stable stored code for the task type (D-010). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "task-editor"
       }
     },
     {
@@ -1468,7 +1670,7 @@
       "reason": "Stage 4 change (D-017). Task-change mail to the current assignee (D-017).",
       "covered_by": {
         "coverage": "Task-change mail to the current assignee (D-017). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "task-editor"
       }
     },
     {
@@ -1476,7 +1678,7 @@
       "reason": "Stage 4 change (D-001). Server-side permission check of the personal timesheet (D-001).",
       "covered_by": {
         "coverage": "Server-side permission check of the personal timesheet (D-001). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "person-timesheet"
       }
     },
     {
@@ -1484,7 +1686,7 @@
       "reason": "Stage 4 keep (D-001). Read filter of the aggregate timesheet query.",
       "covered_by": {
         "coverage": "Read filter of the aggregate timesheet query. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "aggregate-timesheet"
       }
     },
     {
@@ -1492,7 +1694,7 @@
       "reason": "Stage 4 change (D-001). Permission check of the numeric search hit.",
       "covered_by": {
         "coverage": "Permission check of the numeric search hit. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "search-results"
       }
     },
     {
@@ -1500,7 +1702,7 @@
       "reason": "Stage 4 change (D-001). Permission check of the ID jump.",
       "covered_by": {
         "coverage": "Permission check of the ID jump. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "search-results"
       }
     },
     {
@@ -1516,7 +1718,7 @@
       "reason": "Stage 4 change (D-019). UX-006-09 placement: safe rendering of existing markup and object links applies to every description text; it changes no layout, so it is a rendering rule covered by output-escaping and rendering tests at SDD; the external wiki lookup stays deferred.",
       "covered_by": {
         "coverage": "UX-006-09 placement: safe rendering of existing markup and object links applies to every description text; it changes no layout, so it is a rendering rule covered by output-escaping and rendering tests at SDD; the external wiki lookup stays deferred. No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "story-page"
       }
     },
     {
@@ -1524,7 +1726,7 @@
       "reason": "Stage 4 change (D-017). Mail failure handling (D-017).",
       "covered_by": {
         "coverage": "Mail failure handling (D-017). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "task-editor"
       }
     },
     {
@@ -1532,7 +1734,7 @@
       "reason": "Stage 4 change (D-013). Daily burn-down sampling (D-013, M-03).",
       "covered_by": {
         "coverage": "Daily burn-down sampling (D-013, M-03). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-statistics"
       }
     },
     {
@@ -1540,7 +1742,7 @@
       "reason": "Stage 4 change (D-023). Internal API the board needs (D-023).",
       "covered_by": {
         "coverage": "Internal API the board needs (D-023). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-board"
       }
     },
     {
@@ -1548,40 +1750,40 @@
       "reason": "Stage 4 change (D-023/D-002). Authentication of the internal API (D-002, D-023).",
       "covered_by": {
         "coverage": "Authentication of the internal API (D-002, D-023). No screen; the SDD defines the behavior and its automated checks.",
-        "initiating_screen": null
+        "initiating_screen": "iteration-board"
       }
     }
   ],
   "_notes": [
-    "Stage 6 prototype set for the prototype PR, written by UX Designer UX-006-12 at 2026-10-03T14:23:17Z (UTC from code). It is NOT a Stage 7 control and NOT owner approval, and it does not declare Stage 6 complete. The owner liked the general style and gave direction on editor actions and profile identity only.",
-    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a named responsive or message pattern verified by a real export (P). Per-row D/P claims are recorded in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. App-shell rows were remapped onto drawn screens in UX-006-09 (19 projects-list, 185 task-page, 188 person-page, 192 iteration-page). Row 188 (Me) is claimed P only: the Me link is drawn in every top bar and the destination layout is the drawn person-page of User A; no export shows the own page of the signed-in person.",
-    "Open coverage items (NOT cosmetic and NOT proven coverage; for QA7 to assess against the requirements and approved patterns; no claim is made for them beyond what is drawn or pattern-verified): (1) role-dependent differences: every export shows the editor view, no viewer or administrator variant is drawn; (2) the Me page of the signed-in person is not drawn (row 188 is P, see Claims); (3) the system-info entry point is not drawn (the page itself, row 55, is drawn); (4) phone controls not verified: date picker on phone, select inside a phone dialog, empty state on phone; surfaces without their own phone export rely on the patterns below and are not individually verified.",
-    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset; official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
+    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T11:00:56Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
+    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a pattern whose composition is unchanged and is drawn in a real export (P); per-row claims are in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. After Stage 7 pass 001 the claims that relied on a pattern with a different composition, or on a trigger without a drawn destination, were withdrawn and are now drawn by the UX-006-13 exports. No visual row is unclaimed. Rows 24 and 26 are role states drawn by iteration-export-menu-desktop and task-viewer-desktop; row 210 is drawn by the export menu (iteration-export-menu-desktop).",
+    "Roles (Stage 7 pass 001 F-001/F-002): each screen declares the roles its exports draw; role views are states of the same screen. iteration-page: admin (list-desktop, list-phone: Edit and Delete iteration), editor (iteration-export-menu-desktop: no Delete iteration) and viewer (iteration-viewer-desktop: read-only); task-page: editor and viewer (task-viewer-desktop); projects-list: system administrator (Create project, Hidden column, System information link); project-page: system administrator (Delete project); people-list: admin and system administrator (Create person; for viewers and editors only that button is absent). Also drawn: projects-list for viewer/editor/admin, project-page admin (export menu), story-page viewer (export menu), person-page viewer, person-editor project admin. Open coverage items for QA: phone date picker, select inside a phone dialog and phone empty state are not verified (pending phone exports).",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983, story-page-desktop 841a0392 (replaces c0e12320), project-page-admin-desktop 832f3f12, person-editor-admin-desktop 127b7b36, projects-list-member-desktop 10bdaa21, story-viewer-export-desktop 06cb5800, person-page-viewer-desktop ba6f2600, iteration-empty-phone a5b766ae (390 px phone), list-desktop caaa1e00, iteration-start-dialog-desktop 00767edb, iteration-statistics-desktop 265577d0, aggregate-timesheet-desktop 9e592647, error-page-desktop 1515d68f, history-desktop 816bb3ab, iteration-accuracy-desktop b546187d, iteration-board-desktop a21e46d6, iteration-editor-desktop 0e6fb0d9, iteration-tasks-desktop 2d39cb77, people-list-desktop 7add2352, project-page-desktop 38232108, person-timesheet-desktop 4e66a444, project-editor-desktop 032c7304, search-results-desktop 507b71c2, continue-dialog-desktop 4882cd81, form-desktop f57e67ca, story-editor-desktop 654cf953, dialog-desktop d65fa078, person-editor-desktop ec7c42e8, system-info-desktop 3b29effb, task-page-desktop 6ff0e779, person-page-desktop a03c5c21, ui-kit 5033fb08 (replaces 2d5cea05), note-editor-desktop 6b68c603, time-editor-desktop fe4d12be, task-delete-dialog-desktop b2de24fc; phone-render project 3668882536890058027 official UI ZIPs: iteration-statistics-phone e6479696 (aa31aff8…d816), iteration-empty-phone c40669b3 (84763ff3…3429, replaces a5b766ae), iteration-board-phone 04c052e9 (88b88ea9…c1ed), project-page-phone db539d82 (71de15dd…4b0f), list-phone 2a78233c (main project, Preview -> Mobile ZIP 7c77c66b…e6ae, replaces the ZIP 08308ffb pair), dialog-phone 2df56bd9 (a1b05b94…8374), form-phone 63d5d43b (210984d4…bbf7; open visual remainder: doubled breadcrumb separators, not accepted, for the human Stage 8/QA disposition); official UI Export ZIP 6e40d124…89b2 (iteration-editor-phone 9becf6ff, Preview -> Mobile 390 x 1556), e741bfe9…0ba6 (continue-dialog-phone d8f39763, phone-render project 3668882536890058027, 390 x 344); API pairs listed here replace the ZIP pairs named below for the same view; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
     "Pending prepared entries: none. Every export was accepted only after its real PNG was checked against its HTML; stale or cropped pairs (ZIP 6 and ZIP 7 close, ZIP 7 start and continue) were not imported and are kept in scratch.",
     "Editors (owner direction, relayed by Codex): Save, Reset and Cancel, drawn on every exported editor. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
     "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page. A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",
-    "Responsive patterns: list/table: priority columns, table scrolls in its own container, 44-48 px targets; verified by list-phone (a10e679d) and project-page-phone (f4a330e1); form: single column, 16 px fields, stacked full-width Save / Reset / Cancel; verified by form-phone (78b9b2d9, ZIP 6157107c) and signin-phone (c5d26872); dialog: full width minus 16 px, stacked 48 px buttons, scrim; verified by dialog-phone (fdb44f71); detail page: heading, stacked action buttons, summary, then list/table; verified by project-page-phone (f4a330e1); board: stacked status sections per story; verified by iteration-board-phone (58e255ee); messages and validation: error summary plus field errors; verified by form-phone and signin-phone; charts: charts stacked one per row with text legends; verified by iteration-statistics-phone (76be6213); time grid: one stacked block per entry; verified by time-editor-phone (c7e2ef05, ZIP 6157107c); empty state: table.data empty row; drawn on desktop (ui-kit, iteration-start-dialog-desktop); NOT verified on phone; date picker on phone: NOT verified (no phone export of iteration-editor); open coverage item; select inside a phone dialog: NOT verified (no phone export of continue-dialog); open coverage item. Surfaces without their own phone export rely on these patterns and are not individually verified.",
-    "Navigation: per-screen navigation entries; breadcrumbs on hierarchical pages, none at the root (projects-list shows a root \"Top\" breadcrumb, a recorded deviation). Carrying list position in the URL is a proposal only. list-phone has no operable select-all (row 97 is met by per-row checkboxes; recorded deviation); list-desktop draws \"Select all stories\".",
+    "Responsive patterns: list/table: priority columns, table scrolls in its own container, 44-48 px targets; verified by list-phone (a10e679d) and project-page-phone (f4a330e1); form: single column, 16 px fields, stacked full-width Save / Reset / Cancel; verified by form-phone (78b9b2d9, ZIP 6157107c) and signin-phone (c5d26872); dialog: full width minus 16 px, stacked 48 px buttons, scrim; verified by dialog-phone (fdb44f71); detail page: heading, stacked action buttons, summary, then list/table; verified by project-page-phone (f4a330e1); board: stacked status sections per story; verified by iteration-board-phone (58e255ee); messages and validation: error summary plus field errors; verified by form-phone and signin-phone; charts: charts stacked one per row with text legends; verified by iteration-statistics-phone (76be6213); time grid: one stacked block per entry; verified by time-editor-phone (2e2146cb, official UI ZIP 69b6a407, 390 x 2233); empty state: empty-state text with the Create story action; drawn on a real 390 px phone by iteration-empty-phone (c40669b3, official UI ZIP 84763ff3, 390 x 615; no px body width, reflows to 320 px); date picker on phone: verified by iteration-editor-phone (9becf6ff, official UI ZIP 6e40d124, 390 x 1556); select inside a phone dialog: verified by continue-dialog-phone (d8f39763, official UI ZIP e741bfe9, 390 x 344). Surfaces without their own phone export rely on these patterns and are not individually verified.",
+    "Navigation: per-screen navigation entries; breadcrumbs on hierarchical pages, none at the root (projects-list-desktop has no breadcrumb since UX-006-13); the system-administrator top bar adds \"System information\" (row 55). Carrying list position in the URL is a proposal only. list-phone has no operable select-all (row 97 is met by per-row checkboxes; recorded deviation); list-desktop draws \"Select all stories\".",
     "Known CI issue (PM handles; exports not retouched): dead in-page anchors in some exports.",
     "Deferred: the 31 Stage 4 defer rows are recorded in the normalization deferred_rows field (UX-006-10, PR #48); they are not drawn. Former pending rows 161, 174, 189, 208 and 212 are placed (UX-006-09). The component sheet wireframes/ui-kit.html is the ui_design_system resource."
   ],
   "ui_design_system": {
     "catalogue": {
       "path": "ui-design-system.md",
-      "sha256": "ff3439c101c09c5db3ad048d3d637e230bc696b68a8c0822e8f77110787c2c80"
+      "sha256": "7109a1c8fc61b3b5d911da8bf9844bab6c2a2a526f479907a02b50e112ce8dc9"
     },
     "tokens": {
       "path": "ui-design-tokens.json",
-      "sha256": "69bbd849ddb1ad507635b968e8eb1af4527ba124d305516fbccb0cb5a35f7507"
+      "sha256": "36f3b7a2c394f708f5a6bf929b20c384f1642463dabe3b37cc44548868bc555e"
     },
     "resources": [
       {
         "path": "wireframes/ui-kit.html",
-        "sha256": "7d8bd26040acc55ccac60dd086e7e361a9f8143eaf2a7e1c5f7e78b03c591473"
+        "sha256": "d6702907c808f97a2aef8ab5058e940b7a571f69ad27a8e18d76835fa018cd44"
       },
       {
         "path": "wireframes/ui-kit.png",
-        "sha256": "f8cc0fa5fc67651b6d386b1118307dde3b1a8adfbfe5ce06731c255f6873782e"
+        "sha256": "a45b9579a2aa9371690a0fdb1e1bce38928f6ad830ecee09997336719579564f"
       }
     ]
   }

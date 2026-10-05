@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 12 - Planner</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Accessibility: Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      z-index: 1000;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 16px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focus Ring */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Links */
+    a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #0055CC;
+      text-decoration: underline;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.2px;
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+    .search-input {
+      width: 240px;
+      height: 36px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      padding: 24px 32px 48px;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+    .breadcrumb-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      font-size: 14px;
+      color: #626F86;
+    }
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      padding: 0 8px;
+      color: #626F86;
+    }
+    .breadcrumb-item a {
+      color: #0C66E4;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    /* Page Header */
+    .page-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 12px;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+    }
+
+    /* Buttons */
+    .actions-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      padding: 0 14px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      background: none;
+    }
+    .btn-neutral {
+      background-color: #FFFFFF;
+      border-color: #8590A2;
+      color: #1D2125;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+    .btn-danger {
+      background-color: #C9372C;
+      border-color: #C9372C;
+      color: #FFFFFF;
+    }
+    .btn-danger:hover {
+      background-color: #AE2A19;
+      border-color: #AE2A19;
+    }
+
+    /* Sub-header links */
+    .action-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    .action-links a {
+      color: #0C66E4;
+    }
+
+    /* Metadata details grid */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 420px));
+      row-gap: 8px;
+      column-gap: 48px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .detail-item {
+      display: flex;
+      align-items: baseline;
+    }
+    .detail-label {
+      width: 140px;
+      color: #626F86;
+      flex-shrink: 0;
+    }
+    .detail-value {
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    /* Description */
+    .task-description {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 32px;
+    }
+
+    /* Section divider */
+    .section-divider {
+      border: 0;
+      border-top: 1px solid #DCDFE4;
+      margin-bottom: 32px;
+    }
+
+    /* Sections */
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 16px;
+    }
+
+    /* Time log table */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+    .data-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      height: 40px;
+      padding: 0 16px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+    .data-table td {
+      height: 40px;
+      padding: 0 16px;
+      color: #1D2125;
+      border-bottom: 1px solid #DCDFE4;
+    }
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+    .data-table .num-col {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .total-row {
+      font-weight: 600;
+    }
+
+    /* Notes section */
+    .notes-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 20px 24px;
+    }
+    .note-subject {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+    .note-meta {
+      font-size: 12px;
+      color: #626F86;
+      margin-bottom: 12px;
+    }
+    .note-body {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .note-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+    .link-danger {
+      color: #C9372C;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .link-danger:hover {
+      color: #AE2A19;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessibility: Skip to main content -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="brand-name">Planner</span>
+      <div class="search-container">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#">Me</a>
+      <a href="#">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#">Top</a></li>
+        <li class="breadcrumb-item"><a href="#">Project 1</a></li>
+        <li class="breadcrumb-item"><a href="#">Iteration 3</a></li>
+        <li class="breadcrumb-item"><a href="#">Story 5</a></li>
+        <li class="breadcrumb-item"><span class="breadcrumb-current" aria-current="page">Task 12</span></li>
+      </ol>
+    </nav>
+
+    <!-- Page Header & Action Buttons -->
+    <div class="page-header">
+      <h1 class="page-title">Task 12</h1>
+      <div class="actions-group">
+        <button type="button" class="btn btn-neutral">Reopen task</button>
+        <button type="button" class="btn btn-neutral">Edit</button>
+        <button type="button" class="btn btn-neutral">Enter time</button>
+        <button type="button" class="btn btn-neutral">Move or continue</button>
+        <button type="button" class="btn btn-danger">Delete task</button>
+      </div>
+    </div>
+
+    <!-- Quick action links -->
+    <div class="action-links">
+      <a href="#">Export</a>
+      <a href="#">History</a>
+      <a href="#">Add note</a>
+    </div>
+
+    <!-- Details grid -->
+    <div class="details-grid">
+      <div class="detail-item">
+        <span class="detail-label">Acceptor:</span>
+        <span class="detail-value">User A</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Created:</span>
+        <span class="detail-value">2026-03-02</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Estimated:</span>
+        <span class="detail-value">6.0 h</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Status:</span>
+        <span class="detail-value">Completed</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Actual:</span>
+        <span class="detail-value">6.0 h</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Disposition:</span>
+        <span class="detail-value">Planned</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Remaining:</span>
+        <span class="detail-value">0.0 h</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Type:</span>
+        <span class="detail-value">Feature</span>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <p class="task-description">Synthetic sample task.</p>
+
+    <hr class="section-divider">
+
+    <!-- Section: Time log -->
+    <section aria-labelledby="time-log-heading">
+      <h2 id="time-log-heading" class="section-title">Time log</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Report date</th>
+              <th scope="col">Start</th>
+              <th scope="col">End</th>
+              <th scope="col" class="num-col">Duration</th>
+              <th scope="col">Person</th>
+              <th scope="col">Pair</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026-03-05</td>
+              <td>09:00</td>
+              <td>12:00</td>
+              <td class="num-col">3.0</td>
+              <td>User A</td>
+              <td>(none)</td>
+              <td>Synthetic entry</td>
+            </tr>
+            <tr>
+              <td>2026-03-06</td>
+              <td>09:00</td>
+              <td>12:00</td>
+              <td class="num-col">3.0</td>
+              <td>User A</td>
+              <td>(none)</td>
+              <td>Synthetic entry</td>
+            </tr>
+            <tr class="total-row">
+              <td>Total</td>
+              <td></td>
+              <td></td>
+              <td class="num-col">6.0</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section: Notes -->
+    <section aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="section-title">Notes</h2>
+      <div class="notes-container">
+        <div class="note-subject">Synthetic task note</div>
+        <div class="note-meta">User A · 2026-03-06</div>
+        <p class="note-body">Synthetic note text.</p>
+        <div class="note-actions">
+          <a href="#">Edit</a>
+          <a href="#" class="link-danger">Delete</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -2,101 +2,440 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Timesheet: User A - Planner</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-32 Timesheet: User A - Planner</title>
   <style>
-    :root {
-      --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --text: #1D2125;
-      --secondary: #626F86;
-      --primary: #0C66E4;
-      --primary-hover: #0055CC;
-      --completion: #1F7A45;
-      --danger: #C9372C;
-      --bg: #F7F8FA;
-      --surface: #FFFFFF;
-      --border: #8590A2;
-      --divider: #DCDFE4;
-      --th-bg: #F1F2F4;
-      --selected: #E9F2FF;
+    /* Foundation resets & tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: var(--font-stack);
-      color: var(--text);
-      background-color: var(--bg);
-      margin: 0;
-      padding: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 14px;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Focus ring requirement: 2px #0C66E4 with 2px offset */
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
-      outline: 2px solid var(--primary) !important;
-      outline-offset: 2px !important;
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      z-index: 10000;
     }
 
-    .focus-ring:focus-visible {
-      outline: 2px solid var(--primary) !important;
-      outline-offset: 2px !important;
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    /* Focus styling */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top navigation bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      width: 240px;
+      height: 32px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 10px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #1D2125;
+      background: #FFFFFF;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main container layout */
+    .page-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px 24px 64px 24px;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      font-size: 14px;
+      gap: 6px;
+      color: #626F86;
+    }
+
+    .breadcrumb-item a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .breadcrumb-item a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #626F86;
+      user-select: none;
+    }
+
+    .breadcrumb-item [aria-current="page"] {
+      color: #1D2125;
+      font-weight: normal;
+    }
+
+    /* Page heading */
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Filter row */
+    .filter-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .filter-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .filter-label {
+      font-size: 14px;
+      color: #1D2125;
+    }
+
+    .date-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .date-input {
+      width: 180px;
+      height: 36px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 36px 0 10px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #1D2125;
+      background: #FFFFFF;
+    }
+
+    .calendar-btn {
+      position: absolute;
+      right: 6px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #626F86;
+      border-radius: 4px;
+    }
+
+    .calendar-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: #626F86;
+      stroke-width: 1.5;
+    }
+
+    .field-hint {
+      font-size: 12px;
+      color: #626F86;
+    }
+
+    .show-btn {
+      align-self: flex-start;
+      margin-top: 25px;
+      height: 36px;
+      padding: 0 20px;
+      background: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      color: #1D2125;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .show-btn:hover {
+      background-color: #F1F2F4;
+    }
+
+    /* Main two-column layout: Tables on left, Charts on right */
+    .timesheet-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 420px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .tables-column {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .charts-column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Section heading */
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Flat tables */
+    .table-container {
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .timesheet-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .timesheet-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-bottom: 1px solid #DCDFE4;
+      font-size: 14px;
+    }
+
+    .timesheet-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+    }
+
+    .timesheet-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .timesheet-table .num-col {
+      text-align: right;
+    }
+
+    .total-row td {
+      font-weight: 700;
+      color: #1D2125;
+    }
+
+    /* Chart Cards */
+    .chart-card {
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chart-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 20px;
+    }
+
+    .chart-body {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .pie-svg-container {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+
+    .pie-svg {
+      width: 120px;
+      height: 120px;
+      display: block;
+    }
+
+    .chart-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      color: #1D2125;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .legend-color-box {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+
+    .color-primary {
+      background-color: #0C66E4;
+    }
+
+    .color-success {
+      background-color: #1F7A45;
+    }
+
+    .color-secondary {
+      background-color: #626F86;
     }
   </style>
 </head>
-<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125]">
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Top bar (white, 56px, divider below) -->
-  <header class="h-[56px] bg-white border-b border-[#DCDFE4] px-6 flex items-center justify-between sticky top-0 z-10">
-    <div class="flex items-center gap-6">
-      <span class="text-[18px] font-bold text-[#1D2125] tracking-tight">Planner</span>
-      <div class="flex items-center gap-2">
-        <label for="top-search" class="text-[14px] text-[#1D2125] whitespace-nowrap">Search or ID</label>
-        <input 
-          id="top-search" 
-          type="text" 
-          class="h-[36px] w-[200px] border border-[#8590A2] rounded-[6px] px-3 text-[14px] text-[#1D2125] bg-white focus:outline-none focus:ring-0 focus-ring"
-        />
-      </div>
+  <!-- Top bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-bar-left">
+      <span class="brand-name">Planner</span>
+      <form class="search-container" role="search" onsubmit="event.preventDefault();">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </form>
     </div>
-    <div class="flex items-center gap-4 text-[14px]">
-      <a href="#" class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]">Me</a>
-      <a href="#" class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]">Sign out</a>
+    <div class="top-bar-right">
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
     </div>
   </header>
 
-  <!-- Main Container -->
-  <main class="max-w-[1200px] mx-auto px-6 py-4">
-    
-    <!-- Breadcrumb (14px, links in primary, current item plain text) -->
-    <nav aria-label="Breadcrumb" class="mb-4">
-      <ol class="flex items-center gap-1.5 text-[14px]">
-        <li><a href="#" class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]">Top</a></li>
-        <li class="text-[#626F86]">/</li>
-        <li><a href="#" class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]">People</a></li>
-        <li class="text-[#626F86]">/</li>
-        <li><a href="#" class="text-[#0C66E4] hover:underline focus-ring rounded-[2px]">User A</a></li>
-        <li class="text-[#626F86]">/</li>
-        <li class="text-[#1D2125]">Timesheet</li>
+  <!-- Page Container -->
+  <main id="main" class="page-container" role="main">
+    <!-- Breadcrumb navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#">Top</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><a href="#">People</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><a href="#">User A</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><span aria-current="page">Timesheet</span></li>
       </ol>
     </nav>
 
-    <!-- Page heading 24px weight 600 -->
-    <h1 class="text-[24px] font-semibold text-[#1D2125] leading-tight mb-5">Timesheet: User A</h1>
+    <!-- Page Title -->
+    <h1 class="page-title">Timesheet: User A</h1>
 
     <!-- Filter Row -->
-    <div class="flex flex-wrap items-end gap-6 mb-8">
-      <!-- Start date -->
-      <div>
-        <label for="start-date" class="block text-[14px] font-medium text-[#1D2125] mb-1">Start date</label>
-        <div class="relative flex items-center">
-          <input 
-            id="start-date" 
-            type="text" 
-            value="2026-03-02" 
-            class="h-[36px] w-[160px] border border-[#8590A2] rounded-[6px] pl-3 pr-9 text-[16px] text-[#1D2125] bg-white focus:outline-none focus:ring-0 focus-ring"
-          />
-          <button type="button" aria-label="Choose start date" class="absolute right-2 text-[#626F86] hover:text-[#1D2125] focus-ring p-1 rounded">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <section class="filter-row" aria-label="Timesheet date filter">
+      <div class="filter-field">
+        <label for="start-date" class="filter-label">Start date</label>
+        <div class="date-input-wrapper">
+          <input type="text" id="start-date" class="date-input" value="2026-03-02">
+          <button type="button" class="calendar-btn" aria-label="Open start date calendar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
               <line x1="16" y1="2" x2="16" y2="6"></line>
               <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -104,21 +443,15 @@
             </svg>
           </button>
         </div>
-        <span class="block text-[12px] text-[#626F86] mt-1">Format: 2026-03-02</span>
+        <span class="field-hint">Format: 2026-03-02</span>
       </div>
 
-      <!-- End date -->
-      <div>
-        <label for="end-date" class="block text-[14px] font-medium text-[#1D2125] mb-1">End date</label>
-        <div class="relative flex items-center">
-          <input 
-            id="end-date" 
-            type="text" 
-            value="2026-03-13" 
-            class="h-[36px] w-[160px] border border-[#8590A2] rounded-[6px] pl-3 pr-9 text-[16px] text-[#1D2125] bg-white focus:outline-none focus:ring-0 focus-ring"
-          />
-          <button type="button" aria-label="Choose end date" class="absolute right-2 text-[#626F86] hover:text-[#1D2125] focus-ring p-1 rounded">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <div class="filter-field">
+        <label for="end-date" class="filter-label">End date</label>
+        <div class="date-input-wrapper">
+          <input type="text" id="end-date" class="date-input" value="2026-03-13">
+          <button type="button" class="calendar-btn" aria-label="Open end date calendar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
               <line x1="16" y1="2" x2="16" y2="6"></line>
               <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -126,223 +459,207 @@
             </svg>
           </button>
         </div>
-        <span class="block text-[12px] text-[#626F86] mt-1">Format: 2026-03-02</span>
+        <span class="field-hint">Format: 2026-03-02</span>
       </div>
 
-      <!-- Neutral button "Show" -->
-      <div class="pb-[19px]">
-        <button 
-          type="button" 
-          class="h-[36px] px-5 border border-[#8590A2] rounded-[6px] text-[16px] font-medium text-[#1D2125] bg-white hover:bg-[#F1F2F4] focus:outline-none focus-ring transition-colors"
-        >
-          Show
-        </button>
-      </div>
-    </div>
+      <button type="button" class="show-btn">Show</button>
+    </section>
 
-    <!-- Layout: Left side tables (Summary & Daily totals), Right side Pie Charts -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
-      
-      <!-- Tables Column -->
-      <div class="lg:col-span-8 flex flex-col gap-8">
-        
-        <!-- Section "Summary" -->
-        <section>
-          <h2 class="text-[20px] font-semibold text-[#1D2125] mb-3">Summary</h2>
-          <div class="border border-[#DCDFE4] rounded-[6px] overflow-hidden bg-white">
-            <table class="w-full text-left border-collapse text-[14px]">
+    <!-- Timesheet Content Grid -->
+    <div class="timesheet-grid">
+      <!-- Left Column: Summary and Daily totals Tables -->
+      <div class="tables-column">
+        <!-- Section Summary -->
+        <section aria-labelledby="summary-heading">
+          <h2 id="summary-heading" class="section-title">Summary</h2>
+          <div class="table-container">
+            <table class="timesheet-table">
               <thead>
-                <tr class="bg-[#F1F2F4] border-b border-[#DCDFE4] h-[40px]">
-                  <th class="px-4 font-semibold text-[#1D2125]">Project</th>
-                  <th class="px-4 font-semibold text-[#1D2125]">Iteration</th>
-                  <th class="px-4 font-semibold text-[#1D2125]">Story</th>
-                  <th class="px-4 font-semibold text-[#1D2125] text-right">Hours</th>
+                <tr>
+                  <th scope="col">Project</th>
+                  <th scope="col">Iteration</th>
+                  <th scope="col">Story</th>
+                  <th scope="col" class="num-col">Hours</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-[#DCDFE4]">
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">Project 1</td>
-                  <td class="px-4 text-[#1D2125]">Iteration 3</td>
-                  <td class="px-4 text-[#1D2125]">Story 1</td>
-                  <td class="px-4 text-[#1D2125] text-right">9.0</td>
+              <tbody>
+                <tr>
+                  <td>Project 1</td>
+                  <td>Iteration 3</td>
+                  <td>Story 1</td>
+                  <td class="num-col">9.0</td>
                 </tr>
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">Project 1</td>
-                  <td class="px-4 text-[#1D2125]">Iteration 3</td>
-                  <td class="px-4 text-[#1D2125]">Story 3</td>
-                  <td class="px-4 text-[#1D2125] text-right">6.0</td>
+                <tr>
+                  <td>Project 1</td>
+                  <td>Iteration 3</td>
+                  <td>Story 3</td>
+                  <td class="num-col">6.0</td>
                 </tr>
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">Project 1</td>
-                  <td class="px-4 text-[#1D2125]">Iteration 3</td>
-                  <td class="px-4 text-[#1D2125]">Story 5</td>
-                  <td class="px-4 text-[#1D2125] text-right">16.0</td>
+                <tr>
+                  <td>Project 1</td>
+                  <td>Iteration 3</td>
+                  <td>Story 5</td>
+                  <td class="num-col">16.0</td>
+                </tr>
+                <tr class="total-row">
+                  <td colspan="3">Total</td>
+                  <td class="num-col">31.0</td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr class="h-[40px] border-t-2 border-[#DCDFE4] bg-white font-bold text-[#1D2125]">
-                  <td colspan="3" class="px-4">Total</td>
-                  <td class="px-4 text-right">31.0</td>
-                </tr>
-              </tfoot>
             </table>
           </div>
         </section>
 
-        <!-- Section "Daily totals" -->
-        <section>
-          <h2 class="text-[20px] font-semibold text-[#1D2125] mb-3">Daily totals</h2>
-          <div class="border border-[#DCDFE4] rounded-[6px] overflow-hidden bg-white max-w-[480px]">
-            <table class="w-full text-left border-collapse text-[14px]">
+        <!-- Section Daily totals -->
+        <section aria-labelledby="daily-totals-heading">
+          <h2 id="daily-totals-heading" class="section-title">Daily totals</h2>
+          <div class="table-container">
+            <table class="timesheet-table">
               <thead>
-                <tr class="bg-[#F1F2F4] border-b border-[#DCDFE4] h-[40px]">
-                  <th class="px-4 font-semibold text-[#1D2125]">Date</th>
-                  <th class="px-4 font-semibold text-[#1D2125] text-right">Hours</th>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col" class="num-col">Hours</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-[#DCDFE4]">
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">2026-03-02</td>
-                  <td class="px-4 text-[#1D2125] text-right">4.0</td>
+              <tbody>
+                <tr>
+                  <td>2026-03-02</td>
+                  <td class="num-col">4.0</td>
                 </tr>
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">2026-03-03</td>
-                  <td class="px-4 text-[#1D2125] text-right">4.0</td>
+                <tr>
+                  <td>2026-03-03</td>
+                  <td class="num-col">4.0</td>
                 </tr>
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">2026-03-04</td>
-                  <td class="px-4 text-[#1D2125] text-right">4.0</td>
+                <tr>
+                  <td>2026-03-04</td>
+                  <td class="num-col">4.0</td>
                 </tr>
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">2026-03-05</td>
-                  <td class="px-4 text-[#1D2125] text-right">4.0</td>
+                <tr>
+                  <td>2026-03-05</td>
+                  <td class="num-col">4.0</td>
                 </tr>
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">2026-03-06</td>
-                  <td class="px-4 text-[#1D2125] text-right">3.0</td>
+                <tr>
+                  <td>2026-03-06</td>
+                  <td class="num-col">3.0</td>
                 </tr>
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">2026-03-09</td>
-                  <td class="px-4 text-[#1D2125] text-right">4.0</td>
+                <tr>
+                  <td>2026-03-09</td>
+                  <td class="num-col">4.0</td>
                 </tr>
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">2026-03-10</td>
-                  <td class="px-4 text-[#1D2125] text-right">4.0</td>
+                <tr>
+                  <td>2026-03-10</td>
+                  <td class="num-col">4.0</td>
                 </tr>
-                <tr class="h-[40px] hover:bg-[#F7F8FA]">
-                  <td class="px-4 text-[#1D2125]">2026-03-11</td>
-                  <td class="px-4 text-[#1D2125] text-right">4.0</td>
+                <tr>
+                  <td>2026-03-11</td>
+                  <td class="num-col">4.0</td>
+                </tr>
+                <tr class="total-row">
+                  <td>Total</td>
+                  <td class="num-col">31.0</td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr class="h-[40px] border-t-2 border-[#DCDFE4] bg-white font-bold text-[#1D2125]">
-                  <td class="px-4">Total</td>
-                  <td class="px-4 text-right">31.0</td>
-                </tr>
-              </tfoot>
             </table>
           </div>
         </section>
-
       </div>
 
-      <!-- Pie Charts Column -->
-      <div class="lg:col-span-4 flex flex-col gap-6">
-        
-        <!-- Pie Chart 1: By project -->
-        <div class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-          <h3 class="text-[16px] font-semibold text-[#1D2125] mb-3">By project</h3>
-          <div class="flex items-center gap-6">
-            <!-- Full solid circle for 100% -->
-            <svg width="100" height="100" viewBox="0 0 32 32" class="flex-shrink-0">
-              <circle r="16" cx="16" cy="16" fill="#0C66E4" />
-            </svg>
-            <div class="flex flex-col gap-1 text-[14px]">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] flex-shrink-0"></span>
-                <span class="text-[#1D2125]">Project 1 <span class="text-[#626F86] font-medium">31.0</span></span>
+      <!-- Right Column: Pie Charts -->
+      <div class="charts-column">
+        <!-- By project -->
+        <div class="chart-card">
+          <h3 class="chart-card-title">By project</h3>
+          <div class="chart-body">
+            <div class="pie-svg-container">
+              <svg class="pie-svg" viewBox="0 0 100 100" role="img" aria-label="Pie chart showing 100% Project 1">
+                <!-- Full filled circle for single slice 31.0/31.0 (100%) -->
+                <circle cx="50" cy="50" r="50" fill="#0C66E4" />
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="legend-color-box color-primary" aria-hidden="true"></span>
+                <span>Project 1 31.0</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Pie Chart 2: By iteration -->
-        <div class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-          <h3 class="text-[16px] font-semibold text-[#1D2125] mb-3">By iteration</h3>
-          <div class="flex items-center gap-6">
-            <!-- Full solid circle for 100% -->
-            <svg width="100" height="100" viewBox="0 0 32 32" class="flex-shrink-0">
-              <circle r="16" cx="16" cy="16" fill="#0C66E4" />
-            </svg>
-            <div class="flex flex-col gap-1 text-[14px]">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] flex-shrink-0"></span>
-                <span class="text-[#1D2125]">Iteration 3 <span class="text-[#626F86] font-medium">31.0</span></span>
+        <!-- By iteration -->
+        <div class="chart-card">
+          <h3 class="chart-card-title">By iteration</h3>
+          <div class="chart-body">
+            <div class="pie-svg-container">
+              <svg class="pie-svg" viewBox="0 0 100 100" role="img" aria-label="Pie chart showing 100% Iteration 3">
+                <!-- Full filled circle for single slice 31.0/31.0 (100%) -->
+                <circle cx="50" cy="50" r="50" fill="#0C66E4" />
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="legend-color-box color-primary" aria-hidden="true"></span>
+                <span>Iteration 3 31.0</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Pie Chart 3: By story (Story 1: 9.0 (29.03%), Story 3: 6.0 (19.35%), Story 5: 16.0 (51.61%)) -->
-        <!-- Total = 31.0. Circumference with r=15.9155 is 100.
-             Story 1 (#0C66E4): 29.03% -> stroke-dasharray="29.03 70.97", offset 25
-             Story 3 (#1F7A45): 19.35% -> stroke-dasharray="19.35 80.65", offset 25 - 29.03 = -4.03 (or 95.97)
-             Story 5 (#626F86): 51.61% -> stroke-dasharray="51.61 48.39", offset 95.97 - 19.35 = 76.62
-        -->
-        <div class="bg-white border border-[#DCDFE4] rounded-[6px] p-4">
-          <h3 class="text-[16px] font-semibold text-[#1D2125] mb-3">By story</h3>
-          <div class="flex items-center gap-6">
-            <svg width="100" height="100" viewBox="0 0 42 42" class="flex-shrink-0 transform -rotate-90">
-              <!-- Slice 1: Story 1 (9.0 / 31.0 = 29.03%) -->
-              <circle 
-                cx="21" cy="21" r="15.91549430918954" 
-                fill="transparent" 
-                stroke="#0C66E4" 
-                stroke-width="31.83" 
-                stroke-dasharray="29.03 70.97" 
-                stroke-dashoffset="0"
-              />
-              <!-- Slice 2: Story 3 (6.0 / 31.0 = 19.35%) -->
-              <circle 
-                cx="21" cy="21" r="15.91549430918954" 
-                fill="transparent" 
-                stroke="#1F7A45" 
-                stroke-width="31.83" 
-                stroke-dasharray="19.35 80.65" 
-                stroke-dashoffset="-29.03"
-              />
-              <!-- Slice 3: Story 5 (16.0 / 31.0 = 51.61%) -->
-              <circle 
-                cx="21" cy="21" r="15.91549430918954" 
-                fill="transparent" 
-                stroke="#626F86" 
-                stroke-width="31.83" 
-                stroke-dasharray="51.62 48.38" 
-                stroke-dashoffset="-48.38"
-              />
-            </svg>
-            <div class="flex flex-col gap-2 text-[14px]">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-[2px] bg-[#0C66E4] flex-shrink-0"></span>
-                <span class="text-[#1D2125]">Story 1 <span class="text-[#626F86] font-medium">9.0</span></span>
+        <!-- By story -->
+        <div class="chart-card">
+          <h3 class="chart-card-title">By story</h3>
+          <div class="chart-body">
+            <div class="pie-svg-container">
+              <svg class="pie-svg" viewBox="0 0 100 100" role="img" aria-label="Pie chart showing breakdown by story: Story 1 9.0h, Story 3 6.0h, Story 5 16.0h">
+                <!--
+                  Total hours = 31.0
+                  Slice 1: Story 1 = 9.0h -> 9.0/31.0 = 29.032258% -> 104.5161 deg. Start at top (0 deg / -90 deg from 3 o'clock).
+                  Slice 2: Story 3 = 6.0h -> 6.0/31.0 = 19.354839% -> 69.6774 deg. Cumul 174.1935 deg.
+                  Slice 3: Story 5 = 16.0h -> 16.0/31.0 = 51.612903% -> 185.8065 deg. Cumul 360 deg.
+
+                  Angles measured from 12 o'clock (0, -R):
+                  Slice 1 (#0C66E4): 0 deg to 104.52 deg
+                    Start: (50, 0)
+                    End: 50 + 50*sin(104.52°) = 50 + 50*0.96807 = 98.40
+                         50 - 50*cos(104.52°) = 50 - 50*(-0.2507) = 62.54
+                    Path: M 50,50 L 50,0 A 50 50 0 0 1 98.40 62.54 Z
+
+                  Slice 2 (#1F7A45): 104.52 deg to 174.19 deg
+                    Start: (98.40, 62.54)
+                    End: 50 + 50*sin(174.19°) = 50 + 50*0.1012 = 55.06
+                         50 - 50*cos(174.19°) = 50 - 50*(-0.9949) = 99.74
+                    Path: M 50,50 L 98.40,62.54 A 50 50 0 0 1 55.06 99.74 Z
+
+                  Slice 3 (#626F86): 174.19 deg to 360 deg (185.81 deg -> large arc flag = 1)
+                    Start: (55.06, 99.74)
+                    End: (50, 0)
+                    Path: M 50,50 L 55.06,99.74 A 50 50 0 1 1 50 0 Z
+                -->
+                <!-- Slice 1: Story 1 (9.0h) - #0C66E4 -->
+                <path d="M 50 50 L 50 0 A 50 50 0 0 1 98.40 62.54 Z" fill="#0C66E4"></path>
+                <!-- Slice 2: Story 3 (6.0h) - #1F7A45 -->
+                <path d="M 50 50 L 98.40 62.54 A 50 50 0 0 1 55.06 99.74 Z" fill="#1F7A45"></path>
+                <!-- Slice 3: Story 5 (16.0h) - #626F86 -->
+                <path d="M 50 50 L 55.06 99.74 A 50 50 0 1 1 50 0 Z" fill="#626F86"></path>
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="legend-color-box color-primary" aria-hidden="true"></span>
+                <span>Story 1 9.0</span>
               </div>
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-[2px] bg-[#1F7A45] flex-shrink-0"></span>
-                <span class="text-[#1D2125]">Story 3 <span class="text-[#626F86] font-medium">6.0</span></span>
+              <div class="legend-item">
+                <span class="legend-color-box color-success" aria-hidden="true"></span>
+                <span>Story 3 6.0</span>
               </div>
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-[2px] bg-[#626F86] flex-shrink-0"></span>
-                <span class="text-[#1D2125]">Story 5 <span class="text-[#626F86] font-medium">16.0</span></span>
+              <div class="legend-item">
+                <span class="legend-color-box color-secondary" aria-hidden="true"></span>
+                <span>Story 5 16.0</span>
               </div>
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
-
   </main>
-
 </body>
 </html>

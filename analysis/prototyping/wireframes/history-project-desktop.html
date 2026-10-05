@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-06 History: Project 1 (container view)</title>
+  <style>
+    /* Reset & Base Foundation */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 1000;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focus States */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 240px;
+      background: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 10px;
+      font-size: 14px;
+      color: #1D2125;
+      font-family: inherit;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    main {
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #626F86;
+    }
+
+    .breadcrumb-item {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      margin: 0 8px;
+      color: #626F86;
+    }
+
+    .breadcrumb-item a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .breadcrumb-item a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-item span {
+      color: #1D2125;
+    }
+
+    /* Page Header */
+    .page-header {
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 6px;
+    }
+
+    .header-subtext {
+      font-size: 14px;
+      color: #626F86;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .header-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Table Container */
+    .table-container {
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .data-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      border-bottom: 1px solid #DCDFE4;
+      padding: 0;
+      height: 40px;
+    }
+
+    .sort-button {
+      all: unset;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 16px;
+      height: 40px;
+      width: 100%;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      box-sizing: border-box;
+    }
+
+    .sort-button:hover {
+      background-color: #E9F2FF;
+    }
+
+    .sort-button:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: -2px;
+      border-radius: 0;
+    }
+
+    .sort-arrow {
+      font-size: 11px;
+      color: #1D2125;
+      user-select: none;
+    }
+
+    .data-table td {
+      height: 40px;
+      padding: 0 16px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .item-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .item-link:hover {
+      text-decoration: underline;
+    }
+
+    .time-cell {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <div class="brand-title">Planner</div>
+      <div class="search-group">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </div>
+    </div>
+    <nav class="top-bar-right" aria-label="User navigation">
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#">Top</a></li>
+        <li class="breadcrumb-item"><a href="#">Project 1</a></li>
+        <li class="breadcrumb-item"><span aria-current="page">History</span></li>
+      </ol>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1 class="page-title">History: Project 1</h1>
+      <div class="header-subtext">
+        <span>Created and deleted objects in this project</span>
+        <a href="#" class="header-link">Show events of the project itself</a>
+      </div>
+    </div>
+
+    <!-- History Table -->
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">
+                Type
+              </button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">
+                Name
+              </button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">
+                Action
+              </button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">
+                By
+              </button>
+            </th>
+            <th scope="col" aria-sort="descending">
+              <button type="button" class="sort-button">
+                When <span class="sort-arrow" aria-hidden="true">▼</span>
+              </button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">
+                Description
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Task</td>
+            <td><a href="#" class="item-link">Task 20</a></td>
+            <td>Created</td>
+            <td>User B</td>
+            <td class="time-cell">2026-03-04 14:05</td>
+            <td>Task created</td>
+          </tr>
+          <tr>
+            <td>Story</td>
+            <td><a href="#" class="item-link">Story 4</a></td>
+            <td>Created</td>
+            <td>User D</td>
+            <td class="time-cell">2026-03-03 11:20</td>
+            <td>Story created</td>
+          </tr>
+          <tr>
+            <td>Task</td>
+            <td>Task 6</td>
+            <td>Deleted</td>
+            <td>User B</td>
+            <td class="time-cell">2026-03-01 16:30</td>
+            <td>Task deleted</td>
+          </tr>
+          <tr>
+            <td>Iteration</td>
+            <td><a href="#" class="item-link">Iteration 4</a></td>
+            <td>Created</td>
+            <td>User A</td>
+            <td class="time-cell">2026-02-27 10:00</td>
+            <td>Iteration created</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+</html>

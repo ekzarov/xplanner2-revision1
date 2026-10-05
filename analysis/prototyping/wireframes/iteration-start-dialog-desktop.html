@@ -1,396 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=1280, initial-scale=1.0">
-<title>Iteration 4 - Start confirmation complete export</title>
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  html, body {
-    width: 1280px;
-    min-height: 1024px;
-    height: 1024px;
-    background-color: #F7F8FA;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: #1D2125;
-    font-size: 14px;
-    position: relative;
-    overflow: hidden;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-20 Iteration 4 - Start confirmation (Editor)</title>
+  <style>
+    /* Reset & Foundations */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  /* Top bar */
-  .top-bar {
-    width: 100%;
-    height: 56px;
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #DCDFE4;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-  }
-  .top-bar-left {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .brand-logo {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1D2125;
-    text-decoration: none;
-  }
-  .search-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .search-label {
-    font-size: 14px;
-    color: #1D2125;
-  }
-  .search-input {
-    width: 240px;
-    height: 36px;
-    padding: 0 12px;
-    border: 1px solid #8590A2;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 14px;
-    color: #1D2125;
-    outline: none;
-    background: #FFFFFF;
-  }
-  .top-bar-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .top-link {
-    color: #0C66E4;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .top-link:hover {
-    text-decoration: underline;
-  }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 1024px;
+      position: relative;
+    }
 
-  /* Content area */
-  .main-content {
-    padding: 24px;
-  }
-  .breadcrumb {
-    font-size: 14px;
-    margin-bottom: 16px;
-    display: flex;
-    gap: 6px;
-    align-items: center;
-  }
-  .breadcrumb a {
-    color: #0C66E4;
-    text-decoration: none;
-  }
-  .breadcrumb a:hover {
-    text-decoration: underline;
-  }
-  .breadcrumb .sep {
-    color: #626F86;
-  }
-  .breadcrumb .current {
-    color: #1D2125;
-  }
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      z-index: 10000;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
 
-  /* Header row with buttons */
-  .header-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 4px;
-  }
-  .page-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: #1D2125;
-  }
-  .header-actions {
-    display: flex;
-    gap: 8px;
-  }
-  .btn-action-neutral {
-    background-color: #FFFFFF;
-    border: 1px solid #8590A2;
-    color: #1D2125;
-    height: 36px;
-    padding: 0 14px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  .btn-action-danger {
-    background-color: #C9372C;
-    border: 1px solid #C9372C;
-    color: #FFFFFF;
-    height: 36px;
-    padding: 0 14px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-  }
+    /* Top bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
 
-  .date-range {
-    font-size: 14px;
-    color: #626F86;
-    margin-bottom: 12px;
-  }
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
 
-  /* Summary line */
-  .summary-line {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #1D2125;
-  }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1D2125;
+      text-decoration: none;
+    }
 
-  /* Local tabs */
-  .tabs-nav {
-    display: flex;
-    gap: 24px;
-    border-bottom: 1px solid #DCDFE4;
-    margin-bottom: 24px;
-  }
-  .tab-link {
-    padding-bottom: 10px;
-    font-size: 14px;
-    color: #626F86;
-    text-decoration: none;
-    position: relative;
-  }
-  .tab-link.active {
-    font-weight: 600;
-    color: #0C66E4;
-    border-bottom: 2px solid #0C66E4;
-    margin-bottom: -1px;
-  }
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-  /* Empty state */
-  .empty-state {
-    padding: 48px 0;
-    color: #626F86;
-    font-size: 14px;
-  }
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 500;
+    }
 
-  /* Scrim and Modal Dialog */
-  .scrim-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1280px;
-    height: 1024px;
-    background-color: rgba(29, 33, 37, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
+    .search-input {
+      height: 36px;
+      width: 240px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+    }
+    .search-input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
 
-  .modal-dialog {
-    width: 480px;
-    background-color: #FFFFFF;
-    border-radius: 6px;
-    padding: 24px;
-    box-shadow: 0 8px 24px rgba(29, 33, 37, 0.2), 0 2px 6px rgba(29, 33, 37, 0.12);
-  }
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-  .dialog-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #1D2125;
-    margin-bottom: 16px;
-  }
+    .primary-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .primary-link:hover {
+      text-decoration: underline;
+    }
+    .primary-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
 
-  .dialog-body {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #1D2125;
-    margin-bottom: 20px;
-  }
-  .dialog-body p + p {
-    margin-top: 12px;
-  }
+    /* Page Main Content Area */
+    main {
+      padding: 24px 32px 48px;
+    }
 
-  .checkbox-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 24px;
-    user-select: none;
-  }
-  .custom-checkbox {
-    width: 18px;
-    height: 18px;
-    background-color: #0C66E4;
-    border: 1px solid #0C66E4;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .custom-checkbox svg {
-    width: 12px;
-    height: 12px;
-    stroke: #FFFFFF;
-    stroke-width: 2.5;
-    fill: none;
-  }
-  .checkbox-label {
-    font-size: 16px;
-    color: #1D2125;
-    cursor: pointer;
-  }
+    /* Breadcrumbs */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumb-separator {
+      color: #626F86;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+      font-weight: 500;
+    }
 
-  .dialog-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-  }
+    /* Heading row */
+    .heading-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
 
-  .btn-neutral {
-    background-color: #FFFFFF;
-    border: 1px solid #8590A2;
-    color: #1D2125;
-    height: 36px;
-    padding: 0 16px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    outline: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-neutral:hover {
-    background-color: #F7F8FA;
-  }
-  .btn-neutral.focus-ring {
-    outline: 2px solid #0C66E4;
-    outline-offset: 2px;
-  }
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+    }
 
-  .btn-primary {
-    background-color: #0C66E4;
-    border: 1px solid #0C66E4;
-    color: #FFFFFF;
-    height: 36px;
-    padding: 0 16px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    outline: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-primary:hover {
-    background-color: #0055CC;
-    border-color: #0055CC;
-  }
-</style>
+    .date-range {
+      font-size: 14px;
+      color: #626F86;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .summary-text {
+      font-size: 14px;
+      color: #1D2125;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .summary-separator {
+      color: #8590A2;
+    }
+
+    /* Header action buttons */
+    .header-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-neutral {
+      height: 36px;
+      padding: 0 16px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      color: #1D2125;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-neutral:hover {
+      background-color: #F1F2F4;
+    }
+    .btn-neutral:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      height: 36px;
+      padding: 0 16px;
+      background-color: #0C66E4;
+      border: 1px solid #0C66E4;
+      border-radius: 6px;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+    .btn-primary:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Secondary links */
+    .secondary-links {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* Tabs */
+    .tabs-nav {
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .tab-link {
+      padding: 8px 0;
+      color: #626F86;
+      text-decoration: none;
+      font-size: 14px;
+      position: relative;
+      font-weight: 400;
+    }
+    .tab-link:hover {
+      color: #1D2125;
+    }
+    .tab-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    .tab-link[aria-current="page"] {
+      color: #0C66E4;
+      font-weight: 600;
+    }
+    .tab-link[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #0C66E4;
+    }
+
+    /* Empty state box */
+    .empty-state-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 64px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      min-height: 260px;
+    }
+
+    .empty-state-text {
+      font-size: 14px;
+      color: #626F86;
+    }
+
+    /* Scrim overlay */
+    .modal-scrim {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(29, 33, 37, 0.5); /* #1D2125 at 50% opacity */
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Modal Dialog */
+    .modal-dialog {
+      background-color: #FFFFFF;
+      width: 480px;
+      border-radius: 6px;
+      border: 1px solid #DCDFE4;
+      padding: 24px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .dialog-header {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.3;
+    }
+
+    .dialog-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+      color: #1D2125;
+      line-height: 1.5;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+      cursor: pointer;
+    }
+
+    .native-checkbox {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #8590A2;
+      border-radius: 3px;
+      accent-color: #0C66E4;
+      cursor: pointer;
+    }
+    .native-checkbox:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .checkbox-label {
+      font-size: 14px;
+      color: #1D2125;
+      cursor: pointer;
+    }
+
+    .dialog-footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    /* Cancel has initial keyboard focus with visible 2px outline and 2px offset */
+    .btn-dialog-cancel {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+  </style>
 </head>
 <body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Background content -->
+  <!-- Top Bar -->
   <header class="top-bar">
-    <div class="top-bar-left">
-      <span class="brand-logo">Planner</span>
-      <div class="search-wrapper">
-        <label for="search-input" class="search-label">Search or ID</label>
-        <input id="search-input" class="search-input" type="text" />
+    <div class="brand-section">
+      <span class="brand-title">Planner</span>
+      <div class="search-group">
+        <label for="top-search" class="search-label">Search or ID</label>
+        <input type="text" id="top-search" class="search-input">
       </div>
     </div>
-    <div class="top-bar-right">
-      <a href="#" class="top-link">Me</a>
-      <a href="#" class="top-link">Sign out</a>
+    <div class="user-actions">
+      <a href="#me" class="primary-link">Me</a>
+      <a href="#signout" class="primary-link">Sign out</a>
     </div>
   </header>
 
-  <main class="main-content">
-    <nav class="breadcrumb">
-      <a href="#">Top</a>
-      <span class="sep">/</span>
-      <a href="#">Project 1</a>
-      <span class="sep">/</span>
-      <span class="current">Iteration 4</span>
+  <!-- Main Content (underlying page) -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a href="#top" class="primary-link">Top</a>
+          <span class="breadcrumb-separator">/</span>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#project-1" class="primary-link">Project 1</a>
+          <span class="breadcrumb-separator">/</span>
+        </li>
+        <li class="breadcrumb-item">
+          <span class="breadcrumb-current" aria-current="page">Iteration 4</span>
+        </li>
+      </ol>
     </nav>
 
-    <div class="header-row">
-      <h1 class="page-title">Iteration 4</h1>
-      <div class="header-actions">
-        <button class="btn-action-neutral" type="button">Start iteration</button>
-        <button class="btn-action-neutral" type="button">Edit iteration</button>
-        <button class="btn-action-danger" type="button">Delete iteration</button>
+    <!-- Page Heading & Controls -->
+    <div class="heading-row">
+      <div>
+        <h1 class="page-title">Iteration 4</h1>
+        <div class="date-range">2026-03-16 to 2026-03-27</div>
+      </div>
+      <div class="header-buttons">
+        <button type="button" class="btn-neutral">Start iteration</button>
+        <button type="button" class="btn-neutral">Edit iteration</button>
       </div>
     </div>
 
-    <div class="date-range">2026-03-16 to 2026-03-27</div>
-
-    <div class="summary-line">
+    <!-- Summary Metrics -->
+    <div class="summary-text">
       <span>Progress 0%</span>
+      <span class="summary-separator">•</span>
       <span>Estimated 0.0 h</span>
+      <span class="summary-separator">•</span>
       <span>Actual 0.0 h</span>
+      <span class="summary-separator">•</span>
       <span>Remaining 0.0 h</span>
     </div>
 
-    <div class="tabs-nav">
-      <a href="#" class="tab-link active">Stories</a>
-      <a href="#" class="tab-link">Tasks</a>
-      <a href="#" class="tab-link">Statistics</a>
-      <a href="#" class="tab-link">Accuracy</a>
-      <a href="#" class="tab-link">Board</a>
+    <!-- Context Links -->
+    <div class="secondary-links">
+      <a href="#export" class="primary-link">Export</a>
+      <a href="#history" class="primary-link">History</a>
+      <a href="#add-note" class="primary-link">Add note</a>
     </div>
 
-    <div class="empty-state">
-      No stories in this iteration.
+    <!-- Local Navigation Tabs -->
+    <div class="tabs-nav" role="tablist">
+      <a href="#stories" class="tab-link" aria-current="page" role="tab">Stories</a>
+      <a href="#tasks" class="tab-link" role="tab">Tasks</a>
+      <a href="#statistics" class="tab-link" role="tab">Statistics</a>
+      <a href="#accuracy" class="tab-link" role="tab">Accuracy</a>
+      <a href="#board" class="tab-link" role="tab">Board</a>
+    </div>
+
+    <!-- Empty State Content -->
+    <div class="empty-state-card">
+      <p class="empty-state-text">No stories in this iteration.</p>
+      <button type="button" class="btn-primary">Create story</button>
     </div>
   </main>
 
-  <!-- Centered Modal Confirmation Dialog -->
-  <div class="scrim-overlay">
+  <!-- Modal Scrim & Confirmation Dialog -->
+  <div class="modal-scrim">
     <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-      <h2 id="dialog-title" class="dialog-title">Start Iteration 4?</h2>
+      <h2 id="dialog-title" class="dialog-header">Start Iteration 4?</h2>
+      
       <div class="dialog-body">
         <p>Do you want to start the iteration?</p>
         <p>1 started iteration needs to be closed: Iteration 3.</p>
+        
+        <label class="checkbox-container">
+          <input type="checkbox" class="native-checkbox" checked>
+          <span class="checkbox-label">Close started iterations</span>
+        </label>
       </div>
 
-      <div class="checkbox-row">
-        <div class="custom-checkbox">
-          <svg viewBox="0 0 16 16">
-            <polyline points="3.5 8.5 6.5 11.5 12.5 4.5"></polyline>
-          </svg>
-        </div>
-        <span class="checkbox-label">Close started iterations</span>
-      </div>
-
-      <div class="dialog-actions">
-        <button class="btn-neutral focus-ring" type="button" autofocus>Cancel</button>
-        <button class="btn-primary" type="button">Start iteration</button>
+      <div class="dialog-footer">
+        <button type="button" class="btn-neutral btn-dialog-cancel" autofocus>Cancel</button>
+        <button type="button" class="btn-primary">Start iteration</button>
       </div>
     </div>
   </div>
-
 </body>
 </html>

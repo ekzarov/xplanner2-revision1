@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iteration 3 - Stories (Viewer)</title>
+  <style>
+    /* CSS Reset & Foundation Tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      z-index: 1000;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focus styling */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 240px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    main {
+      padding: 24px 32px 48px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumb-item:not(:last-child)::after {
+      content: "/";
+      color: #626F86;
+    }
+    .breadcrumb-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-link:hover {
+      text-decoration: underline;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Page Header */
+    .page-header {
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .dates-text {
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 12px;
+    }
+
+    /* Summary Line */
+    .summary-line {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .progress-label {
+      color: #1D2125;
+      white-space: nowrap;
+    }
+    .progress-track {
+      width: 140px;
+      height: 6px;
+      background-color: #DCDFE4;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      width: 48%;
+      height: 100%;
+      background-color: #0C66E4;
+    }
+    .metric-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #1D2125;
+    }
+    .metric-item {
+      white-space: nowrap;
+    }
+
+    /* Header Actions Links */
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .header-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Tabs */
+    .tabs-nav {
+      border-bottom: 1px solid #DCDFE4;
+      margin-bottom: 24px;
+    }
+    .tabs-list {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+    .tab-item {
+      margin-bottom: -1px;
+    }
+    .tab-link {
+      display: inline-block;
+      padding: 10px 4px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #626F86;
+      border-bottom: 2px solid transparent;
+    }
+    .tab-link:hover {
+      color: #1D2125;
+    }
+    .tab-link[aria-current="page"] {
+      color: #0C66E4;
+      font-weight: 600;
+      border-bottom: 2px solid #0C66E4;
+    }
+
+    /* Table Section */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin-bottom: 32px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+    thead tr {
+      background-color: #F1F2F4;
+      height: 40px;
+    }
+    th {
+      font-weight: 600;
+      color: #1D2125;
+      padding: 0 12px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+    th button.sort-button {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 0;
+    }
+    th button.sort-button:hover {
+      color: #0C66E4;
+    }
+    tbody tr {
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+      background-color: #FFFFFF;
+    }
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+    td {
+      padding: 0 12px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+    td.numeric, th.numeric {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    th.numeric button.sort-button {
+      margin-left: auto;
+    }
+    .story-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .story-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Notes Section */
+    .notes-section {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 20px 24px;
+    }
+    .notes-heading {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 16px;
+    }
+    .note-card {
+      border-top: 1px solid #DCDFE4;
+      padding-top: 12px;
+    }
+    .note-subject {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+    .note-meta {
+      font-size: 12px;
+      color: #626F86;
+      margin-bottom: 8px;
+    }
+    .note-body {
+      font-size: 14px;
+      color: #1D2125;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to main content link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="#" class="brand">Planner</a>
+      <form class="search-form" role="search" onsubmit="return false;">
+        <label for="top-search" class="search-label">Search or ID</label>
+        <input type="text" id="top-search" class="search-input" name="search">
+      </form>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main content area -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Top</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Project 1</a></li>
+        <li class="breadcrumb-item"><span class="breadcrumb-current" aria-current="page">Iteration 3</span></li>
+      </ol>
+    </nav>
+
+    <!-- Page Header & Metrics -->
+    <header class="page-header">
+      <h1 class="page-title">Iteration 3</h1>
+      <div class="dates-text">2026-03-02 to 2026-03-13</div>
+
+      <div class="summary-line">
+        <div class="progress-container">
+          <span class="progress-label">Progress 48%</span>
+          <div class="progress-track" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" aria-label="Iteration progress">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+        <div class="metric-group">
+          <span class="metric-item">Estimated 100.0 h</span>
+          <span class="metric-item">Actual 48.0 h</span>
+          <span class="metric-item">Remaining 52.0 h</span>
+        </div>
+      </div>
+
+      <div class="header-links">
+        <a href="#" class="header-link">Export</a>
+        <a href="#" class="header-link">History</a>
+      </div>
+    </header>
+
+    <!-- Local Tabs -->
+    <nav class="tabs-nav" aria-label="Iteration sections">
+      <ul class="tabs-list">
+        <li class="tab-item"><a href="#" class="tab-link" aria-current="page">Stories</a></li>
+        <li class="tab-item"><a href="#" class="tab-link">Tasks</a></li>
+        <li class="tab-item"><a href="#" class="tab-link">Statistics</a></li>
+        <li class="tab-item"><a href="#" class="tab-link">Accuracy</a></li>
+        <li class="tab-item"><a href="#" class="tab-link">Board</a></li>
+      </ul>
+    </nav>
+
+    <!-- Stories Table -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">ID</button>
+            </th>
+            <th scope="col" aria-sort="ascending">
+              <button type="button" class="sort-button">Order ▲</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">Name</button>
+            </th>
+            <th scope="col" class="numeric" aria-sort="none">
+              <button type="button" class="sort-button">Priority</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">Customer</button>
+            </th>
+            <th scope="col" class="numeric" aria-sort="none">
+              <button type="button" class="sort-button">Progress</button>
+            </th>
+            <th scope="col" class="numeric" aria-sort="none">
+              <button type="button" class="sort-button">Actual</button>
+            </th>
+            <th scope="col" class="numeric" aria-sort="none">
+              <button type="button" class="sort-button">Remaining</button>
+            </th>
+            <th scope="col" class="numeric" aria-sort="none">
+              <button type="button" class="sort-button">Estimate</button>
+            </th>
+            <th scope="col" class="numeric" aria-sort="none">
+              <button type="button" class="sort-button">Original estimate</button>
+            </th>
+            <th scope="col" class="numeric" aria-sort="none">
+              <button type="button" class="sort-button">Tasks</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">Tracker</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">Disposition</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="sort-button">Status</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>101</td>
+            <td>1</td>
+            <td><a href="#" class="story-link">Story 1</a></td>
+            <td class="numeric">1</td>
+            <td>User A</td>
+            <td class="numeric">60%</td>
+            <td class="numeric">12.0</td>
+            <td class="numeric">8.0</td>
+            <td class="numeric">20.0</td>
+            <td class="numeric">18.0</td>
+            <td class="numeric">4</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+          <tr>
+            <td>102</td>
+            <td>2</td>
+            <td><a href="#" class="story-link">Story 2</a></td>
+            <td class="numeric">2</td>
+            <td>User C</td>
+            <td class="numeric">25%</td>
+            <td class="numeric">6.0</td>
+            <td class="numeric">18.0</td>
+            <td class="numeric">24.0</td>
+            <td class="numeric">24.0</td>
+            <td class="numeric">3</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+          <tr>
+            <td>103</td>
+            <td>3</td>
+            <td><a href="#" class="story-link">Story 3</a></td>
+            <td class="numeric">4</td>
+            <td>User A</td>
+            <td class="numeric">50%</td>
+            <td class="numeric">10.0</td>
+            <td class="numeric">10.0</td>
+            <td class="numeric">20.0</td>
+            <td class="numeric">16.0</td>
+            <td class="numeric">5</td>
+            <td>User D</td>
+            <td>Carried over</td>
+            <td>Draft</td>
+          </tr>
+          <tr>
+            <td>104</td>
+            <td>4</td>
+            <td><a href="#" class="story-link">Story 4</a></td>
+            <td class="numeric">4</td>
+            <td>User C</td>
+            <td class="numeric">0%</td>
+            <td class="numeric">0.0</td>
+            <td class="numeric">16.0</td>
+            <td class="numeric">16.0</td>
+            <td class="numeric">16.0</td>
+            <td class="numeric">2</td>
+            <td>User D</td>
+            <td>Added</td>
+            <td>Draft</td>
+          </tr>
+          <tr>
+            <td>105</td>
+            <td>5</td>
+            <td><a href="#" class="story-link">Story 5</a></td>
+            <td class="numeric">3</td>
+            <td>User A</td>
+            <td class="numeric">100%</td>
+            <td class="numeric">20.0</td>
+            <td class="numeric">0.0</td>
+            <td class="numeric">20.0</td>
+            <td class="numeric">22.0</td>
+            <td class="numeric">4</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Accepted</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Notes Section -->
+    <section class="notes-section" aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="notes-heading">Notes</h2>
+      <article class="note-card">
+        <h3 class="note-subject">Synthetic iteration note</h3>
+        <div class="note-meta">User B · 2026-03-02</div>
+        <p class="note-body">Synthetic note text.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

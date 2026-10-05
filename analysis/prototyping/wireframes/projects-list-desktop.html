@@ -1,226 +1,356 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Projects - Planner</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "tertiary-fixed": "#ffdad5",
-            "primary-fixed": "#d9e2ff",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "surface-container-lowest": "#ffffff",
-            "surface-container-low": "#f0f3ff",
-            "on-tertiary-fixed-variant": "#910909",
-            "surface-container-high": "#dee8ff",
-            "tertiary-container": "#c8362b",
-            "error": "#ba1a1a",
-            "on-surface-variant": "#424654",
-            "on-error-container": "#93000a",
-            "error-container": "#ffdad6",
-            "inverse-surface": "#243145",
-            "on-primary": "#ffffff",
-            "secondary-container": "#9df6b4",
-            "on-secondary-fixed-variant": "#005229",
-            "primary-container": "#0c66e4",
-            "on-tertiary": "#ffffff",
-            "outline-variant": "#c2c6d7",
-            "on-secondary-fixed": "#00210d",
-            "surface-bright": "#f9f9ff",
-            "background": "#f9f9ff",
-            "on-secondary-container": "#15733f",
-            "on-secondary": "#ffffff",
-            "on-tertiary-fixed": "#410001",
-            "surface-dim": "#cddbf5",
-            "secondary": "#086d39",
-            "surface-variant": "#d6e3fe",
-            "secondary-fixed": "#9df6b4",
-            "tertiary": "#a51c16",
-            "primary": "#004fb6",
-            "surface-container-highest": "#d6e3fe",
-            "on-tertiary-container": "#ffebe8",
-            "surface-tint": "#0058ca",
-            "on-primary-container": "#ecefff",
-            "inverse-on-surface": "#ebf1ff",
-            "primary-fixed-dim": "#b0c6ff",
-            "outline": "#727786",
-            "on-primary-fixed-variant": "#00429b",
-            "on-background": "#0e1c2f",
-            "on-error": "#ffffff",
-            "surface-container": "#e7eeff",
-            "surface": "#f9f9ff",
-            "secondary-fixed-dim": "#82d99a",
-            "inverse-primary": "#b0c6ff",
-            "on-surface": "#0e1c2f",
-            "on-primary-fixed": "#001945"
-          },
-          borderRadius: {
-            "DEFAULT": "6px",
-            "lg": "6px",
-            "xl": "6px",
-            "full": "0.75rem"
-          },
-          fontFamily: {
-            headline: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
-            display: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
-            body: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
-            label: ['system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif']
-          }
-        },
-      },
-    }
-  </script>
-<style>
-    :root {
-      --color-surface: #FFFFFF;
-      --color-page: #F7F8FA;
-      --color-table-header: #F1F2F4;
-      --color-text: #1D2125;
-      --color-secondary-text: #626F86;
-      --color-primary: #0C66E4;
-      --color-primary-hover: #0055CC;
-      --color-border: #8590A2;
-      --color-divider: #DCDFE4;
-      --color-selected: #E9F2FF;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects - Planner (System Administrator)</title>
+  <style>
+    /* Reset & Foundation */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--color-page);
-      color: var(--color-text);
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
       line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .focus-ring:focus,
-    .focus-ring:focus-visible {
-      outline: 2px solid var(--color-primary) !important;
-      outline-offset: 2px !important;
+    /* Accessibility: Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 6px;
+      z-index: 9999;
+      transition: top 0.15s ease-in-out;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
     }
 
-    .tabular-nums {
-      font-variant-numeric: tabular-nums;
+    /* Focus ring standard */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    header.top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 220px;
+      padding: 0 10px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-nav-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .top-nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1216px;
+      margin: 0 auto;
+      padding: 32px 32px 64px 32px;
+    }
+
+    /* Page Header */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+    }
+
+    .btn-primary {
+      height: 36px;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: #FFFFFF;
+      background-color: #0C66E4;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+    }
+
+    /* Sub-navigation links below header */
+    .sub-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .sub-nav-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .sub-nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Table Component */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.projects-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    thead th {
+      background-color: #F1F2F4;
+      font-weight: 600;
+      color: #1D2125;
+      height: 40px;
+      padding: 0 16px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+
+    thead th.col-id {
+      width: 80px;
+    }
+
+    thead th.col-name {
+      width: 320px;
+    }
+
+    thead th.col-iteration {
+      width: 280px;
+    }
+
+    thead th.col-hidden {
+      width: 120px;
+    }
+
+    /* Sortable Header Button */
+    .sort-btn {
+      all: unset;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .sort-btn:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .sort-indicator {
+      font-size: 11px;
+      color: #1D2125;
+      user-select: none;
+    }
+
+    /* Table body rows */
+    tbody tr {
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+      background-color: #FFFFFF;
+    }
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody td {
+      padding: 0 16px;
+      color: #1D2125;
+    }
+
+    tbody td a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    tbody td a:hover {
+      text-decoration: underline;
+    }
+
+    .empty-cell {
+      color: #626F86;
     }
   </style>
 </head>
-<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125]">
-<!-- Top bar -->
-<header class="w-full bg-[#FFFFFF] h-[56px] border-b border-[#DCDFE4] px-6">
-<div class="max-w-[1280px] mx-auto h-full flex items-center justify-between">
-<!-- Brand & Search -->
-<div class="flex items-center gap-8">
-<span class="text-[18px] font-semibold tracking-tight text-[#1D2125]">Planner</span>
-<form action="#" class="flex items-center gap-2 m-0" method="get" onsubmit="event.preventDefault();">
-<label class="text-[14px] text-[#1D2125] font-normal whitespace-nowrap" for="search-id">Search or ID</label>
-<input class="h-[36px] w-64 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-[14px] text-[#1D2125] focus-ring transition-none" id="search-id" name="search" type="text"/>
-</form>
-</div>
-<!-- User Text Actions -->
-<div class="flex items-center gap-6">
-<a class="text-[14px] text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#me">Me</a>
-<a class="text-[14px] text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#signout">Sign out</a>
-</div>
-</div>
-</header>
-<!-- Main Content Container -->
-<main class="max-w-[1280px] mx-auto px-6 pt-4 pb-12">
-<!-- Breadcrumb Area -->
-<nav aria-label="Breadcrumb" class="mb-4">
-<ol class="flex items-center list-none p-0 m-0 text-[14px]">
-<li aria-current="page" class="text-[#1D2125] font-normal">Top</li>
-</ol>
-</nav>
-<!-- Page Header Area -->
-<section class="mb-6">
-<div class="flex items-center justify-between">
-<h1 class="text-[24px] font-semibold text-[#1D2125] leading-none m-0">Projects</h1>
-<button class="h-[36px] px-4 bg-[#0C66E4] hover:bg-[#0055CC] text-[#FFFFFF] text-[14px] font-normal rounded-[6px] focus-ring border-0 inline-flex items-center justify-center cursor-pointer transition-none" type="button">
-          Create project
-        </button>
-</div>
-<!-- Sub Links -->
-<div class="flex items-center gap-3 mt-3 text-[14px]">
-<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px]" href="#people">People</a>
-<span aria-hidden="true" class="text-[#626F86] select-none">•</span>
-<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px]" href="#timesheet">Aggregate timesheet</a>
-</div>
-</section>
-<!-- Projects Table Area -->
-<section class="w-full">
-<div class="w-full border border-[#DCDFE4] bg-[#FFFFFF] rounded-none overflow-x-auto">
-<table class="w-full border-collapse text-left text-[14px]">
-<thead>
-<tr class="bg-[#F1F2F4] border-b border-[#DCDFE4] h-[40px]">
-<th class="font-semibold text-[#1D2125] px-4 w-24 tabular-nums" scope="col">
-<button class="inline-flex items-center gap-1 font-semibold text-[#1D2125] bg-transparent border-0 p-0 text-[14px] focus-ring cursor-pointer" type="button">
-<span>ID</span>
-<span class="material-symbols-outlined text-[16px] text-[#626F86]" data-icon="arrow_upward">arrow_upward</span>
-</button>
-</th>
-<th class="font-semibold text-[#1D2125] px-4" scope="col">
-<button class="inline-flex items-center gap-1 font-semibold text-[#1D2125] bg-transparent border-0 p-0 text-[14px] focus-ring cursor-pointer" type="button">
-<span>Name</span>
-<span class="material-symbols-outlined text-[16px] text-[#626F86]" data-icon="unfold_more">unfold_more</span>
-</button>
-</th>
-<th class="font-semibold text-[#1D2125] px-4" scope="col">
-<button class="inline-flex items-center gap-1 font-semibold text-[#1D2125] bg-transparent border-0 p-0 text-[14px] focus-ring cursor-pointer" type="button">
-<span>Current iteration</span>
-<span class="material-symbols-outlined text-[16px] text-[#626F86]" data-icon="unfold_more">unfold_more</span>
-</button>
-</th>
-<th class="font-semibold text-[#1D2125] px-4 w-32" scope="col">
-<button class="inline-flex items-center gap-1 font-semibold text-[#1D2125] bg-transparent border-0 p-0 text-[14px] focus-ring cursor-pointer" type="button">
-<span>Hidden</span>
-<span class="material-symbols-outlined text-[16px] text-[#626F86]" data-icon="unfold_more">unfold_more</span>
-</button>
-</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-[#DCDFE4]">
-<!-- Row 1 -->
-<tr class="h-[40px] hover:bg-[#F7F8FA]">
-<td class="px-4 text-[#1D2125] tabular-nums font-normal">1</td>
-<td class="px-4">
-<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#project-1">Project 1</a>
-</td>
-<td class="px-4">
-<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#iteration-3">Iteration 3</a>
-</td>
-<td class="px-4 text-[#1D2125] font-normal">No</td>
-</tr>
-<!-- Row 2 -->
-<tr class="h-[40px] hover:bg-[#F7F8FA]">
-<td class="px-4 text-[#1D2125] tabular-nums font-normal">2</td>
-<td class="px-4">
-<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#project-2">Project 2</a>
-</td>
-<td class="px-4">
-<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#iteration-6">Iteration 6</a>
-</td>
-<td class="px-4 text-[#1D2125] font-normal">No</td>
-</tr>
-<!-- Row 3: Hidden project listed last, unstyled differently -->
-<tr class="h-[40px] hover:bg-[#F7F8FA]">
-<td class="px-4 text-[#1D2125] tabular-nums font-normal">3</td>
-<td class="px-4">
-<a class="text-[#0C66E4] hover:text-[#0055CC] focus-ring rounded-[2px] font-normal" href="#project-3">Project 3</a>
-</td>
-<td class="px-4 text-[#626F86]"></td>
-<td class="px-4 text-[#1D2125] font-normal">Yes</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</main>
-</body></html>
+<body>
+
+  <!-- Accessibility Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="#" class="brand-name">Planner</a>
+      <div class="search-group">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </div>
+    </div>
+    <nav class="top-bar-right" aria-label="User navigation">
+      <a href="#" class="top-nav-link">System information</a>
+      <a href="#" class="top-nav-link">Me</a>
+      <a href="#" class="top-nav-link">Sign out</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <div class="page-header">
+      <h1 class="page-title">Projects</h1>
+      <button type="button" class="btn-primary">Create project</button>
+    </div>
+
+    <div class="sub-nav">
+      <a href="#" class="sub-nav-link">People</a>
+      <a href="#" class="sub-nav-link">Aggregate timesheet</a>
+    </div>
+
+    <!-- Projects Table -->
+    <div class="table-container">
+      <table class="projects-table">
+        <thead>
+          <tr>
+            <th scope="col" class="col-id" aria-sort="ascending">
+              <button type="button" class="sort-btn">
+                ID <span class="sort-indicator" aria-hidden="true">▲</span>
+              </button>
+            </th>
+            <th scope="col" class="col-name" aria-sort="none">
+              <button type="button" class="sort-btn">
+                Name
+              </button>
+            </th>
+            <th scope="col" class="col-iteration" aria-sort="none">
+              <button type="button" class="sort-btn">
+                Current iteration
+              </button>
+            </th>
+            <th scope="col" class="col-hidden" aria-sort="none">
+              <button type="button" class="sort-btn">
+                Hidden
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><a href="#">Project 1</a></td>
+            <td><a href="#">Iteration 3</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><a href="#">Project 2</a></td>
+            <td><a href="#">Iteration 6</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><a href="#">Project 3</a></td>
+            <td class="empty-cell"></td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+</html>

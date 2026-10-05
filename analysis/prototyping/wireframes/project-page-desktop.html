@@ -1,234 +1,433 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Project 1 - Planner</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "on-error-container": "#93000a",
-            "on-secondary": "#ffffff",
-            "primary-fixed": "#d9e2ff",
-            "on-primary-fixed": "#001945",
-            "on-secondary-fixed-variant": "#005229",
-            "background": "#F7F8FA",
-            "surface-container": "#e7eeff",
-            "surface-container-lowest": "#ffffff",
-            "secondary-fixed-dim": "#82d99a",
-            "on-error": "#ffffff",
-            "error-container": "#ffdad6",
-            "inverse-surface": "#243145",
-            "on-secondary-fixed": "#00210d",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "surface-container-high": "#dee8ff",
-            "on-tertiary-fixed-variant": "#910909",
-            "surface-bright": "#f9f9ff",
-            "surface": "#FFFFFF",
-            "inverse-primary": "#b0c6ff",
-            "primary": "#0C66E4",
-            "on-primary-fixed-variant": "#00429b",
-            "tertiary-fixed": "#ffdad5",
-            "on-secondary-container": "#15733f",
-            "surface-tint": "#0058ca",
-            "surface-container-low": "#f0f3ff",
-            "secondary": "#086d39",
-            "primary-container": "#0c66e4",
-            "on-tertiary-fixed": "#410001",
-            "tertiary": "#a51c16",
-            "primary-fixed-dim": "#b0c6ff",
-            "on-tertiary-container": "#ffebe8",
-            "surface-variant": "#d6e3fe",
-            "secondary-fixed": "#9df6b4",
-            "tertiary-container": "#c8362b",
-            "secondary-container": "#9df6b4",
-            "on-primary-container": "#ecefff",
-            "inverse-on-surface": "#ebf1ff",
-            "outline": "#8590A2",
-            "on-tertiary": "#ffffff",
-            "surface-container-highest": "#d6e3fe",
-            "on-background": "#1D2125",
-            "on-surface": "#1D2125",
-            "on-surface-variant": "#626F86",
-            "error": "#C9372C",
-            "outline-variant": "#DCDFE4"
-          },
-          fontFamily: {
-            headline: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            display: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            body: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            label: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
-          }
-        }
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-34 Project 1 - Planner (System administrator)</title>
+  <style>
+    /* Foundation resets & tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-  </script>
-<style>
+
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: #F7F8FA;
       color: #1D2125;
-      margin: 0;
-      padding: 0;
+      font-size: 14px;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    
-    /* Interactive element focus state */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible {
+
+    /* Accessibility focus ring */
+    :focus-visible {
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
     }
-  </style>
 
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head>
-<body class="min-h-screen bg-background text-on-surface">
-<!-- Top bar -->
-<header class="w-full bg-surface border-b border-outline-variant h-14">
-<div class="max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between">
-<!-- Brand & Search Form -->
-<div class="flex items-center gap-6">
-<span class="text-base font-semibold text-on-surface tracking-tight">Planner</span>
-<form class="flex items-center gap-2" role="search">
-<label class="text-sm text-on-surface select-none font-normal" for="search-input">Search or ID</label>
-<input class="h-9 px-3 bg-surface text-on-surface text-sm border border-outline rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 w-48" id="search-input" name="q" type="text"/>
-</form>
-</div>
-<!-- Right Utility Links -->
-<div class="flex items-center gap-4 text-sm font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">Me</a>
-<span aria-hidden="true" class="text-outline-variant select-none">|</span>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">Sign out</a>
-</div>
-</div>
-</header>
-<!-- Breadcrumbs -->
-<nav aria-label="Breadcrumb" class="w-full bg-transparent">
-<div class="max-w-[1200px] mx-auto px-6 pt-4 pb-2">
-<ol class="flex items-center gap-2 text-sm">
-<li>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">Top</a>
-</li>
-<li aria-hidden="true" class="text-on-surface-variant select-none">/</li>
-<li aria-current="page" class="text-on-surface font-normal">Project 1</li>
-</ol>
-</div>
-</nav>
-<!-- Main Canvas -->
-<main class="max-w-[1200px] mx-auto px-6 py-4">
-<!-- Heading & Actions Cluster -->
-<section class="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-6 border-b border-outline-variant">
-<div>
-<h1 class="text-2xl font-semibold text-on-surface leading-tight">Project 1</h1>
-<p class="text-base text-on-surface-variant mt-1">Synthetic sample project for the planning prototype.</p>
-<!-- Action links -->
-<div class="flex items-center gap-3 mt-3 text-sm">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">People</a>
-<span aria-hidden="true" class="text-on-surface-variant select-none">•</span>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">Export</a>
-<span aria-hidden="true" class="text-on-surface-variant select-none">•</span>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">History</a>
-<span aria-hidden="true" class="text-on-surface-variant select-none">•</span>
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">Add note</a>
-</div>
-</div>
-<!-- Action Buttons -->
-<div class="flex items-center gap-2 shrink-0">
-<button class="h-9 px-4 bg-surface text-on-surface text-sm font-normal border border-outline rounded-[6px] hover:bg-[#F1F2F4] transition-colors duration-150" type="button">
-          Edit
-        </button>
-<button class="h-9 px-4 bg-surface text-on-surface text-sm font-normal border border-outline rounded-[6px] hover:bg-[#F1F2F4] transition-colors duration-150" type="button">
-          Create iteration
-        </button>
-<button class="h-9 px-4 bg-error text-on-error text-sm font-normal rounded-[6px] hover:bg-[#B02A20] transition-colors duration-150" type="button">
-          Delete project
-        </button>
-</div>
-</section>
-<!-- Iterations Section -->
-<section class="mt-8">
-<div class="flex items-center justify-between mb-3">
-<h2 class="text-xl font-semibold text-on-surface">Iterations</h2>
-</div>
-<!-- Flat Table -->
-<div class="border border-outline-variant bg-surface rounded-[6px] overflow-hidden">
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-[#F1F2F4] border-b border-outline-variant text-on-surface text-sm select-none">
-<th class="h-10 px-4 font-semibold w-16 text-right tabular-nums" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px]" href="#">ID</a>
-</th>
-<th class="h-10 px-4 font-semibold" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px]" href="#">Name</a>
-</th>
-<th class="h-10 px-4 font-semibold" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px]" href="#">Start date</a>
-</th>
-<th aria-sort="descending" class="h-10 px-4 font-semibold" scope="col">
-<a class="inline-flex items-center gap-1 text-on-surface hover:text-primary rounded-[2px]" href="#">
-<span>End date</span>
-<span aria-hidden="true" class="text-xs">▼</span>
-</a>
-</th>
-<th class="h-10 px-4 font-semibold text-right tabular-nums" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px]" href="#">Days worked</a>
-</th>
-<th class="h-10 px-4 font-semibold text-right tabular-nums" scope="col">
-<a class="text-on-surface hover:text-primary rounded-[2px]" href="#">Stories</a>
-</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-outline-variant text-sm text-on-surface">
-<tr class="h-10 hover:bg-[#F7F8FA] transition-colors">
-<td class="px-4 text-right tabular-nums text-on-surface-variant">4</td>
-<td class="px-4 font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">Iteration 4</a>
-</td>
-<td class="px-4 text-on-surface">2026-03-16</td>
-<td class="px-4 text-on-surface">2026-03-27</td>
-<td class="px-4 text-right tabular-nums text-on-surface">10</td>
-<td class="px-4 text-right tabular-nums text-on-surface">0</td>
-</tr>
-<tr class="h-10 hover:bg-[#F7F8FA] transition-colors">
-<td class="px-4 text-right tabular-nums text-on-surface-variant">3</td>
-<td class="px-4 font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">Iteration 3</a>
-</td>
-<td class="px-4 text-on-surface">2026-03-02</td>
-<td class="px-4 text-on-surface">2026-03-13</td>
-<td class="px-4 text-right tabular-nums text-on-surface">10</td>
-<td class="px-4 text-right tabular-nums text-on-surface">5</td>
-</tr>
-<tr class="h-10 hover:bg-[#F7F8FA] transition-colors">
-<td class="px-4 text-right tabular-nums text-on-surface-variant">2</td>
-<td class="px-4 font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">Iteration 2</a>
-</td>
-<td class="px-4 text-on-surface">2026-02-16</td>
-<td class="px-4 text-on-surface">2026-02-27</td>
-<td class="px-4 text-right tabular-nums text-on-surface">10</td>
-<td class="px-4 text-right tabular-nums text-on-surface">5</td>
-</tr>
-<tr class="h-10 hover:bg-[#F7F8FA] transition-colors">
-<td class="px-4 text-right tabular-nums text-on-surface-variant">1</td>
-<td class="px-4 font-normal">
-<a class="text-primary hover:underline hover:text-[#0055CC] rounded-[2px]" href="#">Iteration 1</a>
-</td>
-<td class="px-4 text-on-surface">2026-02-02</td>
-<td class="px-4 text-on-surface">2026-02-13</td>
-<td class="px-4 text-right tabular-nums text-on-surface">10</td>
-<td class="px-4 text-right tabular-nums text-on-surface">6</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-</main>
-</body></html>
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      z-index: 1000;
+    }
+    .skip-link:focus {
+      top: 10px;
+    }
+
+    /* Top bar */
+    header.top-bar {
+      background-color: #FFFFFF;
+      height: 56px;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 13px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      height: 32px;
+      width: 220px;
+      padding: 0 10px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main container */
+    main {
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0;
+    }
+
+    /* Breadcrumb */
+    nav.breadcrumb {
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    .breadcrumb-item a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-item a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #626F86;
+      user-select: none;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Project header */
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      line-height: 1.2;
+    }
+
+    .project-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Buttons */
+    .btn {
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 1px solid transparent;
+      background: none;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      border-color: #8590A2;
+      color: #1D2125;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+
+    .btn-danger {
+      background-color: #C9372C;
+      color: #FFFFFF;
+      border-color: #C9372C;
+    }
+    .btn-danger:hover {
+      background-color: #AE2A19;
+      border-color: #AE2A19;
+    }
+
+    /* Description & Sub-links */
+    .project-desc {
+      color: #1D2125;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .project-sublinks {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+
+    .project-sublinks .bullet {
+      color: #626F86;
+    }
+
+    /* Iterations Section */
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 16px;
+    }
+
+    /* Data Table */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+
+    /* Sortable Header Button */
+    .header-sort-btn {
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1D2125;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .header-sort-btn:hover {
+      text-decoration: underline;
+    }
+
+    .sort-indicator {
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    table.data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #DCDFE4;
+      font-size: 14px;
+      color: #1D2125;
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table td a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    table.data-table td a:hover {
+      text-decoration: underline;
+    }
+
+    .col-id {
+      width: 60px;
+    }
+    .col-days, .col-stories {
+      width: 120px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="#" class="brand-name">Planner</a>
+      <form class="search-form" role="search" onsubmit="return false;">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input" name="q" autocomplete="off">
+      </form>
+    </div>
+    <nav class="top-bar-right" aria-label="User navigation">
+      <a href="#" class="nav-link">System information</a>
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#">Top</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">Project 1</li>
+      </ol>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="project-header">
+      <h1 class="page-title">Project 1</h1>
+      <div class="project-actions">
+        <button type="button" class="btn btn-neutral">Edit</button>
+        <button type="button" class="btn btn-neutral">Create iteration</button>
+        <button type="button" class="btn btn-danger">Delete project</button>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <p class="project-desc">Synthetic sample project for the planning prototype.</p>
+
+    <!-- Project Sublinks -->
+    <div class="project-sublinks">
+      <a href="#" class="nav-link">People</a>
+      <span class="bullet" aria-hidden="true">•</span>
+      <a href="#" class="nav-link">Export</a>
+      <span class="bullet" aria-hidden="true">•</span>
+      <a href="#" class="nav-link">History</a>
+      <span class="bullet" aria-hidden="true">•</span>
+      <a href="#" class="nav-link">Add note</a>
+    </div>
+
+    <!-- Iterations Section -->
+    <section aria-labelledby="iterations-heading">
+      <h2 id="iterations-heading" class="section-title">Iterations</h2>
+      
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col" class="col-id" aria-sort="none">
+                <button type="button" class="header-sort-btn">ID</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="header-sort-btn">Name</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="header-sort-btn">Start date</button>
+              </th>
+              <th scope="col" aria-sort="descending">
+                <button type="button" class="header-sort-btn">
+                  End date <span class="sort-indicator" aria-hidden="true">▼</span>
+                </button>
+              </th>
+              <th scope="col" class="col-days" aria-sort="none">
+                <button type="button" class="header-sort-btn">Days worked</button>
+              </th>
+              <th scope="col" class="col-stories" aria-sort="none">
+                <button type="button" class="header-sort-btn">Stories</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-id">4</td>
+              <td><a href="#">Iteration 4</a></td>
+              <td>2026-03-16</td>
+              <td>2026-03-27</td>
+              <td class="col-days">10</td>
+              <td class="col-stories">0</td>
+            </tr>
+            <tr>
+              <td class="col-id">3</td>
+              <td><a href="#">Iteration 3</a></td>
+              <td>2026-03-02</td>
+              <td>2026-03-13</td>
+              <td class="col-days">10</td>
+              <td class="col-stories">5</td>
+            </tr>
+            <tr>
+              <td class="col-id">2</td>
+              <td><a href="#">Iteration 2</a></td>
+              <td>2026-02-16</td>
+              <td>2026-02-27</td>
+              <td class="col-days">10</td>
+              <td class="col-stories">5</td>
+            </tr>
+            <tr>
+              <td class="col-id">1</td>
+              <td><a href="#">Iteration 1</a></td>
+              <td>2026-02-02</td>
+              <td>2026-02-13</td>
+              <td class="col-days">10</td>
+              <td class="col-stories">6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

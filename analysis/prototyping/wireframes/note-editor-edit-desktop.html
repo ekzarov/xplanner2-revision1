@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-07 Edit note: Story 2</title>
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 6px;
+      z-index: 1000;
+      transition: top 0.15s ease;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focus rings */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 240px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-size: 14px;
+      color: #1D2125;
+      font-family: inherit;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+      color: #0055CC;
+    }
+
+    /* Main Container */
+    .main-content {
+      flex: 1;
+      padding: 24px;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 14px;
+      gap: 6px;
+    }
+
+    .breadcrumb-item {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .breadcrumb-item:not(:last-child)::after {
+      content: "/";
+      color: #626F86;
+      margin-left: 6px;
+    }
+
+    .breadcrumb-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-link:hover {
+      text-decoration: underline;
+      color: #0055CC;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Page Heading */
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 24px;
+    }
+
+    /* Form Section */
+    .form-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 24px;
+      max-width: 640px;
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #1D2125;
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 36px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-size: 16px;
+      color: #1D2125;
+      font-family: inherit;
+    }
+
+    .read-only-text {
+      font-size: 16px;
+      color: #1D2125;
+      padding-top: 2px;
+    }
+
+    .form-textarea {
+      width: 100%;
+      min-height: 140px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 16px;
+      color: #1D2125;
+      font-family: inherit;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .form-helper {
+      margin-top: 6px;
+    }
+
+    .helper-link {
+      color: #0C66E4;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .helper-link:hover {
+      text-decoration: underline;
+      color: #0055CC;
+    }
+
+    /* Button Actions Bar */
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      max-width: 640px;
+    }
+
+    .actions-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background-color 0.1s ease, border-color 0.1s ease;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border-color: #0C66E4;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border-color: #8590A2;
+    }
+    .btn-neutral:hover {
+      background-color: #F1F2F4;
+    }
+
+    .btn-danger {
+      background-color: #C9372C;
+      color: #FFFFFF;
+      border-color: #C9372C;
+    }
+    .btn-danger:hover {
+      background-color: #AE2A19;
+      border-color: #AE2A19;
+    }
+  </style>
+</head>
+<body>
+  <!-- Visually hidden skip link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="brand-name">Planner</span>
+      <div class="search-container">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#me" class="nav-link">Me</a>
+      <a href="#signout" class="nav-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main content region -->
+  <main id="main" class="main-content">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#top" class="breadcrumb-link">Top</a></li>
+        <li class="breadcrumb-item"><a href="#project-1" class="breadcrumb-link">Project 1</a></li>
+        <li class="breadcrumb-item"><a href="#iteration-3" class="breadcrumb-link">Iteration 3</a></li>
+        <li class="breadcrumb-item"><a href="#story-2" class="breadcrumb-link">Story 2</a></li>
+        <li class="breadcrumb-item"><span class="breadcrumb-current" aria-current="page">Note</span></li>
+      </ol>
+    </nav>
+
+    <!-- Page heading -->
+    <h1 class="page-title">Edit note: Story 2</h1>
+
+    <!-- Form Section -->
+    <form class="form-card" onsubmit="event.preventDefault();">
+      <!-- Subject (required) -->
+      <div class="form-group">
+        <label for="note-subject" class="form-label">Subject (required)</label>
+        <input type="text" id="note-subject" class="form-input" value="Synthetic story note">
+      </div>
+
+      <!-- Author (plain text, non-editable) -->
+      <div class="form-group">
+        <span class="form-label" id="author-label">Author</span>
+        <div class="read-only-text" aria-labelledby="author-label">User C</div>
+      </div>
+
+      <!-- Body -->
+      <div class="form-group">
+        <label for="note-body" class="form-label">Body</label>
+        <textarea id="note-body" class="form-textarea">Synthetic note text.</textarea>
+        <div class="form-helper">
+          <a href="#formatting-help" class="helper-link">Formatting help</a>
+        </div>
+      </div>
+    </form>
+
+    <!-- Buttons below the form -->
+    <div class="form-actions">
+      <div class="actions-left">
+        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-neutral">Reset</button>
+        <button type="button" class="btn btn-neutral">Cancel</button>
+      </div>
+      <div class="actions-right">
+        <button type="button" class="btn btn-danger">Delete note</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
