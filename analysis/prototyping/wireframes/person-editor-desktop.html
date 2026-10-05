@@ -1,176 +1,511 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-41 Edit person: User A - Planner (System administrator)</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"error":"#ba1a1a","on-surface":"#0e1c2f","on-error-container":"#93000a","surface-variant":"#d6e3fe","outline-variant":"#c2c6d7","surface-container-lowest":"#ffffff","on-surface-variant":"#424654","on-tertiary-fixed-variant":"#910909","inverse-primary":"#b0c6ff","on-background":"#0e1c2f","on-secondary-fixed-variant":"#005229","surface-container-highest":"#d6e3fe","on-secondary-container":"#15733f","on-error":"#ffffff","surface-container":"#e7eeff","inverse-on-surface":"#ebf1ff","tertiary-fixed":"#ffdad5","on-primary":"#ffffff","secondary-fixed":"#9df6b4","secondary-container":"#9df6b4","surface":"#f9f9ff","on-primary-fixed":"#001945","on-tertiary-container":"#ffebe8","surface-container-low":"#f0f3ff","secondary-fixed-dim":"#82d99a","background":"#f9f9ff","on-tertiary":"#ffffff","primary-fixed-dim":"#b0c6ff","outline":"#727786","tertiary-container":"#c8362b","tertiary":"#a51c16","surface-bright":"#f9f9ff","on-tertiary-fixed":"#410001","tertiary-fixed-dim":"#ffb4aa","on-primary-fixed-variant":"#00429b","primary":"#004fb6","on-secondary":"#ffffff","on-secondary-fixed":"#00210d","secondary":"#086d39","primary-container":"#0c66e4","surface-container-high":"#dee8ff","on-primary-container":"#ecefff","surface-dim":"#cddbf5","error-container":"#ffdad6","primary-fixed":"#d9e2ff","surface-tint":"#0058ca","inverse-surface":"#243145"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{},"fontFamily":{"headline":["Inter"],"display":["Inter"],"body":["Inter"],"label":["Inter"]},"fontSize":{}}}}</script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-background font-body text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-14 w-full px-6 flex items-center justify-between"><div class="flex items-center gap-6"><span class="text-base font-semibold text-on-surface tracking-tight">Planner</span><div class="flex items-center gap-2"><label class="text-sm font-normal text-on-surface-variant whitespace-nowrap" for="shell-search">Search or ID</label><input class="h-9 w-64 px-3 rounded text-sm text-on-surface bg-surface-container-lowest border border-outline focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" id="shell-search" placeholder="Search tasks, IDs..." type="text"/></div></div><nav class="flex items-center gap-6" data-active-classes="text-primary-container font-semibold underline"><a aria-current="page" class="text-primary-container font-semibold underline" data-path="my-profile" href="#">Me</a><a class="text-sm font-normal text-primary-container hover:underline" data-path="sign-in" href="#">Sign out</a></nav></div></header><main class="w-full pt-14 bg-background min-h-screen"><div class="flex flex-col w-full">
-<!-- Material Lean Breadcrumbs Area -->
-<div class="w-full px-6 py-3 border-b border-[#DCDFE4] bg-surface-container-lowest">
-<nav aria-label="Breadcrumb">
-<ol class="flex items-center gap-1.5 text-[14px] leading-tight">
-<li>
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-[2px]" href="#">Top</a>
-</li>
-<li aria-hidden="true" class="text-[#626F86]">/</li>
-<li>
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-[2px]" href="#">People</a>
-</li>
-<li aria-hidden="true" class="text-[#626F86]">/</li>
-<li>
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-[2px]" href="#">User A</a>
-</li>
-<li aria-hidden="true" class="text-[#626F86]">/</li>
-<li aria-current="page" class="text-[#1D2125]">Edit</li>
-</ol>
-</nav>
-</div>
-<!-- Page Content Container -->
-<div class="w-full px-6 py-6 flex flex-col">
-<!-- Page Heading -->
-<h1 class="text-[24px] font-semibold leading-normal text-[#1D2125] mb-6">
-      Edit person: User A
-    </h1>
-<!-- Form Section Canvas (640px wide, Flat, Light theme) -->
-<div class="w-full max-w-[640px] bg-surface-container-lowest border border-[#DCDFE4] rounded-[6px] p-6 mb-6">
-<form class="flex flex-col gap-5" id="edit-person-form" onsubmit="event.preventDefault();">
-<!-- Name Field -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal leading-normal text-[#1D2125]" for="field-name">
-            Name (required)
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      width: 240px;
+      height: 36px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-size: 14px;
+      color: #1D2125;
+      font-family: inherit;
+    }
+    .search-input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .top-link:hover {
+      text-decoration: underline;
+    }
+    .top-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      padding: 24px 32px 0 32px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumb-item:not(:last-child)::after {
+      content: "/";
+      color: #626F86;
+    }
+
+    .breadcrumb-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-link:hover {
+      text-decoration: underline;
+    }
+    .breadcrumb-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Main Container */
+    main {
+      padding: 16px 32px 48px 32px;
+      flex: 1;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 24px;
+    }
+
+    /* Form Surface */
+    .form-container {
+      max-width: 640px;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #1D2125;
+    }
+
+    .text-input,
+    .select-input {
+      width: 100%;
+      height: 36px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-size: 16px;
+      color: #1D2125;
+      font-family: inherit;
+    }
+    .text-input:focus,
+    .select-input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .select-input {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%3E%3Cpath%20fill%3D%22%231D2125%22%20d%3D%22M1.41%200L6%204.58L10.59%200L12%201.41l-6%206l-6-6z%22%2F%3E%3C%2Fsvg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    /* Checkbox Group */
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #1D2125;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .native-checkbox {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #0C66E4;
+      border: 1px solid #8590A2;
+      border-radius: 2px;
+    }
+    .native-checkbox:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .checkbox-hint {
+      font-size: 14px;
+      color: #626F86;
+      margin-left: 24px;
+    }
+
+    /* Section Heading & Table */
+    .section-heading {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .roles-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
+
+    .roles-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+
+    .roles-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #DCDFE4;
+      vertical-align: middle;
+      color: #1D2125;
+    }
+
+    .roles-table td:first-child {
+      width: 40%;
+    }
+
+    .roles-table .select-input {
+      max-width: 180px;
+    }
+
+    /* Form Actions */
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .btn:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border-color: #0C66E4;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border-color: #8590A2;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="#" class="brand">Planner</a>
+      <div class="search-container">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="top-link">System information</a>
+      <a href="#" class="top-link">Me</a>
+      <a href="#" class="top-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item">
+        <a href="#" class="breadcrumb-link">Top</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="#" class="breadcrumb-link">People</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="#" class="breadcrumb-link">User A</a>
+      </li>
+      <li class="breadcrumb-item">
+        <span class="breadcrumb-current" aria-current="page">Edit</span>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main">
+    <h1 class="page-title">Edit person: User A</h1>
+
+    <div class="form-container">
+      <form action="#" method="post" onsubmit="return false;">
+        <!-- Name -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="field-name" class="field-label">Name (required)</label>
+          <input type="text" id="field-name" class="text-input" value="User A" required>
+        </div>
+
+        <!-- User ID -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="field-userid" class="field-label">User ID (required)</label>
+          <input type="text" id="field-userid" class="text-input" value="usera" required>
+        </div>
+
+        <!-- Initials -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="field-initials" class="field-label">Initials (required)</label>
+          <input type="text" id="field-initials" class="text-input" value="UA" required>
+        </div>
+
+        <!-- E-mail -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="field-email" class="field-label">E-mail (required)</label>
+          <input type="email" id="field-email" class="text-input" value="usera@example.test" required>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="field-phone" class="field-label">Phone</label>
+          <input type="tel" id="field-phone" class="text-input" value="000-0001">
+        </div>
+
+        <!-- New password -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="field-new-password" class="field-label">New password</label>
+          <input type="password" id="field-new-password" class="text-input" value="" autocomplete="new-password">
+        </div>
+
+        <!-- Confirm password -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="field-confirm-password" class="field-label">Confirm password</label>
+          <input type="password" id="field-confirm-password" class="text-input" value="" autocomplete="new-password">
+        </div>
+
+        <!-- Deactivated Checkbox -->
+        <div class="checkbox-group" style="margin-bottom: 24px;">
+          <label class="checkbox-label" for="field-deactivated">
+            <input type="checkbox" id="field-deactivated" class="native-checkbox">
+            Deactivated
           </label>
-<input class="h-9 px-3 text-[16px] leading-normal text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="field-name" name="name" required="" type="text" value="User A"/>
-</div>
-<!-- User ID Field -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal leading-normal text-[#1D2125]" for="field-userid">
-            User ID (required)
-          </label>
-<input class="h-9 px-3 text-[16px] leading-normal text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="field-userid" name="userid" required="" type="text" value="usera"/>
-</div>
-<!-- Initials Field -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal leading-normal text-[#1D2125]" for="field-initials">
-            Initials (required)
-          </label>
-<input class="h-9 px-3 text-[16px] leading-normal text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="field-initials" name="initials" required="" type="text" value="UA"/>
-</div>
-<!-- E-mail Field -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal leading-normal text-[#1D2125]" for="field-email">
-            E-mail (required)
-          </label>
-<input class="h-9 px-3 text-[16px] leading-normal text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="field-email" name="email" required="" type="email" value="usera@example.test"/>
-</div>
-<!-- Phone Field -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal leading-normal text-[#1D2125]" for="field-phone">
-            Phone
-          </label>
-<input class="h-9 px-3 text-[16px] leading-normal text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="field-phone" name="phone" type="tel" value="000-0001"/>
-</div>
-<!-- New password Field -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal leading-normal text-[#1D2125]" for="field-new-password">
-            New password
-          </label>
-<input autocomplete="new-password" class="h-9 px-3 text-[16px] leading-normal text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="field-new-password" name="new_password" type="password"/>
-</div>
-<!-- Confirm password Field -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal leading-normal text-[#1D2125]" for="field-confirm-password">
-            Confirm password
-          </label>
-<input autocomplete="new-password" class="h-9 px-3 text-[16px] leading-normal text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="field-confirm-password" name="confirm_password" type="password"/>
-</div>
-<!-- Deactivated Checkbox with Hint -->
-<div class="pt-1 flex flex-col gap-1">
-<div class="flex items-center gap-2">
-<input class="w-4 h-4 rounded-[3px] border border-[#8590A2] text-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer" id="field-deactivated" name="deactivated" type="checkbox"/>
-<label class="text-[16px] font-normal leading-normal text-[#1D2125] cursor-pointer" for="field-deactivated">
-              Deactivated
-            </label>
-</div>
-<p class="text-[14px] leading-normal text-[#626F86] pl-6">
-            A deactivated person cannot sign in or take new assignments; time and history are kept.
-          </p>
-</div>
-<!-- Project Roles Section -->
-<div class="pt-3 flex flex-col gap-2">
-<h2 class="text-[20px] font-semibold leading-normal text-[#1D2125]">
-            Project roles
-          </h2>
-<table class="w-full border-collapse border border-[#DCDFE4] text-left text-[14px]">
-<thead>
-<tr class="bg-[#F1F2F4] border-b border-[#DCDFE4] h-10">
-<th class="px-3 font-semibold text-[#1D2125] w-1/2" scope="col">Project</th>
-<th class="px-3 font-semibold text-[#1D2125] w-1/2" scope="col">Role</th>
-</tr>
-</thead>
-<tbody>
-<!-- Row 1 -->
-<tr class="h-10 border-b border-[#DCDFE4]">
-<td class="px-3 text-[#1D2125] align-middle">Project 1</td>
-<td class="px-3 align-middle py-1">
-<label class="sr-only" for="role-project-1">Role for Project 1</label>
-<select class="h-9 w-full px-2 text-[14px] text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="role-project-1" name="role_project_1">
-<option value="None">None</option>
-<option value="Viewer">Viewer</option>
-<option selected="" value="Editor">Editor</option>
-<option value="Admin">Admin</option>
-</select>
-</td>
-</tr>
-<!-- Row 2 -->
-<tr class="h-10 border-b border-[#DCDFE4]">
-<td class="px-3 text-[#1D2125] align-middle">Project 2</td>
-<td class="px-3 align-middle py-1">
-<label class="sr-only" for="role-project-2">Role for Project 2</label>
-<select class="h-9 w-full px-2 text-[14px] text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="role-project-2" name="role_project_2">
-<option value="None">None</option>
-<option selected="" value="Viewer">Viewer</option>
-<option value="Editor">Editor</option>
-<option value="Admin">Admin</option>
-</select>
-</td>
-</tr>
-<!-- Row 3 -->
-<tr class="h-10">
-<td class="px-3 text-[#1D2125] align-middle">Project 3</td>
-<td class="px-3 align-middle py-1">
-<label class="sr-only" for="role-project-3">Role for Project 3</label>
-<select class="h-9 w-full px-2 text-[14px] text-[#1D2125] bg-surface-container-lowest border border-[#8590A2] rounded-[6px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" id="role-project-3" name="role_project_3">
-<option selected="" value="None">None</option>
-<option value="Viewer">Viewer</option>
-<option value="Editor">Editor</option>
-<option value="Admin">Admin</option>
-</select>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- System Administrator Checkbox -->
-<div class="pt-1 flex items-center gap-2">
-<input class="w-4 h-4 rounded-[3px] border border-[#8590A2] text-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer" id="field-sysadmin" name="system_administrator" type="checkbox"/>
-<label class="text-[16px] font-normal leading-normal text-[#1D2125] cursor-pointer" for="field-sysadmin">
+          <div class="checkbox-hint">A deactivated person cannot sign in or take new assignments; time and history are kept.</div>
+        </div>
+
+        <!-- Project Roles Section -->
+        <div style="margin-bottom: 24px;">
+          <h2 class="section-heading">Project roles</h2>
+          <table class="roles-table">
+            <thead>
+              <tr>
+                <th scope="col">Project</th>
+                <th scope="col">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Project 1</td>
+                <td>
+                  <label for="role-project-1" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Project 1 Role</label>
+                  <select id="role-project-1" class="select-input">
+                    <option value="None">None</option>
+                    <option value="Viewer">Viewer</option>
+                    <option value="Editor" selected>Editor</option>
+                    <option value="Admin">Admin</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Project 2</td>
+                <td>
+                  <label for="role-project-2" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Project 2 Role</label>
+                  <select id="role-project-2" class="select-input">
+                    <option value="None">None</option>
+                    <option value="Viewer" selected>Viewer</option>
+                    <option value="Editor">Editor</option>
+                    <option value="Admin">Admin</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Project 3</td>
+                <td>
+                  <label for="role-project-3" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Project 3 Role</label>
+                  <select id="role-project-3" class="select-input">
+                    <option value="None" selected>None</option>
+                    <option value="Viewer">Viewer</option>
+                    <option value="Editor">Editor</option>
+                    <option value="Admin">Admin</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- System Administrator Checkbox -->
+        <div class="checkbox-group" style="margin-bottom: 24px;">
+          <label class="checkbox-label" for="field-sysadmin">
+            <input type="checkbox" id="field-sysadmin" class="native-checkbox">
             System administrator
           </label>
-</div>
-</form>
-</div>
-<!-- Action Buttons Row (Left-aligned, 36px high, 6px radius) -->
-<div class="flex items-center gap-3">
-<!-- 1. Primary Save -->
-<button class="h-9 px-4 bg-primary text-on-primary font-normal text-[16px] rounded-[6px] hover:bg-[#0055CC] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer inline-flex items-center justify-center" form="edit-person-form" type="submit">
-        Save
-      </button>
-<!-- 2. Neutral Reset -->
-<button class="h-9 px-4 bg-surface-container-lowest border border-[#8590A2] text-[#1D2125] font-normal text-[16px] rounded-[6px] hover:bg-[#F1F2F4] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer inline-flex items-center justify-center" form="edit-person-form" type="reset">
-        Reset
-      </button>
-<!-- 3. Neutral Cancel -->
-<button class="h-9 px-4 bg-surface-container-lowest border border-[#8590A2] text-[#1D2125] font-normal text-[16px] rounded-[6px] hover:bg-[#F1F2F4] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer inline-flex items-center justify-center" onclick="window.history.back()" type="button">
-        Cancel
-      </button>
-</div>
-</div>
-</div></main></body></html>
+        </div>
+
+        <!-- Form Buttons -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="reset" class="btn btn-neutral">Reset</button>
+          <button type="button" class="btn btn-neutral">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

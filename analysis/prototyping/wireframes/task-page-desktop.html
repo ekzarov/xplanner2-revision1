@@ -1,284 +1,466 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Task 8 - Planner</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "tertiary-fixed-dim": "#ffb4aa",
-            "secondary-fixed": "#9df6b4",
-            "error-container": "#ffdad6",
-            "secondary": "#086d39",
-            "on-secondary": "#ffffff",
-            "secondary-container": "#9df6b4",
-            "on-primary-container": "#ecefff",
-            "on-tertiary-fixed-variant": "#910909",
-            "on-primary-fixed-variant": "#00429b",
-            "primary": "#0c66e4",
-            "primary-fixed": "#d9e2ff",
-            "surface-container-high": "#dee8ff",
-            "error": "#c9372c",
-            "on-surface-variant": "#626f86",
-            "background": "#f7f8fa",
-            "inverse-on-surface": "#ebf1ff",
-            "on-tertiary-container": "#ffebe8",
-            "surface-container-highest": "#d6e3fe",
-            "inverse-primary": "#b0c6ff",
-            "surface": "#ffffff",
-            "primary-fixed-dim": "#b0c6ff",
-            "outline-variant": "#dcdfe4",
-            "surface-container-low": "#f0f3ff",
-            "surface-variant": "#f1f2f4",
-            "on-error": "#ffffff",
-            "tertiary": "#a51c16",
-            "surface-bright": "#ffffff",
-            "on-secondary-container": "#15733f",
-            "tertiary-container": "#c8362b",
-            "surface-dim": "#cddbf5",
-            "secondary-fixed-dim": "#82d99a",
-            "primary-container": "#0c66e4",
-            "on-background": "#1d2125",
-            "surface-container": "#e7eeff",
-            "on-primary-fixed": "#001945",
-            "on-error-container": "#93000a",
-            "on-surface": "#1d2125",
-            "surface-container-lowest": "#ffffff",
-            "on-tertiary": "#ffffff",
-            "on-secondary-fixed": "#00210d",
-            "on-primary": "#ffffff",
-            "inverse-surface": "#243145",
-            "tertiary-fixed": "#ffdad5",
-            "outline": "#8590a2",
-            "on-secondary-fixed-variant": "#005229",
-            "on-tertiary-fixed": "#410001",
-            "surface-tint": "#0c66e4"
-          },
-          "borderRadius": {
-            "DEFAULT": "6px",
-            "sm": "6px",
-            "md": "6px",
-            "lg": "6px",
-            "xl": "6px",
-            "full": "6px"
-          },
-          "fontFamily": {
-            "headline": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-            "display": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-            "body": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-            "label": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
-          }
-        },
-      },
-    }
-  </script>
-<style>
-    /* Strict Material Lean foundation overrides */
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      color: #1D2125;
-      background-color: #F7F8FA;
-      -webkit-font-smoothing: antialiased;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-45 Task 8 - Planner (Editor)</title>
+  <style>
+    /* Reset & Box Sizing */
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    button:focus-visible, 
-    input:focus-visible, 
-    a:focus-visible {
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      line-height: 1.5;
+      font-size: 14px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 1000;
+      transition: top 0.15s ease-in-out;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    /* Focus States */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
       outline: 2px solid #0C66E4;
       outline-offset: 2px;
     }
 
-    .tabular-nums {
-      font-variant-numeric: tabular-nums;
+    /* Top Navigation Bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      flex-shrink: 0;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      width: 180px;
+      height: 32px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 8px;
+      font-size: 14px;
+      color: #1D2125;
+      background-color: #FFFFFF;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    main {
+      flex: 1 0 auto;
+      padding: 24px 32px 48px;
+      max-width: 1440px;
+      width: 100%;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 20px;
+    }
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumb-item:not(:last-child)::after {
+      content: "/";
+      color: #626F86;
+    }
+    .breadcrumb-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-link:hover {
+      text-decoration: underline;
+    }
+    .breadcrumb-current {
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    /* Heading Row */
+    .heading-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+
+    .action-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Buttons */
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      border: 1px solid transparent;
+      transition: background-color 0.15s, border-color 0.15s;
+      font-family: inherit;
+      text-decoration: none;
+    }
+
+    .btn-completion {
+      background-color: #1F7A45;
+      color: #FFFFFF;
+      border: none;
+    }
+    .btn-completion:hover {
+      background-color: #166038;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border-color: #8590A2;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+
+    .btn-danger {
+      background-color: #C9372C;
+      color: #FFFFFF;
+      border: none;
+    }
+    .btn-danger:hover {
+      background-color: #AE2A19;
+    }
+
+    /* Action Links Bar */
+    .action-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+    .action-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .action-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Two-column Summary DL */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 360px 360px;
+      column-gap: 48px;
+      row-gap: 8px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: baseline;
+    }
+
+    .summary-label {
+      width: 120px;
+      color: #626F86;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+
+    .summary-value {
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    /* Description paragraph */
+    .description-text {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+
+    /* Time log Section */
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 16px;
+    }
+
+    /* Table */
+    .table-container {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      height: 40px;
+      padding: 0 16px;
+      border-bottom: 1px solid #DCDFE4;
+      font-size: 14px;
+    }
+
+    th.num-col, td.num-col {
+      text-align: right;
+    }
+
+    td {
+      height: 40px;
+      padding: 0 16px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+      background-color: #FFFFFF;
+    }
+
+    tr.total-row td {
+      border-bottom: none;
+      font-weight: 700;
     }
   </style>
 </head>
-<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
-<!-- 1. Top Bar -->
-<header class="w-full bg-surface border-b border-outline-variant h-14 px-6 flex items-center justify-between">
-<div class="flex items-center gap-6">
-<span class="text-lg font-semibold tracking-tight text-on-surface">Planner</span>
-<!-- Search Input with Visible Label -->
-<div class="flex items-center gap-2">
-<label class="text-sm font-normal text-on-surface" for="search-input">Search or ID</label>
-<input class="h-9 px-2.5 text-sm border border-outline rounded bg-surface text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent w-48" id="search-input" type="text"/>
-</div>
-</div>
-<!-- Right text links -->
-<nav class="flex items-center gap-4 text-sm font-normal">
-<a class="text-primary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Me</a>
-<a class="text-primary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Sign out</a>
-</nav>
-</header>
-<!-- Main Canvas Container -->
-<main class="w-full max-w-[1280px] mx-auto px-6 py-4 flex-1">
-<!-- 2. Breadcrumbs -->
-<nav aria-label="Breadcrumb" class="mb-4">
-<ol class="flex items-center gap-1.5 text-sm">
-<li>
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Top</a>
-</li>
-<li class="text-on-surface-variant">/</li>
-<li>
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Project 1</a>
-</li>
-<li class="text-on-surface-variant">/</li>
-<li>
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Iteration 3</a>
-</li>
-<li class="text-on-surface-variant">/</li>
-<li>
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Story 2</a>
-</li>
-<li class="text-on-surface-variant">/</li>
-<li aria-current="page" class="text-on-surface font-normal">
-          Task 8
-        </li>
-</ol>
-</nav>
-<!-- 3. Page Header -->
-<div class="pb-4">
-<div class="flex flex-wrap items-center justify-between gap-4">
-<h1 class="text-2xl font-semibold text-on-surface">Task 8</h1>
-<!-- Action Buttons Group in strict specified order -->
-<div class="flex items-center gap-2">
-<!-- 1. Completion button 'Complete task' -->
-<button class="h-9 px-3.5 bg-secondary text-on-secondary text-sm font-medium rounded hover:bg-[#166035] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors inline-flex items-center justify-center cursor-pointer" type="button">
-            Complete task
-          </button>
-<!-- 2. Neutral button 'Edit' -->
-<button class="h-9 px-3.5 bg-surface text-on-surface text-sm font-medium border border-outline rounded hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors inline-flex items-center justify-center cursor-pointer" type="button">
-            Edit
-          </button>
-<!-- 3. Neutral button 'Enter time' -->
-<button class="h-9 px-3.5 bg-surface text-on-surface text-sm font-medium border border-outline rounded hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors inline-flex items-center justify-center cursor-pointer" type="button">
-            Enter time
-          </button>
-<!-- 4. Neutral button 'Move or continue' -->
-<button class="h-9 px-3.5 bg-surface text-on-surface text-sm font-medium border border-outline rounded hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors inline-flex items-center justify-center cursor-pointer" type="button">
-            Move or continue
-          </button>
-<!-- 5. Danger button 'Delete task' -->
-<button class="h-9 px-3.5 bg-error text-on-error text-sm font-medium rounded hover:bg-[#AE2A19] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors inline-flex items-center justify-center cursor-pointer" type="button">
-            Delete task
-          </button>
-</div>
-</div>
-<!-- Secondary action links -->
-<div class="flex items-center gap-3 text-sm mt-2">
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Export</a>
-<span class="text-on-surface-variant">•</span>
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">History</a>
-<span class="text-on-surface-variant">•</span>
-<a class="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#">Add note</a>
-</div>
-</div>
-<!-- 4. Task Summary -->
-<section class="py-4">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 max-w-3xl text-base">
-<!-- Left Column -->
-<div class="space-y-2">
-<div class="flex">
-<span class="w-32 text-on-surface-variant font-normal">Acceptor:</span>
-<span class="text-on-surface">User B</span>
-</div>
-<div class="flex">
-<span class="w-32 text-on-surface-variant font-normal">Estimated:</span>
-<span class="text-on-surface tabular-nums">8.0 h</span>
-</div>
-<div class="flex">
-<span class="w-32 text-on-surface-variant font-normal">Actual:</span>
-<span class="text-on-surface tabular-nums">2.0 h</span>
-</div>
-<div class="flex">
-<span class="w-32 text-on-surface-variant font-normal">Remaining:</span>
-<span class="text-on-surface tabular-nums">6.0 h</span>
-</div>
-</div>
-<!-- Right Column -->
-<div class="space-y-2">
-<div class="flex">
-<span class="w-32 text-on-surface-variant font-normal">Created:</span>
-<span class="text-on-surface tabular-nums">2026-03-02</span>
-</div>
-<div class="flex">
-<span class="w-32 text-on-surface-variant font-normal">Status:</span>
-<span class="text-on-surface">In progress</span>
-</div>
-<div class="flex">
-<span class="w-32 text-on-surface-variant font-normal">Disposition:</span>
-<span class="text-on-surface">Planned</span>
-</div>
-<div class="flex">
-<span class="w-32 text-on-surface-variant font-normal">Type:</span>
-<span class="text-on-surface">Feature</span>
-</div>
-</div>
-</div>
-<!-- Description paragraph -->
-<div class="mt-6 text-base text-on-surface">
-<p>Synthetic sample task.</p>
-</div>
-</section>
-<!-- 5. Divider -->
-<hr class="border-t border-outline-variant my-4"/>
-<!-- 6. Time log section -->
-<section class="py-2">
-<h2 class="text-xl font-semibold text-on-surface mb-3">Time log</h2>
-<!-- Table Structure -->
-<div class="w-full border border-outline-variant rounded overflow-hidden bg-surface">
-<table class="w-full text-left border-collapse text-sm">
-<thead>
-<tr class="bg-surface-variant border-b border-outline-variant h-10 text-on-surface font-semibold">
-<th class="px-4 py-2 font-semibold" scope="col">Report date</th>
-<th class="px-4 py-2 font-semibold" scope="col">Start</th>
-<th class="px-4 py-2 font-semibold" scope="col">End</th>
-<th class="px-4 py-2 font-semibold text-right" scope="col">Duration</th>
-<th class="px-4 py-2 font-semibold" scope="col">Person</th>
-<th class="px-4 py-2 font-semibold" scope="col">Pair</th>
-<th class="px-4 py-2 font-semibold" scope="col">Description</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-outline-variant">
-<!-- Row 1 -->
-<tr class="h-10 hover:bg-surface-container-low transition-colors">
-<td class="px-4 py-2 text-on-surface tabular-nums">2026-03-03</td>
-<td class="px-4 py-2 text-on-surface tabular-nums">09:00</td>
-<td class="px-4 py-2 text-on-surface tabular-nums">10:00</td>
-<td class="px-4 py-2 text-on-surface tabular-nums text-right">1.0</td>
-<td class="px-4 py-2 text-on-surface">User B</td>
-<td class="px-4 py-2 text-on-surface"></td>
-<td class="px-4 py-2 text-on-surface">Synthetic entry</td>
-</tr>
-<!-- Row 2 -->
-<tr class="h-10 hover:bg-surface-container-low transition-colors">
-<td class="px-4 py-2 text-on-surface tabular-nums">2026-03-04</td>
-<td class="px-4 py-2 text-on-surface tabular-nums">09:00</td>
-<td class="px-4 py-2 text-on-surface tabular-nums">10:00</td>
-<td class="px-4 py-2 text-on-surface tabular-nums text-right">1.0</td>
-<td class="px-4 py-2 text-on-surface">User B</td>
-<td class="px-4 py-2 text-on-surface"></td>
-<td class="px-4 py-2 text-on-surface">Synthetic entry</td>
-</tr>
-</tbody>
-<tfoot>
-<tr class="h-10 bg-surface-variant font-semibold border-t border-outline-variant text-on-surface">
-<td class="px-4 py-2 text-left" colspan="3">Total</td>
-<td class="px-4 py-2 text-right tabular-nums">2.0</td>
-<td class="px-4 py-2" colspan="3"></td>
-</tr>
-</tfoot>
-</table>
-</div>
-</section>
-</main>
-</body></html>
+<body>
+  <!-- Visually hidden skip to main content link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="#" class="brand-title">Planner</a>
+      <div class="search-container">
+        <label for="top-search" class="search-label">Search or ID</label>
+        <input type="text" id="top-search" class="search-input">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Content Region -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Top</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Project 1</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Iteration 3</a></li>
+        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Story 2</a></li>
+        <li class="breadcrumb-item"><span class="breadcrumb-current" aria-current="page">Task 8</span></li>
+      </ol>
+    </nav>
+
+    <!-- Heading Row & Actions -->
+    <div class="heading-row">
+      <h1 class="page-title">Task 8</h1>
+      <div class="action-buttons">
+        <button type="button" class="btn btn-completion">Complete task</button>
+        <button type="button" class="btn btn-neutral">Edit</button>
+        <button type="button" class="btn btn-neutral">Enter time</button>
+        <button type="button" class="btn btn-neutral">Move or continue</button>
+        <button type="button" class="btn btn-danger">Delete task</button>
+      </div>
+    </div>
+
+    <!-- Secondary Links -->
+    <div class="action-links">
+      <a href="#" class="action-link">Export</a>
+      <span style="color: #626F86; font-size: 12px;">•</span>
+      <a href="#" class="action-link">History</a>
+      <span style="color: #626F86; font-size: 12px;">•</span>
+      <a href="#" class="action-link">Add note</a>
+    </div>
+
+    <!-- Summary Details (Definition List / Two-column structure) -->
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="summary-label">Acceptor:</span>
+        <span class="summary-value">User B</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Created:</span>
+        <span class="summary-value">2026-03-02</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Estimated:</span>
+        <span class="summary-value">8.0 h</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Status:</span>
+        <span class="summary-value">In progress</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Actual:</span>
+        <span class="summary-value">2.0 h</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Disposition:</span>
+        <span class="summary-value">Planned</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Remaining:</span>
+        <span class="summary-value">6.0 h</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Type:</span>
+        <span class="summary-value">Feature</span>
+      </div>
+    </div>
+
+    <!-- Description Paragraph -->
+    <p class="description-text">Synthetic sample task.</p>
+
+    <!-- Time log Section -->
+    <section aria-labelledby="timelog-heading">
+      <h2 id="timelog-heading" class="section-title">Time log</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Report date</th>
+              <th scope="col">Start</th>
+              <th scope="col">End</th>
+              <th scope="col" class="num-col">Duration</th>
+              <th scope="col">Person</th>
+              <th scope="col">Pair</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026-03-03</td>
+              <td>09:00</td>
+              <td>10:00</td>
+              <td class="num-col">1.0</td>
+              <td>User B</td>
+              <td></td>
+              <td>Synthetic entry</td>
+            </tr>
+            <tr>
+              <td>2026-03-04</td>
+              <td>09:00</td>
+              <td>10:00</td>
+              <td class="num-col">1.0</td>
+              <td>User B</td>
+              <td></td>
+              <td>Synthetic entry</td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="3">Total</td>
+              <td class="num-col">2.0</td>
+              <td colspan="3"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

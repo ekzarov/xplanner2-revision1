@@ -2,337 +2,304 @@
 
 <html lang="en"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>User A - Planner</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UX13-42 User A - Planner (Self or admin)</title>
+<!-- Load Tailwind CSS v3 with forms and container queries -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
+<script>
     tailwind.config = {
-      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            "on-secondary": "#ffffff",
-            "surface-container": "#e7eeff",
-            "surface-tint": "#0058ca",
-            "secondary": "#086d39",
-            "on-tertiary-container": "#ffebe8",
-            "inverse-surface": "#243145",
-            "error-container": "#ffdad6",
-            "secondary-fixed": "#9df6b4",
-            "on-primary-fixed": "#001945",
-            "surface-container-low": "#f0f3ff",
-            "on-tertiary-fixed-variant": "#910909",
-            "tertiary": "#a51c16",
-            "surface-bright": "#f9f9ff",
-            "surface": "#f9f9ff",
-            "on-secondary-container": "#15733f",
-            "on-primary-container": "#ecefff",
-            "on-background": "#0e1c2f",
-            "inverse-on-surface": "#ebf1ff",
-            "surface-variant": "#d6e3fe",
-            "tertiary-container": "#c8362b",
-            "inverse-primary": "#b0c6ff",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "background": "#f9f9ff",
-            "primary": "#004fb6",
-            "on-surface": "#0e1c2f",
-            "error": "#ba1a1a",
-            "secondary-fixed-dim": "#82d99a",
-            "on-error-container": "#93000a",
-            "tertiary-fixed": "#ffdad5",
-            "primary-fixed-dim": "#b0c6ff",
-            "on-error": "#ffffff",
-            "surface-container-high": "#dee8ff",
-            "on-surface-variant": "#424654",
-            "surface-container-lowest": "#ffffff",
-            "secondary-container": "#9df6b4",
-            "on-primary": "#ffffff",
-            "primary-fixed": "#d9e2ff",
-            "on-tertiary": "#ffffff",
-            "primary-container": "#0c66e4",
-            "on-secondary-fixed-variant": "#005229",
-            "outline": "#727786",
-            "on-primary-fixed-variant": "#00429b",
-            "on-tertiary-fixed": "#410001",
-            "surface-dim": "#cddbf5",
-            "surface-container-highest": "#d6e3fe",
-            "outline-variant": "#c2c6d7",
-            "on-secondary-fixed": "#00210d"
-          },
-          borderRadius: {
-            "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
+            brand: {
+              DEFAULT: '#0C66E4',
+              hover: '#0055CC'
+            },
+            text: {
+              primary: '#1D2125',
+              secondary: '#626F86'
+            },
+            bg: {
+              page: '#F7F8FA',
+              surface: '#FFFFFF',
+              subtle: '#F1F2F4',
+              avatar: '#E9F2FF'
+            },
+            border: {
+              control: '#8590A2',
+              divider: '#DCDFE4'
+            }
           },
           fontFamily: {
-            body: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-            headline: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-            display: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-            label: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
+            sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
           }
-        },
-      },
-    }
+        }
+      }
+    };
   </script>
-<style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #F7F8FA;
-      color: #1D2125;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
+<!-- BEGIN: Custom CSS -->
+<style data-purpose="accessibility">
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #0C66E4;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 1000;
+      transition: top 0.1s ease-in-out;
     }
-    
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible {
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    a:focus-visible, input:focus-visible, button:focus-visible {
       outline: 2px solid #0C66E4 !important;
       outline-offset: 2px !important;
     }
-
-    .tabular-nums {
-      font-variant-numeric: tabular-nums;
+  </style>
+<style data-purpose="table-layout">
+    /* Table borders and cell alignments */
+    .planner-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+      background-color: #FFFFFF;
+    }
+    .planner-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      font-size: 14px;
+      height: 40px;
+      padding: 8px 16px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+    .planner-table td {
+      font-size: 14px;
+      height: 40px;
+      padding: 8px 16px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+    }
+    .planner-table tr:last-child td {
+      border-bottom: none;
     }
   </style>
+<!-- END: Custom CSS -->
 </head>
-<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125]">
-<!-- Header / Top bar -->
-<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] h-14 px-6 flex items-center justify-between">
-<div class="flex items-center gap-6">
-<span class="text-[18px] font-bold text-[#1D2125] tracking-tight">Planner</span>
-<!-- Search control -->
-<div class="flex items-center gap-2">
-<label class="text-[14px] text-[#1D2125] font-normal cursor-pointer select-none" for="search-input">
-          Search or ID
-        </label>
-<input class="h-9 w-60 rounded-[6px] border border-[#8590A2] bg-[#FFFFFF] px-3 text-[14px] text-[#1D2125] focus:outline-none focus:ring-2 focus:ring-[#0C66E4] focus:ring-offset-2" id="search-input" type="text"/>
+<body class="bg-bg-page font-sans text-text-primary min-h-screen antialiased">
+<!-- BEGIN: Skip Link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- END: Skip Link -->
+<!-- BEGIN: TopNavigationBar -->
+<header class="h-14 bg-bg-surface border-b border-border-divider w-full" data-purpose="header-navigation">
+<div class="max-w-[1240px] mx-auto px-6 lg:px-8 h-full flex items-center justify-between">
+<!-- Left side: Brand and Search -->
+<div class="flex items-center space-x-6">
+<span class="text-lg font-bold text-text-primary tracking-tight">Planner</span>
+<div class="flex items-center">
+<label class="text-sm font-normal text-text-primary mr-2 whitespace-nowrap" for="search-input">Search or ID</label>
+<input class="h-8 w-44 md:w-56 px-3 rounded border border-border-control bg-white text-sm text-text-primary focus:ring-0" id="search-input" type="text"/>
 </div>
 </div>
-<!-- Right text links -->
-<div class="flex items-center gap-4 text-[14px]">
-<a class="text-[#0C66E4] hover:text-[#0055CC] font-normal transition-colors" href="#">Me</a>
-<a class="text-[#0C66E4] hover:text-[#0055CC] font-normal transition-colors" href="#">Sign out</a>
+<!-- Right side: User actions -->
+<div class="flex items-center space-x-4 text-sm font-normal">
+<a class="text-brand hover:text-brand-hover hover:underline" href="#">Me</a>
+<a class="text-brand hover:text-brand-hover hover:underline" href="#">Sign out</a>
+</div>
 </div>
 </header>
-<!-- Breadcrumbs -->
-<nav aria-label="Breadcrumb" class="px-8 pt-4 pb-2 text-[14px]">
-<ol class="flex items-center gap-1.5 list-none p-0 m-0">
-<li>
-<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Top</a>
-</li>
-<li aria-hidden="true" class="text-[#626F86]">/</li>
-<li>
-<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">People</a>
-</li>
-<li aria-hidden="true" class="text-[#626F86]">/</li>
-<li aria-current="page" class="text-[#1D2125] font-normal">User A</li>
+<!-- END: TopNavigationBar -->
+<!-- BEGIN: MainContent -->
+<main class="max-w-[1240px] mx-auto px-6 lg:px-8 py-6" id="main">
+<!-- BEGIN: Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="mb-5 text-sm" data-purpose="breadcrumb">
+<ol class="flex items-center space-x-2 text-text-secondary">
+<li><a class="text-brand hover:underline" href="#">Top</a></li>
+<li aria-hidden="true" class="separator text-text-secondary">/</li>
+<li><a class="text-brand hover:underline" href="#">People</a></li>
+<li aria-hidden="true" class="separator text-text-secondary">/</li>
+<li aria-current="page" class="text-text-primary">User A</li>
 </ol>
 </nav>
-<!-- Heading Row -->
-<div class="px-8 py-4">
-<div class="flex items-center gap-4">
-<div aria-hidden="true" class="w-12 h-12 rounded-[6px] bg-[#E9F2FF] flex items-center justify-center text-[16px] font-semibold text-[#1D2125] select-none">
+<!-- END: Breadcrumbs -->
+<!-- BEGIN: UserProfileHeader -->
+<section class="flex items-start space-x-4 mb-8" data-purpose="user-header">
+<!-- Initials Avatar -->
+<div aria-hidden="true" class="w-12 h-12 rounded-[6px] bg-bg-avatar text-text-primary font-semibold text-lg flex items-center justify-center shrink-0">
         UA
       </div>
-<div>
-<h1 class="text-[24px] font-semibold text-[#1D2125] leading-tight">User A</h1>
-<div class="flex items-center gap-2 mt-1 text-[14px]">
-<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Edit</a>
-<span aria-hidden="true" class="text-[#626F86] text-xs">•</span>
-<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Timesheet</a>
-<span aria-hidden="true" class="text-[#626F86] text-xs">•</span>
-<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">People</a>
+<!-- User Details & Subnav Links -->
+<div class="flex flex-col justify-center">
+<h1 class="text-2xl font-bold text-text-primary leading-tight">User A</h1>
+<div class="flex items-center space-x-2 text-sm mt-1">
+<a class="text-brand hover:underline" href="#">Edit</a>
+<span aria-hidden="true" class="text-text-secondary">•</span>
+<a class="text-brand hover:underline" href="#">Timesheet</a>
+<span aria-hidden="true" class="text-text-secondary">•</span>
+<a class="text-brand hover:underline" href="#">People</a>
 </div>
 </div>
-</div>
-</div>
-<!-- Main Content Sections -->
-<main class="px-8 pb-12 flex flex-col gap-6">
-<!-- Section 1: Active tasks -->
-<section aria-labelledby="heading-active-tasks">
-<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-active-tasks">Active tasks</h2>
-<div class="w-full bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] overflow-hidden">
-<table class="w-full text-left border-collapse text-[14px]">
+</section>
+<!-- END: UserProfileHeader -->
+<!-- BEGIN: ActiveTasksSection -->
+<section class="mb-8" data-purpose="active-tasks">
+<h2 class="text-xl font-semibold text-text-primary mb-3">Active tasks</h2>
+<div class="overflow-x-auto">
+<table class="planner-table">
 <thead>
-<tr class="bg-[#F1F2F4] h-10 text-[#1D2125] font-semibold border-b border-[#DCDFE4]">
-<th class="px-4 py-0 font-semibold" scope="col">Task</th>
-<th class="px-4 py-0 font-semibold" scope="col">Story</th>
-<th class="px-4 py-0 font-semibold text-right tabular-nums" scope="col">Estimate</th>
-<th class="px-4 py-0 font-semibold text-right tabular-nums" scope="col">Actual</th>
-<th class="px-4 py-0 font-semibold text-right tabular-nums" scope="col">Remaining</th>
-<th class="px-4 py-0 font-semibold" scope="col">Actions</th>
+<tr>
+<th class="text-left w-2/12" scope="col">Task</th>
+<th class="text-left w-3/12" scope="col">Story</th>
+<th class="text-right w-1/12" scope="col">Estimate</th>
+<th class="text-right w-1/12" scope="col">Actual</th>
+<th class="text-right w-1/12" scope="col">Remaining</th>
+<th class="text-left w-4/12 pl-6" scope="col">Actions</th>
 </tr>
 </thead>
 <tbody>
-<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 2</a>
-</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 1</a>
-</td>
-<td class="px-4 py-0 text-right tabular-nums">5.0</td>
-<td class="px-4 py-0 text-right tabular-nums">4.0</td>
-<td class="px-4 py-0 text-right tabular-nums">1.0</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Time</a>
-<span aria-hidden="true" class="text-[#626F86] mx-1">•</span>
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Edit</a>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Task 2</a></td>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 1</a></td>
+<td class="text-right tabular-nums">5.0</td>
+<td class="text-right tabular-nums">4.0</td>
+<td class="text-right tabular-nums">1.0</td>
+<td class="text-left pl-6">
+<a class="text-brand hover:underline" href="#">Time</a>
+<span class="text-text-secondary mx-2">•</span>
+<a class="text-brand hover:underline" href="#">Edit</a>
 </td>
 </tr>
-<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 13</a>
-</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 3</a>
-</td>
-<td class="px-4 py-0 text-right tabular-nums">4.0</td>
-<td class="px-4 py-0 text-right tabular-nums">2.0</td>
-<td class="px-4 py-0 text-right tabular-nums">2.0</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Time</a>
-<span aria-hidden="true" class="text-[#626F86] mx-1">•</span>
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Edit</a>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Task 13</a></td>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 3</a></td>
+<td class="text-right tabular-nums">4.0</td>
+<td class="text-right tabular-nums">2.0</td>
+<td class="text-right tabular-nums">2.0</td>
+<td class="text-left pl-6">
+<a class="text-brand hover:underline" href="#">Time</a>
+<span class="text-text-secondary mx-2">•</span>
+<a class="text-brand hover:underline" href="#">Edit</a>
 </td>
 </tr>
-<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 15</a>
-</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 3</a>
-</td>
-<td class="px-4 py-0 text-right tabular-nums">4.0</td>
-<td class="px-4 py-0 text-right tabular-nums">2.0</td>
-<td class="px-4 py-0 text-right tabular-nums">2.0</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Time</a>
-<span aria-hidden="true" class="text-[#626F86] mx-1">•</span>
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Edit</a>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Task 15</a></td>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 3</a></td>
+<td class="text-right tabular-nums">4.0</td>
+<td class="text-right tabular-nums">2.0</td>
+<td class="text-right tabular-nums">2.0</td>
+<td class="text-left pl-6">
+<a class="text-brand hover:underline" href="#">Time</a>
+<span class="text-text-secondary mx-2">•</span>
+<a class="text-brand hover:underline" href="#">Edit</a>
 </td>
 </tr>
-<tr class="h-10 hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 17</a>
-</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 3</a>
-</td>
-<td class="px-4 py-0 text-right tabular-nums">4.0</td>
-<td class="px-4 py-0 text-right tabular-nums">2.0</td>
-<td class="px-4 py-0 text-right tabular-nums">2.0</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Time</a>
-<span aria-hidden="true" class="text-[#626F86] mx-1">•</span>
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Edit</a>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Task 17</a></td>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 3</a></td>
+<td class="text-right tabular-nums">4.0</td>
+<td class="text-right tabular-nums">2.0</td>
+<td class="text-right tabular-nums">2.0</td>
+<td class="text-left pl-6">
+<a class="text-brand hover:underline" href="#">Time</a>
+<span class="text-text-secondary mx-2">•</span>
+<a class="text-brand hover:underline" href="#">Edit</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<!-- Section 2: Planned tasks -->
-<section aria-labelledby="heading-planned-tasks">
-<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-planned-tasks">Planned tasks</h2>
-<p class="text-[14px] text-[#626F86] m-0">None</p>
+<!-- END: ActiveTasksSection -->
+<!-- BEGIN: PlannedTasksSection -->
+<section class="mb-8" data-purpose="planned-tasks">
+<h2 class="text-xl font-semibold text-text-primary mb-3">Planned tasks</h2>
+<p class="text-sm text-text-secondary">None</p>
 </section>
-<!-- Section 3: Completed tasks -->
-<section aria-labelledby="heading-completed-tasks">
-<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-completed-tasks">Completed tasks</h2>
-<div class="w-full bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] overflow-hidden">
-<table class="w-full text-left border-collapse text-[14px]">
+<!-- END: PlannedTasksSection -->
+<!-- BEGIN: CompletedTasksSection -->
+<section class="mb-8" data-purpose="completed-tasks">
+<h2 class="text-xl font-semibold text-text-primary mb-3">Completed tasks</h2>
+<div class="overflow-x-auto">
+<table class="planner-table">
 <thead>
-<tr class="bg-[#F1F2F4] h-10 text-[#1D2125] font-semibold border-b border-[#DCDFE4]">
-<th class="px-4 py-0 font-semibold" scope="col">Task</th>
-<th class="px-4 py-0 font-semibold" scope="col">Story</th>
-<th class="px-4 py-0 font-semibold text-right tabular-nums" scope="col">Estimate</th>
+<tr>
+<th class="text-left w-4/12" scope="col">Task</th>
+<th class="text-left w-6/12" scope="col">Story</th>
+<th class="text-right w-2/12" scope="col">Estimate</th>
 </tr>
 </thead>
 <tbody>
-<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 1</a>
-</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 1</a>
-</td>
-<td class="px-4 py-0 text-right tabular-nums">5.0</td>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Task 1</a></td>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 1</a></td>
+<td class="text-right tabular-nums">5.0</td>
 </tr>
-<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 10</a>
-</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 5</a>
-</td>
-<td class="px-4 py-0 text-right tabular-nums">5.0</td>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Task 10</a></td>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 5</a></td>
+<td class="text-right tabular-nums">5.0</td>
 </tr>
-<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 11</a>
-</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 5</a>
-</td>
-<td class="px-4 py-0 text-right tabular-nums">5.0</td>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Task 11</a></td>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 5</a></td>
+<td class="text-right tabular-nums">5.0</td>
 </tr>
-<tr class="h-10 hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Task 12</a>
-</td>
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 5</a>
-</td>
-<td class="px-4 py-0 text-right tabular-nums">6.0</td>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Task 12</a></td>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 5</a></td>
+<td class="text-right tabular-nums">6.0</td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<!-- Section 4: Stories as customer -->
-<section aria-labelledby="heading-stories-customer">
-<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-stories-customer">Stories as customer</h2>
-<div class="w-full bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] overflow-hidden">
-<table class="w-full text-left border-collapse text-[14px]">
+<!-- END: CompletedTasksSection -->
+<!-- BEGIN: StoriesAsCustomerSection -->
+<section class="mb-8" data-purpose="stories-as-customer">
+<h2 class="text-xl font-semibold text-text-primary mb-3">Stories as customer</h2>
+<div class="overflow-x-auto">
+<table class="planner-table">
 <thead>
-<tr class="bg-[#F1F2F4] h-10 text-[#1D2125] font-semibold border-b border-[#DCDFE4]">
-<th class="px-4 py-0 font-semibold" scope="col">Story</th>
+<tr>
+<th class="text-left" scope="col">Story</th>
 </tr>
 </thead>
 <tbody>
-<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 1</a>
-</td>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 1</a></td>
 </tr>
-<tr class="h-10 border-b border-[#DCDFE4] hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 3</a>
-</td>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 3</a></td>
 </tr>
-<tr class="h-10 hover:bg-[#F7F8FA]">
-<td class="px-4 py-0">
-<a class="text-[#0C66E4] hover:text-[#0055CC]" href="#">Story 5</a>
-</td>
+<tr>
+<td class="text-left"><a class="text-brand hover:underline" href="#">Story 5</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<!-- Section 5: Stories as tracker -->
-<section aria-labelledby="heading-stories-tracker">
-<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-stories-tracker">Stories as tracker</h2>
-<p class="text-[14px] text-[#626F86] m-0">None</p>
+<!-- END: StoriesAsCustomerSection -->
+<!-- BEGIN: StoriesAsTrackerSection -->
+<section class="mb-8" data-purpose="stories-as-tracker">
+<h2 class="text-xl font-semibold text-text-primary mb-3">Stories as tracker</h2>
+<p class="text-sm text-text-secondary">None</p>
 </section>
-<!-- Section 6: Future tasks -->
-<section aria-labelledby="heading-future-tasks">
-<h2 class="text-[20px] font-semibold text-[#1D2125] mb-2" id="heading-future-tasks">Future tasks</h2>
-<p class="text-[14px] text-[#626F86] m-0">None</p>
+<!-- END: StoriesAsTrackerSection -->
+<!-- BEGIN: FutureTasksSection -->
+<section class="mb-8" data-purpose="future-tasks">
+<h2 class="text-xl font-semibold text-text-primary mb-3">Future tasks</h2>
+<p class="text-sm text-text-secondary">None</p>
 </section>
+<!-- END: FutureTasksSection -->
 </main>
+<!-- END: MainContent -->
 </body></html>
