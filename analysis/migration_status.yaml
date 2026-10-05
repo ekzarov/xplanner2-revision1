@@ -31,10 +31,10 @@ project:
 
 control:
   state: active
-  current_stage: stage-07
-  stage_status: in_progress
-  previous_stage: stage-06
-  next_action: 'Stage 7 pass 003: a fresh independent QA reviewer (migration-qa skill, ACK, not an author) controls the exact export set stage-06-draft-14-ux-006-14 (manifest SHA-256 e52d85f7707360a4a8e3db0b2ce4009c851a4079d2275f583a0684940aaabce0) against the parity map, Stage 4 and Stage 5 decisions and the pass-002 findings, and verifies waiver:legacy_walkthrough_fallback:xplanner2-revision1 with an exact-scope clean pass before Stage 7 can close; open visual remainders are assessed, not assumed accepted. Findings return to Stage 6. Stage 8 owner approval stays separate.'
+  current_stage: stage-06
+  stage_status: awaiting_owner
+  previous_stage: stage-07
+  next_action: 'Stage 7 pass 003 (analysis/reviews/stage-07-pass-003.md) returned findings (max Medium); back in Stage 6. Open: F-001 row 48 Deactivated control without a permission condition (D-007 interpretation in backlog item 21), F-002 stale records, F-003 three titles with role/state notes, F-004 CDN-dependent renders of four derived views; cosmetic F-005..F-007. Relay 5 merge quota is exhausted (10/10 after the records PR for pass 003). The owner decides how to proceed: a new merge authorization for a further bounded correction and Stage 7 pass, and the D-007/row-48 interpretation. Stage 8 owner approval stays separate.'
   automatic_advancement: false
   prevention_self_check: 'stage-02 pass 009 findings kept open for carryover: reviewer proposals to refine CHK-003 (registry writers incl. application copies of framework code), CHK-004 (pattern and locale source of each formatting tag) and CHK-007 (a stated rule counts as verified only when an independent implementation reproduces the figure) remain pending author confirmation at Stage 3.'
 
@@ -433,6 +433,14 @@ transition_history:
       - 'analysis/prototyping/ui-design-system.md'
       - 'analysis/reviews/stage-07-pass-002.md'
     owner_approval: null
+  - from: stage-07
+    to: stage-06
+    reason: 'Finding-driven return after Stage 7 pass 003 (result findings, max Medium) on export set stage-06-draft-14-ux-006-14: F-001 Medium (project-admin person editor shows the Deactivated control, row 48, without a recorded permission condition), F-002..F-004 Low not cosmetic (stale record statements; three page titles with role/state notes; four derived views whose PNG depends on an unversioned CDN script, not stated in provenance), F-005..F-007 Low cosmetic. Pass-002 F-001, F-003, F-004 resolved; F-002 option C judged workable for the projects list / project editor. Waiver waiver:legacy_walkthrough_fallback:xplanner2-revision1 content verified, not verified for closure because the pass is not clean. The report is unchanged.'
+    changed_by: 'PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8'
+    changed_at: '2026-10-05T12:56:43Z'
+    gate_evidence:
+      - 'analysis/reviews/stage-07-pass-003.md'
+    owner_approval: null
 review_passes:
   - stage: stage-02
     pass: 1
@@ -752,6 +760,21 @@ review_passes:
       - 'waiver:legacy_walkthrough_fallback:xplanner2-revision1'
     export_set_version: 'stage-06-draft-13-ux-006-13'
     findings_severity_max: medium
+  - stage: stage-07
+    pass: 3
+    result: findings
+    report: 'analysis/reviews/stage-07-pass-003.md'
+    reviewer: 'QA independent reviewer (subagent a2e662a41697e0e90 of Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8, model claude-opus-5-5)'
+    reviewer_id: 'claude-code-qa-s07-p003'
+    session_id: 'a2e662a41697e0e90'
+    authored_artifacts: []
+    independence_record: 'analysis/reviews/stage-07-pass-003.md'
+    reviewed_at: '2026-10-05T12:30:23Z'
+    scope: 'xplanner2-revision1'
+    waiver_ids:
+      - 'waiver:legacy_walkthrough_fallback:xplanner2-revision1'
+    export_set_version: 'stage-06-draft-14-ux-006-14'
+    findings_severity_max: medium
 owner_decisions:
   - id: 'integration-branch:xplanner2-revision1'
     decision: approved
@@ -1058,12 +1081,12 @@ delivery:
   owner_walkthrough_decision_id: null
 
 progress:
-  summary: 'Stage 6 correction set for Stage 7 pass 002 complete (export set stage-06-draft-14-ux-006-14); Stage 7 pass 003 next. Drafts, not owner-approved.'
-  completed_percent: 32
-  updated_at: '2026-10-05T12:22:35Z'
+  summary: 'Stage 7 pass 003 returned findings (max Medium); back in Stage 6; owner decision needed to continue (merge quota exhausted).'
+  completed_percent: 26
+  updated_at: '2026-10-05T12:56:43Z'
   agent_reviews:
-    total: 16
-    valid: 14
+    total: 17
+    valid: 15
     blocked: 0
     invalid: 2
     active: 0

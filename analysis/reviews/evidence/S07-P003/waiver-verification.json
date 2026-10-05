@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-10-05T12:50:14.018Z",
+  "waiver": "waiver:legacy_walkthrough_fallback:xplanner2-revision1",
+  "inputs": {
+    "status_sha256": "3a1639ac7ce060546f3064b116eabd723bb33495ece3b1c626ab684b1d96fc4a",
+    "fallback_sha256": "2d6f4bb1f627ceaa34be6c6d9488beabdcdb6ec4a9b11f178df1eb547c4ace4d",
+    "walkthrough_sha256": "b061cd975efe37676bfa2b2a8425a5ce53fbe4793510bae06bef87ffac09239e",
+    "stage4_sha256": "d6636e86fdacc444435e4e6f108bafacb8ba6bd9ae7dab62c020ae463851dbfc"
+  },
+  "checks": [
+    {
+      "id": "W-1",
+      "item": "schema fields",
+      "result": "matched",
+      "obs": "decision approved, decided_by Codex, decided_at 2026-10-02T16:04:50Z, scope, rationale, record, residual_risk, permitted_next_stage, delegated_authority present (status lines 975-985); audit:status OK"
+    },
+    {
+      "id": "W-2",
+      "item": "gate and exact scope",
+      "result": "matched",
+      "obs": "id waiver:legacy_walkthrough_fallback:xplanner2-revision1; scope exactly xplanner2-revision1; legacy_walkthrough.scope and decision_id agree (lines 1034-1038)"
+    },
+    {
+      "id": "W-3",
+      "item": "permitted next stage",
+      "result": "matched",
+      "obs": "stage-04 = registry (MIGRATION.md Waiver Contract); 3->4 transitions at 2026-10-02T16:04:50Z and 17:38:12Z cite the waiver and record"
+    },
+    {
+      "id": "W-4",
+      "item": "authority",
+      "result": "matched",
+      "obs": "operational-mandate-stage4-completion decided_by ekzarov, delegation.waivers [legacy_walkthrough_fallback], ends_at_stage stage-05; record states not a personal owner approval"
+    },
+    {
+      "id": "W-5",
+      "item": "durable record pinned",
+      "result": "matched",
+      "obs": "fallback SHA-256 2d6f4bb1...ce4d = Stage 4 input pin (stage-04 line 54); unchanged since pass 002"
+    },
+    {
+      "id": "W-6",
+      "item": "waived scope exact; no unwaived scope omitted",
+      "result": "matched",
+      "obs": "walkthrough residual table: (a) 17 R-01..R-17, (c) 6 R-18..R-23, (d) 5 R-24..R-28, (e) 19 R-29..R-47; waived = d+e = 24 = R-24..R-47; a and c not waived and not residual"
+    },
+    {
+      "id": "W-7",
+      "item": "residual risk and blocked scope visible",
+      "result": "matched",
+      "obs": "outcome blocked-waived; unresolved_blocked_scopes W001-residual-R24-R47 status blocked with waiver_id and both records"
+    },
+    {
+      "id": "W-8",
+      "item": "Condition 1 carried to Stage 4",
+      "result": "matched",
+      "obs": "Stage 4 line 99 rule; per-decision Unverified flags rest on R-24..R-28, R-30, R-34, R-40, R-41, R-46; line 383 waived items stay unverified; line 311 R-24/R-41 to the SDD matrix"
+    },
+    {
+      "id": "W-9",
+      "item": "prototype claims no waived behaviour as verified",
+      "result": "matched",
+      "obs": "no reference to R-24..R-47, W001 or legacy observation in manifest, normalization or catalogue; hidden-project visibility (R-24) is deferred to the SDD matrix in the F-002 option C records (D-001, D-011), not drawn as observed legacy behaviour"
+    },
+    {
+      "id": "W-10",
+      "item": "record location",
+      "result": "matched",
+      "obs": "record under analysis/stages/stage-03/ (MIGRATION.md requires a durable record path); methodology wording analysis/stages/waivers/ differs (observation carried from pass 002 O-1)"
+    },
+    {
+      "id": "W-11",
+      "item": "closing link: a clean pass verifies the waiver",
+      "result": "not satisfied by this pass",
+      "obs": "W-1..W-10 matched, but this pass result is findings, so it cannot be the clean waiver-verifying pass"
+    }
+  ]
+}

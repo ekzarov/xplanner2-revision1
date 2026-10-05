@@ -1,0 +1,45 @@
+{
+  "packet_id": "S07-P003",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-07-pass-003.md",
+  "producer": "Reviewer subagent a2e662a41697e0e90 authored the report and all evidence and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-07/p003/stage-07-pass-003.md",
+  "source_sha256": "a11710fe4c8c3fb9f5d46f7809e5c9372ef5715264a7f16fd40e21ab633d3084",
+  "pm_changes": [
+    "The literal token CURRENT_SESSION_ID was replaced with a2e662a41697e0e90 (one occurrence).",
+    "npm run fix:artifact-links wrapped one repository path in a code span as a clickable link on one line (W-10 row: `analysis/stages/stage-03/` → [`analysis/stages/stage-03/`](../stages/stage-03)). No other line differs from the source with the session ID substituted (diff after LF normalization).",
+    "The reviewer's link to the not-yet-existing analysis/prototyping/ui-polish-backlog.md (Governed Low-cosmetic rules paragraph, describing what a later pass would require) was reduced to the plain code span `analysis/prototyping/ui-polish-backlog.md` so that audit:methodology passes; the text is otherwise unchanged."
+  ],
+  "evidence_copied_unchanged": [
+    {
+      "file": "analysis/reviews/evidence/S07-P003/derived-view-verification.json",
+      "sha256": "9332d50a823b561f36c052e6c55bdbe0fe869db662f0eb839527d5bd3f06a1d6"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P003/export-scan.json",
+      "sha256": "e57602f3a73874ff26a4e0c3e3939117e0255098249af5ad1019b49b02a56b0f"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P003/hash-verification.json",
+      "sha256": "e0af3893bd201cb87fdc6e9fffe2e67c46dafceb9b53c715c54d446d7525cf33"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P003/pass002-resolution.json",
+      "sha256": "c0eba7f629c3f557614ce1a87ad65c528dc61f7eb370fb9c2930a3cfaa15ab79"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P003/render-comparison.json",
+      "sha256": "337a14ad1d47b16e654a586c744eb9b95cb5bc1165f0889337df6ff421d63526"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P003/variant-check.json",
+      "sha256": "a8eebfc1269caea379a1fed8a230e5fe69987390e0dc1fc2bed881dc7b3df34a"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P003/waiver-verification.json",
+      "sha256": "50cafdaac5b7d6e258656d1fe34067988261b280ac1a10fb5ef644c7eb699d3a"
+    }
+  ],
+  "final_report_sha256": "0af5c9e9717ca38ed3005341acd8af2ca960da07a1b9509af9f198a00e2da798",
+  "recorded_at": "2026-10-05T12:56:43Z"
+}

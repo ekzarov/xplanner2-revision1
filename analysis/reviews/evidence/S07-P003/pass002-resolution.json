@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-10-05T12:50:14.018Z",
+  "reviewed_revision": "48ffd0e362daddd228ee8b5509da1fb012b3c4e6",
+  "baseline": "stage-07-pass-002.md at 8a610c3",
+  "items": [
+    {
+      "id": "F-001",
+      "severity": "medium",
+      "status": "resolved",
+      "evidence": "iteration-statistics-desktop/-phone: Progress section is an SVG line chart (aria-label \"Progress line chart of estimated and actual hours per day, weekends included\"), Actual 0.0..48.0 solid #0C66E4 and Estimated 100.0 dashed #626F86 over 9 calendar days 2026-03-02..03-10 incl. 03-07/03-08; burn-down 100..52 over the same 9 days, aria-label per day weekends included; role=progressbar only in the summary bar; chart.line catalogue row updated; PNG re-render pixel-identical",
+      "residual": "sample-data coherence of the new series -> pass-003 F-007 (cosmetic)"
+    },
+    {
+      "id": "F-002",
+      "severity": "medium",
+      "status": "partly resolved",
+      "evidence": "projects-list: hide present drawn twice (projects-list-desktop, new projects-list-hide-desktop in the non-sysadmin frame), hide absent drawn (projects-list-member-desktop); project-editor states hide present (drawn) / absent (state); mapping deferred to SDD citing D-001, D-011; no view now ties hide to a named role; required recheck CHK-002 over person-editor not applied: person-editor-admin-desktop (role view project admin) draws Deactivated (row 48: users with hide permission) with no permission-conditioned state",
+      "residual": "pass-003 F-001 (medium)"
+    },
+    {
+      "id": "F-003",
+      "severity": "low",
+      "status": "resolved",
+      "evidence": "form-desktop/form-phone breadcrumb Top/Project 1/Iteration 3/Story 5/Task 12 (link) / Edit (aria-current); manifest task-editor.navigation updated"
+    },
+    {
+      "id": "F-004",
+      "severity": "low",
+      "status": "resolved",
+      "evidence": "role=tab/tablist: 0 in all 59 HTML; required marking in text: iteration-editor-desktop Start/End, time-editor-desktop Person header and accessible names, signin-desktop/-phone User ID and Password, note-editor add/edit Body"
+    },
+    {
+      "id": "F-005",
+      "severity": "low",
+      "status": "resolved for the 10 listed statements; mechanism recurs",
+      "evidence": "catalogue lines 84/88/89 corrected; manifest scope, _notes[2], _notes[7] IDs, projects-list.ui_variants, task-editor.navigation corrected; normalization rows 97, 102, 208 and _notes[4] corrected; remainders listed in manifest _notes[10]",
+      "residual": "new stale/false statements -> pass-003 F-002 (CHK-007 again)"
+    },
+    {
+      "id": "F-006",
+      "severity": "low",
+      "status": "largely resolved",
+      "evidence": "0 prompt codes or capture markers (UX13-..., (no shell), Phone UI, Phone 390) in 59 titles",
+      "residual": "3 titles keep role/state annotations; titles not in one pattern -> pass-003 F-003"
+    },
+    {
+      "id": "F-007",
+      "severity": "low cosmetic",
+      "status": "partly resolved",
+      "evidence": "form-phone doubled separator fixed (one aria-hidden .bc-sep per item, no ::before); statistics-phone separator spacing aligned",
+      "residual": "pass-003 F-005 (cosmetic)"
+    },
+    {
+      "id": "F-008",
+      "severity": "low cosmetic",
+      "status": "partly resolved",
+      "evidence": "disposition pies use #1F7A45 (series-2) for Discovered on desktop and phone",
+      "residual": "non-token colours #FAFBFC(6) #E4E6EB #E2E5E9 #E2E4E8 #A5ADBA #FEEBEA, px units, 14 px body -> pass-003 F-006 (cosmetic)"
+    },
+    {
+      "id": "F-009",
+      "severity": "low cosmetic",
+      "status": "open",
+      "evidence": "history-desktop 20.0->24.0 on 03-04 vs original 24.0; time-editor-phone \"Entry 3: Person\" vs \"New entry\" unchanged",
+      "residual": "pass-003 F-007 (cosmetic)"
+    }
+  ],
+  "pass001_leftovers": [
+    {
+      "id": "p001 F-006 residual (p002 F-004)",
+      "status": "resolved"
+    },
+    {
+      "id": "p001 F-007/F-009 residual (p002 F-005)",
+      "status": "resolved as listed; CHK-007 recurs (p003 F-002)"
+    },
+    {
+      "id": "p001 F-010/F-013 residual (p002 F-008)",
+      "status": "open, cosmetic (p003 F-006)"
+    },
+    {
+      "id": "p001 F-014 residual (p002 F-007)",
+      "status": "open, cosmetic (p003 F-005)"
+    }
+  ]
+}
