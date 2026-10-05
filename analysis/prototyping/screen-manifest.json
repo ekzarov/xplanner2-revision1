@@ -26,6 +26,7 @@
         "notes section",
         "export menu open: XML, PDF (row 210)",
         "move selected stories dialog (target iteration select)",
+        "empty state on phone (not-started Iteration 4, editor)",
         "role view editor: no Delete iteration",
         "empty",
         "invalid-order-number",
@@ -65,11 +66,11 @@
       "files": [
         {
           "path": "wireframes/list-desktop.html",
-          "sha256": "2c67692f447896e71c8bb647be5bf61af325192dee9c9750713e5ea2bf05c59e"
+          "sha256": "19c23e985db0f870b78921a0a8741180ea2f471fd3aa54d7a4ec56fabfb134ff"
         },
         {
           "path": "wireframes/list-desktop.png",
-          "sha256": "5e019c569dcdb0abd595e90169f31b46339b551aa2a7d1f31007eced17042bfc"
+          "sha256": "e3e0232cc02d07d14b3e2fb9f806962dbf7e40ae59e4e58413b8d85785c84cce"
         },
         {
           "path": "wireframes/list-phone.html",
@@ -105,11 +106,11 @@
         },
         {
           "path": "wireframes/iteration-start-dialog-desktop.html",
-          "sha256": "8027e42c9e5361effe3edfebcf0ebfb89507c2bb3761a22a2dc44adc34c1f259"
+          "sha256": "e036e0a89c78b2f4d242141fd09b1bc0b0bb11f082c20e70d06320d9894c6f34"
         },
         {
           "path": "wireframes/iteration-start-dialog-desktop.png",
-          "sha256": "f3d3915bd35c211bd96bcd3c492cef7740339ea2ccdf21ce205abcd729c2df4e"
+          "sha256": "3fbb8e18524d89ac652e596864b7cb340bb96615fa089bc22b8b2bfabc68e0bd"
         },
         {
           "path": "wireframes/iteration-print-desktop.html",
@@ -150,6 +151,14 @@
         {
           "path": "wireframes/iteration-move-stories-dialog-desktop.png",
           "sha256": "9071299c341eabc394033fd5e74f001a5b4d63432abd3792f14c8fa419747ec5"
+        },
+        {
+          "path": "wireframes/iteration-empty-phone.html",
+          "sha256": "ed8a7826ed76d09fa9c7b31b61fbd0dbc4137eee005701ab9bca723c866a9fdf"
+        },
+        {
+          "path": "wireframes/iteration-empty-phone.png",
+          "sha256": "bed8655584ef81de2475a90d70954d0c4cf0841179b16291540295d536da6bed"
         }
       ],
       "navigation": [
@@ -588,11 +597,11 @@
       "files": [
         {
           "path": "wireframes/iteration-statistics-desktop.html",
-          "sha256": "9985bc1b89f21004e4e17c23d36854cc69e33390abd468406485c3efb1699648"
+          "sha256": "566005e4eef511f59bdc87270aef5bbc16b212768ad6e8c0f20f3f2eb7ce676e"
         },
         {
           "path": "wireframes/iteration-statistics-desktop.png",
-          "sha256": "564470ebc768e0770adcdad6215bc568f8f63afa3466da0cad34f20cb68f160c"
+          "sha256": "7e3f9461ce8e6fb2d4e639d9497ce02793d7f5cc7f6b4027717f699a7fd2288c"
         },
         {
           "path": "wireframes/iteration-statistics-phone.html",
@@ -1325,11 +1334,11 @@
       "files": [
         {
           "path": "wireframes/aggregate-timesheet-desktop.html",
-          "sha256": "96a96f3706f906b3405c649e9fc7374792bb03d57368d687f15cc7bcfe786eef"
+          "sha256": "c830eefa2959f80d0aaa80f25aa7d22dd3b929ee0242b7e98a670442fdac403d"
         },
         {
           "path": "wireframes/aggregate-timesheet-desktop.png",
-          "sha256": "1fa4cac682965f19ea1d03c63a39be2a1920337f6089d4606cf8030a3ff87f55"
+          "sha256": "a365039eca95cd295679fd476e8054447806bda93d4e7b4c6f39c1531f1ba906"
         }
       ],
       "navigation": [
@@ -1728,14 +1737,14 @@
     }
   ],
   "_notes": [
-    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T07:59:53Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
+    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T08:31:09Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
     "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a pattern whose composition is unchanged and is drawn in a real export (P); per-row claims are in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. After Stage 7 pass 001 the claims that relied on a pattern with a different composition, or on a trigger without a drawn destination, were withdrawn and are now drawn by the UX-006-13 exports. No visual row is unclaimed. Rows 24 and 26 are role states drawn by iteration-export-menu-desktop and task-viewer-desktop; row 210 is drawn by the export menu (iteration-export-menu-desktop).",
     "Roles (Stage 7 pass 001 F-001/F-002): each screen declares the roles its exports draw; role views are states of the same screen. iteration-page: admin (list-desktop, list-phone: Edit and Delete iteration), editor (iteration-export-menu-desktop: no Delete iteration) and viewer (iteration-viewer-desktop: read-only); task-page: editor and viewer (task-viewer-desktop); projects-list: system administrator (Create project, Hidden column, System information link); project-page: system administrator (Delete project); people-list: admin and system administrator (Create person; for viewers and editors only that button is absent). Also drawn: projects-list for viewer/editor/admin, project-page admin (export menu), story-page viewer (export menu), person-page viewer, person-editor project admin. Open coverage items for QA: phone date picker, select inside a phone dialog and phone empty state are not verified (pending phone exports).",
-    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983, story-page-desktop 841a0392 (replaces c0e12320), project-page-admin-desktop 832f3f12, person-editor-admin-desktop 127b7b36, projects-list-member-desktop 10bdaa21, story-viewer-export-desktop 06cb5800, person-page-viewer-desktop ba6f2600; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983, story-page-desktop 841a0392 (replaces c0e12320), project-page-admin-desktop 832f3f12, person-editor-admin-desktop 127b7b36, projects-list-member-desktop 10bdaa21, story-viewer-export-desktop 06cb5800, person-page-viewer-desktop ba6f2600, iteration-empty-phone a5b766ae (390 px phone), list-desktop caaa1e00, iteration-start-dialog-desktop 00767edb, iteration-statistics-desktop 265577d0, aggregate-timesheet-desktop 9e592647; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
     "Pending prepared entries: none. Every export was accepted only after its real PNG was checked against its HTML; stale or cropped pairs (ZIP 6 and ZIP 7 close, ZIP 7 start and continue) were not imported and are kept in scratch.",
     "Editors (owner direction, relayed by Codex): Save, Reset and Cancel, drawn on every exported editor. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
     "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page. A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",
-    "Responsive patterns: list/table: priority columns, table scrolls in its own container, 44-48 px targets; verified by list-phone (a10e679d) and project-page-phone (f4a330e1); form: single column, 16 px fields, stacked full-width Save / Reset / Cancel; verified by form-phone (78b9b2d9, ZIP 6157107c) and signin-phone (c5d26872); dialog: full width minus 16 px, stacked 48 px buttons, scrim; verified by dialog-phone (fdb44f71); detail page: heading, stacked action buttons, summary, then list/table; verified by project-page-phone (f4a330e1); board: stacked status sections per story; verified by iteration-board-phone (58e255ee); messages and validation: error summary plus field errors; verified by form-phone and signin-phone; charts: charts stacked one per row with text legends; verified by iteration-statistics-phone (76be6213); time grid: one stacked block per entry; verified by time-editor-phone (c7e2ef05, ZIP 6157107c); empty state: table.data empty row; drawn on desktop (ui-kit, iteration-start-dialog-desktop); NOT verified on phone; date picker on phone: NOT verified (no phone export of iteration-editor); open coverage item; select inside a phone dialog: NOT verified (no phone export of continue-dialog); open coverage item. Surfaces without their own phone export rely on these patterns and are not individually verified.",
+    "Responsive patterns: list/table: priority columns, table scrolls in its own container, 44-48 px targets; verified by list-phone (a10e679d) and project-page-phone (f4a330e1); form: single column, 16 px fields, stacked full-width Save / Reset / Cancel; verified by form-phone (78b9b2d9, ZIP 6157107c) and signin-phone (c5d26872); dialog: full width minus 16 px, stacked 48 px buttons, scrim; verified by dialog-phone (fdb44f71); detail page: heading, stacked action buttons, summary, then list/table; verified by project-page-phone (f4a330e1); board: stacked status sections per story; verified by iteration-board-phone (58e255ee); messages and validation: error summary plus field errors; verified by form-phone and signin-phone; charts: charts stacked one per row with text legends; verified by iteration-statistics-phone (76be6213); time grid: one stacked block per entry; verified by time-editor-phone (c7e2ef05, ZIP 6157107c); empty state: empty-state text with the Create story action; drawn on a real 390 px phone by iteration-empty-phone (a5b766ae); open F-006 dependency: its body min-width 390px blocks 320 px reflow (correction via the Stitch UI, phone list item 18); date picker on phone: NOT verified (no phone export of iteration-editor); open coverage item; select inside a phone dialog: NOT verified (no phone export of continue-dialog); open coverage item. Surfaces without their own phone export rely on these patterns and are not individually verified.",
     "Navigation: per-screen navigation entries; breadcrumbs on hierarchical pages, none at the root (projects-list-desktop has no breadcrumb since UX-006-13); the system-administrator top bar adds \"System information\" (row 55). Carrying list position in the URL is a proposal only. list-phone has no operable select-all (row 97 is met by per-row checkboxes; recorded deviation); list-desktop draws \"Select all stories\".",
     "Known CI issue (PM handles; exports not retouched): dead in-page anchors in some exports.",
     "Deferred: the 31 Stage 4 defer rows are recorded in the normalization deferred_rows field (UX-006-10, PR #48); they are not drawn. Former pending rows 161, 174, 189, 208 and 212 are placed (UX-006-09). The component sheet wireframes/ui-kit.html is the ui_design_system resource."
