@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>UX13-P22c Iteration 3 - Statistics (Phone UI, breadcrumb)</title>
+<title>Iteration 3 - Statistics</title>
 <style>
     /* CSS Reset & Foundation Tokens */
     *, *::before, *::after {
@@ -400,7 +400,7 @@
       display: inline-block;
     }
   </style>
-<style>.breadcrumb-list li::after { content: none !important; } .breadcrumb-list li { white-space: nowrap; flex-shrink: 0; } .bc-sep { margin: 0 4px; color: var(--text-secondary); }</style></head>
+<style>.breadcrumb-list li::after { content: none !important; } .breadcrumb-list li { white-space: nowrap; flex-shrink: 0; } .bc-sep { margin: 0 0 0 6px; color: var(--text-secondary); }</style></head>
 <body>
 <!-- Accessibility Skip to Main Content Link -->
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -422,7 +422,7 @@
 <main class="page-wrapper" id="main">
 <!-- Breadcrumb Navigation -->
 <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-<ol class="breadcrumb-list"><li style="white-space: nowrap; flex-shrink: 0;"><a href="#top">Top</a><span aria-hidden="true" class="bc-sep" style="margin: 0 4px; color: var(--text-secondary);">/</span></li><li style="white-space: nowrap; flex-shrink: 0;"><a href="#project-1">Project 1</a><span aria-hidden="true" class="bc-sep" style="margin: 0 4px; color: var(--text-secondary);">/</span></li><li style="white-space: nowrap; flex-shrink: 0;"><span aria-current="page">Iteration 3</span></li></ol>
+<ol class="breadcrumb-list"><li style="white-space: nowrap; flex-shrink: 0;"><a href="#top">Top</a><span aria-hidden="true" class="bc-sep" style="margin: 0 0 0 6px; color: var(--text-secondary);">/</span></li><li style="white-space: nowrap; flex-shrink: 0;"><a href="#project-1">Project 1</a><span aria-hidden="true" class="bc-sep" style="margin: 0 0 0 6px; color: var(--text-secondary);">/</span></li><li style="white-space: nowrap; flex-shrink: 0;"><span aria-current="page">Iteration 3</span></li></ol>
 </nav>
 <!-- Page Header & Summary -->
 <header class="page-header">
@@ -440,12 +440,12 @@
 </header>
 <!-- Horizontally Scrollable Local Tabs -->
 <nav aria-label="Iteration sections" class="tabs-nav-container">
-<div class="tabs-list" role="tablist">
-<a class="tab-link" href="#stories" role="tab">Stories</a>
-<a class="tab-link" href="#tasks" role="tab">Tasks</a>
-<a aria-current="page" class="tab-link" href="#statistics" role="tab">Statistics</a>
-<a class="tab-link" href="#accuracy" role="tab">Accuracy</a>
-<a class="tab-link" href="#board" role="tab">Board</a>
+<div class="tabs-list">
+<a class="tab-link" href="#stories">Stories</a>
+<a class="tab-link" href="#tasks">Tasks</a>
+<a aria-current="page" class="tab-link" href="#statistics">Statistics</a>
+<a class="tab-link" href="#accuracy">Accuracy</a>
+<a class="tab-link" href="#board">Board</a>
 </div>
 </nav>
 <!-- Stacked Charts (One per row, full width) -->
@@ -651,48 +651,12 @@
 </div>
 </div>
 </article>
-<!-- Progress Horizontal Bars -->
+<!-- Progress line chart: estimated and actual hours per day (rows 109, 110; weekends included, row 111) -->
 <article class="chart-card">
 <h2 class="chart-title">Progress</h2>
-<div class="horizontal-bars">
-<!-- Actual hours 48.0 h (relative to 100.0 h = 48%) -->
-<div class="hbar-group">
-<div class="hbar-label-row">
-<span class="hbar-name">Actual hours</span>
-<span class="hbar-val">48.0 h</span>
-</div>
-<div aria-label="Actual hours progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="48" class="hbar-track" role="progressbar">
-<div class="hbar-fill" style="width: 48%; background-color: #0C66E4;"></div>
-</div>
-</div>
-<!-- Estimated hours 100.0 h (full bar = 100%) -->
-<div class="hbar-group">
-<div class="hbar-label-row">
-<span class="hbar-name">Estimated hours</span>
-<span class="hbar-val">100.0 h</span>
-</div>
-<div aria-label="Estimated hours target" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" class="hbar-track" role="progressbar">
-<div class="hbar-fill" style="width: 100%; background-color: #626F86;"></div>
-</div>
-</div>
-</div>
-</article>
-<!-- Burn-down Chart -->
-<article class="chart-card">
-<h2 class="chart-title">Burn-down</h2>
 <div class="burndown-container">
 <div class="burndown-svg-wrapper">
-<!-- Single line series: Remaining hours per working day -->
-<!-- Points: 
-                 1: 2026-03-02 (100.0) -> x=45, y=30
-                 2: 2026-03-03 (92.0)  -> x=90, y=42
-                 3: 2026-03-04 (84.0)  -> x=135, y=54
-                 4: 2026-03-05 (76.0)  -> x=180, y=66
-                 5: 2026-03-06 (68.0)  -> x=225, y=78
-                 6: 2026-03-09 (60.0)  -> x=270, y=90
-                 7: 2026-03-10 (52.0)  -> x=315, y=102
-            -->
-<svg aria-label="Burn-down line chart showing remaining hours per working day" class="burndown-svg" viewbox="0 0 355 185"><!-- Grid lines -->
+<svg aria-label="Progress line chart showing estimated and actual hours per day, weekends included" class="burndown-svg" viewbox="0 0 355 200"><!-- Grid lines -->
 <line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="30" y2="30"></line>
 <line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="66" y2="66"></line>
 <line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="102" y2="102"></line>
@@ -704,37 +668,88 @@
 <text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="106">50</text>
 <text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="142">25</text>
 <text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="178">0</text>
-<!-- Polyline for data points -->
-<polyline fill="none" points="45,30 90,42 135,54 180,66 225,78 270,90 315,102" stroke="#0C66E4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
-<!-- Point markers & values -->
-<!-- 2026-03-02: 100.0 -->
+<polyline fill="none" points="45,30 78.75,30 112.5,30 146.25,30 180,30 213.75,30 247.5,30 281.25,30 315,30" stroke="#626F86" stroke-dasharray="5 4" stroke-width="2"></polyline>
+<polyline fill="none" points="45,174 78.75,162.48 112.5,150.96 146.25,139.44 180,127.92 213.75,127.92 247.5,127.92 281.25,116.4 315,104.88" stroke="#0C66E4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<circle cx="45" cy="174" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="45" y="166">0.0</text>
+<circle cx="78.75" cy="162.48" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="78.75" y="154.48">8.0</text>
+<circle cx="112.5" cy="150.96" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="112.5" y="142.96">16.0</text>
+<circle cx="146.25" cy="139.44" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="146.25" y="131.44">24.0</text>
+<circle cx="180" cy="127.92" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="180" y="119.92">32.0</text>
+<circle cx="213.75" cy="127.92" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="213.75" y="119.92">32.0</text>
+<circle cx="247.5" cy="127.92" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="247.5" y="119.92">32.0</text>
+<circle cx="281.25" cy="116.4" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="281.25" y="108.4">40.0</text>
+<circle cx="315" cy="104.88" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="315" y="96.88">48.0</text>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="315" y="22">100.0</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="45" y="192">03-02</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="78.75" y="192">03-03</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="112.5" y="192">03-04</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="146.25" y="192">03-05</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="180" y="192">03-06</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="213.75" y="192">03-07</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="247.5" y="192">03-08</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="281.25" y="192">03-09</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="315" y="192">03-10</text></svg>
+</div>
+<div class="burndown-legend" style="flex-wrap: wrap; row-gap: 6px; column-gap: 16px;">
+<span style="display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;"><span class="burndown-line-indicator"></span>Actual hours (48.0 h)</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;"><span class="burndown-line-indicator" style="background-color: transparent; border-top: 2px dashed #626F86; height: 0;"></span>Estimated hours (100.0 h)</span>
+</div>
+</div>
+</article>
+<!-- Burn-down Chart -->
+<article class="chart-card">
+<h2 class="chart-title">Burn-down</h2>
+<div class="burndown-container">
+<div class="burndown-svg-wrapper">
+<!-- Single line series: remaining hours per day, weekends included -->
+<svg aria-label="Burn-down line chart showing remaining hours per day, weekends included" class="burndown-svg" viewbox="0 0 355 200"><!-- Grid lines -->
+<line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="30" y2="30"></line>
+<line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="66" y2="66"></line>
+<line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="102" y2="102"></line>
+<line stroke="#DCDFE4" stroke-dasharray="3 3" stroke-width="1" x1="40" x2="335" y1="138" y2="138"></line>
+<line stroke="#8590A2" stroke-width="1" x1="40" x2="335" y1="174" y2="174"></line>
+<!-- Y-axis labels -->
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="34">100</text>
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="70">75</text>
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="106">50</text>
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="142">25</text>
+<text fill="#626F86" font-family="system-ui" font-size="10" text-anchor="end" x="34" y="178">0</text>
+<polyline fill="none" points="45,30 78.75,41.52 112.5,53.04 146.25,64.56 180,76.08 213.75,76.08 247.5,76.08 281.25,87.6 315,99.12" stroke="#0C66E4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
 <circle cx="45" cy="30" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
 <text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="45" y="22">100.0</text>
-<!-- 2026-03-03: 92.0 -->
-<circle cx="90" cy="42" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
-<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="90" y="34">92.0</text>
-<!-- 2026-03-04: 84.0 -->
-<circle cx="135" cy="54" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
-<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="135" y="46">84.0</text>
-<!-- 2026-03-05: 76.0 -->
-<circle cx="180" cy="66" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
-<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="180" y="58">76.0</text>
-<!-- 2026-03-06: 68.0 -->
-<circle cx="225" cy="78" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
-<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="225" y="70">68.0</text>
-<!-- 2026-03-09: 60.0 -->
-<circle cx="270" cy="90" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
-<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="270" y="82">60.0</text>
-<!-- 2026-03-10: 52.0 -->
-<circle cx="315" cy="102" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
-<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="315" y="94">52.0</text>
-<!-- X-axis Date Labels -->
+<circle cx="78.75" cy="41.52" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="78.75" y="33.52">92.0</text>
+<circle cx="112.5" cy="53.04" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="112.5" y="45.04">84.0</text>
+<circle cx="146.25" cy="64.56" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="146.25" y="56.56">76.0</text>
+<circle cx="180" cy="76.08" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="180" y="68.08">68.0</text>
+<circle cx="213.75" cy="76.08" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="213.75" y="68.08">68.0</text>
+<circle cx="247.5" cy="76.08" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="247.5" y="68.08">68.0</text>
+<circle cx="281.25" cy="87.6" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="281.25" y="79.6">60.0</text>
+<circle cx="315" cy="99.12" fill="#FFFFFF" r="3.5" stroke="#0C66E4" stroke-width="2"></circle>
+<text fill="#1D2125" font-family="system-ui" font-size="9.5" font-weight="600" text-anchor="middle" x="315" y="91.12">52.0</text>
 <text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="45" y="192">03-02</text>
-<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="90" y="192">03-03</text>
-<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="135" y="192">03-04</text>
-<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="180" y="192">03-05</text>
-<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="225" y="192">03-06</text>
-<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="270" y="192">03-09</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="78.75" y="192">03-03</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="112.5" y="192">03-04</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="146.25" y="192">03-05</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="180" y="192">03-06</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="213.75" y="192">03-07</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="247.5" y="192">03-08</text>
+<text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="281.25" y="192">03-09</text>
 <text fill="#626F86" font-family="system-ui" font-size="9" text-anchor="middle" x="315" y="192">03-10</text></svg>
 </div>
 <div class="burndown-legend">
