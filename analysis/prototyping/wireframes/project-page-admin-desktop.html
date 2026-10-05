@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-11 Project 2 - Planner (Admin, Export menu)</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 10000;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Common Focus Styling */
+    a:focus, button:focus, input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 220px;
+      padding: 0 10px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #1D2125;
+      background-color: #FFFFFF;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    main {
+      padding: 20px 24px 48px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      font-size: 14px;
+      color: #626F86;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      padding: 0 8px;
+      color: #626F86;
+    }
+
+    .breadcrumb-item a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-item a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-item [aria-current="page"] {
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    /* Page Header */
+    .header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-neutral {
+      height: 36px;
+      padding: 0 16px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      color: #1D2125;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-neutral:hover {
+      background-color: #F1F2F4;
+    }
+
+    .project-description {
+      font-size: 14px;
+      color: #626F86;
+      margin-bottom: 14px;
+    }
+
+    /* Project Action Links & Dropdown Menu */
+    .action-links-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .action-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-block;
+    }
+    .action-link:hover {
+      text-decoration: underline;
+    }
+
+    .export-menu-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .export-dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      box-shadow: none;
+      width: 100px;
+      padding: 8px 0;
+      z-index: 50;
+    }
+
+    .menu-caption {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #626F86;
+      padding: 2px 12px 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .menu-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 6px 12px;
+      font-size: 14px;
+      color: #1D2125;
+      text-decoration: none;
+      background: none;
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .menu-item:hover, .menu-item:focus {
+      background-color: #E9F2FF;
+      color: #0C66E4;
+      outline: none;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+
+    /* Iterations Table */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    thead th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      height: 40px;
+      padding: 0 16px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+
+    /* Sortable Header Buttons */
+    .sort-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 6px;
+      margin: -4px -6px;
+      border-radius: 4px;
+    }
+    .sort-btn:hover {
+      background-color: #E2E4E8;
+    }
+
+    tbody tr {
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+    tbody tr:hover {
+      background-color: #FAFBFC;
+    }
+
+    tbody td {
+      padding: 0 16px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .table-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .table-link:hover {
+      text-decoration: underline;
+    }
+
+    .num-col {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    thead th.num-col-header {
+      text-align: right;
+    }
+
+    /* Notes Section */
+    .notes-section {
+      margin-top: 8px;
+    }
+
+    .note-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 16px 20px;
+      max-width: 900px;
+    }
+
+    .note-subject {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+
+    .note-meta {
+      font-size: 13px;
+      color: #626F86;
+      margin-bottom: 8px;
+    }
+
+    .note-body {
+      font-size: 14px;
+      color: #1D2125;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .note-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .note-action-link {
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .note-action-link.primary {
+      color: #0C66E4;
+    }
+    .note-action-link.primary:hover {
+      text-decoration: underline;
+    }
+    .note-action-link.danger {
+      color: #C9372C;
+    }
+    .note-action-link.danger:hover {
+      color: #AE2A19;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- First focusable element: Accessibility Skip to main content -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-bar-left">
+      <span class="brand-title">Planner</span>
+      <div class="search-container">
+        <label for="search-field" class="search-label">Search or ID</label>
+        <input type="text" id="search-field" class="search-input" />
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#me" class="nav-link">Me</a>
+      <a href="#signout" class="nav-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main content region -->
+  <main id="main">
+    <!-- Breadcrumb navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#top">Top</a></li>
+        <li class="breadcrumb-item"><span aria-current="page">Project 2</span></li>
+      </ol>
+    </nav>
+
+    <!-- Header Section with Project Name & Administrator Actions -->
+    <div class="header-section">
+      <div>
+        <h1 class="page-title">Project 2</h1>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="btn-neutral">Edit</button>
+        <button type="button" class="btn-neutral">Create iteration</button>
+      </div>
+    </div>
+
+    <!-- Project Description -->
+    <p class="project-description">Second synthetic sample project.</p>
+
+    <!-- Action links bar with expanded Export format menu -->
+    <div class="action-links-bar">
+      <a href="#people" class="action-link">People</a>
+
+      <div class="export-menu-wrapper">
+        <button type="button" class="action-link" id="export-button" aria-haspopup="true" aria-expanded="true" aria-controls="export-format-menu">
+          Export
+        </button>
+        <div class="export-dropdown" id="export-format-menu" role="menu" aria-labelledby="export-button">
+          <div class="menu-caption">Format</div>
+          <button type="button" class="menu-item" role="menuitem">XML</button>
+        </div>
+      </div>
+
+      <a href="#history" class="action-link">History</a>
+      <a href="#add-note" class="action-link">Add note</a>
+    </div>
+
+    <!-- Iterations Section -->
+    <section aria-labelledby="iterations-heading">
+      <h2 id="iterations-heading" class="section-title">Iterations</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="sort-btn">ID</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="sort-btn">Name</button>
+              </th>
+              <th scope="col" aria-sort="none">
+                <button type="button" class="sort-btn">Start date</button>
+              </th>
+              <th scope="col" aria-sort="descending">
+                <button type="button" class="sort-btn">End date ▼</button>
+              </th>
+              <th scope="col" class="num-col-header" aria-sort="none">
+                <button type="button" class="sort-btn" style="margin-left: auto;">Days worked</button>
+              </th>
+              <th scope="col" class="num-col-header" aria-sort="none">
+                <button type="button" class="sort-btn" style="margin-left: auto;">Stories</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>6</td>
+              <td><a href="#iteration-6" class="table-link">Iteration 6</a></td>
+              <td>2026-03-02</td>
+              <td>2026-03-13</td>
+              <td class="num-col">10</td>
+              <td class="num-col">3</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><a href="#iteration-5" class="table-link">Iteration 5</a></td>
+              <td>2026-02-16</td>
+              <td>2026-02-27</td>
+              <td class="num-col">10</td>
+              <td class="num-col">4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Notes Section -->
+    <section class="notes-section" aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="section-title">Notes</h2>
+      <div class="note-card">
+        <div class="note-subject">Synthetic project note</div>
+        <div class="note-meta">User A · 2026-03-03</div>
+        <div class="note-body">Synthetic note text.</div>
+        <div class="note-actions">
+          <a href="#edit-note" class="note-action-link primary">Edit</a>
+          <a href="#delete-note" class="note-action-link danger">Delete</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
