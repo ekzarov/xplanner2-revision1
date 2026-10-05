@@ -1,313 +1,746 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Planner - Iteration 3</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "surface-bright": "#f9f9ff",
-            "on-secondary": "#ffffff",
-            "error": "#ba1a1a",
-            "tertiary-container": "#c8362b",
-            "on-background": "#0e1c2f",
-            "surface": "#ffffff",
-            "surface-container-highest": "#d6e3fe",
-            "background": "#F7F8FA",
-            "surface-container": "#e7eeff",
-            "on-error": "#ffffff",
-            "on-primary": "#ffffff",
-            "on-tertiary": "#ffffff",
-            "on-secondary-fixed": "#00210d",
-            "on-secondary-container": "#15733f",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "on-tertiary-container": "#ffebe8",
-            "on-error-container": "#93000a",
-            "tertiary": "#a51c16",
-            "on-tertiary-fixed": "#410001",
-            "on-primary-container": "#ecefff",
-            "on-tertiary-fixed-variant": "#910909",
-            "surface-container-high": "#dee8ff",
-            "secondary": "#086d39",
-            "on-surface": "#1D2125",
-            "outline-variant": "#DCDFE4",
-            "inverse-surface": "#243145",
-            "surface-tint": "#0C66E4",
-            "on-surface-variant": "#626F86",
-            "inverse-primary": "#b0c6ff",
-            "tertiary-fixed": "#ffdad5",
-            "surface-variant": "#F1F2F4",
-            "secondary-fixed": "#9df6b4",
-            "on-primary-fixed": "#001945",
-            "inverse-on-surface": "#ebf1ff",
-            "surface-container-lowest": "#ffffff",
-            "on-primary-fixed-variant": "#00429b",
-            "surface-dim": "#cddbf5",
-            "secondary-fixed-dim": "#82d99a",
-            "primary-fixed-dim": "#b0c6ff",
-            "error-container": "#ffdad6",
-            "primary-fixed": "#d9e2ff",
-            "surface-container-low": "#f0f3ff",
-            "primary": "#0C66E4",
-            "on-secondary-fixed-variant": "#005229",
-            "primary-container": "#0C66E4",
-            "secondary-container": "#9df6b4",
-            "outline": "#8590A2"
-          },
-          borderRadius: {
-            "DEFAULT": "6px",
-            "lg": "6px",
-            "xl": "6px",
-            "full": "9999px"
-          },
-          fontFamily: {
-            headline: ["system-ui", "-apple-system", "'Segoe UI'", "Roboto", "'Helvetica Neue'", "Arial", "sans-serif"],
-            display: ["system-ui", "-apple-system", "'Segoe UI'", "Roboto", "'Helvetica Neue'", "Arial", "sans-serif"],
-            body: ["system-ui", "-apple-system", "'Segoe UI'", "Roboto", "'Helvetica Neue'", "Arial", "sans-serif"],
-            label: ["system-ui", "-apple-system", "'Segoe UI'", "Roboto", "'Helvetica Neue'", "Arial", "sans-serif"]
-          }
-        }
-      }
-    };
-  </script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>UX13-P15f Iteration 3 - Stories (Phone UI, Admin, aria-sort)</title>
 <style>
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background-color: #F7F8FA;
-      color: #1D2125;
+    /* Reset & Foundation */
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      -webkit-font-smoothing: antialiased;
     }
-    .custom-focus:focus-visible {
-      outline: 2px solid #0C66E4 !important;
-      outline-offset: 2px !important;
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
     }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
+
+    /* Accessibility Focus Outline */
+    :focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
     }
-    .no-scrollbar {
-      -ms-overflow-style: none;
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 12px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 12px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Links */
+    a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      padding: 12px 16px;
+      width: 100%;
+    }
+
+    .top-bar-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 36px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.02em;
+    }
+
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-bar-links a {
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    .search-container {
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 44px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+    }
+    .search-input:focus {
+      border-color: #0C66E4;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Page Content Wrapper */
+    .page-wrapper {
+      width: 100%;
+      padding: 16px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 12px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .breadcrumb-list li {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-height: 32px;
+    }
+
+    .bc-sep {
+      margin: 0 6px;
+      color: #626F86;
+      user-select: none;
+    }
+
+    .breadcrumb-list span[aria-current="page"] {
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    /* Page Header */
+    .page-heading {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+      line-height: 1.25;
+    }
+
+    .date-range {
+      font-size: 13px;
+      color: #626F86;
+      margin-bottom: 12px;
+    }
+
+    /* Progress & Metrics */
+    .progress-section {
+      margin-bottom: 16px;
+    }
+
+    .progress-bar-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .progress-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 8px;
+      background-color: #DCDFE4;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      display: block;
+      height: 100%;
+      width: 48%;
+      background-color: #0C66E4;
+      border-radius: 4px;
+    }
+
+    .metrics-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 12px;
+      font-size: 13px;
+      color: #1D2125;
+    }
+
+    .metrics-line span {
+      white-space: nowrap;
+    }
+
+    .metrics-sep {
+      color: #626F86;
+    }
+
+    /* Buttons */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 48px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      padding: 0 16px;
+      touch-action: manipulation;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      border-color: #8590A2;
+      color: #1D2125;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
+    }
+
+    .btn-danger {
+      background-color: #C9372C;
+      border-color: #C9372C;
+      color: #FFFFFF;
+    }
+    .btn-danger:hover {
+      background-color: #AE2A19;
+      color: #FFFFFF;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      border-color: #0C66E4;
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+    }
+
+    /* Page Actions */
+    .page-actions-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .header-links-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 4px 0;
+    }
+
+    .header-links-row a {
+      font-size: 14px;
+      font-weight: 500;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Local Tabs */
+    .tabs-nav {
+      width: 100%;
+      border-bottom: 1px solid #DCDFE4;
+      margin-bottom: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
     }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+    .tabs-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tabs-list {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      padding: 0 4px;
+    }
+
+    .tabs-list li {
+      flex-shrink: 0;
+    }
+
+    .tab-item {
+      display: inline-flex;
+      align-items: center;
+      height: 44px;
+      padding: 0 4px;
+      font-size: 14px;
+      color: #626F86;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+    .tab-item:hover {
+      color: #1D2125;
+      text-decoration: none;
+    }
+    .tab-item[aria-current="page"] {
+      color: #0C66E4;
+      font-weight: 600;
+      border-bottom-color: #0C66E4;
+    }
+
+    /* Toolbar Stack */
+    .toolbar-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    /* Table Container & Table */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      margin-bottom: 24px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .table-container:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    .data-table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .data-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+
+    .data-table th button.th-sort {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      cursor: pointer;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 24px;
+    }
+
+    .data-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table tr.selected-row {
+      background-color: #E9F2FF;
+    }
+
+    .checkbox-cell {
+      width: 44px;
+      text-align: center;
+      padding: 8px 4px 8px 12px;
+    }
+
+    .native-checkbox {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #0C66E4;
+      vertical-align: middle;
+    }
+
+    .order-input {
+      width: 48px;
+      height: 32px;
+      text-align: center;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 13px;
+      color: #1D2125;
+    }
+    .order-input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Notes Section */
+    .notes-section {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .notes-heading {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+
+    .note-card {
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 12px;
+      background-color: #FFFFFF;
+    }
+
+    .note-subject {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+
+    .note-meta {
+      font-size: 12px;
+      color: #626F86;
+      margin-bottom: 8px;
+    }
+
+    .note-body {
+      font-size: 13px;
+      color: #1D2125;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .note-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .note-actions a {
+      font-size: 13px;
+      font-weight: 600;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .note-action-danger {
+      color: #C9372C;
+    }
+    .note-action-danger:hover {
+      color: #AE2A19;
+      text-decoration: underline;
+    }
+
+    /* Accessible visually hidden helper */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   </style>
-  </head>
-<body class="min-h-screen flex justify-center bg-[#F7F8FA] text-[#1D2125]">
-<div class="w-full max-w-[390px] min-h-screen bg-[#F7F8FA] flex flex-col pb-12 selection:bg-[#E9F2FF] selection:text-[#0C66E4]">
-<!-- 1. Top bar -->
-<header class="w-full bg-white border-b border-[#DCDFE4] px-4 h-14 flex items-center justify-between shrink-0">
-<span class="text-base font-bold text-[#1D2125] tracking-tight">Planner</span>
-<nav aria-label="User navigation" class="flex items-center space-x-1">
-<a class="custom-focus text-[#0C66E4] hover:text-[#0055CC] text-[14px] font-normal min-h-[44px] px-2 inline-flex items-center transition-colors" href="#me">
-          Me
-        </a>
-<span class="text-[#DCDFE4] select-none">|</span>
-<a class="custom-focus text-[#0C66E4] hover:text-[#0055CC] text-[14px] font-normal min-h-[44px] px-2 inline-flex items-center transition-colors" href="#signout">
-          Sign out
-        </a>
+</head>
+<body>
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Phone Top Bar -->
+<header class="top-bar">
+<div class="top-bar-row">
+<span class="brand-title">Planner</span>
+<nav aria-label="User navigation" class="top-bar-links">
+<a href="#">Me</a>
+<a href="#">Sign out</a>
 </nav>
+</div>
+<div class="search-container">
+<label class="search-label" for="search-input">Search or ID</label>
+<input class="search-input" id="search-input" name="search" type="text"/>
+</div>
 </header>
-<!-- 2. Search section -->
-<section class="w-full bg-white border-b border-[#DCDFE4] px-4 py-3 shrink-0">
-<form class="flex flex-col space-y-1" onsubmit="event.preventDefault();" role="search">
-<label class="text-[14px] font-semibold text-[#1D2125]" for="search-input">Search or ID</label>
-<div class="relative w-full">
-<input autocomplete="off" class="custom-focus w-full h-[44px] px-3 bg-white border border-[#8590A2] rounded-[6px] text-[14px] text-[#1D2125] focus:border-[#0C66E4] outline-none" id="search-input" name="q" spellcheck="false" type="search"/>
-</div>
-</form>
-</section>
-<!-- Main Content Canvas -->
-<main class="w-full px-4 pt-4 flex flex-col space-y-4">
-<!-- 3. Breadcrumb -->
-<nav aria-label="Breadcrumb" class="text-[14px] text-[#626F86] flex items-center space-x-1 flex-wrap">
-<a class="custom-focus text-[#0C66E4] hover:underline min-h-[44px] inline-flex items-center" href="#top">Top</a>
-<span class="text-[#626F86] px-1 select-none">/</span>
-<a class="custom-focus text-[#0C66E4] hover:underline min-h-[44px] inline-flex items-center" href="#project-1">Project 1</a>
-<span class="text-[#626F86] px-1 select-none">/</span>
-<span aria-current="page" class="text-[#626F86] min-h-[44px] inline-flex items-center font-normal">Iteration 3</span>
+<!-- Main Region -->
+<main class="page-wrapper" id="main">
+<!-- Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+<ol class="breadcrumb-list">
+<li>
+<a href="#">Top</a>
+<span aria-hidden="true" class="bc-sep">/</span>
+</li>
+<li>
+<a href="#">Project 1</a>
+<span aria-hidden="true" class="bc-sep">/</span>
+</li>
+<li>
+<span aria-current="page">Iteration 3</span>
+</li>
+</ol>
 </nav>
-<!-- 4. Page Heading & Dates -->
-<header class="flex flex-col space-y-1">
-<h1 class="text-[24px] font-semibold text-[#1D2125] leading-tight">Iteration 3</h1>
-<p class="text-[14px] text-[#626F86]">2026-03-02 to 2026-03-13</p>
-</header>
-<!-- 5. Progress Section -->
-<section aria-label="Iteration Progress" class="flex flex-col space-y-2 pt-1">
-<div class="flex items-center justify-between text-[14px]">
-<span class="font-normal text-[#1D2125]">Progress 48%</span>
+<!-- Page Header & Overview -->
+<h1 class="page-heading">Iteration 3</h1>
+<div class="date-range">2026-03-02 to 2026-03-13</div>
+<!-- Progress & Estimates Section -->
+<div class="progress-section">
+<div class="progress-bar-container">
+<span class="progress-label">Progress 48%</span>
+<div aria-label="Iteration progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="48" class="progress-track" role="progressbar">
+<span class="progress-fill"></span>
 </div>
-<!-- Progress track and fill -->
-<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="48" class="w-full h-2 bg-[#DCDFE4] rounded-full overflow-hidden" role="progressbar">
-<div class="h-full bg-[#0C66E4] w-[48%] rounded-full"></div>
 </div>
-<!-- Stacked figures -->
-<div class="flex flex-col space-y-1 pt-1 text-[14px] text-[#1D2125]">
-<div>Estimated 100.0 h</div>
-<div>Actual 48.0 h</div>
-<div>Remaining 52.0 h</div>
+<div class="metrics-line">
+<span>Estimated 100.0 h</span>
+<span aria-hidden="true" class="metrics-sep">·</span>
+<span>Actual 48.0 h</span>
+<span aria-hidden="true" class="metrics-sep">·</span>
+<span>Remaining 52.0 h</span>
 </div>
-</section>
-<!-- 6. Local tabs -->
-<section aria-label="Iteration Sections" class="border-b border-[#DCDFE4] -mx-4 px-4 overflow-x-auto no-scrollbar">
-<nav class="flex space-x-6 min-w-max" role="tablist">
-<!-- Active: Stories -->
-<a aria-selected="true" class="custom-focus min-h-[44px] inline-flex items-center text-[14px] font-semibold text-[#0C66E4] border-b-2 border-[#0C66E4] pb-0.5" href="#stories" role="tab">
-            Stories
-          </a>
-<a aria-selected="false" class="custom-focus min-h-[44px] inline-flex items-center text-[14px] font-normal text-[#626F86] hover:text-[#1D2125] border-b-2 border-transparent pb-0.5 transition-colors" href="#tasks" role="tab">
-            Tasks
-          </a>
-<a aria-selected="false" class="custom-focus min-h-[44px] inline-flex items-center text-[14px] font-normal text-[#626F86] hover:text-[#1D2125] border-b-2 border-transparent pb-0.5 transition-colors" href="#statistics" role="tab">
-            Statistics
-          </a>
-<a aria-selected="false" class="custom-focus min-h-[44px] inline-flex items-center text-[14px] font-normal text-[#626F86] hover:text-[#1D2125] border-b-2 border-transparent pb-0.5 transition-colors" href="#accuracy" role="tab">
-            Accuracy
-          </a>
-<a aria-selected="false" class="custom-focus min-h-[44px] inline-flex items-center text-[14px] font-normal text-[#626F86] hover:text-[#1D2125] border-b-2 border-transparent pb-0.5 transition-colors" href="#board" role="tab">
-            Board
-          </a>
+</div>
+<!-- Page Actions Stack (Full Width, 48px high) -->
+<div class="page-actions-stack">
+<button class="btn btn-neutral" type="button">Edit iteration</button>
+<button class="btn btn-danger" type="button">Delete iteration</button>
+</div>
+<!-- Secondary Links Line -->
+<div class="header-links-row">
+<a href="#">Export</a>
+<a href="#">History</a>
+<a href="#">Add note</a>
+</div>
+<!-- Local Navigation Tabs -->
+<nav aria-label="Iteration tabs" class="tabs-nav">
+<ul class="tabs-list">
+<li>
+<a aria-current="page" class="tab-item" href="#">Stories</a>
+</li>
+<li>
+<a class="tab-item" href="#">Tasks</a>
+</li>
+<li>
+<a class="tab-item" href="#">Statistics</a>
+</li>
+<li>
+<a class="tab-item" href="#">Accuracy</a>
+</li>
+<li>
+<a class="tab-item" href="#">Board</a>
+</li>
+</ul>
 </nav>
-</section>
-<!-- 7. Actions -->
-<section class="flex flex-col space-y-3 pt-2">
-<button class="custom-focus w-full h-[48px] bg-[#0C66E4] hover:bg-[#0055CC] text-white text-[16px] font-normal rounded-[6px] transition-colors flex items-center justify-center cursor-pointer select-none" type="button">
-          Create story
-        </button>
-<div class="flex flex-wrap gap-2">
-<button class="custom-focus min-h-[44px] px-3.5 bg-white border border-[#8590A2] rounded-[6px] text-[14px] text-[#1D2125] hover:bg-[#F7F8FA] transition-colors flex items-center justify-center select-none" type="button">
-            Move selected stories
-          </button>
-<button class="custom-focus min-h-[44px] px-3.5 bg-white border border-[#8590A2] rounded-[6px] text-[14px] text-[#1D2125] hover:bg-[#F7F8FA] transition-colors flex items-center justify-center select-none" type="button">
-            Save order
-          </button>
-<button class="custom-focus min-h-[44px] px-3.5 bg-white border border-[#8590A2] rounded-[6px] text-[#1D2125] hover:bg-[#F7F8FA] transition-colors flex items-center justify-center select-none" type="button">
-            Close iteration
-          </button>
+<!-- Toolbar Stack (Full Width, 48px high) -->
+<div class="toolbar-stack">
+<button class="btn btn-neutral" type="button">Move selected stories</button>
+<button class="btn btn-neutral" type="button">Save order</button>
+<button class="btn btn-neutral" type="button">Close iteration</button>
+<button class="btn btn-primary" type="button">Create story</button>
 </div>
-</section>
-<!-- 8. Story table container (Horizontally scrollable with visible border) -->
-<section class="w-full pt-2">
-<div aria-label="Stories data table" class="w-full overflow-x-auto border border-[#DCDFE4] rounded-[6px] bg-white scroll-smooth" tabindex="0">
-<table class="w-[430px] border-collapse text-left text-[14px]">
+<!-- Story Data Table in Horizontally Scrollable Focusable Container -->
+<div aria-label="Stories" class="table-container" role="region" tabindex="0">
+<table class="data-table">
 <thead>
-<tr class="bg-[#F1F2F4] border-b border-[#DCDFE4] text-[#1D2125] font-semibold h-[40px]">
-<th class="w-[44px] min-w-[44px] px-0 text-center font-normal" scope="col">
-<span class="sr-only">Select All</span>
+<tr>
+<th class="checkbox-cell" scope="col">
+<input aria-label="Select all stories" class="native-checkbox" id="select-all-stories" type="checkbox"/>
 </th>
-<th class="w-[64px] min-w-[64px] px-2 font-semibold" scope="col">Order</th>
-<th class="min-w-[130px] px-3 font-semibold" scope="col">Name</th>
-<th class="w-[84px] min-w-[84px] px-3 font-semibold" scope="col">Status</th>
-<th class="w-[80px] min-w-[80px] px-3 text-right font-semibold" scope="col">Remaining</th>
-<th class="w-[80px] min-w-[80px] px-3 text-right font-semibold" scope="col">Estimate</th>
+<th aria-sort="none" scope="col">
+<button class="th-sort" type="button">ID</button>
+</th>
+<th aria-sort="ascending" scope="col">
+<button class="th-sort" type="button">Order <span aria-hidden="true">▲</span></button>
+</th>
+<th aria-sort="none" scope="col">
+<button class="th-sort" type="button">Name</button>
+</th>
+<th aria-sort="none" scope="col">
+<button class="th-sort" type="button">Status</button>
+</th>
+<th aria-sort="none" scope="col">
+<button class="th-sort" type="button">Remaining</button>
+</th>
+<th aria-sort="none" scope="col">
+<button class="th-sort" type="button">Estimate</button>
+</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-[#DCDFE4]">
-<!-- Row 1 -->
-<tr class="h-[48px] bg-white hover:bg-[#F7F8FA] transition-colors">
-<td class="w-[44px] p-0 text-center align-middle">
-<label class="w-[44px] h-[48px] flex items-center justify-center cursor-pointer">
-<input class="custom-focus w-[18px] h-[18px] text-[#0C66E4] rounded border-[#8590A2] focus:ring-0" type="checkbox"/>
-<span class="sr-only">Select Story 1</span>
-</label>
+<tbody>
+<!-- Story 1 -->
+<tr>
+<td class="checkbox-cell">
+<input aria-label="Select Story 1" class="native-checkbox" type="checkbox"/>
 </td>
-<td class="px-2 align-middle">
-<input aria-label="Order for Story 1" class="custom-focus w-[48px] h-[36px] px-1 text-center bg-white border border-[#8590A2] rounded-[6px] text-[14px] text-[#1D2125] focus:border-[#0C66E4] outline-none" type="number" value="1"/>
+<td>101</td>
+<td>
+<label class="sr-only" for="order-101">Order for Story 1</label>
+<input class="order-input" id="order-101" inputmode="numeric" type="text" value="1"/>
 </td>
-<td class="px-3 align-middle font-normal">
-<a class="custom-focus text-[#0C66E4] hover:underline min-h-[44px] inline-flex items-center" href="#story-1">Story 1</a>
-</td>
-<td class="px-3 align-middle text-[#1D2125]">Draft</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125]">8.0</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125]">20.0</td>
+<td><a href="#">Story 1</a></td>
+<td>Draft</td>
+<td>8.0</td>
+<td>20.0</td>
 </tr>
-<!-- Row 2: Selected (checked, row background #E9F2FF) -->
-<tr class="h-[48px] bg-[#E9F2FF] transition-colors font-medium">
-<td class="w-[44px] p-0 text-center align-middle">
-<label class="w-[44px] h-[48px] flex items-center justify-center cursor-pointer">
-<input checked="" class="custom-focus w-[18px] h-[18px] text-[#0C66E4] rounded border-[#8590A2] focus:ring-0" type="checkbox"/>
-<span class="sr-only">Select Story 2</span>
-</label>
+<!-- Story 2 (Selected) -->
+<tr class="selected-row">
+<td class="checkbox-cell">
+<input aria-label="Select Story 2" checked="" class="native-checkbox" type="checkbox"/>
 </td>
-<td class="px-2 align-middle">
-<input aria-label="Order for Story 2" class="custom-focus w-[48px] h-[36px] px-1 text-center bg-white border border-[#8590A2] rounded-[6px] text-[14px] text-[#1D2125] focus:border-[#0C66E4] outline-none" type="number" value="2"/>
+<td>102</td>
+<td>
+<label class="sr-only" for="order-102">Order for Story 2</label>
+<input class="order-input" id="order-102" inputmode="numeric" type="text" value="2"/>
 </td>
-<td class="px-3 align-middle font-semibold">
-<a class="custom-focus text-[#0C66E4] hover:underline min-h-[44px] inline-flex items-center font-semibold" href="#story-2">Story 2</a>
-</td>
-<td class="px-3 align-middle text-[#1D2125] font-semibold">Draft</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125] font-semibold">18.0</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125] font-semibold">24.0</td>
+<td><a href="#">Story 2</a></td>
+<td>Draft</td>
+<td>18.0</td>
+<td>24.0</td>
 </tr>
-<!-- Row 3 -->
-<tr class="h-[48px] bg-white hover:bg-[#F7F8FA] transition-colors">
-<td class="w-[44px] p-0 text-center align-middle">
-<label class="w-[44px] h-[48px] flex items-center justify-center cursor-pointer">
-<input class="custom-focus w-[18px] h-[18px] text-[#0C66E4] rounded border-[#8590A2] focus:ring-0" type="checkbox"/>
-<span class="sr-only">Select Story 3</span>
-</label>
+<!-- Story 3 -->
+<tr>
+<td class="checkbox-cell">
+<input aria-label="Select Story 3" class="native-checkbox" type="checkbox"/>
 </td>
-<td class="px-2 align-middle">
-<input aria-label="Order for Story 3" class="custom-focus w-[48px] h-[36px] px-1 text-center bg-white border border-[#8590A2] rounded-[6px] text-[14px] text-[#1D2125] focus:border-[#0C66E4] outline-none" type="number" value="3"/>
+<td>103</td>
+<td>
+<label class="sr-only" for="order-103">Order for Story 3</label>
+<input class="order-input" id="order-103" inputmode="numeric" type="text" value="3"/>
 </td>
-<td class="px-3 align-middle font-normal">
-<a class="custom-focus text-[#0C66E4] hover:underline min-h-[44px] inline-flex items-center" href="#story-3">Story 3</a>
-</td>
-<td class="px-3 align-middle text-[#1D2125]">Draft</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125]">10.0</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125]">20.0</td>
+<td><a href="#">Story 3</a></td>
+<td>Draft</td>
+<td>10.0</td>
+<td>20.0</td>
 </tr>
-<!-- Row 4: Selected (checked, row background #E9F2FF) -->
-<tr class="h-[48px] bg-[#E9F2FF] transition-colors font-medium">
-<td class="w-[44px] p-0 text-center align-middle">
-<label class="w-[44px] h-[48px] flex items-center justify-center cursor-pointer">
-<input checked="" class="custom-focus w-[18px] h-[18px] text-[#0C66E4] rounded border-[#8590A2] focus:ring-0" type="checkbox"/>
-<span class="sr-only">Select Story 4</span>
-</label>
+<!-- Story 4 (Selected) -->
+<tr class="selected-row">
+<td class="checkbox-cell">
+<input aria-label="Select Story 4" checked="" class="native-checkbox" type="checkbox"/>
 </td>
-<td class="px-2 align-middle">
-<input aria-label="Order for Story 4" class="custom-focus w-[48px] h-[36px] px-1 text-center bg-white border border-[#8590A2] rounded-[6px] text-[14px] text-[#1D2125] focus:border-[#0C66E4] outline-none" type="number" value="4"/>
+<td>104</td>
+<td>
+<label class="sr-only" for="order-104">Order for Story 4</label>
+<input class="order-input" id="order-104" inputmode="numeric" type="text" value="4"/>
 </td>
-<td class="px-3 align-middle font-semibold">
-<a class="custom-focus text-[#0C66E4] hover:underline min-h-[44px] inline-flex items-center font-semibold" href="#story-4">Story 4</a>
-</td>
-<td class="px-3 align-middle text-[#1D2125] font-semibold">Draft</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125] font-semibold">16.0</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125] font-semibold">16.0</td>
+<td><a href="#">Story 4</a></td>
+<td>Draft</td>
+<td>16.0</td>
+<td>16.0</td>
 </tr>
-<!-- Row 5 -->
-<tr class="h-[48px] bg-white hover:bg-[#F7F8FA] transition-colors">
-<td class="w-[44px] p-0 text-center align-middle">
-<label class="w-[44px] h-[48px] flex items-center justify-center cursor-pointer">
-<input class="custom-focus w-[18px] h-[18px] text-[#0C66E4] rounded border-[#8590A2] focus:ring-0" type="checkbox"/>
-<span class="sr-only">Select Story 5</span>
-</label>
+<!-- Story 5 -->
+<tr>
+<td class="checkbox-cell">
+<input aria-label="Select Story 5" class="native-checkbox" type="checkbox"/>
 </td>
-<td class="px-2 align-middle">
-<input aria-label="Order for Story 5" class="custom-focus w-[48px] h-[36px] px-1 text-center bg-white border border-[#8590A2] rounded-[6px] text-[14px] text-[#1D2125] focus:border-[#0C66E4] outline-none" type="number" value="5"/>
+<td>105</td>
+<td>
+<label class="sr-only" for="order-105">Order for Story 5</label>
+<input class="order-input" id="order-105" inputmode="numeric" type="text" value="5"/>
 </td>
-<td class="px-3 align-middle font-normal">
-<a class="custom-focus text-[#0C66E4] hover:underline min-h-[44px] inline-flex items-center" href="#story-5">Story 5</a>
-</td>
-<td class="px-3 align-middle text-[#1D2125]">Accepted</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125]">0.0</td>
-<td class="px-3 align-middle text-right tabular-nums text-[#1D2125]">20.0</td>
+<td><a href="#">Story 5</a></td>
+<td>Accepted</td>
+<td>0.0</td>
+<td>20.0</td>
 </tr>
 </tbody>
 </table>
 </div>
+<!-- Notes Section -->
+<section aria-labelledby="notes-heading" class="notes-section">
+<h2 class="notes-heading" id="notes-heading">Notes</h2>
+<div class="note-card">
+<div class="note-subject">Synthetic iteration note</div>
+<div class="note-meta">User B · 2026-03-02</div>
+<div class="note-body">Synthetic note text.</div>
+<div class="note-actions">
+<a href="#">Edit</a>
+<a class="note-action-danger" href="#">Delete</a>
+</div>
+</div>
 </section>
 </main>
-</div>
-</body></html>
+</body>
+</html>
