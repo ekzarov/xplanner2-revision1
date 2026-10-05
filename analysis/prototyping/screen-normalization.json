@@ -325,7 +325,7 @@
       "screen": "projects-list",
       "surface_key": "web + /projects + browse projects + table list",
       "element": "hidden-column",
-      "note": "Stage 4 keep (D-011). Extra column for users who may hide projects; role variation."
+      "note": "Stage 4 keep (D-011). Extra column for users who may hide projects; a permission-conditioned state (hide permission present or absent), whose role mapping is set by the SDD permission matrix (D-001, D-011)."
     },
     {
       "row": 77,
@@ -457,7 +457,7 @@
       "screen": "iteration-page",
       "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
       "element": "move selected stories",
-      "note": "Stage 4 change (D-012). Selected stories are moved to another iteration; cross-project targets only with rights on both projects (D-012). The target choice step is not drawn yet."
+      "note": "Stage 4 change (D-012). Selected stories are moved to another iteration; cross-project targets only with rights on both projects (D-012). The target choice step is drawn by iteration-move-stories-dialog-desktop."
     },
     {
       "row": 98,
@@ -497,7 +497,7 @@
       "screen": "iteration-page",
       "surface_key": "web + /iterations/{id} + plan the stories of an iteration + summary header with story table",
       "element": "continue unfinished stories",
-      "note": "Stage 4 change (D-012). Choice of a future iteration after closing; second step, not drawn yet (D-012)."
+      "note": "Stage 4 change (D-012). Choice of a future iteration after closing; second step, drawn by continue-dialog-desktop and continue-dialog-phone; continue-no-future-desktop draws the case without a future iteration (D-012)."
     },
     {
       "row": 103,
@@ -535,7 +535,7 @@
       "screen": "iteration-statistics",
       "surface_key": "web + /iterations/{id}/statistics + view iteration charts + chart page",
       "element": "progress-chart-shown",
-      "note": "Stage 4 keep (D-001). Chart shown only when data samples exist."
+      "note": "Stage 4 keep (D-001). Chart shown only when data samples exist; estimated and actual hours over the sample days, weekends included (row 111)."
     },
     {
       "row": 111,
@@ -1042,7 +1042,7 @@
       "screen": "project-page",
       "surface_key": "web + /projects/{id} + view a project and its iterations + detail page with iteration table",
       "element": "export menu",
-      "note": "Stage 4 change (D-021). UX-006-09 placement: the \"Export\" link drawn on the project page (and on iteration, story, task and person pages) opens the format menu, which lists only the kept, permitted formats (XML and printable PDF; MPX/MSPDI deferred, JRPDF not ported)."
+      "note": "Stage 4 change (D-021). UX-006-09 placement: the \"Export\" link drawn on the project, iteration, story and task pages (no person page has an Export link, as D-021 keeps no person export) opens the format menu, which lists only the kept, permitted formats (XML and printable PDF; MPX/MSPDI deferred, JRPDF not ported)."
     },
     {
       "row": 209,
@@ -1444,8 +1444,8 @@
     "Accounting of all 210 business rows, each exactly once: 145 classified in rows[] (keep or change: surface 25, navigation 8, non-visual 29, state 47, action 25, overlay 11), 34 in excluded_rows[] (Stage 4 do-not-port), 31 in deferred_rows[] (Stage 4 defer), 0 pending (UX-006-09 placements; rows 24 and 26 reclassified from non-visual to state in UX-006-13).",
     "Deferred rows (UX-006-10, 2026-10-03T14:11:12Z UTC from code): the 31 Stage 4 defer rows are recorded in deferred_rows (decision D-NNN from column J, reason, resume_condition = the column J responsibility and condition), accepted by prototype-audit.js since PR #48. They are not classified, not excluded and not drawn; they return to Stage 6 with their slice. Earlier versions of this record listed them in this note because the schema had no field (backlog item 12).",
     "Placements (UX-006-09, 2026-10-03T13:53:51Z UTC from code; UX choice of place within existing screens, owner direction relayed by Codex; checked at Stage 7, shown to the owner at Stage 8): row 161 re-estimate -> time-editor action; row 174 delete note confirmation -> note-editor overlay; row 189 safe markup display -> non-visual rendering rule; row 208 export menu -> project-page navigation (Export link); row 212 story/task PDF -> story-page action (Export link). No keep or change row is pending any more.",
-    "The normalization is general. Screen ids and surface keys are planning identities; route families are labels, not implementation URLs. Current drawing status (UX-006-13, 2026-10-03T17:41:22Z UTC from code): all 25 screens have real exports listed in screen-manifest.json; every row that Stage 7 pass 001 found without a drawn destination is now drawn by a UX-006-13 export; the hand-off handoff-ux-006-13.md lists the exports that will draw them. Element names may be refined when they are drawn.",
-    "Role variations (viewer, editor and admin per project; system administrator) follow the map (rows 23-26, 33, 34, 41, 42, 55, 76, 82, 91) and the SDD permission matrix (D-001, no extension of rights by default); no screen encodes a role ladder. UX-006-13 (Stage 7 pass 001 F-001/F-002): role views are drawn where the composition changes: iteration-page viewer (iteration-viewer-desktop), editor (iteration-export-menu-desktop, no Delete iteration) and admin (list-desktop, Delete iteration); task-page viewer (task-viewer-desktop); projects-list system administrator (projects-list-desktop: Create project, Hidden column, System information link). Also drawn: projects-list for viewer/editor/admin (projects-list-member-desktop), project-page admin with the export menu (project-page-admin-desktop), story-page viewer with the export menu (story-viewer-export-desktop), person-page viewer (person-page-viewer-desktop) and person-editor project admin (person-editor-admin-desktop). Role variations with an otherwise unchanged composition are recorded as states, not drawn separately: people-list without Create person for viewers and editors; project-page without Edit, Create iteration and Add note for viewers.",
+    "The normalization is general. Screen ids and surface keys are planning identities; route families are labels, not implementation URLs. Current drawing status (UX-006-14, 2026-10-05T11:45:37Z UTC from code): all 25 screens have real exports listed in screen-manifest.json, which is the pinned record of the drawn files, their roles and states, and the open visual remainders; every row that Stage 7 pass 001 found without a drawn destination is drawn. Stage 7 pass 002 findings F-001..F-006 are being corrected in Stage 6. Element names may be refined when they are drawn.",
+    "Role variations (viewer, editor and admin per project; system administrator) follow the map (rows 23-26, 33, 34, 41, 42, 55, 76, 82, 91) and the SDD permission matrix (D-001, no extension of rights by default); no screen encodes a role ladder. UX-006-13 (Stage 7 pass 001 F-001/F-002): role views are drawn where the composition changes: iteration-page viewer (iteration-viewer-desktop), editor (iteration-export-menu-desktop, no Delete iteration) and admin (list-desktop, Delete iteration); task-page viewer (task-viewer-desktop); projects-list for the system administrator (projects-list-desktop: Create project, System information link). The Hidden column of the projects list and the Hidden checkbox of the project editor follow the hide permission (rows 76, 81) as separate permission-conditioned states (present: projects-list-desktop, projects-list-hide-desktop, project-editor-desktop; absent: projects-list-member-desktop); which roles hold hide is deferred to the SDD matrix (D-001, D-011) (UX-006-14, candidate correction for Stage 7 pass 002 F-002). Also drawn: projects-list without Create project and System information (projects-list-member-desktop), project-page admin with the export menu (project-page-admin-desktop), story-page viewer with the export menu (story-viewer-export-desktop), person-page viewer (person-page-viewer-desktop) and person-editor project admin (person-editor-admin-desktop). Role variations with an otherwise unchanged composition are recorded as states, not drawn separately: people-list without Create person for viewers and editors; project-page without Edit, Create iteration and Add note for viewers.",
     "Navigation model (UX-006-06, 2026-10-03T11:21:52Z UTC from code; Starter guidance \"Navigation And Identity Before Drawing\"): journeys come from the map. Sign-in (row 8) goes to the requested permitted page (row 10), else to the current iteration when exactly one project is accessible (row 18), else to the projects list. From there: project (83), iteration with local tabs Stories / Tasks / Statistics / Accuracy / Board (92, 106, 109, 113, 114), story (127), task (143), then the task editor (134) or time editor (149). People: people list (37), person page (40; \"me\" row 188 opens the same page for the signed-in person), person editor (43), timesheet (162). Aggregate timesheet (165) from the projects list; search (178), history (186), error (56) and system information (55, system administrators only). Hierarchical pages show the breadcrumb Top / Project / Iteration / Story / Task (row 185) with a plain current item and no breadcrumb at the root. Editors return to the originating page as rows 43, 78, 88, 121, 134 and 149 state, on same-application paths only (D-004); carrying list position in the URL is a proposal for the owner, not a requirement. Roles: one interface; actions are absent without permission (row 26); the matrix is set at SDD (D-001).",
     "Identity (UX-006-06, revised UX-006-07 by owner direction relayed by Codex): no map row names a photo or avatar. The person and \"me\" pages (rows 40, 188) show an initials avatar from the stored initials (rows 37, 43, 44) as the identity and fallback (Stage 6 draft). A profile photo is an explicitly unapproved extension that does not block representing the existing profile; no upload and no identity integration.",
     "Editor actions (rows 81, 90, 125 and 139 record Update/Reset; owner direction UX-006-07, relayed by Codex): editors offer Save, Reset and Cancel. Save stores and returns to the origin; Reset restores the initial values and stays on the form; Cancel leaves without saving and returns to the origin. Neither replaces the other. Row mappings are unchanged.",
