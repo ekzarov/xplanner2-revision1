@@ -1,0 +1,85 @@
+{
+ "generated_at": "2026-10-05T11:26:02.719Z",
+ "reviewed_revision": "8a610c307aa56461fcb9055fb1b8704cb90c1a88",
+ "waiver_id": "waiver:legacy_walkthrough_fallback:xplanner2-revision1",
+ "checks": [
+  {
+   "id": "W-1",
+   "item": "Owner decision exists and is schema-valid",
+   "expected": "one owner_decisions entry with decision, decided_by, decided_at, scope, rationale, record, residual_risk, permitted_next_stage (MIGRATION.md Waiver Contract)",
+   "observed": "analysis/migration_status.yaml owner_decisions: all eight fields present; decision approved; decided_by Codex; decided_at 2026-10-02T16:04:50Z; audit:status prints STATUS VALIDATION OK",
+   "result": "matched"
+  },
+  {
+   "id": "W-2",
+   "item": "Exact gate and scope",
+   "expected": "id waiver:<gate>:<exact-scope>; gate legacy_walkthrough_fallback; scope exactly xplanner2-revision1",
+   "observed": "id and scope match exactly; legacy_walkthrough.scope = xplanner2-revision1; legacy_walkthrough.decision_id = the waiver id",
+   "result": "matched"
+  },
+  {
+   "id": "W-3",
+   "item": "Permitted next stage",
+   "expected": "registry: legacy_walkthrough_fallback -> stage-04 (methodology, tools README)",
+   "observed": "permitted_next_stage stage-04; transition stage-03 -> stage-04 at 2026-10-02T16:04:50Z cites the waiver and record",
+   "result": "matched"
+  },
+  {
+   "id": "W-4",
+   "item": "Decision authority",
+   "expected": "owner decision, or a recorded delegation that covers this exact gate",
+   "observed": "decided by Codex under operational-mandate-stage4-completion:xplanner2-revision1 (decided_by ekzarov, delegation.waivers: [legacy_walkthrough_fallback], ends_at_stage stage-05); the record states it is not a personal owner approval",
+   "result": "matched"
+  },
+  {
+   "id": "W-5",
+   "item": "Durable record",
+   "expected": "record exists and states decision, scope, conditions, residual risk",
+   "observed": "analysis/stages/stage-03/walkthrough-001-fallback.md exists, SHA-256 2d6f4bb1f627ceaa34be6c6d9488beabdcdb6ec4a9b11f178df1eb547c4ace4d = the pin cited by stage-04-requirements-revision.md (2d6f4bb1...ce4d); last commit cfcf1ab",
+   "result": "matched"
+  },
+  {
+   "id": "W-6",
+   "item": "Waived scope is exact and complete",
+   "expected": "waived items = residual (d)+(e) items; no applicable unwaived residual scope omitted",
+   "observed": "walkthrough-001.md Residual Unverified Scope: (a) 17 R-01..R-17 resolved, (c) 6 R-18..R-23 observed unavailability, (d) 5 R-24..R-28, (e) 19 R-29..R-47; waiver covers exactly R-24..R-47 = 24 items (= residual_risk \"24 residual sub-check items\"); all 25 partially verified rows (21,31,32,34,37,47,60,61,62,63,64,66,67,68,73,76,80,82,91,94,112,126,189,193,205) map to at least one waived (d)/(e) item; R-25, R-26, R-33, R-47 additionally cover residual sub-checks of rows 101, 69/70/71/149, 186, 189",
+   "result": "matched"
+  },
+  {
+   "id": "W-7",
+   "item": "Residual risk and blocked scope stay visible",
+   "expected": "residual risk recorded; unverified behavior not claimed as observed; blocked scope linked to the waiver",
+   "observed": "residual_risk present; legacy_walkthrough.outcome blocked-waived; unresolved_blocked_scopes W001-residual-R24-R47 status blocked with waiver_id and both records as evidence",
+   "result": "matched"
+  },
+  {
+   "id": "W-8",
+   "item": "Condition 1 carried downstream",
+   "expected": "Stage 4 requirements resting on waived sub-checks are marked as resting on unverified legacy behavior",
+   "observed": "stage-04-requirements-revision.md marks \"Rests on unverified legacy behavior\" per proposal (for example D-011 rests on R-24 and R-40) and line 383 \"The waived sub-checks R-24..R-47 stay unverified\"",
+   "result": "matched"
+  },
+  {
+   "id": "W-9",
+   "item": "Prototype does not claim waived behavior as verified",
+   "expected": "Stage 6 records draw target behavior from Stage 4 decisions and do not state any waived sub-check as observed",
+   "observed": "no reference to R-24..R-47, W001 verification or legacy observation in screen-manifest.json, screen-normalization.json or ui-design-system.md; affected rows (37, 47, 69-71, 76, 80, 82, 91, 101, 126, 149, 186, 189) are drawn as Stage 4 target behavior",
+   "result": "matched"
+  },
+  {
+   "id": "W-10",
+   "item": "Record location",
+   "expected": "methodology Stage-control text: \"Its canonical record lives in analysis/stages/waivers/\"",
+   "observed": "no analysis/stages/waivers/ directory; the record lives beside the walkthrough in analysis/stages/stage-03/; MIGRATION.md and the validator require only a durable record path, and audit:status accepts it",
+   "result": "matched (observation O-1, not a finding: the governing MIGRATION.md contract and the validator are satisfied)"
+  },
+  {
+   "id": "W-11",
+   "item": "Closing link by a clean pass",
+   "expected": "the next applicable independent control receives a clean pass that verifies the waiver and links to the record (MIGRATION.md; fallback Condition 2)",
+   "observed": "this pass verifies W-1..W-10 but its result is findings, so it cannot supply the clean closing link; Stage 7 cannot close on this pass",
+   "result": "not satisfied by this pass"
+  }
+ ],
+ "conclusion": "Waiver content verified (W-1..W-10 matched). Process-closing verification NOT achieved: the result of this pass is findings, so the clean waiver-verifying link required to leave Stage 7 is still outstanding."
+}

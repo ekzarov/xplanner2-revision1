@@ -1,0 +1,36 @@
+{
+  "packet_id": "S07-P002",
+  "recorded_by": "PM / Coordinator, Claude Code session d0ec1166-ffc9-446a-ba86-d768242e6de8",
+  "report": "analysis/reviews/stage-07-pass-002.md",
+  "producer": "Reviewer subagent a06532cea70b36b82 authored the report and all evidence and owns its conclusion.",
+  "source_copy": ".migration-tmp/stage-07/p002/stage-07-pass-002.md",
+  "source_sha256": "11bcf72eed6a6e47e109e204f709c949566f8ddf1d448db4419dc573645e3ec2",
+  "pm_changes": [
+    "The literal token CURRENT_SESSION_ID was replaced with a06532cea70b36b82 (one occurrence).",
+    "npm run fix:artifact-links wrapped repository paths in code spans as clickable links ([`path`](relative-path)), as audit:artifact-links requires. Removing these link wrappers reproduces the source with the session ID substituted, byte for byte after LF normalization (checked)."
+  ],
+  "evidence_copied_unchanged": [
+    {
+      "file": "analysis/reviews/evidence/S07-P002/coverage-check.json",
+      "sha256": "b710e2d84be6aa8fa6e2fc9154a1e2d12f62055e310a700df8a0564fc7735a40"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P002/export-scan.json",
+      "sha256": "d08f9e4b6157cc1a382db28d8afb9cddae1e345a82067eb6b09439eda980cfd8"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P002/hash-verification.json",
+      "sha256": "d01f7ec74e2e23eba57d8a6db30f9c6110819ea86ef6433f32c436288cd84601"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P002/pass001-resolution.json",
+      "sha256": "5526ea5f8d8e2ace5b0fd0734322e9645e4c50ffda7d902d73265991f858aad3"
+    },
+    {
+      "file": "analysis/reviews/evidence/S07-P002/waiver-verification.json",
+      "sha256": "46a1c66ccb1c8822d7220b85f61a4ee71ebda517e40be4e7ab8b43a56cbb4963"
+    }
+  ],
+  "final_report_sha256": "6569c1efd08dfe146903a97df0f94f2c8ef52ac7e084508292557b4897529e38",
+  "recorded_at": "2026-10-05T11:32:28Z"
+}

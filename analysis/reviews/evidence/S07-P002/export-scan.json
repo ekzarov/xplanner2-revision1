@@ -1,0 +1,5675 @@
+{
+ "generated_at": "2026-10-05T11:11:46.804Z",
+ "token_colors": [
+  "#FFFFFF",
+  "#F7F8FA",
+  "#F1F2F4",
+  "#1D2125",
+  "#626F86",
+  "#0C66E4",
+  "#0055CC",
+  "#E9F2FF",
+  "#1F7A45",
+  "#166038",
+  "#E3FCEF",
+  "#C9372C",
+  "#8590A2",
+  "#DCDFE4",
+  "#AE2A19"
+ ],
+ "files": {
+  "aggregate-timesheet-desktop.html": {
+   "title": "UX13-24 Aggregate timesheet - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Timesheet",
+     "links": 1,
+     "current": [
+      "page:Timesheet"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 4,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Timesheet"
+   ],
+   "checkbox_inputs": 4,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "End date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 280px",
+    "width: 1400px",
+    "width: 110px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Aggregate timesheet"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "continue-dialog-desktop.html": {
+   "title": "UX13-37 Iteration 3 - Continue confirmation (Editor)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 15,
+   "aria_sort": [
+    "th:ascending"
+   ],
+   "th_buttons": 14,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-heading",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 6,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 3",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 4",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 5",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Future iteration",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 190px",
+    "width: 280px",
+    "width: 480px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 1,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "continue-dialog-phone.html": {
+   "title": "UX13-P17d Continue unfinished stories (Phone 390, tab row scroll)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title-id",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Future iteration",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [],
+   "uppercase": 1,
+   "overflow_x": 1,
+   "header_text": "Planner Me Sign out Search or ID",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "continue-no-future-desktop.html": {
+   "title": "UX13-04 Iteration 6 - No future iteration (Editor)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 2 Iteration 6",
+     "links": 2,
+     "current": [
+      "page:Iteration 6"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 14,
+   "aria_sort": [
+    "th:none",
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 14,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 6",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 140px",
+    "width: 480px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 6"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 1
+  },
+  "dialog-desktop.html": {
+   "title": "UX13-38c Iteration 3 - Close confirmation (Editor, progress fill)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 15,
+   "aria_sort": [
+    "th:ascending"
+   ],
+   "th_buttons": 1,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 6,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 3",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 4",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 5",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {
+    "#FAFBFC": 1
+   },
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1600px",
+    "width: 140px",
+    "width: 480px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "dialog-phone.html": {
+   "title": "UX13-P45b Close Iteration 3 Confirmation Dialog (Phone UI, editor background)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top/Project 1/Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 7,
+   "aria_sort": [
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 6,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 6,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 3",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 4",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 5",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [],
+   "uppercase": 0,
+   "overflow_x": 2,
+   "header_text": "Planner Me Sign out Search or ID",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "error-page-desktop.html": {
+   "title": "UX13-25 Error - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": null,
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 640px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "An error has occurred."
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "form-desktop.html": {
+   "title": "UX13-39 Edit task: Task 12 - Save Reset Cancel",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 5 Task 12",
+     "links": 4,
+     "current": [
+      "page:Task 12"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Task 12"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Type",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Disposition",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Acceptor",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Estimated hours",
+     "required": false,
+     "invalid": null,
+     "describedby": "estimate-hint"
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 2,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1280px",
+    "width: 640px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Edit task: Task 12"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "form-phone.html": {
+   "title": "UX13-P43 Edit task: Task 12 (Phone UI, error state)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top /Project 1 /Iteration 3 /Story 5 /Task 12",
+     "links": 4,
+     "current": [
+      "page:Task 12"
+     ],
+     "seps": [
+      "/",
+      "/",
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Task 12"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": true,
+     "invalid": "true",
+     "describedby": "task-name-error"
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Type",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Disposition",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Acceptor",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Estimated hours",
+     "required": false,
+     "invalid": "true",
+     "describedby": "estimated-hours-error"
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 2,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": true,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Me Sign out Search or ID",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Edit task: Task 12"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 1
+  },
+  "history-desktop.html": {
+   "title": "UX13-26 History: Story 2 - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3 / Story 2 / History",
+     "links": 4,
+     "current": [
+      "page:History"
+     ],
+     "seps": [
+      "/",
+      "/",
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 4,
+   "aria_sort": [
+    "th:none",
+    "th:none",
+    "th:descending",
+    "th:none"
+   ],
+   "th_buttons": 4,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:History"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [
+    "https://cdn.tailwindcss.com?plugins=forms,container-queries"
+   ],
+   "non_token_hex": {
+    "#FAFBFC": 3
+   },
+   "fixed_widths": [
+    "w-[200px]"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "History: Story 2"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "history-project-desktop.html": {
+   "title": "UX13-06 History: Project 1 (container view)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 History",
+     "links": 2,
+     "current": [
+      "page:History"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 6,
+   "aria_sort": [
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:descending",
+    "th:none"
+   ],
+   "th_buttons": 6,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:History"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1400px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "History: Project 1"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "iteration-accuracy-desktop.html": {
+   "title": "UX13-27 Iteration 3 - Accuracy",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 10,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Accuracy"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [
+    "https://cdn.tailwindcss.com?plugins=forms,container-queries"
+   ],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "w-[180px]",
+    "max-w-[1440px]",
+    "max-w-[340px]"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "iteration-board-desktop.html": {
+   "title": "UX13-28 Iteration 3 - Board",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Board"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1440px",
+    "width: 480px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "iteration-board-phone.html": {
+   "title": "UX13-P41b Iteration 3 - Board (Phone UI, acceptors)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Board"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [],
+   "uppercase": 1,
+   "overflow_x": 1,
+   "header_text": "Planner Me Sign out Search or ID",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "iteration-editor-desktop.html": {
+   "title": "UX13-29 Edit iteration: Iteration 3",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3 / Edit",
+     "links": 3,
+     "current": [
+      "page:Edit"
+     ],
+     "seps": [
+      "/",
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "false",
+     "labelledby": null,
+     "label": "Choose date"
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Edit",
+    "date:10"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "End date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Days worked",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 2,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1280px",
+    "width: 640px",
+    "width: 256px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Edit iteration: Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [
+    ":true"
+   ],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "iteration-editor-phone.html": {
+   "title": "UX13-16m Edit iteration: Iteration 3 (Phone 390, date picker)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main-content",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3 / Edit",
+     "links": 3,
+     "current": [
+      "page:Edit"
+     ],
+     "seps": [
+      "/",
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Edit"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start date (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "End date (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Days worked",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 3,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [
+    "https://cdn.tailwindcss.com"
+   ],
+   "non_token_hex": {},
+   "fixed_widths": [],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Me Sign out Search or ID",
+   "main": 1,
+   "main_id": "main-content",
+   "h1": [
+    "Edit iteration: Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "iteration-empty-phone.html": {
+   "title": "UX13-P18 Iteration 4 - No stories (Phone UI, Editor)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top/Project 1/Iteration 4",
+     "links": 2,
+     "current": [
+      "page:Iteration 4"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 4",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [],
+   "uppercase": 0,
+   "overflow_x": 1,
+   "header_text": "Planner Me Sign out Search or ID",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 4"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "iteration-export-menu-desktop.html": {
+   "title": "Iteration 3 - Stories (Export format menu)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 15,
+   "aria_sort": [
+    "th:none",
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 14,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 6,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 3",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 4",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 5",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": true,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {
+    "#E4E6EB": 1
+   },
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1440px",
+    "width: 140px",
+    "min-width: 130px"
+   ],
+   "uppercase": 1,
+   "overflow_x": 1,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 1,
+   "menuitems": [
+    "XML",
+    "PDF"
+   ],
+   "expanded": [
+    "Export:true"
+   ],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "iteration-move-stories-dialog-desktop.html": {
+   "title": "UX13-03 Iteration 3 - Move selected stories (Editor)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 15,
+   "aria_sort": [
+    "th:none",
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 14,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 6,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 3",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 4",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 5",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Target iteration",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {
+    "#E2E5E9": 1
+   },
+   "fixed_widths": [
+    "width: 220px",
+    "width: 140px",
+    "width: 480px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "iteration-print-desktop.html": {
+   "title": "Iteration 3 - Print view",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1.0",
+   "skip": [],
+   "first_focusable": null,
+   "breadcrumb": null,
+   "th": 14,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {
+    "#000000": 4
+   },
+   "fixed_widths": [],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": null,
+   "main": 0,
+   "main_id": null,
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "iteration-start-dialog-desktop.html": {
+   "title": "UX13-20 Iteration 4 - Start confirmation (Editor)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 4",
+     "links": 2,
+     "current": [
+      "page:Iteration 4"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title",
+     "label": null
+    }
+   ],
+   "tabs": [
+    "Stories:-",
+    "Tasks:-",
+    "Statistics:-",
+    "Accuracy:-",
+    "Board:-"
+   ],
+   "aria_current": [
+    "page:Iteration 4",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 1,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 480px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 4"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "iteration-statistics-desktop.html": {
+   "title": "UX13-21 Iteration 3 - Statistics",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Statistics"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 200px",
+    "width: 1440px",
+    "width: 140px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 1,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 3,
+   "alerts": 0
+  },
+  "iteration-statistics-phone.html": {
+   "title": "UX13-P22c Iteration 3 - Statistics (Phone UI, breadcrumb)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top/Project 1/Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [
+    "Stories:-",
+    "Tasks:-",
+    "Statistics:-",
+    "Accuracy:-",
+    "Board:-"
+   ],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Statistics"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "min-width: 360px",
+    "width: 130px",
+    "min-width: 320px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 2,
+   "header_text": "Planner Me Sign out Search or ID",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 3,
+   "alerts": 0
+  },
+  "iteration-tasks-desktop.html": {
+   "title": "UX13-30 Iteration 3 - Tasks",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 10,
+   "aria_sort": [
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 10,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Tasks"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 280px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "iteration-viewer-desktop.html": {
+   "title": "Iteration 3 - Stories (Viewer)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 14,
+   "aria_sort": [
+    "th:none",
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 14,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1440px",
+    "width: 140px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 1,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "list-desktop.html": {
+   "title": "UX13-19 Iteration 3 - Stories (Admin)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 15,
+   "aria_sort": [
+    "th:none",
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 14,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 6,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 3",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 4",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order for Story 5",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {
+    "#FAFBFC": 1,
+    "#E4E6EB": 1
+   },
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1440px",
+    "width: 140px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 1,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "list-phone.html": {
+   "title": "UX13-P15f Iteration 3 - Stories (Phone UI, Admin, aria-sort)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 7,
+   "aria_sort": [
+    "th:none",
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 6,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 6,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 3",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 4",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Order for Story 5",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "min-width: 520px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 2,
+   "header_text": "Planner Me Sign out Search or ID",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Iteration 3"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 1,
+   "alerts": 0
+  },
+  "note-delete-dialog-desktop.html": {
+   "title": "UX13-08 Delete note confirmation: Story 2",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 2 Note",
+     "links": 4,
+     "current": [
+      "page:Note"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Note"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Subject (required)",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Body",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 1,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1280px",
+    "width: 640px",
+    "width: 480px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Edit note: Story 2"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "note-editor-desktop.html": {
+   "title": "UX13-40r Add note: Story 2 - Planner (no shell)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 2 Note",
+     "links": 4,
+     "current": [
+      "page:Note"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Note"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Subject (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Author (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Body",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 2,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1280px",
+    "width: 640px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Add note: Story 2"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "note-editor-edit-desktop.html": {
+   "title": "UX13-07 Edit note: Story 2",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 2 Note",
+     "links": 4,
+     "current": [
+      "page:Note"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Note"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Subject (required)",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Body",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 2,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1200px",
+    "width: 640px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Edit note: Story 2"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "people-list-desktop.html": {
+   "title": "UX13-31 People - Planner (Admin)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / People",
+     "links": 1,
+     "current": [
+      "page:People"
+     ],
+     "seps": [
+      "/"
+     ]
+    }
+   ],
+   "th": 5,
+   "aria_sort": [
+    "th:none",
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 5,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:People"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {
+    "#A5ADBA": 1,
+    "#FAFBFC": 1
+   },
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1400px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "People"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "person-editor-admin-desktop.html": {
+   "title": "UX13-14 Edit person: User C (Project admin)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top People User C Edit",
+     "links": 3,
+     "current": [
+      "page:Edit"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 2,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Edit"
+   ],
+   "checkbox_inputs": 1,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "User ID (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Initials (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "email",
+     "label": "E-mail (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "tel",
+     "label": "Phone",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "password",
+     "label": "New password",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "password",
+     "label": "Confirm password",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Role for Project 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 4,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1280px",
+    "width: 640px",
+    "width: 130px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Skip to main content Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Edit person: User C"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "person-editor-desktop.html": {
+   "title": "UX13-41 Edit person: User A - Planner (System administrator)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top People User A Edit",
+     "links": 3,
+     "current": [
+      "page:Edit"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 2,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Edit"
+   ],
+   "checkbox_inputs": 2,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "User ID (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Initials (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "email",
+     "label": "E-mail (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "tel",
+     "label": "Phone",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "password",
+     "label": "New password",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "password",
+     "label": "Confirm password",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Project 1 Role",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Project 2 Role",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Project 3 Role",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 4,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 640px",
+    "width: 180px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID System information Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Edit person: User A"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "person-page-desktop.html": {
+   "title": "UX13-42 User A - Planner (Self or admin)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / People / User A",
+     "links": 2,
+     "current": [
+      "page:User A"
+     ],
+     "seps": [
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 10,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:User A"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [
+    "https://cdn.tailwindcss.com?plugins=forms,container-queries"
+   ],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "max-w-[1240px]"
+   ],
+   "uppercase": 0,
+   "overflow_x": 3,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "User A"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "person-page-viewer-desktop.html": {
+   "title": "UX13-13 User B - Planner (Viewer)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top People User B",
+     "links": 2,
+     "current": [
+      "page:User B"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 11,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:User B"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": true,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1400px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "User B"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "person-timesheet-desktop.html": {
+   "title": "UX13-32 Timesheet: User A - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / People / User A / Timesheet",
+     "links": 3,
+     "current": [
+      "page:Timesheet"
+     ],
+     "seps": [
+      "/",
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 6,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Timesheet"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "End date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1440px",
+    "width: 180px",
+    "width: 120px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Timesheet: User A"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "project-editor-desktop.html": {
+   "title": "UX13-33 Edit project: Project 1",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Edit",
+     "links": 2,
+     "current": [
+      "page:Edit"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Edit"
+   ],
+   "checkbox_inputs": 3,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Wiki URL",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 1,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 200px",
+    "width: 1200px",
+    "width: 640px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Edit project: Project 1"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "project-page-admin-desktop.html": {
+   "title": "UX13-11 Project 2 - Planner (Admin, Export menu)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 2",
+     "links": 1,
+     "current": [
+      "page:Project 2"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 6,
+   "aria_sort": [
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:descending",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 6,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Project 2"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {
+    "#E2E4E8": 1,
+    "#FAFBFC": 1
+   },
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1440px",
+    "width: 100px",
+    "width: 900px"
+   ],
+   "uppercase": 1,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Project 2"
+   ],
+   "menus": 1,
+   "menuitems": [
+    "XML"
+   ],
+   "expanded": [
+    "Export:true"
+   ],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "project-page-desktop.html": {
+   "title": "UX13-34 Project 1 - Planner (System administrator)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1",
+     "links": 1,
+     "current": [
+      "page:Project 1"
+     ],
+     "seps": [
+      "/"
+     ]
+    }
+   ],
+   "th": 6,
+   "aria_sort": [
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:descending",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 6,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Project 1"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1400px",
+    "width: 120px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID System information Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Project 1"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "project-page-phone.html": {
+   "title": "UX13-P42b Project 1 - Planner (Phone UI, System administrator, column order)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top /Project 1",
+     "links": 1,
+     "current": [
+      "page:Project 1"
+     ],
+     "seps": [
+      "/"
+     ]
+    }
+   ],
+   "th": 6,
+   "aria_sort": [
+    "th:none",
+    "th:descending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 6,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Project 1"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [],
+   "uppercase": 0,
+   "overflow_x": 1,
+   "header_text": "Planner Me Sign out Search or ID System information",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Project 1"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "projects-list-desktop.html": {
+   "title": "Projects - Planner (System Administrator)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": null,
+   "th": 4,
+   "aria_sort": [
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 4,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1216px",
+    "width: 320px",
+    "width: 280px",
+    "width: 120px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID System information Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Projects"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "projects-list-member-desktop.html": {
+   "title": "UX13-10 Projects - Planner (Viewer, Editor, Admin)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": null,
+   "th": 3,
+   "aria_sort": [
+    "th:ascending",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 3,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": true,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1200px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Projects"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "search-results-desktop.html": {
+   "title": "UX13-35 Search results: Story 2 - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Search",
+     "links": 1,
+     "current": [
+      "page:Search"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 4,
+   "aria_sort": [
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 4,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Search"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 200px",
+    "width: 1400px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Search results: Story 2"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "signin-desktop.html": {
+   "title": "Sign in - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1.0",
+   "skip": [],
+   "first_focusable": "input",
+   "breadcrumb": null,
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "User ID",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "password",
+     "label": "Password",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": true,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 400px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": null,
+   "main": 1,
+   "main_id": null,
+   "h1": [
+    "Planner"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "signin-phone.html": {
+   "title": "Sign in - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1.0",
+   "skip": [],
+   "first_focusable": "input",
+   "breadcrumb": null,
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "User ID",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "password",
+     "label": "Password",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": true,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {
+    "#FEEBEA": 1
+   },
+   "fixed_widths": [
+    "width: 400px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": null,
+   "main": 1,
+   "main_id": null,
+   "h1": [
+    "Planner"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 1
+  },
+  "story-editor-desktop.html": {
+   "title": "UX13-36 Edit story: Story 2 - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 2 Edit",
+     "links": 4,
+     "current": [
+      "page:Edit"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Edit"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": true,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Disposition",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Status",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Customer",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Tracker",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Priority",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "number",
+     "label": "Order",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Estimated hours",
+     "required": false,
+     "invalid": null,
+     "describedby": "estimate-hint"
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 1,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 200px",
+    "width: 1280px",
+    "width: 640px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Edit story: Story 2"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "story-move-dialog-desktop.html": {
+   "title": "Move or continue: Story 2 - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3 / Story 2",
+     "links": 3,
+     "current": [
+      "page:Story 2"
+     ],
+     "seps": [
+      "/",
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 7,
+   "aria_sort": [
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 7,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Story 2"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Target iteration",
+     "required": false,
+     "invalid": "true",
+     "describedby": "error-summary-id"
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1280px",
+    "width: 520px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Story 2"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 1
+  },
+  "story-page-desktop.html": {
+   "title": "UX13-09 Story 2 - Planner (Editor, Notes)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 2",
+     "links": 3,
+     "current": [
+      "page:Story 2"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 7,
+   "aria_sort": [
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 7,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Story 2"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1400px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 1,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Story 2"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "story-viewer-export-desktop.html": {
+   "title": "UX13-12 Story 2 - Planner (Viewer, Export menu)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3 / Story 2",
+     "links": 3,
+     "current": [
+      "page:Story 2"
+     ],
+     "seps": [
+      "/",
+      "/",
+      "/"
+     ]
+    }
+   ],
+   "th": 7,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Story 2"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": true,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {
+    "#FAFBFC": 1
+   },
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1280px",
+    "min-width: 100px",
+    "width: 110px"
+   ],
+   "uppercase": 1,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Story 2"
+   ],
+   "menus": 1,
+   "menuitems": [
+    "PDF"
+   ],
+   "expanded": [
+    "Export:true"
+   ],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "system-info-desktop.html": {
+   "title": "UX13-43 System information - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / System information",
+     "links": 1,
+     "current": [
+      "page:System information"
+     ],
+     "seps": [
+      "/"
+     ]
+    }
+   ],
+   "th": 2,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:System information"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 1280px",
+    "width: 320px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID System information Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "System information"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "task-completed-desktop.html": {
+   "title": "Task 12 - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 5 Task 12",
+     "links": 4,
+     "current": [
+      "page:Task 12"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 7,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Task 12"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1440px",
+    "width: 140px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Task 12"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "task-delete-dialog-desktop.html": {
+   "title": "UX13-44r Delete Task 8 Confirmation Dialog (single dialog, no shell)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3 / Story 2 / Task 8",
+     "links": 4,
+     "current": [
+      "page:Task 8"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 7,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Task 8"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1200px",
+    "width: 100px",
+    "width: 480px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Task 8"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "task-move-dialog-desktop.html": {
+   "title": "Move or continue: Task 8 (Error State)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 2 Task 8",
+     "links": 4,
+     "current": [
+      "page:Task 8"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 7,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-title",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Task 8"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Target story",
+     "required": false,
+     "invalid": "true",
+     "describedby": "target-story-error"
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 200px",
+    "width: 1200px",
+    "width: 680px",
+    "width: 120px",
+    "width: 520px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Task 8"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 1
+  },
+  "task-page-desktop.html": {
+   "title": "UX13-45 Task 8 - Planner (Editor)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 2 Task 8",
+     "links": 4,
+     "current": [
+      "page:Task 8"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 7,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Task 8"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 180px",
+    "width: 1440px",
+    "width: 120px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Task 8"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "task-viewer-desktop.html": {
+   "title": "Task 12 - Planner",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 5 Task 12",
+     "links": 4,
+     "current": [
+      "page:Task 12"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 7,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Task 12"
+   ],
+   "checkbox_inputs": 0,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1280px",
+    "min-width: 100px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Task 12"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "time-editor-desktop.html": {
+   "title": "UX13-46r Time: Task 8 - Planner (no shell)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3 Story 2 Task 8 Time",
+     "links": 5,
+     "current": [
+      "page:Time"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 8,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Time"
+   ],
+   "checkbox_inputs": 3,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Report date row 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start time row 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "End time row 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Duration row 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Person row 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Pair row 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Description row 1",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Report date row 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start time row 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "End time row 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Duration row 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Person row 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Pair row 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Description row 2",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "New entry report date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "New entry start time",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "New entry end time",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "New entry duration",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "New entry person",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "New entry pair",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "New entry description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Remaining hours",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 0,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 240px",
+    "width: 1360px",
+    "min-width: 1000px",
+    "width: 130px",
+    "width: 180px",
+    "width: 140px",
+    "min-width: 200px"
+   ],
+   "uppercase": 0,
+   "overflow_x": 1,
+   "header_text": "Planner Search or ID Me Sign out",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Time: Task 8"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 0
+  },
+  "time-editor-phone.html": {
+   "title": "UX13-P44 Time: Task 8 (Phone UI)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top / Project 1 / Iteration 3 / Story 2 / Task 8 / Time",
+     "links": 5,
+     "current": [
+      "page:Time"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 0,
+   "aria_sort": [],
+   "th_buttons": 0,
+   "dialogs": [],
+   "tabs": [],
+   "aria_current": [
+    "page:Time"
+   ],
+   "checkbox_inputs": 3,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "search",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Report date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "End",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Duration",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Person (required)",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Pair",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Report date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "End",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Duration",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Person (required)",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Pair",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Report date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "End",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Duration",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Person (required)",
+     "required": false,
+     "invalid": "true",
+     "describedby": "entry-3-person-error"
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Pair",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Remaining hours",
+     "required": false,
+     "invalid": null,
+     "describedby": "remaining-hours-hint"
+    }
+   ],
+   "required_text": 3,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": true,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [],
+   "uppercase": 0,
+   "overflow_x": 0,
+   "header_text": "Planner Me Sign out Search or ID",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "Time: Task 8"
+   ],
+   "menus": 0,
+   "menuitems": [],
+   "expanded": [],
+   "progressbar": 0,
+   "alerts": 1
+  },
+  "ui-kit.html": {
+   "title": "UX13-23e UI kit (scrolled table specimen)",
+   "lang": "en",
+   "viewport": "width=device-width, initial-scale=1",
+   "skip": [
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    },
+    {
+     "text": "Skip to main content",
+     "href": "#main",
+     "first": false
+    }
+   ],
+   "first_focusable": "Skip to main content",
+   "breadcrumb": [
+    {
+     "text": "Top Project 1 Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": []
+    },
+    {
+     "text": "Top Project 1 Iteration 3",
+     "links": 2,
+     "current": [
+      "page:Iteration 3"
+     ],
+     "seps": []
+    }
+   ],
+   "th": 12,
+   "aria_sort": [
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:ascending",
+    "th:none",
+    "th:none",
+    "th:none",
+    "th:none"
+   ],
+   "th_buttons": 10,
+   "dialogs": [
+    {
+     "role": "dialog",
+     "modal": "true",
+     "labelledby": "dialog-specimen-title",
+     "label": null
+    }
+   ],
+   "tabs": [],
+   "aria_current": [
+    "page:Iteration 3",
+    "page:Iteration 3",
+    "page:Stories",
+    "page:Stories"
+   ],
+   "checkbox_inputs": 10,
+   "role_checkbox": 0,
+   "inputs": [
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": false,
+     "invalid": "true",
+     "describedby": "text-error-desc"
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Name (required)",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Acceptor",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Acceptor",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Acceptor",
+     "required": false,
+     "invalid": "true",
+     "describedby": null
+    },
+    {
+     "tag": "select",
+     "type": null,
+     "label": "Acceptor",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": "true",
+     "describedby": null
+    },
+    {
+     "tag": "textarea",
+     "type": null,
+     "label": "Description",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start date",
+     "required": false,
+     "invalid": "true",
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Start date",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    },
+    {
+     "tag": "input",
+     "type": "text",
+     "label": "Search or ID",
+     "required": false,
+     "invalid": null,
+     "describedby": null
+    }
+   ],
+   "required_text": 4,
+   "asterisks": 0,
+   "google_fonts": false,
+   "inter": false,
+   "material_symbols": false,
+   "ms_glyph_spans": 0,
+   "scripts": [],
+   "non_token_hex": {},
+   "fixed_widths": [
+    "width: 220px",
+    "width: 320px",
+    "width: 440px",
+    "width: 600px",
+    "width: 380px",
+    "width: 240px",
+    "width: 180px",
+    "width: 120px",
+    "width: 520px",
+    "width: 800px"
+   ],
+   "uppercase": 1,
+   "overflow_x": 1,
+   "header_text": "UI kit Component specification sheet for Planner application",
+   "main": 1,
+   "main_id": "main",
+   "h1": [
+    "UI kit"
+   ],
+   "menus": 1,
+   "menuitems": [
+    "XML",
+    "PDF"
+   ],
+   "expanded": [
+    "Export:true"
+   ],
+   "progressbar": 1,
+   "alerts": 1
+  }
+ }
+}
