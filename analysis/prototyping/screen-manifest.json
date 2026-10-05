@@ -25,14 +25,17 @@
         "role view viewer: read-only, no selection, order, toolbar, edit, delete or note actions (rows 23, 26)",
         "notes section",
         "export menu open: XML, PDF (row 210)",
+        "move selected stories dialog (target iteration select)",
         "role view editor: no Delete iteration",
         "empty",
         "invalid-order-number",
+        "no-future-iteration",
         "same-iteration-rejected",
         "print view"
       ],
       "actions": [
         "save order",
+        "move selected stories",
         "start iteration",
         "export iteration"
       ],
@@ -49,10 +52,12 @@
         93,
         95,
         96,
+        97,
         98,
         99,
         101,
         102,
+        103,
         104,
         192,
         210
@@ -129,6 +134,22 @@
         {
           "path": "wireframes/iteration-export-menu-desktop.png",
           "sha256": "531f4136497138ff41a0d48b92dd71bdf64e1a1875adce9680167956dcbd2df9"
+        },
+        {
+          "path": "wireframes/continue-no-future-desktop.html",
+          "sha256": "91638ab84c1aa5f934be59938784943d67f62600995285136cf99580ae221808"
+        },
+        {
+          "path": "wireframes/continue-no-future-desktop.png",
+          "sha256": "e0d2fea22d15e61020d53813919c649c4a284b7091eea69ebb905452ac9340d1"
+        },
+        {
+          "path": "wireframes/iteration-move-stories-dialog-desktop.html",
+          "sha256": "6d86d7a1ddbf246e422ecc49fb52a4e781d61a570ffbc11473579f932310090d"
+        },
+        {
+          "path": "wireframes/iteration-move-stories-dialog-desktop.png",
+          "sha256": "9071299c341eabc394033fd5e74f001a5b4d63432abd3792f14c8fa419747ec5"
         }
       ],
       "navigation": [
@@ -857,7 +878,8 @@
         "editor"
       ],
       "states": [
-        "populated"
+        "populated",
+        "project container view: created and deleted objects of the project with type and name"
       ],
       "actions": [],
       "overlays": [],
@@ -872,10 +894,19 @@
         {
           "path": "wireframes/history-desktop.png",
           "sha256": "ed9e6beb995d4228aea4f403f8b2727c542f4b5fa6dfff00926a55c5acb293de"
+        },
+        {
+          "path": "wireframes/history-project-desktop.html",
+          "sha256": "bd0fe05a0de566cec19d0d2bdf8be597e4844a3244bde2e89dbf09c523657920"
+        },
+        {
+          "path": "wireframes/history-project-desktop.png",
+          "sha256": "ca54e08cf3846b3629f487ff9beecb1b7214ca87b6801b8ea1cf0030a9ac54ab"
         }
       ],
       "navigation": [
-        "breadcrumb to story-page"
+        "breadcrumb to story-page",
+        "Show events of the project itself (container view to object view)"
       ],
       "ui_variants": [
         "table.data",
@@ -1261,16 +1292,22 @@
       ],
       "states": [
         "add mode",
+        "edit mode (original author kept, Delete note)",
         "validation-error"
       ],
       "actions": [
         "reset",
-        "cancel"
+        "cancel",
+        "save"
       ],
-      "overlays": [],
+      "overlays": [
+        "delete note confirmation"
+      ],
       "workbook_rows": [
         169,
-        170
+        170,
+        173,
+        174
       ],
       "files": [
         {
@@ -1280,6 +1317,22 @@
         {
           "path": "wireframes/note-editor-desktop.png",
           "sha256": "3db6e072dc92447f50883ca7ae08111f9b46b04ac6fa8b961dc20233cefccc49"
+        },
+        {
+          "path": "wireframes/note-editor-edit-desktop.html",
+          "sha256": "f7f6d50b0c12cfd3ff158c9fe0719736cdc8049837882647b54ebe112fae4599"
+        },
+        {
+          "path": "wireframes/note-editor-edit-desktop.png",
+          "sha256": "70d743412d8e31436c3914be59e384b859846613291def806d1bd95e5394a91b"
+        },
+        {
+          "path": "wireframes/note-delete-dialog-desktop.html",
+          "sha256": "3c14fa850bc945f84b620f032b09081f651000505e4ac42d585124e5557b0d90"
+        },
+        {
+          "path": "wireframes/note-delete-dialog-desktop.png",
+          "sha256": "d1fb7d1af29d2f4b2b78276873524c08684294370da56062df45d80876cb405a"
         }
       ],
       "navigation": [
@@ -1295,7 +1348,9 @@
         "field.textarea",
         "nav.top-bar",
         "nav.breadcrumb",
-        "link.text"
+        "link.text",
+        "button.danger",
+        "dialog.confirm"
       ]
     },
     {
@@ -1608,10 +1663,10 @@
     }
   ],
   "_notes": [
-    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T07:29:48Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
-    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a pattern whose composition is unchanged and is drawn in a real export (P); per-row claims are in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. After Stage 7 pass 001 the claims that relied on a pattern with a different composition, or on a trigger without a drawn destination, were withdrawn: rows 97, 103, 173, 174, 208, 209 and 212 are unclaimed and pending their exports (hand-off handoff-ux-006-13.md), so audit:prototype fails on them until they are drawn. Rows 24 and 26 are role states drawn by iteration-export-menu-desktop and task-viewer-desktop; row 210 is drawn by the export menu (iteration-export-menu-desktop).",
+    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T07:44:33Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
+    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a pattern whose composition is unchanged and is drawn in a real export (P); per-row claims are in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. After Stage 7 pass 001 the claims that relied on a pattern with a different composition, or on a trigger without a drawn destination, were withdrawn: rows 208, 209 and 212 are unclaimed and pending their exports (hand-off handoff-ux-006-13.md), so audit:prototype fails on them until they are drawn. Rows 24 and 26 are role states drawn by iteration-export-menu-desktop and task-viewer-desktop; row 210 is drawn by the export menu (iteration-export-menu-desktop).",
     "Roles (Stage 7 pass 001 F-001/F-002): each screen declares the roles its exports draw; role views are states of the same screen. iteration-page: admin (list-desktop, list-phone: Edit and Delete iteration), editor (iteration-export-menu-desktop: no Delete iteration) and viewer (iteration-viewer-desktop: read-only); task-page: editor and viewer (task-viewer-desktop); projects-list: system administrator (Create project, Hidden column, System information link); project-page: system administrator (Delete project); people-list: admin and system administrator (Create person; for viewers and editors only that button is absent). Pending drawings: projects-list for viewer/editor/admin, project-page admin, story-page viewer, person-page viewer, person-editor admin. Open coverage items for QA: phone date picker, select inside a phone dialog and phone empty state are not verified (pending phone exports).",
-    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
     "Pending prepared entries: none. Every export was accepted only after its real PNG was checked against its HTML; stale or cropped pairs (ZIP 6 and ZIP 7 close, ZIP 7 start and continue) were not imported and are kept in scratch.",
     "Editors (owner direction, relayed by Codex): Save, Reset and Cancel, drawn on every exported editor. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
     "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page. A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",

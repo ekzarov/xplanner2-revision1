@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-08 Delete note confirmation: Story 2</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 1024px;
+      position: relative;
+    }
+
+    /* Accessibility: Skip link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #FFFFFF;
+      color: #0C66E4;
+      padding: 8px 16px;
+      z-index: 1000;
+      border: 2px solid #0C66E4;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.01em;
+    }
+
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-wrapper label {
+      font-size: 14px;
+      color: #1D2125;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 220px;
+      padding: 0 10px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #1D2125;
+      background-color: #FFFFFF;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .top-bar-right a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .top-bar-right a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main container */
+    main {
+      padding: 24px 32px 64px 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      padding: 0 8px;
+      color: #626F86;
+    }
+
+    .breadcrumb-item a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-item a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Page Heading */
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 24px;
+    }
+
+    /* Form Container */
+    .form-card {
+      width: 100%;
+      max-width: 640px;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 16px;
+      color: #1D2125;
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      font-size: 16px;
+      font-family: inherit;
+      color: #1D2125;
+      background-color: #FFFFFF;
+    }
+
+    .readonly-text {
+      font-size: 16px;
+      color: #1D2125;
+      padding-top: 2px;
+    }
+
+    .form-textarea {
+      width: 100%;
+      height: 140px;
+      padding: 10px 12px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      font-size: 16px;
+      font-family: inherit;
+      color: #1D2125;
+      background-color: #FFFFFF;
+      resize: vertical;
+    }
+
+    .field-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .field-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Form Actions */
+    .form-actions-wrapper {
+      max-width: 640px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-actions-left {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Button styles */
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 1px solid transparent;
+      line-height: 1;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border-color: #0C66E4;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      border-color: #8590A2;
+      color: #1D2125;
+    }
+    .btn-neutral:hover {
+      background-color: #F1F2F4;
+    }
+
+    .btn-danger {
+      background-color: #C9372C;
+      color: #FFFFFF;
+      border-color: #C9372C;
+    }
+    .btn-danger:hover {
+      background-color: #AE2A19;
+      border-color: #AE2A19;
+    }
+
+    /* Modal Dialog Scrim & Box */
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(29, 33, 37, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 24px;
+    }
+
+    .dialog-box {
+      width: 100%;
+      max-width: 480px;
+      background-color: #FFFFFF;
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .dialog-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .dialog-text {
+      font-size: 16px;
+      color: #1D2125;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    /* Initial keyboard focus on Cancel button */
+    .btn-focused {
+      outline: 2px solid #0C66E4 !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-bar-left">
+      <div class="brand-name">Planner</div>
+      <div class="search-wrapper">
+        <label for="top-search">Search or ID</label>
+        <input type="text" id="top-search" class="search-input">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#me">Me</a>
+      <a href="#signout">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="main">
+    <!-- Breadcrumb navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#top">Top</a></li>
+        <li class="breadcrumb-item"><a href="#project1">Project 1</a></li>
+        <li class="breadcrumb-item"><a href="#iteration3">Iteration 3</a></li>
+        <li class="breadcrumb-item"><a href="#story2">Story 2</a></li>
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">Note</li>
+      </ol>
+    </nav>
+
+    <!-- Page Heading -->
+    <h1 class="page-title">Edit note: Story 2</h1>
+
+    <!-- Background Edit Note Form -->
+    <div class="form-card">
+      <div class="form-group">
+        <label for="note-subject" class="form-label">Subject (required)</label>
+        <input type="text" id="note-subject" class="form-input" value="Synthetic story note">
+      </div>
+
+      <div class="form-group">
+        <span class="form-label">Author</span>
+        <div class="readonly-text">User C</div>
+      </div>
+
+      <div class="form-group">
+        <label for="note-body" class="form-label">Body</label>
+        <textarea id="note-body" class="form-textarea">Synthetic note text.</textarea>
+        <a href="#formatting-help" class="field-link">Formatting help</a>
+      </div>
+    </div>
+
+    <!-- Form Action Buttons -->
+    <div class="form-actions-wrapper">
+      <div class="form-actions-left">
+        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-neutral">Reset</button>
+        <button type="button" class="btn btn-neutral">Cancel</button>
+      </div>
+      <div>
+        <button type="button" class="btn btn-danger">Delete note</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Centered Modal Confirmation Dialog with Scrim -->
+  <div class="scrim" aria-hidden="false">
+    <div class="dialog-box" role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-desc">
+      <h2 id="dialog-title" class="dialog-title">Delete note?</h2>
+      <p id="dialog-desc" class="dialog-text">
+        Do you want to delete note &ldquo;Synthetic story note&rdquo;? This cannot be undone.
+      </p>
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-neutral btn-focused">Cancel</button>
+        <button type="button" class="btn btn-danger">Delete note</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

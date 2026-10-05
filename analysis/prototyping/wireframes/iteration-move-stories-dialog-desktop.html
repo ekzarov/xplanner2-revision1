@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-03 Iteration 3 - Move selected stories (Editor)</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 1024px;
+      font-size: 14px;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    /* Accessibility: Skip to main content link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      z-index: 10000;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .brand-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 500;
+    }
+    .search-input {
+      height: 36px;
+      width: 220px;
+      padding: 0 10px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .search-input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .top-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .top-link:hover {
+      text-decoration: underline;
+    }
+    .top-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Main Container */
+    main {
+      padding: 24px 32px 64px 32px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      margin-bottom: 16px;
+    }
+    .breadcrumb-list {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .breadcrumb-item a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .breadcrumb-item a:hover {
+      text-decoration: underline;
+    }
+    .breadcrumb-item a:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    .breadcrumb-item [aria-current="page"] {
+      color: #1D2125;
+      font-weight: 500;
+    }
+    .breadcrumb-separator {
+      color: #626F86;
+    }
+
+    /* Page Header */
+    .header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+    }
+    .date-range {
+      font-size: 14px;
+      color: #626F86;
+    }
+    .summary-line {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: #1D2125;
+      margin-top: 6px;
+    }
+    .progress-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .progress-track {
+      width: 140px;
+      height: 8px;
+      background-color: #E2E5E9;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: #0C66E4;
+      border-radius: 4px;
+    }
+    .summary-figures {
+      display: flex;
+      gap: 16px;
+      color: #1D2125;
+    }
+
+    /* Header actions */
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* Buttons */
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .btn:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    .btn-neutral {
+      background-color: #FFFFFF;
+      border-color: #8590A2;
+      color: #1D2125;
+    }
+    .btn-neutral:hover {
+      background-color: #F1F2F4;
+    }
+    .btn-primary {
+      background-color: #0C66E4;
+      border-color: #0C66E4;
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+
+    /* Action Links */
+    .action-links {
+      display: flex;
+      gap: 16px;
+      margin: 12px 0 20px 0;
+    }
+    .action-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .action-link:hover {
+      text-decoration: underline;
+    }
+    .action-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Local Tabs */
+    .tabs-nav {
+      border-bottom: 1px solid #DCDFE4;
+      margin-bottom: 20px;
+    }
+    .tabs-list {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .tab-link {
+      display: inline-block;
+      padding: 8px 4px 10px 4px;
+      font-size: 14px;
+      color: #626F86;
+      text-decoration: none;
+      position: relative;
+    }
+    .tab-link:hover {
+      color: #1D2125;
+    }
+    .tab-link[aria-current="page"] {
+      color: #0C66E4;
+      font-weight: 600;
+      border-bottom: 2px solid #0C66E4;
+      margin-bottom: -1px;
+    }
+    .tab-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Table Toolbar */
+    .table-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .toolbar-left, .toolbar-right {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* Table */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+    th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      height: 40px;
+      padding: 0 12px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+    .th-sort-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 600;
+      color: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0;
+    }
+    .th-sort-btn:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    td {
+      height: 40px;
+      padding: 0 12px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr.selected {
+      background-color: #E9F2FF;
+    }
+    .text-right {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .order-input {
+      width: 48px;
+      height: 28px;
+      border: 1px solid #8590A2;
+      border-radius: 4px;
+      text-align: center;
+      font-family: inherit;
+      font-size: 14px;
+      background: #FFFFFF;
+      color: #1D2125;
+    }
+    .order-input:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    .story-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .story-link:hover {
+      text-decoration: underline;
+    }
+    .story-link:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #0C66E4;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    input[type="checkbox"]:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Scrim and Modal Dialog */
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(29, 33, 37, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-dialog {
+      background-color: #FFFFFF;
+      width: 480px;
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(29, 33, 37, 0.2);
+    }
+    .dialog-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .dialog-text {
+      font-size: 16px;
+      color: #1D2125;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    .form-label {
+      font-size: 16px;
+      color: #1D2125;
+      font-weight: 500;
+    }
+    .native-select {
+      height: 36px;
+      width: 100%;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 10px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+      font-family: inherit;
+      font-size: 16px;
+    }
+    .native-select:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    .dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+    .dialog-actions .btn-neutral:focus {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to main content for keyboard users -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-bar-left">
+      <a href="#" class="brand-logo">Planner</a>
+      <div class="search-container">
+        <label for="global-search" class="search-label">Search or ID</label>
+        <input type="text" id="global-search" class="search-input">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="top-link">Me</a>
+      <a href="#" class="top-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main content region -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#">Top</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><a href="#">Project 1</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><span aria-current="page">Iteration 3</span></li>
+      </ol>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="header-section" aria-labelledby="iteration-heading">
+      <div class="header-left">
+        <h1 id="iteration-heading" class="page-title">Iteration 3</h1>
+        <div class="date-range">2026-03-02 to 2026-03-13</div>
+        <div class="summary-line">
+          <div class="progress-wrapper">
+            <span>Progress 48%</span>
+            <div class="progress-track" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100" aria-label="Iteration progress">
+              <div class="progress-fill" style="width: 48%;"></div>
+            </div>
+          </div>
+          <div class="summary-figures">
+            <span>Estimated 100.0 h</span>
+            <span>Actual 48.0 h</span>
+            <span>Remaining 52.0 h</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="btn btn-neutral">Edit iteration</button>
+      </div>
+    </section>
+
+    <!-- Action Links -->
+    <div class="action-links">
+      <a href="#" class="action-link">Export</a>
+      <a href="#" class="action-link">History</a>
+      <a href="#" class="action-link">Add note</a>
+    </div>
+
+    <!-- Local Tabs -->
+    <nav class="tabs-nav" aria-label="Iteration views">
+      <ul class="tabs-list">
+        <li><a href="#" class="tab-link" aria-current="page">Stories</a></li>
+        <li><a href="#" class="tab-link">Tasks</a></li>
+        <li><a href="#" class="tab-link">Statistics</a></li>
+        <li><a href="#" class="tab-link">Accuracy</a></li>
+        <li><a href="#" class="tab-link">Board</a></li>
+      </ul>
+    </nav>
+
+    <!-- Table Toolbar -->
+    <div class="table-toolbar">
+      <div class="toolbar-left">
+        <button type="button" class="btn btn-neutral">Move selected stories</button>
+        <button type="button" class="btn btn-neutral">Save order</button>
+      </div>
+      <div class="toolbar-right">
+        <button type="button" class="btn btn-neutral">Close iteration</button>
+        <button type="button" class="btn btn-primary">Create story</button>
+      </div>
+    </div>
+
+    <!-- Story Table -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 36px; text-align: center;">
+              <input type="checkbox" id="select-all" aria-label="Select all stories">
+            </th>
+            <th aria-sort="none">
+              <button type="button" class="th-sort-btn">ID</button>
+            </th>
+            <th aria-sort="ascending">
+              <button type="button" class="th-sort-btn">Order ▲</button>
+            </th>
+            <th aria-sort="none">
+              <button type="button" class="th-sort-btn">Name</button>
+            </th>
+            <th aria-sort="none" class="text-right">
+              <button type="button" class="th-sort-btn">Priority</button>
+            </th>
+            <th aria-sort="none">
+              <button type="button" class="th-sort-btn">Customer</button>
+            </th>
+            <th aria-sort="none" class="text-right">
+              <button type="button" class="th-sort-btn">Progress</button>
+            </th>
+            <th aria-sort="none" class="text-right">
+              <button type="button" class="th-sort-btn">Actual</button>
+            </th>
+            <th aria-sort="none" class="text-right">
+              <button type="button" class="th-sort-btn">Remaining</button>
+            </th>
+            <th aria-sort="none" class="text-right">
+              <button type="button" class="th-sort-btn">Estimate</button>
+            </th>
+            <th aria-sort="none" class="text-right">
+              <button type="button" class="th-sort-btn">Original estimate</button>
+            </th>
+            <th aria-sort="none" class="text-right">
+              <button type="button" class="th-sort-btn">Tasks</button>
+            </th>
+            <th aria-sort="none">
+              <button type="button" class="th-sort-btn">Tracker</button>
+            </th>
+            <th aria-sort="none">
+              <button type="button" class="th-sort-btn">Disposition</button>
+            </th>
+            <th aria-sort="none">
+              <button type="button" class="th-sort-btn">Status</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1 -->
+          <tr>
+            <td style="text-align: center;">
+              <input type="checkbox" id="story-101" aria-label="Select Story 1">
+            </td>
+            <td>101</td>
+            <td>
+              <input type="number" class="order-input" value="1" aria-label="Order for Story 1">
+            </td>
+            <td><a href="#" class="story-link">Story 1</a></td>
+            <td class="text-right">1</td>
+            <td>User A</td>
+            <td class="text-right">60%</td>
+            <td class="text-right">12.0</td>
+            <td class="text-right">8.0</td>
+            <td class="text-right">20.0</td>
+            <td class="text-right">18.0</td>
+            <td class="text-right">4</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+
+          <!-- Row 2 (Selected) -->
+          <tr class="selected">
+            <td style="text-align: center;">
+              <input type="checkbox" id="story-102" aria-label="Select Story 2" checked>
+            </td>
+            <td>102</td>
+            <td>
+              <input type="number" class="order-input" value="2" aria-label="Order for Story 2">
+            </td>
+            <td><a href="#" class="story-link">Story 2</a></td>
+            <td class="text-right">2</td>
+            <td>User C</td>
+            <td class="text-right">25%</td>
+            <td class="text-right">6.0</td>
+            <td class="text-right">18.0</td>
+            <td class="text-right">24.0</td>
+            <td class="text-right">24.0</td>
+            <td class="text-right">3</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+
+          <!-- Row 3 -->
+          <tr>
+            <td style="text-align: center;">
+              <input type="checkbox" id="story-103" aria-label="Select Story 3">
+            </td>
+            <td>103</td>
+            <td>
+              <input type="number" class="order-input" value="3" aria-label="Order for Story 3">
+            </td>
+            <td><a href="#" class="story-link">Story 3</a></td>
+            <td class="text-right">4</td>
+            <td>User A</td>
+            <td class="text-right">50%</td>
+            <td class="text-right">10.0</td>
+            <td class="text-right">10.0</td>
+            <td class="text-right">20.0</td>
+            <td class="text-right">16.0</td>
+            <td class="text-right">5</td>
+            <td>User D</td>
+            <td>Carried over</td>
+            <td>Draft</td>
+          </tr>
+
+          <!-- Row 4 (Selected) -->
+          <tr class="selected">
+            <td style="text-align: center;">
+              <input type="checkbox" id="story-104" aria-label="Select Story 4" checked>
+            </td>
+            <td>104</td>
+            <td>
+              <input type="number" class="order-input" value="4" aria-label="Order for Story 4">
+            </td>
+            <td><a href="#" class="story-link">Story 4</a></td>
+            <td class="text-right">4</td>
+            <td>User C</td>
+            <td class="text-right">0%</td>
+            <td class="text-right">0.0</td>
+            <td class="text-right">16.0</td>
+            <td class="text-right">16.0</td>
+            <td class="text-right">16.0</td>
+            <td class="text-right">2</td>
+            <td>User D</td>
+            <td>Added</td>
+            <td>Draft</td>
+          </tr>
+
+          <!-- Row 5 -->
+          <tr>
+            <td style="text-align: center;">
+              <input type="checkbox" id="story-105" aria-label="Select Story 5">
+            </td>
+            <td>105</td>
+            <td>
+              <input type="number" class="order-input" value="5" aria-label="Order for Story 5">
+            </td>
+            <td><a href="#" class="story-link">Story 5</a></td>
+            <td class="text-right">3</td>
+            <td>User A</td>
+            <td class="text-right">100%</td>
+            <td class="text-right">20.0</td>
+            <td class="text-right">0.0</td>
+            <td class="text-right">20.0</td>
+            <td class="text-right">22.0</td>
+            <td class="text-right">4</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Accepted</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Translucent Scrim & Centered Modal Dialog -->
+  <div class="scrim">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <h2 id="dialog-title" class="dialog-title">Move selected stories</h2>
+      <p class="dialog-text">2 stories selected: Story 2, Story 4.</p>
+      
+      <div class="form-group">
+        <label for="target-iteration" class="form-label">Target iteration</label>
+        <select id="target-iteration" class="native-select">
+          <option value="Project 1: Iteration 4 (2026-03-16 to 2026-03-27)">Project 1: Iteration 4 (2026-03-16 to 2026-03-27)</option>
+        </select>
+      </div>
+
+      <div class="dialog-actions">
+        <!-- Initial keyboard focus with visible 2px outline and 2px offset -->
+        <button type="button" class="btn btn-neutral" style="outline: 2px solid #0C66E4; outline-offset: 2px;">Cancel</button>
+        <button type="button" class="btn btn-primary">Move</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

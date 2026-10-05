@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-04 Iteration 6 - No future iteration (Editor)</title>
+  <style>
+    /* Reset & Base Foundation Tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 1024px;
+      position: relative;
+    }
+
+    /* Accessibility: Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 1000;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    /* Focus States */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top Bar */
+    header.top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-container label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1D2125;
+    }
+
+    .search-input {
+      height: 36px;
+      width: 220px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 14px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-bar-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .top-bar-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Page Container */
+    main#main {
+      padding: 24px 32px 48px;
+    }
+
+    /* Breadcrumb */
+    nav.breadcrumb {
+      margin-bottom: 16px;
+    }
+    nav.breadcrumb ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    nav.breadcrumb li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    nav.breadcrumb li:not(:last-child)::after {
+      content: "/";
+      color: #626F86;
+    }
+    nav.breadcrumb a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    nav.breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    nav.breadcrumb span[aria-current="page"] {
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    /* Page Header Section */
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .heading-group h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+    }
+
+    .date-range {
+      font-size: 14px;
+      color: #626F86;
+      margin-top: 4px;
+    }
+
+    /* Buttons */
+    .btn-neutral {
+      height: 36px;
+      padding: 0 16px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      color: #1D2125;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-neutral:hover {
+      background-color: #F1F2F4;
+    }
+
+    /* Summary Bar */
+    .summary-line {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #1D2125;
+    }
+
+    .progress-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .progress-bar-track {
+      width: 140px;
+      height: 6px;
+      background-color: #DCDFE4;
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      width: 67%;
+      height: 100%;
+      background-color: #0C66E4;
+      border-radius: 3px;
+    }
+
+    .summary-figures {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stat-item {
+      color: #1D2125;
+    }
+
+    /* Action Links */
+    .action-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .action-links a {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .action-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Local Tabs */
+    .tabs-nav {
+      border-bottom: 1px solid #DCDFE4;
+      margin-bottom: 20px;
+    }
+    .tabs-list {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+    .tab-item a {
+      display: block;
+      padding-bottom: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      color: #626F86;
+      font-weight: 500;
+      position: relative;
+    }
+    .tab-item a:hover {
+      color: #1D2125;
+    }
+    .tab-item.active a {
+      color: #0C66E4;
+      font-weight: 600;
+    }
+    .tab-item.active a::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #0C66E4;
+    }
+
+    /* Table Container */
+    .table-container {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    table.data-table thead th {
+      background-color: #F1F2F4;
+      height: 40px;
+      padding: 0 12px;
+      font-weight: 600;
+      color: #1D2125;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+
+    .th-sort-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    table.data-table tbody tr {
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+    }
+    table.data-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    table.data-table tbody td {
+      padding: 0 12px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    table.data-table td.numeric,
+    table.data-table th.numeric {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .story-link {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    .story-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Modal Scrim and Dialog */
+    .scrim {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(29, 33, 37, 0.5); /* #1D2125 at 50% opacity */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .dialog {
+      width: 480px;
+      background-color: #FFFFFF;
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      border: 1px solid #DCDFE4;
+    }
+
+    .dialog-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .dialog-body-text {
+      font-size: 16px;
+      color: #1D2125;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .danger-banner {
+      background-color: #FFFFFF;
+      border-left: 4px solid #C9372C;
+      padding: 10px 12px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #1D2125;
+      border-top: 1px solid #F1F2F4;
+      border-right: 1px solid #F1F2F4;
+      border-bottom: 1px solid #F1F2F4;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .dialog-close-btn {
+      height: 36px;
+      padding: 0 20px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      color: #1D2125;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+    .dialog-close-btn:hover {
+      background-color: #F1F2F4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="#" class="brand-name">Planner</a>
+      <div class="search-container">
+        <label for="search-input">Search or ID</label>
+        <input type="text" id="search-input" class="search-input" />
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="top-bar-link">Me</a>
+      <a href="#" class="top-bar-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#">Top</a></li>
+        <li><a href="#">Project 2</a></li>
+        <li><span aria-current="page">Iteration 6</span></li>
+      </ol>
+    </nav>
+
+    <!-- Page Header Area -->
+    <div class="header-row">
+      <div class="heading-group">
+        <h1>Iteration 6</h1>
+        <p class="date-range">2026-03-02 to 2026-03-13</p>
+      </div>
+      <div>
+        <button type="button" class="btn-neutral">Edit iteration</button>
+      </div>
+    </div>
+
+    <!-- Summary Line -->
+    <div class="summary-line">
+      <div class="progress-wrapper">
+        <span>Progress 67%</span>
+        <div class="progress-bar-track" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" aria-label="Iteration progress">
+          <div class="progress-bar-fill"></div>
+        </div>
+      </div>
+      <div class="summary-figures">
+        <span class="stat-item">Estimated 30.0 h</span>
+        <span class="stat-item">Actual 20.0 h</span>
+        <span class="stat-item">Remaining 10.0 h</span>
+      </div>
+    </div>
+
+    <!-- Action Links -->
+    <div class="action-links">
+      <a href="#">Export</a>
+      <a href="#">History</a>
+      <a href="#">Add note</a>
+    </div>
+
+    <!-- Local Tabs -->
+    <nav class="tabs-nav" aria-label="Iteration sections">
+      <ul class="tabs-list">
+        <li class="tab-item active">
+          <a href="#" aria-current="page">Stories</a>
+        </li>
+        <li class="tab-item"><a href="#">Tasks</a></li>
+        <li class="tab-item"><a href="#">Statistics</a></li>
+        <li class="tab-item"><a href="#">Accuracy</a></li>
+        <li class="tab-item"><a href="#">Board</a></li>
+      </ul>
+    </nav>
+
+    <!-- Stories Table -->
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="th-sort-btn">ID</button>
+            </th>
+            <th scope="col" aria-sort="ascending">
+              <button type="button" class="th-sort-btn">Order ▲</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="th-sort-btn">Name</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="th-sort-btn">Priority</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="th-sort-btn">Customer</button>
+            </th>
+            <th scope="col" aria-sort="none" class="numeric">
+              <button type="button" class="th-sort-btn">Progress</button>
+            </th>
+            <th scope="col" aria-sort="none" class="numeric">
+              <button type="button" class="th-sort-btn">Actual</button>
+            </th>
+            <th scope="col" aria-sort="none" class="numeric">
+              <button type="button" class="th-sort-btn">Remaining</button>
+            </th>
+            <th scope="col" aria-sort="none" class="numeric">
+              <button type="button" class="th-sort-btn">Estimate</button>
+            </th>
+            <th scope="col" aria-sort="none" class="numeric">
+              <button type="button" class="th-sort-btn">Original estimate</button>
+            </th>
+            <th scope="col" aria-sort="none" class="numeric">
+              <button type="button" class="th-sort-btn">Tasks</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="th-sort-btn">Tracker</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="th-sort-btn">Disposition</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button" class="th-sort-btn">Status</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>201</td>
+            <td>1</td>
+            <td><a href="#" class="story-link">Story 6</a></td>
+            <td>1</td>
+            <td>User A</td>
+            <td class="numeric">100%</td>
+            <td class="numeric">10.0</td>
+            <td class="numeric">0.0</td>
+            <td class="numeric">10.0</td>
+            <td class="numeric">10.0</td>
+            <td class="numeric">2</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Accepted</td>
+          </tr>
+          <tr>
+            <td>202</td>
+            <td>2</td>
+            <td><a href="#" class="story-link">Story 7</a></td>
+            <td>2</td>
+            <td>User C</td>
+            <td class="numeric">50%</td>
+            <td class="numeric">5.0</td>
+            <td class="numeric">5.0</td>
+            <td class="numeric">10.0</td>
+            <td class="numeric">10.0</td>
+            <td class="numeric">2</td>
+            <td>User B</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+          <tr>
+            <td>203</td>
+            <td>3</td>
+            <td><a href="#" class="story-link">Story 8</a></td>
+            <td>3</td>
+            <td>User D</td>
+            <td class="numeric">50%</td>
+            <td class="numeric">5.0</td>
+            <td class="numeric">5.0</td>
+            <td class="numeric">10.0</td>
+            <td class="numeric">10.0</td>
+            <td class="numeric">2</td>
+            <td>User D</td>
+            <td>Planned</td>
+            <td>Draft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Modal Dialog with Scrim -->
+  <div class="scrim">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <h2 id="dialog-title" class="dialog-title">Continue unfinished stories</h2>
+      <p class="dialog-body-text">Iteration 6 is closed. It has 2 unfinished stories.</p>
+      
+      <div class="danger-banner" role="alert">
+        No future iteration available.
+      </div>
+
+      <div class="dialog-actions">
+        <button type="button" class="dialog-close-btn" autofocus>Close</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
