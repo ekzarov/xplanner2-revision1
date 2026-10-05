@@ -1,214 +1,385 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Edit project: Project 1 - Planner</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "surface-container-low": "#f0f3ff",
-            "surface-bright": "#f9f9ff",
-            "on-background": "#0e1c2f",
-            "secondary-fixed-dim": "#82d99a",
-            "on-tertiary-fixed-variant": "#910909",
-            "on-secondary-fixed-variant": "#005229",
-            "secondary-container": "#9df6b4",
-            "surface-container-lowest": "#ffffff",
-            "inverse-surface": "#243145",
-            "surface-variant": "#d6e3fe",
-            "on-primary-container": "#ecefff",
-            "on-error-container": "#93000a",
-            "tertiary": "#a51c16",
-            "inverse-on-surface": "#ebf1ff",
-            "outline-variant": "#c2c6d7",
-            "primary": "#004fb6",
-            "on-secondary-container": "#15733f",
-            "surface-dim": "#cddbf5",
-            "tertiary-fixed": "#ffdad5",
-            "primary-fixed": "#d9e2ff",
-            "surface-container-high": "#dee8ff",
-            "error": "#ba1a1a",
-            "on-primary-fixed": "#001945",
-            "primary-container": "#0c66e4",
-            "on-error": "#ffffff",
-            "background": "#f9f9ff",
-            "tertiary-fixed-dim": "#ffb4aa",
-            "outline": "#727786",
-            "secondary-fixed": "#9df6b4",
-            "on-surface-variant": "#424654",
-            "tertiary-container": "#c8362b",
-            "surface-container-highest": "#d6e3fe",
-            "on-surface": "#0e1c2f",
-            "surface-container": "#e7eeff",
-            "on-tertiary-fixed": "#410001",
-            "primary-fixed-dim": "#b0c6ff",
-            "on-tertiary-container": "#ffebe8",
-            "on-primary-fixed-variant": "#00429b",
-            "error-container": "#ffdad6",
-            "surface-tint": "#0058ca",
-            "on-secondary-fixed": "#00210d",
-            "on-primary": "#ffffff",
-            "on-tertiary": "#ffffff",
-            "secondary": "#086d39",
-            "on-secondary": "#ffffff",
-            "inverse-primary": "#b0c6ff",
-            "surface": "#f9f9ff"
-          },
-          "borderRadius": {
-            "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
-          },
-          "fontFamily": {
-            "headline": ["Inter"],
-            "display": ["Inter"],
-            "body": ["Inter"],
-            "label": ["Inter"]
-          }
-        },
-      },
-    }
-  </script>
-<style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #1D2125;
-      background-color: #F7F8FA;
-      -webkit-font-smoothing: antialiased;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-33 Edit project: Project 1</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    
-    input:focus, textarea:focus, button:focus, a:focus {
-      outline: 2px solid #0C66E4 !important;
-      outline-offset: 2px !important;
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    .custom-checkbox {
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      z-index: 9999;
+      text-decoration: none;
+      transition: top 0.1s ease-in-out;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Focus outline for all interactive elements */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top Bar */
+    header.top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      position: relative;
+    }
+
+    .brand-search-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      letter-spacing: -0.2px;
+      text-decoration: none;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-group label {
+      font-size: 14px;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      width: 200px;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .top-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-links a {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .top-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    main {
+      padding: 20px 24px 48px;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0;
+    }
+
+    /* Breadcrumb */
+    nav.breadcrumb {
+      margin-bottom: 16px;
+    }
+
+    nav.breadcrumb ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    nav.breadcrumb li + li::before {
+      content: "/";
+      margin: 0 8px;
+      color: #626F86;
+    }
+
+    nav.breadcrumb a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+    nav.breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    nav.breadcrumb [aria-current="page"] {
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    /* Page Heading */
+    h1.page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 24px;
+      line-height: 1.25;
+    }
+
+    /* Form Section Card */
+    .form-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 24px;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #1D2125;
+      margin-bottom: 8px;
+    }
+
+    .text-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .text-area {
+      width: 100%;
+      height: 130px;
+      padding: 8px 12px;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      color: #1D2125;
+      font-family: inherit;
+      font-size: 14px;
+      resize: vertical;
+      line-height: 1.4;
+    }
+
+    .help-link-wrapper {
+      margin-top: 6px;
+    }
+
+    .formatting-help {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .formatting-help:hover {
+      text-decoration: underline;
+    }
+
+    /* Checkbox Group */
+    .checkbox-group {
+      margin-top: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #1D2125;
+      user-select: none;
+    }
+
+    .checkbox-input {
+      width: 16px;
+      height: 16px;
       accent-color: #0C66E4;
+      border: 1px solid #8590A2;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    /* Action Buttons */
+    .button-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .btn-primary {
+      background-color: #0C66E4;
+      color: #FFFFFF;
+      border: 1px solid #0C66E4;
+    }
+    .btn-primary:hover {
+      background-color: #0055CC;
+      border-color: #0055CC;
+    }
+
+    .btn-neutral {
+      background-color: #FFFFFF;
+      color: #1D2125;
+      border: 1px solid #8590A2;
+    }
+    .btn-neutral:hover {
+      background-color: #F7F8FA;
     }
   </style>
 </head>
-<body class="min-h-screen bg-[#F7F8FA] text-[#1D2125]">
-<!-- Top bar (docked desktop flat header, 56px high, flat border, no shadows) -->
-<header class="w-full bg-[#FFFFFF] border-b border-[#DCDFE4] h-14 px-6 flex items-center justify-between sticky top-0 z-30">
-<div class="flex items-center gap-6">
-<span class="text-[18px] font-bold text-[#1D2125] tracking-tight">Planner</span>
-<!-- Search with visible label -->
-<form class="flex items-center gap-2" onsubmit="event.preventDefault();">
-<label class="text-[14px] text-[#1D2125] whitespace-nowrap" for="search-input">Search or ID</label>
-<input class="h-[36px] w-64 bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-[14px] text-[#1D2125] focus:outline-none" id="search-input" name="q" type="text"/>
-</form>
-</div>
-<!-- Right utility navigation: Me / Sign out -->
-<div class="flex items-center gap-4 text-[14px]">
-<a class="text-[#0C66E4] hover:text-[#0055CC] font-normal transition-colors" href="#">Me</a>
-<span aria-hidden="true" class="text-[#DCDFE4]">|</span>
-<a class="text-[#0C66E4] hover:text-[#0055CC] font-normal transition-colors" href="#">Sign out</a>
-</div>
-</header>
-<!-- Page Breadcrumb Strip -->
-<div class="max-w-[1280px] mx-auto px-6 pt-4 pb-2">
-<nav aria-label="Breadcrumb">
-<ol class="flex items-center gap-1.5 text-[14px] text-[#626F86]">
-<li>
-<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Top</a>
-</li>
-<li aria-hidden="true" class="select-none text-[#626F86]">/</li>
-<li>
-<a class="text-[#0C66E4] hover:text-[#0055CC] transition-colors" href="#">Project 1</a>
-</li>
-<li aria-hidden="true" class="select-none text-[#626F86]">/</li>
-<li aria-current="page" class="text-[#1D2125] font-normal">
-          Edit
-        </li>
-</ol>
-</nav>
-</div>
-<!-- Main Content Canvas -->
-<main class="max-w-[1280px] mx-auto px-6 py-6">
-<!-- Page Heading -->
-<h1 class="text-[24px] font-semibold text-[#1D2125] mb-5 tracking-tight">
-      Edit project: Project 1
-    </h1>
-<!-- Form Container: Flat, 1px border, 6px radius, no drop shadow -->
-<div class="w-full max-w-[640px] bg-[#FFFFFF] border border-[#DCDFE4] rounded-[6px] p-6">
-<form action="#" class="space-y-5" method="post" onsubmit="event.preventDefault();">
-<!-- Field 1: Name (required) -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-medium text-[#1D2125]" for="project-name">
-            Name (required)
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="brand-search-group">
+      <span class="brand">Planner</span>
+      <form class="search-group" role="search" onsubmit="return false;">
+        <label for="search-input">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </form>
+    </div>
+    <div class="top-links">
+      <a href="#">Me</a>
+      <a href="#">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main Content Region -->
+  <main id="main">
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#">Top</a></li>
+        <li><a href="#">Project 1</a></li>
+        <li aria-current="page">Edit</li>
+      </ol>
+    </nav>
+
+    <!-- Page Title -->
+    <h1 class="page-title">Edit project: Project 1</h1>
+
+    <!-- Form Container -->
+    <section class="form-card" aria-labelledby="form-heading">
+      <h2 id="form-heading" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">Edit project details</h2>
+      <form id="edit-project-form" onsubmit="return false;">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="project-name" class="form-label">Name (required)</label>
+          <input type="text" id="project-name" name="name" class="text-input" value="Project 1" required>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="project-desc" class="form-label">Description</label>
+          <textarea id="project-desc" name="description" class="text-area">Synthetic sample project for the planning prototype.</textarea>
+          <div class="help-link-wrapper">
+            <a href="#" class="formatting-help">Formatting help</a>
+          </div>
+        </div>
+
+        <!-- Wiki URL -->
+        <div class="form-group">
+          <label for="project-wiki" class="form-label">Wiki URL</label>
+          <input type="text" id="project-wiki" name="wiki_url" class="text-input" value="">
+        </div>
+
+        <!-- Checkboxes -->
+        <div class="checkbox-group">
+          <label class="checkbox-label" for="escape-brackets">
+            <input type="checkbox" id="escape-brackets" name="escape_brackets" class="checkbox-input">
+            Escape brackets in descriptions
           </label>
-<input class="h-[36px] w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-[16px] text-[#1D2125] focus:outline-none" id="project-name" name="name" required="" type="text" value="Project 1"/>
-</div>
-<!-- Field 2: Description & Formatting help -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal text-[#1D2125]" for="project-description">
-            Description
+
+          <label class="checkbox-label" for="missing-time">
+            <input type="checkbox" id="missing-time" name="missing_time_notification" class="checkbox-input">
+            Send missing time entry notification
           </label>
-<textarea class="min-h-[100px] w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] p-3 text-[16px] leading-relaxed text-[#1D2125] resize-y focus:outline-none" id="project-description" name="description" rows="4">Synthetic sample project for the planning prototype.</textarea>
-<div class="pt-0.5">
-<a class="text-[14px] text-[#0C66E4] hover:text-[#0055CC] underline" href="#">
-              Formatting help
-            </a>
-</div>
-</div>
-<!-- Field 3: Wiki URL -->
-<div class="flex flex-col gap-1.5">
-<label class="text-[16px] font-normal text-[#1D2125]" for="project-wiki">
-            Wiki URL
+
+          <label class="checkbox-label" for="hidden-project">
+            <input type="checkbox" id="hidden-project" name="hidden" class="checkbox-input">
+            Hidden
           </label>
-<input class="h-[36px] w-full bg-[#FFFFFF] border border-[#8590A2] rounded-[6px] px-3 text-[16px] text-[#1D2125] focus:outline-none" id="project-wiki" name="wiki_url" type="url" value=""/>
-</div>
-<!-- Checkbox Options Section -->
-<div class="space-y-3 pt-1 pb-1">
-<!-- Field 4: Escape brackets -->
-<div class="flex items-center gap-3">
-<input class="custom-checkbox w-4 h-4 rounded-[3px] border border-[#8590A2] text-[#0C66E4] focus:ring-0 focus:outline-none" id="escape-brackets" name="escape_brackets" type="checkbox"/>
-<label class="text-[16px] text-[#1D2125] cursor-pointer select-none" for="escape-brackets">
-              Escape brackets in descriptions
-            </label>
-</div>
-<!-- Field 5: Send missing time entry notification -->
-<div class="flex items-center gap-3">
-<input class="custom-checkbox w-4 h-4 rounded-[3px] border border-[#8590A2] text-[#0C66E4] focus:ring-0 focus:outline-none" id="time-notification" name="time_notification" type="checkbox"/>
-<label class="text-[16px] text-[#1D2125] cursor-pointer select-none" for="time-notification">
-              Send missing time entry notification
-            </label>
-</div>
-<!-- Field 6: Hidden -->
-<div class="flex items-center gap-3">
-<input class="custom-checkbox w-4 h-4 rounded-[3px] border border-[#8590A2] text-[#0C66E4] focus:ring-0 focus:outline-none" id="project-hidden" name="is_hidden" type="checkbox"/>
-<label class="text-[16px] text-[#1D2125] cursor-pointer select-none" for="project-hidden">
-              Hidden
-            </label>
-</div>
-</div>
-<!-- Form Actions Row (Left-aligned, 8px gap) -->
-<div class="pt-4 flex items-center gap-2">
-<!-- Primary action: Save -->
-<button class="h-[36px] px-4 bg-[#0C66E4] hover:bg-[#0055CC] text-[#FFFFFF] rounded-[6px] text-[14px] font-medium transition-colors" type="submit">
-            Save
-          </button>
-<!-- Neutral action: Reset -->
-<button class="h-[36px] px-4 bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] hover:bg-[#F1F2F4] rounded-[6px] text-[14px] font-normal transition-colors" type="reset">
-            Reset
-          </button>
-<!-- Neutral action: Cancel -->
-<button class="h-[36px] px-4 bg-[#FFFFFF] border border-[#8590A2] text-[#1D2125] hover:bg-[#F1F2F4] rounded-[6px] text-[14px] font-normal transition-colors" onclick="history.back()" type="button">
-            Cancel
-          </button>
-</div>
-</form>
-</div>
-</main>
-</body></html>
+        </div>
+
+        <!-- Form Buttons -->
+        <div class="button-group">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="reset" class="btn btn-neutral">Reset</button>
+          <button type="button" class="btn btn-neutral">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

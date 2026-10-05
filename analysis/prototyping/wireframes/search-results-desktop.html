@@ -2,196 +2,331 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search results: Story 2 - Planner</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-35 Search results: Story 2 - Planner</title>
   <style>
-    :root {
-      --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --text: #1D2125;
-      --secondary: #626F86;
-      --primary: #0C66E4;
-      --primary-hover: #0055CC;
-      --completion: #1F7A45;
-      --danger: #C9372C;
-      --bg: #F7F8FA;
-      --surface: #FFFFFF;
-      --control-border: #8590A2;
-      --divider: #DCDFE4;
-      --table-header: #F1F2F4;
-      --selected: #E9F2FF;
+    /* Foundation resets & tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: var(--font-stack);
-      background-color: var(--bg);
-      color: var(--text);
-      font-size: 16px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F7F8FA;
+      color: #1D2125;
+      font-size: 14px;
       line-height: 1.5;
-      margin: 0;
-      padding: 0;
+      min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
 
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible {
-      outline: 2px solid var(--primary);
+    /* Focus styling */
+    :focus-visible {
+      outline: 2px solid #0C66E4;
       outline-offset: 2px;
     }
 
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #0C66E4;
+      color: #FFFFFF;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 6px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 10px;
+    }
+
+    /* Top bar */
     .top-bar {
       height: 56px;
-      background-color: var(--surface);
-      border-bottom: 1px solid var(--divider);
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      color: #1D2125;
+      font-weight: 400;
+      white-space: nowrap;
     }
 
     .search-input {
-      height: 36px;
-      border: 1px solid var(--control-border);
-      border-radius: 6px;
       font-family: inherit;
-      font-size: 16px;
-      color: var(--text);
-      background-color: var(--surface);
+      font-size: 14px;
+      color: #1D2125;
+      height: 36px;
+      width: 200px;
       padding: 0 12px;
-      width: 260px;
+      background-color: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
     }
 
     .search-input:focus {
-      outline: 2px solid var(--primary);
+      outline: 2px solid #0C66E4;
       outline-offset: 2px;
-      border-color: var(--primary);
+      border-color: #0C66E4;
     }
 
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main container */
+    main {
+      padding: 24px;
+      max-width: 1400px;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-nav {
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .breadcrumb-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      color: #626F86;
+    }
+
+    .breadcrumb-link {
+      color: #0C66E4;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+
+    .breadcrumb-link:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+    }
+
+    /* Heading */
+    .page-heading {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1D2125;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Results Table */
     .table-container {
-      background-color: var(--surface);
-      border: 1px solid var(--divider);
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
       border-radius: 6px;
       overflow: hidden;
     }
 
-    table {
+    .results-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
       text-align: left;
+      font-size: 14px;
     }
 
-    th {
-      background-color: var(--table-header);
-      color: var(--text);
+    .results-table th {
+      background-color: #F1F2F4;
+      color: #1D2125;
       font-weight: 600;
       height: 40px;
       padding: 0 16px;
-      border-bottom: 1px solid var(--divider);
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
     }
 
-    td {
+    .results-table th button {
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: 4px;
+    }
+
+    .results-table th button:hover {
+      color: #0C66E4;
+    }
+
+    .results-table td {
       height: 40px;
       padding: 0 16px;
-      border-bottom: 1px solid var(--divider);
-      color: var(--text);
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+      vertical-align: middle;
     }
 
-    tr:last-child td {
+    .results-table tr:last-child td {
       border-bottom: none;
     }
 
-    .primary-link {
-      color: var(--primary);
+    .item-link {
+      color: #0C66E4;
       text-decoration: none;
+      border-radius: 2px;
     }
 
-    .primary-link:hover {
-      color: var(--primary-hover);
+    .item-link:hover {
       text-decoration: underline;
+    }
+
+    /* Results summary */
+    .results-count {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #626F86;
     }
   </style>
 </head>
-<body class="min-h-screen">
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Top bar (white, 56px, divider below) -->
-  <header class="top-bar flex items-center justify-between px-6">
-    <div class="flex items-center gap-6">
-      <span class="text-xl font-bold tracking-tight text-[#1D2125]">Planner</span>
-      
-      <div class="flex items-center gap-3">
-        <label for="top-search" class="text-sm font-normal text-[#1D2125] whitespace-nowrap">Search or ID</label>
-        <input 
-          id="top-search" 
-          type="text" 
-          value="Story 2" 
-          class="search-input"
-        >
-      </div>
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="brand-title">Planner</span>
+      <form class="search-form" role="search" onsubmit="event.preventDefault();">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="search" id="search-input" class="search-input" value="Story 2">
+      </form>
     </div>
-
-    <div class="flex items-center gap-4 text-sm">
-      <a href="#" class="primary-link">Me</a>
-      <a href="#" class="primary-link">Sign out</a>
-    </div>
+    <nav class="top-bar-right" aria-label="User navigation">
+      <a href="#" class="nav-link">Me</a>
+      <a href="#" class="nav-link">Sign out</a>
+    </nav>
   </header>
 
-  <!-- Main Content Area -->
-  <main class="max-w-7xl mx-auto px-6 py-6">
-    <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" class="text-sm mb-4">
-      <ol class="flex items-center space-x-1.5 text-sm">
-        <li>
-          <a href="#" class="primary-link">Top</a>
+  <!-- Main content area -->
+  <main id="main">
+    <!-- Breadcrumb navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a href="#" class="breadcrumb-link">Top</a>
         </li>
-        <li class="text-[#626F86]">/</li>
-        <li class="text-[#1D2125]" aria-current="page">Search</li>
+        <li class="breadcrumb-item">
+          <span class="breadcrumb-current" aria-current="page">Search</span>
+        </li>
       </ol>
     </nav>
 
-    <!-- Page Heading -->
-    <h1 class="text-2xl font-semibold text-[#1D2125] mb-6">Search results: Story 2</h1>
+    <!-- Page Title -->
+    <h1 class="page-heading">Search results: Story 2</h1>
 
-    <!-- Results Table -->
-    <div class="table-container mb-3">
-      <table>
+    <!-- Search Results Table -->
+    <div class="table-container">
+      <table class="results-table" aria-label="Search results">
         <thead>
           <tr>
-            <th class="w-36">Type</th>
-            <th class="w-24">ID</th>
-            <th class="w-64">Title</th>
-            <th>Match</th>
+            <th scope="col" aria-sort="none">
+              <button type="button">Type</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button">ID</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button">Title</button>
+            </th>
+            <th scope="col" aria-sort="none">
+              <button type="button">Match</button>
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Story</td>
             <td>102</td>
-            <td>
-              <a href="#" class="primary-link">Story 2</a>
-            </td>
+            <td><a href="#" class="item-link">Story 2</a></td>
             <td>&ldquo;Story 2&rdquo;</td>
           </tr>
           <tr>
             <td>Note</td>
             <td>31</td>
-            <td>
-              <a href="#" class="primary-link">Story 2</a>
-            </td>
+            <td><a href="#" class="item-link">Story 2</a></td>
             <td>&ldquo;...see Story 2...&rdquo;</td>
           </tr>
           <tr>
             <td>Task</td>
             <td>8</td>
-            <td>
-              <a href="#" class="primary-link">Task 8</a>
-            </td>
+            <td><a href="#" class="item-link">Task 8</a></td>
             <td>&ldquo;...part of Story 2...&rdquo;</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Results Count -->
-    <p class="text-sm text-[#626F86]">3 results</p>
+    <!-- Results count note -->
+    <div class="results-count">3 results</div>
   </main>
-
 </body>
 </html>

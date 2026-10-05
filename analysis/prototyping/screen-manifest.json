@@ -98,11 +98,11 @@
         },
         {
           "path": "wireframes/continue-dialog-desktop.html",
-          "sha256": "645058322dfc92b1ace800c3dba3a94a68b319be2041765e82f022cb22a673a0"
+          "sha256": "141d083d74161c055a943e5499646b7e754739007f6e194737e902ab19bcfb6e"
         },
         {
           "path": "wireframes/continue-dialog-desktop.png",
-          "sha256": "4f3d48ea258b5f2bebbaa415e66ba0d64e9622318dea896f138c40f095fd8c15"
+          "sha256": "0bd2ac6192267d367fa61d81d8856e397b3e49ffda316437012dc9cefccaa11d"
         },
         {
           "path": "wireframes/iteration-start-dialog-desktop.html",
@@ -213,11 +213,11 @@
       "files": [
         {
           "path": "wireframes/form-desktop.html",
-          "sha256": "4086d0e89f7bbacfbe41c2b1921364e9072df98f987a69195cbbc9a1406fe0d0"
+          "sha256": "ce146331cf1c9f997b4e760afc1888de05a3bbcd084bfb05c4a19cd3562cb11f"
         },
         {
           "path": "wireframes/form-desktop.png",
-          "sha256": "38e9fb5654251d91d32e90febc662dfd4f3e9cf902c328ed7a92aee32182c453"
+          "sha256": "bab74db5c061790fdeb31997a1ba359e389ced5cbe150ba1c2574426fd463275"
         },
         {
           "path": "wireframes/form-phone.html",
@@ -462,11 +462,11 @@
       "files": [
         {
           "path": "wireframes/project-editor-desktop.html",
-          "sha256": "275832c2b2cbc546a817b28f74fa760e74b40b9187e5aa6c0f52998cd8af0ef3"
+          "sha256": "e318d0211beeb3bc9595db551aa1e3b0c625355f9e13ea2d897a2e2e525963a2"
         },
         {
           "path": "wireframes/project-editor-desktop.png",
-          "sha256": "f30039c7bd1d8bc657d4ea80076bfd6d06d0b69ae65ef044d49fe1be7b04cf98"
+          "sha256": "da66c93f13a988aa988f71ef7ce52f6d0d8bfb14f6bf6ef3de403d88423c1ff7"
         }
       ],
       "navigation": [
@@ -859,11 +859,11 @@
       "files": [
         {
           "path": "wireframes/person-timesheet-desktop.html",
-          "sha256": "c12348094465b9e86f4c19fd1a21fb7949eab397ac23c51412b585c5d544b952"
+          "sha256": "36f73fc12613591b1a07dddf87daf7a5fcb7d9a2e9b3d81d4a9eae2f4d90f86f"
         },
         {
           "path": "wireframes/person-timesheet-desktop.png",
-          "sha256": "4635b0438ef88b6c002976d90ecc34e91cc40df0e7a49615282f05192a14182c"
+          "sha256": "1f9b547b809c78038f851de80499b9386aedb0a595c36baeb7ecc5484b04d759"
         }
       ],
       "navigation": [
@@ -906,11 +906,11 @@
       "files": [
         {
           "path": "wireframes/search-results-desktop.html",
-          "sha256": "ecaf66e5c130736a16331aa63c547a7538f2ccac2ca0c1be9bd0b1592ea36f0b"
+          "sha256": "302c262477a0c1df0d497db7c2372c8d0e41674f9b22c486266815c89177d3bd"
         },
         {
           "path": "wireframes/search-results-desktop.png",
-          "sha256": "0ea4caa2156fd9b8f4359e5744653ddd5cee883b2ae858d8bf5c1985ae1e198f"
+          "sha256": "0c79feb54d2bb87eef3b4e33e319f77d9891606a93fa2a8368ce2fec53ce0508"
         }
       ],
       "navigation": [
@@ -1737,10 +1737,10 @@
     }
   ],
   "_notes": [
-    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T09:39:00Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
+    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T09:50:47Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
     "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a pattern whose composition is unchanged and is drawn in a real export (P); per-row claims are in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. After Stage 7 pass 001 the claims that relied on a pattern with a different composition, or on a trigger without a drawn destination, were withdrawn and are now drawn by the UX-006-13 exports. No visual row is unclaimed. Rows 24 and 26 are role states drawn by iteration-export-menu-desktop and task-viewer-desktop; row 210 is drawn by the export menu (iteration-export-menu-desktop).",
     "Roles (Stage 7 pass 001 F-001/F-002): each screen declares the roles its exports draw; role views are states of the same screen. iteration-page: admin (list-desktop, list-phone: Edit and Delete iteration), editor (iteration-export-menu-desktop: no Delete iteration) and viewer (iteration-viewer-desktop: read-only); task-page: editor and viewer (task-viewer-desktop); projects-list: system administrator (Create project, Hidden column, System information link); project-page: system administrator (Delete project); people-list: admin and system administrator (Create person; for viewers and editors only that button is absent). Also drawn: projects-list for viewer/editor/admin, project-page admin (export menu), story-page viewer (export menu), person-page viewer, person-editor project admin. Open coverage items for QA: phone date picker, select inside a phone dialog and phone empty state are not verified (pending phone exports).",
-    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983, story-page-desktop 841a0392 (replaces c0e12320), project-page-admin-desktop 832f3f12, person-editor-admin-desktop 127b7b36, projects-list-member-desktop 10bdaa21, story-viewer-export-desktop 06cb5800, person-page-viewer-desktop ba6f2600, iteration-empty-phone a5b766ae (390 px phone), list-desktop caaa1e00, iteration-start-dialog-desktop 00767edb, iteration-statistics-desktop 265577d0, aggregate-timesheet-desktop 9e592647, ui-kit 2d5cea05, error-page-desktop 1515d68f, history-desktop 816bb3ab, iteration-accuracy-desktop b546187d, iteration-board-desktop a21e46d6, iteration-editor-desktop 0e6fb0d9, iteration-tasks-desktop 2d39cb77, people-list-desktop 7add2352, project-page-desktop 38232108; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983, story-page-desktop 841a0392 (replaces c0e12320), project-page-admin-desktop 832f3f12, person-editor-admin-desktop 127b7b36, projects-list-member-desktop 10bdaa21, story-viewer-export-desktop 06cb5800, person-page-viewer-desktop ba6f2600, iteration-empty-phone a5b766ae (390 px phone), list-desktop caaa1e00, iteration-start-dialog-desktop 00767edb, iteration-statistics-desktop 265577d0, aggregate-timesheet-desktop 9e592647, ui-kit 2d5cea05, error-page-desktop 1515d68f, history-desktop 816bb3ab, iteration-accuracy-desktop b546187d, iteration-board-desktop a21e46d6, iteration-editor-desktop 0e6fb0d9, iteration-tasks-desktop 2d39cb77, people-list-desktop 7add2352, project-page-desktop 38232108, person-timesheet-desktop 4e66a444, project-editor-desktop 032c7304, search-results-desktop 507b71c2, continue-dialog-desktop 4882cd81, form-desktop f57e67ca; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
     "Pending prepared entries: none. Every export was accepted only after its real PNG was checked against its HTML; stale or cropped pairs (ZIP 6 and ZIP 7 close, ZIP 7 start and continue) were not imported and are kept in scratch.",
     "Editors (owner direction, relayed by Codex): Save, Reset and Cancel, drawn on every exported editor. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
     "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page. A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",
