@@ -1,0 +1,467 @@
+{
+  "generated_at": "2026-10-05T12:41:24.610Z",
+  "catalogue_variants": [
+    "button.primary",
+    "button.completion",
+    "button.neutral",
+    "button.danger",
+    "field.text",
+    "link.text",
+    "field.select",
+    "field.textarea",
+    "field.date",
+    "table.data",
+    "progress.bar",
+    "message.error-summary",
+    "dialog.confirm",
+    "nav.top-bar",
+    "nav.breadcrumb",
+    "nav.tabs",
+    "avatar.initials",
+    "chart.pie",
+    "chart.line",
+    "card.task",
+    "menu.popover"
+  ],
+  "screens": {
+    "iteration-page": {
+      "declared": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "checkbox",
+        "table.data",
+        "progress.bar",
+        "dialog.confirm",
+        "nav.tabs",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text",
+        "field.select",
+        "button.danger",
+        "menu.popover"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "message.error-summary"
+      ],
+      "not_in_catalogue": [
+        "checkbox"
+      ]
+    },
+    "task-editor": {
+      "declared": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.select",
+        "field.textarea",
+        "message.error-summary",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [],
+      "not_in_catalogue": []
+    },
+    "sign-in": {
+      "declared": [
+        "button.primary",
+        "field.text",
+        "message.error-summary"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [],
+      "not_in_catalogue": []
+    },
+    "projects-list": {
+      "declared": [
+        "button.primary",
+        "table.data",
+        "nav.top-bar",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    },
+    "project-page": {
+      "declared": [
+        "button.neutral",
+        "button.danger",
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text",
+        "menu.popover"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text",
+        "button.primary"
+      ],
+      "not_in_catalogue": []
+    },
+    "project-editor": {
+      "declared": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.textarea",
+        "checkbox",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [],
+      "not_in_catalogue": [
+        "checkbox"
+      ]
+    },
+    "iteration-editor": {
+      "declared": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.date",
+        "field.textarea",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "chart.line",
+        "dialog.confirm"
+      ],
+      "not_in_catalogue": []
+    },
+    "iteration-tasks": {
+      "declared": [
+        "table.data",
+        "progress.bar",
+        "nav.tabs",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    },
+    "iteration-statistics": {
+      "declared": [
+        "chart.pie",
+        "chart.line",
+        "progress.bar",
+        "nav.tabs",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.date",
+        "field.text",
+        "card.task"
+      ],
+      "not_in_catalogue": []
+    },
+    "iteration-accuracy": {
+      "declared": [
+        "table.data",
+        "progress.bar",
+        "nav.tabs",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    },
+    "iteration-board": {
+      "declared": [
+        "card.task",
+        "progress.bar",
+        "nav.tabs",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    },
+    "story-page": {
+      "declared": [
+        "button.neutral",
+        "button.danger",
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text",
+        "dialog.confirm",
+        "field.select",
+        "message.error-summary",
+        "menu.popover"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text",
+        "button.primary"
+      ],
+      "not_in_catalogue": []
+    },
+    "people-list": {
+      "declared": [
+        "button.primary",
+        "button.neutral",
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [
+        "button.neutral"
+      ],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    },
+    "person-timesheet": {
+      "declared": [
+        "button.neutral",
+        "field.date",
+        "table.data",
+        "chart.pie",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [
+        "button.neutral"
+      ],
+      "undeclared_but_seen": [
+        "field.text",
+        "button.primary"
+      ],
+      "not_in_catalogue": []
+    },
+    "search-results": {
+      "declared": [
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    },
+    "history": {
+      "declared": [
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    },
+    "story-editor": {
+      "declared": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.select",
+        "field.textarea",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [],
+      "not_in_catalogue": []
+    },
+    "task-page": {
+      "declared": [
+        "button.completion",
+        "button.neutral",
+        "button.danger",
+        "table.data",
+        "dialog.confirm",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text",
+        "field.select",
+        "message.error-summary"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text",
+        "button.primary"
+      ],
+      "not_in_catalogue": []
+    },
+    "time-editor": {
+      "declared": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.select",
+        "checkbox",
+        "table.data",
+        "message.error-summary",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [],
+      "not_in_catalogue": [
+        "checkbox"
+      ]
+    },
+    "person-page": {
+      "declared": [
+        "avatar.initials",
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    },
+    "person-editor": {
+      "declared": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.select",
+        "checkbox",
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [],
+      "not_in_catalogue": [
+        "checkbox"
+      ]
+    },
+    "aggregate-timesheet": {
+      "declared": [
+        "button.neutral",
+        "field.date",
+        "checkbox",
+        "table.data",
+        "chart.pie",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [
+        "button.neutral"
+      ],
+      "undeclared_but_seen": [
+        "field.text",
+        "button.primary"
+      ],
+      "not_in_catalogue": [
+        "checkbox"
+      ]
+    },
+    "note-editor": {
+      "declared": [
+        "button.primary",
+        "button.neutral",
+        "field.text",
+        "field.select",
+        "field.textarea",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text",
+        "button.danger",
+        "dialog.confirm"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [],
+      "not_in_catalogue": []
+    },
+    "error-page": {
+      "declared": [
+        "nav.top-bar",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    },
+    "system-info": {
+      "declared": [
+        "table.data",
+        "nav.top-bar",
+        "nav.breadcrumb",
+        "link.text"
+      ],
+      "unevidenced": [],
+      "undeclared_but_seen": [
+        "field.text"
+      ],
+      "not_in_catalogue": []
+    }
+  },
+  "catalogue_unused": [],
+  "kit_section_ids": [
+    "button-primary",
+    "button-completion",
+    "button-neutral",
+    "button-danger",
+    "button-danger-hover",
+    "field-text",
+    "link-text",
+    "field-select",
+    "field-textarea",
+    "field-date",
+    "checkbox",
+    "table-data",
+    "table-data-scrolled",
+    "progress-bar",
+    "message-error-summary",
+    "dialog-confirm",
+    "nav-top-bar",
+    "nav-top-bar-focus",
+    "nav-breadcrumb",
+    "nav-tabs",
+    "avatar-initials",
+    "chart-pie",
+    "chart-line",
+    "card-task",
+    "menu-popover"
+  ],
+  "catalogue_previews_missing_in_kit": []
+}
