@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX13-12 Story 2 - Planner (Viewer, Export menu)</title>
+  <style>
+    /* Reset & Foundation tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1D2125;
+      background-color: #F7F8FA;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -9999px;
+      left: 16px;
+      background: #FFFFFF;
+      color: #0C66E4;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 2px solid #0C66E4;
+      border-radius: 6px;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Interactive Focus Rings */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid #0C66E4;
+      outline-offset: 2px;
+    }
+
+    /* Top Bar */
+    header.top-bar {
+      height: 56px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #DCDFE4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D2125;
+      text-decoration: none;
+    }
+
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1D2125;
+      white-space: nowrap;
+    }
+
+    .search-input {
+      width: 240px;
+      height: 36px;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #1D2125;
+      background: #FFFFFF;
+      border: 1px solid #8590A2;
+      border-radius: 6px;
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    main {
+      padding: 24px 32px 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    nav.breadcrumb {
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+      font-size: 14px;
+      color: #626F86;
+      align-items: center;
+    }
+
+    .breadcrumb-item a {
+      color: #0C66E4;
+      text-decoration: none;
+    }
+
+    .breadcrumb-item a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #626F86;
+      user-select: none;
+    }
+
+    .breadcrumb-current {
+      color: #1D2125;
+      font-weight: 500;
+    }
+
+    /* Page Heading */
+    .page-header {
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1D2125;
+      line-height: 1.25;
+    }
+
+    /* Action Links Bar */
+    .action-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .action-link {
+      font-size: 14px;
+      color: #0C66E4;
+      text-decoration: none;
+      font-weight: 500;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .action-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Export Dropdown Menu */
+    .export-menu-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .export-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      background-color: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      min-width: 100px;
+      padding: 8px 0;
+      z-index: 100;
+      box-shadow: none;
+    }
+
+    .menu-caption {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #626F86;
+      padding: 4px 16px 2px;
+    }
+
+    .menu-item {
+      display: block;
+      width: 100%;
+      padding: 6px 16px;
+      font-size: 14px;
+      color: #1D2125;
+      text-decoration: none;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .menu-item:hover, .menu-item:focus {
+      background-color: #F1F2F4;
+      color: #0C66E4;
+      outline: none;
+    }
+
+    /* Story Details 2-Column Grid */
+    .details-section {
+      margin-bottom: 24px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 340px 340px;
+      row-gap: 8px;
+      column-gap: 48px;
+      margin-bottom: 16px;
+    }
+
+    .detail-item {
+      display: flex;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .detail-label {
+      width: 110px;
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    .detail-value {
+      color: #1D2125;
+      font-weight: 400;
+    }
+
+    .story-description {
+      font-size: 14px;
+      color: #1D2125;
+      margin-top: 8px;
+    }
+
+    /* Tasks Section & Table */
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 12px;
+    }
+
+    .table-container {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    table.data-table thead th {
+      background-color: #F1F2F4;
+      color: #1D2125;
+      font-weight: 600;
+      padding: 0 16px;
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+      white-space: nowrap;
+    }
+
+    table.data-table tbody td {
+      padding: 0 16px;
+      height: 40px;
+      border-bottom: 1px solid #DCDFE4;
+      color: #1D2125;
+    }
+
+    table.data-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table tbody tr:hover {
+      background-color: #FAFBFC;
+    }
+
+    .text-right {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    th.text-right {
+      text-align: right;
+    }
+
+    .cell-link {
+      color: #0C66E4;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cell-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Notes Section */
+    .notes-section {
+      margin-top: 16px;
+    }
+
+    .note-card {
+      background: #FFFFFF;
+      border: 1px solid #DCDFE4;
+      border-radius: 6px;
+      padding: 16px 20px;
+    }
+
+    .note-subject {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1D2125;
+      margin-bottom: 4px;
+    }
+
+    .note-meta {
+      font-size: 13px;
+      color: #626F86;
+      margin-bottom: 10px;
+    }
+
+    .note-body {
+      font-size: 14px;
+      color: #1D2125;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Visually hidden skip link for keyboard accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Top bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-bar-left">
+      <span class="brand-title">Planner</span>
+      <div class="search-group">
+        <label for="search-input" class="search-label">Search or ID</label>
+        <input type="text" id="search-input" class="search-input">
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <a href="#me" class="nav-link">Me</a>
+      <a href="#signout" class="nav-link">Sign out</a>
+    </div>
+  </header>
+
+  <!-- Main content region -->
+  <main id="main">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="#top">Top</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><a href="#project1">Project 1</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item"><a href="#iteration3">Iteration 3</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">Story 2</li>
+      </ol>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 class="page-title">Story 2</h1>
+    </header>
+
+    <!-- Action Links Bar with Open Export Menu -->
+    <div class="action-links">
+      <div class="export-menu-container">
+        <a href="#export" class="action-link" id="export-trigger" aria-haspopup="menu" aria-expanded="true" aria-controls="export-menu">Export</a>
+        <div class="export-menu" id="export-menu" role="menu" aria-labelledby="export-trigger">
+          <div class="menu-caption" aria-hidden="true">Format</div>
+          <button type="button" class="menu-item" role="menuitem">PDF</button>
+        </div>
+      </div>
+      <a href="#history" class="action-link">History</a>
+    </div>
+
+    <!-- Details Section (2-Column Label/Value pairs) -->
+    <section class="details-section" aria-label="Story details">
+      <div class="details-grid">
+        <!-- Row 1 -->
+        <div class="detail-item">
+          <span class="detail-label">Estimated</span>
+          <span class="detail-value">24.0 h</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Customer</span>
+          <span class="detail-value">User C</span>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="detail-item">
+          <span class="detail-label">Actual</span>
+          <span class="detail-value">6.0 h</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Tracker</span>
+          <span class="detail-value">User B</span>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="detail-item">
+          <span class="detail-label">Remaining</span>
+          <span class="detail-value">18.0 h</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Last update</span>
+          <span class="detail-value">2026-03-04</span>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="detail-item">
+          <span class="detail-label">Disposition</span>
+          <span class="detail-value">Planned</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Status</span>
+          <span class="detail-value">Draft</span>
+        </div>
+      </div>
+
+      <div class="story-description">Synthetic sample story.</div>
+    </section>
+
+    <!-- Tasks Section -->
+    <section class="tasks-section" aria-labelledby="tasks-heading">
+      <h2 id="tasks-heading" class="section-title">Tasks</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">ID</th>
+              <th scope="col">Acceptor</th>
+              <th scope="col">Status</th>
+              <th scope="col" class="text-right">Estimate</th>
+              <th scope="col" class="text-right">Actual</th>
+              <th scope="col" class="text-right">Remaining</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#task-7" class="cell-link">Task 7</a></td>
+              <td>7</td>
+              <td>User B</td>
+              <td>In progress</td>
+              <td class="text-right">8.0</td>
+              <td class="text-right">2.0</td>
+              <td class="text-right">6.0</td>
+            </tr>
+            <tr>
+              <td><a href="#task-8" class="cell-link">Task 8</a></td>
+              <td>8</td>
+              <td>User B</td>
+              <td>In progress</td>
+              <td class="text-right">8.0</td>
+              <td class="text-right">2.0</td>
+              <td class="text-right">6.0</td>
+            </tr>
+            <tr>
+              <td><a href="#task-9" class="cell-link">Task 9</a></td>
+              <td>9</td>
+              <td>User C</td>
+              <td>In progress</td>
+              <td class="text-right">8.0</td>
+              <td class="text-right">2.0</td>
+              <td class="text-right">6.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Notes Section (Read-only Viewer: no edit/delete links) -->
+    <section class="notes-section" aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="section-title">Notes</h2>
+      <article class="note-card" aria-label="Synthetic story note">
+        <h3 class="note-subject">Synthetic story note</h3>
+        <div class="note-meta">User C · 2026-03-03</div>
+        <div class="note-body">Synthetic note text.</div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

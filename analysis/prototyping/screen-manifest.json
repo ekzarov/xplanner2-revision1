@@ -6,7 +6,7 @@
   "export_set_version": "stage-06-draft-13-ux-006-13",
   "decision": "analysis/prototyping/ui-ux-decision.md",
   "normalization": "analysis/prototyping/screen-normalization.json",
-  "normalization_sha256": "d4ada09d9b80f273c3876b8e6bdb9578c7d0ae7c358a02363da284a31d735ece",
+  "normalization_sha256": "a38073ba03888bfa228b9c0e280b1cb79eb952b388ed5a03195b7f73828f3938",
   "workbook_rows_sha256": "87636a53544db5769d6bc1190de7afe5004d5e23afd3fa21eb8eab302ba0b861",
   "screens": [
     {
@@ -294,11 +294,15 @@
       "channel": "web",
       "surface_key": "web + /projects + browse projects + table list",
       "roles": [
-        "system administrator"
+        "system administrator",
+        "viewer",
+        "editor",
+        "admin"
       ],
       "states": [
         "populated",
         "role view system administrator: Create project, Hidden column, System information link",
+        "role view viewer, editor, admin: no Create project, no Hidden column, only readable projects (rows 24, 27, 76)",
         "hidden-column",
         "empty"
       ],
@@ -320,6 +324,14 @@
         {
           "path": "wireframes/projects-list-desktop.png",
           "sha256": "47a5e6b26eca7ebaccead4499d685bdd3944162659545783cd14a67e177307b4"
+        },
+        {
+          "path": "wireframes/projects-list-member-desktop.html",
+          "sha256": "b578d20867f53e1ce920bd94fbbfb4442f10f534b41e9221ec000cd07c598194"
+        },
+        {
+          "path": "wireframes/projects-list-member-desktop.png",
+          "sha256": "41d29edfd0acca465528acbcd2b0441d872b15650fccd0259bfbb492cb28ff4c"
         }
       ],
       "navigation": [
@@ -697,18 +709,22 @@
       "channel": "web",
       "surface_key": "web + /stories/{id} + view a story and its tasks + detail page with task table",
       "roles": [
-        "editor"
+        "editor",
+        "viewer"
       ],
       "states": [
         "populated",
         "notes section (editor: Edit and Delete links)",
         "notes section (editor: Edit and Delete links), story-page-desktop",
+        "role view viewer: read-only, Export and History only (rows 23, 26)",
+        "export menu open: PDF (rows 208, 212)",
         "empty",
         "same-iteration-rejected",
         "move-continue-validation"
       ],
       "actions": [
-        "continue story"
+        "continue story",
+        "export PDF"
       ],
       "overlays": [
         "delete story confirmation",
@@ -721,7 +737,8 @@
         129,
         130,
         131,
-        132
+        132,
+        212
       ],
       "files": [
         {
@@ -739,6 +756,14 @@
         {
           "path": "wireframes/story-move-dialog-desktop.png",
           "sha256": "5bdb86e0788a0d2661c2cde8206a10aa1dd9f98b97462b5d38841b63d18aed8a"
+        },
+        {
+          "path": "wireframes/story-viewer-export-desktop.html",
+          "sha256": "8bdb0589abadc72606597e368cd099a4ee0797a996418ae7c738eb902cf2d9e3"
+        },
+        {
+          "path": "wireframes/story-viewer-export-desktop.png",
+          "sha256": "3c4fb2a8b78c676a8590df5b9f414cdf5590159b705b38dfdab2c20580345ac7"
         }
       ],
       "navigation": [
@@ -757,7 +782,8 @@
         "link.text",
         "dialog.confirm",
         "field.select",
-        "message.error-summary"
+        "message.error-summary",
+        "menu.popover"
       ]
     },
     {
@@ -1163,10 +1189,12 @@
       "channel": "web",
       "surface_key": "web + /people/{id} + view the work of one person + detail page with task tables",
       "roles": [
-        "editor"
+        "editor",
+        "viewer"
       ],
       "states": [
-        "populated"
+        "populated",
+        "role view viewer: another person, no Edit link and no per-task Time or Edit links (rows 41, 42)"
       ],
       "actions": [],
       "overlays": [],
@@ -1184,6 +1212,14 @@
         {
           "path": "wireframes/person-page-desktop.png",
           "sha256": "e0ce5ae162cadc4e75fbdbaa92cb9277ad9c6a42f08d67ecc7d9f1ce43b6ece6"
+        },
+        {
+          "path": "wireframes/person-page-viewer-desktop.html",
+          "sha256": "286604e58e22caf8abbbe3d2372b1e92fe04510717cb2846e7612b0dff31ec4d"
+        },
+        {
+          "path": "wireframes/person-page-viewer-desktop.png",
+          "sha256": "bbf2bd1c5c109a528cd286cb7a8e0b6b7505fb581ead86d09c1fa2895b92d267"
         }
       ],
       "navigation": [
@@ -1692,10 +1728,10 @@
     }
   ],
   "_notes": [
-    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T07:54:30Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
-    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a pattern whose composition is unchanged and is drawn in a real export (P); per-row claims are in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. After Stage 7 pass 001 the claims that relied on a pattern with a different composition, or on a trigger without a drawn destination, were withdrawn: row 212 is unclaimed and pending their exports (hand-off handoff-ux-006-13.md), so audit:prototype fails on them until they are drawn. Rows 24 and 26 are role states drawn by iteration-export-menu-desktop and task-viewer-desktop; row 210 is drawn by the export menu (iteration-export-menu-desktop).",
-    "Roles (Stage 7 pass 001 F-001/F-002): each screen declares the roles its exports draw; role views are states of the same screen. iteration-page: admin (list-desktop, list-phone: Edit and Delete iteration), editor (iteration-export-menu-desktop: no Delete iteration) and viewer (iteration-viewer-desktop: read-only); task-page: editor and viewer (task-viewer-desktop); projects-list: system administrator (Create project, Hidden column, System information link); project-page: system administrator (Delete project); people-list: admin and system administrator (Create person; for viewers and editors only that button is absent). Pending drawings: projects-list for viewer/editor/admin, project-page admin, story-page viewer, person-page viewer, person-editor admin. Open coverage items for QA: phone date picker, select inside a phone dialog and phone empty state are not verified (pending phone exports).",
-    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983, story-page-desktop 841a0392 (replaces c0e12320), project-page-admin-desktop 832f3f12, person-editor-admin-desktop 127b7b36; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
+    "Stage 6 prototype set under correction after Stage 7 pass 001 (findings F-001..F-014), written by UX Designer UX-006-13 at 2026-10-05T07:59:53Z (UTC from code). It is NOT clean, NOT a Stage 7 control and NOT owner approval; Stage 6 is not complete.",
+    "Claims: a row is claimed when its element is drawn in the screen files (D) or when it is a listed state, overlay or navigation shown by a pattern whose composition is unchanged and is drawn in a real export (P); per-row claims are in .migration-tmp/stage-06/ux-006-01/manifest-claims-ux-006-07.json. After Stage 7 pass 001 the claims that relied on a pattern with a different composition, or on a trigger without a drawn destination, were withdrawn and are now drawn by the UX-006-13 exports. No visual row is unclaimed. Rows 24 and 26 are role states drawn by iteration-export-menu-desktop and task-viewer-desktop; row 210 is drawn by the export menu (iteration-export-menu-desktop).",
+    "Roles (Stage 7 pass 001 F-001/F-002): each screen declares the roles its exports draw; role views are states of the same screen. iteration-page: admin (list-desktop, list-phone: Edit and Delete iteration), editor (iteration-export-menu-desktop: no Delete iteration) and viewer (iteration-viewer-desktop: read-only); task-page: editor and viewer (task-viewer-desktop); projects-list: system administrator (Create project, Hidden column, System information link); project-page: system administrator (Delete project); people-list: admin and system administrator (Create person; for viewers and editors only that button is absent). Also drawn: projects-list for viewer/editor/admin, project-page admin (export menu), story-page viewer (export menu), person-page viewer, person-editor project admin. Open coverage items for QA: phone date picker, select inside a phone dialog and phone empty state are not verified (pending phone exports).",
+    "Provenance per file (screen ID, prompt key, SHA-256, PNG source) is in exports/ux-006-06/provenance.jsonl and result.md. API exports use the =w1600 size of the get_screen asset (UX-006-13: projects-list-desktop cd097b39, iteration-viewer-desktop b83cebac, task-viewer-desktop 9ff172a6, iteration-export-menu-desktop 6a18c72c, story-move-dialog-desktop 31615b34, task-move-dialog-desktop d378ffdc, task-completed-desktop 58f197ac, continue-no-future-desktop dbdcb6c5, note-editor-edit-desktop de0a555e, note-delete-dialog-desktop 5c5526bf, iteration-move-stories-dialog-desktop b62d8598, history-project-desktop cf707983, story-page-desktop 841a0392 (replaces c0e12320), project-page-admin-desktop 832f3f12, person-editor-admin-desktop 127b7b36, projects-list-member-desktop 10bdaa21, story-viewer-export-desktop 06cb5800, person-page-viewer-desktop ba6f2600; a second unused projects-list screen exists in the Stitch project and is not selected); official UI Export ZIPs: 08308ffb…0fd4 (list-phone), 8f103662…172d (story-editor, task-page, task-delete-dialog, person-page, aggregate-timesheet, error-page, system-info, iteration-statistics-phone, ui-kit), 6157107c…a772 (time-editor-phone, form-phone), ZIP (7) 46bd8682…352e (form-desktop, list-desktop, time-editor-desktop, note-editor-desktop, person-editor-desktop, iteration-print-desktop; screen IDs of the time, note and person editors not verified), ZIP (8) 4eb71c23…b715 (iteration-start-dialog-desktop, continue-dialog-desktop, dialog-desktop).",
     "Pending prepared entries: none. Every export was accepted only after its real PNG was checked against its HTML; stale or cropped pairs (ZIP 6 and ZIP 7 close, ZIP 7 start and continue) were not imported and are kept in scratch.",
     "Editors (owner direction, relayed by Codex): Save, Reset and Cancel, drawn on every exported editor. Save stores and returns to the origin; Reset restores the initial values and stays; Cancel leaves without saving and returns to the origin. Neither replaces the other. Rows 81, 90, 125 and 139 record Update/Reset.",
     "Profile (owner direction): initials avatar (avatar.initials) as identity and fallback on person-page. A photo is an explicitly unapproved extension that does not block the existing profile; no upload or identity integration.",
